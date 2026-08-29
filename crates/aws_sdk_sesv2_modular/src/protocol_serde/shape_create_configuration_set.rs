@@ -9,23 +9,18 @@ pub fn de_create_configuration_set_http_error(
     crate::operation::create_configuration_set::CreateConfigurationSetError,
 > {
     #[allow(unused_mut)]
-    let mut generic_builder = crate::protocol_serde::parse_http_error_metadata(
-        _response_status,
-        _response_headers,
-        _response_body,
-    )
-    .map_err(crate::operation::create_configuration_set::CreateConfigurationSetError::unhandled)?;
+    let mut generic_builder = crate::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
+        .map_err(crate::operation::create_configuration_set::CreateConfigurationSetError::unhandled)?;
     generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
     let generic = generic_builder.build();
-    let error_code =
-        match generic.code() {
-            Some(code) => code,
-            None => return Err(
-                crate::operation::create_configuration_set::CreateConfigurationSetError::unhandled(
-                    generic,
-                ),
-            ),
-        };
+    let error_code = match generic.code() {
+        Some(code) => code,
+        None => {
+            return Err(crate::operation::create_configuration_set::CreateConfigurationSetError::unhandled(
+                generic,
+            ))
+        }
+    };
 
     let _error_message = generic.message().map(|msg| msg.to_owned());
     Err(match error_code {
@@ -140,19 +135,14 @@ pub fn de_create_configuration_set_http_response(
     Ok({
         #[allow(unused_mut)]
         let mut output = crate::operation::create_configuration_set::builders::CreateConfigurationSetOutputBuilder::default();
-        output._set_request_id(
-            ::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string),
-        );
+        output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
         output.build()
     })
 }
 
 pub fn ser_create_configuration_set_input(
     input: &crate::operation::create_configuration_set::CreateConfigurationSetInput,
-) -> ::std::result::Result<
-    ::aws_smithy_types::body::SdkBody,
-    ::aws_smithy_types::error::operation::SerializationError,
-> {
+) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
     let mut out = String::new();
     let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
     crate::protocol_serde::shape_create_configuration_set_input::ser_create_configuration_set_input_input(&mut object, input)?;

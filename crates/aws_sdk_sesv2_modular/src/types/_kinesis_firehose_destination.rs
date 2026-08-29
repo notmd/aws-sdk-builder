@@ -29,9 +29,7 @@ impl KinesisFirehoseDestination {
 }
 
 /// A builder for [`KinesisFirehoseDestination`](crate::types::KinesisFirehoseDestination).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct KinesisFirehoseDestinationBuilder {
     pub(crate) iam_role_arn: ::std::option::Option<::std::string::String>,
@@ -55,18 +53,12 @@ impl KinesisFirehoseDestinationBuilder {
     }
     /// <p>The Amazon Resource Name (ARN) of the Amazon Kinesis Data Firehose stream that the Amazon SES API v2 sends email events to.</p>
     /// This field is required.
-    pub fn delivery_stream_arn(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn delivery_stream_arn(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.delivery_stream_arn = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The Amazon Resource Name (ARN) of the Amazon Kinesis Data Firehose stream that the Amazon SES API v2 sends email events to.</p>
-    pub fn set_delivery_stream_arn(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_delivery_stream_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.delivery_stream_arn = input;
         self
     }
@@ -78,12 +70,7 @@ impl KinesisFirehoseDestinationBuilder {
     /// This method will fail if any of the following fields are not set:
     /// - [`iam_role_arn`](crate::types::builders::KinesisFirehoseDestinationBuilder::iam_role_arn)
     /// - [`delivery_stream_arn`](crate::types::builders::KinesisFirehoseDestinationBuilder::delivery_stream_arn)
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<
-        crate::types::KinesisFirehoseDestination,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    pub fn build(self) -> ::std::result::Result<crate::types::KinesisFirehoseDestination, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::KinesisFirehoseDestination {
             iam_role_arn: self.iam_role_arn.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

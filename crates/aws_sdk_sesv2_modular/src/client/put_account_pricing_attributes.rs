@@ -8,7 +8,7 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<PutAccountPricingAttributesError>`](crate::operation::put_account_pricing_attributes::PutAccountPricingAttributesError)
     pub fn put_account_pricing_attributes(
         &self,
-    ) -> crate::operation::put_account_pricing_attributes::builders::PutAccountPricingAttributesFluentBuilder{
+    ) -> crate::operation::put_account_pricing_attributes::builders::PutAccountPricingAttributesFluentBuilder {
         crate::operation::put_account_pricing_attributes::builders::PutAccountPricingAttributesFluentBuilder::new(self.handle.clone())
     }
 }

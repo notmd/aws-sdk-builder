@@ -16,16 +16,14 @@ impl ::aws_types::request_id::RequestId for PutEmailIdentityMailFromAttributesOu
 #[cfg(feature = "op_put_email_identity_mail_from_attributes")]
 impl PutEmailIdentityMailFromAttributesOutput {
     /// Creates a new builder-style object to manufacture [`PutEmailIdentityMailFromAttributesOutput`](crate::operation::put_email_identity_mail_from_attributes::PutEmailIdentityMailFromAttributesOutput).
-    pub fn builder() -> crate::operation::put_email_identity_mail_from_attributes::builders::PutEmailIdentityMailFromAttributesOutputBuilder{
+    pub fn builder() -> crate::operation::put_email_identity_mail_from_attributes::builders::PutEmailIdentityMailFromAttributesOutputBuilder {
         crate::operation::put_email_identity_mail_from_attributes::builders::PutEmailIdentityMailFromAttributesOutputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_put_email_identity_mail_from_attributes")]
 /// A builder for [`PutEmailIdentityMailFromAttributesOutput`](crate::operation::put_email_identity_mail_from_attributes::PutEmailIdentityMailFromAttributesOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct PutEmailIdentityMailFromAttributesOutputBuilder {
     _request_id: Option<String>,
@@ -42,7 +40,7 @@ impl PutEmailIdentityMailFromAttributesOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`PutEmailIdentityMailFromAttributesOutput`](crate::operation::put_email_identity_mail_from_attributes::PutEmailIdentityMailFromAttributesOutput).
-    pub fn build(self) -> crate::operation::put_email_identity_mail_from_attributes::PutEmailIdentityMailFromAttributesOutput{
+    pub fn build(self) -> crate::operation::put_email_identity_mail_from_attributes::PutEmailIdentityMailFromAttributesOutput {
         crate::operation::put_email_identity_mail_from_attributes::PutEmailIdentityMailFromAttributesOutput {
             _request_id: self._request_id,
         }

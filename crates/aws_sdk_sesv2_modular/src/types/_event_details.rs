@@ -27,9 +27,7 @@ impl EventDetails {
 }
 
 /// A builder for [`EventDetails`](crate::types::EventDetails).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct EventDetailsBuilder {
     pub(crate) bounce: ::std::option::Option<crate::types::Bounce>,

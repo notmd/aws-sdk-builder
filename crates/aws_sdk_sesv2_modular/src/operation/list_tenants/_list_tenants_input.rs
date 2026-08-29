@@ -31,9 +31,7 @@ impl ListTenantsInput {
 
 #[cfg(feature = "op_list_tenants")]
 /// A builder for [`ListTenantsInput`](crate::operation::list_tenants::ListTenantsInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct ListTenantsInputBuilder {
     pub(crate) next_token: ::std::option::Option<::std::string::String>,
@@ -70,12 +68,7 @@ impl ListTenantsInputBuilder {
         &self.page_size
     }
     /// Consumes the builder and constructs a [`ListTenantsInput`](crate::operation::list_tenants::ListTenantsInput).
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<
-        crate::operation::list_tenants::ListTenantsInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    pub fn build(self) -> ::std::result::Result<crate::operation::list_tenants::ListTenantsInput, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::operation::list_tenants::ListTenantsInput {
             next_token: self.next_token,
             page_size: self.page_size,

@@ -16,16 +16,14 @@ impl ::aws_types::request_id::RequestId for DeleteSuppressedDestinationOutput {
 #[cfg(feature = "op_delete_suppressed_destination")]
 impl DeleteSuppressedDestinationOutput {
     /// Creates a new builder-style object to manufacture [`DeleteSuppressedDestinationOutput`](crate::operation::delete_suppressed_destination::DeleteSuppressedDestinationOutput).
-    pub fn builder() -> crate::operation::delete_suppressed_destination::builders::DeleteSuppressedDestinationOutputBuilder{
+    pub fn builder() -> crate::operation::delete_suppressed_destination::builders::DeleteSuppressedDestinationOutputBuilder {
         crate::operation::delete_suppressed_destination::builders::DeleteSuppressedDestinationOutputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_delete_suppressed_destination")]
 /// A builder for [`DeleteSuppressedDestinationOutput`](crate::operation::delete_suppressed_destination::DeleteSuppressedDestinationOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct DeleteSuppressedDestinationOutputBuilder {
     _request_id: Option<String>,
@@ -42,9 +40,7 @@ impl DeleteSuppressedDestinationOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`DeleteSuppressedDestinationOutput`](crate::operation::delete_suppressed_destination::DeleteSuppressedDestinationOutput).
-    pub fn build(
-        self,
-    ) -> crate::operation::delete_suppressed_destination::DeleteSuppressedDestinationOutput {
+    pub fn build(self) -> crate::operation::delete_suppressed_destination::DeleteSuppressedDestinationOutput {
         crate::operation::delete_suppressed_destination::DeleteSuppressedDestinationOutput {
             _request_id: self._request_id,
         }

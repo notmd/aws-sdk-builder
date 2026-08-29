@@ -3,24 +3,14 @@ pub(crate) fn de_vdm_attributes<'a, I>(
     tokens: &mut ::std::iter::Peekable<I>,
     _value: &'a [u8],
     depth: u32,
-) -> ::std::result::Result<
-    Option<crate::types::VdmAttributes>,
-    ::aws_smithy_json::deserialize::error::DeserializeError,
->
+) -> ::std::result::Result<Option<crate::types::VdmAttributes>, ::aws_smithy_json::deserialize::error::DeserializeError>
 where
-    I: Iterator<
-        Item = Result<
-            ::aws_smithy_json::deserialize::Token<'a>,
-            ::aws_smithy_json::deserialize::error::DeserializeError,
-        >,
-    >,
+    I: Iterator<Item = Result<::aws_smithy_json::deserialize::Token<'a>, ::aws_smithy_json::deserialize::error::DeserializeError>>,
 {
     if depth >= 128u32 {
-        return Err(
-            ::aws_smithy_json::deserialize::error::DeserializeError::custom(
-                "maximum nesting depth exceeded",
-            ),
-        );
+        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
+            "maximum nesting depth exceeded",
+        ));
     }
     match tokens.next().transpose()? {
         Some(::aws_smithy_json::deserialize::Token::ValueNull { .. }) => Ok(None),
@@ -34,14 +24,9 @@ where
                         match key.to_unescaped()?.as_ref() {
                             "VdmEnabled" => {
                                 builder = builder.set_vdm_enabled(
-                                    ::aws_smithy_json::deserialize::token::expect_string_or_null(
-                                        tokens.next(),
-                                    )?
-                                    .map(|s| {
-                                        s.to_unescaped()
-                                            .map(|u| crate::types::FeatureStatus::from(u.as_ref()))
-                                    })
-                                    .transpose()?,
+                                    ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                                        .map(|s| s.to_unescaped().map(|u| crate::types::FeatureStatus::from(u.as_ref())))
+                                        .transpose()?,
                                 );
                             }
                             "DashboardAttributes" => {
@@ -60,30 +45,19 @@ where
                         }
                     }
                     other => {
-                        return Err(
-                            ::aws_smithy_json::deserialize::error::DeserializeError::custom(
-                                format!("expected object key or end object, found: {other:?}"),
-                            ),
-                        )
+                        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
+                            "expected object key or end object, found: {other:?}"
+                        )))
                     }
                 }
             }
-            Ok(Some(
-                crate::serde_util::vdm_attributes_correct_errors(builder)
-                    .build()
-                    .map_err(|err| {
-                        ::aws_smithy_json::deserialize::error::DeserializeError::custom_source(
-                            "Response was invalid",
-                            err,
-                        )
-                    })?,
-            ))
+            Ok(Some(crate::serde_util::vdm_attributes_correct_errors(builder).build().map_err(
+                |err| ::aws_smithy_json::deserialize::error::DeserializeError::custom_source("Response was invalid", err),
+            )?))
         }
-        _ => Err(
-            ::aws_smithy_json::deserialize::error::DeserializeError::custom(
-                "expected start object or null",
-            ),
-        ),
+        _ => Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
+            "expected start object or null",
+        )),
     }
 }
 
@@ -97,19 +71,13 @@ pub fn ser_vdm_attributes(
     if let Some(var_1) = &input.dashboard_attributes {
         #[allow(unused_mut)]
         let mut object_2 = object.key("DashboardAttributes").start_object();
-        crate::protocol_serde::shape_dashboard_attributes::ser_dashboard_attributes(
-            &mut object_2,
-            var_1,
-        )?;
+        crate::protocol_serde::shape_dashboard_attributes::ser_dashboard_attributes(&mut object_2, var_1)?;
         object_2.finish();
     }
     if let Some(var_3) = &input.guardian_attributes {
         #[allow(unused_mut)]
         let mut object_4 = object.key("GuardianAttributes").start_object();
-        crate::protocol_serde::shape_guardian_attributes::ser_guardian_attributes(
-            &mut object_4,
-            var_3,
-        )?;
+        crate::protocol_serde::shape_guardian_attributes::ser_guardian_attributes(&mut object_4, var_3)?;
         object_4.finish();
     }
     Ok(())

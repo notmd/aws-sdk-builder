@@ -28,9 +28,7 @@ impl ListManagementOptions {
 }
 
 /// A builder for [`ListManagementOptions`](crate::types::ListManagementOptions).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct ListManagementOptionsBuilder {
     pub(crate) contact_list_name: ::std::option::Option<::std::string::String>,
@@ -39,18 +37,12 @@ pub struct ListManagementOptionsBuilder {
 impl ListManagementOptionsBuilder {
     /// <p>The name of the contact list.</p>
     /// This field is required.
-    pub fn contact_list_name(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn contact_list_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.contact_list_name = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The name of the contact list.</p>
-    pub fn set_contact_list_name(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_contact_list_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.contact_list_name = input;
         self
     }
@@ -75,12 +67,7 @@ impl ListManagementOptionsBuilder {
     /// Consumes the builder and constructs a [`ListManagementOptions`](crate::types::ListManagementOptions).
     /// This method will fail if any of the following fields are not set:
     /// - [`contact_list_name`](crate::types::builders::ListManagementOptionsBuilder::contact_list_name)
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<
-        crate::types::ListManagementOptions,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    pub fn build(self) -> ::std::result::Result<crate::types::ListManagementOptions, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::ListManagementOptions {
             contact_list_name: self.contact_list_name.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

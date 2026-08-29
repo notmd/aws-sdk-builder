@@ -63,7 +63,7 @@ impl PutConfigurationSetTrackingOptionsFluentBuilder {
         }
     }
     /// Access the PutConfigurationSetTrackingOptions as a reference.
-    pub fn as_input(&self) -> &crate::operation::put_configuration_set_tracking_options::builders::PutConfigurationSetTrackingOptionsInputBuilder{
+    pub fn as_input(&self) -> &crate::operation::put_configuration_set_tracking_options::builders::PutConfigurationSetTrackingOptionsInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -82,7 +82,7 @@ impl PutConfigurationSetTrackingOptionsFluentBuilder {
             crate::operation::put_configuration_set_tracking_options::PutConfigurationSetTrackingOptionsError,
             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
         >,
-    >{
+    > {
         let input = self
             .inner
             .build()
@@ -102,37 +102,25 @@ impl PutConfigurationSetTrackingOptionsFluentBuilder {
         crate::operation::put_configuration_set_tracking_options::PutConfigurationSetTrackingOptionsOutput,
         crate::operation::put_configuration_set_tracking_options::PutConfigurationSetTrackingOptionsError,
         Self,
-    >{
+    > {
         crate::client::customize::CustomizableOperation::new(self)
     }
-    pub(crate) fn config_override(
-        mut self,
-        config_override: impl ::std::convert::Into<crate::config::Builder>,
-    ) -> Self {
+    pub(crate) fn config_override(mut self, config_override: impl ::std::convert::Into<crate::config::Builder>) -> Self {
         self.set_config_override(::std::option::Option::Some(config_override.into()));
         self
     }
 
-    pub(crate) fn set_config_override(
-        &mut self,
-        config_override: ::std::option::Option<crate::config::Builder>,
-    ) -> &mut Self {
+    pub(crate) fn set_config_override(&mut self, config_override: ::std::option::Option<crate::config::Builder>) -> &mut Self {
         self.config_override = config_override;
         self
     }
     /// <p>The name of the configuration set.</p>
-    pub fn configuration_set_name(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn configuration_set_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.configuration_set_name(input.into());
         self
     }
     /// <p>The name of the configuration set.</p>
-    pub fn set_configuration_set_name(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_configuration_set_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_configuration_set_name(input);
         self
     }
@@ -141,18 +129,12 @@ impl PutConfigurationSetTrackingOptionsFluentBuilder {
         self.inner.get_configuration_set_name()
     }
     /// <p>The domain to use to track open and click events.</p>
-    pub fn custom_redirect_domain(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn custom_redirect_domain(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.custom_redirect_domain(input.into());
         self
     }
     /// <p>The domain to use to track open and click events.</p>
-    pub fn set_custom_redirect_domain(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_custom_redirect_domain(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_custom_redirect_domain(input);
         self
     }
@@ -166,10 +148,7 @@ impl PutConfigurationSetTrackingOptionsFluentBuilder {
         self
     }
     /// <p>The https policy to use for tracking open and click events. If the value is OPTIONAL or HttpsPolicy is not specified, the open trackers use HTTP and click tracker use the original protocol of the link. If the value is REQUIRE, both open and click tracker uses HTTPS and if the value is REQUIRE_OPEN_ONLY open tracker uses HTTPS and link tracker is same as original protocol of the link.</p>
-    pub fn set_https_policy(
-        mut self,
-        input: ::std::option::Option<crate::types::HttpsPolicy>,
-    ) -> Self {
+    pub fn set_https_policy(mut self, input: ::std::option::Option<crate::types::HttpsPolicy>) -> Self {
         self.inner = self.inner.set_https_policy(input);
         self
     }

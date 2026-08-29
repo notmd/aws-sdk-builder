@@ -64,9 +64,7 @@ impl GetReputationEntityFluentBuilder {
         }
     }
     /// Access the GetReputationEntity as a reference.
-    pub fn as_input(
-        &self,
-    ) -> &crate::operation::get_reputation_entity::builders::GetReputationEntityInputBuilder {
+    pub fn as_input(&self) -> &crate::operation::get_reputation_entity::builders::GetReputationEntityInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -90,17 +88,12 @@ impl GetReputationEntityFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins =
-            crate::operation::get_reputation_entity::GetReputationEntity::operation_runtime_plugins(
-                self.handle.runtime_plugins.clone(),
-                &self.handle.conf,
-                self.config_override,
-            );
-        crate::operation::get_reputation_entity::GetReputationEntity::orchestrate(
-            &runtime_plugins,
-            input,
-        )
-        .await
+        let runtime_plugins = crate::operation::get_reputation_entity::GetReputationEntity::operation_runtime_plugins(
+            self.handle.runtime_plugins.clone(),
+            &self.handle.conf,
+            self.config_override,
+        );
+        crate::operation::get_reputation_entity::GetReputationEntity::orchestrate(&runtime_plugins, input).await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -113,34 +106,22 @@ impl GetReputationEntityFluentBuilder {
     > {
         crate::client::customize::CustomizableOperation::new(self)
     }
-    pub(crate) fn config_override(
-        mut self,
-        config_override: impl ::std::convert::Into<crate::config::Builder>,
-    ) -> Self {
+    pub(crate) fn config_override(mut self, config_override: impl ::std::convert::Into<crate::config::Builder>) -> Self {
         self.set_config_override(::std::option::Option::Some(config_override.into()));
         self
     }
 
-    pub(crate) fn set_config_override(
-        &mut self,
-        config_override: ::std::option::Option<crate::config::Builder>,
-    ) -> &mut Self {
+    pub(crate) fn set_config_override(&mut self, config_override: ::std::option::Option<crate::config::Builder>) -> &mut Self {
         self.config_override = config_override;
         self
     }
     /// <p>The unique identifier for the reputation entity. For resource-type entities, this is the Amazon Resource Name (ARN) of the resource.</p>
-    pub fn reputation_entity_reference(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn reputation_entity_reference(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.reputation_entity_reference(input.into());
         self
     }
     /// <p>The unique identifier for the reputation entity. For resource-type entities, this is the Amazon Resource Name (ARN) of the resource.</p>
-    pub fn set_reputation_entity_reference(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_reputation_entity_reference(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_reputation_entity_reference(input);
         self
     }
@@ -154,17 +135,12 @@ impl GetReputationEntityFluentBuilder {
         self
     }
     /// <p>The type of reputation entity. Currently, only <code>RESOURCE</code> type entities are supported.</p>
-    pub fn set_reputation_entity_type(
-        mut self,
-        input: ::std::option::Option<crate::types::ReputationEntityType>,
-    ) -> Self {
+    pub fn set_reputation_entity_type(mut self, input: ::std::option::Option<crate::types::ReputationEntityType>) -> Self {
         self.inner = self.inner.set_reputation_entity_type(input);
         self
     }
     /// <p>The type of reputation entity. Currently, only <code>RESOURCE</code> type entities are supported.</p>
-    pub fn get_reputation_entity_type(
-        &self,
-    ) -> &::std::option::Option<crate::types::ReputationEntityType> {
+    pub fn get_reputation_entity_type(&self) -> &::std::option::Option<crate::types::ReputationEntityType> {
         self.inner.get_reputation_entity_type()
     }
 }

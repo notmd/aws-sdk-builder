@@ -11,11 +11,7 @@ impl super::Client {
     ///   - [`email_tags(Option<Vec::<MessageTag>>)`](crate::operation::get_message_insights::GetMessageInsightsOutput::email_tags): <p>A list of tags, in the form of name/value pairs, that were applied to the email you sent, along with Amazon SES <a href="https://docs.aws.amazon.com/ses/latest/dg/monitor-using-event-publishing.html">Auto-Tags</a>.</p>
     ///   - [`insights(Option<Vec::<EmailInsights>>)`](crate::operation::get_message_insights::GetMessageInsightsOutput::insights): <p>A set of insights associated with the message.</p>
     /// - On failure, responds with [`SdkError<GetMessageInsightsError>`](crate::operation::get_message_insights::GetMessageInsightsError)
-    pub fn get_message_insights(
-        &self,
-    ) -> crate::operation::get_message_insights::builders::GetMessageInsightsFluentBuilder {
-        crate::operation::get_message_insights::builders::GetMessageInsightsFluentBuilder::new(
-            self.handle.clone(),
-        )
+    pub fn get_message_insights(&self) -> crate::operation::get_message_insights::builders::GetMessageInsightsFluentBuilder {
+        crate::operation::get_message_insights::builders::GetMessageInsightsFluentBuilder::new(self.handle.clone())
     }
 }

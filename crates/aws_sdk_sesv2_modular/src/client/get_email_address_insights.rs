@@ -7,10 +7,7 @@ impl super::Client {
     /// - On success, responds with [`GetEmailAddressInsightsOutput`](crate::operation::get_email_address_insights::GetEmailAddressInsightsOutput) with field(s):
     ///   - [`mailbox_validation(Option<MailboxValidation>)`](crate::operation::get_email_address_insights::GetEmailAddressInsightsOutput::mailbox_validation): <p>Detailed validation results for the email address.</p>
     /// - On failure, responds with [`SdkError<GetEmailAddressInsightsError>`](crate::operation::get_email_address_insights::GetEmailAddressInsightsError)
-    pub fn get_email_address_insights(
-        &self,
-    ) -> crate::operation::get_email_address_insights::builders::GetEmailAddressInsightsFluentBuilder
-    {
+    pub fn get_email_address_insights(&self) -> crate::operation::get_email_address_insights::builders::GetEmailAddressInsightsFluentBuilder {
         crate::operation::get_email_address_insights::builders::GetEmailAddressInsightsFluentBuilder::new(self.handle.clone())
     }
 }

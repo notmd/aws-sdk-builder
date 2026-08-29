@@ -15,11 +15,7 @@ impl super::Client {
     ///   - [`sending_status(Option<SendingStatus>)`](crate::operation::create_tenant::CreateTenantOutput::sending_status): <p>The status of email sending capability for the tenant.</p>
     ///   - [`suppression_attributes(Option<TenantSuppressionAttributes>)`](crate::operation::create_tenant::CreateTenantOutput::suppression_attributes): <p>An object that contains the suppression list preferences for a tenant.</p>
     /// - On failure, responds with [`SdkError<CreateTenantError>`](crate::operation::create_tenant::CreateTenantError)
-    pub fn create_tenant(
-        &self,
-    ) -> crate::operation::create_tenant::builders::CreateTenantFluentBuilder {
-        crate::operation::create_tenant::builders::CreateTenantFluentBuilder::new(
-            self.handle.clone(),
-        )
+    pub fn create_tenant(&self) -> crate::operation::create_tenant::builders::CreateTenantFluentBuilder {
+        crate::operation::create_tenant::builders::CreateTenantFluentBuilder::new(self.handle.clone())
     }
 }

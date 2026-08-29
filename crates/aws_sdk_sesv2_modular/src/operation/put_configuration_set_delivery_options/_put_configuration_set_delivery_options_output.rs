@@ -16,16 +16,14 @@ impl ::aws_types::request_id::RequestId for PutConfigurationSetDeliveryOptionsOu
 #[cfg(feature = "op_put_configuration_set_delivery_options")]
 impl PutConfigurationSetDeliveryOptionsOutput {
     /// Creates a new builder-style object to manufacture [`PutConfigurationSetDeliveryOptionsOutput`](crate::operation::put_configuration_set_delivery_options::PutConfigurationSetDeliveryOptionsOutput).
-    pub fn builder() -> crate::operation::put_configuration_set_delivery_options::builders::PutConfigurationSetDeliveryOptionsOutputBuilder{
+    pub fn builder() -> crate::operation::put_configuration_set_delivery_options::builders::PutConfigurationSetDeliveryOptionsOutputBuilder {
         crate::operation::put_configuration_set_delivery_options::builders::PutConfigurationSetDeliveryOptionsOutputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_put_configuration_set_delivery_options")]
 /// A builder for [`PutConfigurationSetDeliveryOptionsOutput`](crate::operation::put_configuration_set_delivery_options::PutConfigurationSetDeliveryOptionsOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct PutConfigurationSetDeliveryOptionsOutputBuilder {
     _request_id: Option<String>,
@@ -42,7 +40,7 @@ impl PutConfigurationSetDeliveryOptionsOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`PutConfigurationSetDeliveryOptionsOutput`](crate::operation::put_configuration_set_delivery_options::PutConfigurationSetDeliveryOptionsOutput).
-    pub fn build(self) -> crate::operation::put_configuration_set_delivery_options::PutConfigurationSetDeliveryOptionsOutput{
+    pub fn build(self) -> crate::operation::put_configuration_set_delivery_options::PutConfigurationSetDeliveryOptionsOutput {
         crate::operation::put_configuration_set_delivery_options::PutConfigurationSetDeliveryOptionsOutput {
             _request_id: self._request_id,
         }

@@ -40,9 +40,7 @@ impl BulkEmailEntry {
         self.replacement_tags.as_deref().unwrap_or_default()
     }
     /// <p>The <code>ReplacementEmailContent</code> associated with a <code>BulkEmailEntry</code>.</p>
-    pub fn replacement_email_content(
-        &self,
-    ) -> ::std::option::Option<&crate::types::ReplacementEmailContent> {
+    pub fn replacement_email_content(&self) -> ::std::option::Option<&crate::types::ReplacementEmailContent> {
         self.replacement_email_content.as_ref()
     }
     /// <p>The list of message headers associated with the <code>BulkEmailEntry</code> data type.</p>
@@ -72,17 +70,13 @@ impl BulkEmailEntry {
 }
 
 /// A builder for [`BulkEmailEntry`](crate::types::BulkEmailEntry).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct BulkEmailEntryBuilder {
     pub(crate) destination: ::std::option::Option<crate::types::Destination>,
     pub(crate) replacement_tags: ::std::option::Option<::std::vec::Vec<crate::types::MessageTag>>,
-    pub(crate) replacement_email_content:
-        ::std::option::Option<crate::types::ReplacementEmailContent>,
-    pub(crate) replacement_headers:
-        ::std::option::Option<::std::vec::Vec<crate::types::MessageHeader>>,
+    pub(crate) replacement_email_content: ::std::option::Option<crate::types::ReplacementEmailContent>,
+    pub(crate) replacement_headers: ::std::option::Option<::std::vec::Vec<crate::types::MessageHeader>>,
 }
 impl BulkEmailEntryBuilder {
     /// <p>Represents the destination of the message, consisting of To:, CC:, and BCC: fields.</p><note>
@@ -96,10 +90,7 @@ impl BulkEmailEntryBuilder {
     /// <p>Represents the destination of the message, consisting of To:, CC:, and BCC: fields.</p><note>
     /// <p>Amazon SES does not support the SMTPUTF8 extension, as described in <a href="https://tools.ietf.org/html/rfc6531">RFC6531</a>. For this reason, the local part of a destination email address (the part of the email address that precedes the @ sign) may only contain <a href="https://en.wikipedia.org/wiki/Email_address#Local-part">7-bit ASCII characters</a>. If the domain part of an address (the part after the @ sign) contains non-ASCII characters, they must be encoded using Punycode, as described in <a href="https://tools.ietf.org/html/rfc3492.html">RFC3492</a>.</p>
     /// </note>
-    pub fn set_destination(
-        mut self,
-        input: ::std::option::Option<crate::types::Destination>,
-    ) -> Self {
+    pub fn set_destination(mut self, input: ::std::option::Option<crate::types::Destination>) -> Self {
         self.destination = input;
         self
     }
@@ -121,39 +112,26 @@ impl BulkEmailEntryBuilder {
         self
     }
     /// <p>A list of tags, in the form of name/value pairs, to apply to an email that you send using the <code>SendBulkTemplatedEmail</code> operation. Tags correspond to characteristics of the email that you define, so that you can publish email sending events.</p>
-    pub fn set_replacement_tags(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<crate::types::MessageTag>>,
-    ) -> Self {
+    pub fn set_replacement_tags(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::MessageTag>>) -> Self {
         self.replacement_tags = input;
         self
     }
     /// <p>A list of tags, in the form of name/value pairs, to apply to an email that you send using the <code>SendBulkTemplatedEmail</code> operation. Tags correspond to characteristics of the email that you define, so that you can publish email sending events.</p>
-    pub fn get_replacement_tags(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<crate::types::MessageTag>> {
+    pub fn get_replacement_tags(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::MessageTag>> {
         &self.replacement_tags
     }
     /// <p>The <code>ReplacementEmailContent</code> associated with a <code>BulkEmailEntry</code>.</p>
-    pub fn replacement_email_content(
-        mut self,
-        input: crate::types::ReplacementEmailContent,
-    ) -> Self {
+    pub fn replacement_email_content(mut self, input: crate::types::ReplacementEmailContent) -> Self {
         self.replacement_email_content = ::std::option::Option::Some(input);
         self
     }
     /// <p>The <code>ReplacementEmailContent</code> associated with a <code>BulkEmailEntry</code>.</p>
-    pub fn set_replacement_email_content(
-        mut self,
-        input: ::std::option::Option<crate::types::ReplacementEmailContent>,
-    ) -> Self {
+    pub fn set_replacement_email_content(mut self, input: ::std::option::Option<crate::types::ReplacementEmailContent>) -> Self {
         self.replacement_email_content = input;
         self
     }
     /// <p>The <code>ReplacementEmailContent</code> associated with a <code>BulkEmailEntry</code>.</p>
-    pub fn get_replacement_email_content(
-        &self,
-    ) -> &::std::option::Option<crate::types::ReplacementEmailContent> {
+    pub fn get_replacement_email_content(&self) -> &::std::option::Option<crate::types::ReplacementEmailContent> {
         &self.replacement_email_content
     }
     /// Appends an item to `replacement_headers`.
@@ -192,10 +170,7 @@ impl BulkEmailEntryBuilder {
     /// <p>If the header is not defined within <code>Template</code>, it will simply be added to the email as specified in <code>BulkEmailEntry</code>.</p></li>
     /// </ul></li>
     /// </ul>
-    pub fn set_replacement_headers(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<crate::types::MessageHeader>>,
-    ) -> Self {
+    pub fn set_replacement_headers(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::MessageHeader>>) -> Self {
         self.replacement_headers = input;
         self
     }
@@ -212,9 +187,7 @@ impl BulkEmailEntryBuilder {
     /// <p>If the header is not defined within <code>Template</code>, it will simply be added to the email as specified in <code>BulkEmailEntry</code>.</p></li>
     /// </ul></li>
     /// </ul>
-    pub fn get_replacement_headers(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<crate::types::MessageHeader>> {
+    pub fn get_replacement_headers(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::MessageHeader>> {
         &self.replacement_headers
     }
     /// Consumes the builder and constructs a [`BulkEmailEntry`](crate::types::BulkEmailEntry).

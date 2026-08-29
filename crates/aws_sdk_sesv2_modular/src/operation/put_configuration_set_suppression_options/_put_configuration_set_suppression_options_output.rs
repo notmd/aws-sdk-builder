@@ -16,16 +16,14 @@ impl ::aws_types::request_id::RequestId for PutConfigurationSetSuppressionOption
 #[cfg(feature = "op_put_configuration_set_suppression_options")]
 impl PutConfigurationSetSuppressionOptionsOutput {
     /// Creates a new builder-style object to manufacture [`PutConfigurationSetSuppressionOptionsOutput`](crate::operation::put_configuration_set_suppression_options::PutConfigurationSetSuppressionOptionsOutput).
-    pub fn builder() -> crate::operation::put_configuration_set_suppression_options::builders::PutConfigurationSetSuppressionOptionsOutputBuilder{
+    pub fn builder() -> crate::operation::put_configuration_set_suppression_options::builders::PutConfigurationSetSuppressionOptionsOutputBuilder {
         crate::operation::put_configuration_set_suppression_options::builders::PutConfigurationSetSuppressionOptionsOutputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_put_configuration_set_suppression_options")]
 /// A builder for [`PutConfigurationSetSuppressionOptionsOutput`](crate::operation::put_configuration_set_suppression_options::PutConfigurationSetSuppressionOptionsOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct PutConfigurationSetSuppressionOptionsOutputBuilder {
     _request_id: Option<String>,
@@ -42,7 +40,7 @@ impl PutConfigurationSetSuppressionOptionsOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`PutConfigurationSetSuppressionOptionsOutput`](crate::operation::put_configuration_set_suppression_options::PutConfigurationSetSuppressionOptionsOutput).
-    pub fn build(self) -> crate::operation::put_configuration_set_suppression_options::PutConfigurationSetSuppressionOptionsOutput{
+    pub fn build(self) -> crate::operation::put_configuration_set_suppression_options::PutConfigurationSetSuppressionOptionsOutput {
         crate::operation::put_configuration_set_suppression_options::PutConfigurationSetSuppressionOptionsOutput {
             _request_id: self._request_id,
         }

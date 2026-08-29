@@ -39,9 +39,7 @@ impl ListContactsOutput {
 
 #[cfg(feature = "op_list_contacts")]
 /// A builder for [`ListContactsOutput`](crate::operation::list_contacts::ListContactsOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct ListContactsOutputBuilder {
     pub(crate) contacts: ::std::option::Option<::std::vec::Vec<crate::types::Contact>>,
@@ -62,10 +60,7 @@ impl ListContactsOutputBuilder {
         self
     }
     /// <p>The contacts present in a specific contact list.</p>
-    pub fn set_contacts(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<crate::types::Contact>>,
-    ) -> Self {
+    pub fn set_contacts(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::Contact>>) -> Self {
         self.contacts = input;
         self
     }

@@ -9,23 +9,17 @@ pub fn de_put_suppressed_destination_http_error(
     crate::operation::put_suppressed_destination::PutSuppressedDestinationError,
 > {
     #[allow(unused_mut)]
-    let mut generic_builder = crate::protocol_serde::parse_http_error_metadata(
-        _response_status,
-        _response_headers,
-        _response_body,
-    )
-    .map_err(
-        crate::operation::put_suppressed_destination::PutSuppressedDestinationError::unhandled,
-    )?;
+    let mut generic_builder = crate::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
+        .map_err(crate::operation::put_suppressed_destination::PutSuppressedDestinationError::unhandled)?;
     generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
     let generic = generic_builder.build();
     let error_code = match generic.code() {
         Some(code) => code,
-        None => return Err(
-            crate::operation::put_suppressed_destination::PutSuppressedDestinationError::unhandled(
+        None => {
+            return Err(crate::operation::put_suppressed_destination::PutSuppressedDestinationError::unhandled(
                 generic,
-            ),
-        ),
+            ))
+        }
     };
 
     let _error_message = generic.message().map(|msg| msg.to_owned());
@@ -91,19 +85,14 @@ pub fn de_put_suppressed_destination_http_response(
     Ok({
         #[allow(unused_mut)]
         let mut output = crate::operation::put_suppressed_destination::builders::PutSuppressedDestinationOutputBuilder::default();
-        output._set_request_id(
-            ::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string),
-        );
+        output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
         output.build()
     })
 }
 
 pub fn ser_put_suppressed_destination_input(
     input: &crate::operation::put_suppressed_destination::PutSuppressedDestinationInput,
-) -> ::std::result::Result<
-    ::aws_smithy_types::body::SdkBody,
-    ::aws_smithy_types::error::operation::SerializationError,
-> {
+) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
     let mut out = String::new();
     let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
     crate::protocol_serde::shape_put_suppressed_destination_input::ser_put_suppressed_destination_input_input(&mut object, input)?;

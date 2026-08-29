@@ -24,16 +24,14 @@ impl PutConfigurationSetVdmOptionsInput {
 #[cfg(feature = "op_put_configuration_set_vdm_options")]
 impl PutConfigurationSetVdmOptionsInput {
     /// Creates a new builder-style object to manufacture [`PutConfigurationSetVdmOptionsInput`](crate::operation::put_configuration_set_vdm_options::PutConfigurationSetVdmOptionsInput).
-    pub fn builder() -> crate::operation::put_configuration_set_vdm_options::builders::PutConfigurationSetVdmOptionsInputBuilder{
+    pub fn builder() -> crate::operation::put_configuration_set_vdm_options::builders::PutConfigurationSetVdmOptionsInputBuilder {
         crate::operation::put_configuration_set_vdm_options::builders::PutConfigurationSetVdmOptionsInputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_put_configuration_set_vdm_options")]
 /// A builder for [`PutConfigurationSetVdmOptionsInput`](crate::operation::put_configuration_set_vdm_options::PutConfigurationSetVdmOptionsInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct PutConfigurationSetVdmOptionsInputBuilder {
     pub(crate) configuration_set_name: ::std::option::Option<::std::string::String>,
@@ -43,18 +41,12 @@ pub struct PutConfigurationSetVdmOptionsInputBuilder {
 impl PutConfigurationSetVdmOptionsInputBuilder {
     /// <p>The name of the configuration set.</p>
     /// This field is required.
-    pub fn configuration_set_name(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn configuration_set_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.configuration_set_name = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The name of the configuration set.</p>
-    pub fn set_configuration_set_name(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_configuration_set_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.configuration_set_name = input;
         self
     }
@@ -68,10 +60,7 @@ impl PutConfigurationSetVdmOptionsInputBuilder {
         self
     }
     /// <p>The VDM options to apply to the configuration set.</p>
-    pub fn set_vdm_options(
-        mut self,
-        input: ::std::option::Option<crate::types::VdmOptions>,
-    ) -> Self {
+    pub fn set_vdm_options(mut self, input: ::std::option::Option<crate::types::VdmOptions>) -> Self {
         self.vdm_options = input;
         self
     }

@@ -30,9 +30,7 @@ impl SuppressedDestination {
         &self.last_update_time
     }
     /// <p>An optional value that can contain additional information about the reasons that the address was added to the suppression list for your account or for a specific tenant.</p>
-    pub fn attributes(
-        &self,
-    ) -> ::std::option::Option<&crate::types::SuppressedDestinationAttributes> {
+    pub fn attributes(&self) -> ::std::option::Option<&crate::types::SuppressedDestinationAttributes> {
         self.attributes.as_ref()
     }
     /// <p>The name of the tenant that the suppressed destination belongs to. This field is present only when the suppressed destination is on a tenant's suppression list.</p>
@@ -48,9 +46,7 @@ impl SuppressedDestination {
 }
 
 /// A builder for [`SuppressedDestination`](crate::types::SuppressedDestination).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct SuppressedDestinationBuilder {
     pub(crate) email_address: ::std::option::Option<::std::string::String>,
@@ -62,18 +58,12 @@ pub struct SuppressedDestinationBuilder {
 impl SuppressedDestinationBuilder {
     /// <p>The email address that is on the suppression list for your account or for a specific tenant.</p>
     /// This field is required.
-    pub fn email_address(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn email_address(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.email_address = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The email address that is on the suppression list for your account or for a specific tenant.</p>
-    pub fn set_email_address(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_email_address(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.email_address = input;
         self
     }
@@ -88,10 +78,7 @@ impl SuppressedDestinationBuilder {
         self
     }
     /// <p>The reason that the address was added to the suppression list for your account or for a specific tenant.</p>
-    pub fn set_reason(
-        mut self,
-        input: ::std::option::Option<crate::types::SuppressionListReason>,
-    ) -> Self {
+    pub fn set_reason(mut self, input: ::std::option::Option<crate::types::SuppressionListReason>) -> Self {
         self.reason = input;
         self
     }
@@ -106,10 +93,7 @@ impl SuppressedDestinationBuilder {
         self
     }
     /// <p>The date and time when the suppressed destination was last updated, shown in Unix time format.</p>
-    pub fn set_last_update_time(
-        mut self,
-        input: ::std::option::Option<::aws_smithy_types::DateTime>,
-    ) -> Self {
+    pub fn set_last_update_time(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
         self.last_update_time = input;
         self
     }
@@ -123,17 +107,12 @@ impl SuppressedDestinationBuilder {
         self
     }
     /// <p>An optional value that can contain additional information about the reasons that the address was added to the suppression list for your account or for a specific tenant.</p>
-    pub fn set_attributes(
-        mut self,
-        input: ::std::option::Option<crate::types::SuppressedDestinationAttributes>,
-    ) -> Self {
+    pub fn set_attributes(mut self, input: ::std::option::Option<crate::types::SuppressedDestinationAttributes>) -> Self {
         self.attributes = input;
         self
     }
     /// <p>An optional value that can contain additional information about the reasons that the address was added to the suppression list for your account or for a specific tenant.</p>
-    pub fn get_attributes(
-        &self,
-    ) -> &::std::option::Option<crate::types::SuppressedDestinationAttributes> {
+    pub fn get_attributes(&self) -> &::std::option::Option<crate::types::SuppressedDestinationAttributes> {
         &self.attributes
     }
     /// <p>The name of the tenant that the suppressed destination belongs to. This field is present only when the suppressed destination is on a tenant's suppression list.</p>
@@ -155,12 +134,7 @@ impl SuppressedDestinationBuilder {
     /// - [`email_address`](crate::types::builders::SuppressedDestinationBuilder::email_address)
     /// - [`reason`](crate::types::builders::SuppressedDestinationBuilder::reason)
     /// - [`last_update_time`](crate::types::builders::SuppressedDestinationBuilder::last_update_time)
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<
-        crate::types::SuppressedDestination,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    pub fn build(self) -> ::std::result::Result<crate::types::SuppressedDestination, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::SuppressedDestination {
             email_address: self.email_address.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

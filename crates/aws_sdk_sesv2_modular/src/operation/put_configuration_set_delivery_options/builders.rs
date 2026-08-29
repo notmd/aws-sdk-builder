@@ -63,7 +63,7 @@ impl PutConfigurationSetDeliveryOptionsFluentBuilder {
         }
     }
     /// Access the PutConfigurationSetDeliveryOptions as a reference.
-    pub fn as_input(&self) -> &crate::operation::put_configuration_set_delivery_options::builders::PutConfigurationSetDeliveryOptionsInputBuilder{
+    pub fn as_input(&self) -> &crate::operation::put_configuration_set_delivery_options::builders::PutConfigurationSetDeliveryOptionsInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -82,7 +82,7 @@ impl PutConfigurationSetDeliveryOptionsFluentBuilder {
             crate::operation::put_configuration_set_delivery_options::PutConfigurationSetDeliveryOptionsError,
             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
         >,
-    >{
+    > {
         let input = self
             .inner
             .build()
@@ -102,37 +102,25 @@ impl PutConfigurationSetDeliveryOptionsFluentBuilder {
         crate::operation::put_configuration_set_delivery_options::PutConfigurationSetDeliveryOptionsOutput,
         crate::operation::put_configuration_set_delivery_options::PutConfigurationSetDeliveryOptionsError,
         Self,
-    >{
+    > {
         crate::client::customize::CustomizableOperation::new(self)
     }
-    pub(crate) fn config_override(
-        mut self,
-        config_override: impl ::std::convert::Into<crate::config::Builder>,
-    ) -> Self {
+    pub(crate) fn config_override(mut self, config_override: impl ::std::convert::Into<crate::config::Builder>) -> Self {
         self.set_config_override(::std::option::Option::Some(config_override.into()));
         self
     }
 
-    pub(crate) fn set_config_override(
-        &mut self,
-        config_override: ::std::option::Option<crate::config::Builder>,
-    ) -> &mut Self {
+    pub(crate) fn set_config_override(&mut self, config_override: ::std::option::Option<crate::config::Builder>) -> &mut Self {
         self.config_override = config_override;
         self
     }
     /// <p>The name of the configuration set to associate with a dedicated IP pool.</p>
-    pub fn configuration_set_name(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn configuration_set_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.configuration_set_name(input.into());
         self
     }
     /// <p>The name of the configuration set to associate with a dedicated IP pool.</p>
-    pub fn set_configuration_set_name(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_configuration_set_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_configuration_set_name(input);
         self
     }
@@ -155,18 +143,12 @@ impl PutConfigurationSetDeliveryOptionsFluentBuilder {
         self.inner.get_tls_policy()
     }
     /// <p>The name of the dedicated IP pool to associate with the configuration set.</p>
-    pub fn sending_pool_name(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn sending_pool_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.sending_pool_name(input.into());
         self
     }
     /// <p>The name of the dedicated IP pool to associate with the configuration set.</p>
-    pub fn set_sending_pool_name(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_sending_pool_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_sending_pool_name(input);
         self
     }

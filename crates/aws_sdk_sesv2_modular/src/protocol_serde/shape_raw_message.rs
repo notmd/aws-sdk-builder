@@ -4,9 +4,7 @@ pub fn ser_raw_message(
     input: &crate::types::RawMessage,
 ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
     {
-        object
-            .key("Data")
-            .string_unchecked(&::aws_smithy_types::base64::encode(&input.data));
+        object.key("Data").string_unchecked(&::aws_smithy_types::base64::encode(&input.data));
     }
     Ok(())
 }

@@ -9,7 +9,7 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<PutDeliverabilityDashboardOptionError>`](crate::operation::put_deliverability_dashboard_option::PutDeliverabilityDashboardOptionError)
     pub fn put_deliverability_dashboard_option(
         &self,
-    ) -> crate::operation::put_deliverability_dashboard_option::builders::PutDeliverabilityDashboardOptionFluentBuilder{
+    ) -> crate::operation::put_deliverability_dashboard_option::builders::PutDeliverabilityDashboardOptionFluentBuilder {
         crate::operation::put_deliverability_dashboard_option::builders::PutDeliverabilityDashboardOptionFluentBuilder::new(self.handle.clone())
     }
 }

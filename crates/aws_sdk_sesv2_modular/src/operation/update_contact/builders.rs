@@ -65,9 +65,7 @@ impl UpdateContactFluentBuilder {
         }
     }
     /// Access the UpdateContact as a reference.
-    pub fn as_input(
-        &self,
-    ) -> &crate::operation::update_contact::builders::UpdateContactInputBuilder {
+    pub fn as_input(&self) -> &crate::operation::update_contact::builders::UpdateContactInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -91,12 +89,11 @@ impl UpdateContactFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins =
-            crate::operation::update_contact::UpdateContact::operation_runtime_plugins(
-                self.handle.runtime_plugins.clone(),
-                &self.handle.conf,
-                self.config_override,
-            );
+        let runtime_plugins = crate::operation::update_contact::UpdateContact::operation_runtime_plugins(
+            self.handle.runtime_plugins.clone(),
+            &self.handle.conf,
+            self.config_override,
+        );
         crate::operation::update_contact::UpdateContact::orchestrate(&runtime_plugins, input).await
     }
 
@@ -110,34 +107,22 @@ impl UpdateContactFluentBuilder {
     > {
         crate::client::customize::CustomizableOperation::new(self)
     }
-    pub(crate) fn config_override(
-        mut self,
-        config_override: impl ::std::convert::Into<crate::config::Builder>,
-    ) -> Self {
+    pub(crate) fn config_override(mut self, config_override: impl ::std::convert::Into<crate::config::Builder>) -> Self {
         self.set_config_override(::std::option::Option::Some(config_override.into()));
         self
     }
 
-    pub(crate) fn set_config_override(
-        &mut self,
-        config_override: ::std::option::Option<crate::config::Builder>,
-    ) -> &mut Self {
+    pub(crate) fn set_config_override(&mut self, config_override: ::std::option::Option<crate::config::Builder>) -> &mut Self {
         self.config_override = config_override;
         self
     }
     /// <p>The name of the contact list.</p>
-    pub fn contact_list_name(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn contact_list_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.contact_list_name(input.into());
         self
     }
     /// <p>The name of the contact list.</p>
-    pub fn set_contact_list_name(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_contact_list_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_contact_list_name(input);
         self
     }
@@ -146,18 +131,12 @@ impl UpdateContactFluentBuilder {
         self.inner.get_contact_list_name()
     }
     /// <p>The contact's email address.</p>
-    pub fn email_address(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn email_address(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.email_address(input.into());
         self
     }
     /// <p>The contact's email address.</p>
-    pub fn set_email_address(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_email_address(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_email_address(input);
         self
     }
@@ -176,17 +155,12 @@ impl UpdateContactFluentBuilder {
         self
     }
     /// <p>The contact's preference for being opted-in to or opted-out of a topic.</p>
-    pub fn set_topic_preferences(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<crate::types::TopicPreference>>,
-    ) -> Self {
+    pub fn set_topic_preferences(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::TopicPreference>>) -> Self {
         self.inner = self.inner.set_topic_preferences(input);
         self
     }
     /// <p>The contact's preference for being opted-in to or opted-out of a topic.</p>
-    pub fn get_topic_preferences(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<crate::types::TopicPreference>> {
+    pub fn get_topic_preferences(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::TopicPreference>> {
         self.inner.get_topic_preferences()
     }
     /// <p>A boolean value status noting if the contact is unsubscribed from all contact list topics.</p>
@@ -204,18 +178,12 @@ impl UpdateContactFluentBuilder {
         self.inner.get_unsubscribe_all()
     }
     /// <p>The attribute data attached to a contact.</p>
-    pub fn attributes_data(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn attributes_data(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.attributes_data(input.into());
         self
     }
     /// <p>The attribute data attached to a contact.</p>
-    pub fn set_attributes_data(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_attributes_data(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_attributes_data(input);
         self
     }

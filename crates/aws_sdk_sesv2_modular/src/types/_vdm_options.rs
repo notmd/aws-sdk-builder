@@ -27,9 +27,7 @@ impl VdmOptions {
 }
 
 /// A builder for [`VdmOptions`](crate::types::VdmOptions).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct VdmOptionsBuilder {
     pub(crate) dashboard_options: ::std::option::Option<crate::types::DashboardOptions>,
@@ -42,10 +40,7 @@ impl VdmOptionsBuilder {
         self
     }
     /// <p>Specifies additional settings for your VDM configuration as applicable to the Dashboard.</p>
-    pub fn set_dashboard_options(
-        mut self,
-        input: ::std::option::Option<crate::types::DashboardOptions>,
-    ) -> Self {
+    pub fn set_dashboard_options(mut self, input: ::std::option::Option<crate::types::DashboardOptions>) -> Self {
         self.dashboard_options = input;
         self
     }
@@ -59,10 +54,7 @@ impl VdmOptionsBuilder {
         self
     }
     /// <p>Specifies additional settings for your VDM configuration as applicable to the Guardian.</p>
-    pub fn set_guardian_options(
-        mut self,
-        input: ::std::option::Option<crate::types::GuardianOptions>,
-    ) -> Self {
+    pub fn set_guardian_options(mut self, input: ::std::option::Option<crate::types::GuardianOptions>) -> Self {
         self.guardian_options = input;
         self
     }

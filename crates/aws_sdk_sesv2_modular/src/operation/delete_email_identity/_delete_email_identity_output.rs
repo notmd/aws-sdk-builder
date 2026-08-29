@@ -16,18 +16,14 @@ impl ::aws_types::request_id::RequestId for DeleteEmailIdentityOutput {
 #[cfg(feature = "op_delete_email_identity")]
 impl DeleteEmailIdentityOutput {
     /// Creates a new builder-style object to manufacture [`DeleteEmailIdentityOutput`](crate::operation::delete_email_identity::DeleteEmailIdentityOutput).
-    pub fn builder(
-    ) -> crate::operation::delete_email_identity::builders::DeleteEmailIdentityOutputBuilder {
-        crate::operation::delete_email_identity::builders::DeleteEmailIdentityOutputBuilder::default(
-        )
+    pub fn builder() -> crate::operation::delete_email_identity::builders::DeleteEmailIdentityOutputBuilder {
+        crate::operation::delete_email_identity::builders::DeleteEmailIdentityOutputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_delete_email_identity")]
 /// A builder for [`DeleteEmailIdentityOutput`](crate::operation::delete_email_identity::DeleteEmailIdentityOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct DeleteEmailIdentityOutputBuilder {
     _request_id: Option<String>,

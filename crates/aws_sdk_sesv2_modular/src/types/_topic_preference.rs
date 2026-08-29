@@ -28,9 +28,7 @@ impl TopicPreference {
 }
 
 /// A builder for [`TopicPreference`](crate::types::TopicPreference).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct TopicPreferenceBuilder {
     pub(crate) topic_name: ::std::option::Option<::std::string::String>,
@@ -59,29 +57,19 @@ impl TopicPreferenceBuilder {
         self
     }
     /// <p>The contact's subscription status to a topic which is either <code>OPT_IN</code> or <code>OPT_OUT</code>.</p>
-    pub fn set_subscription_status(
-        mut self,
-        input: ::std::option::Option<crate::types::SubscriptionStatus>,
-    ) -> Self {
+    pub fn set_subscription_status(mut self, input: ::std::option::Option<crate::types::SubscriptionStatus>) -> Self {
         self.subscription_status = input;
         self
     }
     /// <p>The contact's subscription status to a topic which is either <code>OPT_IN</code> or <code>OPT_OUT</code>.</p>
-    pub fn get_subscription_status(
-        &self,
-    ) -> &::std::option::Option<crate::types::SubscriptionStatus> {
+    pub fn get_subscription_status(&self) -> &::std::option::Option<crate::types::SubscriptionStatus> {
         &self.subscription_status
     }
     /// Consumes the builder and constructs a [`TopicPreference`](crate::types::TopicPreference).
     /// This method will fail if any of the following fields are not set:
     /// - [`topic_name`](crate::types::builders::TopicPreferenceBuilder::topic_name)
     /// - [`subscription_status`](crate::types::builders::TopicPreferenceBuilder::subscription_status)
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<
-        crate::types::TopicPreference,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    pub fn build(self) -> ::std::result::Result<crate::types::TopicPreference, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::TopicPreference {
             topic_name: self.topic_name.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

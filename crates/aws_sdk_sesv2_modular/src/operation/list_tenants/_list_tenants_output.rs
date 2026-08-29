@@ -40,9 +40,7 @@ impl ListTenantsOutput {
 
 #[cfg(feature = "op_list_tenants")]
 /// A builder for [`ListTenantsOutput`](crate::operation::list_tenants::ListTenantsOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct ListTenantsOutputBuilder {
     pub(crate) tenants: ::std::option::Option<::std::vec::Vec<crate::types::TenantInfo>>,
@@ -63,10 +61,7 @@ impl ListTenantsOutputBuilder {
         self
     }
     /// <p>An array that contains basic information about each tenant.</p>
-    pub fn set_tenants(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<crate::types::TenantInfo>>,
-    ) -> Self {
+    pub fn set_tenants(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::TenantInfo>>) -> Self {
         self.tenants = input;
         self
     }

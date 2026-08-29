@@ -63,7 +63,7 @@ impl DeleteSuppressedDestinationFluentBuilder {
         }
     }
     /// Access the DeleteSuppressedDestination as a reference.
-    pub fn as_input(&self) -> &crate::operation::delete_suppressed_destination::builders::DeleteSuppressedDestinationInputBuilder{
+    pub fn as_input(&self) -> &crate::operation::delete_suppressed_destination::builders::DeleteSuppressedDestinationInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -92,11 +92,7 @@ impl DeleteSuppressedDestinationFluentBuilder {
             &self.handle.conf,
             self.config_override,
         );
-        crate::operation::delete_suppressed_destination::DeleteSuppressedDestination::orchestrate(
-            &runtime_plugins,
-            input,
-        )
-        .await
+        crate::operation::delete_suppressed_destination::DeleteSuppressedDestination::orchestrate(&runtime_plugins, input).await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -109,34 +105,22 @@ impl DeleteSuppressedDestinationFluentBuilder {
     > {
         crate::client::customize::CustomizableOperation::new(self)
     }
-    pub(crate) fn config_override(
-        mut self,
-        config_override: impl ::std::convert::Into<crate::config::Builder>,
-    ) -> Self {
+    pub(crate) fn config_override(mut self, config_override: impl ::std::convert::Into<crate::config::Builder>) -> Self {
         self.set_config_override(::std::option::Option::Some(config_override.into()));
         self
     }
 
-    pub(crate) fn set_config_override(
-        &mut self,
-        config_override: ::std::option::Option<crate::config::Builder>,
-    ) -> &mut Self {
+    pub(crate) fn set_config_override(&mut self, config_override: ::std::option::Option<crate::config::Builder>) -> &mut Self {
         self.config_override = config_override;
         self
     }
     /// <p>The suppressed email destination to remove from the suppression list for your account or for the specified tenant.</p>
-    pub fn email_address(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn email_address(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.email_address(input.into());
         self
     }
     /// <p>The suppressed email destination to remove from the suppression list for your account or for the specified tenant.</p>
-    pub fn set_email_address(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_email_address(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_email_address(input);
         self
     }

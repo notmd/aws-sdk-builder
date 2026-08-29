@@ -25,16 +25,14 @@ impl ::aws_types::request_id::RequestId for SendCustomVerificationEmailOutput {
 #[cfg(feature = "op_send_custom_verification_email")]
 impl SendCustomVerificationEmailOutput {
     /// Creates a new builder-style object to manufacture [`SendCustomVerificationEmailOutput`](crate::operation::send_custom_verification_email::SendCustomVerificationEmailOutput).
-    pub fn builder() -> crate::operation::send_custom_verification_email::builders::SendCustomVerificationEmailOutputBuilder{
+    pub fn builder() -> crate::operation::send_custom_verification_email::builders::SendCustomVerificationEmailOutputBuilder {
         crate::operation::send_custom_verification_email::builders::SendCustomVerificationEmailOutputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_send_custom_verification_email")]
 /// A builder for [`SendCustomVerificationEmailOutput`](crate::operation::send_custom_verification_email::SendCustomVerificationEmailOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct SendCustomVerificationEmailOutputBuilder {
     pub(crate) message_id: ::std::option::Option<::std::string::String>,
@@ -66,9 +64,7 @@ impl SendCustomVerificationEmailOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`SendCustomVerificationEmailOutput`](crate::operation::send_custom_verification_email::SendCustomVerificationEmailOutput).
-    pub fn build(
-        self,
-    ) -> crate::operation::send_custom_verification_email::SendCustomVerificationEmailOutput {
+    pub fn build(self) -> crate::operation::send_custom_verification_email::SendCustomVerificationEmailOutput {
         crate::operation::send_custom_verification_email::SendCustomVerificationEmailOutput {
             message_id: self.message_id,
             _request_id: self._request_id,

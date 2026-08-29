@@ -87,12 +87,11 @@ impl ListContactsFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins =
-            crate::operation::list_contacts::ListContacts::operation_runtime_plugins(
-                self.handle.runtime_plugins.clone(),
-                &self.handle.conf,
-                self.config_override,
-            );
+        let runtime_plugins = crate::operation::list_contacts::ListContacts::operation_runtime_plugins(
+            self.handle.runtime_plugins.clone(),
+            &self.handle.conf,
+            self.config_override,
+        );
         crate::operation::list_contacts::ListContacts::orchestrate(&runtime_plugins, input).await
     }
 
@@ -106,45 +105,28 @@ impl ListContactsFluentBuilder {
     > {
         crate::client::customize::CustomizableOperation::new(self)
     }
-    pub(crate) fn config_override(
-        mut self,
-        config_override: impl ::std::convert::Into<crate::config::Builder>,
-    ) -> Self {
+    pub(crate) fn config_override(mut self, config_override: impl ::std::convert::Into<crate::config::Builder>) -> Self {
         self.set_config_override(::std::option::Option::Some(config_override.into()));
         self
     }
 
-    pub(crate) fn set_config_override(
-        &mut self,
-        config_override: ::std::option::Option<crate::config::Builder>,
-    ) -> &mut Self {
+    pub(crate) fn set_config_override(&mut self, config_override: ::std::option::Option<crate::config::Builder>) -> &mut Self {
         self.config_override = config_override;
         self
     }
     /// Create a paginator for this request
     ///
     /// Paginators are used by calling [`send().await`](crate::operation::list_contacts::paginator::ListContactsPaginator::send) which returns a [`PaginationStream`](aws_smithy_async::future::pagination_stream::PaginationStream).
-    pub fn into_paginator(
-        self,
-    ) -> crate::operation::list_contacts::paginator::ListContactsPaginator {
-        crate::operation::list_contacts::paginator::ListContactsPaginator::new(
-            self.handle,
-            self.inner,
-        )
+    pub fn into_paginator(self) -> crate::operation::list_contacts::paginator::ListContactsPaginator {
+        crate::operation::list_contacts::paginator::ListContactsPaginator::new(self.handle, self.inner)
     }
     /// <p>The name of the contact list.</p>
-    pub fn contact_list_name(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn contact_list_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.contact_list_name(input.into());
         self
     }
     /// <p>The name of the contact list.</p>
-    pub fn set_contact_list_name(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_contact_list_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_contact_list_name(input);
         self
     }
@@ -158,10 +140,7 @@ impl ListContactsFluentBuilder {
         self
     }
     /// <p>A filter that can be applied to a list of contacts.</p>
-    pub fn set_filter(
-        mut self,
-        input: ::std::option::Option<crate::types::ListContactsFilter>,
-    ) -> Self {
+    pub fn set_filter(mut self, input: ::std::option::Option<crate::types::ListContactsFilter>) -> Self {
         self.inner = self.inner.set_filter(input);
         self
     }

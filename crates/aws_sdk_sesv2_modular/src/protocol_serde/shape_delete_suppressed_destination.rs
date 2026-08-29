@@ -81,9 +81,7 @@ pub fn de_delete_suppressed_destination_http_response(
     Ok({
         #[allow(unused_mut)]
         let mut output = crate::operation::delete_suppressed_destination::builders::DeleteSuppressedDestinationOutputBuilder::default();
-        output._set_request_id(
-            ::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string),
-        );
+        output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
         output.build()
     })
 }

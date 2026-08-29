@@ -16,18 +16,14 @@ impl ::aws_types::request_id::RequestId for DeleteDedicatedIpPoolOutput {
 #[cfg(feature = "op_delete_dedicated_ip_pool")]
 impl DeleteDedicatedIpPoolOutput {
     /// Creates a new builder-style object to manufacture [`DeleteDedicatedIpPoolOutput`](crate::operation::delete_dedicated_ip_pool::DeleteDedicatedIpPoolOutput).
-    pub fn builder(
-    ) -> crate::operation::delete_dedicated_ip_pool::builders::DeleteDedicatedIpPoolOutputBuilder
-    {
+    pub fn builder() -> crate::operation::delete_dedicated_ip_pool::builders::DeleteDedicatedIpPoolOutputBuilder {
         crate::operation::delete_dedicated_ip_pool::builders::DeleteDedicatedIpPoolOutputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_delete_dedicated_ip_pool")]
 /// A builder for [`DeleteDedicatedIpPoolOutput`](crate::operation::delete_dedicated_ip_pool::DeleteDedicatedIpPoolOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct DeleteDedicatedIpPoolOutputBuilder {
     _request_id: Option<String>,

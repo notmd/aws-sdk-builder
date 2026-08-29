@@ -26,16 +26,14 @@ impl ListDeliverabilityTestReportsInput {
 #[cfg(feature = "op_list_deliverability_test_reports")]
 impl ListDeliverabilityTestReportsInput {
     /// Creates a new builder-style object to manufacture [`ListDeliverabilityTestReportsInput`](crate::operation::list_deliverability_test_reports::ListDeliverabilityTestReportsInput).
-    pub fn builder() -> crate::operation::list_deliverability_test_reports::builders::ListDeliverabilityTestReportsInputBuilder{
+    pub fn builder() -> crate::operation::list_deliverability_test_reports::builders::ListDeliverabilityTestReportsInputBuilder {
         crate::operation::list_deliverability_test_reports::builders::ListDeliverabilityTestReportsInputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_list_deliverability_test_reports")]
 /// A builder for [`ListDeliverabilityTestReportsInput`](crate::operation::list_deliverability_test_reports::ListDeliverabilityTestReportsInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct ListDeliverabilityTestReportsInputBuilder {
     pub(crate) next_token: ::std::option::Option<::std::string::String>,

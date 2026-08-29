@@ -7,8 +7,7 @@ pub struct SuppressionConditionThreshold {
     /// <p>Indicates whether Auto Validation is enabled for suppression. Set to <code>ENABLED</code> to enable the Auto Validation feature, or set to <code>DISABLED</code> to disable it.</p>
     pub condition_threshold_enabled: crate::types::FeatureStatus,
     /// <p>The overall confidence threshold used to determine suppression decisions.</p>
-    pub overall_confidence_threshold:
-        ::std::option::Option<crate::types::SuppressionConfidenceThreshold>,
+    pub overall_confidence_threshold: ::std::option::Option<crate::types::SuppressionConfidenceThreshold>,
 }
 impl SuppressionConditionThreshold {
     /// <p>Indicates whether Auto Validation is enabled for suppression. Set to <code>ENABLED</code> to enable the Auto Validation feature, or set to <code>DISABLED</code> to disable it.</p>
@@ -16,9 +15,7 @@ impl SuppressionConditionThreshold {
         &self.condition_threshold_enabled
     }
     /// <p>The overall confidence threshold used to determine suppression decisions.</p>
-    pub fn overall_confidence_threshold(
-        &self,
-    ) -> ::std::option::Option<&crate::types::SuppressionConfidenceThreshold> {
+    pub fn overall_confidence_threshold(&self) -> ::std::option::Option<&crate::types::SuppressionConfidenceThreshold> {
         self.overall_confidence_threshold.as_ref()
     }
 }
@@ -30,14 +27,11 @@ impl SuppressionConditionThreshold {
 }
 
 /// A builder for [`SuppressionConditionThreshold`](crate::types::SuppressionConditionThreshold).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct SuppressionConditionThresholdBuilder {
     pub(crate) condition_threshold_enabled: ::std::option::Option<crate::types::FeatureStatus>,
-    pub(crate) overall_confidence_threshold:
-        ::std::option::Option<crate::types::SuppressionConfidenceThreshold>,
+    pub(crate) overall_confidence_threshold: ::std::option::Option<crate::types::SuppressionConfidenceThreshold>,
 }
 impl SuppressionConditionThresholdBuilder {
     /// <p>Indicates whether Auto Validation is enabled for suppression. Set to <code>ENABLED</code> to enable the Auto Validation feature, or set to <code>DISABLED</code> to disable it.</p>
@@ -47,50 +41,32 @@ impl SuppressionConditionThresholdBuilder {
         self
     }
     /// <p>Indicates whether Auto Validation is enabled for suppression. Set to <code>ENABLED</code> to enable the Auto Validation feature, or set to <code>DISABLED</code> to disable it.</p>
-    pub fn set_condition_threshold_enabled(
-        mut self,
-        input: ::std::option::Option<crate::types::FeatureStatus>,
-    ) -> Self {
+    pub fn set_condition_threshold_enabled(mut self, input: ::std::option::Option<crate::types::FeatureStatus>) -> Self {
         self.condition_threshold_enabled = input;
         self
     }
     /// <p>Indicates whether Auto Validation is enabled for suppression. Set to <code>ENABLED</code> to enable the Auto Validation feature, or set to <code>DISABLED</code> to disable it.</p>
-    pub fn get_condition_threshold_enabled(
-        &self,
-    ) -> &::std::option::Option<crate::types::FeatureStatus> {
+    pub fn get_condition_threshold_enabled(&self) -> &::std::option::Option<crate::types::FeatureStatus> {
         &self.condition_threshold_enabled
     }
     /// <p>The overall confidence threshold used to determine suppression decisions.</p>
-    pub fn overall_confidence_threshold(
-        mut self,
-        input: crate::types::SuppressionConfidenceThreshold,
-    ) -> Self {
+    pub fn overall_confidence_threshold(mut self, input: crate::types::SuppressionConfidenceThreshold) -> Self {
         self.overall_confidence_threshold = ::std::option::Option::Some(input);
         self
     }
     /// <p>The overall confidence threshold used to determine suppression decisions.</p>
-    pub fn set_overall_confidence_threshold(
-        mut self,
-        input: ::std::option::Option<crate::types::SuppressionConfidenceThreshold>,
-    ) -> Self {
+    pub fn set_overall_confidence_threshold(mut self, input: ::std::option::Option<crate::types::SuppressionConfidenceThreshold>) -> Self {
         self.overall_confidence_threshold = input;
         self
     }
     /// <p>The overall confidence threshold used to determine suppression decisions.</p>
-    pub fn get_overall_confidence_threshold(
-        &self,
-    ) -> &::std::option::Option<crate::types::SuppressionConfidenceThreshold> {
+    pub fn get_overall_confidence_threshold(&self) -> &::std::option::Option<crate::types::SuppressionConfidenceThreshold> {
         &self.overall_confidence_threshold
     }
     /// Consumes the builder and constructs a [`SuppressionConditionThreshold`](crate::types::SuppressionConditionThreshold).
     /// This method will fail if any of the following fields are not set:
     /// - [`condition_threshold_enabled`](crate::types::builders::SuppressionConditionThresholdBuilder::condition_threshold_enabled)
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<
-        crate::types::SuppressionConditionThreshold,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    pub fn build(self) -> ::std::result::Result<crate::types::SuppressionConditionThreshold, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::SuppressionConditionThreshold {
             condition_threshold_enabled: self.condition_threshold_enabled.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

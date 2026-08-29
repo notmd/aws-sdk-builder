@@ -25,17 +25,14 @@ impl ::aws_types::request_id::RequestId for ListTagsForResourceOutput {
 #[cfg(feature = "op_list_tags_for_resource")]
 impl ListTagsForResourceOutput {
     /// Creates a new builder-style object to manufacture [`ListTagsForResourceOutput`](crate::operation::list_tags_for_resource::ListTagsForResourceOutput).
-    pub fn builder(
-    ) -> crate::operation::list_tags_for_resource::builders::ListTagsForResourceOutputBuilder {
+    pub fn builder() -> crate::operation::list_tags_for_resource::builders::ListTagsForResourceOutputBuilder {
         crate::operation::list_tags_for_resource::builders::ListTagsForResourceOutputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_list_tags_for_resource")]
 /// A builder for [`ListTagsForResourceOutput`](crate::operation::list_tags_for_resource::ListTagsForResourceOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct ListTagsForResourceOutputBuilder {
     pub(crate) tags: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>,
@@ -55,10 +52,7 @@ impl ListTagsForResourceOutputBuilder {
         self
     }
     /// <p>An array that lists all the tags that are associated with the resource. Each tag consists of a required tag key (<code>Key</code>) and an associated tag value (<code>Value</code>)</p>
-    pub fn set_tags(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>,
-    ) -> Self {
+    pub fn set_tags(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>) -> Self {
         self.tags = input;
         self
     }
@@ -80,10 +74,8 @@ impl ListTagsForResourceOutputBuilder {
     /// - [`tags`](crate::operation::list_tags_for_resource::builders::ListTagsForResourceOutputBuilder::tags)
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        crate::operation::list_tags_for_resource::ListTagsForResourceOutput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    ) -> ::std::result::Result<crate::operation::list_tags_for_resource::ListTagsForResourceOutput, ::aws_smithy_types::error::operation::BuildError>
+    {
         ::std::result::Result::Ok(crate::operation::list_tags_for_resource::ListTagsForResourceOutput {
             tags: self.tags.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

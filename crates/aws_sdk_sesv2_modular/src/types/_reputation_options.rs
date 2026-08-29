@@ -27,9 +27,7 @@ impl ReputationOptions {
 }
 
 /// A builder for [`ReputationOptions`](crate::types::ReputationOptions).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct ReputationOptionsBuilder {
     pub(crate) reputation_metrics_enabled: ::std::option::Option<bool>,
@@ -56,10 +54,7 @@ impl ReputationOptionsBuilder {
         self
     }
     /// <p>The date and time (in Unix time) when the reputation metrics were last given a fresh start. When your account is given a fresh start, your reputation metrics are calculated starting from the date of the fresh start.</p>
-    pub fn set_last_fresh_start(
-        mut self,
-        input: ::std::option::Option<::aws_smithy_types::DateTime>,
-    ) -> Self {
+    pub fn set_last_fresh_start(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
         self.last_fresh_start = input;
         self
     }

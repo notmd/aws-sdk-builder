@@ -16,18 +16,14 @@ impl ::aws_types::request_id::RequestId for PutDedicatedIpInPoolOutput {
 #[cfg(feature = "op_put_dedicated_ip_in_pool")]
 impl PutDedicatedIpInPoolOutput {
     /// Creates a new builder-style object to manufacture [`PutDedicatedIpInPoolOutput`](crate::operation::put_dedicated_ip_in_pool::PutDedicatedIpInPoolOutput).
-    pub fn builder(
-    ) -> crate::operation::put_dedicated_ip_in_pool::builders::PutDedicatedIpInPoolOutputBuilder
-    {
+    pub fn builder() -> crate::operation::put_dedicated_ip_in_pool::builders::PutDedicatedIpInPoolOutputBuilder {
         crate::operation::put_dedicated_ip_in_pool::builders::PutDedicatedIpInPoolOutputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_put_dedicated_ip_in_pool")]
 /// A builder for [`PutDedicatedIpInPoolOutput`](crate::operation::put_dedicated_ip_in_pool::PutDedicatedIpInPoolOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct PutDedicatedIpInPoolOutputBuilder {
     _request_id: Option<String>,

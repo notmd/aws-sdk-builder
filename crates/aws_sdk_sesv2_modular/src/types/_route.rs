@@ -22,9 +22,7 @@ impl Route {
 }
 
 /// A builder for [`Route`](crate::types::Route).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct RouteBuilder {
     pub(crate) region: ::std::option::Option<::std::string::String>,
@@ -48,10 +46,7 @@ impl RouteBuilder {
     /// Consumes the builder and constructs a [`Route`](crate::types::Route).
     /// This method will fail if any of the following fields are not set:
     /// - [`region`](crate::types::builders::RouteBuilder::region)
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<crate::types::Route, ::aws_smithy_types::error::operation::BuildError>
-    {
+    pub fn build(self) -> ::std::result::Result<crate::types::Route, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::Route {
             region: self.region.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

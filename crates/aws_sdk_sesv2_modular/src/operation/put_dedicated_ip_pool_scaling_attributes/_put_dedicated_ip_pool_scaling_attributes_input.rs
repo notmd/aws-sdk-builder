@@ -28,16 +28,14 @@ impl PutDedicatedIpPoolScalingAttributesInput {
 #[cfg(feature = "op_put_dedicated_ip_pool_scaling_attributes")]
 impl PutDedicatedIpPoolScalingAttributesInput {
     /// Creates a new builder-style object to manufacture [`PutDedicatedIpPoolScalingAttributesInput`](crate::operation::put_dedicated_ip_pool_scaling_attributes::PutDedicatedIpPoolScalingAttributesInput).
-    pub fn builder() -> crate::operation::put_dedicated_ip_pool_scaling_attributes::builders::PutDedicatedIpPoolScalingAttributesInputBuilder{
+    pub fn builder() -> crate::operation::put_dedicated_ip_pool_scaling_attributes::builders::PutDedicatedIpPoolScalingAttributesInputBuilder {
         crate::operation::put_dedicated_ip_pool_scaling_attributes::builders::PutDedicatedIpPoolScalingAttributesInputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_put_dedicated_ip_pool_scaling_attributes")]
 /// A builder for [`PutDedicatedIpPoolScalingAttributesInput`](crate::operation::put_dedicated_ip_pool_scaling_attributes::PutDedicatedIpPoolScalingAttributesInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct PutDedicatedIpPoolScalingAttributesInputBuilder {
     pub(crate) pool_name: ::std::option::Option<::std::string::String>,
@@ -71,10 +69,7 @@ impl PutDedicatedIpPoolScalingAttributesInputBuilder {
     /// <p>The scaling mode to apply to the dedicated IP pool.</p><note>
     /// <p>Changing the scaling mode from <code>MANAGED</code> to <code>STANDARD</code> is not supported.</p>
     /// </note>
-    pub fn set_scaling_mode(
-        mut self,
-        input: ::std::option::Option<crate::types::ScalingMode>,
-    ) -> Self {
+    pub fn set_scaling_mode(mut self, input: ::std::option::Option<crate::types::ScalingMode>) -> Self {
         self.scaling_mode = input;
         self
     }
@@ -90,7 +85,7 @@ impl PutDedicatedIpPoolScalingAttributesInputBuilder {
     ) -> ::std::result::Result<
         crate::operation::put_dedicated_ip_pool_scaling_attributes::PutDedicatedIpPoolScalingAttributesInput,
         ::aws_smithy_types::error::operation::BuildError,
-    >{
+    > {
         ::std::result::Result::Ok(
             crate::operation::put_dedicated_ip_pool_scaling_attributes::PutDedicatedIpPoolScalingAttributesInput {
                 pool_name: self.pool_name,

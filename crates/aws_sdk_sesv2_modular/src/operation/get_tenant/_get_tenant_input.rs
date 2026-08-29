@@ -25,9 +25,7 @@ impl GetTenantInput {
 
 #[cfg(feature = "op_get_tenant")]
 /// A builder for [`GetTenantInput`](crate::operation::get_tenant::GetTenantInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct GetTenantInputBuilder {
     pub(crate) tenant_name: ::std::option::Option<::std::string::String>,
@@ -50,12 +48,7 @@ impl GetTenantInputBuilder {
         &self.tenant_name
     }
     /// Consumes the builder and constructs a [`GetTenantInput`](crate::operation::get_tenant::GetTenantInput).
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<
-        crate::operation::get_tenant::GetTenantInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    pub fn build(self) -> ::std::result::Result<crate::operation::get_tenant::GetTenantInput, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::operation::get_tenant::GetTenantInput {
             tenant_name: self.tenant_name,
         })

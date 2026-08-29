@@ -3,63 +3,85 @@
 #[non_exhaustive]
 #[derive(::std::fmt::Debug)]
 pub enum Error {
-    /// <p>The message can't be sent because the account's ability to send email has been permanently restricted.</p>
+    #[cfg(any(feature = "op_create_deliverability_test_report", feature = "op_send_bulk_email", feature = "op_send_email"))]
+/// <p>The message can't be sent because the account's ability to send email has been permanently restricted.</p>
     AccountSuspendedException(crate::types::error::AccountSuspendedException),
-    /// <p>The resource specified in your request already exists.</p>
+    #[cfg(any(feature = "op_create_configuration_set", feature = "op_create_configuration_set_event_destination", feature = "op_create_contact", feature = "op_create_contact_list", feature = "op_create_custom_verification_email_template", feature = "op_create_dedicated_ip_pool", feature = "op_create_email_identity", feature = "op_create_email_identity_policy", feature = "op_create_email_template", feature = "op_create_multi_region_endpoint", feature = "op_create_tenant", feature = "op_create_tenant_resource_association", feature = "op_put_deliverability_dashboard_option"))]
+/// <p>The resource specified in your request already exists.</p>
     AlreadyExistsException(crate::types::error::AlreadyExistsException),
-    /// <p>The input you provided is invalid.</p>
+    #[cfg(any(feature = "op_batch_get_metric_data", feature = "op_cancel_export_job", feature = "op_create_configuration_set", feature = "op_create_configuration_set_event_destination", feature = "op_create_contact", feature = "op_create_contact_list", feature = "op_create_custom_verification_email_template", feature = "op_create_dedicated_ip_pool", feature = "op_create_deliverability_test_report", feature = "op_create_email_identity", feature = "op_create_email_identity_policy", feature = "op_create_email_template", feature = "op_create_export_job", feature = "op_create_import_job", feature = "op_create_multi_region_endpoint", feature = "op_create_tenant", feature = "op_create_tenant_resource_association", feature = "op_delete_configuration_set", feature = "op_delete_configuration_set_event_destination", feature = "op_delete_contact", feature = "op_delete_contact_list", feature = "op_delete_custom_verification_email_template", feature = "op_delete_dedicated_ip_pool", feature = "op_delete_email_identity", feature = "op_delete_email_identity_policy", feature = "op_delete_email_template", feature = "op_delete_multi_region_endpoint", feature = "op_delete_suppressed_destination", feature = "op_delete_tenant", feature = "op_delete_tenant_resource_association", feature = "op_get_account", feature = "op_get_blacklist_reports", feature = "op_get_configuration_set", feature = "op_get_configuration_set_event_destinations", feature = "op_get_contact", feature = "op_get_contact_list", feature = "op_get_custom_verification_email_template", feature = "op_get_dedicated_ip", feature = "op_get_dedicated_ip_pool", feature = "op_get_dedicated_ips", feature = "op_get_deliverability_dashboard_options", feature = "op_get_deliverability_test_report", feature = "op_get_domain_deliverability_campaign", feature = "op_get_domain_statistics_report", feature = "op_get_email_address_insights", feature = "op_get_email_identity", feature = "op_get_email_identity_policies", feature = "op_get_email_template", feature = "op_get_export_job", feature = "op_get_import_job", feature = "op_get_message_insights", feature = "op_get_multi_region_endpoint", feature = "op_get_reputation_entity", feature = "op_get_suppressed_destination", feature = "op_get_tenant", feature = "op_list_configuration_sets", feature = "op_list_contact_lists", feature = "op_list_contacts", feature = "op_list_custom_verification_email_templates", feature = "op_list_dedicated_ip_pools", feature = "op_list_deliverability_test_reports", feature = "op_list_domain_deliverability_campaigns", feature = "op_list_email_identities", feature = "op_list_email_templates", feature = "op_list_export_jobs", feature = "op_list_import_jobs", feature = "op_list_multi_region_endpoints", feature = "op_list_recommendations", feature = "op_list_reputation_entities", feature = "op_list_resource_tenants", feature = "op_list_suppressed_destinations", feature = "op_list_tags_for_resource", feature = "op_list_tenant_resources", feature = "op_list_tenants", feature = "op_put_account_dedicated_ip_warmup_attributes", feature = "op_put_account_details", feature = "op_put_account_pricing_attributes", feature = "op_put_account_sending_attributes", feature = "op_put_account_suppression_attributes", feature = "op_put_account_vdm_attributes", feature = "op_put_configuration_set_archiving_options", feature = "op_put_configuration_set_delivery_options", feature = "op_put_configuration_set_reputation_options", feature = "op_put_configuration_set_sending_options", feature = "op_put_configuration_set_suppression_options", feature = "op_put_configuration_set_tracking_options", feature = "op_put_configuration_set_vdm_options", feature = "op_put_dedicated_ip_in_pool", feature = "op_put_dedicated_ip_pool_scaling_attributes", feature = "op_put_dedicated_ip_warmup_attributes", feature = "op_put_deliverability_dashboard_option", feature = "op_put_email_identity_configuration_set_attributes", feature = "op_put_email_identity_dkim_attributes", feature = "op_put_email_identity_dkim_signing_attributes", feature = "op_put_email_identity_feedback_attributes", feature = "op_put_email_identity_mail_from_attributes", feature = "op_put_suppressed_destination", feature = "op_put_tenant_suppression_attributes", feature = "op_send_bulk_email", feature = "op_send_custom_verification_email", feature = "op_send_email", feature = "op_tag_resource", feature = "op_test_render_email_template", feature = "op_untag_resource", feature = "op_update_configuration_set_event_destination", feature = "op_update_contact", feature = "op_update_contact_list", feature = "op_update_custom_verification_email_template", feature = "op_update_email_identity_policy", feature = "op_update_email_template", feature = "op_update_reputation_entity_customer_managed_status", feature = "op_update_reputation_entity_policy"))]
+/// <p>The input you provided is invalid.</p>
     BadRequestException(crate::types::error::BadRequestException),
-    /// <p>The resource is being modified by another operation or thread.</p>
+    #[cfg(any(feature = "op_create_configuration_set", feature = "op_create_dedicated_ip_pool", feature = "op_create_deliverability_test_report", feature = "op_create_email_identity", feature = "op_delete_configuration_set", feature = "op_delete_contact_list", feature = "op_delete_dedicated_ip_pool", feature = "op_delete_email_identity", feature = "op_delete_multi_region_endpoint", feature = "op_put_dedicated_ip_pool_scaling_attributes", feature = "op_tag_resource", feature = "op_untag_resource", feature = "op_update_contact", feature = "op_update_contact_list"))]
+/// <p>The resource is being modified by another operation or thread.</p>
     ConcurrentModificationException(crate::types::error::ConcurrentModificationException),
-    /// <p>If there is already an ongoing account details update under review.</p>
+    #[cfg(any(feature = "op_put_account_details", feature = "op_put_account_pricing_attributes", feature = "op_update_reputation_entity_customer_managed_status", feature = "op_update_reputation_entity_policy"))]
+/// <p>If there is already an ongoing account details update under review.</p>
     ConflictException(crate::types::error::ConflictException),
-    /// <p>The request couldn't be processed because an error occurred with the Amazon SES API v2.</p>
+    #[cfg(feature = "op_batch_get_metric_data")]
+/// <p>The request couldn't be processed because an error occurred with the Amazon SES API v2.</p>
     InternalServiceErrorException(crate::types::error::InternalServiceErrorException),
-    /// <p>The specified request includes an invalid or expired token.</p>
+    #[cfg(feature = "op_list_suppressed_destinations")]
+/// <p>The specified request includes an invalid or expired token.</p>
     InvalidNextTokenException(crate::types::error::InvalidNextTokenException),
-    /// <p>There are too many instances of the specified resource type.</p>
+    #[cfg(any(feature = "op_create_configuration_set", feature = "op_create_configuration_set_event_destination", feature = "op_create_contact_list", feature = "op_create_custom_verification_email_template", feature = "op_create_dedicated_ip_pool", feature = "op_create_deliverability_test_report", feature = "op_create_email_identity", feature = "op_create_email_identity_policy", feature = "op_create_email_template", feature = "op_create_export_job", feature = "op_create_import_job", feature = "op_create_multi_region_endpoint", feature = "op_create_tenant", feature = "op_get_deliverability_dashboard_options", feature = "op_put_deliverability_dashboard_option", feature = "op_send_bulk_email", feature = "op_send_custom_verification_email", feature = "op_send_email"))]
+/// <p>There are too many instances of the specified resource type.</p>
     LimitExceededException(crate::types::error::LimitExceededException),
-    /// <p>The message can't be sent because the sending domain isn't verified.</p>
+    #[cfg(any(feature = "op_create_deliverability_test_report", feature = "op_send_bulk_email", feature = "op_send_custom_verification_email", feature = "op_send_email"))]
+/// <p>The message can't be sent because the sending domain isn't verified.</p>
     MailFromDomainNotVerifiedException(crate::types::error::MailFromDomainNotVerifiedException),
-    /// <p>The message can't be sent because it contains invalid content.</p>
+    #[cfg(any(feature = "op_create_deliverability_test_report", feature = "op_send_bulk_email", feature = "op_send_custom_verification_email", feature = "op_send_email"))]
+/// <p>The message can't be sent because it contains invalid content.</p>
     MessageRejected(crate::types::error::MessageRejected),
-    /// <p>The resource you attempted to access doesn't exist.</p>
+    #[cfg(any(feature = "op_batch_get_metric_data", feature = "op_cancel_export_job", feature = "op_create_configuration_set", feature = "op_create_configuration_set_event_destination", feature = "op_create_contact", feature = "op_create_custom_verification_email_template", feature = "op_create_deliverability_test_report", feature = "op_create_email_identity", feature = "op_create_email_identity_policy", feature = "op_create_export_job", feature = "op_create_tenant_resource_association", feature = "op_delete_configuration_set", feature = "op_delete_configuration_set_event_destination", feature = "op_delete_contact", feature = "op_delete_contact_list", feature = "op_delete_custom_verification_email_template", feature = "op_delete_dedicated_ip_pool", feature = "op_delete_email_identity", feature = "op_delete_email_identity_policy", feature = "op_delete_email_template", feature = "op_delete_multi_region_endpoint", feature = "op_delete_suppressed_destination", feature = "op_delete_tenant", feature = "op_delete_tenant_resource_association", feature = "op_get_blacklist_reports", feature = "op_get_configuration_set", feature = "op_get_configuration_set_event_destinations", feature = "op_get_contact", feature = "op_get_contact_list", feature = "op_get_custom_verification_email_template", feature = "op_get_dedicated_ip", feature = "op_get_dedicated_ip_pool", feature = "op_get_dedicated_ips", feature = "op_get_deliverability_test_report", feature = "op_get_domain_deliverability_campaign", feature = "op_get_domain_statistics_report", feature = "op_get_email_identity", feature = "op_get_email_identity_policies", feature = "op_get_email_template", feature = "op_get_export_job", feature = "op_get_import_job", feature = "op_get_message_insights", feature = "op_get_multi_region_endpoint", feature = "op_get_reputation_entity", feature = "op_get_suppressed_destination", feature = "op_get_tenant", feature = "op_list_contacts", feature = "op_list_deliverability_test_reports", feature = "op_list_domain_deliverability_campaigns", feature = "op_list_recommendations", feature = "op_list_resource_tenants", feature = "op_list_suppressed_destinations", feature = "op_list_tags_for_resource", feature = "op_list_tenant_resources", feature = "op_put_configuration_set_archiving_options", feature = "op_put_configuration_set_delivery_options", feature = "op_put_configuration_set_reputation_options", feature = "op_put_configuration_set_sending_options", feature = "op_put_configuration_set_suppression_options", feature = "op_put_configuration_set_tracking_options", feature = "op_put_configuration_set_vdm_options", feature = "op_put_dedicated_ip_in_pool", feature = "op_put_dedicated_ip_pool_scaling_attributes", feature = "op_put_dedicated_ip_warmup_attributes", feature = "op_put_deliverability_dashboard_option", feature = "op_put_email_identity_configuration_set_attributes", feature = "op_put_email_identity_dkim_attributes", feature = "op_put_email_identity_dkim_signing_attributes", feature = "op_put_email_identity_feedback_attributes", feature = "op_put_email_identity_mail_from_attributes", feature = "op_put_suppressed_destination", feature = "op_put_tenant_suppression_attributes", feature = "op_send_bulk_email", feature = "op_send_custom_verification_email", feature = "op_send_email", feature = "op_tag_resource", feature = "op_test_render_email_template", feature = "op_untag_resource", feature = "op_update_configuration_set_event_destination", feature = "op_update_contact", feature = "op_update_contact_list", feature = "op_update_custom_verification_email_template", feature = "op_update_email_identity_policy", feature = "op_update_email_template"))]
+/// <p>The resource you attempted to access doesn't exist.</p>
     NotFoundException(crate::types::error::NotFoundException),
-    /// <p>The message can't be sent because the account's ability to send email is currently paused.</p>
+    #[cfg(any(feature = "op_create_deliverability_test_report", feature = "op_send_bulk_email", feature = "op_send_custom_verification_email", feature = "op_send_email"))]
+/// <p>The message can't be sent because the account's ability to send email is currently paused.</p>
     SendingPausedException(crate::types::error::SendingPausedException),
-    /// <p>Too many requests have been made to the operation.</p>
+    #[cfg(any(feature = "op_batch_get_metric_data", feature = "op_cancel_export_job", feature = "op_create_configuration_set", feature = "op_create_configuration_set_event_destination", feature = "op_create_contact", feature = "op_create_contact_list", feature = "op_create_custom_verification_email_template", feature = "op_create_dedicated_ip_pool", feature = "op_create_deliverability_test_report", feature = "op_create_email_identity", feature = "op_create_email_identity_policy", feature = "op_create_email_template", feature = "op_create_export_job", feature = "op_create_import_job", feature = "op_create_multi_region_endpoint", feature = "op_create_tenant", feature = "op_create_tenant_resource_association", feature = "op_delete_configuration_set", feature = "op_delete_configuration_set_event_destination", feature = "op_delete_contact", feature = "op_delete_contact_list", feature = "op_delete_custom_verification_email_template", feature = "op_delete_dedicated_ip_pool", feature = "op_delete_email_identity", feature = "op_delete_email_identity_policy", feature = "op_delete_email_template", feature = "op_delete_multi_region_endpoint", feature = "op_delete_suppressed_destination", feature = "op_delete_tenant", feature = "op_delete_tenant_resource_association", feature = "op_get_account", feature = "op_get_blacklist_reports", feature = "op_get_configuration_set", feature = "op_get_configuration_set_event_destinations", feature = "op_get_contact", feature = "op_get_contact_list", feature = "op_get_custom_verification_email_template", feature = "op_get_dedicated_ip", feature = "op_get_dedicated_ip_pool", feature = "op_get_dedicated_ips", feature = "op_get_deliverability_dashboard_options", feature = "op_get_deliverability_test_report", feature = "op_get_domain_deliverability_campaign", feature = "op_get_domain_statistics_report", feature = "op_get_email_address_insights", feature = "op_get_email_identity", feature = "op_get_email_identity_policies", feature = "op_get_email_template", feature = "op_get_export_job", feature = "op_get_import_job", feature = "op_get_message_insights", feature = "op_get_multi_region_endpoint", feature = "op_get_reputation_entity", feature = "op_get_suppressed_destination", feature = "op_get_tenant", feature = "op_list_configuration_sets", feature = "op_list_contact_lists", feature = "op_list_contacts", feature = "op_list_custom_verification_email_templates", feature = "op_list_dedicated_ip_pools", feature = "op_list_deliverability_test_reports", feature = "op_list_domain_deliverability_campaigns", feature = "op_list_email_identities", feature = "op_list_email_templates", feature = "op_list_export_jobs", feature = "op_list_import_jobs", feature = "op_list_multi_region_endpoints", feature = "op_list_recommendations", feature = "op_list_reputation_entities", feature = "op_list_resource_tenants", feature = "op_list_suppressed_destinations", feature = "op_list_tags_for_resource", feature = "op_list_tenant_resources", feature = "op_list_tenants", feature = "op_put_account_dedicated_ip_warmup_attributes", feature = "op_put_account_details", feature = "op_put_account_pricing_attributes", feature = "op_put_account_sending_attributes", feature = "op_put_account_suppression_attributes", feature = "op_put_account_vdm_attributes", feature = "op_put_configuration_set_archiving_options", feature = "op_put_configuration_set_delivery_options", feature = "op_put_configuration_set_reputation_options", feature = "op_put_configuration_set_sending_options", feature = "op_put_configuration_set_suppression_options", feature = "op_put_configuration_set_tracking_options", feature = "op_put_configuration_set_vdm_options", feature = "op_put_dedicated_ip_in_pool", feature = "op_put_dedicated_ip_pool_scaling_attributes", feature = "op_put_dedicated_ip_warmup_attributes", feature = "op_put_deliverability_dashboard_option", feature = "op_put_email_identity_configuration_set_attributes", feature = "op_put_email_identity_dkim_attributes", feature = "op_put_email_identity_dkim_signing_attributes", feature = "op_put_email_identity_feedback_attributes", feature = "op_put_email_identity_mail_from_attributes", feature = "op_put_suppressed_destination", feature = "op_put_tenant_suppression_attributes", feature = "op_send_bulk_email", feature = "op_send_custom_verification_email", feature = "op_send_email", feature = "op_tag_resource", feature = "op_test_render_email_template", feature = "op_untag_resource", feature = "op_update_configuration_set_event_destination", feature = "op_update_contact", feature = "op_update_contact_list", feature = "op_update_custom_verification_email_template", feature = "op_update_email_identity_policy", feature = "op_update_email_template", feature = "op_update_reputation_entity_customer_managed_status", feature = "op_update_reputation_entity_policy"))]
+/// <p>Too many requests have been made to the operation.</p>
     TooManyRequestsException(crate::types::error::TooManyRequestsException),
     /// An unexpected error occurred (e.g., invalid JSON returned by the service or an unknown error code).
-    #[deprecated(
-        note = "Matching `Unhandled` directly is not forwards compatible. Instead, match using a \
+    #[deprecated(note = "Matching `Unhandled` directly is not forwards compatible. Instead, match using a \
     variable wildcard pattern and check `.code()`:
      \
     &nbsp;&nbsp;&nbsp;`err if err.code() == Some(\"SpecificExceptionCode\") => { /* handle the error */ }`
      \
-    See [`ProvideErrorMetadata`](#impl-ProvideErrorMetadata-for-Error) for what information is available for the error."
-    )]
+    See [`ProvideErrorMetadata`](#impl-ProvideErrorMetadata-for-Error) for what information is available for the error.")]
     Unhandled(crate::error::sealed_unhandled::Unhandled),
 }
 impl ::std::fmt::Display for Error {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         match self {
-            Error::AccountSuspendedException(inner) => inner.fmt(f),
-            Error::AlreadyExistsException(inner) => inner.fmt(f),
-            Error::BadRequestException(inner) => inner.fmt(f),
-            Error::ConcurrentModificationException(inner) => inner.fmt(f),
-            Error::ConflictException(inner) => inner.fmt(f),
-            Error::InternalServiceErrorException(inner) => inner.fmt(f),
-            Error::InvalidNextTokenException(inner) => inner.fmt(f),
-            Error::LimitExceededException(inner) => inner.fmt(f),
-            Error::MailFromDomainNotVerifiedException(inner) => inner.fmt(f),
-            Error::MessageRejected(inner) => inner.fmt(f),
-            Error::NotFoundException(inner) => inner.fmt(f),
-            Error::SendingPausedException(inner) => inner.fmt(f),
-            Error::TooManyRequestsException(inner) => inner.fmt(f),
+            #[cfg(any(feature = "op_create_deliverability_test_report", feature = "op_send_bulk_email", feature = "op_send_email"))]
+Error::AccountSuspendedException(inner) => inner.fmt(f),
+            #[cfg(any(feature = "op_create_configuration_set", feature = "op_create_configuration_set_event_destination", feature = "op_create_contact", feature = "op_create_contact_list", feature = "op_create_custom_verification_email_template", feature = "op_create_dedicated_ip_pool", feature = "op_create_email_identity", feature = "op_create_email_identity_policy", feature = "op_create_email_template", feature = "op_create_multi_region_endpoint", feature = "op_create_tenant", feature = "op_create_tenant_resource_association", feature = "op_put_deliverability_dashboard_option"))]
+Error::AlreadyExistsException(inner) => inner.fmt(f),
+            #[cfg(any(feature = "op_batch_get_metric_data", feature = "op_cancel_export_job", feature = "op_create_configuration_set", feature = "op_create_configuration_set_event_destination", feature = "op_create_contact", feature = "op_create_contact_list", feature = "op_create_custom_verification_email_template", feature = "op_create_dedicated_ip_pool", feature = "op_create_deliverability_test_report", feature = "op_create_email_identity", feature = "op_create_email_identity_policy", feature = "op_create_email_template", feature = "op_create_export_job", feature = "op_create_import_job", feature = "op_create_multi_region_endpoint", feature = "op_create_tenant", feature = "op_create_tenant_resource_association", feature = "op_delete_configuration_set", feature = "op_delete_configuration_set_event_destination", feature = "op_delete_contact", feature = "op_delete_contact_list", feature = "op_delete_custom_verification_email_template", feature = "op_delete_dedicated_ip_pool", feature = "op_delete_email_identity", feature = "op_delete_email_identity_policy", feature = "op_delete_email_template", feature = "op_delete_multi_region_endpoint", feature = "op_delete_suppressed_destination", feature = "op_delete_tenant", feature = "op_delete_tenant_resource_association", feature = "op_get_account", feature = "op_get_blacklist_reports", feature = "op_get_configuration_set", feature = "op_get_configuration_set_event_destinations", feature = "op_get_contact", feature = "op_get_contact_list", feature = "op_get_custom_verification_email_template", feature = "op_get_dedicated_ip", feature = "op_get_dedicated_ip_pool", feature = "op_get_dedicated_ips", feature = "op_get_deliverability_dashboard_options", feature = "op_get_deliverability_test_report", feature = "op_get_domain_deliverability_campaign", feature = "op_get_domain_statistics_report", feature = "op_get_email_address_insights", feature = "op_get_email_identity", feature = "op_get_email_identity_policies", feature = "op_get_email_template", feature = "op_get_export_job", feature = "op_get_import_job", feature = "op_get_message_insights", feature = "op_get_multi_region_endpoint", feature = "op_get_reputation_entity", feature = "op_get_suppressed_destination", feature = "op_get_tenant", feature = "op_list_configuration_sets", feature = "op_list_contact_lists", feature = "op_list_contacts", feature = "op_list_custom_verification_email_templates", feature = "op_list_dedicated_ip_pools", feature = "op_list_deliverability_test_reports", feature = "op_list_domain_deliverability_campaigns", feature = "op_list_email_identities", feature = "op_list_email_templates", feature = "op_list_export_jobs", feature = "op_list_import_jobs", feature = "op_list_multi_region_endpoints", feature = "op_list_recommendations", feature = "op_list_reputation_entities", feature = "op_list_resource_tenants", feature = "op_list_suppressed_destinations", feature = "op_list_tags_for_resource", feature = "op_list_tenant_resources", feature = "op_list_tenants", feature = "op_put_account_dedicated_ip_warmup_attributes", feature = "op_put_account_details", feature = "op_put_account_pricing_attributes", feature = "op_put_account_sending_attributes", feature = "op_put_account_suppression_attributes", feature = "op_put_account_vdm_attributes", feature = "op_put_configuration_set_archiving_options", feature = "op_put_configuration_set_delivery_options", feature = "op_put_configuration_set_reputation_options", feature = "op_put_configuration_set_sending_options", feature = "op_put_configuration_set_suppression_options", feature = "op_put_configuration_set_tracking_options", feature = "op_put_configuration_set_vdm_options", feature = "op_put_dedicated_ip_in_pool", feature = "op_put_dedicated_ip_pool_scaling_attributes", feature = "op_put_dedicated_ip_warmup_attributes", feature = "op_put_deliverability_dashboard_option", feature = "op_put_email_identity_configuration_set_attributes", feature = "op_put_email_identity_dkim_attributes", feature = "op_put_email_identity_dkim_signing_attributes", feature = "op_put_email_identity_feedback_attributes", feature = "op_put_email_identity_mail_from_attributes", feature = "op_put_suppressed_destination", feature = "op_put_tenant_suppression_attributes", feature = "op_send_bulk_email", feature = "op_send_custom_verification_email", feature = "op_send_email", feature = "op_tag_resource", feature = "op_test_render_email_template", feature = "op_untag_resource", feature = "op_update_configuration_set_event_destination", feature = "op_update_contact", feature = "op_update_contact_list", feature = "op_update_custom_verification_email_template", feature = "op_update_email_identity_policy", feature = "op_update_email_template", feature = "op_update_reputation_entity_customer_managed_status", feature = "op_update_reputation_entity_policy"))]
+Error::BadRequestException(inner) => inner.fmt(f),
+            #[cfg(any(feature = "op_create_configuration_set", feature = "op_create_dedicated_ip_pool", feature = "op_create_deliverability_test_report", feature = "op_create_email_identity", feature = "op_delete_configuration_set", feature = "op_delete_contact_list", feature = "op_delete_dedicated_ip_pool", feature = "op_delete_email_identity", feature = "op_delete_multi_region_endpoint", feature = "op_put_dedicated_ip_pool_scaling_attributes", feature = "op_tag_resource", feature = "op_untag_resource", feature = "op_update_contact", feature = "op_update_contact_list"))]
+Error::ConcurrentModificationException(inner) => inner.fmt(f),
+            #[cfg(any(feature = "op_put_account_details", feature = "op_put_account_pricing_attributes", feature = "op_update_reputation_entity_customer_managed_status", feature = "op_update_reputation_entity_policy"))]
+Error::ConflictException(inner) => inner.fmt(f),
+            #[cfg(feature = "op_batch_get_metric_data")]
+Error::InternalServiceErrorException(inner) => inner.fmt(f),
+            #[cfg(feature = "op_list_suppressed_destinations")]
+Error::InvalidNextTokenException(inner) => inner.fmt(f),
+            #[cfg(any(feature = "op_create_configuration_set", feature = "op_create_configuration_set_event_destination", feature = "op_create_contact_list", feature = "op_create_custom_verification_email_template", feature = "op_create_dedicated_ip_pool", feature = "op_create_deliverability_test_report", feature = "op_create_email_identity", feature = "op_create_email_identity_policy", feature = "op_create_email_template", feature = "op_create_export_job", feature = "op_create_import_job", feature = "op_create_multi_region_endpoint", feature = "op_create_tenant", feature = "op_get_deliverability_dashboard_options", feature = "op_put_deliverability_dashboard_option", feature = "op_send_bulk_email", feature = "op_send_custom_verification_email", feature = "op_send_email"))]
+Error::LimitExceededException(inner) => inner.fmt(f),
+            #[cfg(any(feature = "op_create_deliverability_test_report", feature = "op_send_bulk_email", feature = "op_send_custom_verification_email", feature = "op_send_email"))]
+Error::MailFromDomainNotVerifiedException(inner) => inner.fmt(f),
+            #[cfg(any(feature = "op_create_deliverability_test_report", feature = "op_send_bulk_email", feature = "op_send_custom_verification_email", feature = "op_send_email"))]
+Error::MessageRejected(inner) => inner.fmt(f),
+            #[cfg(any(feature = "op_batch_get_metric_data", feature = "op_cancel_export_job", feature = "op_create_configuration_set", feature = "op_create_configuration_set_event_destination", feature = "op_create_contact", feature = "op_create_custom_verification_email_template", feature = "op_create_deliverability_test_report", feature = "op_create_email_identity", feature = "op_create_email_identity_policy", feature = "op_create_export_job", feature = "op_create_tenant_resource_association", feature = "op_delete_configuration_set", feature = "op_delete_configuration_set_event_destination", feature = "op_delete_contact", feature = "op_delete_contact_list", feature = "op_delete_custom_verification_email_template", feature = "op_delete_dedicated_ip_pool", feature = "op_delete_email_identity", feature = "op_delete_email_identity_policy", feature = "op_delete_email_template", feature = "op_delete_multi_region_endpoint", feature = "op_delete_suppressed_destination", feature = "op_delete_tenant", feature = "op_delete_tenant_resource_association", feature = "op_get_blacklist_reports", feature = "op_get_configuration_set", feature = "op_get_configuration_set_event_destinations", feature = "op_get_contact", feature = "op_get_contact_list", feature = "op_get_custom_verification_email_template", feature = "op_get_dedicated_ip", feature = "op_get_dedicated_ip_pool", feature = "op_get_dedicated_ips", feature = "op_get_deliverability_test_report", feature = "op_get_domain_deliverability_campaign", feature = "op_get_domain_statistics_report", feature = "op_get_email_identity", feature = "op_get_email_identity_policies", feature = "op_get_email_template", feature = "op_get_export_job", feature = "op_get_import_job", feature = "op_get_message_insights", feature = "op_get_multi_region_endpoint", feature = "op_get_reputation_entity", feature = "op_get_suppressed_destination", feature = "op_get_tenant", feature = "op_list_contacts", feature = "op_list_deliverability_test_reports", feature = "op_list_domain_deliverability_campaigns", feature = "op_list_recommendations", feature = "op_list_resource_tenants", feature = "op_list_suppressed_destinations", feature = "op_list_tags_for_resource", feature = "op_list_tenant_resources", feature = "op_put_configuration_set_archiving_options", feature = "op_put_configuration_set_delivery_options", feature = "op_put_configuration_set_reputation_options", feature = "op_put_configuration_set_sending_options", feature = "op_put_configuration_set_suppression_options", feature = "op_put_configuration_set_tracking_options", feature = "op_put_configuration_set_vdm_options", feature = "op_put_dedicated_ip_in_pool", feature = "op_put_dedicated_ip_pool_scaling_attributes", feature = "op_put_dedicated_ip_warmup_attributes", feature = "op_put_deliverability_dashboard_option", feature = "op_put_email_identity_configuration_set_attributes", feature = "op_put_email_identity_dkim_attributes", feature = "op_put_email_identity_dkim_signing_attributes", feature = "op_put_email_identity_feedback_attributes", feature = "op_put_email_identity_mail_from_attributes", feature = "op_put_suppressed_destination", feature = "op_put_tenant_suppression_attributes", feature = "op_send_bulk_email", feature = "op_send_custom_verification_email", feature = "op_send_email", feature = "op_tag_resource", feature = "op_test_render_email_template", feature = "op_untag_resource", feature = "op_update_configuration_set_event_destination", feature = "op_update_contact", feature = "op_update_contact_list", feature = "op_update_custom_verification_email_template", feature = "op_update_email_identity_policy", feature = "op_update_email_template"))]
+Error::NotFoundException(inner) => inner.fmt(f),
+            #[cfg(any(feature = "op_create_deliverability_test_report", feature = "op_send_bulk_email", feature = "op_send_custom_verification_email", feature = "op_send_email"))]
+Error::SendingPausedException(inner) => inner.fmt(f),
+            #[cfg(any(feature = "op_batch_get_metric_data", feature = "op_cancel_export_job", feature = "op_create_configuration_set", feature = "op_create_configuration_set_event_destination", feature = "op_create_contact", feature = "op_create_contact_list", feature = "op_create_custom_verification_email_template", feature = "op_create_dedicated_ip_pool", feature = "op_create_deliverability_test_report", feature = "op_create_email_identity", feature = "op_create_email_identity_policy", feature = "op_create_email_template", feature = "op_create_export_job", feature = "op_create_import_job", feature = "op_create_multi_region_endpoint", feature = "op_create_tenant", feature = "op_create_tenant_resource_association", feature = "op_delete_configuration_set", feature = "op_delete_configuration_set_event_destination", feature = "op_delete_contact", feature = "op_delete_contact_list", feature = "op_delete_custom_verification_email_template", feature = "op_delete_dedicated_ip_pool", feature = "op_delete_email_identity", feature = "op_delete_email_identity_policy", feature = "op_delete_email_template", feature = "op_delete_multi_region_endpoint", feature = "op_delete_suppressed_destination", feature = "op_delete_tenant", feature = "op_delete_tenant_resource_association", feature = "op_get_account", feature = "op_get_blacklist_reports", feature = "op_get_configuration_set", feature = "op_get_configuration_set_event_destinations", feature = "op_get_contact", feature = "op_get_contact_list", feature = "op_get_custom_verification_email_template", feature = "op_get_dedicated_ip", feature = "op_get_dedicated_ip_pool", feature = "op_get_dedicated_ips", feature = "op_get_deliverability_dashboard_options", feature = "op_get_deliverability_test_report", feature = "op_get_domain_deliverability_campaign", feature = "op_get_domain_statistics_report", feature = "op_get_email_address_insights", feature = "op_get_email_identity", feature = "op_get_email_identity_policies", feature = "op_get_email_template", feature = "op_get_export_job", feature = "op_get_import_job", feature = "op_get_message_insights", feature = "op_get_multi_region_endpoint", feature = "op_get_reputation_entity", feature = "op_get_suppressed_destination", feature = "op_get_tenant", feature = "op_list_configuration_sets", feature = "op_list_contact_lists", feature = "op_list_contacts", feature = "op_list_custom_verification_email_templates", feature = "op_list_dedicated_ip_pools", feature = "op_list_deliverability_test_reports", feature = "op_list_domain_deliverability_campaigns", feature = "op_list_email_identities", feature = "op_list_email_templates", feature = "op_list_export_jobs", feature = "op_list_import_jobs", feature = "op_list_multi_region_endpoints", feature = "op_list_recommendations", feature = "op_list_reputation_entities", feature = "op_list_resource_tenants", feature = "op_list_suppressed_destinations", feature = "op_list_tags_for_resource", feature = "op_list_tenant_resources", feature = "op_list_tenants", feature = "op_put_account_dedicated_ip_warmup_attributes", feature = "op_put_account_details", feature = "op_put_account_pricing_attributes", feature = "op_put_account_sending_attributes", feature = "op_put_account_suppression_attributes", feature = "op_put_account_vdm_attributes", feature = "op_put_configuration_set_archiving_options", feature = "op_put_configuration_set_delivery_options", feature = "op_put_configuration_set_reputation_options", feature = "op_put_configuration_set_sending_options", feature = "op_put_configuration_set_suppression_options", feature = "op_put_configuration_set_tracking_options", feature = "op_put_configuration_set_vdm_options", feature = "op_put_dedicated_ip_in_pool", feature = "op_put_dedicated_ip_pool_scaling_attributes", feature = "op_put_dedicated_ip_warmup_attributes", feature = "op_put_deliverability_dashboard_option", feature = "op_put_email_identity_configuration_set_attributes", feature = "op_put_email_identity_dkim_attributes", feature = "op_put_email_identity_dkim_signing_attributes", feature = "op_put_email_identity_feedback_attributes", feature = "op_put_email_identity_mail_from_attributes", feature = "op_put_suppressed_destination", feature = "op_put_tenant_suppression_attributes", feature = "op_send_bulk_email", feature = "op_send_custom_verification_email", feature = "op_send_email", feature = "op_tag_resource", feature = "op_test_render_email_template", feature = "op_untag_resource", feature = "op_update_configuration_set_event_destination", feature = "op_update_contact", feature = "op_update_contact_list", feature = "op_update_custom_verification_email_template", feature = "op_update_email_identity_policy", feature = "op_update_email_template", feature = "op_update_reputation_entity_customer_managed_status", feature = "op_update_reputation_entity_policy"))]
+Error::TooManyRequestsException(inner) => inner.fmt(f),
             Error::Unhandled(_) => {
-                if let ::std::option::Option::Some(code) =
-                    ::aws_smithy_types::error::metadata::ProvideErrorMetadata::code(self)
-                {
+                if let ::std::option::Option::Some(code) = ::aws_smithy_types::error::metadata::ProvideErrorMetadata::code(self) {
                     write!(f, "unhandled error ({code})")
                 } else {
                     f.write_str("unhandled error")
@@ -79,44 +101,44 @@ impl From<::aws_smithy_types::error::operation::BuildError> for Error {
 impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata for Error {
     fn meta(&self) -> &::aws_smithy_types::error::metadata::ErrorMetadata {
         match self {
-            Self::AccountSuspendedException(inner) => inner.meta(),
-            Self::AlreadyExistsException(inner) => inner.meta(),
-            Self::BadRequestException(inner) => inner.meta(),
-            Self::ConcurrentModificationException(inner) => inner.meta(),
-            Self::ConflictException(inner) => inner.meta(),
-            Self::InternalServiceErrorException(inner) => inner.meta(),
-            Self::InvalidNextTokenException(inner) => inner.meta(),
-            Self::LimitExceededException(inner) => inner.meta(),
-            Self::MailFromDomainNotVerifiedException(inner) => inner.meta(),
-            Self::MessageRejected(inner) => inner.meta(),
-            Self::NotFoundException(inner) => inner.meta(),
-            Self::SendingPausedException(inner) => inner.meta(),
-            Self::TooManyRequestsException(inner) => inner.meta(),
+            #[cfg(any(feature = "op_create_deliverability_test_report", feature = "op_send_bulk_email", feature = "op_send_email"))]
+Self::AccountSuspendedException(inner) => inner.meta(),
+            #[cfg(any(feature = "op_create_configuration_set", feature = "op_create_configuration_set_event_destination", feature = "op_create_contact", feature = "op_create_contact_list", feature = "op_create_custom_verification_email_template", feature = "op_create_dedicated_ip_pool", feature = "op_create_email_identity", feature = "op_create_email_identity_policy", feature = "op_create_email_template", feature = "op_create_multi_region_endpoint", feature = "op_create_tenant", feature = "op_create_tenant_resource_association", feature = "op_put_deliverability_dashboard_option"))]
+Self::AlreadyExistsException(inner) => inner.meta(),
+            #[cfg(any(feature = "op_batch_get_metric_data", feature = "op_cancel_export_job", feature = "op_create_configuration_set", feature = "op_create_configuration_set_event_destination", feature = "op_create_contact", feature = "op_create_contact_list", feature = "op_create_custom_verification_email_template", feature = "op_create_dedicated_ip_pool", feature = "op_create_deliverability_test_report", feature = "op_create_email_identity", feature = "op_create_email_identity_policy", feature = "op_create_email_template", feature = "op_create_export_job", feature = "op_create_import_job", feature = "op_create_multi_region_endpoint", feature = "op_create_tenant", feature = "op_create_tenant_resource_association", feature = "op_delete_configuration_set", feature = "op_delete_configuration_set_event_destination", feature = "op_delete_contact", feature = "op_delete_contact_list", feature = "op_delete_custom_verification_email_template", feature = "op_delete_dedicated_ip_pool", feature = "op_delete_email_identity", feature = "op_delete_email_identity_policy", feature = "op_delete_email_template", feature = "op_delete_multi_region_endpoint", feature = "op_delete_suppressed_destination", feature = "op_delete_tenant", feature = "op_delete_tenant_resource_association", feature = "op_get_account", feature = "op_get_blacklist_reports", feature = "op_get_configuration_set", feature = "op_get_configuration_set_event_destinations", feature = "op_get_contact", feature = "op_get_contact_list", feature = "op_get_custom_verification_email_template", feature = "op_get_dedicated_ip", feature = "op_get_dedicated_ip_pool", feature = "op_get_dedicated_ips", feature = "op_get_deliverability_dashboard_options", feature = "op_get_deliverability_test_report", feature = "op_get_domain_deliverability_campaign", feature = "op_get_domain_statistics_report", feature = "op_get_email_address_insights", feature = "op_get_email_identity", feature = "op_get_email_identity_policies", feature = "op_get_email_template", feature = "op_get_export_job", feature = "op_get_import_job", feature = "op_get_message_insights", feature = "op_get_multi_region_endpoint", feature = "op_get_reputation_entity", feature = "op_get_suppressed_destination", feature = "op_get_tenant", feature = "op_list_configuration_sets", feature = "op_list_contact_lists", feature = "op_list_contacts", feature = "op_list_custom_verification_email_templates", feature = "op_list_dedicated_ip_pools", feature = "op_list_deliverability_test_reports", feature = "op_list_domain_deliverability_campaigns", feature = "op_list_email_identities", feature = "op_list_email_templates", feature = "op_list_export_jobs", feature = "op_list_import_jobs", feature = "op_list_multi_region_endpoints", feature = "op_list_recommendations", feature = "op_list_reputation_entities", feature = "op_list_resource_tenants", feature = "op_list_suppressed_destinations", feature = "op_list_tags_for_resource", feature = "op_list_tenant_resources", feature = "op_list_tenants", feature = "op_put_account_dedicated_ip_warmup_attributes", feature = "op_put_account_details", feature = "op_put_account_pricing_attributes", feature = "op_put_account_sending_attributes", feature = "op_put_account_suppression_attributes", feature = "op_put_account_vdm_attributes", feature = "op_put_configuration_set_archiving_options", feature = "op_put_configuration_set_delivery_options", feature = "op_put_configuration_set_reputation_options", feature = "op_put_configuration_set_sending_options", feature = "op_put_configuration_set_suppression_options", feature = "op_put_configuration_set_tracking_options", feature = "op_put_configuration_set_vdm_options", feature = "op_put_dedicated_ip_in_pool", feature = "op_put_dedicated_ip_pool_scaling_attributes", feature = "op_put_dedicated_ip_warmup_attributes", feature = "op_put_deliverability_dashboard_option", feature = "op_put_email_identity_configuration_set_attributes", feature = "op_put_email_identity_dkim_attributes", feature = "op_put_email_identity_dkim_signing_attributes", feature = "op_put_email_identity_feedback_attributes", feature = "op_put_email_identity_mail_from_attributes", feature = "op_put_suppressed_destination", feature = "op_put_tenant_suppression_attributes", feature = "op_send_bulk_email", feature = "op_send_custom_verification_email", feature = "op_send_email", feature = "op_tag_resource", feature = "op_test_render_email_template", feature = "op_untag_resource", feature = "op_update_configuration_set_event_destination", feature = "op_update_contact", feature = "op_update_contact_list", feature = "op_update_custom_verification_email_template", feature = "op_update_email_identity_policy", feature = "op_update_email_template", feature = "op_update_reputation_entity_customer_managed_status", feature = "op_update_reputation_entity_policy"))]
+Self::BadRequestException(inner) => inner.meta(),
+            #[cfg(any(feature = "op_create_configuration_set", feature = "op_create_dedicated_ip_pool", feature = "op_create_deliverability_test_report", feature = "op_create_email_identity", feature = "op_delete_configuration_set", feature = "op_delete_contact_list", feature = "op_delete_dedicated_ip_pool", feature = "op_delete_email_identity", feature = "op_delete_multi_region_endpoint", feature = "op_put_dedicated_ip_pool_scaling_attributes", feature = "op_tag_resource", feature = "op_untag_resource", feature = "op_update_contact", feature = "op_update_contact_list"))]
+Self::ConcurrentModificationException(inner) => inner.meta(),
+            #[cfg(any(feature = "op_put_account_details", feature = "op_put_account_pricing_attributes", feature = "op_update_reputation_entity_customer_managed_status", feature = "op_update_reputation_entity_policy"))]
+Self::ConflictException(inner) => inner.meta(),
+            #[cfg(feature = "op_batch_get_metric_data")]
+Self::InternalServiceErrorException(inner) => inner.meta(),
+            #[cfg(feature = "op_list_suppressed_destinations")]
+Self::InvalidNextTokenException(inner) => inner.meta(),
+            #[cfg(any(feature = "op_create_configuration_set", feature = "op_create_configuration_set_event_destination", feature = "op_create_contact_list", feature = "op_create_custom_verification_email_template", feature = "op_create_dedicated_ip_pool", feature = "op_create_deliverability_test_report", feature = "op_create_email_identity", feature = "op_create_email_identity_policy", feature = "op_create_email_template", feature = "op_create_export_job", feature = "op_create_import_job", feature = "op_create_multi_region_endpoint", feature = "op_create_tenant", feature = "op_get_deliverability_dashboard_options", feature = "op_put_deliverability_dashboard_option", feature = "op_send_bulk_email", feature = "op_send_custom_verification_email", feature = "op_send_email"))]
+Self::LimitExceededException(inner) => inner.meta(),
+            #[cfg(any(feature = "op_create_deliverability_test_report", feature = "op_send_bulk_email", feature = "op_send_custom_verification_email", feature = "op_send_email"))]
+Self::MailFromDomainNotVerifiedException(inner) => inner.meta(),
+            #[cfg(any(feature = "op_create_deliverability_test_report", feature = "op_send_bulk_email", feature = "op_send_custom_verification_email", feature = "op_send_email"))]
+Self::MessageRejected(inner) => inner.meta(),
+            #[cfg(any(feature = "op_batch_get_metric_data", feature = "op_cancel_export_job", feature = "op_create_configuration_set", feature = "op_create_configuration_set_event_destination", feature = "op_create_contact", feature = "op_create_custom_verification_email_template", feature = "op_create_deliverability_test_report", feature = "op_create_email_identity", feature = "op_create_email_identity_policy", feature = "op_create_export_job", feature = "op_create_tenant_resource_association", feature = "op_delete_configuration_set", feature = "op_delete_configuration_set_event_destination", feature = "op_delete_contact", feature = "op_delete_contact_list", feature = "op_delete_custom_verification_email_template", feature = "op_delete_dedicated_ip_pool", feature = "op_delete_email_identity", feature = "op_delete_email_identity_policy", feature = "op_delete_email_template", feature = "op_delete_multi_region_endpoint", feature = "op_delete_suppressed_destination", feature = "op_delete_tenant", feature = "op_delete_tenant_resource_association", feature = "op_get_blacklist_reports", feature = "op_get_configuration_set", feature = "op_get_configuration_set_event_destinations", feature = "op_get_contact", feature = "op_get_contact_list", feature = "op_get_custom_verification_email_template", feature = "op_get_dedicated_ip", feature = "op_get_dedicated_ip_pool", feature = "op_get_dedicated_ips", feature = "op_get_deliverability_test_report", feature = "op_get_domain_deliverability_campaign", feature = "op_get_domain_statistics_report", feature = "op_get_email_identity", feature = "op_get_email_identity_policies", feature = "op_get_email_template", feature = "op_get_export_job", feature = "op_get_import_job", feature = "op_get_message_insights", feature = "op_get_multi_region_endpoint", feature = "op_get_reputation_entity", feature = "op_get_suppressed_destination", feature = "op_get_tenant", feature = "op_list_contacts", feature = "op_list_deliverability_test_reports", feature = "op_list_domain_deliverability_campaigns", feature = "op_list_recommendations", feature = "op_list_resource_tenants", feature = "op_list_suppressed_destinations", feature = "op_list_tags_for_resource", feature = "op_list_tenant_resources", feature = "op_put_configuration_set_archiving_options", feature = "op_put_configuration_set_delivery_options", feature = "op_put_configuration_set_reputation_options", feature = "op_put_configuration_set_sending_options", feature = "op_put_configuration_set_suppression_options", feature = "op_put_configuration_set_tracking_options", feature = "op_put_configuration_set_vdm_options", feature = "op_put_dedicated_ip_in_pool", feature = "op_put_dedicated_ip_pool_scaling_attributes", feature = "op_put_dedicated_ip_warmup_attributes", feature = "op_put_deliverability_dashboard_option", feature = "op_put_email_identity_configuration_set_attributes", feature = "op_put_email_identity_dkim_attributes", feature = "op_put_email_identity_dkim_signing_attributes", feature = "op_put_email_identity_feedback_attributes", feature = "op_put_email_identity_mail_from_attributes", feature = "op_put_suppressed_destination", feature = "op_put_tenant_suppression_attributes", feature = "op_send_bulk_email", feature = "op_send_custom_verification_email", feature = "op_send_email", feature = "op_tag_resource", feature = "op_test_render_email_template", feature = "op_untag_resource", feature = "op_update_configuration_set_event_destination", feature = "op_update_contact", feature = "op_update_contact_list", feature = "op_update_custom_verification_email_template", feature = "op_update_email_identity_policy", feature = "op_update_email_template"))]
+Self::NotFoundException(inner) => inner.meta(),
+            #[cfg(any(feature = "op_create_deliverability_test_report", feature = "op_send_bulk_email", feature = "op_send_custom_verification_email", feature = "op_send_email"))]
+Self::SendingPausedException(inner) => inner.meta(),
+            #[cfg(any(feature = "op_batch_get_metric_data", feature = "op_cancel_export_job", feature = "op_create_configuration_set", feature = "op_create_configuration_set_event_destination", feature = "op_create_contact", feature = "op_create_contact_list", feature = "op_create_custom_verification_email_template", feature = "op_create_dedicated_ip_pool", feature = "op_create_deliverability_test_report", feature = "op_create_email_identity", feature = "op_create_email_identity_policy", feature = "op_create_email_template", feature = "op_create_export_job", feature = "op_create_import_job", feature = "op_create_multi_region_endpoint", feature = "op_create_tenant", feature = "op_create_tenant_resource_association", feature = "op_delete_configuration_set", feature = "op_delete_configuration_set_event_destination", feature = "op_delete_contact", feature = "op_delete_contact_list", feature = "op_delete_custom_verification_email_template", feature = "op_delete_dedicated_ip_pool", feature = "op_delete_email_identity", feature = "op_delete_email_identity_policy", feature = "op_delete_email_template", feature = "op_delete_multi_region_endpoint", feature = "op_delete_suppressed_destination", feature = "op_delete_tenant", feature = "op_delete_tenant_resource_association", feature = "op_get_account", feature = "op_get_blacklist_reports", feature = "op_get_configuration_set", feature = "op_get_configuration_set_event_destinations", feature = "op_get_contact", feature = "op_get_contact_list", feature = "op_get_custom_verification_email_template", feature = "op_get_dedicated_ip", feature = "op_get_dedicated_ip_pool", feature = "op_get_dedicated_ips", feature = "op_get_deliverability_dashboard_options", feature = "op_get_deliverability_test_report", feature = "op_get_domain_deliverability_campaign", feature = "op_get_domain_statistics_report", feature = "op_get_email_address_insights", feature = "op_get_email_identity", feature = "op_get_email_identity_policies", feature = "op_get_email_template", feature = "op_get_export_job", feature = "op_get_import_job", feature = "op_get_message_insights", feature = "op_get_multi_region_endpoint", feature = "op_get_reputation_entity", feature = "op_get_suppressed_destination", feature = "op_get_tenant", feature = "op_list_configuration_sets", feature = "op_list_contact_lists", feature = "op_list_contacts", feature = "op_list_custom_verification_email_templates", feature = "op_list_dedicated_ip_pools", feature = "op_list_deliverability_test_reports", feature = "op_list_domain_deliverability_campaigns", feature = "op_list_email_identities", feature = "op_list_email_templates", feature = "op_list_export_jobs", feature = "op_list_import_jobs", feature = "op_list_multi_region_endpoints", feature = "op_list_recommendations", feature = "op_list_reputation_entities", feature = "op_list_resource_tenants", feature = "op_list_suppressed_destinations", feature = "op_list_tags_for_resource", feature = "op_list_tenant_resources", feature = "op_list_tenants", feature = "op_put_account_dedicated_ip_warmup_attributes", feature = "op_put_account_details", feature = "op_put_account_pricing_attributes", feature = "op_put_account_sending_attributes", feature = "op_put_account_suppression_attributes", feature = "op_put_account_vdm_attributes", feature = "op_put_configuration_set_archiving_options", feature = "op_put_configuration_set_delivery_options", feature = "op_put_configuration_set_reputation_options", feature = "op_put_configuration_set_sending_options", feature = "op_put_configuration_set_suppression_options", feature = "op_put_configuration_set_tracking_options", feature = "op_put_configuration_set_vdm_options", feature = "op_put_dedicated_ip_in_pool", feature = "op_put_dedicated_ip_pool_scaling_attributes", feature = "op_put_dedicated_ip_warmup_attributes", feature = "op_put_deliverability_dashboard_option", feature = "op_put_email_identity_configuration_set_attributes", feature = "op_put_email_identity_dkim_attributes", feature = "op_put_email_identity_dkim_signing_attributes", feature = "op_put_email_identity_feedback_attributes", feature = "op_put_email_identity_mail_from_attributes", feature = "op_put_suppressed_destination", feature = "op_put_tenant_suppression_attributes", feature = "op_send_bulk_email", feature = "op_send_custom_verification_email", feature = "op_send_email", feature = "op_tag_resource", feature = "op_test_render_email_template", feature = "op_untag_resource", feature = "op_update_configuration_set_event_destination", feature = "op_update_contact", feature = "op_update_contact_list", feature = "op_update_custom_verification_email_template", feature = "op_update_email_identity_policy", feature = "op_update_email_template", feature = "op_update_reputation_entity_customer_managed_status", feature = "op_update_reputation_entity_policy"))]
+Self::TooManyRequestsException(inner) => inner.meta(),
             Self::Unhandled(inner) => &inner.meta,
         }
     }
 }
 #[cfg(feature = "op_batch_get_metric_data")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::batch_get_metric_data::BatchGetMetricDataError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::batch_get_metric_data::BatchGetMetricDataError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::batch_get_metric_data::BatchGetMetricDataError,
-            R,
-        >,
-    ) -> Self {
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::batch_get_metric_data::BatchGetMetricDataError, R>) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -141,26 +163,13 @@ impl From<crate::operation::batch_get_metric_data::BatchGetMetricDataError> for 
     }
 }
 #[cfg(feature = "op_cancel_export_job")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::cancel_export_job::CancelExportJobError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::cancel_export_job::CancelExportJobError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::cancel_export_job::CancelExportJobError,
-            R,
-        >,
-    ) -> Self {
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::cancel_export_job::CancelExportJobError, R>) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -172,42 +181,23 @@ where
 impl From<crate::operation::cancel_export_job::CancelExportJobError> for Error {
     fn from(err: crate::operation::cancel_export_job::CancelExportJobError) -> Self {
         match err {
-            crate::operation::cancel_export_job::CancelExportJobError::BadRequestException(
-                inner,
-            ) => Error::BadRequestException(inner),
-            crate::operation::cancel_export_job::CancelExportJobError::NotFoundException(inner) => {
-                Error::NotFoundException(inner)
-            }
-            crate::operation::cancel_export_job::CancelExportJobError::TooManyRequestsException(
-                inner,
-            ) => Error::TooManyRequestsException(inner),
-            crate::operation::cancel_export_job::CancelExportJobError::Unhandled(inner) => {
-                Error::Unhandled(inner)
-            }
+            crate::operation::cancel_export_job::CancelExportJobError::BadRequestException(inner) => Error::BadRequestException(inner),
+            crate::operation::cancel_export_job::CancelExportJobError::NotFoundException(inner) => Error::NotFoundException(inner),
+            crate::operation::cancel_export_job::CancelExportJobError::TooManyRequestsException(inner) => Error::TooManyRequestsException(inner),
+            crate::operation::cancel_export_job::CancelExportJobError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
 #[cfg(feature = "op_create_configuration_set")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::create_configuration_set::CreateConfigurationSetError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::create_configuration_set::CreateConfigurationSetError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
     fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::create_configuration_set::CreateConfigurationSetError,
-            R,
-        >,
+        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::create_configuration_set::CreateConfigurationSetError, R>,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -289,26 +279,13 @@ impl From<crate::operation::create_configuration_set_event_destination::CreateCo
     }
 }
 #[cfg(feature = "op_create_contact")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::create_contact::CreateContactError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::create_contact::CreateContactError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::create_contact::CreateContactError,
-            R,
-        >,
-    ) -> Self {
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::create_contact::CreateContactError, R>) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -320,45 +297,22 @@ where
 impl From<crate::operation::create_contact::CreateContactError> for Error {
     fn from(err: crate::operation::create_contact::CreateContactError) -> Self {
         match err {
-            crate::operation::create_contact::CreateContactError::AlreadyExistsException(inner) => {
-                Error::AlreadyExistsException(inner)
-            }
-            crate::operation::create_contact::CreateContactError::BadRequestException(inner) => {
-                Error::BadRequestException(inner)
-            }
-            crate::operation::create_contact::CreateContactError::NotFoundException(inner) => {
-                Error::NotFoundException(inner)
-            }
-            crate::operation::create_contact::CreateContactError::TooManyRequestsException(
-                inner,
-            ) => Error::TooManyRequestsException(inner),
-            crate::operation::create_contact::CreateContactError::Unhandled(inner) => {
-                Error::Unhandled(inner)
-            }
+            crate::operation::create_contact::CreateContactError::AlreadyExistsException(inner) => Error::AlreadyExistsException(inner),
+            crate::operation::create_contact::CreateContactError::BadRequestException(inner) => Error::BadRequestException(inner),
+            crate::operation::create_contact::CreateContactError::NotFoundException(inner) => Error::NotFoundException(inner),
+            crate::operation::create_contact::CreateContactError::TooManyRequestsException(inner) => Error::TooManyRequestsException(inner),
+            crate::operation::create_contact::CreateContactError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
 #[cfg(feature = "op_create_contact_list")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::create_contact_list::CreateContactListError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::create_contact_list::CreateContactListError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::create_contact_list::CreateContactListError,
-            R,
-        >,
-    ) -> Self {
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::create_contact_list::CreateContactListError, R>) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -430,26 +384,15 @@ impl From<crate::operation::create_custom_verification_email_template::CreateCus
     }
 }
 #[cfg(feature = "op_create_dedicated_ip_pool")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::create_dedicated_ip_pool::CreateDedicatedIpPoolError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::create_dedicated_ip_pool::CreateDedicatedIpPoolError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
     fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::create_dedicated_ip_pool::CreateDedicatedIpPoolError,
-            R,
-        >,
+        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::create_dedicated_ip_pool::CreateDedicatedIpPoolError, R>,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -505,12 +448,8 @@ where
     }
 }
 #[cfg(feature = "op_create_deliverability_test_report")]
-impl From<crate::operation::create_deliverability_test_report::CreateDeliverabilityTestReportError>
-    for Error
-{
-    fn from(
-        err: crate::operation::create_deliverability_test_report::CreateDeliverabilityTestReportError,
-    ) -> Self {
+impl From<crate::operation::create_deliverability_test_report::CreateDeliverabilityTestReportError> for Error {
+    fn from(err: crate::operation::create_deliverability_test_report::CreateDeliverabilityTestReportError) -> Self {
         match err {
             crate::operation::create_deliverability_test_report::CreateDeliverabilityTestReportError::AccountSuspendedException(inner) => {
                 Error::AccountSuspendedException(inner)
@@ -544,26 +483,13 @@ impl From<crate::operation::create_deliverability_test_report::CreateDeliverabil
     }
 }
 #[cfg(feature = "op_create_email_identity")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::create_email_identity::CreateEmailIdentityError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::create_email_identity::CreateEmailIdentityError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::create_email_identity::CreateEmailIdentityError,
-            R,
-        >,
-    ) -> Self {
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::create_email_identity::CreateEmailIdentityError, R>) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -590,26 +516,16 @@ impl From<crate::operation::create_email_identity::CreateEmailIdentityError> for
     }
 }
 #[cfg(feature = "op_create_email_identity_policy")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::create_email_identity_policy::CreateEmailIdentityPolicyError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::create_email_identity_policy::CreateEmailIdentityPolicyError, R>>
+    for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
     fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::create_email_identity_policy::CreateEmailIdentityPolicyError,
-            R,
-        >,
+        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::create_email_identity_policy::CreateEmailIdentityPolicyError, R>,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -618,12 +534,8 @@ where
     }
 }
 #[cfg(feature = "op_create_email_identity_policy")]
-impl From<crate::operation::create_email_identity_policy::CreateEmailIdentityPolicyError>
-    for Error
-{
-    fn from(
-        err: crate::operation::create_email_identity_policy::CreateEmailIdentityPolicyError,
-    ) -> Self {
+impl From<crate::operation::create_email_identity_policy::CreateEmailIdentityPolicyError> for Error {
+    fn from(err: crate::operation::create_email_identity_policy::CreateEmailIdentityPolicyError) -> Self {
         match err {
             crate::operation::create_email_identity_policy::CreateEmailIdentityPolicyError::AlreadyExistsException(inner) => {
                 Error::AlreadyExistsException(inner)
@@ -645,26 +557,13 @@ impl From<crate::operation::create_email_identity_policy::CreateEmailIdentityPol
     }
 }
 #[cfg(feature = "op_create_email_template")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::create_email_template::CreateEmailTemplateError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::create_email_template::CreateEmailTemplateError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::create_email_template::CreateEmailTemplateError,
-            R,
-        >,
-    ) -> Self {
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::create_email_template::CreateEmailTemplateError, R>) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -687,26 +586,13 @@ impl From<crate::operation::create_email_template::CreateEmailTemplateError> for
     }
 }
 #[cfg(feature = "op_create_export_job")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::create_export_job::CreateExportJobError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::create_export_job::CreateExportJobError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::create_export_job::CreateExportJobError,
-            R,
-        >,
-    ) -> Self {
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::create_export_job::CreateExportJobError, R>) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -718,45 +604,22 @@ where
 impl From<crate::operation::create_export_job::CreateExportJobError> for Error {
     fn from(err: crate::operation::create_export_job::CreateExportJobError) -> Self {
         match err {
-            crate::operation::create_export_job::CreateExportJobError::BadRequestException(
-                inner,
-            ) => Error::BadRequestException(inner),
-            crate::operation::create_export_job::CreateExportJobError::LimitExceededException(
-                inner,
-            ) => Error::LimitExceededException(inner),
-            crate::operation::create_export_job::CreateExportJobError::NotFoundException(inner) => {
-                Error::NotFoundException(inner)
-            }
-            crate::operation::create_export_job::CreateExportJobError::TooManyRequestsException(
-                inner,
-            ) => Error::TooManyRequestsException(inner),
-            crate::operation::create_export_job::CreateExportJobError::Unhandled(inner) => {
-                Error::Unhandled(inner)
-            }
+            crate::operation::create_export_job::CreateExportJobError::BadRequestException(inner) => Error::BadRequestException(inner),
+            crate::operation::create_export_job::CreateExportJobError::LimitExceededException(inner) => Error::LimitExceededException(inner),
+            crate::operation::create_export_job::CreateExportJobError::NotFoundException(inner) => Error::NotFoundException(inner),
+            crate::operation::create_export_job::CreateExportJobError::TooManyRequestsException(inner) => Error::TooManyRequestsException(inner),
+            crate::operation::create_export_job::CreateExportJobError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
 #[cfg(feature = "op_create_import_job")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::create_import_job::CreateImportJobError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::create_import_job::CreateImportJobError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::create_import_job::CreateImportJobError,
-            R,
-        >,
-    ) -> Self {
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::create_import_job::CreateImportJobError, R>) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -768,42 +631,24 @@ where
 impl From<crate::operation::create_import_job::CreateImportJobError> for Error {
     fn from(err: crate::operation::create_import_job::CreateImportJobError) -> Self {
         match err {
-            crate::operation::create_import_job::CreateImportJobError::BadRequestException(
-                inner,
-            ) => Error::BadRequestException(inner),
-            crate::operation::create_import_job::CreateImportJobError::LimitExceededException(
-                inner,
-            ) => Error::LimitExceededException(inner),
-            crate::operation::create_import_job::CreateImportJobError::TooManyRequestsException(
-                inner,
-            ) => Error::TooManyRequestsException(inner),
-            crate::operation::create_import_job::CreateImportJobError::Unhandled(inner) => {
-                Error::Unhandled(inner)
-            }
+            crate::operation::create_import_job::CreateImportJobError::BadRequestException(inner) => Error::BadRequestException(inner),
+            crate::operation::create_import_job::CreateImportJobError::LimitExceededException(inner) => Error::LimitExceededException(inner),
+            crate::operation::create_import_job::CreateImportJobError::TooManyRequestsException(inner) => Error::TooManyRequestsException(inner),
+            crate::operation::create_import_job::CreateImportJobError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
 #[cfg(feature = "op_create_multi_region_endpoint")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::create_multi_region_endpoint::CreateMultiRegionEndpointError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::create_multi_region_endpoint::CreateMultiRegionEndpointError, R>>
+    for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
     fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::create_multi_region_endpoint::CreateMultiRegionEndpointError,
-            R,
-        >,
+        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::create_multi_region_endpoint::CreateMultiRegionEndpointError, R>,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -812,12 +657,8 @@ where
     }
 }
 #[cfg(feature = "op_create_multi_region_endpoint")]
-impl From<crate::operation::create_multi_region_endpoint::CreateMultiRegionEndpointError>
-    for Error
-{
-    fn from(
-        err: crate::operation::create_multi_region_endpoint::CreateMultiRegionEndpointError,
-    ) -> Self {
+impl From<crate::operation::create_multi_region_endpoint::CreateMultiRegionEndpointError> for Error {
+    fn from(err: crate::operation::create_multi_region_endpoint::CreateMultiRegionEndpointError) -> Self {
         match err {
             crate::operation::create_multi_region_endpoint::CreateMultiRegionEndpointError::AlreadyExistsException(inner) => {
                 Error::AlreadyExistsException(inner)
@@ -836,26 +677,13 @@ impl From<crate::operation::create_multi_region_endpoint::CreateMultiRegionEndpo
     }
 }
 #[cfg(feature = "op_create_tenant")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::create_tenant::CreateTenantError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::create_tenant::CreateTenantError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::create_tenant::CreateTenantError,
-            R,
-        >,
-    ) -> Self {
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::create_tenant::CreateTenantError, R>) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -867,21 +695,11 @@ where
 impl From<crate::operation::create_tenant::CreateTenantError> for Error {
     fn from(err: crate::operation::create_tenant::CreateTenantError) -> Self {
         match err {
-            crate::operation::create_tenant::CreateTenantError::AlreadyExistsException(inner) => {
-                Error::AlreadyExistsException(inner)
-            }
-            crate::operation::create_tenant::CreateTenantError::BadRequestException(inner) => {
-                Error::BadRequestException(inner)
-            }
-            crate::operation::create_tenant::CreateTenantError::LimitExceededException(inner) => {
-                Error::LimitExceededException(inner)
-            }
-            crate::operation::create_tenant::CreateTenantError::TooManyRequestsException(inner) => {
-                Error::TooManyRequestsException(inner)
-            }
-            crate::operation::create_tenant::CreateTenantError::Unhandled(inner) => {
-                Error::Unhandled(inner)
-            }
+            crate::operation::create_tenant::CreateTenantError::AlreadyExistsException(inner) => Error::AlreadyExistsException(inner),
+            crate::operation::create_tenant::CreateTenantError::BadRequestException(inner) => Error::BadRequestException(inner),
+            crate::operation::create_tenant::CreateTenantError::LimitExceededException(inner) => Error::LimitExceededException(inner),
+            crate::operation::create_tenant::CreateTenantError::TooManyRequestsException(inner) => Error::TooManyRequestsException(inner),
+            crate::operation::create_tenant::CreateTenantError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
@@ -912,13 +730,8 @@ where
     }
 }
 #[cfg(feature = "op_create_tenant_resource_association")]
-impl
-    From<crate::operation::create_tenant_resource_association::CreateTenantResourceAssociationError>
-    for Error
-{
-    fn from(
-        err: crate::operation::create_tenant_resource_association::CreateTenantResourceAssociationError,
-    ) -> Self {
+impl From<crate::operation::create_tenant_resource_association::CreateTenantResourceAssociationError> for Error {
+    fn from(err: crate::operation::create_tenant_resource_association::CreateTenantResourceAssociationError) -> Self {
         match err {
             crate::operation::create_tenant_resource_association::CreateTenantResourceAssociationError::AlreadyExistsException(inner) => {
                 Error::AlreadyExistsException(inner)
@@ -937,26 +750,15 @@ impl
     }
 }
 #[cfg(feature = "op_delete_configuration_set")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::delete_configuration_set::DeleteConfigurationSetError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::delete_configuration_set::DeleteConfigurationSetError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
     fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::delete_configuration_set::DeleteConfigurationSetError,
-            R,
-        >,
+        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::delete_configuration_set::DeleteConfigurationSetError, R>,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -1026,26 +828,13 @@ impl From<crate::operation::delete_configuration_set_event_destination::DeleteCo
     }
 }
 #[cfg(feature = "op_delete_contact")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::delete_contact::DeleteContactError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::delete_contact::DeleteContactError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::delete_contact::DeleteContactError,
-            R,
-        >,
-    ) -> Self {
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::delete_contact::DeleteContactError, R>) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -1057,42 +846,21 @@ where
 impl From<crate::operation::delete_contact::DeleteContactError> for Error {
     fn from(err: crate::operation::delete_contact::DeleteContactError) -> Self {
         match err {
-            crate::operation::delete_contact::DeleteContactError::BadRequestException(inner) => {
-                Error::BadRequestException(inner)
-            }
-            crate::operation::delete_contact::DeleteContactError::NotFoundException(inner) => {
-                Error::NotFoundException(inner)
-            }
-            crate::operation::delete_contact::DeleteContactError::TooManyRequestsException(
-                inner,
-            ) => Error::TooManyRequestsException(inner),
-            crate::operation::delete_contact::DeleteContactError::Unhandled(inner) => {
-                Error::Unhandled(inner)
-            }
+            crate::operation::delete_contact::DeleteContactError::BadRequestException(inner) => Error::BadRequestException(inner),
+            crate::operation::delete_contact::DeleteContactError::NotFoundException(inner) => Error::NotFoundException(inner),
+            crate::operation::delete_contact::DeleteContactError::TooManyRequestsException(inner) => Error::TooManyRequestsException(inner),
+            crate::operation::delete_contact::DeleteContactError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
 #[cfg(feature = "op_delete_contact_list")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::delete_contact_list::DeleteContactListError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::delete_contact_list::DeleteContactListError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::delete_contact_list::DeleteContactListError,
-            R,
-        >,
-    ) -> Self {
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::delete_contact_list::DeleteContactListError, R>) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -1160,26 +928,15 @@ impl From<crate::operation::delete_custom_verification_email_template::DeleteCus
     }
 }
 #[cfg(feature = "op_delete_dedicated_ip_pool")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::delete_dedicated_ip_pool::DeleteDedicatedIpPoolError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::delete_dedicated_ip_pool::DeleteDedicatedIpPoolError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
     fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::delete_dedicated_ip_pool::DeleteDedicatedIpPoolError,
-            R,
-        >,
+        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::delete_dedicated_ip_pool::DeleteDedicatedIpPoolError, R>,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -1204,26 +961,13 @@ impl From<crate::operation::delete_dedicated_ip_pool::DeleteDedicatedIpPoolError
     }
 }
 #[cfg(feature = "op_delete_email_identity")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::delete_email_identity::DeleteEmailIdentityError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::delete_email_identity::DeleteEmailIdentityError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::delete_email_identity::DeleteEmailIdentityError,
-            R,
-        >,
-    ) -> Self {
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::delete_email_identity::DeleteEmailIdentityError, R>) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -1248,26 +992,16 @@ impl From<crate::operation::delete_email_identity::DeleteEmailIdentityError> for
     }
 }
 #[cfg(feature = "op_delete_email_identity_policy")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::delete_email_identity_policy::DeleteEmailIdentityPolicyError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::delete_email_identity_policy::DeleteEmailIdentityPolicyError, R>>
+    for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
     fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::delete_email_identity_policy::DeleteEmailIdentityPolicyError,
-            R,
-        >,
+        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::delete_email_identity_policy::DeleteEmailIdentityPolicyError, R>,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -1276,12 +1010,8 @@ where
     }
 }
 #[cfg(feature = "op_delete_email_identity_policy")]
-impl From<crate::operation::delete_email_identity_policy::DeleteEmailIdentityPolicyError>
-    for Error
-{
-    fn from(
-        err: crate::operation::delete_email_identity_policy::DeleteEmailIdentityPolicyError,
-    ) -> Self {
+impl From<crate::operation::delete_email_identity_policy::DeleteEmailIdentityPolicyError> for Error {
+    fn from(err: crate::operation::delete_email_identity_policy::DeleteEmailIdentityPolicyError) -> Self {
         match err {
             crate::operation::delete_email_identity_policy::DeleteEmailIdentityPolicyError::BadRequestException(inner) => {
                 Error::BadRequestException(inner)
@@ -1297,26 +1027,13 @@ impl From<crate::operation::delete_email_identity_policy::DeleteEmailIdentityPol
     }
 }
 #[cfg(feature = "op_delete_email_template")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::delete_email_template::DeleteEmailTemplateError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::delete_email_template::DeleteEmailTemplateError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::delete_email_template::DeleteEmailTemplateError,
-            R,
-        >,
-    ) -> Self {
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::delete_email_template::DeleteEmailTemplateError, R>) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -1338,26 +1055,16 @@ impl From<crate::operation::delete_email_template::DeleteEmailTemplateError> for
     }
 }
 #[cfg(feature = "op_delete_multi_region_endpoint")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::delete_multi_region_endpoint::DeleteMultiRegionEndpointError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::delete_multi_region_endpoint::DeleteMultiRegionEndpointError, R>>
+    for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
     fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::delete_multi_region_endpoint::DeleteMultiRegionEndpointError,
-            R,
-        >,
+        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::delete_multi_region_endpoint::DeleteMultiRegionEndpointError, R>,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -1366,12 +1073,8 @@ where
     }
 }
 #[cfg(feature = "op_delete_multi_region_endpoint")]
-impl From<crate::operation::delete_multi_region_endpoint::DeleteMultiRegionEndpointError>
-    for Error
-{
-    fn from(
-        err: crate::operation::delete_multi_region_endpoint::DeleteMultiRegionEndpointError,
-    ) -> Self {
+impl From<crate::operation::delete_multi_region_endpoint::DeleteMultiRegionEndpointError> for Error {
+    fn from(err: crate::operation::delete_multi_region_endpoint::DeleteMultiRegionEndpointError) -> Self {
         match err {
             crate::operation::delete_multi_region_endpoint::DeleteMultiRegionEndpointError::BadRequestException(inner) => {
                 Error::BadRequestException(inner)
@@ -1390,26 +1093,16 @@ impl From<crate::operation::delete_multi_region_endpoint::DeleteMultiRegionEndpo
     }
 }
 #[cfg(feature = "op_delete_suppressed_destination")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::delete_suppressed_destination::DeleteSuppressedDestinationError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::delete_suppressed_destination::DeleteSuppressedDestinationError, R>>
+    for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
     fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::delete_suppressed_destination::DeleteSuppressedDestinationError,
-            R,
-        >,
+        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::delete_suppressed_destination::DeleteSuppressedDestinationError, R>,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -1418,12 +1111,8 @@ where
     }
 }
 #[cfg(feature = "op_delete_suppressed_destination")]
-impl From<crate::operation::delete_suppressed_destination::DeleteSuppressedDestinationError>
-    for Error
-{
-    fn from(
-        err: crate::operation::delete_suppressed_destination::DeleteSuppressedDestinationError,
-    ) -> Self {
+impl From<crate::operation::delete_suppressed_destination::DeleteSuppressedDestinationError> for Error {
+    fn from(err: crate::operation::delete_suppressed_destination::DeleteSuppressedDestinationError) -> Self {
         match err {
             crate::operation::delete_suppressed_destination::DeleteSuppressedDestinationError::BadRequestException(inner) => {
                 Error::BadRequestException(inner)
@@ -1439,26 +1128,13 @@ impl From<crate::operation::delete_suppressed_destination::DeleteSuppressedDesti
     }
 }
 #[cfg(feature = "op_delete_tenant")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::delete_tenant::DeleteTenantError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::delete_tenant::DeleteTenantError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::delete_tenant::DeleteTenantError,
-            R,
-        >,
-    ) -> Self {
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::delete_tenant::DeleteTenantError, R>) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -1470,18 +1146,10 @@ where
 impl From<crate::operation::delete_tenant::DeleteTenantError> for Error {
     fn from(err: crate::operation::delete_tenant::DeleteTenantError) -> Self {
         match err {
-            crate::operation::delete_tenant::DeleteTenantError::BadRequestException(inner) => {
-                Error::BadRequestException(inner)
-            }
-            crate::operation::delete_tenant::DeleteTenantError::NotFoundException(inner) => {
-                Error::NotFoundException(inner)
-            }
-            crate::operation::delete_tenant::DeleteTenantError::TooManyRequestsException(inner) => {
-                Error::TooManyRequestsException(inner)
-            }
-            crate::operation::delete_tenant::DeleteTenantError::Unhandled(inner) => {
-                Error::Unhandled(inner)
-            }
+            crate::operation::delete_tenant::DeleteTenantError::BadRequestException(inner) => Error::BadRequestException(inner),
+            crate::operation::delete_tenant::DeleteTenantError::NotFoundException(inner) => Error::NotFoundException(inner),
+            crate::operation::delete_tenant::DeleteTenantError::TooManyRequestsException(inner) => Error::TooManyRequestsException(inner),
+            crate::operation::delete_tenant::DeleteTenantError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
@@ -1512,13 +1180,8 @@ where
     }
 }
 #[cfg(feature = "op_delete_tenant_resource_association")]
-impl
-    From<crate::operation::delete_tenant_resource_association::DeleteTenantResourceAssociationError>
-    for Error
-{
-    fn from(
-        err: crate::operation::delete_tenant_resource_association::DeleteTenantResourceAssociationError,
-    ) -> Self {
+impl From<crate::operation::delete_tenant_resource_association::DeleteTenantResourceAssociationError> for Error {
+    fn from(err: crate::operation::delete_tenant_resource_association::DeleteTenantResourceAssociationError) -> Self {
         match err {
             crate::operation::delete_tenant_resource_association::DeleteTenantResourceAssociationError::BadRequestException(inner) => {
                 Error::BadRequestException(inner)
@@ -1534,26 +1197,13 @@ impl
     }
 }
 #[cfg(feature = "op_get_account")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::get_account::GetAccountError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::get_account::GetAccountError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::get_account::GetAccountError,
-            R,
-        >,
-    ) -> Self {
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::get_account::GetAccountError, R>) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -1565,39 +1215,20 @@ where
 impl From<crate::operation::get_account::GetAccountError> for Error {
     fn from(err: crate::operation::get_account::GetAccountError) -> Self {
         match err {
-            crate::operation::get_account::GetAccountError::BadRequestException(inner) => {
-                Error::BadRequestException(inner)
-            }
-            crate::operation::get_account::GetAccountError::TooManyRequestsException(inner) => {
-                Error::TooManyRequestsException(inner)
-            }
-            crate::operation::get_account::GetAccountError::Unhandled(inner) => {
-                Error::Unhandled(inner)
-            }
+            crate::operation::get_account::GetAccountError::BadRequestException(inner) => Error::BadRequestException(inner),
+            crate::operation::get_account::GetAccountError::TooManyRequestsException(inner) => Error::TooManyRequestsException(inner),
+            crate::operation::get_account::GetAccountError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
 #[cfg(feature = "op_get_blacklist_reports")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::get_blacklist_reports::GetBlacklistReportsError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::get_blacklist_reports::GetBlacklistReportsError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::get_blacklist_reports::GetBlacklistReportsError,
-            R,
-        >,
-    ) -> Self {
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::get_blacklist_reports::GetBlacklistReportsError, R>) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -1619,26 +1250,13 @@ impl From<crate::operation::get_blacklist_reports::GetBlacklistReportsError> for
     }
 }
 #[cfg(feature = "op_get_configuration_set")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::get_configuration_set::GetConfigurationSetError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::get_configuration_set::GetConfigurationSetError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::get_configuration_set::GetConfigurationSetError,
-            R,
-        >,
-    ) -> Self {
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::get_configuration_set::GetConfigurationSetError, R>) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -1705,26 +1323,13 @@ impl From<crate::operation::get_configuration_set_event_destinations::GetConfigu
     }
 }
 #[cfg(feature = "op_get_contact")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::get_contact::GetContactError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::get_contact::GetContactError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::get_contact::GetContactError,
-            R,
-        >,
-    ) -> Self {
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::get_contact::GetContactError, R>) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -1736,42 +1341,21 @@ where
 impl From<crate::operation::get_contact::GetContactError> for Error {
     fn from(err: crate::operation::get_contact::GetContactError) -> Self {
         match err {
-            crate::operation::get_contact::GetContactError::BadRequestException(inner) => {
-                Error::BadRequestException(inner)
-            }
-            crate::operation::get_contact::GetContactError::NotFoundException(inner) => {
-                Error::NotFoundException(inner)
-            }
-            crate::operation::get_contact::GetContactError::TooManyRequestsException(inner) => {
-                Error::TooManyRequestsException(inner)
-            }
-            crate::operation::get_contact::GetContactError::Unhandled(inner) => {
-                Error::Unhandled(inner)
-            }
+            crate::operation::get_contact::GetContactError::BadRequestException(inner) => Error::BadRequestException(inner),
+            crate::operation::get_contact::GetContactError::NotFoundException(inner) => Error::NotFoundException(inner),
+            crate::operation::get_contact::GetContactError::TooManyRequestsException(inner) => Error::TooManyRequestsException(inner),
+            crate::operation::get_contact::GetContactError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
 #[cfg(feature = "op_get_contact_list")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::get_contact_list::GetContactListError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::get_contact_list::GetContactListError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::get_contact_list::GetContactListError,
-            R,
-        >,
-    ) -> Self {
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::get_contact_list::GetContactListError, R>) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -1783,18 +1367,10 @@ where
 impl From<crate::operation::get_contact_list::GetContactListError> for Error {
     fn from(err: crate::operation::get_contact_list::GetContactListError) -> Self {
         match err {
-            crate::operation::get_contact_list::GetContactListError::BadRequestException(inner) => {
-                Error::BadRequestException(inner)
-            }
-            crate::operation::get_contact_list::GetContactListError::NotFoundException(inner) => {
-                Error::NotFoundException(inner)
-            }
-            crate::operation::get_contact_list::GetContactListError::TooManyRequestsException(
-                inner,
-            ) => Error::TooManyRequestsException(inner),
-            crate::operation::get_contact_list::GetContactListError::Unhandled(inner) => {
-                Error::Unhandled(inner)
-            }
+            crate::operation::get_contact_list::GetContactListError::BadRequestException(inner) => Error::BadRequestException(inner),
+            crate::operation::get_contact_list::GetContactListError::NotFoundException(inner) => Error::NotFoundException(inner),
+            crate::operation::get_contact_list::GetContactListError::TooManyRequestsException(inner) => Error::TooManyRequestsException(inner),
+            crate::operation::get_contact_list::GetContactListError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
@@ -1844,26 +1420,13 @@ impl From<crate::operation::get_custom_verification_email_template::GetCustomVer
     }
 }
 #[cfg(feature = "op_get_dedicated_ip")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::get_dedicated_ip::GetDedicatedIpError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::get_dedicated_ip::GetDedicatedIpError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::get_dedicated_ip::GetDedicatedIpError,
-            R,
-        >,
-    ) -> Self {
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::get_dedicated_ip::GetDedicatedIpError, R>) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -1875,42 +1438,21 @@ where
 impl From<crate::operation::get_dedicated_ip::GetDedicatedIpError> for Error {
     fn from(err: crate::operation::get_dedicated_ip::GetDedicatedIpError) -> Self {
         match err {
-            crate::operation::get_dedicated_ip::GetDedicatedIpError::BadRequestException(inner) => {
-                Error::BadRequestException(inner)
-            }
-            crate::operation::get_dedicated_ip::GetDedicatedIpError::NotFoundException(inner) => {
-                Error::NotFoundException(inner)
-            }
-            crate::operation::get_dedicated_ip::GetDedicatedIpError::TooManyRequestsException(
-                inner,
-            ) => Error::TooManyRequestsException(inner),
-            crate::operation::get_dedicated_ip::GetDedicatedIpError::Unhandled(inner) => {
-                Error::Unhandled(inner)
-            }
+            crate::operation::get_dedicated_ip::GetDedicatedIpError::BadRequestException(inner) => Error::BadRequestException(inner),
+            crate::operation::get_dedicated_ip::GetDedicatedIpError::NotFoundException(inner) => Error::NotFoundException(inner),
+            crate::operation::get_dedicated_ip::GetDedicatedIpError::TooManyRequestsException(inner) => Error::TooManyRequestsException(inner),
+            crate::operation::get_dedicated_ip::GetDedicatedIpError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
 #[cfg(feature = "op_get_dedicated_ip_pool")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::get_dedicated_ip_pool::GetDedicatedIpPoolError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::get_dedicated_ip_pool::GetDedicatedIpPoolError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::get_dedicated_ip_pool::GetDedicatedIpPoolError,
-            R,
-        >,
-    ) -> Self {
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::get_dedicated_ip_pool::GetDedicatedIpPoolError, R>) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -1932,26 +1474,13 @@ impl From<crate::operation::get_dedicated_ip_pool::GetDedicatedIpPoolError> for 
     }
 }
 #[cfg(feature = "op_get_dedicated_ips")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::get_dedicated_ips::GetDedicatedIpsError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::get_dedicated_ips::GetDedicatedIpsError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::get_dedicated_ips::GetDedicatedIpsError,
-            R,
-        >,
-    ) -> Self {
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::get_dedicated_ips::GetDedicatedIpsError, R>) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -1963,18 +1492,10 @@ where
 impl From<crate::operation::get_dedicated_ips::GetDedicatedIpsError> for Error {
     fn from(err: crate::operation::get_dedicated_ips::GetDedicatedIpsError) -> Self {
         match err {
-            crate::operation::get_dedicated_ips::GetDedicatedIpsError::BadRequestException(
-                inner,
-            ) => Error::BadRequestException(inner),
-            crate::operation::get_dedicated_ips::GetDedicatedIpsError::NotFoundException(inner) => {
-                Error::NotFoundException(inner)
-            }
-            crate::operation::get_dedicated_ips::GetDedicatedIpsError::TooManyRequestsException(
-                inner,
-            ) => Error::TooManyRequestsException(inner),
-            crate::operation::get_dedicated_ips::GetDedicatedIpsError::Unhandled(inner) => {
-                Error::Unhandled(inner)
-            }
+            crate::operation::get_dedicated_ips::GetDedicatedIpsError::BadRequestException(inner) => Error::BadRequestException(inner),
+            crate::operation::get_dedicated_ips::GetDedicatedIpsError::NotFoundException(inner) => Error::NotFoundException(inner),
+            crate::operation::get_dedicated_ips::GetDedicatedIpsError::TooManyRequestsException(inner) => Error::TooManyRequestsException(inner),
+            crate::operation::get_dedicated_ips::GetDedicatedIpsError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
@@ -2025,12 +1546,8 @@ impl From<crate::operation::get_deliverability_dashboard_options::GetDeliverabil
 }
 #[cfg(feature = "op_get_deliverability_test_report")]
 impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::get_deliverability_test_report::GetDeliverabilityTestReportError,
-            R,
-        >,
-    > for Error
+    From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::get_deliverability_test_report::GetDeliverabilityTestReportError, R>>
+    for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
@@ -2041,9 +1558,7 @@ where
         >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -2052,12 +1567,8 @@ where
     }
 }
 #[cfg(feature = "op_get_deliverability_test_report")]
-impl From<crate::operation::get_deliverability_test_report::GetDeliverabilityTestReportError>
-    for Error
-{
-    fn from(
-        err: crate::operation::get_deliverability_test_report::GetDeliverabilityTestReportError,
-    ) -> Self {
+impl From<crate::operation::get_deliverability_test_report::GetDeliverabilityTestReportError> for Error {
+    fn from(err: crate::operation::get_deliverability_test_report::GetDeliverabilityTestReportError) -> Self {
         match err {
             crate::operation::get_deliverability_test_report::GetDeliverabilityTestReportError::BadRequestException(inner) => {
                 Error::BadRequestException(inner)
@@ -2099,13 +1610,8 @@ where
     }
 }
 #[cfg(feature = "op_get_domain_deliverability_campaign")]
-impl
-    From<crate::operation::get_domain_deliverability_campaign::GetDomainDeliverabilityCampaignError>
-    for Error
-{
-    fn from(
-        err: crate::operation::get_domain_deliverability_campaign::GetDomainDeliverabilityCampaignError,
-    ) -> Self {
+impl From<crate::operation::get_domain_deliverability_campaign::GetDomainDeliverabilityCampaignError> for Error {
+    fn from(err: crate::operation::get_domain_deliverability_campaign::GetDomainDeliverabilityCampaignError) -> Self {
         match err {
             crate::operation::get_domain_deliverability_campaign::GetDomainDeliverabilityCampaignError::BadRequestException(inner) => {
                 Error::BadRequestException(inner)
@@ -2121,26 +1627,16 @@ impl
     }
 }
 #[cfg(feature = "op_get_domain_statistics_report")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::get_domain_statistics_report::GetDomainStatisticsReportError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::get_domain_statistics_report::GetDomainStatisticsReportError, R>>
+    for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
     fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::get_domain_statistics_report::GetDomainStatisticsReportError,
-            R,
-        >,
+        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::get_domain_statistics_report::GetDomainStatisticsReportError, R>,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -2149,12 +1645,8 @@ where
     }
 }
 #[cfg(feature = "op_get_domain_statistics_report")]
-impl From<crate::operation::get_domain_statistics_report::GetDomainStatisticsReportError>
-    for Error
-{
-    fn from(
-        err: crate::operation::get_domain_statistics_report::GetDomainStatisticsReportError,
-    ) -> Self {
+impl From<crate::operation::get_domain_statistics_report::GetDomainStatisticsReportError> for Error {
+    fn from(err: crate::operation::get_domain_statistics_report::GetDomainStatisticsReportError) -> Self {
         match err {
             crate::operation::get_domain_statistics_report::GetDomainStatisticsReportError::BadRequestException(inner) => {
                 Error::BadRequestException(inner)
@@ -2170,26 +1662,16 @@ impl From<crate::operation::get_domain_statistics_report::GetDomainStatisticsRep
     }
 }
 #[cfg(feature = "op_get_email_address_insights")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::get_email_address_insights::GetEmailAddressInsightsError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::get_email_address_insights::GetEmailAddressInsightsError, R>>
+    for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
     fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::get_email_address_insights::GetEmailAddressInsightsError,
-            R,
-        >,
+        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::get_email_address_insights::GetEmailAddressInsightsError, R>,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -2199,9 +1681,7 @@ where
 }
 #[cfg(feature = "op_get_email_address_insights")]
 impl From<crate::operation::get_email_address_insights::GetEmailAddressInsightsError> for Error {
-    fn from(
-        err: crate::operation::get_email_address_insights::GetEmailAddressInsightsError,
-    ) -> Self {
+    fn from(err: crate::operation::get_email_address_insights::GetEmailAddressInsightsError) -> Self {
         match err {
             crate::operation::get_email_address_insights::GetEmailAddressInsightsError::BadRequestException(inner) => {
                 Error::BadRequestException(inner)
@@ -2214,26 +1694,13 @@ impl From<crate::operation::get_email_address_insights::GetEmailAddressInsightsE
     }
 }
 #[cfg(feature = "op_get_email_identity")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::get_email_identity::GetEmailIdentityError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::get_email_identity::GetEmailIdentityError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::get_email_identity::GetEmailIdentityError,
-            R,
-        >,
-    ) -> Self {
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::get_email_identity::GetEmailIdentityError, R>) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -2253,26 +1720,16 @@ impl From<crate::operation::get_email_identity::GetEmailIdentityError> for Error
     }
 }
 #[cfg(feature = "op_get_email_identity_policies")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::get_email_identity_policies::GetEmailIdentityPoliciesError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::get_email_identity_policies::GetEmailIdentityPoliciesError, R>>
+    for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
     fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::get_email_identity_policies::GetEmailIdentityPoliciesError,
-            R,
-        >,
+        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::get_email_identity_policies::GetEmailIdentityPoliciesError, R>,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -2282,9 +1739,7 @@ where
 }
 #[cfg(feature = "op_get_email_identity_policies")]
 impl From<crate::operation::get_email_identity_policies::GetEmailIdentityPoliciesError> for Error {
-    fn from(
-        err: crate::operation::get_email_identity_policies::GetEmailIdentityPoliciesError,
-    ) -> Self {
+    fn from(err: crate::operation::get_email_identity_policies::GetEmailIdentityPoliciesError) -> Self {
         match err {
             crate::operation::get_email_identity_policies::GetEmailIdentityPoliciesError::BadRequestException(inner) => {
                 Error::BadRequestException(inner)
@@ -2298,26 +1753,13 @@ impl From<crate::operation::get_email_identity_policies::GetEmailIdentityPolicie
     }
 }
 #[cfg(feature = "op_get_email_template")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::get_email_template::GetEmailTemplateError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::get_email_template::GetEmailTemplateError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::get_email_template::GetEmailTemplateError,
-            R,
-        >,
-    ) -> Self {
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::get_email_template::GetEmailTemplateError, R>) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -2337,26 +1779,13 @@ impl From<crate::operation::get_email_template::GetEmailTemplateError> for Error
     }
 }
 #[cfg(feature = "op_get_export_job")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::get_export_job::GetExportJobError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::get_export_job::GetExportJobError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::get_export_job::GetExportJobError,
-            R,
-        >,
-    ) -> Self {
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::get_export_job::GetExportJobError, R>) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -2368,42 +1797,21 @@ where
 impl From<crate::operation::get_export_job::GetExportJobError> for Error {
     fn from(err: crate::operation::get_export_job::GetExportJobError) -> Self {
         match err {
-            crate::operation::get_export_job::GetExportJobError::BadRequestException(inner) => {
-                Error::BadRequestException(inner)
-            }
-            crate::operation::get_export_job::GetExportJobError::NotFoundException(inner) => {
-                Error::NotFoundException(inner)
-            }
-            crate::operation::get_export_job::GetExportJobError::TooManyRequestsException(
-                inner,
-            ) => Error::TooManyRequestsException(inner),
-            crate::operation::get_export_job::GetExportJobError::Unhandled(inner) => {
-                Error::Unhandled(inner)
-            }
+            crate::operation::get_export_job::GetExportJobError::BadRequestException(inner) => Error::BadRequestException(inner),
+            crate::operation::get_export_job::GetExportJobError::NotFoundException(inner) => Error::NotFoundException(inner),
+            crate::operation::get_export_job::GetExportJobError::TooManyRequestsException(inner) => Error::TooManyRequestsException(inner),
+            crate::operation::get_export_job::GetExportJobError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
 #[cfg(feature = "op_get_import_job")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::get_import_job::GetImportJobError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::get_import_job::GetImportJobError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::get_import_job::GetImportJobError,
-            R,
-        >,
-    ) -> Self {
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::get_import_job::GetImportJobError, R>) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -2415,42 +1823,21 @@ where
 impl From<crate::operation::get_import_job::GetImportJobError> for Error {
     fn from(err: crate::operation::get_import_job::GetImportJobError) -> Self {
         match err {
-            crate::operation::get_import_job::GetImportJobError::BadRequestException(inner) => {
-                Error::BadRequestException(inner)
-            }
-            crate::operation::get_import_job::GetImportJobError::NotFoundException(inner) => {
-                Error::NotFoundException(inner)
-            }
-            crate::operation::get_import_job::GetImportJobError::TooManyRequestsException(
-                inner,
-            ) => Error::TooManyRequestsException(inner),
-            crate::operation::get_import_job::GetImportJobError::Unhandled(inner) => {
-                Error::Unhandled(inner)
-            }
+            crate::operation::get_import_job::GetImportJobError::BadRequestException(inner) => Error::BadRequestException(inner),
+            crate::operation::get_import_job::GetImportJobError::NotFoundException(inner) => Error::NotFoundException(inner),
+            crate::operation::get_import_job::GetImportJobError::TooManyRequestsException(inner) => Error::TooManyRequestsException(inner),
+            crate::operation::get_import_job::GetImportJobError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
 #[cfg(feature = "op_get_message_insights")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::get_message_insights::GetMessageInsightsError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::get_message_insights::GetMessageInsightsError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::get_message_insights::GetMessageInsightsError,
-            R,
-        >,
-    ) -> Self {
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::get_message_insights::GetMessageInsightsError, R>) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -2472,26 +1859,16 @@ impl From<crate::operation::get_message_insights::GetMessageInsightsError> for E
     }
 }
 #[cfg(feature = "op_get_multi_region_endpoint")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::get_multi_region_endpoint::GetMultiRegionEndpointError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::get_multi_region_endpoint::GetMultiRegionEndpointError, R>>
+    for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
     fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::get_multi_region_endpoint::GetMultiRegionEndpointError,
-            R,
-        >,
+        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::get_multi_region_endpoint::GetMultiRegionEndpointError, R>,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -2513,26 +1890,13 @@ impl From<crate::operation::get_multi_region_endpoint::GetMultiRegionEndpointErr
     }
 }
 #[cfg(feature = "op_get_reputation_entity")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::get_reputation_entity::GetReputationEntityError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::get_reputation_entity::GetReputationEntityError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::get_reputation_entity::GetReputationEntityError,
-            R,
-        >,
-    ) -> Self {
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::get_reputation_entity::GetReputationEntityError, R>) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -2554,26 +1918,16 @@ impl From<crate::operation::get_reputation_entity::GetReputationEntityError> for
     }
 }
 #[cfg(feature = "op_get_suppressed_destination")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::get_suppressed_destination::GetSuppressedDestinationError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::get_suppressed_destination::GetSuppressedDestinationError, R>>
+    for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
     fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::get_suppressed_destination::GetSuppressedDestinationError,
-            R,
-        >,
+        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::get_suppressed_destination::GetSuppressedDestinationError, R>,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -2583,9 +1937,7 @@ where
 }
 #[cfg(feature = "op_get_suppressed_destination")]
 impl From<crate::operation::get_suppressed_destination::GetSuppressedDestinationError> for Error {
-    fn from(
-        err: crate::operation::get_suppressed_destination::GetSuppressedDestinationError,
-    ) -> Self {
+    fn from(err: crate::operation::get_suppressed_destination::GetSuppressedDestinationError) -> Self {
         match err {
             crate::operation::get_suppressed_destination::GetSuppressedDestinationError::BadRequestException(inner) => {
                 Error::BadRequestException(inner)
@@ -2599,26 +1951,13 @@ impl From<crate::operation::get_suppressed_destination::GetSuppressedDestination
     }
 }
 #[cfg(feature = "op_get_tenant")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::get_tenant::GetTenantError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::get_tenant::GetTenantError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::get_tenant::GetTenantError,
-            R,
-        >,
-    ) -> Self {
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::get_tenant::GetTenantError, R>) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -2630,42 +1969,23 @@ where
 impl From<crate::operation::get_tenant::GetTenantError> for Error {
     fn from(err: crate::operation::get_tenant::GetTenantError) -> Self {
         match err {
-            crate::operation::get_tenant::GetTenantError::BadRequestException(inner) => {
-                Error::BadRequestException(inner)
-            }
-            crate::operation::get_tenant::GetTenantError::NotFoundException(inner) => {
-                Error::NotFoundException(inner)
-            }
-            crate::operation::get_tenant::GetTenantError::TooManyRequestsException(inner) => {
-                Error::TooManyRequestsException(inner)
-            }
-            crate::operation::get_tenant::GetTenantError::Unhandled(inner) => {
-                Error::Unhandled(inner)
-            }
+            crate::operation::get_tenant::GetTenantError::BadRequestException(inner) => Error::BadRequestException(inner),
+            crate::operation::get_tenant::GetTenantError::NotFoundException(inner) => Error::NotFoundException(inner),
+            crate::operation::get_tenant::GetTenantError::TooManyRequestsException(inner) => Error::TooManyRequestsException(inner),
+            crate::operation::get_tenant::GetTenantError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
 #[cfg(feature = "op_list_configuration_sets")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::list_configuration_sets::ListConfigurationSetsError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_configuration_sets::ListConfigurationSetsError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
     fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::list_configuration_sets::ListConfigurationSetsError,
-            R,
-        >,
+        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_configuration_sets::ListConfigurationSetsError, R>,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -2686,26 +2006,13 @@ impl From<crate::operation::list_configuration_sets::ListConfigurationSetsError>
     }
 }
 #[cfg(feature = "op_list_contact_lists")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::list_contact_lists::ListContactListsError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_contact_lists::ListContactListsError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::list_contact_lists::ListContactListsError,
-            R,
-        >,
-    ) -> Self {
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_contact_lists::ListContactListsError, R>) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -2724,26 +2031,13 @@ impl From<crate::operation::list_contact_lists::ListContactListsError> for Error
     }
 }
 #[cfg(feature = "op_list_contacts")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::list_contacts::ListContactsError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_contacts::ListContactsError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::list_contacts::ListContactsError,
-            R,
-        >,
-    ) -> Self {
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_contacts::ListContactsError, R>) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -2755,18 +2049,10 @@ where
 impl From<crate::operation::list_contacts::ListContactsError> for Error {
     fn from(err: crate::operation::list_contacts::ListContactsError) -> Self {
         match err {
-            crate::operation::list_contacts::ListContactsError::BadRequestException(inner) => {
-                Error::BadRequestException(inner)
-            }
-            crate::operation::list_contacts::ListContactsError::NotFoundException(inner) => {
-                Error::NotFoundException(inner)
-            }
-            crate::operation::list_contacts::ListContactsError::TooManyRequestsException(inner) => {
-                Error::TooManyRequestsException(inner)
-            }
-            crate::operation::list_contacts::ListContactsError::Unhandled(inner) => {
-                Error::Unhandled(inner)
-            }
+            crate::operation::list_contacts::ListContactsError::BadRequestException(inner) => Error::BadRequestException(inner),
+            crate::operation::list_contacts::ListContactsError::NotFoundException(inner) => Error::NotFoundException(inner),
+            crate::operation::list_contacts::ListContactsError::TooManyRequestsException(inner) => Error::TooManyRequestsException(inner),
+            crate::operation::list_contacts::ListContactsError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
@@ -2813,26 +2099,15 @@ impl From<crate::operation::list_custom_verification_email_templates::ListCustom
     }
 }
 #[cfg(feature = "op_list_dedicated_ip_pools")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::list_dedicated_ip_pools::ListDedicatedIpPoolsError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_dedicated_ip_pools::ListDedicatedIpPoolsError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
     fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::list_dedicated_ip_pools::ListDedicatedIpPoolsError,
-            R,
-        >,
+        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_dedicated_ip_pools::ListDedicatedIpPoolsError, R>,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -2855,10 +2130,7 @@ impl From<crate::operation::list_dedicated_ip_pools::ListDedicatedIpPoolsError> 
 #[cfg(feature = "op_list_deliverability_test_reports")]
 impl<R>
     From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::list_deliverability_test_reports::ListDeliverabilityTestReportsError,
-            R,
-        >,
+        ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_deliverability_test_reports::ListDeliverabilityTestReportsError, R>,
     > for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
@@ -2870,9 +2142,7 @@ where
         >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -2881,12 +2151,8 @@ where
     }
 }
 #[cfg(feature = "op_list_deliverability_test_reports")]
-impl From<crate::operation::list_deliverability_test_reports::ListDeliverabilityTestReportsError>
-    for Error
-{
-    fn from(
-        err: crate::operation::list_deliverability_test_reports::ListDeliverabilityTestReportsError,
-    ) -> Self {
+impl From<crate::operation::list_deliverability_test_reports::ListDeliverabilityTestReportsError> for Error {
+    fn from(err: crate::operation::list_deliverability_test_reports::ListDeliverabilityTestReportsError) -> Self {
         match err {
             crate::operation::list_deliverability_test_reports::ListDeliverabilityTestReportsError::BadRequestException(inner) => {
                 Error::BadRequestException(inner)
@@ -2947,26 +2213,13 @@ impl From<crate::operation::list_domain_deliverability_campaigns::ListDomainDeli
     }
 }
 #[cfg(feature = "op_list_email_identities")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::list_email_identities::ListEmailIdentitiesError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_email_identities::ListEmailIdentitiesError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::list_email_identities::ListEmailIdentitiesError,
-            R,
-        >,
-    ) -> Self {
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_email_identities::ListEmailIdentitiesError, R>) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -2987,26 +2240,13 @@ impl From<crate::operation::list_email_identities::ListEmailIdentitiesError> for
     }
 }
 #[cfg(feature = "op_list_email_templates")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::list_email_templates::ListEmailTemplatesError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_email_templates::ListEmailTemplatesError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::list_email_templates::ListEmailTemplatesError,
-            R,
-        >,
-    ) -> Self {
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_email_templates::ListEmailTemplatesError, R>) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -3027,26 +2267,13 @@ impl From<crate::operation::list_email_templates::ListEmailTemplatesError> for E
     }
 }
 #[cfg(feature = "op_list_export_jobs")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::list_export_jobs::ListExportJobsError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_export_jobs::ListExportJobsError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::list_export_jobs::ListExportJobsError,
-            R,
-        >,
-    ) -> Self {
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_export_jobs::ListExportJobsError, R>) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -3058,39 +2285,20 @@ where
 impl From<crate::operation::list_export_jobs::ListExportJobsError> for Error {
     fn from(err: crate::operation::list_export_jobs::ListExportJobsError) -> Self {
         match err {
-            crate::operation::list_export_jobs::ListExportJobsError::BadRequestException(inner) => {
-                Error::BadRequestException(inner)
-            }
-            crate::operation::list_export_jobs::ListExportJobsError::TooManyRequestsException(
-                inner,
-            ) => Error::TooManyRequestsException(inner),
-            crate::operation::list_export_jobs::ListExportJobsError::Unhandled(inner) => {
-                Error::Unhandled(inner)
-            }
+            crate::operation::list_export_jobs::ListExportJobsError::BadRequestException(inner) => Error::BadRequestException(inner),
+            crate::operation::list_export_jobs::ListExportJobsError::TooManyRequestsException(inner) => Error::TooManyRequestsException(inner),
+            crate::operation::list_export_jobs::ListExportJobsError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
 #[cfg(feature = "op_list_import_jobs")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::list_import_jobs::ListImportJobsError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_import_jobs::ListImportJobsError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::list_import_jobs::ListImportJobsError,
-            R,
-        >,
-    ) -> Self {
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_import_jobs::ListImportJobsError, R>) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -3102,39 +2310,23 @@ where
 impl From<crate::operation::list_import_jobs::ListImportJobsError> for Error {
     fn from(err: crate::operation::list_import_jobs::ListImportJobsError) -> Self {
         match err {
-            crate::operation::list_import_jobs::ListImportJobsError::BadRequestException(inner) => {
-                Error::BadRequestException(inner)
-            }
-            crate::operation::list_import_jobs::ListImportJobsError::TooManyRequestsException(
-                inner,
-            ) => Error::TooManyRequestsException(inner),
-            crate::operation::list_import_jobs::ListImportJobsError::Unhandled(inner) => {
-                Error::Unhandled(inner)
-            }
+            crate::operation::list_import_jobs::ListImportJobsError::BadRequestException(inner) => Error::BadRequestException(inner),
+            crate::operation::list_import_jobs::ListImportJobsError::TooManyRequestsException(inner) => Error::TooManyRequestsException(inner),
+            crate::operation::list_import_jobs::ListImportJobsError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
 #[cfg(feature = "op_list_multi_region_endpoints")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::list_multi_region_endpoints::ListMultiRegionEndpointsError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_multi_region_endpoints::ListMultiRegionEndpointsError, R>>
+    for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
     fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::list_multi_region_endpoints::ListMultiRegionEndpointsError,
-            R,
-        >,
+        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_multi_region_endpoints::ListMultiRegionEndpointsError, R>,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -3144,9 +2336,7 @@ where
 }
 #[cfg(feature = "op_list_multi_region_endpoints")]
 impl From<crate::operation::list_multi_region_endpoints::ListMultiRegionEndpointsError> for Error {
-    fn from(
-        err: crate::operation::list_multi_region_endpoints::ListMultiRegionEndpointsError,
-    ) -> Self {
+    fn from(err: crate::operation::list_multi_region_endpoints::ListMultiRegionEndpointsError) -> Self {
         match err {
             crate::operation::list_multi_region_endpoints::ListMultiRegionEndpointsError::BadRequestException(inner) => {
                 Error::BadRequestException(inner)
@@ -3159,26 +2349,13 @@ impl From<crate::operation::list_multi_region_endpoints::ListMultiRegionEndpoint
     }
 }
 #[cfg(feature = "op_list_recommendations")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::list_recommendations::ListRecommendationsError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_recommendations::ListRecommendationsError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::list_recommendations::ListRecommendationsError,
-            R,
-        >,
-    ) -> Self {
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_recommendations::ListRecommendationsError, R>) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -3200,26 +2377,15 @@ impl From<crate::operation::list_recommendations::ListRecommendationsError> for 
     }
 }
 #[cfg(feature = "op_list_reputation_entities")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::list_reputation_entities::ListReputationEntitiesError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_reputation_entities::ListReputationEntitiesError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
     fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::list_reputation_entities::ListReputationEntitiesError,
-            R,
-        >,
+        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_reputation_entities::ListReputationEntitiesError, R>,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -3240,26 +2406,13 @@ impl From<crate::operation::list_reputation_entities::ListReputationEntitiesErro
     }
 }
 #[cfg(feature = "op_list_resource_tenants")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::list_resource_tenants::ListResourceTenantsError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_resource_tenants::ListResourceTenantsError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::list_resource_tenants::ListResourceTenantsError,
-            R,
-        >,
-    ) -> Self {
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_resource_tenants::ListResourceTenantsError, R>) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -3281,26 +2434,16 @@ impl From<crate::operation::list_resource_tenants::ListResourceTenantsError> for
     }
 }
 #[cfg(feature = "op_list_suppressed_destinations")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::list_suppressed_destinations::ListSuppressedDestinationsError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_suppressed_destinations::ListSuppressedDestinationsError, R>>
+    for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
     fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::list_suppressed_destinations::ListSuppressedDestinationsError,
-            R,
-        >,
+        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_suppressed_destinations::ListSuppressedDestinationsError, R>,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -3309,12 +2452,8 @@ where
     }
 }
 #[cfg(feature = "op_list_suppressed_destinations")]
-impl From<crate::operation::list_suppressed_destinations::ListSuppressedDestinationsError>
-    for Error
-{
-    fn from(
-        err: crate::operation::list_suppressed_destinations::ListSuppressedDestinationsError,
-    ) -> Self {
+impl From<crate::operation::list_suppressed_destinations::ListSuppressedDestinationsError> for Error {
+    fn from(err: crate::operation::list_suppressed_destinations::ListSuppressedDestinationsError) -> Self {
         match err {
             crate::operation::list_suppressed_destinations::ListSuppressedDestinationsError::BadRequestException(inner) => {
                 Error::BadRequestException(inner)
@@ -3333,26 +2472,13 @@ impl From<crate::operation::list_suppressed_destinations::ListSuppressedDestinat
     }
 }
 #[cfg(feature = "op_list_tags_for_resource")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::list_tags_for_resource::ListTagsForResourceError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_tags_for_resource::ListTagsForResourceError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::list_tags_for_resource::ListTagsForResourceError,
-            R,
-        >,
-    ) -> Self {
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_tags_for_resource::ListTagsForResourceError, R>) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -3374,26 +2500,13 @@ impl From<crate::operation::list_tags_for_resource::ListTagsForResourceError> fo
     }
 }
 #[cfg(feature = "op_list_tenant_resources")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::list_tenant_resources::ListTenantResourcesError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_tenant_resources::ListTenantResourcesError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::list_tenant_resources::ListTenantResourcesError,
-            R,
-        >,
-    ) -> Self {
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_tenant_resources::ListTenantResourcesError, R>) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -3415,26 +2528,13 @@ impl From<crate::operation::list_tenant_resources::ListTenantResourcesError> for
     }
 }
 #[cfg(feature = "op_list_tenants")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::list_tenants::ListTenantsError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_tenants::ListTenantsError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::list_tenants::ListTenantsError,
-            R,
-        >,
-    ) -> Self {
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_tenants::ListTenantsError, R>) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -3446,15 +2546,9 @@ where
 impl From<crate::operation::list_tenants::ListTenantsError> for Error {
     fn from(err: crate::operation::list_tenants::ListTenantsError) -> Self {
         match err {
-            crate::operation::list_tenants::ListTenantsError::BadRequestException(inner) => {
-                Error::BadRequestException(inner)
-            }
-            crate::operation::list_tenants::ListTenantsError::TooManyRequestsException(inner) => {
-                Error::TooManyRequestsException(inner)
-            }
-            crate::operation::list_tenants::ListTenantsError::Unhandled(inner) => {
-                Error::Unhandled(inner)
-            }
+            crate::operation::list_tenants::ListTenantsError::BadRequestException(inner) => Error::BadRequestException(inner),
+            crate::operation::list_tenants::ListTenantsError::TooManyRequestsException(inner) => Error::TooManyRequestsException(inner),
+            crate::operation::list_tenants::ListTenantsError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
@@ -3501,26 +2595,13 @@ impl From<crate::operation::put_account_dedicated_ip_warmup_attributes::PutAccou
     }
 }
 #[cfg(feature = "op_put_account_details")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::put_account_details::PutAccountDetailsError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::put_account_details::PutAccountDetailsError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::put_account_details::PutAccountDetailsError,
-            R,
-        >,
-    ) -> Self {
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::put_account_details::PutAccountDetailsError, R>) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -3541,12 +2622,8 @@ impl From<crate::operation::put_account_details::PutAccountDetailsError> for Err
 }
 #[cfg(feature = "op_put_account_pricing_attributes")]
 impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::put_account_pricing_attributes::PutAccountPricingAttributesError,
-            R,
-        >,
-    > for Error
+    From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::put_account_pricing_attributes::PutAccountPricingAttributesError, R>>
+    for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
@@ -3557,9 +2634,7 @@ where
         >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -3568,12 +2643,8 @@ where
     }
 }
 #[cfg(feature = "op_put_account_pricing_attributes")]
-impl From<crate::operation::put_account_pricing_attributes::PutAccountPricingAttributesError>
-    for Error
-{
-    fn from(
-        err: crate::operation::put_account_pricing_attributes::PutAccountPricingAttributesError,
-    ) -> Self {
+impl From<crate::operation::put_account_pricing_attributes::PutAccountPricingAttributesError> for Error {
+    fn from(err: crate::operation::put_account_pricing_attributes::PutAccountPricingAttributesError) -> Self {
         match err {
             crate::operation::put_account_pricing_attributes::PutAccountPricingAttributesError::BadRequestException(inner) => {
                 Error::BadRequestException(inner)
@@ -3590,12 +2661,8 @@ impl From<crate::operation::put_account_pricing_attributes::PutAccountPricingAtt
 }
 #[cfg(feature = "op_put_account_sending_attributes")]
 impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::put_account_sending_attributes::PutAccountSendingAttributesError,
-            R,
-        >,
-    > for Error
+    From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::put_account_sending_attributes::PutAccountSendingAttributesError, R>>
+    for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
@@ -3606,9 +2673,7 @@ where
         >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -3617,12 +2682,8 @@ where
     }
 }
 #[cfg(feature = "op_put_account_sending_attributes")]
-impl From<crate::operation::put_account_sending_attributes::PutAccountSendingAttributesError>
-    for Error
-{
-    fn from(
-        err: crate::operation::put_account_sending_attributes::PutAccountSendingAttributesError,
-    ) -> Self {
+impl From<crate::operation::put_account_sending_attributes::PutAccountSendingAttributesError> for Error {
+    fn from(err: crate::operation::put_account_sending_attributes::PutAccountSendingAttributesError) -> Self {
         match err {
             crate::operation::put_account_sending_attributes::PutAccountSendingAttributesError::BadRequestException(inner) => {
                 Error::BadRequestException(inner)
@@ -3661,13 +2722,8 @@ where
     }
 }
 #[cfg(feature = "op_put_account_suppression_attributes")]
-impl
-    From<crate::operation::put_account_suppression_attributes::PutAccountSuppressionAttributesError>
-    for Error
-{
-    fn from(
-        err: crate::operation::put_account_suppression_attributes::PutAccountSuppressionAttributesError,
-    ) -> Self {
+impl From<crate::operation::put_account_suppression_attributes::PutAccountSuppressionAttributesError> for Error {
+    fn from(err: crate::operation::put_account_suppression_attributes::PutAccountSuppressionAttributesError) -> Self {
         match err {
             crate::operation::put_account_suppression_attributes::PutAccountSuppressionAttributesError::BadRequestException(inner) => {
                 Error::BadRequestException(inner)
@@ -3680,26 +2736,16 @@ impl
     }
 }
 #[cfg(feature = "op_put_account_vdm_attributes")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::put_account_vdm_attributes::PutAccountVdmAttributesError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::put_account_vdm_attributes::PutAccountVdmAttributesError, R>>
+    for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
     fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::put_account_vdm_attributes::PutAccountVdmAttributesError,
-            R,
-        >,
+        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::put_account_vdm_attributes::PutAccountVdmAttributesError, R>,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -3709,9 +2755,7 @@ where
 }
 #[cfg(feature = "op_put_account_vdm_attributes")]
 impl From<crate::operation::put_account_vdm_attributes::PutAccountVdmAttributesError> for Error {
-    fn from(
-        err: crate::operation::put_account_vdm_attributes::PutAccountVdmAttributesError,
-    ) -> Self {
+    fn from(err: crate::operation::put_account_vdm_attributes::PutAccountVdmAttributesError) -> Self {
         match err {
             crate::operation::put_account_vdm_attributes::PutAccountVdmAttributesError::BadRequestException(inner) => {
                 Error::BadRequestException(inner)
@@ -4011,9 +3055,7 @@ where
         >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -4022,12 +3064,8 @@ where
     }
 }
 #[cfg(feature = "op_put_configuration_set_vdm_options")]
-impl From<crate::operation::put_configuration_set_vdm_options::PutConfigurationSetVdmOptionsError>
-    for Error
-{
-    fn from(
-        err: crate::operation::put_configuration_set_vdm_options::PutConfigurationSetVdmOptionsError,
-    ) -> Self {
+impl From<crate::operation::put_configuration_set_vdm_options::PutConfigurationSetVdmOptionsError> for Error {
+    fn from(err: crate::operation::put_configuration_set_vdm_options::PutConfigurationSetVdmOptionsError) -> Self {
         match err {
             crate::operation::put_configuration_set_vdm_options::PutConfigurationSetVdmOptionsError::BadRequestException(inner) => {
                 Error::BadRequestException(inner)
@@ -4043,26 +3081,15 @@ impl From<crate::operation::put_configuration_set_vdm_options::PutConfigurationS
     }
 }
 #[cfg(feature = "op_put_dedicated_ip_in_pool")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::put_dedicated_ip_in_pool::PutDedicatedIpInPoolError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::put_dedicated_ip_in_pool::PutDedicatedIpInPoolError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
     fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::put_dedicated_ip_in_pool::PutDedicatedIpInPoolError,
-            R,
-        >,
+        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::put_dedicated_ip_in_pool::PutDedicatedIpInPoolError, R>,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -4158,12 +3185,8 @@ where
     }
 }
 #[cfg(feature = "op_put_dedicated_ip_warmup_attributes")]
-impl From<crate::operation::put_dedicated_ip_warmup_attributes::PutDedicatedIpWarmupAttributesError>
-    for Error
-{
-    fn from(
-        err: crate::operation::put_dedicated_ip_warmup_attributes::PutDedicatedIpWarmupAttributesError,
-    ) -> Self {
+impl From<crate::operation::put_dedicated_ip_warmup_attributes::PutDedicatedIpWarmupAttributesError> for Error {
+    fn from(err: crate::operation::put_dedicated_ip_warmup_attributes::PutDedicatedIpWarmupAttributesError) -> Self {
         match err {
             crate::operation::put_dedicated_ip_warmup_attributes::PutDedicatedIpWarmupAttributesError::BadRequestException(inner) => {
                 Error::BadRequestException(inner)
@@ -4291,12 +3314,8 @@ where
     }
 }
 #[cfg(feature = "op_put_email_identity_dkim_attributes")]
-impl From<crate::operation::put_email_identity_dkim_attributes::PutEmailIdentityDkimAttributesError>
-    for Error
-{
-    fn from(
-        err: crate::operation::put_email_identity_dkim_attributes::PutEmailIdentityDkimAttributesError,
-    ) -> Self {
+impl From<crate::operation::put_email_identity_dkim_attributes::PutEmailIdentityDkimAttributesError> for Error {
+    fn from(err: crate::operation::put_email_identity_dkim_attributes::PutEmailIdentityDkimAttributesError) -> Self {
         match err {
             crate::operation::put_email_identity_dkim_attributes::PutEmailIdentityDkimAttributesError::BadRequestException(inner) => {
                 Error::BadRequestException(inner)
@@ -4447,26 +3466,16 @@ impl From<crate::operation::put_email_identity_mail_from_attributes::PutEmailIde
     }
 }
 #[cfg(feature = "op_put_suppressed_destination")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::put_suppressed_destination::PutSuppressedDestinationError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::put_suppressed_destination::PutSuppressedDestinationError, R>>
+    for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
     fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::put_suppressed_destination::PutSuppressedDestinationError,
-            R,
-        >,
+        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::put_suppressed_destination::PutSuppressedDestinationError, R>,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -4476,9 +3485,7 @@ where
 }
 #[cfg(feature = "op_put_suppressed_destination")]
 impl From<crate::operation::put_suppressed_destination::PutSuppressedDestinationError> for Error {
-    fn from(
-        err: crate::operation::put_suppressed_destination::PutSuppressedDestinationError,
-    ) -> Self {
+    fn from(err: crate::operation::put_suppressed_destination::PutSuppressedDestinationError) -> Self {
         match err {
             crate::operation::put_suppressed_destination::PutSuppressedDestinationError::BadRequestException(inner) => {
                 Error::BadRequestException(inner)
@@ -4518,12 +3525,8 @@ where
     }
 }
 #[cfg(feature = "op_put_tenant_suppression_attributes")]
-impl From<crate::operation::put_tenant_suppression_attributes::PutTenantSuppressionAttributesError>
-    for Error
-{
-    fn from(
-        err: crate::operation::put_tenant_suppression_attributes::PutTenantSuppressionAttributesError,
-    ) -> Self {
+impl From<crate::operation::put_tenant_suppression_attributes::PutTenantSuppressionAttributesError> for Error {
+    fn from(err: crate::operation::put_tenant_suppression_attributes::PutTenantSuppressionAttributesError) -> Self {
         match err {
             crate::operation::put_tenant_suppression_attributes::PutTenantSuppressionAttributesError::BadRequestException(inner) => {
                 Error::BadRequestException(inner)
@@ -4539,26 +3542,13 @@ impl From<crate::operation::put_tenant_suppression_attributes::PutTenantSuppress
     }
 }
 #[cfg(feature = "op_send_bulk_email")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::send_bulk_email::SendBulkEmailError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::send_bulk_email::SendBulkEmailError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::send_bulk_email::SendBulkEmailError,
-            R,
-        >,
-    ) -> Self {
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::send_bulk_email::SendBulkEmailError, R>) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -4586,12 +3576,8 @@ impl From<crate::operation::send_bulk_email::SendBulkEmailError> for Error {
 }
 #[cfg(feature = "op_send_custom_verification_email")]
 impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::send_custom_verification_email::SendCustomVerificationEmailError,
-            R,
-        >,
-    > for Error
+    From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::send_custom_verification_email::SendCustomVerificationEmailError, R>>
+    for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
@@ -4602,9 +3588,7 @@ where
         >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -4613,12 +3597,8 @@ where
     }
 }
 #[cfg(feature = "op_send_custom_verification_email")]
-impl From<crate::operation::send_custom_verification_email::SendCustomVerificationEmailError>
-    for Error
-{
-    fn from(
-        err: crate::operation::send_custom_verification_email::SendCustomVerificationEmailError,
-    ) -> Self {
+impl From<crate::operation::send_custom_verification_email::SendCustomVerificationEmailError> for Error {
+    fn from(err: crate::operation::send_custom_verification_email::SendCustomVerificationEmailError) -> Self {
         match err {
             crate::operation::send_custom_verification_email::SendCustomVerificationEmailError::BadRequestException(inner) => {
                 Error::BadRequestException(inner)
@@ -4646,26 +3626,13 @@ impl From<crate::operation::send_custom_verification_email::SendCustomVerificati
     }
 }
 #[cfg(feature = "op_send_email")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::send_email::SendEmailError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::send_email::SendEmailError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::send_email::SendEmailError,
-            R,
-        >,
-    ) -> Self {
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::send_email::SendEmailError, R>) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -4677,57 +3644,28 @@ where
 impl From<crate::operation::send_email::SendEmailError> for Error {
     fn from(err: crate::operation::send_email::SendEmailError) -> Self {
         match err {
-            crate::operation::send_email::SendEmailError::AccountSuspendedException(inner) => {
-                Error::AccountSuspendedException(inner)
+            crate::operation::send_email::SendEmailError::AccountSuspendedException(inner) => Error::AccountSuspendedException(inner),
+            crate::operation::send_email::SendEmailError::BadRequestException(inner) => Error::BadRequestException(inner),
+            crate::operation::send_email::SendEmailError::LimitExceededException(inner) => Error::LimitExceededException(inner),
+            crate::operation::send_email::SendEmailError::MailFromDomainNotVerifiedException(inner) => {
+                Error::MailFromDomainNotVerifiedException(inner)
             }
-            crate::operation::send_email::SendEmailError::BadRequestException(inner) => {
-                Error::BadRequestException(inner)
-            }
-            crate::operation::send_email::SendEmailError::LimitExceededException(inner) => {
-                Error::LimitExceededException(inner)
-            }
-            crate::operation::send_email::SendEmailError::MailFromDomainNotVerifiedException(
-                inner,
-            ) => Error::MailFromDomainNotVerifiedException(inner),
-            crate::operation::send_email::SendEmailError::MessageRejected(inner) => {
-                Error::MessageRejected(inner)
-            }
-            crate::operation::send_email::SendEmailError::NotFoundException(inner) => {
-                Error::NotFoundException(inner)
-            }
-            crate::operation::send_email::SendEmailError::SendingPausedException(inner) => {
-                Error::SendingPausedException(inner)
-            }
-            crate::operation::send_email::SendEmailError::TooManyRequestsException(inner) => {
-                Error::TooManyRequestsException(inner)
-            }
-            crate::operation::send_email::SendEmailError::Unhandled(inner) => {
-                Error::Unhandled(inner)
-            }
+            crate::operation::send_email::SendEmailError::MessageRejected(inner) => Error::MessageRejected(inner),
+            crate::operation::send_email::SendEmailError::NotFoundException(inner) => Error::NotFoundException(inner),
+            crate::operation::send_email::SendEmailError::SendingPausedException(inner) => Error::SendingPausedException(inner),
+            crate::operation::send_email::SendEmailError::TooManyRequestsException(inner) => Error::TooManyRequestsException(inner),
+            crate::operation::send_email::SendEmailError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
 #[cfg(feature = "op_tag_resource")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::tag_resource::TagResourceError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::tag_resource::TagResourceError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::tag_resource::TagResourceError,
-            R,
-        >,
-    ) -> Self {
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::tag_resource::TagResourceError, R>) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -4739,45 +3677,25 @@ where
 impl From<crate::operation::tag_resource::TagResourceError> for Error {
     fn from(err: crate::operation::tag_resource::TagResourceError) -> Self {
         match err {
-            crate::operation::tag_resource::TagResourceError::BadRequestException(inner) => {
-                Error::BadRequestException(inner)
-            }
-            crate::operation::tag_resource::TagResourceError::ConcurrentModificationException(
-                inner,
-            ) => Error::ConcurrentModificationException(inner),
-            crate::operation::tag_resource::TagResourceError::NotFoundException(inner) => {
-                Error::NotFoundException(inner)
-            }
-            crate::operation::tag_resource::TagResourceError::TooManyRequestsException(inner) => {
-                Error::TooManyRequestsException(inner)
-            }
-            crate::operation::tag_resource::TagResourceError::Unhandled(inner) => {
-                Error::Unhandled(inner)
-            }
+            crate::operation::tag_resource::TagResourceError::BadRequestException(inner) => Error::BadRequestException(inner),
+            crate::operation::tag_resource::TagResourceError::ConcurrentModificationException(inner) => Error::ConcurrentModificationException(inner),
+            crate::operation::tag_resource::TagResourceError::NotFoundException(inner) => Error::NotFoundException(inner),
+            crate::operation::tag_resource::TagResourceError::TooManyRequestsException(inner) => Error::TooManyRequestsException(inner),
+            crate::operation::tag_resource::TagResourceError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
 #[cfg(feature = "op_test_render_email_template")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::test_render_email_template::TestRenderEmailTemplateError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::test_render_email_template::TestRenderEmailTemplateError, R>>
+    for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
     fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::test_render_email_template::TestRenderEmailTemplateError,
-            R,
-        >,
+        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::test_render_email_template::TestRenderEmailTemplateError, R>,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -4787,9 +3705,7 @@ where
 }
 #[cfg(feature = "op_test_render_email_template")]
 impl From<crate::operation::test_render_email_template::TestRenderEmailTemplateError> for Error {
-    fn from(
-        err: crate::operation::test_render_email_template::TestRenderEmailTemplateError,
-    ) -> Self {
+    fn from(err: crate::operation::test_render_email_template::TestRenderEmailTemplateError) -> Self {
         match err {
             crate::operation::test_render_email_template::TestRenderEmailTemplateError::BadRequestException(inner) => {
                 Error::BadRequestException(inner)
@@ -4803,26 +3719,13 @@ impl From<crate::operation::test_render_email_template::TestRenderEmailTemplateE
     }
 }
 #[cfg(feature = "op_untag_resource")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::untag_resource::UntagResourceError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::untag_resource::UntagResourceError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::untag_resource::UntagResourceError,
-            R,
-        >,
-    ) -> Self {
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::untag_resource::UntagResourceError, R>) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -4890,26 +3793,13 @@ impl From<crate::operation::update_configuration_set_event_destination::UpdateCo
     }
 }
 #[cfg(feature = "op_update_contact")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::update_contact::UpdateContactError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::update_contact::UpdateContactError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::update_contact::UpdateContactError,
-            R,
-        >,
-    ) -> Self {
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::update_contact::UpdateContactError, R>) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -4932,26 +3822,13 @@ impl From<crate::operation::update_contact::UpdateContactError> for Error {
     }
 }
 #[cfg(feature = "op_update_contact_list")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::update_contact_list::UpdateContactListError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::update_contact_list::UpdateContactListError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::update_contact_list::UpdateContactListError,
-            R,
-        >,
-    ) -> Self {
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::update_contact_list::UpdateContactListError, R>) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -5019,26 +3896,16 @@ impl From<crate::operation::update_custom_verification_email_template::UpdateCus
     }
 }
 #[cfg(feature = "op_update_email_identity_policy")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::update_email_identity_policy::UpdateEmailIdentityPolicyError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::update_email_identity_policy::UpdateEmailIdentityPolicyError, R>>
+    for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
     fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::update_email_identity_policy::UpdateEmailIdentityPolicyError,
-            R,
-        >,
+        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::update_email_identity_policy::UpdateEmailIdentityPolicyError, R>,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -5047,12 +3914,8 @@ where
     }
 }
 #[cfg(feature = "op_update_email_identity_policy")]
-impl From<crate::operation::update_email_identity_policy::UpdateEmailIdentityPolicyError>
-    for Error
-{
-    fn from(
-        err: crate::operation::update_email_identity_policy::UpdateEmailIdentityPolicyError,
-    ) -> Self {
+impl From<crate::operation::update_email_identity_policy::UpdateEmailIdentityPolicyError> for Error {
+    fn from(err: crate::operation::update_email_identity_policy::UpdateEmailIdentityPolicyError) -> Self {
         match err {
             crate::operation::update_email_identity_policy::UpdateEmailIdentityPolicyError::BadRequestException(inner) => {
                 Error::BadRequestException(inner)
@@ -5068,26 +3931,13 @@ impl From<crate::operation::update_email_identity_policy::UpdateEmailIdentityPol
     }
 }
 #[cfg(feature = "op_update_email_template")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::update_email_template::UpdateEmailTemplateError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::update_email_template::UpdateEmailTemplateError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::update_email_template::UpdateEmailTemplateError,
-            R,
-        >,
-    ) -> Self {
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::update_email_template::UpdateEmailTemplateError, R>) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -5147,12 +3997,8 @@ impl From<crate::operation::update_reputation_entity_customer_managed_status::Up
 }
 #[cfg(feature = "op_update_reputation_entity_policy")]
 impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::update_reputation_entity_policy::UpdateReputationEntityPolicyError,
-            R,
-        >,
-    > for Error
+    From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::update_reputation_entity_policy::UpdateReputationEntityPolicyError, R>>
+    for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
@@ -5163,9 +4009,7 @@ where
         >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -5174,12 +4018,8 @@ where
     }
 }
 #[cfg(feature = "op_update_reputation_entity_policy")]
-impl From<crate::operation::update_reputation_entity_policy::UpdateReputationEntityPolicyError>
-    for Error
-{
-    fn from(
-        err: crate::operation::update_reputation_entity_policy::UpdateReputationEntityPolicyError,
-    ) -> Self {
+impl From<crate::operation::update_reputation_entity_policy::UpdateReputationEntityPolicyError> for Error {
+    fn from(err: crate::operation::update_reputation_entity_policy::UpdateReputationEntityPolicyError) -> Self {
         match err {
             crate::operation::update_reputation_entity_policy::UpdateReputationEntityPolicyError::BadRequestException(inner) => {
                 Error::BadRequestException(inner)
@@ -5197,19 +4037,32 @@ impl From<crate::operation::update_reputation_entity_policy::UpdateReputationEnt
 impl ::std::error::Error for Error {
     fn source(&self) -> std::option::Option<&(dyn ::std::error::Error + 'static)> {
         match self {
-            Error::AccountSuspendedException(inner) => inner.source(),
-            Error::AlreadyExistsException(inner) => inner.source(),
-            Error::BadRequestException(inner) => inner.source(),
-            Error::ConcurrentModificationException(inner) => inner.source(),
-            Error::ConflictException(inner) => inner.source(),
-            Error::InternalServiceErrorException(inner) => inner.source(),
-            Error::InvalidNextTokenException(inner) => inner.source(),
-            Error::LimitExceededException(inner) => inner.source(),
-            Error::MailFromDomainNotVerifiedException(inner) => inner.source(),
-            Error::MessageRejected(inner) => inner.source(),
-            Error::NotFoundException(inner) => inner.source(),
-            Error::SendingPausedException(inner) => inner.source(),
-            Error::TooManyRequestsException(inner) => inner.source(),
+            #[cfg(any(feature = "op_create_deliverability_test_report", feature = "op_send_bulk_email", feature = "op_send_email"))]
+Error::AccountSuspendedException(inner) => inner.source(),
+            #[cfg(any(feature = "op_create_configuration_set", feature = "op_create_configuration_set_event_destination", feature = "op_create_contact", feature = "op_create_contact_list", feature = "op_create_custom_verification_email_template", feature = "op_create_dedicated_ip_pool", feature = "op_create_email_identity", feature = "op_create_email_identity_policy", feature = "op_create_email_template", feature = "op_create_multi_region_endpoint", feature = "op_create_tenant", feature = "op_create_tenant_resource_association", feature = "op_put_deliverability_dashboard_option"))]
+Error::AlreadyExistsException(inner) => inner.source(),
+            #[cfg(any(feature = "op_batch_get_metric_data", feature = "op_cancel_export_job", feature = "op_create_configuration_set", feature = "op_create_configuration_set_event_destination", feature = "op_create_contact", feature = "op_create_contact_list", feature = "op_create_custom_verification_email_template", feature = "op_create_dedicated_ip_pool", feature = "op_create_deliverability_test_report", feature = "op_create_email_identity", feature = "op_create_email_identity_policy", feature = "op_create_email_template", feature = "op_create_export_job", feature = "op_create_import_job", feature = "op_create_multi_region_endpoint", feature = "op_create_tenant", feature = "op_create_tenant_resource_association", feature = "op_delete_configuration_set", feature = "op_delete_configuration_set_event_destination", feature = "op_delete_contact", feature = "op_delete_contact_list", feature = "op_delete_custom_verification_email_template", feature = "op_delete_dedicated_ip_pool", feature = "op_delete_email_identity", feature = "op_delete_email_identity_policy", feature = "op_delete_email_template", feature = "op_delete_multi_region_endpoint", feature = "op_delete_suppressed_destination", feature = "op_delete_tenant", feature = "op_delete_tenant_resource_association", feature = "op_get_account", feature = "op_get_blacklist_reports", feature = "op_get_configuration_set", feature = "op_get_configuration_set_event_destinations", feature = "op_get_contact", feature = "op_get_contact_list", feature = "op_get_custom_verification_email_template", feature = "op_get_dedicated_ip", feature = "op_get_dedicated_ip_pool", feature = "op_get_dedicated_ips", feature = "op_get_deliverability_dashboard_options", feature = "op_get_deliverability_test_report", feature = "op_get_domain_deliverability_campaign", feature = "op_get_domain_statistics_report", feature = "op_get_email_address_insights", feature = "op_get_email_identity", feature = "op_get_email_identity_policies", feature = "op_get_email_template", feature = "op_get_export_job", feature = "op_get_import_job", feature = "op_get_message_insights", feature = "op_get_multi_region_endpoint", feature = "op_get_reputation_entity", feature = "op_get_suppressed_destination", feature = "op_get_tenant", feature = "op_list_configuration_sets", feature = "op_list_contact_lists", feature = "op_list_contacts", feature = "op_list_custom_verification_email_templates", feature = "op_list_dedicated_ip_pools", feature = "op_list_deliverability_test_reports", feature = "op_list_domain_deliverability_campaigns", feature = "op_list_email_identities", feature = "op_list_email_templates", feature = "op_list_export_jobs", feature = "op_list_import_jobs", feature = "op_list_multi_region_endpoints", feature = "op_list_recommendations", feature = "op_list_reputation_entities", feature = "op_list_resource_tenants", feature = "op_list_suppressed_destinations", feature = "op_list_tags_for_resource", feature = "op_list_tenant_resources", feature = "op_list_tenants", feature = "op_put_account_dedicated_ip_warmup_attributes", feature = "op_put_account_details", feature = "op_put_account_pricing_attributes", feature = "op_put_account_sending_attributes", feature = "op_put_account_suppression_attributes", feature = "op_put_account_vdm_attributes", feature = "op_put_configuration_set_archiving_options", feature = "op_put_configuration_set_delivery_options", feature = "op_put_configuration_set_reputation_options", feature = "op_put_configuration_set_sending_options", feature = "op_put_configuration_set_suppression_options", feature = "op_put_configuration_set_tracking_options", feature = "op_put_configuration_set_vdm_options", feature = "op_put_dedicated_ip_in_pool", feature = "op_put_dedicated_ip_pool_scaling_attributes", feature = "op_put_dedicated_ip_warmup_attributes", feature = "op_put_deliverability_dashboard_option", feature = "op_put_email_identity_configuration_set_attributes", feature = "op_put_email_identity_dkim_attributes", feature = "op_put_email_identity_dkim_signing_attributes", feature = "op_put_email_identity_feedback_attributes", feature = "op_put_email_identity_mail_from_attributes", feature = "op_put_suppressed_destination", feature = "op_put_tenant_suppression_attributes", feature = "op_send_bulk_email", feature = "op_send_custom_verification_email", feature = "op_send_email", feature = "op_tag_resource", feature = "op_test_render_email_template", feature = "op_untag_resource", feature = "op_update_configuration_set_event_destination", feature = "op_update_contact", feature = "op_update_contact_list", feature = "op_update_custom_verification_email_template", feature = "op_update_email_identity_policy", feature = "op_update_email_template", feature = "op_update_reputation_entity_customer_managed_status", feature = "op_update_reputation_entity_policy"))]
+Error::BadRequestException(inner) => inner.source(),
+            #[cfg(any(feature = "op_create_configuration_set", feature = "op_create_dedicated_ip_pool", feature = "op_create_deliverability_test_report", feature = "op_create_email_identity", feature = "op_delete_configuration_set", feature = "op_delete_contact_list", feature = "op_delete_dedicated_ip_pool", feature = "op_delete_email_identity", feature = "op_delete_multi_region_endpoint", feature = "op_put_dedicated_ip_pool_scaling_attributes", feature = "op_tag_resource", feature = "op_untag_resource", feature = "op_update_contact", feature = "op_update_contact_list"))]
+Error::ConcurrentModificationException(inner) => inner.source(),
+            #[cfg(any(feature = "op_put_account_details", feature = "op_put_account_pricing_attributes", feature = "op_update_reputation_entity_customer_managed_status", feature = "op_update_reputation_entity_policy"))]
+Error::ConflictException(inner) => inner.source(),
+            #[cfg(feature = "op_batch_get_metric_data")]
+Error::InternalServiceErrorException(inner) => inner.source(),
+            #[cfg(feature = "op_list_suppressed_destinations")]
+Error::InvalidNextTokenException(inner) => inner.source(),
+            #[cfg(any(feature = "op_create_configuration_set", feature = "op_create_configuration_set_event_destination", feature = "op_create_contact_list", feature = "op_create_custom_verification_email_template", feature = "op_create_dedicated_ip_pool", feature = "op_create_deliverability_test_report", feature = "op_create_email_identity", feature = "op_create_email_identity_policy", feature = "op_create_email_template", feature = "op_create_export_job", feature = "op_create_import_job", feature = "op_create_multi_region_endpoint", feature = "op_create_tenant", feature = "op_get_deliverability_dashboard_options", feature = "op_put_deliverability_dashboard_option", feature = "op_send_bulk_email", feature = "op_send_custom_verification_email", feature = "op_send_email"))]
+Error::LimitExceededException(inner) => inner.source(),
+            #[cfg(any(feature = "op_create_deliverability_test_report", feature = "op_send_bulk_email", feature = "op_send_custom_verification_email", feature = "op_send_email"))]
+Error::MailFromDomainNotVerifiedException(inner) => inner.source(),
+            #[cfg(any(feature = "op_create_deliverability_test_report", feature = "op_send_bulk_email", feature = "op_send_custom_verification_email", feature = "op_send_email"))]
+Error::MessageRejected(inner) => inner.source(),
+            #[cfg(any(feature = "op_batch_get_metric_data", feature = "op_cancel_export_job", feature = "op_create_configuration_set", feature = "op_create_configuration_set_event_destination", feature = "op_create_contact", feature = "op_create_custom_verification_email_template", feature = "op_create_deliverability_test_report", feature = "op_create_email_identity", feature = "op_create_email_identity_policy", feature = "op_create_export_job", feature = "op_create_tenant_resource_association", feature = "op_delete_configuration_set", feature = "op_delete_configuration_set_event_destination", feature = "op_delete_contact", feature = "op_delete_contact_list", feature = "op_delete_custom_verification_email_template", feature = "op_delete_dedicated_ip_pool", feature = "op_delete_email_identity", feature = "op_delete_email_identity_policy", feature = "op_delete_email_template", feature = "op_delete_multi_region_endpoint", feature = "op_delete_suppressed_destination", feature = "op_delete_tenant", feature = "op_delete_tenant_resource_association", feature = "op_get_blacklist_reports", feature = "op_get_configuration_set", feature = "op_get_configuration_set_event_destinations", feature = "op_get_contact", feature = "op_get_contact_list", feature = "op_get_custom_verification_email_template", feature = "op_get_dedicated_ip", feature = "op_get_dedicated_ip_pool", feature = "op_get_dedicated_ips", feature = "op_get_deliverability_test_report", feature = "op_get_domain_deliverability_campaign", feature = "op_get_domain_statistics_report", feature = "op_get_email_identity", feature = "op_get_email_identity_policies", feature = "op_get_email_template", feature = "op_get_export_job", feature = "op_get_import_job", feature = "op_get_message_insights", feature = "op_get_multi_region_endpoint", feature = "op_get_reputation_entity", feature = "op_get_suppressed_destination", feature = "op_get_tenant", feature = "op_list_contacts", feature = "op_list_deliverability_test_reports", feature = "op_list_domain_deliverability_campaigns", feature = "op_list_recommendations", feature = "op_list_resource_tenants", feature = "op_list_suppressed_destinations", feature = "op_list_tags_for_resource", feature = "op_list_tenant_resources", feature = "op_put_configuration_set_archiving_options", feature = "op_put_configuration_set_delivery_options", feature = "op_put_configuration_set_reputation_options", feature = "op_put_configuration_set_sending_options", feature = "op_put_configuration_set_suppression_options", feature = "op_put_configuration_set_tracking_options", feature = "op_put_configuration_set_vdm_options", feature = "op_put_dedicated_ip_in_pool", feature = "op_put_dedicated_ip_pool_scaling_attributes", feature = "op_put_dedicated_ip_warmup_attributes", feature = "op_put_deliverability_dashboard_option", feature = "op_put_email_identity_configuration_set_attributes", feature = "op_put_email_identity_dkim_attributes", feature = "op_put_email_identity_dkim_signing_attributes", feature = "op_put_email_identity_feedback_attributes", feature = "op_put_email_identity_mail_from_attributes", feature = "op_put_suppressed_destination", feature = "op_put_tenant_suppression_attributes", feature = "op_send_bulk_email", feature = "op_send_custom_verification_email", feature = "op_send_email", feature = "op_tag_resource", feature = "op_test_render_email_template", feature = "op_untag_resource", feature = "op_update_configuration_set_event_destination", feature = "op_update_contact", feature = "op_update_contact_list", feature = "op_update_custom_verification_email_template", feature = "op_update_email_identity_policy", feature = "op_update_email_template"))]
+Error::NotFoundException(inner) => inner.source(),
+            #[cfg(any(feature = "op_create_deliverability_test_report", feature = "op_send_bulk_email", feature = "op_send_custom_verification_email", feature = "op_send_email"))]
+Error::SendingPausedException(inner) => inner.source(),
+            #[cfg(any(feature = "op_batch_get_metric_data", feature = "op_cancel_export_job", feature = "op_create_configuration_set", feature = "op_create_configuration_set_event_destination", feature = "op_create_contact", feature = "op_create_contact_list", feature = "op_create_custom_verification_email_template", feature = "op_create_dedicated_ip_pool", feature = "op_create_deliverability_test_report", feature = "op_create_email_identity", feature = "op_create_email_identity_policy", feature = "op_create_email_template", feature = "op_create_export_job", feature = "op_create_import_job", feature = "op_create_multi_region_endpoint", feature = "op_create_tenant", feature = "op_create_tenant_resource_association", feature = "op_delete_configuration_set", feature = "op_delete_configuration_set_event_destination", feature = "op_delete_contact", feature = "op_delete_contact_list", feature = "op_delete_custom_verification_email_template", feature = "op_delete_dedicated_ip_pool", feature = "op_delete_email_identity", feature = "op_delete_email_identity_policy", feature = "op_delete_email_template", feature = "op_delete_multi_region_endpoint", feature = "op_delete_suppressed_destination", feature = "op_delete_tenant", feature = "op_delete_tenant_resource_association", feature = "op_get_account", feature = "op_get_blacklist_reports", feature = "op_get_configuration_set", feature = "op_get_configuration_set_event_destinations", feature = "op_get_contact", feature = "op_get_contact_list", feature = "op_get_custom_verification_email_template", feature = "op_get_dedicated_ip", feature = "op_get_dedicated_ip_pool", feature = "op_get_dedicated_ips", feature = "op_get_deliverability_dashboard_options", feature = "op_get_deliverability_test_report", feature = "op_get_domain_deliverability_campaign", feature = "op_get_domain_statistics_report", feature = "op_get_email_address_insights", feature = "op_get_email_identity", feature = "op_get_email_identity_policies", feature = "op_get_email_template", feature = "op_get_export_job", feature = "op_get_import_job", feature = "op_get_message_insights", feature = "op_get_multi_region_endpoint", feature = "op_get_reputation_entity", feature = "op_get_suppressed_destination", feature = "op_get_tenant", feature = "op_list_configuration_sets", feature = "op_list_contact_lists", feature = "op_list_contacts", feature = "op_list_custom_verification_email_templates", feature = "op_list_dedicated_ip_pools", feature = "op_list_deliverability_test_reports", feature = "op_list_domain_deliverability_campaigns", feature = "op_list_email_identities", feature = "op_list_email_templates", feature = "op_list_export_jobs", feature = "op_list_import_jobs", feature = "op_list_multi_region_endpoints", feature = "op_list_recommendations", feature = "op_list_reputation_entities", feature = "op_list_resource_tenants", feature = "op_list_suppressed_destinations", feature = "op_list_tags_for_resource", feature = "op_list_tenant_resources", feature = "op_list_tenants", feature = "op_put_account_dedicated_ip_warmup_attributes", feature = "op_put_account_details", feature = "op_put_account_pricing_attributes", feature = "op_put_account_sending_attributes", feature = "op_put_account_suppression_attributes", feature = "op_put_account_vdm_attributes", feature = "op_put_configuration_set_archiving_options", feature = "op_put_configuration_set_delivery_options", feature = "op_put_configuration_set_reputation_options", feature = "op_put_configuration_set_sending_options", feature = "op_put_configuration_set_suppression_options", feature = "op_put_configuration_set_tracking_options", feature = "op_put_configuration_set_vdm_options", feature = "op_put_dedicated_ip_in_pool", feature = "op_put_dedicated_ip_pool_scaling_attributes", feature = "op_put_dedicated_ip_warmup_attributes", feature = "op_put_deliverability_dashboard_option", feature = "op_put_email_identity_configuration_set_attributes", feature = "op_put_email_identity_dkim_attributes", feature = "op_put_email_identity_dkim_signing_attributes", feature = "op_put_email_identity_feedback_attributes", feature = "op_put_email_identity_mail_from_attributes", feature = "op_put_suppressed_destination", feature = "op_put_tenant_suppression_attributes", feature = "op_send_bulk_email", feature = "op_send_custom_verification_email", feature = "op_send_email", feature = "op_tag_resource", feature = "op_test_render_email_template", feature = "op_untag_resource", feature = "op_update_configuration_set_event_destination", feature = "op_update_contact", feature = "op_update_contact_list", feature = "op_update_custom_verification_email_template", feature = "op_update_email_identity_policy", feature = "op_update_email_template", feature = "op_update_reputation_entity_customer_managed_status", feature = "op_update_reputation_entity_policy"))]
+Error::TooManyRequestsException(inner) => inner.source(),
             Error::Unhandled(inner) => ::std::option::Option::Some(&*inner.source),
         }
     }
@@ -5217,19 +4070,32 @@ impl ::std::error::Error for Error {
 impl ::aws_types::request_id::RequestId for Error {
     fn request_id(&self) -> Option<&str> {
         match self {
-            Self::AccountSuspendedException(e) => e.request_id(),
-            Self::AlreadyExistsException(e) => e.request_id(),
-            Self::BadRequestException(e) => e.request_id(),
-            Self::ConcurrentModificationException(e) => e.request_id(),
-            Self::ConflictException(e) => e.request_id(),
-            Self::InternalServiceErrorException(e) => e.request_id(),
-            Self::InvalidNextTokenException(e) => e.request_id(),
-            Self::LimitExceededException(e) => e.request_id(),
-            Self::MailFromDomainNotVerifiedException(e) => e.request_id(),
-            Self::MessageRejected(e) => e.request_id(),
-            Self::NotFoundException(e) => e.request_id(),
-            Self::SendingPausedException(e) => e.request_id(),
-            Self::TooManyRequestsException(e) => e.request_id(),
+            #[cfg(any(feature = "op_create_deliverability_test_report", feature = "op_send_bulk_email", feature = "op_send_email"))]
+Self::AccountSuspendedException(e) => e.request_id(),
+            #[cfg(any(feature = "op_create_configuration_set", feature = "op_create_configuration_set_event_destination", feature = "op_create_contact", feature = "op_create_contact_list", feature = "op_create_custom_verification_email_template", feature = "op_create_dedicated_ip_pool", feature = "op_create_email_identity", feature = "op_create_email_identity_policy", feature = "op_create_email_template", feature = "op_create_multi_region_endpoint", feature = "op_create_tenant", feature = "op_create_tenant_resource_association", feature = "op_put_deliverability_dashboard_option"))]
+Self::AlreadyExistsException(e) => e.request_id(),
+            #[cfg(any(feature = "op_batch_get_metric_data", feature = "op_cancel_export_job", feature = "op_create_configuration_set", feature = "op_create_configuration_set_event_destination", feature = "op_create_contact", feature = "op_create_contact_list", feature = "op_create_custom_verification_email_template", feature = "op_create_dedicated_ip_pool", feature = "op_create_deliverability_test_report", feature = "op_create_email_identity", feature = "op_create_email_identity_policy", feature = "op_create_email_template", feature = "op_create_export_job", feature = "op_create_import_job", feature = "op_create_multi_region_endpoint", feature = "op_create_tenant", feature = "op_create_tenant_resource_association", feature = "op_delete_configuration_set", feature = "op_delete_configuration_set_event_destination", feature = "op_delete_contact", feature = "op_delete_contact_list", feature = "op_delete_custom_verification_email_template", feature = "op_delete_dedicated_ip_pool", feature = "op_delete_email_identity", feature = "op_delete_email_identity_policy", feature = "op_delete_email_template", feature = "op_delete_multi_region_endpoint", feature = "op_delete_suppressed_destination", feature = "op_delete_tenant", feature = "op_delete_tenant_resource_association", feature = "op_get_account", feature = "op_get_blacklist_reports", feature = "op_get_configuration_set", feature = "op_get_configuration_set_event_destinations", feature = "op_get_contact", feature = "op_get_contact_list", feature = "op_get_custom_verification_email_template", feature = "op_get_dedicated_ip", feature = "op_get_dedicated_ip_pool", feature = "op_get_dedicated_ips", feature = "op_get_deliverability_dashboard_options", feature = "op_get_deliverability_test_report", feature = "op_get_domain_deliverability_campaign", feature = "op_get_domain_statistics_report", feature = "op_get_email_address_insights", feature = "op_get_email_identity", feature = "op_get_email_identity_policies", feature = "op_get_email_template", feature = "op_get_export_job", feature = "op_get_import_job", feature = "op_get_message_insights", feature = "op_get_multi_region_endpoint", feature = "op_get_reputation_entity", feature = "op_get_suppressed_destination", feature = "op_get_tenant", feature = "op_list_configuration_sets", feature = "op_list_contact_lists", feature = "op_list_contacts", feature = "op_list_custom_verification_email_templates", feature = "op_list_dedicated_ip_pools", feature = "op_list_deliverability_test_reports", feature = "op_list_domain_deliverability_campaigns", feature = "op_list_email_identities", feature = "op_list_email_templates", feature = "op_list_export_jobs", feature = "op_list_import_jobs", feature = "op_list_multi_region_endpoints", feature = "op_list_recommendations", feature = "op_list_reputation_entities", feature = "op_list_resource_tenants", feature = "op_list_suppressed_destinations", feature = "op_list_tags_for_resource", feature = "op_list_tenant_resources", feature = "op_list_tenants", feature = "op_put_account_dedicated_ip_warmup_attributes", feature = "op_put_account_details", feature = "op_put_account_pricing_attributes", feature = "op_put_account_sending_attributes", feature = "op_put_account_suppression_attributes", feature = "op_put_account_vdm_attributes", feature = "op_put_configuration_set_archiving_options", feature = "op_put_configuration_set_delivery_options", feature = "op_put_configuration_set_reputation_options", feature = "op_put_configuration_set_sending_options", feature = "op_put_configuration_set_suppression_options", feature = "op_put_configuration_set_tracking_options", feature = "op_put_configuration_set_vdm_options", feature = "op_put_dedicated_ip_in_pool", feature = "op_put_dedicated_ip_pool_scaling_attributes", feature = "op_put_dedicated_ip_warmup_attributes", feature = "op_put_deliverability_dashboard_option", feature = "op_put_email_identity_configuration_set_attributes", feature = "op_put_email_identity_dkim_attributes", feature = "op_put_email_identity_dkim_signing_attributes", feature = "op_put_email_identity_feedback_attributes", feature = "op_put_email_identity_mail_from_attributes", feature = "op_put_suppressed_destination", feature = "op_put_tenant_suppression_attributes", feature = "op_send_bulk_email", feature = "op_send_custom_verification_email", feature = "op_send_email", feature = "op_tag_resource", feature = "op_test_render_email_template", feature = "op_untag_resource", feature = "op_update_configuration_set_event_destination", feature = "op_update_contact", feature = "op_update_contact_list", feature = "op_update_custom_verification_email_template", feature = "op_update_email_identity_policy", feature = "op_update_email_template", feature = "op_update_reputation_entity_customer_managed_status", feature = "op_update_reputation_entity_policy"))]
+Self::BadRequestException(e) => e.request_id(),
+            #[cfg(any(feature = "op_create_configuration_set", feature = "op_create_dedicated_ip_pool", feature = "op_create_deliverability_test_report", feature = "op_create_email_identity", feature = "op_delete_configuration_set", feature = "op_delete_contact_list", feature = "op_delete_dedicated_ip_pool", feature = "op_delete_email_identity", feature = "op_delete_multi_region_endpoint", feature = "op_put_dedicated_ip_pool_scaling_attributes", feature = "op_tag_resource", feature = "op_untag_resource", feature = "op_update_contact", feature = "op_update_contact_list"))]
+Self::ConcurrentModificationException(e) => e.request_id(),
+            #[cfg(any(feature = "op_put_account_details", feature = "op_put_account_pricing_attributes", feature = "op_update_reputation_entity_customer_managed_status", feature = "op_update_reputation_entity_policy"))]
+Self::ConflictException(e) => e.request_id(),
+            #[cfg(feature = "op_batch_get_metric_data")]
+Self::InternalServiceErrorException(e) => e.request_id(),
+            #[cfg(feature = "op_list_suppressed_destinations")]
+Self::InvalidNextTokenException(e) => e.request_id(),
+            #[cfg(any(feature = "op_create_configuration_set", feature = "op_create_configuration_set_event_destination", feature = "op_create_contact_list", feature = "op_create_custom_verification_email_template", feature = "op_create_dedicated_ip_pool", feature = "op_create_deliverability_test_report", feature = "op_create_email_identity", feature = "op_create_email_identity_policy", feature = "op_create_email_template", feature = "op_create_export_job", feature = "op_create_import_job", feature = "op_create_multi_region_endpoint", feature = "op_create_tenant", feature = "op_get_deliverability_dashboard_options", feature = "op_put_deliverability_dashboard_option", feature = "op_send_bulk_email", feature = "op_send_custom_verification_email", feature = "op_send_email"))]
+Self::LimitExceededException(e) => e.request_id(),
+            #[cfg(any(feature = "op_create_deliverability_test_report", feature = "op_send_bulk_email", feature = "op_send_custom_verification_email", feature = "op_send_email"))]
+Self::MailFromDomainNotVerifiedException(e) => e.request_id(),
+            #[cfg(any(feature = "op_create_deliverability_test_report", feature = "op_send_bulk_email", feature = "op_send_custom_verification_email", feature = "op_send_email"))]
+Self::MessageRejected(e) => e.request_id(),
+            #[cfg(any(feature = "op_batch_get_metric_data", feature = "op_cancel_export_job", feature = "op_create_configuration_set", feature = "op_create_configuration_set_event_destination", feature = "op_create_contact", feature = "op_create_custom_verification_email_template", feature = "op_create_deliverability_test_report", feature = "op_create_email_identity", feature = "op_create_email_identity_policy", feature = "op_create_export_job", feature = "op_create_tenant_resource_association", feature = "op_delete_configuration_set", feature = "op_delete_configuration_set_event_destination", feature = "op_delete_contact", feature = "op_delete_contact_list", feature = "op_delete_custom_verification_email_template", feature = "op_delete_dedicated_ip_pool", feature = "op_delete_email_identity", feature = "op_delete_email_identity_policy", feature = "op_delete_email_template", feature = "op_delete_multi_region_endpoint", feature = "op_delete_suppressed_destination", feature = "op_delete_tenant", feature = "op_delete_tenant_resource_association", feature = "op_get_blacklist_reports", feature = "op_get_configuration_set", feature = "op_get_configuration_set_event_destinations", feature = "op_get_contact", feature = "op_get_contact_list", feature = "op_get_custom_verification_email_template", feature = "op_get_dedicated_ip", feature = "op_get_dedicated_ip_pool", feature = "op_get_dedicated_ips", feature = "op_get_deliverability_test_report", feature = "op_get_domain_deliverability_campaign", feature = "op_get_domain_statistics_report", feature = "op_get_email_identity", feature = "op_get_email_identity_policies", feature = "op_get_email_template", feature = "op_get_export_job", feature = "op_get_import_job", feature = "op_get_message_insights", feature = "op_get_multi_region_endpoint", feature = "op_get_reputation_entity", feature = "op_get_suppressed_destination", feature = "op_get_tenant", feature = "op_list_contacts", feature = "op_list_deliverability_test_reports", feature = "op_list_domain_deliverability_campaigns", feature = "op_list_recommendations", feature = "op_list_resource_tenants", feature = "op_list_suppressed_destinations", feature = "op_list_tags_for_resource", feature = "op_list_tenant_resources", feature = "op_put_configuration_set_archiving_options", feature = "op_put_configuration_set_delivery_options", feature = "op_put_configuration_set_reputation_options", feature = "op_put_configuration_set_sending_options", feature = "op_put_configuration_set_suppression_options", feature = "op_put_configuration_set_tracking_options", feature = "op_put_configuration_set_vdm_options", feature = "op_put_dedicated_ip_in_pool", feature = "op_put_dedicated_ip_pool_scaling_attributes", feature = "op_put_dedicated_ip_warmup_attributes", feature = "op_put_deliverability_dashboard_option", feature = "op_put_email_identity_configuration_set_attributes", feature = "op_put_email_identity_dkim_attributes", feature = "op_put_email_identity_dkim_signing_attributes", feature = "op_put_email_identity_feedback_attributes", feature = "op_put_email_identity_mail_from_attributes", feature = "op_put_suppressed_destination", feature = "op_put_tenant_suppression_attributes", feature = "op_send_bulk_email", feature = "op_send_custom_verification_email", feature = "op_send_email", feature = "op_tag_resource", feature = "op_test_render_email_template", feature = "op_untag_resource", feature = "op_update_configuration_set_event_destination", feature = "op_update_contact", feature = "op_update_contact_list", feature = "op_update_custom_verification_email_template", feature = "op_update_email_identity_policy", feature = "op_update_email_template"))]
+Self::NotFoundException(e) => e.request_id(),
+            #[cfg(any(feature = "op_create_deliverability_test_report", feature = "op_send_bulk_email", feature = "op_send_custom_verification_email", feature = "op_send_email"))]
+Self::SendingPausedException(e) => e.request_id(),
+            #[cfg(any(feature = "op_batch_get_metric_data", feature = "op_cancel_export_job", feature = "op_create_configuration_set", feature = "op_create_configuration_set_event_destination", feature = "op_create_contact", feature = "op_create_contact_list", feature = "op_create_custom_verification_email_template", feature = "op_create_dedicated_ip_pool", feature = "op_create_deliverability_test_report", feature = "op_create_email_identity", feature = "op_create_email_identity_policy", feature = "op_create_email_template", feature = "op_create_export_job", feature = "op_create_import_job", feature = "op_create_multi_region_endpoint", feature = "op_create_tenant", feature = "op_create_tenant_resource_association", feature = "op_delete_configuration_set", feature = "op_delete_configuration_set_event_destination", feature = "op_delete_contact", feature = "op_delete_contact_list", feature = "op_delete_custom_verification_email_template", feature = "op_delete_dedicated_ip_pool", feature = "op_delete_email_identity", feature = "op_delete_email_identity_policy", feature = "op_delete_email_template", feature = "op_delete_multi_region_endpoint", feature = "op_delete_suppressed_destination", feature = "op_delete_tenant", feature = "op_delete_tenant_resource_association", feature = "op_get_account", feature = "op_get_blacklist_reports", feature = "op_get_configuration_set", feature = "op_get_configuration_set_event_destinations", feature = "op_get_contact", feature = "op_get_contact_list", feature = "op_get_custom_verification_email_template", feature = "op_get_dedicated_ip", feature = "op_get_dedicated_ip_pool", feature = "op_get_dedicated_ips", feature = "op_get_deliverability_dashboard_options", feature = "op_get_deliverability_test_report", feature = "op_get_domain_deliverability_campaign", feature = "op_get_domain_statistics_report", feature = "op_get_email_address_insights", feature = "op_get_email_identity", feature = "op_get_email_identity_policies", feature = "op_get_email_template", feature = "op_get_export_job", feature = "op_get_import_job", feature = "op_get_message_insights", feature = "op_get_multi_region_endpoint", feature = "op_get_reputation_entity", feature = "op_get_suppressed_destination", feature = "op_get_tenant", feature = "op_list_configuration_sets", feature = "op_list_contact_lists", feature = "op_list_contacts", feature = "op_list_custom_verification_email_templates", feature = "op_list_dedicated_ip_pools", feature = "op_list_deliverability_test_reports", feature = "op_list_domain_deliverability_campaigns", feature = "op_list_email_identities", feature = "op_list_email_templates", feature = "op_list_export_jobs", feature = "op_list_import_jobs", feature = "op_list_multi_region_endpoints", feature = "op_list_recommendations", feature = "op_list_reputation_entities", feature = "op_list_resource_tenants", feature = "op_list_suppressed_destinations", feature = "op_list_tags_for_resource", feature = "op_list_tenant_resources", feature = "op_list_tenants", feature = "op_put_account_dedicated_ip_warmup_attributes", feature = "op_put_account_details", feature = "op_put_account_pricing_attributes", feature = "op_put_account_sending_attributes", feature = "op_put_account_suppression_attributes", feature = "op_put_account_vdm_attributes", feature = "op_put_configuration_set_archiving_options", feature = "op_put_configuration_set_delivery_options", feature = "op_put_configuration_set_reputation_options", feature = "op_put_configuration_set_sending_options", feature = "op_put_configuration_set_suppression_options", feature = "op_put_configuration_set_tracking_options", feature = "op_put_configuration_set_vdm_options", feature = "op_put_dedicated_ip_in_pool", feature = "op_put_dedicated_ip_pool_scaling_attributes", feature = "op_put_dedicated_ip_warmup_attributes", feature = "op_put_deliverability_dashboard_option", feature = "op_put_email_identity_configuration_set_attributes", feature = "op_put_email_identity_dkim_attributes", feature = "op_put_email_identity_dkim_signing_attributes", feature = "op_put_email_identity_feedback_attributes", feature = "op_put_email_identity_mail_from_attributes", feature = "op_put_suppressed_destination", feature = "op_put_tenant_suppression_attributes", feature = "op_send_bulk_email", feature = "op_send_custom_verification_email", feature = "op_send_email", feature = "op_tag_resource", feature = "op_test_render_email_template", feature = "op_untag_resource", feature = "op_update_configuration_set_event_destination", feature = "op_update_contact", feature = "op_update_contact_list", feature = "op_update_custom_verification_email_template", feature = "op_update_email_identity_policy", feature = "op_update_email_template", feature = "op_update_reputation_entity_customer_managed_status", feature = "op_update_reputation_entity_policy"))]
+Self::TooManyRequestsException(e) => e.request_id(),
             Self::Unhandled(e) => e.meta.request_id(),
         }
     }

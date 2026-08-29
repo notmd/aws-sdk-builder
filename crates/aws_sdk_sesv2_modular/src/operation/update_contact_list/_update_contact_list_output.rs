@@ -15,17 +15,14 @@ impl ::aws_types::request_id::RequestId for UpdateContactListOutput {
 #[cfg(feature = "op_update_contact_list")]
 impl UpdateContactListOutput {
     /// Creates a new builder-style object to manufacture [`UpdateContactListOutput`](crate::operation::update_contact_list::UpdateContactListOutput).
-    pub fn builder(
-    ) -> crate::operation::update_contact_list::builders::UpdateContactListOutputBuilder {
+    pub fn builder() -> crate::operation::update_contact_list::builders::UpdateContactListOutputBuilder {
         crate::operation::update_contact_list::builders::UpdateContactListOutputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_update_contact_list")]
 /// A builder for [`UpdateContactListOutput`](crate::operation::update_contact_list::UpdateContactListOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct UpdateContactListOutputBuilder {
     _request_id: Option<String>,

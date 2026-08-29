@@ -16,16 +16,14 @@ impl ::aws_types::request_id::RequestId for CreateTenantResourceAssociationOutpu
 #[cfg(feature = "op_create_tenant_resource_association")]
 impl CreateTenantResourceAssociationOutput {
     /// Creates a new builder-style object to manufacture [`CreateTenantResourceAssociationOutput`](crate::operation::create_tenant_resource_association::CreateTenantResourceAssociationOutput).
-    pub fn builder() -> crate::operation::create_tenant_resource_association::builders::CreateTenantResourceAssociationOutputBuilder{
+    pub fn builder() -> crate::operation::create_tenant_resource_association::builders::CreateTenantResourceAssociationOutputBuilder {
         crate::operation::create_tenant_resource_association::builders::CreateTenantResourceAssociationOutputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_create_tenant_resource_association")]
 /// A builder for [`CreateTenantResourceAssociationOutput`](crate::operation::create_tenant_resource_association::CreateTenantResourceAssociationOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct CreateTenantResourceAssociationOutputBuilder {
     _request_id: Option<String>,
@@ -42,10 +40,7 @@ impl CreateTenantResourceAssociationOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`CreateTenantResourceAssociationOutput`](crate::operation::create_tenant_resource_association::CreateTenantResourceAssociationOutput).
-    pub fn build(
-        self,
-    ) -> crate::operation::create_tenant_resource_association::CreateTenantResourceAssociationOutput
-    {
+    pub fn build(self) -> crate::operation::create_tenant_resource_association::CreateTenantResourceAssociationOutput {
         crate::operation::create_tenant_resource_association::CreateTenantResourceAssociationOutput {
             _request_id: self._request_id,
         }

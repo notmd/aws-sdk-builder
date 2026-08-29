@@ -12,7 +12,7 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<ListCustomVerificationEmailTemplatesError>`](crate::operation::list_custom_verification_email_templates::ListCustomVerificationEmailTemplatesError)
     pub fn list_custom_verification_email_templates(
         &self,
-    ) -> crate::operation::list_custom_verification_email_templates::builders::ListCustomVerificationEmailTemplatesFluentBuilder{
+    ) -> crate::operation::list_custom_verification_email_templates::builders::ListCustomVerificationEmailTemplatesFluentBuilder {
         crate::operation::list_custom_verification_email_templates::builders::ListCustomVerificationEmailTemplatesFluentBuilder::new(
             self.handle.clone(),
         )

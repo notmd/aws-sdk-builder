@@ -22,9 +22,7 @@ impl ConfigurationOverrides {
 }
 
 /// A builder for [`ConfigurationOverrides`](crate::types::ConfigurationOverrides).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct ConfigurationOverridesBuilder {
     pub(crate) tracking: ::std::option::Option<crate::types::TrackingConfigurationOverrides>,
@@ -36,23 +34,16 @@ impl ConfigurationOverridesBuilder {
         self
     }
     /// <p>An object that overrides the open and click tracking settings that would otherwise apply to the message.</p>
-    pub fn set_tracking(
-        mut self,
-        input: ::std::option::Option<crate::types::TrackingConfigurationOverrides>,
-    ) -> Self {
+    pub fn set_tracking(mut self, input: ::std::option::Option<crate::types::TrackingConfigurationOverrides>) -> Self {
         self.tracking = input;
         self
     }
     /// <p>An object that overrides the open and click tracking settings that would otherwise apply to the message.</p>
-    pub fn get_tracking(
-        &self,
-    ) -> &::std::option::Option<crate::types::TrackingConfigurationOverrides> {
+    pub fn get_tracking(&self) -> &::std::option::Option<crate::types::TrackingConfigurationOverrides> {
         &self.tracking
     }
     /// Consumes the builder and constructs a [`ConfigurationOverrides`](crate::types::ConfigurationOverrides).
     pub fn build(self) -> crate::types::ConfigurationOverrides {
-        crate::types::ConfigurationOverrides {
-            tracking: self.tracking,
-        }
+        crate::types::ConfigurationOverrides { tracking: self.tracking }
     }
 }

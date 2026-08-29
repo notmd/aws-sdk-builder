@@ -34,9 +34,7 @@ impl SuppressedDestinationSummary {
 }
 
 /// A builder for [`SuppressedDestinationSummary`](crate::types::SuppressedDestinationSummary).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct SuppressedDestinationSummaryBuilder {
     pub(crate) email_address: ::std::option::Option<::std::string::String>,
@@ -46,18 +44,12 @@ pub struct SuppressedDestinationSummaryBuilder {
 impl SuppressedDestinationSummaryBuilder {
     /// <p>The email address that's on the suppression list for your account or for a specific tenant.</p>
     /// This field is required.
-    pub fn email_address(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn email_address(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.email_address = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The email address that's on the suppression list for your account or for a specific tenant.</p>
-    pub fn set_email_address(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_email_address(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.email_address = input;
         self
     }
@@ -72,10 +64,7 @@ impl SuppressedDestinationSummaryBuilder {
         self
     }
     /// <p>The reason that the address was added to the suppression list for your account or for a specific tenant.</p>
-    pub fn set_reason(
-        mut self,
-        input: ::std::option::Option<crate::types::SuppressionListReason>,
-    ) -> Self {
+    pub fn set_reason(mut self, input: ::std::option::Option<crate::types::SuppressionListReason>) -> Self {
         self.reason = input;
         self
     }
@@ -90,10 +79,7 @@ impl SuppressedDestinationSummaryBuilder {
         self
     }
     /// <p>The date and time when the suppressed destination was last updated, shown in Unix time format.</p>
-    pub fn set_last_update_time(
-        mut self,
-        input: ::std::option::Option<::aws_smithy_types::DateTime>,
-    ) -> Self {
+    pub fn set_last_update_time(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
         self.last_update_time = input;
         self
     }
@@ -106,12 +92,7 @@ impl SuppressedDestinationSummaryBuilder {
     /// - [`email_address`](crate::types::builders::SuppressedDestinationSummaryBuilder::email_address)
     /// - [`reason`](crate::types::builders::SuppressedDestinationSummaryBuilder::reason)
     /// - [`last_update_time`](crate::types::builders::SuppressedDestinationSummaryBuilder::last_update_time)
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<
-        crate::types::SuppressedDestinationSummary,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    pub fn build(self) -> ::std::result::Result<crate::types::SuppressedDestinationSummary, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::SuppressedDestinationSummary {
             email_address: self.email_address.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

@@ -16,16 +16,14 @@ impl ::aws_types::request_id::RequestId for PutConfigurationSetSendingOptionsOut
 #[cfg(feature = "op_put_configuration_set_sending_options")]
 impl PutConfigurationSetSendingOptionsOutput {
     /// Creates a new builder-style object to manufacture [`PutConfigurationSetSendingOptionsOutput`](crate::operation::put_configuration_set_sending_options::PutConfigurationSetSendingOptionsOutput).
-    pub fn builder() -> crate::operation::put_configuration_set_sending_options::builders::PutConfigurationSetSendingOptionsOutputBuilder{
+    pub fn builder() -> crate::operation::put_configuration_set_sending_options::builders::PutConfigurationSetSendingOptionsOutputBuilder {
         crate::operation::put_configuration_set_sending_options::builders::PutConfigurationSetSendingOptionsOutputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_put_configuration_set_sending_options")]
 /// A builder for [`PutConfigurationSetSendingOptionsOutput`](crate::operation::put_configuration_set_sending_options::PutConfigurationSetSendingOptionsOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct PutConfigurationSetSendingOptionsOutputBuilder {
     _request_id: Option<String>,
@@ -42,7 +40,7 @@ impl PutConfigurationSetSendingOptionsOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`PutConfigurationSetSendingOptionsOutput`](crate::operation::put_configuration_set_sending_options::PutConfigurationSetSendingOptionsOutput).
-    pub fn build(self) -> crate::operation::put_configuration_set_sending_options::PutConfigurationSetSendingOptionsOutput{
+    pub fn build(self) -> crate::operation::put_configuration_set_sending_options::PutConfigurationSetSendingOptionsOutput {
         crate::operation::put_configuration_set_sending_options::PutConfigurationSetSendingOptionsOutput {
             _request_id: self._request_id,
         }

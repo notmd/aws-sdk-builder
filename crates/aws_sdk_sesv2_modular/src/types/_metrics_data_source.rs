@@ -5,10 +5,7 @@
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
 pub struct MetricsDataSource {
     /// <p>An object that contains a mapping between a <code>MetricDimensionName</code> and <code>MetricDimensionValue</code> to filter metrics by. Must contain a least 1 dimension but no more than 3 unique ones.</p>
-    pub dimensions: ::std::collections::HashMap<
-        crate::types::MetricDimensionName,
-        ::std::vec::Vec<::std::string::String>,
-    >,
+    pub dimensions: ::std::collections::HashMap<crate::types::MetricDimensionName, ::std::vec::Vec<::std::string::String>>,
     /// <p>The metrics namespace - e.g., <code>VDM</code>.</p>
     pub namespace: crate::types::MetricNamespace,
     /// <p>A list of <code>ExportMetric</code> objects to export.</p>
@@ -20,12 +17,7 @@ pub struct MetricsDataSource {
 }
 impl MetricsDataSource {
     /// <p>An object that contains a mapping between a <code>MetricDimensionName</code> and <code>MetricDimensionValue</code> to filter metrics by. Must contain a least 1 dimension but no more than 3 unique ones.</p>
-    pub fn dimensions(
-        &self,
-    ) -> &::std::collections::HashMap<
-        crate::types::MetricDimensionName,
-        ::std::vec::Vec<::std::string::String>,
-    > {
+    pub fn dimensions(&self) -> &::std::collections::HashMap<crate::types::MetricDimensionName, ::std::vec::Vec<::std::string::String>> {
         &self.dimensions
     }
     /// <p>The metrics namespace - e.g., <code>VDM</code>.</p>
@@ -54,17 +46,11 @@ impl MetricsDataSource {
 }
 
 /// A builder for [`MetricsDataSource`](crate::types::MetricsDataSource).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct MetricsDataSourceBuilder {
-    pub(crate) dimensions: ::std::option::Option<
-        ::std::collections::HashMap<
-            crate::types::MetricDimensionName,
-            ::std::vec::Vec<::std::string::String>,
-        >,
-    >,
+    pub(crate) dimensions:
+        ::std::option::Option<::std::collections::HashMap<crate::types::MetricDimensionName, ::std::vec::Vec<::std::string::String>>>,
     pub(crate) namespace: ::std::option::Option<crate::types::MetricNamespace>,
     pub(crate) metrics: ::std::option::Option<::std::vec::Vec<crate::types::ExportMetric>>,
     pub(crate) start_date: ::std::option::Option<::aws_smithy_types::DateTime>,
@@ -76,11 +62,7 @@ impl MetricsDataSourceBuilder {
     /// To override the contents of this collection use [`set_dimensions`](Self::set_dimensions).
     ///
     /// <p>An object that contains a mapping between a <code>MetricDimensionName</code> and <code>MetricDimensionValue</code> to filter metrics by. Must contain a least 1 dimension but no more than 3 unique ones.</p>
-    pub fn dimensions(
-        mut self,
-        k: crate::types::MetricDimensionName,
-        v: ::std::vec::Vec<::std::string::String>,
-    ) -> Self {
+    pub fn dimensions(mut self, k: crate::types::MetricDimensionName, v: ::std::vec::Vec<::std::string::String>) -> Self {
         let mut hash_map = self.dimensions.unwrap_or_default();
         hash_map.insert(k, v);
         self.dimensions = ::std::option::Option::Some(hash_map);
@@ -89,12 +71,7 @@ impl MetricsDataSourceBuilder {
     /// <p>An object that contains a mapping between a <code>MetricDimensionName</code> and <code>MetricDimensionValue</code> to filter metrics by. Must contain a least 1 dimension but no more than 3 unique ones.</p>
     pub fn set_dimensions(
         mut self,
-        input: ::std::option::Option<
-            ::std::collections::HashMap<
-                crate::types::MetricDimensionName,
-                ::std::vec::Vec<::std::string::String>,
-            >,
-        >,
+        input: ::std::option::Option<::std::collections::HashMap<crate::types::MetricDimensionName, ::std::vec::Vec<::std::string::String>>>,
     ) -> Self {
         self.dimensions = input;
         self
@@ -102,12 +79,7 @@ impl MetricsDataSourceBuilder {
     /// <p>An object that contains a mapping between a <code>MetricDimensionName</code> and <code>MetricDimensionValue</code> to filter metrics by. Must contain a least 1 dimension but no more than 3 unique ones.</p>
     pub fn get_dimensions(
         &self,
-    ) -> &::std::option::Option<
-        ::std::collections::HashMap<
-            crate::types::MetricDimensionName,
-            ::std::vec::Vec<::std::string::String>,
-        >,
-    > {
+    ) -> &::std::option::Option<::std::collections::HashMap<crate::types::MetricDimensionName, ::std::vec::Vec<::std::string::String>>> {
         &self.dimensions
     }
     /// <p>The metrics namespace - e.g., <code>VDM</code>.</p>
@@ -117,10 +89,7 @@ impl MetricsDataSourceBuilder {
         self
     }
     /// <p>The metrics namespace - e.g., <code>VDM</code>.</p>
-    pub fn set_namespace(
-        mut self,
-        input: ::std::option::Option<crate::types::MetricNamespace>,
-    ) -> Self {
+    pub fn set_namespace(mut self, input: ::std::option::Option<crate::types::MetricNamespace>) -> Self {
         self.namespace = input;
         self
     }
@@ -140,17 +109,12 @@ impl MetricsDataSourceBuilder {
         self
     }
     /// <p>A list of <code>ExportMetric</code> objects to export.</p>
-    pub fn set_metrics(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<crate::types::ExportMetric>>,
-    ) -> Self {
+    pub fn set_metrics(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::ExportMetric>>) -> Self {
         self.metrics = input;
         self
     }
     /// <p>A list of <code>ExportMetric</code> objects to export.</p>
-    pub fn get_metrics(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<crate::types::ExportMetric>> {
+    pub fn get_metrics(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::ExportMetric>> {
         &self.metrics
     }
     /// <p>Represents the start date for the export interval as a timestamp.</p>
@@ -160,10 +124,7 @@ impl MetricsDataSourceBuilder {
         self
     }
     /// <p>Represents the start date for the export interval as a timestamp.</p>
-    pub fn set_start_date(
-        mut self,
-        input: ::std::option::Option<::aws_smithy_types::DateTime>,
-    ) -> Self {
+    pub fn set_start_date(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
         self.start_date = input;
         self
     }
@@ -178,10 +139,7 @@ impl MetricsDataSourceBuilder {
         self
     }
     /// <p>Represents the end date for the export interval as a timestamp.</p>
-    pub fn set_end_date(
-        mut self,
-        input: ::std::option::Option<::aws_smithy_types::DateTime>,
-    ) -> Self {
+    pub fn set_end_date(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
         self.end_date = input;
         self
     }
@@ -196,12 +154,7 @@ impl MetricsDataSourceBuilder {
     /// - [`metrics`](crate::types::builders::MetricsDataSourceBuilder::metrics)
     /// - [`start_date`](crate::types::builders::MetricsDataSourceBuilder::start_date)
     /// - [`end_date`](crate::types::builders::MetricsDataSourceBuilder::end_date)
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<
-        crate::types::MetricsDataSource,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    pub fn build(self) -> ::std::result::Result<crate::types::MetricsDataSource, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::MetricsDataSource {
             dimensions: self.dimensions.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

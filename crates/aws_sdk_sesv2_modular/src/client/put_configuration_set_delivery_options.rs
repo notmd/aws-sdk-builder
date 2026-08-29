@@ -11,7 +11,7 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<PutConfigurationSetDeliveryOptionsError>`](crate::operation::put_configuration_set_delivery_options::PutConfigurationSetDeliveryOptionsError)
     pub fn put_configuration_set_delivery_options(
         &self,
-    ) -> crate::operation::put_configuration_set_delivery_options::builders::PutConfigurationSetDeliveryOptionsFluentBuilder{
+    ) -> crate::operation::put_configuration_set_delivery_options::builders::PutConfigurationSetDeliveryOptionsFluentBuilder {
         crate::operation::put_configuration_set_delivery_options::builders::PutConfigurationSetDeliveryOptionsFluentBuilder::new(self.handle.clone())
     }
 }

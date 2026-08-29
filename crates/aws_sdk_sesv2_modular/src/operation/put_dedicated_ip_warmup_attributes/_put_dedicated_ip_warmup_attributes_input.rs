@@ -24,16 +24,14 @@ impl PutDedicatedIpWarmupAttributesInput {
 #[cfg(feature = "op_put_dedicated_ip_warmup_attributes")]
 impl PutDedicatedIpWarmupAttributesInput {
     /// Creates a new builder-style object to manufacture [`PutDedicatedIpWarmupAttributesInput`](crate::operation::put_dedicated_ip_warmup_attributes::PutDedicatedIpWarmupAttributesInput).
-    pub fn builder() -> crate::operation::put_dedicated_ip_warmup_attributes::builders::PutDedicatedIpWarmupAttributesInputBuilder{
+    pub fn builder() -> crate::operation::put_dedicated_ip_warmup_attributes::builders::PutDedicatedIpWarmupAttributesInputBuilder {
         crate::operation::put_dedicated_ip_warmup_attributes::builders::PutDedicatedIpWarmupAttributesInputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_put_dedicated_ip_warmup_attributes")]
 /// A builder for [`PutDedicatedIpWarmupAttributesInput`](crate::operation::put_dedicated_ip_warmup_attributes::PutDedicatedIpWarmupAttributesInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct PutDedicatedIpWarmupAttributesInputBuilder {
     pub(crate) ip: ::std::option::Option<::std::string::String>,

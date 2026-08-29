@@ -9,7 +9,7 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<DeleteSuppressedDestinationError>`](crate::operation::delete_suppressed_destination::DeleteSuppressedDestinationError)
     pub fn delete_suppressed_destination(
         &self,
-    ) -> crate::operation::delete_suppressed_destination::builders::DeleteSuppressedDestinationFluentBuilder{
+    ) -> crate::operation::delete_suppressed_destination::builders::DeleteSuppressedDestinationFluentBuilder {
         crate::operation::delete_suppressed_destination::builders::DeleteSuppressedDestinationFluentBuilder::new(self.handle.clone())
     }
 }

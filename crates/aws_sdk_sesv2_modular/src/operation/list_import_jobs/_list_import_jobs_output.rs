@@ -40,9 +40,7 @@ impl ListImportJobsOutput {
 
 #[cfg(feature = "op_list_import_jobs")]
 /// A builder for [`ListImportJobsOutput`](crate::operation::list_import_jobs::ListImportJobsOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct ListImportJobsOutputBuilder {
     pub(crate) import_jobs: ::std::option::Option<::std::vec::Vec<crate::types::ImportJobSummary>>,
@@ -63,17 +61,12 @@ impl ListImportJobsOutputBuilder {
         self
     }
     /// <p>A list of the import job summaries.</p>
-    pub fn set_import_jobs(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<crate::types::ImportJobSummary>>,
-    ) -> Self {
+    pub fn set_import_jobs(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::ImportJobSummary>>) -> Self {
         self.import_jobs = input;
         self
     }
     /// <p>A list of the import job summaries.</p>
-    pub fn get_import_jobs(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<crate::types::ImportJobSummary>> {
+    pub fn get_import_jobs(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::ImportJobSummary>> {
         &self.import_jobs
     }
     /// <p>A string token indicating that there might be additional import jobs available to be listed. Copy this token to a subsequent call to <code>ListImportJobs</code> with the same parameters to retrieve the next page of import jobs.</p>

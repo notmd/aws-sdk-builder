@@ -9,7 +9,7 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<DeleteTenantResourceAssociationError>`](crate::operation::delete_tenant_resource_association::DeleteTenantResourceAssociationError)
     pub fn delete_tenant_resource_association(
         &self,
-    ) -> crate::operation::delete_tenant_resource_association::builders::DeleteTenantResourceAssociationFluentBuilder{
+    ) -> crate::operation::delete_tenant_resource_association::builders::DeleteTenantResourceAssociationFluentBuilder {
         crate::operation::delete_tenant_resource_association::builders::DeleteTenantResourceAssociationFluentBuilder::new(self.handle.clone())
     }
 }

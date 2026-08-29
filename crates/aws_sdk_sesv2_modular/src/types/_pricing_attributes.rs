@@ -27,9 +27,7 @@ impl PricingAttributes {
 }
 
 /// A builder for [`PricingAttributes`](crate::types::PricingAttributes).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct PricingAttributesBuilder {
     pub(crate) current_plan: ::std::option::Option<crate::types::PricingPlan>,
@@ -42,10 +40,7 @@ impl PricingAttributesBuilder {
         self
     }
     /// <p>The pricing plan that is currently active on your Amazon SES account.</p>
-    pub fn set_current_plan(
-        mut self,
-        input: ::std::option::Option<crate::types::PricingPlan>,
-    ) -> Self {
+    pub fn set_current_plan(mut self, input: ::std::option::Option<crate::types::PricingPlan>) -> Self {
         self.current_plan = input;
         self
     }
@@ -59,10 +54,7 @@ impl PricingAttributesBuilder {
         self
     }
     /// <p>The pricing plan that will become active at the start of the next monthly cycle, if a scheduled change has been requested. This field is empty when no scheduled change is pending.</p>
-    pub fn set_next_plan(
-        mut self,
-        input: ::std::option::Option<crate::types::PricingPlan>,
-    ) -> Self {
+    pub fn set_next_plan(mut self, input: ::std::option::Option<crate::types::PricingPlan>) -> Self {
         self.next_plan = input;
         self
     }

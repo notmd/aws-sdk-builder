@@ -9,9 +9,7 @@ pub struct SuppressionValidationAttributes {
 }
 impl SuppressionValidationAttributes {
     /// <p>Specifies the condition threshold settings for account-level suppression.</p>
-    pub fn condition_threshold(
-        &self,
-    ) -> ::std::option::Option<&crate::types::SuppressionConditionThreshold> {
+    pub fn condition_threshold(&self) -> ::std::option::Option<&crate::types::SuppressionConditionThreshold> {
         self.condition_threshold.as_ref()
     }
 }
@@ -23,36 +21,25 @@ impl SuppressionValidationAttributes {
 }
 
 /// A builder for [`SuppressionValidationAttributes`](crate::types::SuppressionValidationAttributes).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct SuppressionValidationAttributesBuilder {
-    pub(crate) condition_threshold:
-        ::std::option::Option<crate::types::SuppressionConditionThreshold>,
+    pub(crate) condition_threshold: ::std::option::Option<crate::types::SuppressionConditionThreshold>,
 }
 impl SuppressionValidationAttributesBuilder {
     /// <p>Specifies the condition threshold settings for account-level suppression.</p>
     /// This field is required.
-    pub fn condition_threshold(
-        mut self,
-        input: crate::types::SuppressionConditionThreshold,
-    ) -> Self {
+    pub fn condition_threshold(mut self, input: crate::types::SuppressionConditionThreshold) -> Self {
         self.condition_threshold = ::std::option::Option::Some(input);
         self
     }
     /// <p>Specifies the condition threshold settings for account-level suppression.</p>
-    pub fn set_condition_threshold(
-        mut self,
-        input: ::std::option::Option<crate::types::SuppressionConditionThreshold>,
-    ) -> Self {
+    pub fn set_condition_threshold(mut self, input: ::std::option::Option<crate::types::SuppressionConditionThreshold>) -> Self {
         self.condition_threshold = input;
         self
     }
     /// <p>Specifies the condition threshold settings for account-level suppression.</p>
-    pub fn get_condition_threshold(
-        &self,
-    ) -> &::std::option::Option<crate::types::SuppressionConditionThreshold> {
+    pub fn get_condition_threshold(&self) -> &::std::option::Option<crate::types::SuppressionConditionThreshold> {
         &self.condition_threshold
     }
     /// Consumes the builder and constructs a [`SuppressionValidationAttributes`](crate::types::SuppressionValidationAttributes).

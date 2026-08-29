@@ -39,17 +39,14 @@ impl CreateContactListInput {
 #[cfg(feature = "op_create_contact_list")]
 impl CreateContactListInput {
     /// Creates a new builder-style object to manufacture [`CreateContactListInput`](crate::operation::create_contact_list::CreateContactListInput).
-    pub fn builder(
-    ) -> crate::operation::create_contact_list::builders::CreateContactListInputBuilder {
+    pub fn builder() -> crate::operation::create_contact_list::builders::CreateContactListInputBuilder {
         crate::operation::create_contact_list::builders::CreateContactListInputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_create_contact_list")]
 /// A builder for [`CreateContactListInput`](crate::operation::create_contact_list::CreateContactListInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct CreateContactListInputBuilder {
     pub(crate) contact_list_name: ::std::option::Option<::std::string::String>,
@@ -61,18 +58,12 @@ pub struct CreateContactListInputBuilder {
 impl CreateContactListInputBuilder {
     /// <p>The name of the contact list.</p>
     /// This field is required.
-    pub fn contact_list_name(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn contact_list_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.contact_list_name = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The name of the contact list.</p>
-    pub fn set_contact_list_name(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_contact_list_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.contact_list_name = input;
         self
     }
@@ -92,10 +83,7 @@ impl CreateContactListInputBuilder {
         self
     }
     /// <p>An interest group, theme, or label within a list. A contact list can have multiple topics.</p>
-    pub fn set_topics(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<crate::types::Topic>>,
-    ) -> Self {
+    pub fn set_topics(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::Topic>>) -> Self {
         self.topics = input;
         self
     }
@@ -129,10 +117,7 @@ impl CreateContactListInputBuilder {
         self
     }
     /// <p>The tags associated with a contact list.</p>
-    pub fn set_tags(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>,
-    ) -> Self {
+    pub fn set_tags(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>) -> Self {
         self.tags = input;
         self
     }
@@ -143,17 +128,12 @@ impl CreateContactListInputBuilder {
     /// Consumes the builder and constructs a [`CreateContactListInput`](crate::operation::create_contact_list::CreateContactListInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        crate::operation::create_contact_list::CreateContactListInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
-        ::std::result::Result::Ok(
-            crate::operation::create_contact_list::CreateContactListInput {
-                contact_list_name: self.contact_list_name,
-                topics: self.topics,
-                description: self.description,
-                tags: self.tags,
-            },
-        )
+    ) -> ::std::result::Result<crate::operation::create_contact_list::CreateContactListInput, ::aws_smithy_types::error::operation::BuildError> {
+        ::std::result::Result::Ok(crate::operation::create_contact_list::CreateContactListInput {
+            contact_list_name: self.contact_list_name,
+            topics: self.topics,
+            description: self.description,
+            tags: self.tags,
+        })
     }
 }

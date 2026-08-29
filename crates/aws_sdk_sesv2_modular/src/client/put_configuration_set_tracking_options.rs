@@ -10,7 +10,7 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<PutConfigurationSetTrackingOptionsError>`](crate::operation::put_configuration_set_tracking_options::PutConfigurationSetTrackingOptionsError)
     pub fn put_configuration_set_tracking_options(
         &self,
-    ) -> crate::operation::put_configuration_set_tracking_options::builders::PutConfigurationSetTrackingOptionsFluentBuilder{
+    ) -> crate::operation::put_configuration_set_tracking_options::builders::PutConfigurationSetTrackingOptionsFluentBuilder {
         crate::operation::put_configuration_set_tracking_options::builders::PutConfigurationSetTrackingOptionsFluentBuilder::new(self.handle.clone())
     }
 }

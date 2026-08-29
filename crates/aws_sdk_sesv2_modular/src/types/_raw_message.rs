@@ -53,9 +53,7 @@ impl RawMessage {
 }
 
 /// A builder for [`RawMessage`](crate::types::RawMessage).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct RawMessageBuilder {
     pub(crate) data: ::std::option::Option<::aws_smithy_types::Blob>,
@@ -127,12 +125,7 @@ impl RawMessageBuilder {
     /// Consumes the builder and constructs a [`RawMessage`](crate::types::RawMessage).
     /// This method will fail if any of the following fields are not set:
     /// - [`data`](crate::types::builders::RawMessageBuilder::data)
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<
-        crate::types::RawMessage,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    pub fn build(self) -> ::std::result::Result<crate::types::RawMessage, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::RawMessage {
             data: self.data.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

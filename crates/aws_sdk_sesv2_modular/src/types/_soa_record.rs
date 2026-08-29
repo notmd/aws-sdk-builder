@@ -33,9 +33,7 @@ impl SoaRecord {
 }
 
 /// A builder for [`SoaRecord`](crate::types::SoaRecord).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct SoaRecordBuilder {
     pub(crate) primary_name_server: ::std::option::Option<::std::string::String>,
@@ -44,18 +42,12 @@ pub struct SoaRecordBuilder {
 }
 impl SoaRecordBuilder {
     /// <p>Primary name server specified in the SOA record.</p>
-    pub fn primary_name_server(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn primary_name_server(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.primary_name_server = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>Primary name server specified in the SOA record.</p>
-    pub fn set_primary_name_server(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_primary_name_server(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.primary_name_server = input;
         self
     }

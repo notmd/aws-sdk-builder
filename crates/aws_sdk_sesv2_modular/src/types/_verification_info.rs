@@ -83,9 +83,7 @@ impl VerificationInfo {
 }
 
 /// A builder for [`VerificationInfo`](crate::types::VerificationInfo).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct VerificationInfoBuilder {
     pub(crate) last_checked_timestamp: ::std::option::Option<::aws_smithy_types::DateTime>,
@@ -100,17 +98,12 @@ impl VerificationInfoBuilder {
         self
     }
     /// <p>The last time a verification attempt was made for this identity.</p>
-    pub fn set_last_checked_timestamp(
-        mut self,
-        input: ::std::option::Option<::aws_smithy_types::DateTime>,
-    ) -> Self {
+    pub fn set_last_checked_timestamp(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
         self.last_checked_timestamp = input;
         self
     }
     /// <p>The last time a verification attempt was made for this identity.</p>
-    pub fn get_last_checked_timestamp(
-        &self,
-    ) -> &::std::option::Option<::aws_smithy_types::DateTime> {
+    pub fn get_last_checked_timestamp(&self) -> &::std::option::Option<::aws_smithy_types::DateTime> {
         &self.last_checked_timestamp
     }
     /// <p>The last time a successful verification was made for this identity.</p>
@@ -119,17 +112,12 @@ impl VerificationInfoBuilder {
         self
     }
     /// <p>The last time a successful verification was made for this identity.</p>
-    pub fn set_last_success_timestamp(
-        mut self,
-        input: ::std::option::Option<::aws_smithy_types::DateTime>,
-    ) -> Self {
+    pub fn set_last_success_timestamp(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
         self.last_success_timestamp = input;
         self
     }
     /// <p>The last time a successful verification was made for this identity.</p>
-    pub fn get_last_success_timestamp(
-        &self,
-    ) -> &::std::option::Option<::aws_smithy_types::DateTime> {
+    pub fn get_last_success_timestamp(&self) -> &::std::option::Option<::aws_smithy_types::DateTime> {
         &self.last_success_timestamp
     }
     /// <p>Provides the reason for the failure describing why Amazon SES was not able to successfully verify the identity. Below are the possible values:</p>
@@ -182,10 +170,7 @@ impl VerificationInfoBuilder {
     /// <li>
     /// <p><code>REPLICATION_PRIMARY_INVALID_REGION</code> – The verification failed due to an invalid primary region specified. Ensure you provide a valid Amazon Web Services region where Amazon SES is available and different from the replica region.</p></li>
     /// </ul>
-    pub fn set_error_type(
-        mut self,
-        input: ::std::option::Option<crate::types::VerificationError>,
-    ) -> Self {
+    pub fn set_error_type(mut self, input: ::std::option::Option<crate::types::VerificationError>) -> Self {
         self.error_type = input;
         self
     }

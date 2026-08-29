@@ -67,7 +67,7 @@ impl GetEmailIdentityPoliciesFluentBuilder {
         }
     }
     /// Access the GetEmailIdentityPolicies as a reference.
-    pub fn as_input(&self) -> &crate::operation::get_email_identity_policies::builders::GetEmailIdentityPoliciesInputBuilder{
+    pub fn as_input(&self) -> &crate::operation::get_email_identity_policies::builders::GetEmailIdentityPoliciesInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -96,11 +96,7 @@ impl GetEmailIdentityPoliciesFluentBuilder {
             &self.handle.conf,
             self.config_override,
         );
-        crate::operation::get_email_identity_policies::GetEmailIdentityPolicies::orchestrate(
-            &runtime_plugins,
-            input,
-        )
-        .await
+        crate::operation::get_email_identity_policies::GetEmailIdentityPolicies::orchestrate(&runtime_plugins, input).await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -113,34 +109,22 @@ impl GetEmailIdentityPoliciesFluentBuilder {
     > {
         crate::client::customize::CustomizableOperation::new(self)
     }
-    pub(crate) fn config_override(
-        mut self,
-        config_override: impl ::std::convert::Into<crate::config::Builder>,
-    ) -> Self {
+    pub(crate) fn config_override(mut self, config_override: impl ::std::convert::Into<crate::config::Builder>) -> Self {
         self.set_config_override(::std::option::Option::Some(config_override.into()));
         self
     }
 
-    pub(crate) fn set_config_override(
-        &mut self,
-        config_override: ::std::option::Option<crate::config::Builder>,
-    ) -> &mut Self {
+    pub(crate) fn set_config_override(&mut self, config_override: ::std::option::Option<crate::config::Builder>) -> &mut Self {
         self.config_override = config_override;
         self
     }
     /// <p>The email identity.</p>
-    pub fn email_identity(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn email_identity(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.email_identity(input.into());
         self
     }
     /// <p>The email identity.</p>
-    pub fn set_email_identity(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_email_identity(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_email_identity(input);
         self
     }

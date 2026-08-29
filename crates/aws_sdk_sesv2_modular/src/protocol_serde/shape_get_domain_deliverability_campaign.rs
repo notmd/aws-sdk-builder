@@ -86,11 +86,8 @@ pub fn de_get_domain_deliverability_campaign_http_response(
         let mut output = crate::operation::get_domain_deliverability_campaign::builders::GetDomainDeliverabilityCampaignOutputBuilder::default();
         output = crate::protocol_serde::shape_get_domain_deliverability_campaign::de_get_domain_deliverability_campaign(_response_body, output)
             .map_err(crate::operation::get_domain_deliverability_campaign::GetDomainDeliverabilityCampaignError::unhandled)?;
-        output._set_request_id(
-            ::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string),
-        );
-        crate::serde_util::get_domain_deliverability_campaign_output_output_correct_errors(output)
-            .build()
+        output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
+        crate::serde_util::get_domain_deliverability_campaign_output_output_correct_errors(output).build()
     })
 }
 
@@ -100,11 +97,8 @@ pub(crate) fn de_get_domain_deliverability_campaign(
 ) -> ::std::result::Result<
     crate::operation::get_domain_deliverability_campaign::builders::GetDomainDeliverabilityCampaignOutputBuilder,
     ::aws_smithy_json::deserialize::error::DeserializeError,
->{
-    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(
-        crate::protocol_serde::or_empty_doc(_value),
-    )
-    .peekable();
+> {
+    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(crate::protocol_serde::or_empty_doc(_value)).peekable();
     let tokens = &mut tokens_owned;
     #[allow(unused_variables)]
     let depth = 0u32;
@@ -112,31 +106,25 @@ pub(crate) fn de_get_domain_deliverability_campaign(
     loop {
         match tokens.next().transpose()? {
             Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
-            Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => {
-                match key.to_unescaped()?.as_ref() {
-                    "DomainDeliverabilityCampaign" => {
-                        builder = builder.set_domain_deliverability_campaign(
+            Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
+                "DomainDeliverabilityCampaign" => {
+                    builder = builder.set_domain_deliverability_campaign(
                         crate::protocol_serde::shape_domain_deliverability_campaign::de_domain_deliverability_campaign(tokens, _value, depth + 1)?,
                     );
-                    }
-                    _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
                 }
-            }
+                _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
+            },
             other => {
-                return Err(
-                    ::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
-                        "expected object key or end object, found: {other:?}"
-                    )),
-                )
+                return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
+                    "expected object key or end object, found: {other:?}"
+                )))
             }
         }
     }
     if tokens.next().is_some() {
-        return Err(
-            ::aws_smithy_json::deserialize::error::DeserializeError::custom(
-                "found more JSON tokens after completing parsing",
-            ),
-        );
+        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
+            "found more JSON tokens after completing parsing",
+        ));
     }
     Ok(builder)
 }

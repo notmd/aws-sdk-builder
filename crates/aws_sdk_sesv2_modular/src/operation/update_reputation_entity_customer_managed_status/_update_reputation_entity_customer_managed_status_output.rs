@@ -17,16 +17,14 @@ impl ::aws_types::request_id::RequestId for UpdateReputationEntityCustomerManage
 impl UpdateReputationEntityCustomerManagedStatusOutput {
     /// Creates a new builder-style object to manufacture [`UpdateReputationEntityCustomerManagedStatusOutput`](crate::operation::update_reputation_entity_customer_managed_status::UpdateReputationEntityCustomerManagedStatusOutput).
     pub fn builder(
-    ) -> crate::operation::update_reputation_entity_customer_managed_status::builders::UpdateReputationEntityCustomerManagedStatusOutputBuilder{
+    ) -> crate::operation::update_reputation_entity_customer_managed_status::builders::UpdateReputationEntityCustomerManagedStatusOutputBuilder {
         crate::operation::update_reputation_entity_customer_managed_status::builders::UpdateReputationEntityCustomerManagedStatusOutputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_update_reputation_entity_customer_managed_status")]
 /// A builder for [`UpdateReputationEntityCustomerManagedStatusOutput`](crate::operation::update_reputation_entity_customer_managed_status::UpdateReputationEntityCustomerManagedStatusOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct UpdateReputationEntityCustomerManagedStatusOutputBuilder {
     _request_id: Option<String>,
@@ -43,7 +41,7 @@ impl UpdateReputationEntityCustomerManagedStatusOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`UpdateReputationEntityCustomerManagedStatusOutput`](crate::operation::update_reputation_entity_customer_managed_status::UpdateReputationEntityCustomerManagedStatusOutput).
-    pub fn build(self) -> crate::operation::update_reputation_entity_customer_managed_status::UpdateReputationEntityCustomerManagedStatusOutput{
+    pub fn build(self) -> crate::operation::update_reputation_entity_customer_managed_status::UpdateReputationEntityCustomerManagedStatusOutput {
         crate::operation::update_reputation_entity_customer_managed_status::UpdateReputationEntityCustomerManagedStatusOutput {
             _request_id: self._request_id,
         }

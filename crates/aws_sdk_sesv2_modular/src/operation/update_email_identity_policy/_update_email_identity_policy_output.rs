@@ -16,16 +16,14 @@ impl ::aws_types::request_id::RequestId for UpdateEmailIdentityPolicyOutput {
 #[cfg(feature = "op_update_email_identity_policy")]
 impl UpdateEmailIdentityPolicyOutput {
     /// Creates a new builder-style object to manufacture [`UpdateEmailIdentityPolicyOutput`](crate::operation::update_email_identity_policy::UpdateEmailIdentityPolicyOutput).
-    pub fn builder() -> crate::operation::update_email_identity_policy::builders::UpdateEmailIdentityPolicyOutputBuilder{
+    pub fn builder() -> crate::operation::update_email_identity_policy::builders::UpdateEmailIdentityPolicyOutputBuilder {
         crate::operation::update_email_identity_policy::builders::UpdateEmailIdentityPolicyOutputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_update_email_identity_policy")]
 /// A builder for [`UpdateEmailIdentityPolicyOutput`](crate::operation::update_email_identity_policy::UpdateEmailIdentityPolicyOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct UpdateEmailIdentityPolicyOutputBuilder {
     _request_id: Option<String>,
@@ -42,9 +40,7 @@ impl UpdateEmailIdentityPolicyOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`UpdateEmailIdentityPolicyOutput`](crate::operation::update_email_identity_policy::UpdateEmailIdentityPolicyOutput).
-    pub fn build(
-        self,
-    ) -> crate::operation::update_email_identity_policy::UpdateEmailIdentityPolicyOutput {
+    pub fn build(self) -> crate::operation::update_email_identity_policy::UpdateEmailIdentityPolicyOutput {
         crate::operation::update_email_identity_policy::UpdateEmailIdentityPolicyOutput {
             _request_id: self._request_id,
         }

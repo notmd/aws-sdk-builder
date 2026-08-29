@@ -16,16 +16,14 @@ impl ::aws_types::request_id::RequestId for DeleteEmailIdentityPolicyOutput {
 #[cfg(feature = "op_delete_email_identity_policy")]
 impl DeleteEmailIdentityPolicyOutput {
     /// Creates a new builder-style object to manufacture [`DeleteEmailIdentityPolicyOutput`](crate::operation::delete_email_identity_policy::DeleteEmailIdentityPolicyOutput).
-    pub fn builder() -> crate::operation::delete_email_identity_policy::builders::DeleteEmailIdentityPolicyOutputBuilder{
+    pub fn builder() -> crate::operation::delete_email_identity_policy::builders::DeleteEmailIdentityPolicyOutputBuilder {
         crate::operation::delete_email_identity_policy::builders::DeleteEmailIdentityPolicyOutputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_delete_email_identity_policy")]
 /// A builder for [`DeleteEmailIdentityPolicyOutput`](crate::operation::delete_email_identity_policy::DeleteEmailIdentityPolicyOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct DeleteEmailIdentityPolicyOutputBuilder {
     _request_id: Option<String>,
@@ -42,9 +40,7 @@ impl DeleteEmailIdentityPolicyOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`DeleteEmailIdentityPolicyOutput`](crate::operation::delete_email_identity_policy::DeleteEmailIdentityPolicyOutput).
-    pub fn build(
-        self,
-    ) -> crate::operation::delete_email_identity_policy::DeleteEmailIdentityPolicyOutput {
+    pub fn build(self) -> crate::operation::delete_email_identity_policy::DeleteEmailIdentityPolicyOutput {
         crate::operation::delete_email_identity_policy::DeleteEmailIdentityPolicyOutput {
             _request_id: self._request_id,
         }

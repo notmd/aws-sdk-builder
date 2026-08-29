@@ -16,16 +16,14 @@ impl ::aws_types::request_id::RequestId for PutConfigurationSetTrackingOptionsOu
 #[cfg(feature = "op_put_configuration_set_tracking_options")]
 impl PutConfigurationSetTrackingOptionsOutput {
     /// Creates a new builder-style object to manufacture [`PutConfigurationSetTrackingOptionsOutput`](crate::operation::put_configuration_set_tracking_options::PutConfigurationSetTrackingOptionsOutput).
-    pub fn builder() -> crate::operation::put_configuration_set_tracking_options::builders::PutConfigurationSetTrackingOptionsOutputBuilder{
+    pub fn builder() -> crate::operation::put_configuration_set_tracking_options::builders::PutConfigurationSetTrackingOptionsOutputBuilder {
         crate::operation::put_configuration_set_tracking_options::builders::PutConfigurationSetTrackingOptionsOutputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_put_configuration_set_tracking_options")]
 /// A builder for [`PutConfigurationSetTrackingOptionsOutput`](crate::operation::put_configuration_set_tracking_options::PutConfigurationSetTrackingOptionsOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct PutConfigurationSetTrackingOptionsOutputBuilder {
     _request_id: Option<String>,
@@ -42,7 +40,7 @@ impl PutConfigurationSetTrackingOptionsOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`PutConfigurationSetTrackingOptionsOutput`](crate::operation::put_configuration_set_tracking_options::PutConfigurationSetTrackingOptionsOutput).
-    pub fn build(self) -> crate::operation::put_configuration_set_tracking_options::PutConfigurationSetTrackingOptionsOutput{
+    pub fn build(self) -> crate::operation::put_configuration_set_tracking_options::PutConfigurationSetTrackingOptionsOutput {
         crate::operation::put_configuration_set_tracking_options::PutConfigurationSetTrackingOptionsOutput {
             _request_id: self._request_id,
         }

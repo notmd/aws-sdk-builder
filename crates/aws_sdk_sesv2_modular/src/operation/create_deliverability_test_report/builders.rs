@@ -48,7 +48,7 @@ impl
             crate::operation::create_deliverability_test_report::CreateDeliverabilityTestReportOutput,
             crate::operation::create_deliverability_test_report::CreateDeliverabilityTestReportError,
         >,
-    >{
+    > {
         ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
     }
 }
@@ -63,7 +63,7 @@ impl CreateDeliverabilityTestReportFluentBuilder {
         }
     }
     /// Access the CreateDeliverabilityTestReport as a reference.
-    pub fn as_input(&self) -> &crate::operation::create_deliverability_test_report::builders::CreateDeliverabilityTestReportInputBuilder{
+    pub fn as_input(&self) -> &crate::operation::create_deliverability_test_report::builders::CreateDeliverabilityTestReportInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -82,7 +82,7 @@ impl CreateDeliverabilityTestReportFluentBuilder {
             crate::operation::create_deliverability_test_report::CreateDeliverabilityTestReportError,
             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
         >,
-    >{
+    > {
         let input = self
             .inner
             .build()
@@ -105,18 +105,12 @@ impl CreateDeliverabilityTestReportFluentBuilder {
     > {
         crate::client::customize::CustomizableOperation::new(self)
     }
-    pub(crate) fn config_override(
-        mut self,
-        config_override: impl ::std::convert::Into<crate::config::Builder>,
-    ) -> Self {
+    pub(crate) fn config_override(mut self, config_override: impl ::std::convert::Into<crate::config::Builder>) -> Self {
         self.set_config_override(::std::option::Option::Some(config_override.into()));
         self
     }
 
-    pub(crate) fn set_config_override(
-        &mut self,
-        config_override: ::std::option::Option<crate::config::Builder>,
-    ) -> &mut Self {
+    pub(crate) fn set_config_override(&mut self, config_override: ::std::option::Option<crate::config::Builder>) -> &mut Self {
         self.config_override = config_override;
         self
     }
@@ -135,18 +129,12 @@ impl CreateDeliverabilityTestReportFluentBuilder {
         self.inner.get_report_name()
     }
     /// <p>The email address that the predictive inbox placement test email was sent from.</p>
-    pub fn from_email_address(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn from_email_address(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.from_email_address(input.into());
         self
     }
     /// <p>The email address that the predictive inbox placement test email was sent from.</p>
-    pub fn set_from_email_address(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_from_email_address(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_from_email_address(input);
         self
     }
@@ -179,10 +167,7 @@ impl CreateDeliverabilityTestReportFluentBuilder {
         self
     }
     /// <p>An array of objects that define the tags (keys and values) that you want to associate with the predictive inbox placement test.</p>
-    pub fn set_tags(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>,
-    ) -> Self {
+    pub fn set_tags(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>) -> Self {
         self.inner = self.inner.set_tags(input);
         self
     }

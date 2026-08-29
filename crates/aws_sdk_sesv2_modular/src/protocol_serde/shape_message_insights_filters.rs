@@ -64,24 +64,14 @@ pub(crate) fn de_message_insights_filters<'a, I>(
     tokens: &mut ::std::iter::Peekable<I>,
     _value: &'a [u8],
     depth: u32,
-) -> ::std::result::Result<
-    Option<crate::types::MessageInsightsFilters>,
-    ::aws_smithy_json::deserialize::error::DeserializeError,
->
+) -> ::std::result::Result<Option<crate::types::MessageInsightsFilters>, ::aws_smithy_json::deserialize::error::DeserializeError>
 where
-    I: Iterator<
-        Item = Result<
-            ::aws_smithy_json::deserialize::Token<'a>,
-            ::aws_smithy_json::deserialize::error::DeserializeError,
-        >,
-    >,
+    I: Iterator<Item = Result<::aws_smithy_json::deserialize::Token<'a>, ::aws_smithy_json::deserialize::error::DeserializeError>>,
 {
     if depth >= 128u32 {
-        return Err(
-            ::aws_smithy_json::deserialize::error::DeserializeError::custom(
-                "maximum nesting depth exceeded",
-            ),
-        );
+        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
+            "maximum nesting depth exceeded",
+        ));
     }
     match tokens.next().transpose()? {
         Some(::aws_smithy_json::deserialize::Token::ValueNull { .. }) => Ok(None),
@@ -91,62 +81,56 @@ where
             loop {
                 match tokens.next().transpose()? {
                     Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
-                    Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => {
-                        match key.to_unescaped()?.as_ref() {
-                            "FromEmailAddress" => {
-                                builder = builder.set_from_email_address(
+                    Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
+                        "FromEmailAddress" => {
+                            builder = builder.set_from_email_address(
                                 crate::protocol_serde::shape_email_address_filter_list::de_email_address_filter_list(tokens, _value, depth + 1)?,
                             );
-                            }
-                            "Destination" => {
-                                builder = builder.set_destination(crate::protocol_serde::shape_email_address_filter_list::de_email_address_filter_list(
+                        }
+                        "Destination" => {
+                            builder = builder.set_destination(crate::protocol_serde::shape_email_address_filter_list::de_email_address_filter_list(
                                 tokens,
                                 _value,
                                 depth + 1,
                             )?);
-                            }
-                            "Subject" => {
-                                builder = builder.set_subject(crate::protocol_serde::shape_email_subject_filter_list::de_email_subject_filter_list(
+                        }
+                        "Subject" => {
+                            builder = builder.set_subject(crate::protocol_serde::shape_email_subject_filter_list::de_email_subject_filter_list(
                                 tokens,
                                 _value,
                                 depth + 1,
                             )?);
-                            }
-                            "Isp" => {
-                                builder = builder.set_isp(crate::protocol_serde::shape_isp_filter_list::de_isp_filter_list(
+                        }
+                        "Isp" => {
+                            builder = builder.set_isp(crate::protocol_serde::shape_isp_filter_list::de_isp_filter_list(
                                 tokens,
                                 _value,
                                 depth + 1,
                             )?);
-                            }
-                            "LastDeliveryEvent" => {
-                                builder = builder.set_last_delivery_event(
+                        }
+                        "LastDeliveryEvent" => {
+                            builder = builder.set_last_delivery_event(
                                 crate::protocol_serde::shape_last_delivery_event_list::de_last_delivery_event_list(tokens, _value, depth + 1)?,
                             );
-                            }
-                            "LastEngagementEvent" => {
-                                builder = builder.set_last_engagement_event(
+                        }
+                        "LastEngagementEvent" => {
+                            builder = builder.set_last_engagement_event(
                                 crate::protocol_serde::shape_last_engagement_event_list::de_last_engagement_event_list(tokens, _value, depth + 1)?,
                             );
-                            }
-                            _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
                         }
-                    }
+                        _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
+                    },
                     other => {
-                        return Err(
-                            ::aws_smithy_json::deserialize::error::DeserializeError::custom(
-                                format!("expected object key or end object, found: {other:?}"),
-                            ),
-                        )
+                        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
+                            "expected object key or end object, found: {other:?}"
+                        )))
                     }
                 }
             }
             Ok(Some(builder.build()))
         }
-        _ => Err(
-            ::aws_smithy_json::deserialize::error::DeserializeError::custom(
-                "expected start object or null",
-            ),
-        ),
+        _ => Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
+            "expected start object or null",
+        )),
     }
 }

@@ -7,8 +7,7 @@ pub struct ExportDataSource {
     /// <p>An object that contains details about the data source for the metrics export.</p>
     pub metrics_data_source: ::std::option::Option<crate::types::MetricsDataSource>,
     /// <p>An object that contains filters applied when performing the Message Insights export.</p>
-    pub message_insights_data_source:
-        ::std::option::Option<crate::types::MessageInsightsDataSource>,
+    pub message_insights_data_source: ::std::option::Option<crate::types::MessageInsightsDataSource>,
 }
 impl ExportDataSource {
     /// <p>An object that contains details about the data source for the metrics export.</p>
@@ -16,9 +15,7 @@ impl ExportDataSource {
         self.metrics_data_source.as_ref()
     }
     /// <p>An object that contains filters applied when performing the Message Insights export.</p>
-    pub fn message_insights_data_source(
-        &self,
-    ) -> ::std::option::Option<&crate::types::MessageInsightsDataSource> {
+    pub fn message_insights_data_source(&self) -> ::std::option::Option<&crate::types::MessageInsightsDataSource> {
         self.message_insights_data_source.as_ref()
     }
 }
@@ -30,14 +27,11 @@ impl ExportDataSource {
 }
 
 /// A builder for [`ExportDataSource`](crate::types::ExportDataSource).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct ExportDataSourceBuilder {
     pub(crate) metrics_data_source: ::std::option::Option<crate::types::MetricsDataSource>,
-    pub(crate) message_insights_data_source:
-        ::std::option::Option<crate::types::MessageInsightsDataSource>,
+    pub(crate) message_insights_data_source: ::std::option::Option<crate::types::MessageInsightsDataSource>,
 }
 impl ExportDataSourceBuilder {
     /// <p>An object that contains details about the data source for the metrics export.</p>
@@ -46,39 +40,26 @@ impl ExportDataSourceBuilder {
         self
     }
     /// <p>An object that contains details about the data source for the metrics export.</p>
-    pub fn set_metrics_data_source(
-        mut self,
-        input: ::std::option::Option<crate::types::MetricsDataSource>,
-    ) -> Self {
+    pub fn set_metrics_data_source(mut self, input: ::std::option::Option<crate::types::MetricsDataSource>) -> Self {
         self.metrics_data_source = input;
         self
     }
     /// <p>An object that contains details about the data source for the metrics export.</p>
-    pub fn get_metrics_data_source(
-        &self,
-    ) -> &::std::option::Option<crate::types::MetricsDataSource> {
+    pub fn get_metrics_data_source(&self) -> &::std::option::Option<crate::types::MetricsDataSource> {
         &self.metrics_data_source
     }
     /// <p>An object that contains filters applied when performing the Message Insights export.</p>
-    pub fn message_insights_data_source(
-        mut self,
-        input: crate::types::MessageInsightsDataSource,
-    ) -> Self {
+    pub fn message_insights_data_source(mut self, input: crate::types::MessageInsightsDataSource) -> Self {
         self.message_insights_data_source = ::std::option::Option::Some(input);
         self
     }
     /// <p>An object that contains filters applied when performing the Message Insights export.</p>
-    pub fn set_message_insights_data_source(
-        mut self,
-        input: ::std::option::Option<crate::types::MessageInsightsDataSource>,
-    ) -> Self {
+    pub fn set_message_insights_data_source(mut self, input: ::std::option::Option<crate::types::MessageInsightsDataSource>) -> Self {
         self.message_insights_data_source = input;
         self
     }
     /// <p>An object that contains filters applied when performing the Message Insights export.</p>
-    pub fn get_message_insights_data_source(
-        &self,
-    ) -> &::std::option::Option<crate::types::MessageInsightsDataSource> {
+    pub fn get_message_insights_data_source(&self) -> &::std::option::Option<crate::types::MessageInsightsDataSource> {
         &self.message_insights_data_source
     }
     /// Consumes the builder and constructs a [`ExportDataSource`](crate::types::ExportDataSource).

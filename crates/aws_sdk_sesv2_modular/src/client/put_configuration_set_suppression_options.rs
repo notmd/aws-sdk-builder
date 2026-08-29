@@ -11,7 +11,7 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<PutConfigurationSetSuppressionOptionsError>`](crate::operation::put_configuration_set_suppression_options::PutConfigurationSetSuppressionOptionsError)
     pub fn put_configuration_set_suppression_options(
         &self,
-    ) -> crate::operation::put_configuration_set_suppression_options::builders::PutConfigurationSetSuppressionOptionsFluentBuilder{
+    ) -> crate::operation::put_configuration_set_suppression_options::builders::PutConfigurationSetSuppressionOptionsFluentBuilder {
         crate::operation::put_configuration_set_suppression_options::builders::PutConfigurationSetSuppressionOptionsFluentBuilder::new(
             self.handle.clone(),
         )

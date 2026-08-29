@@ -71,9 +71,7 @@ impl ImportJobSummary {
 }
 
 /// A builder for [`ImportJobSummary`](crate::types::ImportJobSummary).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct ImportJobSummaryBuilder {
     pub(crate) job_id: ::std::option::Option<::std::string::String>,
@@ -104,17 +102,12 @@ impl ImportJobSummaryBuilder {
         self
     }
     /// <p>An object that contains details about the resource destination the import job is going to target.</p>
-    pub fn set_import_destination(
-        mut self,
-        input: ::std::option::Option<crate::types::ImportDestination>,
-    ) -> Self {
+    pub fn set_import_destination(mut self, input: ::std::option::Option<crate::types::ImportDestination>) -> Self {
         self.import_destination = input;
         self
     }
     /// <p>An object that contains details about the resource destination the import job is going to target.</p>
-    pub fn get_import_destination(
-        &self,
-    ) -> &::std::option::Option<crate::types::ImportDestination> {
+    pub fn get_import_destination(&self) -> &::std::option::Option<crate::types::ImportDestination> {
         &self.import_destination
     }
     /// <p>The status of a job.</p>
@@ -167,10 +160,7 @@ impl ImportJobSummaryBuilder {
         self
     }
     /// <p>The date and time when the import job was created.</p>
-    pub fn set_created_timestamp(
-        mut self,
-        input: ::std::option::Option<::aws_smithy_types::DateTime>,
-    ) -> Self {
+    pub fn set_created_timestamp(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
         self.created_timestamp = input;
         self
     }

@@ -79,7 +79,7 @@ impl PutEmailIdentityDkimSigningAttributesFluentBuilder {
     /// Access the PutEmailIdentityDkimSigningAttributes as a reference.
     pub fn as_input(
         &self,
-    ) -> &crate::operation::put_email_identity_dkim_signing_attributes::builders::PutEmailIdentityDkimSigningAttributesInputBuilder{
+    ) -> &crate::operation::put_email_identity_dkim_signing_attributes::builders::PutEmailIdentityDkimSigningAttributesInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -98,7 +98,7 @@ impl PutEmailIdentityDkimSigningAttributesFluentBuilder {
             crate::operation::put_email_identity_dkim_signing_attributes::PutEmailIdentityDkimSigningAttributesError,
             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
         >,
-    >{
+    > {
         let input = self
             .inner
             .build()
@@ -120,37 +120,25 @@ impl PutEmailIdentityDkimSigningAttributesFluentBuilder {
         crate::operation::put_email_identity_dkim_signing_attributes::PutEmailIdentityDkimSigningAttributesOutput,
         crate::operation::put_email_identity_dkim_signing_attributes::PutEmailIdentityDkimSigningAttributesError,
         Self,
-    >{
+    > {
         crate::client::customize::CustomizableOperation::new(self)
     }
-    pub(crate) fn config_override(
-        mut self,
-        config_override: impl ::std::convert::Into<crate::config::Builder>,
-    ) -> Self {
+    pub(crate) fn config_override(mut self, config_override: impl ::std::convert::Into<crate::config::Builder>) -> Self {
         self.set_config_override(::std::option::Option::Some(config_override.into()));
         self
     }
 
-    pub(crate) fn set_config_override(
-        &mut self,
-        config_override: ::std::option::Option<crate::config::Builder>,
-    ) -> &mut Self {
+    pub(crate) fn set_config_override(&mut self, config_override: ::std::option::Option<crate::config::Builder>) -> &mut Self {
         self.config_override = config_override;
         self
     }
     /// <p>The email identity.</p>
-    pub fn email_identity(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn email_identity(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.email_identity(input.into());
         self
     }
     /// <p>The email identity.</p>
-    pub fn set_email_identity(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_email_identity(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_email_identity(input);
         self
     }
@@ -165,10 +153,7 @@ impl PutEmailIdentityDkimSigningAttributesFluentBuilder {
     /// <li>
     /// <p><code>EXTERNAL</code> – Configure DKIM for the identity by using Bring Your Own DKIM (BYODKIM).</p></li>
     /// </ul>
-    pub fn signing_attributes_origin(
-        mut self,
-        input: crate::types::DkimSigningAttributesOrigin,
-    ) -> Self {
+    pub fn signing_attributes_origin(mut self, input: crate::types::DkimSigningAttributesOrigin) -> Self {
         self.inner = self.inner.signing_attributes_origin(input);
         self
     }
@@ -179,10 +164,7 @@ impl PutEmailIdentityDkimSigningAttributesFluentBuilder {
     /// <li>
     /// <p><code>EXTERNAL</code> – Configure DKIM for the identity by using Bring Your Own DKIM (BYODKIM).</p></li>
     /// </ul>
-    pub fn set_signing_attributes_origin(
-        mut self,
-        input: ::std::option::Option<crate::types::DkimSigningAttributesOrigin>,
-    ) -> Self {
+    pub fn set_signing_attributes_origin(mut self, input: ::std::option::Option<crate::types::DkimSigningAttributesOrigin>) -> Self {
         self.inner = self.inner.set_signing_attributes_origin(input);
         self
     }
@@ -193,9 +175,7 @@ impl PutEmailIdentityDkimSigningAttributesFluentBuilder {
     /// <li>
     /// <p><code>EXTERNAL</code> – Configure DKIM for the identity by using Bring Your Own DKIM (BYODKIM).</p></li>
     /// </ul>
-    pub fn get_signing_attributes_origin(
-        &self,
-    ) -> &::std::option::Option<crate::types::DkimSigningAttributesOrigin> {
+    pub fn get_signing_attributes_origin(&self) -> &::std::option::Option<crate::types::DkimSigningAttributesOrigin> {
         self.inner.get_signing_attributes_origin()
     }
     /// <p>An object that contains information about the private key and selector that you want to use to configure DKIM for the identity for Bring Your Own DKIM (BYODKIM) for the identity, or, configures the key length to be used for <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim.html">Easy DKIM</a>.</p>
@@ -204,17 +184,12 @@ impl PutEmailIdentityDkimSigningAttributesFluentBuilder {
         self
     }
     /// <p>An object that contains information about the private key and selector that you want to use to configure DKIM for the identity for Bring Your Own DKIM (BYODKIM) for the identity, or, configures the key length to be used for <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim.html">Easy DKIM</a>.</p>
-    pub fn set_signing_attributes(
-        mut self,
-        input: ::std::option::Option<crate::types::DkimSigningAttributes>,
-    ) -> Self {
+    pub fn set_signing_attributes(mut self, input: ::std::option::Option<crate::types::DkimSigningAttributes>) -> Self {
         self.inner = self.inner.set_signing_attributes(input);
         self
     }
     /// <p>An object that contains information about the private key and selector that you want to use to configure DKIM for the identity for Bring Your Own DKIM (BYODKIM) for the identity, or, configures the key length to be used for <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim.html">Easy DKIM</a>.</p>
-    pub fn get_signing_attributes(
-        &self,
-    ) -> &::std::option::Option<crate::types::DkimSigningAttributes> {
+    pub fn get_signing_attributes(&self) -> &::std::option::Option<crate::types::DkimSigningAttributes> {
         self.inner.get_signing_attributes()
     }
 }

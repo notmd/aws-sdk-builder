@@ -45,9 +45,7 @@ impl ExportJobSummary {
 }
 
 /// A builder for [`ExportJobSummary`](crate::types::ExportJobSummary).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct ExportJobSummaryBuilder {
     pub(crate) job_id: ::std::option::Option<::std::string::String>,
@@ -77,10 +75,7 @@ impl ExportJobSummaryBuilder {
         self
     }
     /// <p>The source type of the export job.</p>
-    pub fn set_export_source_type(
-        mut self,
-        input: ::std::option::Option<crate::types::ExportSourceType>,
-    ) -> Self {
+    pub fn set_export_source_type(mut self, input: ::std::option::Option<crate::types::ExportSourceType>) -> Self {
         self.export_source_type = input;
         self
     }
@@ -108,10 +103,7 @@ impl ExportJobSummaryBuilder {
         self
     }
     /// <p>The timestamp of when the export job was created.</p>
-    pub fn set_created_timestamp(
-        mut self,
-        input: ::std::option::Option<::aws_smithy_types::DateTime>,
-    ) -> Self {
+    pub fn set_created_timestamp(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
         self.created_timestamp = input;
         self
     }
@@ -125,10 +117,7 @@ impl ExportJobSummaryBuilder {
         self
     }
     /// <p>The timestamp of when the export job was completed.</p>
-    pub fn set_completed_timestamp(
-        mut self,
-        input: ::std::option::Option<::aws_smithy_types::DateTime>,
-    ) -> Self {
+    pub fn set_completed_timestamp(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
         self.completed_timestamp = input;
         self
     }

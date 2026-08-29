@@ -66,7 +66,7 @@ impl CreateConfigurationSetEventDestinationFluentBuilder {
     /// Access the CreateConfigurationSetEventDestination as a reference.
     pub fn as_input(
         &self,
-    ) -> &crate::operation::create_configuration_set_event_destination::builders::CreateConfigurationSetEventDestinationInputBuilder{
+    ) -> &crate::operation::create_configuration_set_event_destination::builders::CreateConfigurationSetEventDestinationInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -85,7 +85,7 @@ impl CreateConfigurationSetEventDestinationFluentBuilder {
             crate::operation::create_configuration_set_event_destination::CreateConfigurationSetEventDestinationError,
             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
         >,
-    >{
+    > {
         let input = self
             .inner
             .build()
@@ -107,37 +107,25 @@ impl CreateConfigurationSetEventDestinationFluentBuilder {
         crate::operation::create_configuration_set_event_destination::CreateConfigurationSetEventDestinationOutput,
         crate::operation::create_configuration_set_event_destination::CreateConfigurationSetEventDestinationError,
         Self,
-    >{
+    > {
         crate::client::customize::CustomizableOperation::new(self)
     }
-    pub(crate) fn config_override(
-        mut self,
-        config_override: impl ::std::convert::Into<crate::config::Builder>,
-    ) -> Self {
+    pub(crate) fn config_override(mut self, config_override: impl ::std::convert::Into<crate::config::Builder>) -> Self {
         self.set_config_override(::std::option::Option::Some(config_override.into()));
         self
     }
 
-    pub(crate) fn set_config_override(
-        &mut self,
-        config_override: ::std::option::Option<crate::config::Builder>,
-    ) -> &mut Self {
+    pub(crate) fn set_config_override(&mut self, config_override: ::std::option::Option<crate::config::Builder>) -> &mut Self {
         self.config_override = config_override;
         self
     }
     /// <p>The name of the configuration set .</p>
-    pub fn configuration_set_name(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn configuration_set_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.configuration_set_name(input.into());
         self
     }
     /// <p>The name of the configuration set .</p>
-    pub fn set_configuration_set_name(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_configuration_set_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_configuration_set_name(input);
         self
     }
@@ -146,18 +134,12 @@ impl CreateConfigurationSetEventDestinationFluentBuilder {
         self.inner.get_configuration_set_name()
     }
     /// <p>A name that identifies the event destination within the configuration set.</p>
-    pub fn event_destination_name(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn event_destination_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.event_destination_name(input.into());
         self
     }
     /// <p>A name that identifies the event destination within the configuration set.</p>
-    pub fn set_event_destination_name(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_event_destination_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_event_destination_name(input);
         self
     }
@@ -171,17 +153,12 @@ impl CreateConfigurationSetEventDestinationFluentBuilder {
         self
     }
     /// <p>An object that defines the event destination.</p>
-    pub fn set_event_destination(
-        mut self,
-        input: ::std::option::Option<crate::types::EventDestinationDefinition>,
-    ) -> Self {
+    pub fn set_event_destination(mut self, input: ::std::option::Option<crate::types::EventDestinationDefinition>) -> Self {
         self.inner = self.inner.set_event_destination(input);
         self
     }
     /// <p>An object that defines the event destination.</p>
-    pub fn get_event_destination(
-        &self,
-    ) -> &::std::option::Option<crate::types::EventDestinationDefinition> {
+    pub fn get_event_destination(&self) -> &::std::option::Option<crate::types::EventDestinationDefinition> {
         self.inner.get_event_destination()
     }
 }

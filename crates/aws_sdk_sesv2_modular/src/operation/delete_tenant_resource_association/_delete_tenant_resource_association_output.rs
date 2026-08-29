@@ -16,16 +16,14 @@ impl ::aws_types::request_id::RequestId for DeleteTenantResourceAssociationOutpu
 #[cfg(feature = "op_delete_tenant_resource_association")]
 impl DeleteTenantResourceAssociationOutput {
     /// Creates a new builder-style object to manufacture [`DeleteTenantResourceAssociationOutput`](crate::operation::delete_tenant_resource_association::DeleteTenantResourceAssociationOutput).
-    pub fn builder() -> crate::operation::delete_tenant_resource_association::builders::DeleteTenantResourceAssociationOutputBuilder{
+    pub fn builder() -> crate::operation::delete_tenant_resource_association::builders::DeleteTenantResourceAssociationOutputBuilder {
         crate::operation::delete_tenant_resource_association::builders::DeleteTenantResourceAssociationOutputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_delete_tenant_resource_association")]
 /// A builder for [`DeleteTenantResourceAssociationOutput`](crate::operation::delete_tenant_resource_association::DeleteTenantResourceAssociationOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct DeleteTenantResourceAssociationOutputBuilder {
     _request_id: Option<String>,
@@ -42,10 +40,7 @@ impl DeleteTenantResourceAssociationOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`DeleteTenantResourceAssociationOutput`](crate::operation::delete_tenant_resource_association::DeleteTenantResourceAssociationOutput).
-    pub fn build(
-        self,
-    ) -> crate::operation::delete_tenant_resource_association::DeleteTenantResourceAssociationOutput
-    {
+    pub fn build(self) -> crate::operation::delete_tenant_resource_association::DeleteTenantResourceAssociationOutput {
         crate::operation::delete_tenant_resource_association::DeleteTenantResourceAssociationOutput {
             _request_id: self._request_id,
         }

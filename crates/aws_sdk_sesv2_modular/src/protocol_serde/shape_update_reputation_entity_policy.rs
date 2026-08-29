@@ -84,19 +84,14 @@ pub fn de_update_reputation_entity_policy_http_response(
     Ok({
         #[allow(unused_mut)]
         let mut output = crate::operation::update_reputation_entity_policy::builders::UpdateReputationEntityPolicyOutputBuilder::default();
-        output._set_request_id(
-            ::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string),
-        );
+        output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
         output.build()
     })
 }
 
 pub fn ser_update_reputation_entity_policy_input(
     input: &crate::operation::update_reputation_entity_policy::UpdateReputationEntityPolicyInput,
-) -> ::std::result::Result<
-    ::aws_smithy_types::body::SdkBody,
-    ::aws_smithy_types::error::operation::SerializationError,
-> {
+) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
     let mut out = String::new();
     let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
     crate::protocol_serde::shape_update_reputation_entity_policy_input::ser_update_reputation_entity_policy_input_input(&mut object, input)?;

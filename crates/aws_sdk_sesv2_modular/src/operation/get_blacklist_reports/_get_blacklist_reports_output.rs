@@ -6,21 +6,13 @@
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
 pub struct GetBlacklistReportsOutput {
     /// <p>An object that contains information about a blacklist that one of your dedicated IP addresses appears on.</p>
-    pub blacklist_report: ::std::collections::HashMap<
-        ::std::string::String,
-        ::std::vec::Vec<crate::types::BlacklistEntry>,
-    >,
+    pub blacklist_report: ::std::collections::HashMap<::std::string::String, ::std::vec::Vec<crate::types::BlacklistEntry>>,
     _request_id: Option<String>,
 }
 #[cfg(feature = "op_get_blacklist_reports")]
 impl GetBlacklistReportsOutput {
     /// <p>An object that contains information about a blacklist that one of your dedicated IP addresses appears on.</p>
-    pub fn blacklist_report(
-        &self,
-    ) -> &::std::collections::HashMap<
-        ::std::string::String,
-        ::std::vec::Vec<crate::types::BlacklistEntry>,
-    > {
+    pub fn blacklist_report(&self) -> &::std::collections::HashMap<::std::string::String, ::std::vec::Vec<crate::types::BlacklistEntry>> {
         &self.blacklist_report
     }
 }
@@ -33,26 +25,18 @@ impl ::aws_types::request_id::RequestId for GetBlacklistReportsOutput {
 #[cfg(feature = "op_get_blacklist_reports")]
 impl GetBlacklistReportsOutput {
     /// Creates a new builder-style object to manufacture [`GetBlacklistReportsOutput`](crate::operation::get_blacklist_reports::GetBlacklistReportsOutput).
-    pub fn builder(
-    ) -> crate::operation::get_blacklist_reports::builders::GetBlacklistReportsOutputBuilder {
-        crate::operation::get_blacklist_reports::builders::GetBlacklistReportsOutputBuilder::default(
-        )
+    pub fn builder() -> crate::operation::get_blacklist_reports::builders::GetBlacklistReportsOutputBuilder {
+        crate::operation::get_blacklist_reports::builders::GetBlacklistReportsOutputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_get_blacklist_reports")]
 /// A builder for [`GetBlacklistReportsOutput`](crate::operation::get_blacklist_reports::GetBlacklistReportsOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct GetBlacklistReportsOutputBuilder {
-    pub(crate) blacklist_report: ::std::option::Option<
-        ::std::collections::HashMap<
-            ::std::string::String,
-            ::std::vec::Vec<crate::types::BlacklistEntry>,
-        >,
-    >,
+    pub(crate) blacklist_report:
+        ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::vec::Vec<crate::types::BlacklistEntry>>>,
     _request_id: Option<String>,
 }
 #[cfg(feature = "op_get_blacklist_reports")]
@@ -62,11 +46,7 @@ impl GetBlacklistReportsOutputBuilder {
     /// To override the contents of this collection use [`set_blacklist_report`](Self::set_blacklist_report).
     ///
     /// <p>An object that contains information about a blacklist that one of your dedicated IP addresses appears on.</p>
-    pub fn blacklist_report(
-        mut self,
-        k: impl ::std::convert::Into<::std::string::String>,
-        v: ::std::vec::Vec<crate::types::BlacklistEntry>,
-    ) -> Self {
+    pub fn blacklist_report(mut self, k: impl ::std::convert::Into<::std::string::String>, v: ::std::vec::Vec<crate::types::BlacklistEntry>) -> Self {
         let mut hash_map = self.blacklist_report.unwrap_or_default();
         hash_map.insert(k.into(), v);
         self.blacklist_report = ::std::option::Option::Some(hash_map);
@@ -75,12 +55,7 @@ impl GetBlacklistReportsOutputBuilder {
     /// <p>An object that contains information about a blacklist that one of your dedicated IP addresses appears on.</p>
     pub fn set_blacklist_report(
         mut self,
-        input: ::std::option::Option<
-            ::std::collections::HashMap<
-                ::std::string::String,
-                ::std::vec::Vec<crate::types::BlacklistEntry>,
-            >,
-        >,
+        input: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::vec::Vec<crate::types::BlacklistEntry>>>,
     ) -> Self {
         self.blacklist_report = input;
         self
@@ -88,12 +63,7 @@ impl GetBlacklistReportsOutputBuilder {
     /// <p>An object that contains information about a blacklist that one of your dedicated IP addresses appears on.</p>
     pub fn get_blacklist_report(
         &self,
-    ) -> &::std::option::Option<
-        ::std::collections::HashMap<
-            ::std::string::String,
-            ::std::vec::Vec<crate::types::BlacklistEntry>,
-        >,
-    > {
+    ) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::vec::Vec<crate::types::BlacklistEntry>>> {
         &self.blacklist_report
     }
     pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
@@ -110,10 +80,8 @@ impl GetBlacklistReportsOutputBuilder {
     /// - [`blacklist_report`](crate::operation::get_blacklist_reports::builders::GetBlacklistReportsOutputBuilder::blacklist_report)
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        crate::operation::get_blacklist_reports::GetBlacklistReportsOutput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    ) -> ::std::result::Result<crate::operation::get_blacklist_reports::GetBlacklistReportsOutput, ::aws_smithy_types::error::operation::BuildError>
+    {
         ::std::result::Result::Ok(crate::operation::get_blacklist_reports::GetBlacklistReportsOutput {
             blacklist_report: self.blacklist_report.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

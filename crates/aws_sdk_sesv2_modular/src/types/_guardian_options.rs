@@ -33,9 +33,7 @@ impl GuardianOptions {
 }
 
 /// A builder for [`GuardianOptions`](crate::types::GuardianOptions).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct GuardianOptionsBuilder {
     pub(crate) optimized_shared_delivery: ::std::option::Option<crate::types::FeatureStatus>,
@@ -59,10 +57,7 @@ impl GuardianOptionsBuilder {
     /// <li>
     /// <p><code>DISABLED</code> – Amazon SES disables optimized shared delivery for the configuration set.</p></li>
     /// </ul>
-    pub fn set_optimized_shared_delivery(
-        mut self,
-        input: ::std::option::Option<crate::types::FeatureStatus>,
-    ) -> Self {
+    pub fn set_optimized_shared_delivery(mut self, input: ::std::option::Option<crate::types::FeatureStatus>) -> Self {
         self.optimized_shared_delivery = input;
         self
     }
@@ -73,9 +68,7 @@ impl GuardianOptionsBuilder {
     /// <li>
     /// <p><code>DISABLED</code> – Amazon SES disables optimized shared delivery for the configuration set.</p></li>
     /// </ul>
-    pub fn get_optimized_shared_delivery(
-        &self,
-    ) -> &::std::option::Option<crate::types::FeatureStatus> {
+    pub fn get_optimized_shared_delivery(&self) -> &::std::option::Option<crate::types::FeatureStatus> {
         &self.optimized_shared_delivery
     }
     /// Consumes the builder and constructs a [`GuardianOptions`](crate::types::GuardianOptions).

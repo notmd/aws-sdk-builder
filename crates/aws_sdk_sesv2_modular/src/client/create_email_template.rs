@@ -8,11 +8,7 @@ impl super::Client {
     ///   - [`tags(Tag)`](crate::operation::create_email_template::builders::CreateEmailTemplateFluentBuilder::tags) / [`set_tags(Option<Vec::<Tag>>)`](crate::operation::create_email_template::builders::CreateEmailTemplateFluentBuilder::set_tags):<br>required: **false**<br><p>An array of objects that define the tags (keys and values) to associate with the email template.</p><br>
     /// - On success, responds with [`CreateEmailTemplateOutput`](crate::operation::create_email_template::CreateEmailTemplateOutput)
     /// - On failure, responds with [`SdkError<CreateEmailTemplateError>`](crate::operation::create_email_template::CreateEmailTemplateError)
-    pub fn create_email_template(
-        &self,
-    ) -> crate::operation::create_email_template::builders::CreateEmailTemplateFluentBuilder {
-        crate::operation::create_email_template::builders::CreateEmailTemplateFluentBuilder::new(
-            self.handle.clone(),
-        )
+    pub fn create_email_template(&self) -> crate::operation::create_email_template::builders::CreateEmailTemplateFluentBuilder {
+        crate::operation::create_email_template::builders::CreateEmailTemplateFluentBuilder::new(self.handle.clone())
     }
 }

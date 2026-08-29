@@ -10,9 +10,7 @@ impl super::Client {
     ///   - [`tenants(Option<Vec::<TenantInfo>>)`](crate::operation::list_tenants::ListTenantsOutput::tenants): <p>An array that contains basic information about each tenant.</p>
     ///   - [`next_token(Option<String>)`](crate::operation::list_tenants::ListTenantsOutput::next_token): <p>A token that indicates that there are additional tenants to list. To view additional tenants, issue another request to <code>ListTenants</code>, and pass this token in the <code>NextToken</code> parameter.</p>
     /// - On failure, responds with [`SdkError<ListTenantsError>`](crate::operation::list_tenants::ListTenantsError)
-    pub fn list_tenants(
-        &self,
-    ) -> crate::operation::list_tenants::builders::ListTenantsFluentBuilder {
+    pub fn list_tenants(&self) -> crate::operation::list_tenants::builders::ListTenantsFluentBuilder {
         crate::operation::list_tenants::builders::ListTenantsFluentBuilder::new(self.handle.clone())
     }
 }

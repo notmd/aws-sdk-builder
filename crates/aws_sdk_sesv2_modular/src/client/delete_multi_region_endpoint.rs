@@ -7,7 +7,7 @@ impl super::Client {
     /// - On success, responds with [`DeleteMultiRegionEndpointOutput`](crate::operation::delete_multi_region_endpoint::DeleteMultiRegionEndpointOutput) with field(s):
     ///   - [`status(Option<Status>)`](crate::operation::delete_multi_region_endpoint::DeleteMultiRegionEndpointOutput::status): <p>A status of the multi-region endpoint (global-endpoint) right after the delete request.</p> <ul>  <li>   <p><code>CREATING</code> – The resource is being provisioned.</p></li>  <li>   <p><code>READY</code> – The resource is ready to use.</p></li>  <li>   <p><code>FAILED</code> – The resource failed to be provisioned.</p></li>  <li>   <p><code>DELETING</code> – The resource is being deleted as requested.</p></li> </ul>
     /// - On failure, responds with [`SdkError<DeleteMultiRegionEndpointError>`](crate::operation::delete_multi_region_endpoint::DeleteMultiRegionEndpointError)
-    pub fn delete_multi_region_endpoint(&self) -> crate::operation::delete_multi_region_endpoint::builders::DeleteMultiRegionEndpointFluentBuilder{
+    pub fn delete_multi_region_endpoint(&self) -> crate::operation::delete_multi_region_endpoint::builders::DeleteMultiRegionEndpointFluentBuilder {
         crate::operation::delete_multi_region_endpoint::builders::DeleteMultiRegionEndpointFluentBuilder::new(self.handle.clone())
     }
 }

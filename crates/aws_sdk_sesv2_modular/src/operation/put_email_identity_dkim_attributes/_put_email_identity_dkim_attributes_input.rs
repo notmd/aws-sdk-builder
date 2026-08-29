@@ -26,16 +26,14 @@ impl PutEmailIdentityDkimAttributesInput {
 #[cfg(feature = "op_put_email_identity_dkim_attributes")]
 impl PutEmailIdentityDkimAttributesInput {
     /// Creates a new builder-style object to manufacture [`PutEmailIdentityDkimAttributesInput`](crate::operation::put_email_identity_dkim_attributes::PutEmailIdentityDkimAttributesInput).
-    pub fn builder() -> crate::operation::put_email_identity_dkim_attributes::builders::PutEmailIdentityDkimAttributesInputBuilder{
+    pub fn builder() -> crate::operation::put_email_identity_dkim_attributes::builders::PutEmailIdentityDkimAttributesInputBuilder {
         crate::operation::put_email_identity_dkim_attributes::builders::PutEmailIdentityDkimAttributesInputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_put_email_identity_dkim_attributes")]
 /// A builder for [`PutEmailIdentityDkimAttributesInput`](crate::operation::put_email_identity_dkim_attributes::PutEmailIdentityDkimAttributesInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct PutEmailIdentityDkimAttributesInputBuilder {
     pub(crate) email_identity: ::std::option::Option<::std::string::String>,
@@ -45,18 +43,12 @@ pub struct PutEmailIdentityDkimAttributesInputBuilder {
 impl PutEmailIdentityDkimAttributesInputBuilder {
     /// <p>The email identity.</p>
     /// This field is required.
-    pub fn email_identity(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn email_identity(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.email_identity = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The email identity.</p>
-    pub fn set_email_identity(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_email_identity(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.email_identity = input;
         self
     }

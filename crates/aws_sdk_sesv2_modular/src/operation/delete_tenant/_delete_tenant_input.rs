@@ -25,9 +25,7 @@ impl DeleteTenantInput {
 
 #[cfg(feature = "op_delete_tenant")]
 /// A builder for [`DeleteTenantInput`](crate::operation::delete_tenant::DeleteTenantInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct DeleteTenantInputBuilder {
     pub(crate) tenant_name: ::std::option::Option<::std::string::String>,
@@ -52,10 +50,7 @@ impl DeleteTenantInputBuilder {
     /// Consumes the builder and constructs a [`DeleteTenantInput`](crate::operation::delete_tenant::DeleteTenantInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        crate::operation::delete_tenant::DeleteTenantInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    ) -> ::std::result::Result<crate::operation::delete_tenant::DeleteTenantInput, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::operation::delete_tenant::DeleteTenantInput {
             tenant_name: self.tenant_name,
         })

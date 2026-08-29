@@ -9,7 +9,7 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<CreateTenantResourceAssociationError>`](crate::operation::create_tenant_resource_association::CreateTenantResourceAssociationError)
     pub fn create_tenant_resource_association(
         &self,
-    ) -> crate::operation::create_tenant_resource_association::builders::CreateTenantResourceAssociationFluentBuilder{
+    ) -> crate::operation::create_tenant_resource_association::builders::CreateTenantResourceAssociationFluentBuilder {
         crate::operation::create_tenant_resource_association::builders::CreateTenantResourceAssociationFluentBuilder::new(self.handle.clone())
     }
 }

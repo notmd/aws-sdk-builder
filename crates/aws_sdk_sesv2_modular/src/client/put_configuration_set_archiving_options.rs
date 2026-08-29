@@ -9,7 +9,7 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<PutConfigurationSetArchivingOptionsError>`](crate::operation::put_configuration_set_archiving_options::PutConfigurationSetArchivingOptionsError)
     pub fn put_configuration_set_archiving_options(
         &self,
-    ) -> crate::operation::put_configuration_set_archiving_options::builders::PutConfigurationSetArchivingOptionsFluentBuilder{
+    ) -> crate::operation::put_configuration_set_archiving_options::builders::PutConfigurationSetArchivingOptionsFluentBuilder {
         crate::operation::put_configuration_set_archiving_options::builders::PutConfigurationSetArchivingOptionsFluentBuilder::new(
             self.handle.clone(),
         )

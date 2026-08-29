@@ -25,16 +25,14 @@ impl CreateTenantResourceAssociationInput {
 #[cfg(feature = "op_create_tenant_resource_association")]
 impl CreateTenantResourceAssociationInput {
     /// Creates a new builder-style object to manufacture [`CreateTenantResourceAssociationInput`](crate::operation::create_tenant_resource_association::CreateTenantResourceAssociationInput).
-    pub fn builder() -> crate::operation::create_tenant_resource_association::builders::CreateTenantResourceAssociationInputBuilder{
+    pub fn builder() -> crate::operation::create_tenant_resource_association::builders::CreateTenantResourceAssociationInputBuilder {
         crate::operation::create_tenant_resource_association::builders::CreateTenantResourceAssociationInputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_create_tenant_resource_association")]
 /// A builder for [`CreateTenantResourceAssociationInput`](crate::operation::create_tenant_resource_association::CreateTenantResourceAssociationInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct CreateTenantResourceAssociationInputBuilder {
     pub(crate) tenant_name: ::std::option::Option<::std::string::String>,

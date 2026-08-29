@@ -16,16 +16,14 @@ impl ::aws_types::request_id::RequestId for PutConfigurationSetArchivingOptionsO
 #[cfg(feature = "op_put_configuration_set_archiving_options")]
 impl PutConfigurationSetArchivingOptionsOutput {
     /// Creates a new builder-style object to manufacture [`PutConfigurationSetArchivingOptionsOutput`](crate::operation::put_configuration_set_archiving_options::PutConfigurationSetArchivingOptionsOutput).
-    pub fn builder() -> crate::operation::put_configuration_set_archiving_options::builders::PutConfigurationSetArchivingOptionsOutputBuilder{
+    pub fn builder() -> crate::operation::put_configuration_set_archiving_options::builders::PutConfigurationSetArchivingOptionsOutputBuilder {
         crate::operation::put_configuration_set_archiving_options::builders::PutConfigurationSetArchivingOptionsOutputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_put_configuration_set_archiving_options")]
 /// A builder for [`PutConfigurationSetArchivingOptionsOutput`](crate::operation::put_configuration_set_archiving_options::PutConfigurationSetArchivingOptionsOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct PutConfigurationSetArchivingOptionsOutputBuilder {
     _request_id: Option<String>,
@@ -42,7 +40,7 @@ impl PutConfigurationSetArchivingOptionsOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`PutConfigurationSetArchivingOptionsOutput`](crate::operation::put_configuration_set_archiving_options::PutConfigurationSetArchivingOptionsOutput).
-    pub fn build(self) -> crate::operation::put_configuration_set_archiving_options::PutConfigurationSetArchivingOptionsOutput{
+    pub fn build(self) -> crate::operation::put_configuration_set_archiving_options::PutConfigurationSetArchivingOptionsOutput {
         crate::operation::put_configuration_set_archiving_options::PutConfigurationSetArchivingOptionsOutput {
             _request_id: self._request_id,
         }

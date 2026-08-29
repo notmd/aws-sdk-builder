@@ -51,13 +51,7 @@
 #[allow(missing_docs)] // documentation missing in model
 #[non_exhaustive]
 #[derive(
-    ::std::clone::Clone,
-    ::std::cmp::Eq,
-    ::std::cmp::Ord,
-    ::std::cmp::PartialEq,
-    ::std::cmp::PartialOrd,
-    ::std::fmt::Debug,
-    ::std::hash::Hash,
+    ::std::clone::Clone, ::std::cmp::Eq, ::std::cmp::Ord, ::std::cmp::PartialEq, ::std::cmp::PartialOrd, ::std::fmt::Debug, ::std::hash::Hash,
 )]
 pub enum BulkEmailStatus {
     #[allow(missing_docs)] // documentation missing in model
@@ -89,9 +83,7 @@ pub enum BulkEmailStatus {
     #[allow(missing_docs)] // documentation missing in model
     TransientFailure,
     /// `Unknown` contains new variants that have been added since this code was generated.
-    #[deprecated(
-        note = "Don't directly match on `Unknown`. See the docs on this enum for the correct way to handle unknown variants."
-    )]
+    #[deprecated(note = "Don't directly match on `Unknown`. See the docs on this enum for the correct way to handle unknown variants.")]
     Unknown(crate::primitives::sealed_enum_unknown::UnknownVariantValue),
 }
 impl ::std::convert::From<&str> for BulkEmailStatus {
@@ -111,9 +103,7 @@ impl ::std::convert::From<&str> for BulkEmailStatus {
             "SUCCESS" => BulkEmailStatus::Success,
             "TEMPLATE_NOT_FOUND" => BulkEmailStatus::TemplateNotFound,
             "TRANSIENT_FAILURE" => BulkEmailStatus::TransientFailure,
-            other => BulkEmailStatus::Unknown(
-                crate::primitives::sealed_enum_unknown::UnknownVariantValue(other.to_owned()),
-            ),
+            other => BulkEmailStatus::Unknown(crate::primitives::sealed_enum_unknown::UnknownVariantValue(other.to_owned())),
         }
     }
 }
@@ -174,14 +164,10 @@ impl BulkEmailStatus {
     /// Parses the enum value while disallowing unknown variants.
     ///
     /// Unknown variants will result in an error.
-    pub fn try_parse(
-        value: &str,
-    ) -> ::std::result::Result<Self, crate::error::UnknownVariantError> {
+    pub fn try_parse(value: &str) -> ::std::result::Result<Self, crate::error::UnknownVariantError> {
         match Self::from(value) {
             #[allow(deprecated)]
-            Self::Unknown(_) => {
-                ::std::result::Result::Err(crate::error::UnknownVariantError::new(value))
-            }
+            Self::Unknown(_) => ::std::result::Result::Err(crate::error::UnknownVariantError::new(value)),
             known => Ok(known),
         }
     }
@@ -194,15 +180,11 @@ impl ::std::fmt::Display for BulkEmailStatus {
             BulkEmailStatus::AccountSuspended => write!(f, "ACCOUNT_SUSPENDED"),
             BulkEmailStatus::AccountThrottled => write!(f, "ACCOUNT_THROTTLED"),
             BulkEmailStatus::ConfigurationSetNotFound => write!(f, "CONFIGURATION_SET_NOT_FOUND"),
-            BulkEmailStatus::ConfigurationSetSendingPaused => {
-                write!(f, "CONFIGURATION_SET_SENDING_PAUSED")
-            }
+            BulkEmailStatus::ConfigurationSetSendingPaused => write!(f, "CONFIGURATION_SET_SENDING_PAUSED"),
             BulkEmailStatus::Failed => write!(f, "FAILED"),
             BulkEmailStatus::InvalidParameter => write!(f, "INVALID_PARAMETER"),
             BulkEmailStatus::InvalidSendingPoolName => write!(f, "INVALID_SENDING_POOL_NAME"),
-            BulkEmailStatus::MailFromDomainNotVerified => {
-                write!(f, "MAIL_FROM_DOMAIN_NOT_VERIFIED")
-            }
+            BulkEmailStatus::MailFromDomainNotVerified => write!(f, "MAIL_FROM_DOMAIN_NOT_VERIFIED"),
             BulkEmailStatus::MessageRejected => write!(f, "MESSAGE_REJECTED"),
             BulkEmailStatus::Success => write!(f, "SUCCESS"),
             BulkEmailStatus::TemplateNotFound => write!(f, "TEMPLATE_NOT_FOUND"),

@@ -26,18 +26,14 @@ impl ::aws_types::request_id::RequestId for TestRenderEmailTemplateOutput {
 #[cfg(feature = "op_test_render_email_template")]
 impl TestRenderEmailTemplateOutput {
     /// Creates a new builder-style object to manufacture [`TestRenderEmailTemplateOutput`](crate::operation::test_render_email_template::TestRenderEmailTemplateOutput).
-    pub fn builder(
-    ) -> crate::operation::test_render_email_template::builders::TestRenderEmailTemplateOutputBuilder
-    {
+    pub fn builder() -> crate::operation::test_render_email_template::builders::TestRenderEmailTemplateOutputBuilder {
         crate::operation::test_render_email_template::builders::TestRenderEmailTemplateOutputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_test_render_email_template")]
 /// A builder for [`TestRenderEmailTemplateOutput`](crate::operation::test_render_email_template::TestRenderEmailTemplateOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct TestRenderEmailTemplateOutputBuilder {
     pub(crate) rendered_template: ::std::option::Option<::std::string::String>,
@@ -47,18 +43,12 @@ pub struct TestRenderEmailTemplateOutputBuilder {
 impl TestRenderEmailTemplateOutputBuilder {
     /// <p>The complete MIME message rendered by applying the data in the <code>TemplateData</code> parameter to the template specified in the TemplateName parameter.</p>
     /// This field is required.
-    pub fn rendered_template(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn rendered_template(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.rendered_template = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The complete MIME message rendered by applying the data in the <code>TemplateData</code> parameter to the template specified in the TemplateName parameter.</p>
-    pub fn set_rendered_template(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_rendered_template(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.rendered_template = input;
         self
     }

@@ -16,16 +16,14 @@ impl ::aws_types::request_id::RequestId for UpdateReputationEntityPolicyOutput {
 #[cfg(feature = "op_update_reputation_entity_policy")]
 impl UpdateReputationEntityPolicyOutput {
     /// Creates a new builder-style object to manufacture [`UpdateReputationEntityPolicyOutput`](crate::operation::update_reputation_entity_policy::UpdateReputationEntityPolicyOutput).
-    pub fn builder() -> crate::operation::update_reputation_entity_policy::builders::UpdateReputationEntityPolicyOutputBuilder{
+    pub fn builder() -> crate::operation::update_reputation_entity_policy::builders::UpdateReputationEntityPolicyOutputBuilder {
         crate::operation::update_reputation_entity_policy::builders::UpdateReputationEntityPolicyOutputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_update_reputation_entity_policy")]
 /// A builder for [`UpdateReputationEntityPolicyOutput`](crate::operation::update_reputation_entity_policy::UpdateReputationEntityPolicyOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct UpdateReputationEntityPolicyOutputBuilder {
     _request_id: Option<String>,
@@ -42,9 +40,7 @@ impl UpdateReputationEntityPolicyOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`UpdateReputationEntityPolicyOutput`](crate::operation::update_reputation_entity_policy::UpdateReputationEntityPolicyOutput).
-    pub fn build(
-        self,
-    ) -> crate::operation::update_reputation_entity_policy::UpdateReputationEntityPolicyOutput {
+    pub fn build(self) -> crate::operation::update_reputation_entity_policy::UpdateReputationEntityPolicyOutput {
         crate::operation::update_reputation_entity_policy::UpdateReputationEntityPolicyOutput {
             _request_id: self._request_id,
         }

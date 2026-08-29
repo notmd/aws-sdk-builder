@@ -83,9 +83,7 @@ impl ExportMetric {
 }
 
 /// A builder for [`ExportMetric`](crate::types::ExportMetric).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct ExportMetricBuilder {
     pub(crate) name: ::std::option::Option<crate::types::Metric>,
@@ -190,10 +188,7 @@ impl ExportMetricBuilder {
     /// <li>
     /// <p><code>RATE</code> - The rate for this metric relative to the <code>SEND</code> metric volume.</p></li>
     /// </ul>
-    pub fn set_aggregation(
-        mut self,
-        input: ::std::option::Option<crate::types::MetricAggregation>,
-    ) -> Self {
+    pub fn set_aggregation(mut self, input: ::std::option::Option<crate::types::MetricAggregation>) -> Self {
         self.aggregation = input;
         self
     }

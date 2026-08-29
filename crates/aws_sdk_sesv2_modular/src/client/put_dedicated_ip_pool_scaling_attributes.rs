@@ -9,7 +9,7 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<PutDedicatedIpPoolScalingAttributesError>`](crate::operation::put_dedicated_ip_pool_scaling_attributes::PutDedicatedIpPoolScalingAttributesError)
     pub fn put_dedicated_ip_pool_scaling_attributes(
         &self,
-    ) -> crate::operation::put_dedicated_ip_pool_scaling_attributes::builders::PutDedicatedIpPoolScalingAttributesFluentBuilder{
+    ) -> crate::operation::put_dedicated_ip_pool_scaling_attributes::builders::PutDedicatedIpPoolScalingAttributesFluentBuilder {
         crate::operation::put_dedicated_ip_pool_scaling_attributes::builders::PutDedicatedIpPoolScalingAttributesFluentBuilder::new(
             self.handle.clone(),
         )

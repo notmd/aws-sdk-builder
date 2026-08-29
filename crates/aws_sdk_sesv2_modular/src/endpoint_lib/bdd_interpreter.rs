@@ -43,12 +43,7 @@ pub(crate) fn evaluate_bdd<'a, Cond, Params, R, Context>(
     params: &'a Params,
     context: &mut Context,
     diagnostic_collector: &mut crate::endpoint_lib::diagnostic::DiagnosticCollector,
-    mut condition_evaluator: impl FnMut(
-        &Cond,
-        &'a Params,
-        &mut Context,
-        &mut crate::endpoint_lib::diagnostic::DiagnosticCollector,
-    ) -> bool,
+    mut condition_evaluator: impl FnMut(&Cond, &'a Params, &mut Context, &mut crate::endpoint_lib::diagnostic::DiagnosticCollector) -> bool,
     result_builder: impl FnOnce(usize, &'a Params, &Context) -> R,
 ) -> Option<R> {
     let mut current_ref = root_ref;
@@ -71,14 +66,9 @@ pub(crate) fn evaluate_bdd<'a, Cond, Params, R, Context>(
                 let node = nodes.get(node_index)?;
                 let condition_index = node.condition_index as usize;
                 let condition = conditions.get(condition_index)?;
-                let condition_result =
-                    condition_evaluator(condition, params, context, diagnostic_collector);
+                let condition_result = condition_evaluator(condition, params, context, diagnostic_collector);
                 // Handle complement edges: complement inverts the branch selection
-                current_ref = if is_complement ^ condition_result {
-                    node.high_ref
-                } else {
-                    node.low_ref
-                };
+                current_ref = if is_complement ^ condition_result { node.high_ref } else { node.low_ref };
             }
         }
     }

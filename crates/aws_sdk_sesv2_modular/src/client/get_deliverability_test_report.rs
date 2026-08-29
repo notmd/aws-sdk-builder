@@ -13,7 +13,7 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<GetDeliverabilityTestReportError>`](crate::operation::get_deliverability_test_report::GetDeliverabilityTestReportError)
     pub fn get_deliverability_test_report(
         &self,
-    ) -> crate::operation::get_deliverability_test_report::builders::GetDeliverabilityTestReportFluentBuilder{
+    ) -> crate::operation::get_deliverability_test_report::builders::GetDeliverabilityTestReportFluentBuilder {
         crate::operation::get_deliverability_test_report::builders::GetDeliverabilityTestReportFluentBuilder::new(self.handle.clone())
     }
 }

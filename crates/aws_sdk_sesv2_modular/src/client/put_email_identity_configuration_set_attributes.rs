@@ -9,7 +9,7 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<PutEmailIdentityConfigurationSetAttributesError>`](crate::operation::put_email_identity_configuration_set_attributes::PutEmailIdentityConfigurationSetAttributesError)
     pub fn put_email_identity_configuration_set_attributes(
         &self,
-    ) -> crate::operation::put_email_identity_configuration_set_attributes::builders::PutEmailIdentityConfigurationSetAttributesFluentBuilder{
+    ) -> crate::operation::put_email_identity_configuration_set_attributes::builders::PutEmailIdentityConfigurationSetAttributesFluentBuilder {
         crate::operation::put_email_identity_configuration_set_attributes::builders::PutEmailIdentityConfigurationSetAttributesFluentBuilder::new(
             self.handle.clone(),
         )

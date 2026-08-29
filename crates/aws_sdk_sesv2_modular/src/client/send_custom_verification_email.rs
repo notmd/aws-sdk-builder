@@ -11,7 +11,7 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<SendCustomVerificationEmailError>`](crate::operation::send_custom_verification_email::SendCustomVerificationEmailError)
     pub fn send_custom_verification_email(
         &self,
-    ) -> crate::operation::send_custom_verification_email::builders::SendCustomVerificationEmailFluentBuilder{
+    ) -> crate::operation::send_custom_verification_email::builders::SendCustomVerificationEmailFluentBuilder {
         crate::operation::send_custom_verification_email::builders::SendCustomVerificationEmailFluentBuilder::new(self.handle.clone())
     }
 }

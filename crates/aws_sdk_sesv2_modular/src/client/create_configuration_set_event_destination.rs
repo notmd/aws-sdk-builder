@@ -10,7 +10,7 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<CreateConfigurationSetEventDestinationError>`](crate::operation::create_configuration_set_event_destination::CreateConfigurationSetEventDestinationError)
     pub fn create_configuration_set_event_destination(
         &self,
-    ) -> crate::operation::create_configuration_set_event_destination::builders::CreateConfigurationSetEventDestinationFluentBuilder{
+    ) -> crate::operation::create_configuration_set_event_destination::builders::CreateConfigurationSetEventDestinationFluentBuilder {
         crate::operation::create_configuration_set_event_destination::builders::CreateConfigurationSetEventDestinationFluentBuilder::new(
             self.handle.clone(),
         )

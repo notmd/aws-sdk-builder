@@ -24,18 +24,14 @@ impl ListMultiRegionEndpointsInput {
 #[cfg(feature = "op_list_multi_region_endpoints")]
 impl ListMultiRegionEndpointsInput {
     /// Creates a new builder-style object to manufacture [`ListMultiRegionEndpointsInput`](crate::operation::list_multi_region_endpoints::ListMultiRegionEndpointsInput).
-    pub fn builder(
-    ) -> crate::operation::list_multi_region_endpoints::builders::ListMultiRegionEndpointsInputBuilder
-    {
+    pub fn builder() -> crate::operation::list_multi_region_endpoints::builders::ListMultiRegionEndpointsInputBuilder {
         crate::operation::list_multi_region_endpoints::builders::ListMultiRegionEndpointsInputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_list_multi_region_endpoints")]
 /// A builder for [`ListMultiRegionEndpointsInput`](crate::operation::list_multi_region_endpoints::ListMultiRegionEndpointsInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct ListMultiRegionEndpointsInputBuilder {
     pub(crate) next_token: ::std::option::Option<::std::string::String>,
@@ -78,11 +74,9 @@ impl ListMultiRegionEndpointsInputBuilder {
         crate::operation::list_multi_region_endpoints::ListMultiRegionEndpointsInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(
-            crate::operation::list_multi_region_endpoints::ListMultiRegionEndpointsInput {
-                next_token: self.next_token,
-                page_size: self.page_size,
-            },
-        )
+        ::std::result::Result::Ok(crate::operation::list_multi_region_endpoints::ListMultiRegionEndpointsInput {
+            next_token: self.next_token,
+            page_size: self.page_size,
+        })
     }
 }

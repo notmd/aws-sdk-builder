@@ -31,8 +31,7 @@ impl crate::operation::put_account_vdm_attributes::builders::PutAccountVdmAttrib
 #[derive(::std::clone::Clone, ::std::fmt::Debug)]
 pub struct PutAccountVdmAttributesFluentBuilder {
     handle: ::std::sync::Arc<crate::client::Handle>,
-    inner:
-        crate::operation::put_account_vdm_attributes::builders::PutAccountVdmAttributesInputBuilder,
+    inner: crate::operation::put_account_vdm_attributes::builders::PutAccountVdmAttributesInputBuilder,
     config_override: ::std::option::Option<crate::config::Builder>,
 }
 #[cfg(feature = "op_put_account_vdm_attributes")]
@@ -65,10 +64,7 @@ impl PutAccountVdmAttributesFluentBuilder {
         }
     }
     /// Access the PutAccountVdmAttributes as a reference.
-    pub fn as_input(
-        &self,
-    ) -> &crate::operation::put_account_vdm_attributes::builders::PutAccountVdmAttributesInputBuilder
-    {
+    pub fn as_input(&self) -> &crate::operation::put_account_vdm_attributes::builders::PutAccountVdmAttributesInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -97,11 +93,7 @@ impl PutAccountVdmAttributesFluentBuilder {
             &self.handle.conf,
             self.config_override,
         );
-        crate::operation::put_account_vdm_attributes::PutAccountVdmAttributes::orchestrate(
-            &runtime_plugins,
-            input,
-        )
-        .await
+        crate::operation::put_account_vdm_attributes::PutAccountVdmAttributes::orchestrate(&runtime_plugins, input).await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -114,18 +106,12 @@ impl PutAccountVdmAttributesFluentBuilder {
     > {
         crate::client::customize::CustomizableOperation::new(self)
     }
-    pub(crate) fn config_override(
-        mut self,
-        config_override: impl ::std::convert::Into<crate::config::Builder>,
-    ) -> Self {
+    pub(crate) fn config_override(mut self, config_override: impl ::std::convert::Into<crate::config::Builder>) -> Self {
         self.set_config_override(::std::option::Option::Some(config_override.into()));
         self
     }
 
-    pub(crate) fn set_config_override(
-        &mut self,
-        config_override: ::std::option::Option<crate::config::Builder>,
-    ) -> &mut Self {
+    pub(crate) fn set_config_override(&mut self, config_override: ::std::option::Option<crate::config::Builder>) -> &mut Self {
         self.config_override = config_override;
         self
     }
@@ -135,10 +121,7 @@ impl PutAccountVdmAttributesFluentBuilder {
         self
     }
     /// <p>The VDM attributes that you wish to apply to your Amazon SES account.</p>
-    pub fn set_vdm_attributes(
-        mut self,
-        input: ::std::option::Option<crate::types::VdmAttributes>,
-    ) -> Self {
+    pub fn set_vdm_attributes(mut self, input: ::std::option::Option<crate::types::VdmAttributes>) -> Self {
         self.inner = self.inner.set_vdm_attributes(input);
         self
     }

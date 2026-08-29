@@ -66,10 +66,7 @@ impl PutDedicatedIpInPoolFluentBuilder {
         }
     }
     /// Access the PutDedicatedIpInPool as a reference.
-    pub fn as_input(
-        &self,
-    ) -> &crate::operation::put_dedicated_ip_in_pool::builders::PutDedicatedIpInPoolInputBuilder
-    {
+    pub fn as_input(&self) -> &crate::operation::put_dedicated_ip_in_pool::builders::PutDedicatedIpInPoolInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -98,11 +95,7 @@ impl PutDedicatedIpInPoolFluentBuilder {
             &self.handle.conf,
             self.config_override,
         );
-        crate::operation::put_dedicated_ip_in_pool::PutDedicatedIpInPool::orchestrate(
-            &runtime_plugins,
-            input,
-        )
-        .await
+        crate::operation::put_dedicated_ip_in_pool::PutDedicatedIpInPool::orchestrate(&runtime_plugins, input).await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -115,18 +108,12 @@ impl PutDedicatedIpInPoolFluentBuilder {
     > {
         crate::client::customize::CustomizableOperation::new(self)
     }
-    pub(crate) fn config_override(
-        mut self,
-        config_override: impl ::std::convert::Into<crate::config::Builder>,
-    ) -> Self {
+    pub(crate) fn config_override(mut self, config_override: impl ::std::convert::Into<crate::config::Builder>) -> Self {
         self.set_config_override(::std::option::Option::Some(config_override.into()));
         self
     }
 
-    pub(crate) fn set_config_override(
-        &mut self,
-        config_override: ::std::option::Option<crate::config::Builder>,
-    ) -> &mut Self {
+    pub(crate) fn set_config_override(&mut self, config_override: ::std::option::Option<crate::config::Builder>) -> &mut Self {
         self.config_override = config_override;
         self
     }
@@ -145,18 +132,12 @@ impl PutDedicatedIpInPoolFluentBuilder {
         self.inner.get_ip()
     }
     /// <p>The name of the IP pool that you want to add the dedicated IP address to. You have to specify an IP pool that already exists.</p>
-    pub fn destination_pool_name(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn destination_pool_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.destination_pool_name(input.into());
         self
     }
     /// <p>The name of the IP pool that you want to add the dedicated IP address to. You have to specify an IP pool that already exists.</p>
-    pub fn set_destination_pool_name(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_destination_pool_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_destination_pool_name(input);
         self
     }

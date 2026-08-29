@@ -63,7 +63,7 @@ impl PutEmailIdentityMailFromAttributesFluentBuilder {
         }
     }
     /// Access the PutEmailIdentityMailFromAttributes as a reference.
-    pub fn as_input(&self) -> &crate::operation::put_email_identity_mail_from_attributes::builders::PutEmailIdentityMailFromAttributesInputBuilder{
+    pub fn as_input(&self) -> &crate::operation::put_email_identity_mail_from_attributes::builders::PutEmailIdentityMailFromAttributesInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -82,7 +82,7 @@ impl PutEmailIdentityMailFromAttributesFluentBuilder {
             crate::operation::put_email_identity_mail_from_attributes::PutEmailIdentityMailFromAttributesError,
             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
         >,
-    >{
+    > {
         let input = self
             .inner
             .build()
@@ -103,37 +103,25 @@ impl PutEmailIdentityMailFromAttributesFluentBuilder {
         crate::operation::put_email_identity_mail_from_attributes::PutEmailIdentityMailFromAttributesOutput,
         crate::operation::put_email_identity_mail_from_attributes::PutEmailIdentityMailFromAttributesError,
         Self,
-    >{
+    > {
         crate::client::customize::CustomizableOperation::new(self)
     }
-    pub(crate) fn config_override(
-        mut self,
-        config_override: impl ::std::convert::Into<crate::config::Builder>,
-    ) -> Self {
+    pub(crate) fn config_override(mut self, config_override: impl ::std::convert::Into<crate::config::Builder>) -> Self {
         self.set_config_override(::std::option::Option::Some(config_override.into()));
         self
     }
 
-    pub(crate) fn set_config_override(
-        &mut self,
-        config_override: ::std::option::Option<crate::config::Builder>,
-    ) -> &mut Self {
+    pub(crate) fn set_config_override(&mut self, config_override: ::std::option::Option<crate::config::Builder>) -> &mut Self {
         self.config_override = config_override;
         self
     }
     /// <p>The verified email identity.</p>
-    pub fn email_identity(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn email_identity(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.email_identity(input.into());
         self
     }
     /// <p>The verified email identity.</p>
-    pub fn set_email_identity(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_email_identity(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_email_identity(input);
         self
     }
@@ -150,10 +138,7 @@ impl PutEmailIdentityMailFromAttributesFluentBuilder {
     /// <li>
     /// <p>It can't be used in a "From" address if the MAIL FROM domain is a destination for feedback forwarding emails.</p></li>
     /// </ul>
-    pub fn mail_from_domain(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn mail_from_domain(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.mail_from_domain(input.into());
         self
     }
@@ -166,10 +151,7 @@ impl PutEmailIdentityMailFromAttributesFluentBuilder {
     /// <li>
     /// <p>It can't be used in a "From" address if the MAIL FROM domain is a destination for feedback forwarding emails.</p></li>
     /// </ul>
-    pub fn set_mail_from_domain(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_mail_from_domain(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_mail_from_domain(input);
         self
     }
@@ -193,18 +175,13 @@ impl PutEmailIdentityMailFromAttributesFluentBuilder {
     }
     /// <p>The action to take if the required MX record isn't found when you send an email. When you set this value to <code>UseDefaultValue</code>, the mail is sent using <i>amazonses.com</i> as the MAIL FROM domain. When you set this value to <code>RejectMessage</code>, the Amazon SES API v2 returns a <code>MailFromDomainNotVerified</code> error, and doesn't attempt to deliver the email.</p>
     /// <p>These behaviors are taken when the custom MAIL FROM domain configuration is in the <code>Pending</code>, <code>Failed</code>, and <code>TemporaryFailure</code> states.</p>
-    pub fn set_behavior_on_mx_failure(
-        mut self,
-        input: ::std::option::Option<crate::types::BehaviorOnMxFailure>,
-    ) -> Self {
+    pub fn set_behavior_on_mx_failure(mut self, input: ::std::option::Option<crate::types::BehaviorOnMxFailure>) -> Self {
         self.inner = self.inner.set_behavior_on_mx_failure(input);
         self
     }
     /// <p>The action to take if the required MX record isn't found when you send an email. When you set this value to <code>UseDefaultValue</code>, the mail is sent using <i>amazonses.com</i> as the MAIL FROM domain. When you set this value to <code>RejectMessage</code>, the Amazon SES API v2 returns a <code>MailFromDomainNotVerified</code> error, and doesn't attempt to deliver the email.</p>
     /// <p>These behaviors are taken when the custom MAIL FROM domain configuration is in the <code>Pending</code>, <code>Failed</code>, and <code>TemporaryFailure</code> states.</p>
-    pub fn get_behavior_on_mx_failure(
-        &self,
-    ) -> &::std::option::Option<crate::types::BehaviorOnMxFailure> {
+    pub fn get_behavior_on_mx_failure(&self) -> &::std::option::Option<crate::types::BehaviorOnMxFailure> {
         self.inner.get_behavior_on_mx_failure()
     }
 }

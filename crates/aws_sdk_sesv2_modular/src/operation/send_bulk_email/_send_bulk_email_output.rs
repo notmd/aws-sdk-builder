@@ -33,13 +33,10 @@ impl SendBulkEmailOutput {
 
 #[cfg(feature = "op_send_bulk_email")]
 /// A builder for [`SendBulkEmailOutput`](crate::operation::send_bulk_email::SendBulkEmailOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct SendBulkEmailOutputBuilder {
-    pub(crate) bulk_email_entry_results:
-        ::std::option::Option<::std::vec::Vec<crate::types::BulkEmailEntryResult>>,
+    pub(crate) bulk_email_entry_results: ::std::option::Option<::std::vec::Vec<crate::types::BulkEmailEntryResult>>,
     _request_id: Option<String>,
 }
 #[cfg(feature = "op_send_bulk_email")]
@@ -56,17 +53,12 @@ impl SendBulkEmailOutputBuilder {
         self
     }
     /// <p>One object per intended recipient. Check each response object and retry any messages with a failure status.</p>
-    pub fn set_bulk_email_entry_results(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<crate::types::BulkEmailEntryResult>>,
-    ) -> Self {
+    pub fn set_bulk_email_entry_results(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::BulkEmailEntryResult>>) -> Self {
         self.bulk_email_entry_results = input;
         self
     }
     /// <p>One object per intended recipient. Check each response object and retry any messages with a failure status.</p>
-    pub fn get_bulk_email_entry_results(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<crate::types::BulkEmailEntryResult>> {
+    pub fn get_bulk_email_entry_results(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::BulkEmailEntryResult>> {
         &self.bulk_email_entry_results
     }
     pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
@@ -83,10 +75,7 @@ impl SendBulkEmailOutputBuilder {
     /// - [`bulk_email_entry_results`](crate::operation::send_bulk_email::builders::SendBulkEmailOutputBuilder::bulk_email_entry_results)
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        crate::operation::send_bulk_email::SendBulkEmailOutput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    ) -> ::std::result::Result<crate::operation::send_bulk_email::SendBulkEmailOutput, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::operation::send_bulk_email::SendBulkEmailOutput {
             bulk_email_entry_results: self.bulk_email_entry_results.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

@@ -38,16 +38,14 @@ impl PutAccountPricingAttributesInput {
 #[cfg(feature = "op_put_account_pricing_attributes")]
 impl PutAccountPricingAttributesInput {
     /// Creates a new builder-style object to manufacture [`PutAccountPricingAttributesInput`](crate::operation::put_account_pricing_attributes::PutAccountPricingAttributesInput).
-    pub fn builder() -> crate::operation::put_account_pricing_attributes::builders::PutAccountPricingAttributesInputBuilder{
+    pub fn builder() -> crate::operation::put_account_pricing_attributes::builders::PutAccountPricingAttributesInputBuilder {
         crate::operation::put_account_pricing_attributes::builders::PutAccountPricingAttributesInputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_put_account_pricing_attributes")]
 /// A builder for [`PutAccountPricingAttributesInput`](crate::operation::put_account_pricing_attributes::PutAccountPricingAttributesInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct PutAccountPricingAttributesInputBuilder {
     pub(crate) plan: ::std::option::Option<crate::types::PricingPlan>,
@@ -106,10 +104,6 @@ impl PutAccountPricingAttributesInputBuilder {
         crate::operation::put_account_pricing_attributes::PutAccountPricingAttributesInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(
-            crate::operation::put_account_pricing_attributes::PutAccountPricingAttributesInput {
-                plan: self.plan,
-            },
-        )
+        ::std::result::Result::Ok(crate::operation::put_account_pricing_attributes::PutAccountPricingAttributesInput { plan: self.plan })
     }
 }

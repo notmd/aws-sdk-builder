@@ -86,16 +86,14 @@ impl ::aws_types::request_id::RequestId for PutEmailIdentityDkimSigningAttribute
 #[cfg(feature = "op_put_email_identity_dkim_signing_attributes")]
 impl PutEmailIdentityDkimSigningAttributesOutput {
     /// Creates a new builder-style object to manufacture [`PutEmailIdentityDkimSigningAttributesOutput`](crate::operation::put_email_identity_dkim_signing_attributes::PutEmailIdentityDkimSigningAttributesOutput).
-    pub fn builder() -> crate::operation::put_email_identity_dkim_signing_attributes::builders::PutEmailIdentityDkimSigningAttributesOutputBuilder{
+    pub fn builder() -> crate::operation::put_email_identity_dkim_signing_attributes::builders::PutEmailIdentityDkimSigningAttributesOutputBuilder {
         crate::operation::put_email_identity_dkim_signing_attributes::builders::PutEmailIdentityDkimSigningAttributesOutputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_put_email_identity_dkim_signing_attributes")]
 /// A builder for [`PutEmailIdentityDkimSigningAttributesOutput`](crate::operation::put_email_identity_dkim_signing_attributes::PutEmailIdentityDkimSigningAttributesOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct PutEmailIdentityDkimSigningAttributesOutputBuilder {
     pub(crate) dkim_status: ::std::option::Option<crate::types::DkimStatus>,
@@ -139,10 +137,7 @@ impl PutEmailIdentityDkimSigningAttributesOutputBuilder {
     /// <li>
     /// <p><code>NOT_STARTED</code> – The DKIM verification process hasn't been initiated for the domain.</p></li>
     /// </ul>
-    pub fn set_dkim_status(
-        mut self,
-        input: ::std::option::Option<crate::types::DkimStatus>,
-    ) -> Self {
+    pub fn set_dkim_status(mut self, input: ::std::option::Option<crate::types::DkimStatus>) -> Self {
         self.dkim_status = input;
         self
     }
@@ -180,19 +175,14 @@ impl PutEmailIdentityDkimSigningAttributesOutputBuilder {
     /// <p>If you used <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim.html">Easy DKIM</a> to configure DKIM authentication for the domain, then this object contains a set of unique strings that you use to create a set of CNAME records that you add to the DNS configuration for your domain. When Amazon SES detects these records in the DNS configuration for your domain, the DKIM authentication process is complete.</p>
     /// <p>If you configured DKIM authentication for the domain by providing your own public-private key pair, then this object contains the selector that's associated with your public key.</p>
     /// <p>Regardless of the DKIM authentication method you use, Amazon SES searches for the appropriate records in the DNS configuration of the domain for up to 72 hours.</p>
-    pub fn set_dkim_tokens(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
-    ) -> Self {
+    pub fn set_dkim_tokens(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
         self.dkim_tokens = input;
         self
     }
     /// <p>If you used <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim.html">Easy DKIM</a> to configure DKIM authentication for the domain, then this object contains a set of unique strings that you use to create a set of CNAME records that you add to the DNS configuration for your domain. When Amazon SES detects these records in the DNS configuration for your domain, the DKIM authentication process is complete.</p>
     /// <p>If you configured DKIM authentication for the domain by providing your own public-private key pair, then this object contains the selector that's associated with your public key.</p>
     /// <p>Regardless of the DKIM authentication method you use, Amazon SES searches for the appropriate records in the DNS configuration of the domain for up to 72 hours.</p>
-    pub fn get_dkim_tokens(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
+    pub fn get_dkim_tokens(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
         &self.dkim_tokens
     }
     /// <p>The hosted zone where Amazon SES publishes the DKIM public key TXT records for this email identity. This value indicates the DNS zone that customers must reference when configuring their CNAME records for DKIM authentication.</p>
@@ -203,10 +193,7 @@ impl PutEmailIdentityDkimSigningAttributesOutputBuilder {
     /// </signinghostedzone></code></p>
     /// <p><code> selector3._domainkey.yourdomain.com CNAME selector3.<signinghostedzone>
     /// </signinghostedzone></code></p>
-    pub fn signing_hosted_zone(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn signing_hosted_zone(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.signing_hosted_zone = ::std::option::Option::Some(input.into());
         self
     }
@@ -218,10 +205,7 @@ impl PutEmailIdentityDkimSigningAttributesOutputBuilder {
     /// </signinghostedzone></code></p>
     /// <p><code> selector3._domainkey.yourdomain.com CNAME selector3.<signinghostedzone>
     /// </signinghostedzone></code></p>
-    pub fn set_signing_hosted_zone(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_signing_hosted_zone(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.signing_hosted_zone = input;
         self
     }
@@ -246,7 +230,7 @@ impl PutEmailIdentityDkimSigningAttributesOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`PutEmailIdentityDkimSigningAttributesOutput`](crate::operation::put_email_identity_dkim_signing_attributes::PutEmailIdentityDkimSigningAttributesOutput).
-    pub fn build(self) -> crate::operation::put_email_identity_dkim_signing_attributes::PutEmailIdentityDkimSigningAttributesOutput{
+    pub fn build(self) -> crate::operation::put_email_identity_dkim_signing_attributes::PutEmailIdentityDkimSigningAttributesOutput {
         crate::operation::put_email_identity_dkim_signing_attributes::PutEmailIdentityDkimSigningAttributesOutput {
             dkim_status: self.dkim_status,
             dkim_tokens: self.dkim_tokens,

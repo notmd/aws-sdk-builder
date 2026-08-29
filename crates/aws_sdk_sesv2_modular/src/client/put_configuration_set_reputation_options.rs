@@ -9,7 +9,7 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<PutConfigurationSetReputationOptionsError>`](crate::operation::put_configuration_set_reputation_options::PutConfigurationSetReputationOptionsError)
     pub fn put_configuration_set_reputation_options(
         &self,
-    ) -> crate::operation::put_configuration_set_reputation_options::builders::PutConfigurationSetReputationOptionsFluentBuilder{
+    ) -> crate::operation::put_configuration_set_reputation_options::builders::PutConfigurationSetReputationOptionsFluentBuilder {
         crate::operation::put_configuration_set_reputation_options::builders::PutConfigurationSetReputationOptionsFluentBuilder::new(
             self.handle.clone(),
         )

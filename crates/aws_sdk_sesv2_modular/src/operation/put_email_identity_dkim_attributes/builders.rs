@@ -48,7 +48,7 @@ impl
             crate::operation::put_email_identity_dkim_attributes::PutEmailIdentityDkimAttributesOutput,
             crate::operation::put_email_identity_dkim_attributes::PutEmailIdentityDkimAttributesError,
         >,
-    >{
+    > {
         ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
     }
 }
@@ -63,7 +63,7 @@ impl PutEmailIdentityDkimAttributesFluentBuilder {
         }
     }
     /// Access the PutEmailIdentityDkimAttributes as a reference.
-    pub fn as_input(&self) -> &crate::operation::put_email_identity_dkim_attributes::builders::PutEmailIdentityDkimAttributesInputBuilder{
+    pub fn as_input(&self) -> &crate::operation::put_email_identity_dkim_attributes::builders::PutEmailIdentityDkimAttributesInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -82,7 +82,7 @@ impl PutEmailIdentityDkimAttributesFluentBuilder {
             crate::operation::put_email_identity_dkim_attributes::PutEmailIdentityDkimAttributesError,
             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
         >,
-    >{
+    > {
         let input = self
             .inner
             .build()
@@ -105,34 +105,22 @@ impl PutEmailIdentityDkimAttributesFluentBuilder {
     > {
         crate::client::customize::CustomizableOperation::new(self)
     }
-    pub(crate) fn config_override(
-        mut self,
-        config_override: impl ::std::convert::Into<crate::config::Builder>,
-    ) -> Self {
+    pub(crate) fn config_override(mut self, config_override: impl ::std::convert::Into<crate::config::Builder>) -> Self {
         self.set_config_override(::std::option::Option::Some(config_override.into()));
         self
     }
 
-    pub(crate) fn set_config_override(
-        &mut self,
-        config_override: ::std::option::Option<crate::config::Builder>,
-    ) -> &mut Self {
+    pub(crate) fn set_config_override(&mut self, config_override: ::std::option::Option<crate::config::Builder>) -> &mut Self {
         self.config_override = config_override;
         self
     }
     /// <p>The email identity.</p>
-    pub fn email_identity(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn email_identity(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.email_identity(input.into());
         self
     }
     /// <p>The email identity.</p>
-    pub fn set_email_identity(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_email_identity(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_email_identity(input);
         self
     }

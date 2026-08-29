@@ -80,9 +80,7 @@ impl GetExportJobOutput {
 
 #[cfg(feature = "op_get_export_job")]
 /// A builder for [`GetExportJobOutput`](crate::operation::get_export_job::GetExportJobOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct GetExportJobOutputBuilder {
     pub(crate) job_id: ::std::option::Option<::std::string::String>,
@@ -118,10 +116,7 @@ impl GetExportJobOutputBuilder {
         self
     }
     /// <p>The type of source of the export job.</p>
-    pub fn set_export_source_type(
-        mut self,
-        input: ::std::option::Option<crate::types::ExportSourceType>,
-    ) -> Self {
+    pub fn set_export_source_type(mut self, input: ::std::option::Option<crate::types::ExportSourceType>) -> Self {
         self.export_source_type = input;
         self
     }
@@ -149,17 +144,12 @@ impl GetExportJobOutputBuilder {
         self
     }
     /// <p>The destination of the export job.</p>
-    pub fn set_export_destination(
-        mut self,
-        input: ::std::option::Option<crate::types::ExportDestination>,
-    ) -> Self {
+    pub fn set_export_destination(mut self, input: ::std::option::Option<crate::types::ExportDestination>) -> Self {
         self.export_destination = input;
         self
     }
     /// <p>The destination of the export job.</p>
-    pub fn get_export_destination(
-        &self,
-    ) -> &::std::option::Option<crate::types::ExportDestination> {
+    pub fn get_export_destination(&self) -> &::std::option::Option<crate::types::ExportDestination> {
         &self.export_destination
     }
     /// <p>The data source of the export job.</p>
@@ -168,10 +158,7 @@ impl GetExportJobOutputBuilder {
         self
     }
     /// <p>The data source of the export job.</p>
-    pub fn set_export_data_source(
-        mut self,
-        input: ::std::option::Option<crate::types::ExportDataSource>,
-    ) -> Self {
+    pub fn set_export_data_source(mut self, input: ::std::option::Option<crate::types::ExportDataSource>) -> Self {
         self.export_data_source = input;
         self
     }
@@ -185,10 +172,7 @@ impl GetExportJobOutputBuilder {
         self
     }
     /// <p>The timestamp of when the export job was created.</p>
-    pub fn set_created_timestamp(
-        mut self,
-        input: ::std::option::Option<::aws_smithy_types::DateTime>,
-    ) -> Self {
+    pub fn set_created_timestamp(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
         self.created_timestamp = input;
         self
     }
@@ -202,10 +186,7 @@ impl GetExportJobOutputBuilder {
         self
     }
     /// <p>The timestamp of when the export job was completed.</p>
-    pub fn set_completed_timestamp(
-        mut self,
-        input: ::std::option::Option<::aws_smithy_types::DateTime>,
-    ) -> Self {
+    pub fn set_completed_timestamp(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
         self.completed_timestamp = input;
         self
     }
@@ -219,10 +200,7 @@ impl GetExportJobOutputBuilder {
         self
     }
     /// <p>The failure details about an export job.</p>
-    pub fn set_failure_info(
-        mut self,
-        input: ::std::option::Option<crate::types::FailureInfo>,
-    ) -> Self {
+    pub fn set_failure_info(mut self, input: ::std::option::Option<crate::types::FailureInfo>) -> Self {
         self.failure_info = input;
         self
     }
@@ -236,10 +214,7 @@ impl GetExportJobOutputBuilder {
         self
     }
     /// <p>The statistics about the export job.</p>
-    pub fn set_statistics(
-        mut self,
-        input: ::std::option::Option<crate::types::ExportStatistics>,
-    ) -> Self {
+    pub fn set_statistics(mut self, input: ::std::option::Option<crate::types::ExportStatistics>) -> Self {
         self.statistics = input;
         self
     }

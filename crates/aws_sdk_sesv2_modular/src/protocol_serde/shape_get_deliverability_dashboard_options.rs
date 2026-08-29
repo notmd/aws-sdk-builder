@@ -90,11 +90,8 @@ pub fn de_get_deliverability_dashboard_options_http_response(
         let mut output = crate::operation::get_deliverability_dashboard_options::builders::GetDeliverabilityDashboardOptionsOutputBuilder::default();
         output = crate::protocol_serde::shape_get_deliverability_dashboard_options::de_get_deliverability_dashboard_options(_response_body, output)
             .map_err(crate::operation::get_deliverability_dashboard_options::GetDeliverabilityDashboardOptionsError::unhandled)?;
-        output._set_request_id(
-            ::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string),
-        );
-        crate::serde_util::get_deliverability_dashboard_options_output_output_correct_errors(output)
-            .build()
+        output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
+        crate::serde_util::get_deliverability_dashboard_options_output_output_correct_errors(output).build()
     })
 }
 
@@ -104,11 +101,8 @@ pub(crate) fn de_get_deliverability_dashboard_options(
 ) -> ::std::result::Result<
     crate::operation::get_deliverability_dashboard_options::builders::GetDeliverabilityDashboardOptionsOutputBuilder,
     ::aws_smithy_json::deserialize::error::DeserializeError,
->{
-    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(
-        crate::protocol_serde::or_empty_doc(_value),
-    )
-    .peekable();
+> {
+    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(crate::protocol_serde::or_empty_doc(_value)).peekable();
     let tokens = &mut tokens_owned;
     #[allow(unused_variables)]
     let depth = 0u32;
@@ -116,21 +110,15 @@ pub(crate) fn de_get_deliverability_dashboard_options(
     loop {
         match tokens.next().transpose()? {
             Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
-            Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key
-                .to_unescaped()?
-                .as_ref()
-            {
+            Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
                 "AccountStatus" => {
                     builder = builder.set_account_status(
-                        ::aws_smithy_json::deserialize::token::expect_string_or_null(
-                            tokens.next(),
-                        )?
-                        .map(|s| {
-                            s.to_unescaped().map(|u| {
-                                crate::types::DeliverabilityDashboardAccountStatus::from(u.as_ref())
+                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                            .map(|s| {
+                                s.to_unescaped()
+                                    .map(|u| crate::types::DeliverabilityDashboardAccountStatus::from(u.as_ref()))
                             })
-                        })
-                        .transpose()?,
+                            .transpose()?,
                     );
                 }
                 "ActiveSubscribedDomains" => {
@@ -143,9 +131,7 @@ pub(crate) fn de_get_deliverability_dashboard_options(
                     );
                 }
                 "DashboardEnabled" => {
-                    builder = builder.set_dashboard_enabled(
-                        ::aws_smithy_json::deserialize::token::expect_bool_or_null(tokens.next())?,
-                    );
+                    builder = builder.set_dashboard_enabled(::aws_smithy_json::deserialize::token::expect_bool_or_null(tokens.next())?);
                 }
                 "PendingExpirationSubscribedDomains" => {
                     builder = builder.set_pending_expiration_subscribed_domains(
@@ -157,30 +143,24 @@ pub(crate) fn de_get_deliverability_dashboard_options(
                     );
                 }
                 "SubscriptionExpiryDate" => {
-                    builder = builder.set_subscription_expiry_date(
-                        ::aws_smithy_json::deserialize::token::expect_timestamp_or_null(
-                            tokens.next(),
-                            ::aws_smithy_types::date_time::Format::EpochSeconds,
-                        )?,
-                    );
+                    builder = builder.set_subscription_expiry_date(::aws_smithy_json::deserialize::token::expect_timestamp_or_null(
+                        tokens.next(),
+                        ::aws_smithy_types::date_time::Format::EpochSeconds,
+                    )?);
                 }
                 _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
             },
             other => {
-                return Err(
-                    ::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
-                        "expected object key or end object, found: {other:?}"
-                    )),
-                )
+                return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
+                    "expected object key or end object, found: {other:?}"
+                )))
             }
         }
     }
     if tokens.next().is_some() {
-        return Err(
-            ::aws_smithy_json::deserialize::error::DeserializeError::custom(
-                "found more JSON tokens after completing parsing",
-            ),
-        );
+        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
+            "found more JSON tokens after completing parsing",
+        ));
     }
     Ok(builder)
 }

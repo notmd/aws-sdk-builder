@@ -63,9 +63,7 @@ impl SendBulkEmailFluentBuilder {
         }
     }
     /// Access the SendBulkEmail as a reference.
-    pub fn as_input(
-        &self,
-    ) -> &crate::operation::send_bulk_email::builders::SendBulkEmailInputBuilder {
+    pub fn as_input(&self) -> &crate::operation::send_bulk_email::builders::SendBulkEmailInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -89,12 +87,11 @@ impl SendBulkEmailFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins =
-            crate::operation::send_bulk_email::SendBulkEmail::operation_runtime_plugins(
-                self.handle.runtime_plugins.clone(),
-                &self.handle.conf,
-                self.config_override,
-            );
+        let runtime_plugins = crate::operation::send_bulk_email::SendBulkEmail::operation_runtime_plugins(
+            self.handle.runtime_plugins.clone(),
+            &self.handle.conf,
+            self.config_override,
+        );
         crate::operation::send_bulk_email::SendBulkEmail::orchestrate(&runtime_plugins, input).await
     }
 
@@ -108,34 +105,22 @@ impl SendBulkEmailFluentBuilder {
     > {
         crate::client::customize::CustomizableOperation::new(self)
     }
-    pub(crate) fn config_override(
-        mut self,
-        config_override: impl ::std::convert::Into<crate::config::Builder>,
-    ) -> Self {
+    pub(crate) fn config_override(mut self, config_override: impl ::std::convert::Into<crate::config::Builder>) -> Self {
         self.set_config_override(::std::option::Option::Some(config_override.into()));
         self
     }
 
-    pub(crate) fn set_config_override(
-        &mut self,
-        config_override: ::std::option::Option<crate::config::Builder>,
-    ) -> &mut Self {
+    pub(crate) fn set_config_override(&mut self, config_override: ::std::option::Option<crate::config::Builder>) -> &mut Self {
         self.config_override = config_override;
         self
     }
     /// <p>The email address to use as the "From" address for the email. The address that you specify has to be verified.</p>
-    pub fn from_email_address(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn from_email_address(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.from_email_address(input.into());
         self
     }
     /// <p>The email address to use as the "From" address for the email. The address that you specify has to be verified.</p>
-    pub fn set_from_email_address(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_from_email_address(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_from_email_address(input);
         self
     }
@@ -146,29 +131,21 @@ impl SendBulkEmailFluentBuilder {
     /// <p>This parameter is used only for sending authorization. It is the ARN of the identity that is associated with the sending authorization policy that permits you to use the email address specified in the <code>FromEmailAddress</code> parameter.</p>
     /// <p>For example, if the owner of example.com (which has ARN arn:aws:ses:us-east-1:123456789012:identity/example.com) attaches a policy to it that authorizes you to use sender@example.com, then you would specify the <code>FromEmailAddressIdentityArn</code> to be arn:aws:ses:us-east-1:123456789012:identity/example.com, and the <code>FromEmailAddress</code> to be sender@example.com.</p>
     /// <p>For more information about sending authorization, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html">Amazon SES Developer Guide</a>.</p>
-    pub fn from_email_address_identity_arn(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn from_email_address_identity_arn(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.from_email_address_identity_arn(input.into());
         self
     }
     /// <p>This parameter is used only for sending authorization. It is the ARN of the identity that is associated with the sending authorization policy that permits you to use the email address specified in the <code>FromEmailAddress</code> parameter.</p>
     /// <p>For example, if the owner of example.com (which has ARN arn:aws:ses:us-east-1:123456789012:identity/example.com) attaches a policy to it that authorizes you to use sender@example.com, then you would specify the <code>FromEmailAddressIdentityArn</code> to be arn:aws:ses:us-east-1:123456789012:identity/example.com, and the <code>FromEmailAddress</code> to be sender@example.com.</p>
     /// <p>For more information about sending authorization, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html">Amazon SES Developer Guide</a>.</p>
-    pub fn set_from_email_address_identity_arn(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_from_email_address_identity_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_from_email_address_identity_arn(input);
         self
     }
     /// <p>This parameter is used only for sending authorization. It is the ARN of the identity that is associated with the sending authorization policy that permits you to use the email address specified in the <code>FromEmailAddress</code> parameter.</p>
     /// <p>For example, if the owner of example.com (which has ARN arn:aws:ses:us-east-1:123456789012:identity/example.com) attaches a policy to it that authorizes you to use sender@example.com, then you would specify the <code>FromEmailAddressIdentityArn</code> to be arn:aws:ses:us-east-1:123456789012:identity/example.com, and the <code>FromEmailAddress</code> to be sender@example.com.</p>
     /// <p>For more information about sending authorization, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html">Amazon SES Developer Guide</a>.</p>
-    pub fn get_from_email_address_identity_arn(
-        &self,
-    ) -> &::std::option::Option<::std::string::String> {
+    pub fn get_from_email_address_identity_arn(&self) -> &::std::option::Option<::std::string::String> {
         self.inner.get_from_email_address_identity_arn()
     }
     ///
@@ -177,81 +154,52 @@ impl SendBulkEmailFluentBuilder {
     /// To override the contents of this collection use [`set_reply_to_addresses`](Self::set_reply_to_addresses).
     ///
     /// <p>The "Reply-to" email addresses for the message. When the recipient replies to the message, each Reply-to address receives the reply.</p>
-    pub fn reply_to_addresses(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn reply_to_addresses(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.reply_to_addresses(input.into());
         self
     }
     /// <p>The "Reply-to" email addresses for the message. When the recipient replies to the message, each Reply-to address receives the reply.</p>
-    pub fn set_reply_to_addresses(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
-    ) -> Self {
+    pub fn set_reply_to_addresses(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
         self.inner = self.inner.set_reply_to_addresses(input);
         self
     }
     /// <p>The "Reply-to" email addresses for the message. When the recipient replies to the message, each Reply-to address receives the reply.</p>
-    pub fn get_reply_to_addresses(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
+    pub fn get_reply_to_addresses(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
         self.inner.get_reply_to_addresses()
     }
     /// <p>The address that you want bounce and complaint notifications to be sent to.</p>
-    pub fn feedback_forwarding_email_address(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn feedback_forwarding_email_address(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.feedback_forwarding_email_address(input.into());
         self
     }
     /// <p>The address that you want bounce and complaint notifications to be sent to.</p>
-    pub fn set_feedback_forwarding_email_address(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_feedback_forwarding_email_address(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_feedback_forwarding_email_address(input);
         self
     }
     /// <p>The address that you want bounce and complaint notifications to be sent to.</p>
-    pub fn get_feedback_forwarding_email_address(
-        &self,
-    ) -> &::std::option::Option<::std::string::String> {
+    pub fn get_feedback_forwarding_email_address(&self) -> &::std::option::Option<::std::string::String> {
         self.inner.get_feedback_forwarding_email_address()
     }
     /// <p>This parameter is used only for sending authorization. It is the ARN of the identity that is associated with the sending authorization policy that permits you to use the email address specified in the <code>FeedbackForwardingEmailAddress</code> parameter.</p>
     /// <p>For example, if the owner of example.com (which has ARN arn:aws:ses:us-east-1:123456789012:identity/example.com) attaches a policy to it that authorizes you to use feedback@example.com, then you would specify the <code>FeedbackForwardingEmailAddressIdentityArn</code> to be arn:aws:ses:us-east-1:123456789012:identity/example.com, and the <code>FeedbackForwardingEmailAddress</code> to be feedback@example.com.</p>
     /// <p>For more information about sending authorization, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html">Amazon SES Developer Guide</a>.</p>
-    pub fn feedback_forwarding_email_address_identity_arn(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
-        self.inner = self
-            .inner
-            .feedback_forwarding_email_address_identity_arn(input.into());
+    pub fn feedback_forwarding_email_address_identity_arn(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.inner = self.inner.feedback_forwarding_email_address_identity_arn(input.into());
         self
     }
     /// <p>This parameter is used only for sending authorization. It is the ARN of the identity that is associated with the sending authorization policy that permits you to use the email address specified in the <code>FeedbackForwardingEmailAddress</code> parameter.</p>
     /// <p>For example, if the owner of example.com (which has ARN arn:aws:ses:us-east-1:123456789012:identity/example.com) attaches a policy to it that authorizes you to use feedback@example.com, then you would specify the <code>FeedbackForwardingEmailAddressIdentityArn</code> to be arn:aws:ses:us-east-1:123456789012:identity/example.com, and the <code>FeedbackForwardingEmailAddress</code> to be feedback@example.com.</p>
     /// <p>For more information about sending authorization, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html">Amazon SES Developer Guide</a>.</p>
-    pub fn set_feedback_forwarding_email_address_identity_arn(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
-        self.inner = self
-            .inner
-            .set_feedback_forwarding_email_address_identity_arn(input);
+    pub fn set_feedback_forwarding_email_address_identity_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.inner = self.inner.set_feedback_forwarding_email_address_identity_arn(input);
         self
     }
     /// <p>This parameter is used only for sending authorization. It is the ARN of the identity that is associated with the sending authorization policy that permits you to use the email address specified in the <code>FeedbackForwardingEmailAddress</code> parameter.</p>
     /// <p>For example, if the owner of example.com (which has ARN arn:aws:ses:us-east-1:123456789012:identity/example.com) attaches a policy to it that authorizes you to use feedback@example.com, then you would specify the <code>FeedbackForwardingEmailAddressIdentityArn</code> to be arn:aws:ses:us-east-1:123456789012:identity/example.com, and the <code>FeedbackForwardingEmailAddress</code> to be feedback@example.com.</p>
     /// <p>For more information about sending authorization, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html">Amazon SES Developer Guide</a>.</p>
-    pub fn get_feedback_forwarding_email_address_identity_arn(
-        &self,
-    ) -> &::std::option::Option<::std::string::String> {
-        self.inner
-            .get_feedback_forwarding_email_address_identity_arn()
+    pub fn get_feedback_forwarding_email_address_identity_arn(&self) -> &::std::option::Option<::std::string::String> {
+        self.inner.get_feedback_forwarding_email_address_identity_arn()
     }
     ///
     /// Appends an item to `DefaultEmailTags`.
@@ -264,17 +212,12 @@ impl SendBulkEmailFluentBuilder {
         self
     }
     /// <p>A list of tags, in the form of name/value pairs, to apply to an email that you send using the <code>SendEmail</code> operation. Tags correspond to characteristics of the email that you define, so that you can publish email sending events.</p>
-    pub fn set_default_email_tags(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<crate::types::MessageTag>>,
-    ) -> Self {
+    pub fn set_default_email_tags(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::MessageTag>>) -> Self {
         self.inner = self.inner.set_default_email_tags(input);
         self
     }
     /// <p>A list of tags, in the form of name/value pairs, to apply to an email that you send using the <code>SendEmail</code> operation. Tags correspond to characteristics of the email that you define, so that you can publish email sending events.</p>
-    pub fn get_default_email_tags(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<crate::types::MessageTag>> {
+    pub fn get_default_email_tags(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::MessageTag>> {
         self.inner.get_default_email_tags()
     }
     /// <p>An object that contains the body of the message. You can specify a template message.</p>
@@ -283,10 +226,7 @@ impl SendBulkEmailFluentBuilder {
         self
     }
     /// <p>An object that contains the body of the message. You can specify a template message.</p>
-    pub fn set_default_content(
-        mut self,
-        input: ::std::option::Option<crate::types::BulkEmailContent>,
-    ) -> Self {
+    pub fn set_default_content(mut self, input: ::std::option::Option<crate::types::BulkEmailContent>) -> Self {
         self.inner = self.inner.set_default_content(input);
         self
     }
@@ -305,32 +245,21 @@ impl SendBulkEmailFluentBuilder {
         self
     }
     /// <p>The list of bulk email entry objects.</p>
-    pub fn set_bulk_email_entries(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<crate::types::BulkEmailEntry>>,
-    ) -> Self {
+    pub fn set_bulk_email_entries(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::BulkEmailEntry>>) -> Self {
         self.inner = self.inner.set_bulk_email_entries(input);
         self
     }
     /// <p>The list of bulk email entry objects.</p>
-    pub fn get_bulk_email_entries(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<crate::types::BulkEmailEntry>> {
+    pub fn get_bulk_email_entries(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::BulkEmailEntry>> {
         self.inner.get_bulk_email_entries()
     }
     /// <p>The name of the configuration set to use when sending the email.</p>
-    pub fn configuration_set_name(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn configuration_set_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.configuration_set_name(input.into());
         self
     }
     /// <p>The name of the configuration set to use when sending the email.</p>
-    pub fn set_configuration_set_name(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_configuration_set_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_configuration_set_name(input);
         self
     }
@@ -378,17 +307,12 @@ impl SendBulkEmailFluentBuilder {
         self
     }
     /// <p>An object that overrides, for the messages in this request only, settings that would otherwise apply to them. The overrides apply to every message in the request. Each setting that you don't override keeps the value that already applies.</p>
-    pub fn set_configuration_overrides(
-        mut self,
-        input: ::std::option::Option<crate::types::ConfigurationOverrides>,
-    ) -> Self {
+    pub fn set_configuration_overrides(mut self, input: ::std::option::Option<crate::types::ConfigurationOverrides>) -> Self {
         self.inner = self.inner.set_configuration_overrides(input);
         self
     }
     /// <p>An object that overrides, for the messages in this request only, settings that would otherwise apply to them. The overrides apply to every message in the request. Each setting that you don't override keeps the value that already applies.</p>
-    pub fn get_configuration_overrides(
-        &self,
-    ) -> &::std::option::Option<crate::types::ConfigurationOverrides> {
+    pub fn get_configuration_overrides(&self) -> &::std::option::Option<crate::types::ConfigurationOverrides> {
         self.inner.get_configuration_overrides()
     }
 }

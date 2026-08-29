@@ -9,7 +9,7 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<PutEmailIdentityDkimAttributesError>`](crate::operation::put_email_identity_dkim_attributes::PutEmailIdentityDkimAttributesError)
     pub fn put_email_identity_dkim_attributes(
         &self,
-    ) -> crate::operation::put_email_identity_dkim_attributes::builders::PutEmailIdentityDkimAttributesFluentBuilder{
+    ) -> crate::operation::put_email_identity_dkim_attributes::builders::PutEmailIdentityDkimAttributesFluentBuilder {
         crate::operation::put_email_identity_dkim_attributes::builders::PutEmailIdentityDkimAttributesFluentBuilder::new(self.handle.clone())
     }
 }

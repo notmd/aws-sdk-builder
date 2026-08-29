@@ -50,16 +50,14 @@ impl ListSuppressedDestinationsInput {
 #[cfg(feature = "op_list_suppressed_destinations")]
 impl ListSuppressedDestinationsInput {
     /// Creates a new builder-style object to manufacture [`ListSuppressedDestinationsInput`](crate::operation::list_suppressed_destinations::ListSuppressedDestinationsInput).
-    pub fn builder() -> crate::operation::list_suppressed_destinations::builders::ListSuppressedDestinationsInputBuilder{
+    pub fn builder() -> crate::operation::list_suppressed_destinations::builders::ListSuppressedDestinationsInputBuilder {
         crate::operation::list_suppressed_destinations::builders::ListSuppressedDestinationsInputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_list_suppressed_destinations")]
 /// A builder for [`ListSuppressedDestinationsInput`](crate::operation::list_suppressed_destinations::ListSuppressedDestinationsInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct ListSuppressedDestinationsInputBuilder {
     pub(crate) tenant_name: ::std::option::Option<::std::string::String>,
@@ -97,17 +95,12 @@ impl ListSuppressedDestinationsInputBuilder {
         self
     }
     /// <p>The factors that caused the email address to be added to the suppression list for your account or for a specific tenant.</p>
-    pub fn set_reasons(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<crate::types::SuppressionListReason>>,
-    ) -> Self {
+    pub fn set_reasons(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::SuppressionListReason>>) -> Self {
         self.reasons = input;
         self
     }
     /// <p>The factors that caused the email address to be added to the suppression list for your account or for a specific tenant.</p>
-    pub fn get_reasons(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<crate::types::SuppressionListReason>> {
+    pub fn get_reasons(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::SuppressionListReason>> {
         &self.reasons
     }
     /// <p>Used to filter the list of suppressed email destinations so that it only includes addresses that were added to the list after a specific date.</p>
@@ -116,10 +109,7 @@ impl ListSuppressedDestinationsInputBuilder {
         self
     }
     /// <p>Used to filter the list of suppressed email destinations so that it only includes addresses that were added to the list after a specific date.</p>
-    pub fn set_start_date(
-        mut self,
-        input: ::std::option::Option<::aws_smithy_types::DateTime>,
-    ) -> Self {
+    pub fn set_start_date(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
         self.start_date = input;
         self
     }
@@ -133,10 +123,7 @@ impl ListSuppressedDestinationsInputBuilder {
         self
     }
     /// <p>Used to filter the list of suppressed email destinations so that it only includes addresses that were added to the list before a specific date.</p>
-    pub fn set_end_date(
-        mut self,
-        input: ::std::option::Option<::aws_smithy_types::DateTime>,
-    ) -> Self {
+    pub fn set_end_date(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
         self.end_date = input;
         self
     }
@@ -179,15 +166,13 @@ impl ListSuppressedDestinationsInputBuilder {
         crate::operation::list_suppressed_destinations::ListSuppressedDestinationsInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(
-            crate::operation::list_suppressed_destinations::ListSuppressedDestinationsInput {
-                tenant_name: self.tenant_name,
-                reasons: self.reasons,
-                start_date: self.start_date,
-                end_date: self.end_date,
-                next_token: self.next_token,
-                page_size: self.page_size,
-            },
-        )
+        ::std::result::Result::Ok(crate::operation::list_suppressed_destinations::ListSuppressedDestinationsInput {
+            tenant_name: self.tenant_name,
+            reasons: self.reasons,
+            start_date: self.start_date,
+            end_date: self.end_date,
+            next_token: self.next_token,
+            page_size: self.page_size,
+        })
     }
 }

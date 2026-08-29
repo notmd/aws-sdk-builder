@@ -16,16 +16,14 @@ impl ::aws_types::request_id::RequestId for PutAccountSendingAttributesOutput {
 #[cfg(feature = "op_put_account_sending_attributes")]
 impl PutAccountSendingAttributesOutput {
     /// Creates a new builder-style object to manufacture [`PutAccountSendingAttributesOutput`](crate::operation::put_account_sending_attributes::PutAccountSendingAttributesOutput).
-    pub fn builder() -> crate::operation::put_account_sending_attributes::builders::PutAccountSendingAttributesOutputBuilder{
+    pub fn builder() -> crate::operation::put_account_sending_attributes::builders::PutAccountSendingAttributesOutputBuilder {
         crate::operation::put_account_sending_attributes::builders::PutAccountSendingAttributesOutputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_put_account_sending_attributes")]
 /// A builder for [`PutAccountSendingAttributesOutput`](crate::operation::put_account_sending_attributes::PutAccountSendingAttributesOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct PutAccountSendingAttributesOutputBuilder {
     _request_id: Option<String>,
@@ -42,9 +40,7 @@ impl PutAccountSendingAttributesOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`PutAccountSendingAttributesOutput`](crate::operation::put_account_sending_attributes::PutAccountSendingAttributesOutput).
-    pub fn build(
-        self,
-    ) -> crate::operation::put_account_sending_attributes::PutAccountSendingAttributesOutput {
+    pub fn build(self) -> crate::operation::put_account_sending_attributes::PutAccountSendingAttributesOutput {
         crate::operation::put_account_sending_attributes::PutAccountSendingAttributesOutput {
             _request_id: self._request_id,
         }

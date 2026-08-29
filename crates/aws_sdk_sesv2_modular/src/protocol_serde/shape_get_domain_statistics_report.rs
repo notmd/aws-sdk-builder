@@ -9,14 +9,8 @@ pub fn de_get_domain_statistics_report_http_error(
     crate::operation::get_domain_statistics_report::GetDomainStatisticsReportError,
 > {
     #[allow(unused_mut)]
-    let mut generic_builder = crate::protocol_serde::parse_http_error_metadata(
-        _response_status,
-        _response_headers,
-        _response_body,
-    )
-    .map_err(
-        crate::operation::get_domain_statistics_report::GetDomainStatisticsReportError::unhandled,
-    )?;
+    let mut generic_builder = crate::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
+        .map_err(crate::operation::get_domain_statistics_report::GetDomainStatisticsReportError::unhandled)?;
     generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
     let generic = generic_builder.build();
     let error_code = match generic.code() {
@@ -93,9 +87,7 @@ pub fn de_get_domain_statistics_report_http_response(
         let mut output = crate::operation::get_domain_statistics_report::builders::GetDomainStatisticsReportOutputBuilder::default();
         output = crate::protocol_serde::shape_get_domain_statistics_report::de_get_domain_statistics_report(_response_body, output)
             .map_err(crate::operation::get_domain_statistics_report::GetDomainStatisticsReportError::unhandled)?;
-        output._set_request_id(
-            ::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string),
-        );
+        output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
         crate::serde_util::get_domain_statistics_report_output_output_correct_errors(output)
             .build()
             .map_err(crate::operation::get_domain_statistics_report::GetDomainStatisticsReportError::unhandled)?
@@ -108,11 +100,8 @@ pub(crate) fn de_get_domain_statistics_report(
 ) -> ::std::result::Result<
     crate::operation::get_domain_statistics_report::builders::GetDomainStatisticsReportOutputBuilder,
     ::aws_smithy_json::deserialize::error::DeserializeError,
->{
-    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(
-        crate::protocol_serde::or_empty_doc(_value),
-    )
-    .peekable();
+> {
+    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(crate::protocol_serde::or_empty_doc(_value)).peekable();
     let tokens = &mut tokens_owned;
     #[allow(unused_variables)]
     let depth = 0u32;
@@ -120,44 +109,26 @@ pub(crate) fn de_get_domain_statistics_report(
     loop {
         match tokens.next().transpose()? {
             Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
-            Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => {
-                match key.to_unescaped()?.as_ref() {
-                    "DailyVolumes" => {
-                        builder = builder.set_daily_volumes(
-                            crate::protocol_serde::shape_daily_volumes::de_daily_volumes(
-                                tokens,
-                                _value,
-                                depth + 1,
-                            )?,
-                        );
-                    }
-                    "OverallVolume" => {
-                        builder = builder.set_overall_volume(
-                            crate::protocol_serde::shape_overall_volume::de_overall_volume(
-                                tokens,
-                                _value,
-                                depth + 1,
-                            )?,
-                        );
-                    }
-                    _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
+            Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
+                "DailyVolumes" => {
+                    builder = builder.set_daily_volumes(crate::protocol_serde::shape_daily_volumes::de_daily_volumes(tokens, _value, depth + 1)?);
                 }
-            }
+                "OverallVolume" => {
+                    builder = builder.set_overall_volume(crate::protocol_serde::shape_overall_volume::de_overall_volume(tokens, _value, depth + 1)?);
+                }
+                _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
+            },
             other => {
-                return Err(
-                    ::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
-                        "expected object key or end object, found: {other:?}"
-                    )),
-                )
+                return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
+                    "expected object key or end object, found: {other:?}"
+                )))
             }
         }
     }
     if tokens.next().is_some() {
-        return Err(
-            ::aws_smithy_json::deserialize::error::DeserializeError::custom(
-                "found more JSON tokens after completing parsing",
-            ),
-        );
+        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
+            "found more JSON tokens after completing parsing",
+        ));
     }
     Ok(builder)
 }

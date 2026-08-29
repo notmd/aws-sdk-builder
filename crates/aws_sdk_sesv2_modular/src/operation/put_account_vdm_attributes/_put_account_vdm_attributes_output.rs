@@ -15,18 +15,14 @@ impl ::aws_types::request_id::RequestId for PutAccountVdmAttributesOutput {
 #[cfg(feature = "op_put_account_vdm_attributes")]
 impl PutAccountVdmAttributesOutput {
     /// Creates a new builder-style object to manufacture [`PutAccountVdmAttributesOutput`](crate::operation::put_account_vdm_attributes::PutAccountVdmAttributesOutput).
-    pub fn builder(
-    ) -> crate::operation::put_account_vdm_attributes::builders::PutAccountVdmAttributesOutputBuilder
-    {
+    pub fn builder() -> crate::operation::put_account_vdm_attributes::builders::PutAccountVdmAttributesOutputBuilder {
         crate::operation::put_account_vdm_attributes::builders::PutAccountVdmAttributesOutputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_put_account_vdm_attributes")]
 /// A builder for [`PutAccountVdmAttributesOutput`](crate::operation::put_account_vdm_attributes::PutAccountVdmAttributesOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct PutAccountVdmAttributesOutputBuilder {
     _request_id: Option<String>,
@@ -43,9 +39,7 @@ impl PutAccountVdmAttributesOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`PutAccountVdmAttributesOutput`](crate::operation::put_account_vdm_attributes::PutAccountVdmAttributesOutput).
-    pub fn build(
-        self,
-    ) -> crate::operation::put_account_vdm_attributes::PutAccountVdmAttributesOutput {
+    pub fn build(self) -> crate::operation::put_account_vdm_attributes::PutAccountVdmAttributesOutput {
         crate::operation::put_account_vdm_attributes::PutAccountVdmAttributesOutput {
             _request_id: self._request_id,
         }

@@ -30,8 +30,7 @@ impl crate::operation::get_email_address_insights::builders::GetEmailAddressInsi
 #[derive(::std::clone::Clone, ::std::fmt::Debug)]
 pub struct GetEmailAddressInsightsFluentBuilder {
     handle: ::std::sync::Arc<crate::client::Handle>,
-    inner:
-        crate::operation::get_email_address_insights::builders::GetEmailAddressInsightsInputBuilder,
+    inner: crate::operation::get_email_address_insights::builders::GetEmailAddressInsightsInputBuilder,
     config_override: ::std::option::Option<crate::config::Builder>,
 }
 #[cfg(feature = "op_get_email_address_insights")]
@@ -64,10 +63,7 @@ impl GetEmailAddressInsightsFluentBuilder {
         }
     }
     /// Access the GetEmailAddressInsights as a reference.
-    pub fn as_input(
-        &self,
-    ) -> &crate::operation::get_email_address_insights::builders::GetEmailAddressInsightsInputBuilder
-    {
+    pub fn as_input(&self) -> &crate::operation::get_email_address_insights::builders::GetEmailAddressInsightsInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -96,11 +92,7 @@ impl GetEmailAddressInsightsFluentBuilder {
             &self.handle.conf,
             self.config_override,
         );
-        crate::operation::get_email_address_insights::GetEmailAddressInsights::orchestrate(
-            &runtime_plugins,
-            input,
-        )
-        .await
+        crate::operation::get_email_address_insights::GetEmailAddressInsights::orchestrate(&runtime_plugins, input).await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -113,34 +105,22 @@ impl GetEmailAddressInsightsFluentBuilder {
     > {
         crate::client::customize::CustomizableOperation::new(self)
     }
-    pub(crate) fn config_override(
-        mut self,
-        config_override: impl ::std::convert::Into<crate::config::Builder>,
-    ) -> Self {
+    pub(crate) fn config_override(mut self, config_override: impl ::std::convert::Into<crate::config::Builder>) -> Self {
         self.set_config_override(::std::option::Option::Some(config_override.into()));
         self
     }
 
-    pub(crate) fn set_config_override(
-        &mut self,
-        config_override: ::std::option::Option<crate::config::Builder>,
-    ) -> &mut Self {
+    pub(crate) fn set_config_override(&mut self, config_override: ::std::option::Option<crate::config::Builder>) -> &mut Self {
         self.config_override = config_override;
         self
     }
     /// <p>The email address to analyze for validation insights.</p>
-    pub fn email_address(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn email_address(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.email_address(input.into());
         self
     }
     /// <p>The email address to analyze for validation insights.</p>
-    pub fn set_email_address(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_email_address(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_email_address(input);
         self
     }

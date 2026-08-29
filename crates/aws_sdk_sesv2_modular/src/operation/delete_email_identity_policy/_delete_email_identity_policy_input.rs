@@ -26,16 +26,14 @@ impl DeleteEmailIdentityPolicyInput {
 #[cfg(feature = "op_delete_email_identity_policy")]
 impl DeleteEmailIdentityPolicyInput {
     /// Creates a new builder-style object to manufacture [`DeleteEmailIdentityPolicyInput`](crate::operation::delete_email_identity_policy::DeleteEmailIdentityPolicyInput).
-    pub fn builder() -> crate::operation::delete_email_identity_policy::builders::DeleteEmailIdentityPolicyInputBuilder{
+    pub fn builder() -> crate::operation::delete_email_identity_policy::builders::DeleteEmailIdentityPolicyInputBuilder {
         crate::operation::delete_email_identity_policy::builders::DeleteEmailIdentityPolicyInputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_delete_email_identity_policy")]
 /// A builder for [`DeleteEmailIdentityPolicyInput`](crate::operation::delete_email_identity_policy::DeleteEmailIdentityPolicyInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct DeleteEmailIdentityPolicyInputBuilder {
     pub(crate) email_identity: ::std::option::Option<::std::string::String>,
@@ -45,18 +43,12 @@ pub struct DeleteEmailIdentityPolicyInputBuilder {
 impl DeleteEmailIdentityPolicyInputBuilder {
     /// <p>The email identity.</p>
     /// This field is required.
-    pub fn email_identity(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn email_identity(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.email_identity = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The email identity.</p>
-    pub fn set_email_identity(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_email_identity(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.email_identity = input;
         self
     }
@@ -89,11 +81,9 @@ impl DeleteEmailIdentityPolicyInputBuilder {
         crate::operation::delete_email_identity_policy::DeleteEmailIdentityPolicyInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(
-            crate::operation::delete_email_identity_policy::DeleteEmailIdentityPolicyInput {
-                email_identity: self.email_identity,
-                policy_name: self.policy_name,
-            },
-        )
+        ::std::result::Result::Ok(crate::operation::delete_email_identity_policy::DeleteEmailIdentityPolicyInput {
+            email_identity: self.email_identity,
+            policy_name: self.policy_name,
+        })
     }
 }

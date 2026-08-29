@@ -45,9 +45,7 @@ impl MessageInsightsDataSource {
 }
 
 /// A builder for [`MessageInsightsDataSource`](crate::types::MessageInsightsDataSource).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct MessageInsightsDataSourceBuilder {
     pub(crate) start_date: ::std::option::Option<::aws_smithy_types::DateTime>,
@@ -64,10 +62,7 @@ impl MessageInsightsDataSourceBuilder {
         self
     }
     /// <p>Represents the start date for the export interval as a timestamp. The start date is inclusive.</p>
-    pub fn set_start_date(
-        mut self,
-        input: ::std::option::Option<::aws_smithy_types::DateTime>,
-    ) -> Self {
+    pub fn set_start_date(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
         self.start_date = input;
         self
     }
@@ -82,10 +77,7 @@ impl MessageInsightsDataSourceBuilder {
         self
     }
     /// <p>Represents the end date for the export interval as a timestamp. The end date is inclusive.</p>
-    pub fn set_end_date(
-        mut self,
-        input: ::std::option::Option<::aws_smithy_types::DateTime>,
-    ) -> Self {
+    pub fn set_end_date(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
         self.end_date = input;
         self
     }
@@ -99,10 +91,7 @@ impl MessageInsightsDataSourceBuilder {
         self
     }
     /// <p>Filters for results to be included in the export file.</p>
-    pub fn set_include(
-        mut self,
-        input: ::std::option::Option<crate::types::MessageInsightsFilters>,
-    ) -> Self {
+    pub fn set_include(mut self, input: ::std::option::Option<crate::types::MessageInsightsFilters>) -> Self {
         self.include = input;
         self
     }
@@ -116,10 +105,7 @@ impl MessageInsightsDataSourceBuilder {
         self
     }
     /// <p>Filters for results to be excluded from the export file.</p>
-    pub fn set_exclude(
-        mut self,
-        input: ::std::option::Option<crate::types::MessageInsightsFilters>,
-    ) -> Self {
+    pub fn set_exclude(mut self, input: ::std::option::Option<crate::types::MessageInsightsFilters>) -> Self {
         self.exclude = input;
         self
     }
@@ -145,12 +131,7 @@ impl MessageInsightsDataSourceBuilder {
     /// This method will fail if any of the following fields are not set:
     /// - [`start_date`](crate::types::builders::MessageInsightsDataSourceBuilder::start_date)
     /// - [`end_date`](crate::types::builders::MessageInsightsDataSourceBuilder::end_date)
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<
-        crate::types::MessageInsightsDataSource,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    pub fn build(self) -> ::std::result::Result<crate::types::MessageInsightsDataSource, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::MessageInsightsDataSource {
             start_date: self.start_date.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

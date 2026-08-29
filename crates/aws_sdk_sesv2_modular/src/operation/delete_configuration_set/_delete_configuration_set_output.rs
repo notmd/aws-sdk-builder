@@ -16,18 +16,14 @@ impl ::aws_types::request_id::RequestId for DeleteConfigurationSetOutput {
 #[cfg(feature = "op_delete_configuration_set")]
 impl DeleteConfigurationSetOutput {
     /// Creates a new builder-style object to manufacture [`DeleteConfigurationSetOutput`](crate::operation::delete_configuration_set::DeleteConfigurationSetOutput).
-    pub fn builder(
-    ) -> crate::operation::delete_configuration_set::builders::DeleteConfigurationSetOutputBuilder
-    {
+    pub fn builder() -> crate::operation::delete_configuration_set::builders::DeleteConfigurationSetOutputBuilder {
         crate::operation::delete_configuration_set::builders::DeleteConfigurationSetOutputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_delete_configuration_set")]
 /// A builder for [`DeleteConfigurationSetOutput`](crate::operation::delete_configuration_set::DeleteConfigurationSetOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct DeleteConfigurationSetOutputBuilder {
     _request_id: Option<String>,

@@ -12,10 +12,7 @@ impl super::Client {
     ///   - [`created_timestamp(Option<DateTime>)`](crate::operation::get_multi_region_endpoint::GetMultiRegionEndpointOutput::created_timestamp): <p>The time stamp of when the multi-region endpoint (global-endpoint) was created.</p>
     ///   - [`last_updated_timestamp(Option<DateTime>)`](crate::operation::get_multi_region_endpoint::GetMultiRegionEndpointOutput::last_updated_timestamp): <p>The time stamp of when the multi-region endpoint (global-endpoint) was last updated.</p>
     /// - On failure, responds with [`SdkError<GetMultiRegionEndpointError>`](crate::operation::get_multi_region_endpoint::GetMultiRegionEndpointError)
-    pub fn get_multi_region_endpoint(
-        &self,
-    ) -> crate::operation::get_multi_region_endpoint::builders::GetMultiRegionEndpointFluentBuilder
-    {
+    pub fn get_multi_region_endpoint(&self) -> crate::operation::get_multi_region_endpoint::builders::GetMultiRegionEndpointFluentBuilder {
         crate::operation::get_multi_region_endpoint::builders::GetMultiRegionEndpointFluentBuilder::new(self.handle.clone())
     }
 }

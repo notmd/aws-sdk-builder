@@ -10,7 +10,7 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<PutEmailIdentityMailFromAttributesError>`](crate::operation::put_email_identity_mail_from_attributes::PutEmailIdentityMailFromAttributesError)
     pub fn put_email_identity_mail_from_attributes(
         &self,
-    ) -> crate::operation::put_email_identity_mail_from_attributes::builders::PutEmailIdentityMailFromAttributesFluentBuilder{
+    ) -> crate::operation::put_email_identity_mail_from_attributes::builders::PutEmailIdentityMailFromAttributesFluentBuilder {
         crate::operation::put_email_identity_mail_from_attributes::builders::PutEmailIdentityMailFromAttributesFluentBuilder::new(self.handle.clone())
     }
 }

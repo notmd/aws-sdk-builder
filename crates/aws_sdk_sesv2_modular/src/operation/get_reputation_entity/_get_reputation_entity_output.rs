@@ -25,18 +25,14 @@ impl ::aws_types::request_id::RequestId for GetReputationEntityOutput {
 #[cfg(feature = "op_get_reputation_entity")]
 impl GetReputationEntityOutput {
     /// Creates a new builder-style object to manufacture [`GetReputationEntityOutput`](crate::operation::get_reputation_entity::GetReputationEntityOutput).
-    pub fn builder(
-    ) -> crate::operation::get_reputation_entity::builders::GetReputationEntityOutputBuilder {
-        crate::operation::get_reputation_entity::builders::GetReputationEntityOutputBuilder::default(
-        )
+    pub fn builder() -> crate::operation::get_reputation_entity::builders::GetReputationEntityOutputBuilder {
+        crate::operation::get_reputation_entity::builders::GetReputationEntityOutputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_get_reputation_entity")]
 /// A builder for [`GetReputationEntityOutput`](crate::operation::get_reputation_entity::GetReputationEntityOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct GetReputationEntityOutputBuilder {
     pub(crate) reputation_entity: ::std::option::Option<crate::types::ReputationEntity>,
@@ -50,10 +46,7 @@ impl GetReputationEntityOutputBuilder {
         self
     }
     /// <p>The reputation entity information, including status records, policy configuration, and reputation impact.</p>
-    pub fn set_reputation_entity(
-        mut self,
-        input: ::std::option::Option<crate::types::ReputationEntity>,
-    ) -> Self {
+    pub fn set_reputation_entity(mut self, input: ::std::option::Option<crate::types::ReputationEntity>) -> Self {
         self.reputation_entity = input;
         self
     }

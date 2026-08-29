@@ -68,9 +68,7 @@ impl GetAccountOutput {
         self.sending_enabled
     }
     /// <p>An object that contains information about the email address suppression preferences for your account in the current Amazon Web Services Region.</p>
-    pub fn suppression_attributes(
-        &self,
-    ) -> ::std::option::Option<&crate::types::SuppressionAttributes> {
+    pub fn suppression_attributes(&self) -> ::std::option::Option<&crate::types::SuppressionAttributes> {
         self.suppression_attributes.as_ref()
     }
     /// <p>An object that defines your account details.</p>
@@ -102,9 +100,7 @@ impl GetAccountOutput {
 
 #[cfg(feature = "op_get_account")]
 /// A builder for [`GetAccountOutput`](crate::operation::get_account::GetAccountOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct GetAccountOutputBuilder {
     pub(crate) dedicated_ip_auto_warmup_enabled: ::std::option::Option<bool>,
@@ -126,10 +122,7 @@ impl GetAccountOutputBuilder {
         self
     }
     /// <p>Indicates whether or not the automatic warm-up feature is enabled for dedicated IP addresses that are associated with your account.</p>
-    pub fn set_dedicated_ip_auto_warmup_enabled(
-        mut self,
-        input: ::std::option::Option<bool>,
-    ) -> Self {
+    pub fn set_dedicated_ip_auto_warmup_enabled(mut self, input: ::std::option::Option<bool>) -> Self {
         self.dedicated_ip_auto_warmup_enabled = input;
         self
     }
@@ -146,10 +139,7 @@ impl GetAccountOutputBuilder {
     /// <li>
     /// <p><code>SHUTDOWN</code> – Your account's ability to send email is currently paused because of an issue with the email sent from your account. When you correct the issue, you can contact us and request that your account's ability to send email is resumed.</p></li>
     /// </ul>
-    pub fn enforcement_status(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn enforcement_status(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.enforcement_status = ::std::option::Option::Some(input.into());
         self
     }
@@ -162,10 +152,7 @@ impl GetAccountOutputBuilder {
     /// <li>
     /// <p><code>SHUTDOWN</code> – Your account's ability to send email is currently paused because of an issue with the email sent from your account. When you correct the issue, you can contact us and request that your account's ability to send email is resumed.</p></li>
     /// </ul>
-    pub fn set_enforcement_status(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_enforcement_status(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.enforcement_status = input;
         self
     }
@@ -235,17 +222,12 @@ impl GetAccountOutputBuilder {
         self
     }
     /// <p>An object that contains information about the email address suppression preferences for your account in the current Amazon Web Services Region.</p>
-    pub fn set_suppression_attributes(
-        mut self,
-        input: ::std::option::Option<crate::types::SuppressionAttributes>,
-    ) -> Self {
+    pub fn set_suppression_attributes(mut self, input: ::std::option::Option<crate::types::SuppressionAttributes>) -> Self {
         self.suppression_attributes = input;
         self
     }
     /// <p>An object that contains information about the email address suppression preferences for your account in the current Amazon Web Services Region.</p>
-    pub fn get_suppression_attributes(
-        &self,
-    ) -> &::std::option::Option<crate::types::SuppressionAttributes> {
+    pub fn get_suppression_attributes(&self) -> &::std::option::Option<crate::types::SuppressionAttributes> {
         &self.suppression_attributes
     }
     /// <p>An object that defines your account details.</p>
@@ -254,10 +236,7 @@ impl GetAccountOutputBuilder {
         self
     }
     /// <p>An object that defines your account details.</p>
-    pub fn set_details(
-        mut self,
-        input: ::std::option::Option<crate::types::AccountDetails>,
-    ) -> Self {
+    pub fn set_details(mut self, input: ::std::option::Option<crate::types::AccountDetails>) -> Self {
         self.details = input;
         self
     }
@@ -271,10 +250,7 @@ impl GetAccountOutputBuilder {
         self
     }
     /// <p>The VDM attributes that apply to your Amazon SES account.</p>
-    pub fn set_vdm_attributes(
-        mut self,
-        input: ::std::option::Option<crate::types::VdmAttributes>,
-    ) -> Self {
+    pub fn set_vdm_attributes(mut self, input: ::std::option::Option<crate::types::VdmAttributes>) -> Self {
         self.vdm_attributes = input;
         self
     }
@@ -288,17 +264,12 @@ impl GetAccountOutputBuilder {
         self
     }
     /// <p>The pricing attributes that apply to your Amazon SES account, including the currently active pricing plan and any scheduled change.</p>
-    pub fn set_pricing_attributes(
-        mut self,
-        input: ::std::option::Option<crate::types::PricingAttributes>,
-    ) -> Self {
+    pub fn set_pricing_attributes(mut self, input: ::std::option::Option<crate::types::PricingAttributes>) -> Self {
         self.pricing_attributes = input;
         self
     }
     /// <p>The pricing attributes that apply to your Amazon SES account, including the currently active pricing plan and any scheduled change.</p>
-    pub fn get_pricing_attributes(
-        &self,
-    ) -> &::std::option::Option<crate::types::PricingAttributes> {
+    pub fn get_pricing_attributes(&self) -> &::std::option::Option<crate::types::PricingAttributes> {
         &self.pricing_attributes
     }
     pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
@@ -313,9 +284,7 @@ impl GetAccountOutputBuilder {
     /// Consumes the builder and constructs a [`GetAccountOutput`](crate::operation::get_account::GetAccountOutput).
     pub fn build(self) -> crate::operation::get_account::GetAccountOutput {
         crate::operation::get_account::GetAccountOutput {
-            dedicated_ip_auto_warmup_enabled: self
-                .dedicated_ip_auto_warmup_enabled
-                .unwrap_or_default(),
+            dedicated_ip_auto_warmup_enabled: self.dedicated_ip_auto_warmup_enabled.unwrap_or_default(),
             enforcement_status: self.enforcement_status,
             production_access_enabled: self.production_access_enabled.unwrap_or_default(),
             send_quota: self.send_quota,

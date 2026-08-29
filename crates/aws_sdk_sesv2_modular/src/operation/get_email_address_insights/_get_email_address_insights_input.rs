@@ -18,18 +18,14 @@ impl GetEmailAddressInsightsInput {
 #[cfg(feature = "op_get_email_address_insights")]
 impl GetEmailAddressInsightsInput {
     /// Creates a new builder-style object to manufacture [`GetEmailAddressInsightsInput`](crate::operation::get_email_address_insights::GetEmailAddressInsightsInput).
-    pub fn builder(
-    ) -> crate::operation::get_email_address_insights::builders::GetEmailAddressInsightsInputBuilder
-    {
+    pub fn builder() -> crate::operation::get_email_address_insights::builders::GetEmailAddressInsightsInputBuilder {
         crate::operation::get_email_address_insights::builders::GetEmailAddressInsightsInputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_get_email_address_insights")]
 /// A builder for [`GetEmailAddressInsightsInput`](crate::operation::get_email_address_insights::GetEmailAddressInsightsInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct GetEmailAddressInsightsInputBuilder {
     pub(crate) email_address: ::std::option::Option<::std::string::String>,
@@ -38,18 +34,12 @@ pub struct GetEmailAddressInsightsInputBuilder {
 impl GetEmailAddressInsightsInputBuilder {
     /// <p>The email address to analyze for validation insights.</p>
     /// This field is required.
-    pub fn email_address(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn email_address(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.email_address = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The email address to analyze for validation insights.</p>
-    pub fn set_email_address(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_email_address(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.email_address = input;
         self
     }
@@ -64,10 +54,8 @@ impl GetEmailAddressInsightsInputBuilder {
         crate::operation::get_email_address_insights::GetEmailAddressInsightsInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(
-            crate::operation::get_email_address_insights::GetEmailAddressInsightsInput {
-                email_address: self.email_address,
-            },
-        )
+        ::std::result::Result::Ok(crate::operation::get_email_address_insights::GetEmailAddressInsightsInput {
+            email_address: self.email_address,
+        })
     }
 }

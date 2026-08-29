@@ -32,17 +32,14 @@ impl ::aws_types::request_id::RequestId for ListContactListsOutput {
 #[cfg(feature = "op_list_contact_lists")]
 impl ListContactListsOutput {
     /// Creates a new builder-style object to manufacture [`ListContactListsOutput`](crate::operation::list_contact_lists::ListContactListsOutput).
-    pub fn builder() -> crate::operation::list_contact_lists::builders::ListContactListsOutputBuilder
-    {
+    pub fn builder() -> crate::operation::list_contact_lists::builders::ListContactListsOutputBuilder {
         crate::operation::list_contact_lists::builders::ListContactListsOutputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_list_contact_lists")]
 /// A builder for [`ListContactListsOutput`](crate::operation::list_contact_lists::ListContactListsOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct ListContactListsOutputBuilder {
     pub(crate) contact_lists: ::std::option::Option<::std::vec::Vec<crate::types::ContactList>>,
@@ -63,17 +60,12 @@ impl ListContactListsOutputBuilder {
         self
     }
     /// <p>The available contact lists.</p>
-    pub fn set_contact_lists(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<crate::types::ContactList>>,
-    ) -> Self {
+    pub fn set_contact_lists(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::ContactList>>) -> Self {
         self.contact_lists = input;
         self
     }
     /// <p>The available contact lists.</p>
-    pub fn get_contact_lists(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<crate::types::ContactList>> {
+    pub fn get_contact_lists(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::ContactList>> {
         &self.contact_lists
     }
     /// <p>A string token indicating that there might be additional contact lists available to be listed. Copy this token to a subsequent call to <code>ListContactLists</code> with the same parameters to retrieve the next page of contact lists.</p>

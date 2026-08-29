@@ -18,16 +18,14 @@ impl DeleteMultiRegionEndpointInput {
 #[cfg(feature = "op_delete_multi_region_endpoint")]
 impl DeleteMultiRegionEndpointInput {
     /// Creates a new builder-style object to manufacture [`DeleteMultiRegionEndpointInput`](crate::operation::delete_multi_region_endpoint::DeleteMultiRegionEndpointInput).
-    pub fn builder() -> crate::operation::delete_multi_region_endpoint::builders::DeleteMultiRegionEndpointInputBuilder{
+    pub fn builder() -> crate::operation::delete_multi_region_endpoint::builders::DeleteMultiRegionEndpointInputBuilder {
         crate::operation::delete_multi_region_endpoint::builders::DeleteMultiRegionEndpointInputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_delete_multi_region_endpoint")]
 /// A builder for [`DeleteMultiRegionEndpointInput`](crate::operation::delete_multi_region_endpoint::DeleteMultiRegionEndpointInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct DeleteMultiRegionEndpointInputBuilder {
     pub(crate) endpoint_name: ::std::option::Option<::std::string::String>,
@@ -36,18 +34,12 @@ pub struct DeleteMultiRegionEndpointInputBuilder {
 impl DeleteMultiRegionEndpointInputBuilder {
     /// <p>The name of the multi-region endpoint (global-endpoint) to be deleted.</p>
     /// This field is required.
-    pub fn endpoint_name(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn endpoint_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.endpoint_name = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The name of the multi-region endpoint (global-endpoint) to be deleted.</p>
-    pub fn set_endpoint_name(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_endpoint_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.endpoint_name = input;
         self
     }
@@ -62,10 +54,8 @@ impl DeleteMultiRegionEndpointInputBuilder {
         crate::operation::delete_multi_region_endpoint::DeleteMultiRegionEndpointInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(
-            crate::operation::delete_multi_region_endpoint::DeleteMultiRegionEndpointInput {
-                endpoint_name: self.endpoint_name,
-            },
-        )
+        ::std::result::Result::Ok(crate::operation::delete_multi_region_endpoint::DeleteMultiRegionEndpointInput {
+            endpoint_name: self.endpoint_name,
+        })
     }
 }

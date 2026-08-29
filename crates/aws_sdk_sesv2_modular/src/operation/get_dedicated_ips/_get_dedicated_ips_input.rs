@@ -37,9 +37,7 @@ impl GetDedicatedIpsInput {
 
 #[cfg(feature = "op_get_dedicated_ips")]
 /// A builder for [`GetDedicatedIpsInput`](crate::operation::get_dedicated_ips::GetDedicatedIpsInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct GetDedicatedIpsInputBuilder {
     pub(crate) pool_name: ::std::option::Option<::std::string::String>,
@@ -93,10 +91,7 @@ impl GetDedicatedIpsInputBuilder {
     /// Consumes the builder and constructs a [`GetDedicatedIpsInput`](crate::operation::get_dedicated_ips::GetDedicatedIpsInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        crate::operation::get_dedicated_ips::GetDedicatedIpsInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    ) -> ::std::result::Result<crate::operation::get_dedicated_ips::GetDedicatedIpsInput, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::operation::get_dedicated_ips::GetDedicatedIpsInput {
             pool_name: self.pool_name,
             next_token: self.next_token,

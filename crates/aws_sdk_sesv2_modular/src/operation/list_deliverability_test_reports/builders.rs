@@ -63,7 +63,7 @@ impl ListDeliverabilityTestReportsFluentBuilder {
         }
     }
     /// Access the ListDeliverabilityTestReports as a reference.
-    pub fn as_input(&self) -> &crate::operation::list_deliverability_test_reports::builders::ListDeliverabilityTestReportsInputBuilder{
+    pub fn as_input(&self) -> &crate::operation::list_deliverability_test_reports::builders::ListDeliverabilityTestReportsInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -105,25 +105,19 @@ impl ListDeliverabilityTestReportsFluentBuilder {
     > {
         crate::client::customize::CustomizableOperation::new(self)
     }
-    pub(crate) fn config_override(
-        mut self,
-        config_override: impl ::std::convert::Into<crate::config::Builder>,
-    ) -> Self {
+    pub(crate) fn config_override(mut self, config_override: impl ::std::convert::Into<crate::config::Builder>) -> Self {
         self.set_config_override(::std::option::Option::Some(config_override.into()));
         self
     }
 
-    pub(crate) fn set_config_override(
-        &mut self,
-        config_override: ::std::option::Option<crate::config::Builder>,
-    ) -> &mut Self {
+    pub(crate) fn set_config_override(&mut self, config_override: ::std::option::Option<crate::config::Builder>) -> &mut Self {
         self.config_override = config_override;
         self
     }
     /// Create a paginator for this request
     ///
     /// Paginators are used by calling [`send().await`](crate::operation::list_deliverability_test_reports::paginator::ListDeliverabilityTestReportsPaginator::send) which returns a [`PaginationStream`](aws_smithy_async::future::pagination_stream::PaginationStream).
-    pub fn into_paginator(self) -> crate::operation::list_deliverability_test_reports::paginator::ListDeliverabilityTestReportsPaginator{
+    pub fn into_paginator(self) -> crate::operation::list_deliverability_test_reports::paginator::ListDeliverabilityTestReportsPaginator {
         crate::operation::list_deliverability_test_reports::paginator::ListDeliverabilityTestReportsPaginator::new(self.handle, self.inner)
     }
     /// <p>A token returned from a previous call to <code>ListDeliverabilityTestReports</code> to indicate the position in the list of predictive inbox placement tests.</p>

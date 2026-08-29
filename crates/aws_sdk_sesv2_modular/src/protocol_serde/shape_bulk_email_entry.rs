@@ -24,10 +24,7 @@ pub fn ser_bulk_email_entry(
     if let Some(var_7) = &input.replacement_email_content {
         #[allow(unused_mut)]
         let mut object_8 = object.key("ReplacementEmailContent").start_object();
-        crate::protocol_serde::shape_replacement_email_content::ser_replacement_email_content(
-            &mut object_8,
-            var_7,
-        )?;
+        crate::protocol_serde::shape_replacement_email_content::ser_replacement_email_content(&mut object_8, var_7)?;
         object_8.finish();
     }
     if let Some(var_9) = &input.replacement_headers {
@@ -36,10 +33,7 @@ pub fn ser_bulk_email_entry(
             {
                 #[allow(unused_mut)]
                 let mut object_12 = array_10.value().start_object();
-                crate::protocol_serde::shape_message_header::ser_message_header(
-                    &mut object_12,
-                    item_11,
-                )?;
+                crate::protocol_serde::shape_message_header::ser_message_header(&mut object_12, item_11)?;
                 object_12.finish();
             }
         }

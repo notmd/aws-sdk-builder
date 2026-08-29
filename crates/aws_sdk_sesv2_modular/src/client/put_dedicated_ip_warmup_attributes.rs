@@ -9,7 +9,7 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<PutDedicatedIpWarmupAttributesError>`](crate::operation::put_dedicated_ip_warmup_attributes::PutDedicatedIpWarmupAttributesError)
     pub fn put_dedicated_ip_warmup_attributes(
         &self,
-    ) -> crate::operation::put_dedicated_ip_warmup_attributes::builders::PutDedicatedIpWarmupAttributesFluentBuilder{
+    ) -> crate::operation::put_dedicated_ip_warmup_attributes::builders::PutDedicatedIpWarmupAttributesFluentBuilder {
         crate::operation::put_dedicated_ip_warmup_attributes::builders::PutDedicatedIpWarmupAttributesFluentBuilder::new(self.handle.clone())
     }
 }

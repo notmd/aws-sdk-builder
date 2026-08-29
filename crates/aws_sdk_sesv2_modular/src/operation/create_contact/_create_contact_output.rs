@@ -22,9 +22,7 @@ impl CreateContactOutput {
 
 #[cfg(feature = "op_create_contact")]
 /// A builder for [`CreateContactOutput`](crate::operation::create_contact::CreateContactOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct CreateContactOutputBuilder {
     _request_id: Option<String>,

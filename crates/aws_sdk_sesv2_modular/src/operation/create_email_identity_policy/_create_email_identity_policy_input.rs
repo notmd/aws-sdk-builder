@@ -34,16 +34,14 @@ impl CreateEmailIdentityPolicyInput {
 #[cfg(feature = "op_create_email_identity_policy")]
 impl CreateEmailIdentityPolicyInput {
     /// Creates a new builder-style object to manufacture [`CreateEmailIdentityPolicyInput`](crate::operation::create_email_identity_policy::CreateEmailIdentityPolicyInput).
-    pub fn builder() -> crate::operation::create_email_identity_policy::builders::CreateEmailIdentityPolicyInputBuilder{
+    pub fn builder() -> crate::operation::create_email_identity_policy::builders::CreateEmailIdentityPolicyInputBuilder {
         crate::operation::create_email_identity_policy::builders::CreateEmailIdentityPolicyInputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_create_email_identity_policy")]
 /// A builder for [`CreateEmailIdentityPolicyInput`](crate::operation::create_email_identity_policy::CreateEmailIdentityPolicyInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct CreateEmailIdentityPolicyInputBuilder {
     pub(crate) email_identity: ::std::option::Option<::std::string::String>,
@@ -54,18 +52,12 @@ pub struct CreateEmailIdentityPolicyInputBuilder {
 impl CreateEmailIdentityPolicyInputBuilder {
     /// <p>The email identity.</p>
     /// This field is required.
-    pub fn email_identity(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn email_identity(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.email_identity = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The email identity.</p>
-    pub fn set_email_identity(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_email_identity(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.email_identity = input;
         self
     }
@@ -116,12 +108,10 @@ impl CreateEmailIdentityPolicyInputBuilder {
         crate::operation::create_email_identity_policy::CreateEmailIdentityPolicyInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(
-            crate::operation::create_email_identity_policy::CreateEmailIdentityPolicyInput {
-                email_identity: self.email_identity,
-                policy_name: self.policy_name,
-                policy: self.policy,
-            },
-        )
+        ::std::result::Result::Ok(crate::operation::create_email_identity_policy::CreateEmailIdentityPolicyInput {
+            email_identity: self.email_identity,
+            policy_name: self.policy_name,
+            policy: self.policy,
+        })
     }
 }

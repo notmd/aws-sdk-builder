@@ -32,18 +32,14 @@ impl CreateDedicatedIpPoolInput {
 #[cfg(feature = "op_create_dedicated_ip_pool")]
 impl CreateDedicatedIpPoolInput {
     /// Creates a new builder-style object to manufacture [`CreateDedicatedIpPoolInput`](crate::operation::create_dedicated_ip_pool::CreateDedicatedIpPoolInput).
-    pub fn builder(
-    ) -> crate::operation::create_dedicated_ip_pool::builders::CreateDedicatedIpPoolInputBuilder
-    {
+    pub fn builder() -> crate::operation::create_dedicated_ip_pool::builders::CreateDedicatedIpPoolInputBuilder {
         crate::operation::create_dedicated_ip_pool::builders::CreateDedicatedIpPoolInputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_create_dedicated_ip_pool")]
 /// A builder for [`CreateDedicatedIpPoolInput`](crate::operation::create_dedicated_ip_pool::CreateDedicatedIpPoolInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct CreateDedicatedIpPoolInputBuilder {
     pub(crate) pool_name: ::std::option::Option<::std::string::String>,
@@ -79,10 +75,7 @@ impl CreateDedicatedIpPoolInputBuilder {
         self
     }
     /// <p>An object that defines the tags (keys and values) that you want to associate with the pool.</p>
-    pub fn set_tags(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>,
-    ) -> Self {
+    pub fn set_tags(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>) -> Self {
         self.tags = input;
         self
     }
@@ -96,10 +89,7 @@ impl CreateDedicatedIpPoolInputBuilder {
         self
     }
     /// <p>The type of scaling mode.</p>
-    pub fn set_scaling_mode(
-        mut self,
-        input: ::std::option::Option<crate::types::ScalingMode>,
-    ) -> Self {
+    pub fn set_scaling_mode(mut self, input: ::std::option::Option<crate::types::ScalingMode>) -> Self {
         self.scaling_mode = input;
         self
     }
@@ -110,16 +100,12 @@ impl CreateDedicatedIpPoolInputBuilder {
     /// Consumes the builder and constructs a [`CreateDedicatedIpPoolInput`](crate::operation::create_dedicated_ip_pool::CreateDedicatedIpPoolInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        crate::operation::create_dedicated_ip_pool::CreateDedicatedIpPoolInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
-        ::std::result::Result::Ok(
-            crate::operation::create_dedicated_ip_pool::CreateDedicatedIpPoolInput {
-                pool_name: self.pool_name,
-                tags: self.tags,
-                scaling_mode: self.scaling_mode,
-            },
-        )
+    ) -> ::std::result::Result<crate::operation::create_dedicated_ip_pool::CreateDedicatedIpPoolInput, ::aws_smithy_types::error::operation::BuildError>
+    {
+        ::std::result::Result::Ok(crate::operation::create_dedicated_ip_pool::CreateDedicatedIpPoolInput {
+            pool_name: self.pool_name,
+            tags: self.tags,
+            scaling_mode: self.scaling_mode,
+        })
     }
 }

@@ -69,9 +69,7 @@ impl DedicatedIp {
 }
 
 /// A builder for [`DedicatedIp`](crate::types::DedicatedIp).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct DedicatedIpBuilder {
     pub(crate) ip: ::std::option::Option<::std::string::String>,
@@ -118,10 +116,7 @@ impl DedicatedIpBuilder {
     /// <li>
     /// <p><code>NOT_APPLICABLE</code> – The warm-up status doesn't apply to this IP address. This status is used for IP addresses in managed dedicated IP pools, where Amazon SES automatically handles the warm-up process.</p></li>
     /// </ul>
-    pub fn set_warmup_status(
-        mut self,
-        input: ::std::option::Option<crate::types::WarmupStatus>,
-    ) -> Self {
+    pub fn set_warmup_status(mut self, input: ::std::option::Option<crate::types::WarmupStatus>) -> Self {
         self.warmup_status = input;
         self
     }
@@ -189,12 +184,7 @@ impl DedicatedIpBuilder {
     /// - [`ip`](crate::types::builders::DedicatedIpBuilder::ip)
     /// - [`warmup_status`](crate::types::builders::DedicatedIpBuilder::warmup_status)
     /// - [`warmup_percentage`](crate::types::builders::DedicatedIpBuilder::warmup_percentage)
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<
-        crate::types::DedicatedIp,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    pub fn build(self) -> ::std::result::Result<crate::types::DedicatedIp, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::DedicatedIp {
             ip: self.ip.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

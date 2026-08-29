@@ -67,7 +67,7 @@ impl ListCustomVerificationEmailTemplatesFluentBuilder {
     /// Access the ListCustomVerificationEmailTemplates as a reference.
     pub fn as_input(
         &self,
-    ) -> &crate::operation::list_custom_verification_email_templates::builders::ListCustomVerificationEmailTemplatesInputBuilder{
+    ) -> &crate::operation::list_custom_verification_email_templates::builders::ListCustomVerificationEmailTemplatesInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -86,7 +86,7 @@ impl ListCustomVerificationEmailTemplatesFluentBuilder {
             crate::operation::list_custom_verification_email_templates::ListCustomVerificationEmailTemplatesError,
             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
         >,
-    >{
+    > {
         let input = self
             .inner
             .build()
@@ -107,21 +107,15 @@ impl ListCustomVerificationEmailTemplatesFluentBuilder {
         crate::operation::list_custom_verification_email_templates::ListCustomVerificationEmailTemplatesOutput,
         crate::operation::list_custom_verification_email_templates::ListCustomVerificationEmailTemplatesError,
         Self,
-    >{
+    > {
         crate::client::customize::CustomizableOperation::new(self)
     }
-    pub(crate) fn config_override(
-        mut self,
-        config_override: impl ::std::convert::Into<crate::config::Builder>,
-    ) -> Self {
+    pub(crate) fn config_override(mut self, config_override: impl ::std::convert::Into<crate::config::Builder>) -> Self {
         self.set_config_override(::std::option::Option::Some(config_override.into()));
         self
     }
 
-    pub(crate) fn set_config_override(
-        &mut self,
-        config_override: ::std::option::Option<crate::config::Builder>,
-    ) -> &mut Self {
+    pub(crate) fn set_config_override(&mut self, config_override: ::std::option::Option<crate::config::Builder>) -> &mut Self {
         self.config_override = config_override;
         self
     }
@@ -130,7 +124,7 @@ impl ListCustomVerificationEmailTemplatesFluentBuilder {
     /// Paginators are used by calling [`send().await`](crate::operation::list_custom_verification_email_templates::paginator::ListCustomVerificationEmailTemplatesPaginator::send) which returns a [`PaginationStream`](aws_smithy_async::future::pagination_stream::PaginationStream).
     pub fn into_paginator(
         self,
-    ) -> crate::operation::list_custom_verification_email_templates::paginator::ListCustomVerificationEmailTemplatesPaginator{
+    ) -> crate::operation::list_custom_verification_email_templates::paginator::ListCustomVerificationEmailTemplatesPaginator {
         crate::operation::list_custom_verification_email_templates::paginator::ListCustomVerificationEmailTemplatesPaginator::new(
             self.handle,
             self.inner,
