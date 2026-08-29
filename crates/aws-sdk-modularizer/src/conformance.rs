@@ -35,6 +35,13 @@ pub enum ConformanceError {
     },
 }
 
+#[derive(Debug, Clone)]
+struct FeatureMatrix {
+    singletons: Vec<Vec<String>>,
+    all: Vec<String>,
+    shared_groups: Vec<Vec<String>>,
+}
+
 pub fn run_cli(arguments: Vec<OsString>) -> Result<(), ConformanceError> {
     let conformance = arguments
         .first()
@@ -92,7 +99,8 @@ fn run_conformance(manifest: &Manifest, root: &Path) -> Result<(), ConformanceEr
         verify_service(service, &staged, &operations)?;
         let changed_files = write_stage_artifacts(service, &staged, &upstream, &operations)?;
         verify_diff_artifacts(&staged)?;
-        check_feature_matrix(service, &staged, &model, &operations, workspace.path())?;
+        let feature_matrix =
+            check_feature_matrix(service, &staged, &model, &operations, workspace.path())?;
         check_public_api(service, &staged, &operations, workspace.path())?;
         reports.push((
             service.key.clone(),
@@ -103,6 +111,7 @@ fn run_conformance(manifest: &Manifest, root: &Path) -> Result<(), ConformanceEr
                 ambiguous: 0,
             },
             changed_files,
+            feature_matrix,
         ));
     }
     let summary = render_summary(&reports, previous.as_deref())?;
@@ -517,6 +526,19 @@ mod tests {
             BTreeSet::from(["op_alpha".to_owned(), "op_unknown".to_owned()])
         );
     }
+
+    #[test]
+    fn formats_feature_matrix_selections_exactly() {
+        let selections = vec![
+            vec!["op_alpha".to_owned()],
+            vec!["op_beta".to_owned(), "op_gamma".to_owned()],
+        ];
+
+        assert_eq!(
+            format_feature_selections(&selections),
+            "[op_alpha], [op_beta, op_gamma]"
+        );
+    }
 }
 
 fn write_diff_artifacts(
@@ -584,27 +606,32 @@ fn check_feature_matrix(
     model: &Model,
     operations: &[Operation],
     workspace: &Path,
-) -> Result<(), ConformanceError> {
+) -> Result<FeatureMatrix, ConformanceError> {
     let target_base = workspace.join("cargo-target").join(&service.key);
     run_cargo_check(stage, &target_base, &[])?;
+    let mut singletons = Vec::with_capacity(operations.len());
     for operation in operations {
         run_cargo_check(
             stage,
             &target_base,
             std::slice::from_ref(&operation.feature),
         )?;
+        singletons.push(vec![operation.feature.clone()]);
     }
     let all = operations
         .iter()
         .map(|operation| operation.feature.clone())
         .collect::<Vec<_>>();
     run_cargo_check(stage, &target_base, &all)?;
-    for group in model.shared_operation_groups(operations) {
-        if group.len() > 1 {
-            run_cargo_check(stage, &target_base, &group)?;
-        }
+    let shared_groups = model.shared_operation_groups(operations);
+    for group in &shared_groups {
+        run_cargo_check(stage, &target_base, group)?;
     }
-    Ok(())
+    Ok(FeatureMatrix {
+        singletons,
+        all,
+        shared_groups,
+    })
 }
 
 fn check_public_api(
@@ -847,19 +874,46 @@ fn run_cargo_check(
 }
 
 fn render_summary(
-    reports: &[(String, Coverage, Vec<String>)],
+    reports: &[(String, Coverage, Vec<String>, FeatureMatrix)],
     previous: Option<&str>,
 ) -> Result<String, ConformanceError> {
     let mut output = String::from("# Operation coverage\n\n");
-    for (key, coverage, changed_files) in reports {
+    for (key, coverage, changed_files, feature_matrix) in reports {
         let old = previous.and_then(|text| prior_transformed(text, key));
         let delta = old.map_or(
             format!("+{} (no previous report)", coverage.transformed),
             |old| format_signed(coverage.transformed as isize - old as isize),
         );
-        output.push_str(&format!("## {key}\n\n- total: {}\n- transformed: {}\n- missing: {}\n- ambiguous: {}\n- coverage delta: {}\n- changed files: {}\n\n", coverage.total, coverage.transformed, coverage.missing, coverage.ambiguous, delta, changed_files.len()));
+        output.push_str(&format!(
+            "## {key}\n\n- total: {}\n- transformed: {}\n- missing: {}\n- ambiguous: {}\n- coverage delta: {}\n- changed files: {}\n- feature selections:\n  - zero: `[]`\n  - singleton: `{}`\n  - all: `{}`\n  - shared groups: `{}`\n\n",
+            coverage.total,
+            coverage.transformed,
+            coverage.missing,
+            coverage.ambiguous,
+            delta,
+            changed_files.len(),
+            format_feature_selections(&feature_matrix.singletons),
+            format_feature_selection(&feature_matrix.all),
+            format_feature_selections(&feature_matrix.shared_groups),
+        ));
     }
     Ok(output)
+}
+
+fn format_feature_selection(features: &[String]) -> String {
+    format!("[{}]", features.join(", "))
+}
+
+fn format_feature_selections(selections: &[Vec<String>]) -> String {
+    if selections.is_empty() {
+        "none".to_owned()
+    } else {
+        selections
+            .iter()
+            .map(|selection| format_feature_selection(selection))
+            .collect::<Vec<_>>()
+            .join(", ")
+    }
 }
 
 fn prior_transformed(summary: &str, service: &str) -> Option<usize> {
