@@ -1705,7 +1705,7 @@ fn is_operation_or_client_child_path(relative: &str, operations: &[Operation]) -
     matches!(components.next(), Some("operation" | "client"))
         && components
             .next()
-            .and_then(|module| module.strip_suffix(".rs"))
+            .map(|module| module.trim_end_matches(".rs"))
             .is_some_and(|module| {
                 operations
                     .iter()
@@ -1719,7 +1719,7 @@ fn parent_operation_feature<'a>(relative: &str, operations: &'a [Operation]) -> 
     if !matches!(components.next(), Some("operation")) {
         return None;
     }
-    let module = components.next()?.strip_suffix(".rs")?;
+    let module = components.next()?.trim_end_matches(".rs");
     operations
         .iter()
         .find(|operation| operation.module == module)
@@ -2847,6 +2847,14 @@ mod tests {
         let operations = operations();
         assert!(is_parent_gated_child_path(
             "src/client/get_thing.rs",
+            &operations
+        ));
+        assert!(is_parent_gated_child_path(
+            "src/operation/get_thing/builders.rs",
+            &operations
+        ));
+        assert!(is_parent_gated_child_path(
+            "src/client/get_thing/internal.rs",
             &operations
         ));
         assert!(!is_parent_gated_child_path(
