@@ -24,16 +24,14 @@ impl ::aws_types::request_id::RequestId for GetDomainPermissionsPolicyOutput {
 #[cfg(feature = "op_get_domain_permissions_policy")]
 impl GetDomainPermissionsPolicyOutput {
     /// Creates a new builder-style object to manufacture [`GetDomainPermissionsPolicyOutput`](crate::operation::get_domain_permissions_policy::GetDomainPermissionsPolicyOutput).
-    pub fn builder() -> crate::operation::get_domain_permissions_policy::builders::GetDomainPermissionsPolicyOutputBuilder{
+    pub fn builder() -> crate::operation::get_domain_permissions_policy::builders::GetDomainPermissionsPolicyOutputBuilder {
         crate::operation::get_domain_permissions_policy::builders::GetDomainPermissionsPolicyOutputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_get_domain_permissions_policy")]
 /// A builder for [`GetDomainPermissionsPolicyOutput`](crate::operation::get_domain_permissions_policy::GetDomainPermissionsPolicyOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct GetDomainPermissionsPolicyOutputBuilder {
     pub(crate) policy: ::std::option::Option<crate::types::ResourcePolicy>,
@@ -47,10 +45,7 @@ impl GetDomainPermissionsPolicyOutputBuilder {
         self
     }
     /// <p>The returned resource policy.</p>
-    pub fn set_policy(
-        mut self,
-        input: ::std::option::Option<crate::types::ResourcePolicy>,
-    ) -> Self {
+    pub fn set_policy(mut self, input: ::std::option::Option<crate::types::ResourcePolicy>) -> Self {
         self.policy = input;
         self
     }
@@ -68,9 +63,7 @@ impl GetDomainPermissionsPolicyOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`GetDomainPermissionsPolicyOutput`](crate::operation::get_domain_permissions_policy::GetDomainPermissionsPolicyOutput).
-    pub fn build(
-        self,
-    ) -> crate::operation::get_domain_permissions_policy::GetDomainPermissionsPolicyOutput {
+    pub fn build(self) -> crate::operation::get_domain_permissions_policy::GetDomainPermissionsPolicyOutput {
         crate::operation::get_domain_permissions_policy::GetDomainPermissionsPolicyOutput {
             policy: self.policy,
             _request_id: self._request_id,

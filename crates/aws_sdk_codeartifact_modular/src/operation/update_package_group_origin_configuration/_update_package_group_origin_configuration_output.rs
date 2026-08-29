@@ -10,10 +10,7 @@ pub struct UpdatePackageGroupOriginConfigurationOutput {
     pub allowed_repository_updates: ::std::option::Option<
         ::std::collections::HashMap<
             crate::types::PackageGroupOriginRestrictionType,
-            ::std::collections::HashMap<
-                crate::types::PackageGroupAllowedRepositoryUpdateType,
-                ::std::vec::Vec<::std::string::String>,
-            >,
+            ::std::collections::HashMap<crate::types::PackageGroupAllowedRepositoryUpdateType, ::std::vec::Vec<::std::string::String>>,
         >,
     >,
     _request_id: Option<String>,
@@ -30,10 +27,7 @@ impl UpdatePackageGroupOriginConfigurationOutput {
     ) -> ::std::option::Option<
         &::std::collections::HashMap<
             crate::types::PackageGroupOriginRestrictionType,
-            ::std::collections::HashMap<
-                crate::types::PackageGroupAllowedRepositoryUpdateType,
-                ::std::vec::Vec<::std::string::String>,
-            >,
+            ::std::collections::HashMap<crate::types::PackageGroupAllowedRepositoryUpdateType, ::std::vec::Vec<::std::string::String>>,
         >,
     > {
         self.allowed_repository_updates.as_ref()
@@ -48,26 +42,21 @@ impl ::aws_types::request_id::RequestId for UpdatePackageGroupOriginConfiguratio
 #[cfg(feature = "op_update_package_group_origin_configuration")]
 impl UpdatePackageGroupOriginConfigurationOutput {
     /// Creates a new builder-style object to manufacture [`UpdatePackageGroupOriginConfigurationOutput`](crate::operation::update_package_group_origin_configuration::UpdatePackageGroupOriginConfigurationOutput).
-    pub fn builder() -> crate::operation::update_package_group_origin_configuration::builders::UpdatePackageGroupOriginConfigurationOutputBuilder{
+    pub fn builder() -> crate::operation::update_package_group_origin_configuration::builders::UpdatePackageGroupOriginConfigurationOutputBuilder {
         crate::operation::update_package_group_origin_configuration::builders::UpdatePackageGroupOriginConfigurationOutputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_update_package_group_origin_configuration")]
 /// A builder for [`UpdatePackageGroupOriginConfigurationOutput`](crate::operation::update_package_group_origin_configuration::UpdatePackageGroupOriginConfigurationOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct UpdatePackageGroupOriginConfigurationOutputBuilder {
     pub(crate) package_group: ::std::option::Option<crate::types::PackageGroupDescription>,
     pub(crate) allowed_repository_updates: ::std::option::Option<
         ::std::collections::HashMap<
             crate::types::PackageGroupOriginRestrictionType,
-            ::std::collections::HashMap<
-                crate::types::PackageGroupAllowedRepositoryUpdateType,
-                ::std::vec::Vec<::std::string::String>,
-            >,
+            ::std::collections::HashMap<crate::types::PackageGroupAllowedRepositoryUpdateType, ::std::vec::Vec<::std::string::String>>,
         >,
     >,
     _request_id: Option<String>,
@@ -80,17 +69,12 @@ impl UpdatePackageGroupOriginConfigurationOutputBuilder {
         self
     }
     /// <p>The package group and information about it after processing the request.</p>
-    pub fn set_package_group(
-        mut self,
-        input: ::std::option::Option<crate::types::PackageGroupDescription>,
-    ) -> Self {
+    pub fn set_package_group(mut self, input: ::std::option::Option<crate::types::PackageGroupDescription>) -> Self {
         self.package_group = input;
         self
     }
     /// <p>The package group and information about it after processing the request.</p>
-    pub fn get_package_group(
-        &self,
-    ) -> &::std::option::Option<crate::types::PackageGroupDescription> {
+    pub fn get_package_group(&self) -> &::std::option::Option<crate::types::PackageGroupDescription> {
         &self.package_group
     }
     /// Adds a key-value pair to `allowed_repository_updates`.
@@ -101,10 +85,7 @@ impl UpdatePackageGroupOriginConfigurationOutputBuilder {
     pub fn allowed_repository_updates(
         mut self,
         k: crate::types::PackageGroupOriginRestrictionType,
-        v: ::std::collections::HashMap<
-            crate::types::PackageGroupAllowedRepositoryUpdateType,
-            ::std::vec::Vec<::std::string::String>,
-        >,
+        v: ::std::collections::HashMap<crate::types::PackageGroupAllowedRepositoryUpdateType, ::std::vec::Vec<::std::string::String>>,
     ) -> Self {
         let mut hash_map = self.allowed_repository_updates.unwrap_or_default();
         hash_map.insert(k, v);
@@ -117,10 +98,7 @@ impl UpdatePackageGroupOriginConfigurationOutputBuilder {
         input: ::std::option::Option<
             ::std::collections::HashMap<
                 crate::types::PackageGroupOriginRestrictionType,
-                ::std::collections::HashMap<
-                    crate::types::PackageGroupAllowedRepositoryUpdateType,
-                    ::std::vec::Vec<::std::string::String>,
-                >,
+                ::std::collections::HashMap<crate::types::PackageGroupAllowedRepositoryUpdateType, ::std::vec::Vec<::std::string::String>>,
             >,
         >,
     ) -> Self {
@@ -133,10 +111,7 @@ impl UpdatePackageGroupOriginConfigurationOutputBuilder {
     ) -> &::std::option::Option<
         ::std::collections::HashMap<
             crate::types::PackageGroupOriginRestrictionType,
-            ::std::collections::HashMap<
-                crate::types::PackageGroupAllowedRepositoryUpdateType,
-                ::std::vec::Vec<::std::string::String>,
-            >,
+            ::std::collections::HashMap<crate::types::PackageGroupAllowedRepositoryUpdateType, ::std::vec::Vec<::std::string::String>>,
         >,
     > {
         &self.allowed_repository_updates
@@ -151,7 +126,7 @@ impl UpdatePackageGroupOriginConfigurationOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`UpdatePackageGroupOriginConfigurationOutput`](crate::operation::update_package_group_origin_configuration::UpdatePackageGroupOriginConfigurationOutput).
-    pub fn build(self) -> crate::operation::update_package_group_origin_configuration::UpdatePackageGroupOriginConfigurationOutput{
+    pub fn build(self) -> crate::operation::update_package_group_origin_configuration::UpdatePackageGroupOriginConfigurationOutput {
         crate::operation::update_package_group_origin_configuration::UpdatePackageGroupOriginConfigurationOutput {
             package_group: self.package_group,
             allowed_repository_updates: self.allowed_repository_updates,

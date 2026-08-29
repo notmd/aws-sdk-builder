@@ -15,7 +15,7 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<PutPackageOriginConfigurationError>`](crate::operation::put_package_origin_configuration::PutPackageOriginConfigurationError)
     pub fn put_package_origin_configuration(
         &self,
-    ) -> crate::operation::put_package_origin_configuration::builders::PutPackageOriginConfigurationFluentBuilder{
+    ) -> crate::operation::put_package_origin_configuration::builders::PutPackageOriginConfigurationFluentBuilder {
         crate::operation::put_package_origin_configuration::builders::PutPackageOriginConfigurationFluentBuilder::new(self.handle.clone())
     }
 }

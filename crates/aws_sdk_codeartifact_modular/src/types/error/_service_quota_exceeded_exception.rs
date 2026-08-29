@@ -57,9 +57,7 @@ impl ServiceQuotaExceededException {
 }
 
 /// A builder for [`ServiceQuotaExceededException`](crate::types::error::ServiceQuotaExceededException).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct ServiceQuotaExceededExceptionBuilder {
     pub(crate) message: ::std::option::Option<::std::string::String>,
@@ -103,10 +101,7 @@ impl ServiceQuotaExceededExceptionBuilder {
         self
     }
     /// <p>The type of Amazon Web Services resource.</p>
-    pub fn set_resource_type(
-        mut self,
-        input: ::std::option::Option<crate::types::ResourceType>,
-    ) -> Self {
+    pub fn set_resource_type(mut self, input: ::std::option::Option<crate::types::ResourceType>) -> Self {
         self.resource_type = input;
         self
     }
@@ -121,10 +116,7 @@ impl ServiceQuotaExceededExceptionBuilder {
     }
 
     /// Sets error metadata
-    pub fn set_meta(
-        &mut self,
-        meta: std::option::Option<::aws_smithy_types::error::ErrorMetadata>,
-    ) -> &mut Self {
+    pub fn set_meta(&mut self, meta: std::option::Option<::aws_smithy_types::error::ErrorMetadata>) -> &mut Self {
         self.meta = meta;
         self
     }
@@ -133,10 +125,7 @@ impl ServiceQuotaExceededExceptionBuilder {
     /// - [`message`](crate::types::error::builders::ServiceQuotaExceededExceptionBuilder::message)
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        crate::types::error::ServiceQuotaExceededException,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    ) -> ::std::result::Result<crate::types::error::ServiceQuotaExceededException, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::error::ServiceQuotaExceededException {
             message: self.message.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

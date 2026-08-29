@@ -64,7 +64,7 @@ impl PutDomainPermissionsPolicyFluentBuilder {
         }
     }
     /// Access the PutDomainPermissionsPolicy as a reference.
-    pub fn as_input(&self) -> &crate::operation::put_domain_permissions_policy::builders::PutDomainPermissionsPolicyInputBuilder{
+    pub fn as_input(&self) -> &crate::operation::put_domain_permissions_policy::builders::PutDomainPermissionsPolicyInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -93,11 +93,7 @@ impl PutDomainPermissionsPolicyFluentBuilder {
             &self.handle.conf,
             self.config_override,
         );
-        crate::operation::put_domain_permissions_policy::PutDomainPermissionsPolicy::orchestrate(
-            &runtime_plugins,
-            input,
-        )
-        .await
+        crate::operation::put_domain_permissions_policy::PutDomainPermissionsPolicy::orchestrate(&runtime_plugins, input).await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -110,18 +106,12 @@ impl PutDomainPermissionsPolicyFluentBuilder {
     > {
         crate::client::customize::CustomizableOperation::new(self)
     }
-    pub(crate) fn config_override(
-        mut self,
-        config_override: impl ::std::convert::Into<crate::config::Builder>,
-    ) -> Self {
+    pub(crate) fn config_override(mut self, config_override: impl ::std::convert::Into<crate::config::Builder>) -> Self {
         self.set_config_override(::std::option::Option::Some(config_override.into()));
         self
     }
 
-    pub(crate) fn set_config_override(
-        &mut self,
-        config_override: ::std::option::Option<crate::config::Builder>,
-    ) -> &mut Self {
+    pub(crate) fn set_config_override(&mut self, config_override: ::std::option::Option<crate::config::Builder>) -> &mut Self {
         self.config_override = config_override;
         self
     }
@@ -154,18 +144,12 @@ impl PutDomainPermissionsPolicyFluentBuilder {
         self.inner.get_domain_owner()
     }
     /// <p>The current revision of the resource policy to be set. This revision is used for optimistic locking, which prevents others from overwriting your changes to the domain's resource policy.</p>
-    pub fn policy_revision(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn policy_revision(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.policy_revision(input.into());
         self
     }
     /// <p>The current revision of the resource policy to be set. This revision is used for optimistic locking, which prevents others from overwriting your changes to the domain's resource policy.</p>
-    pub fn set_policy_revision(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_policy_revision(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_policy_revision(input);
         self
     }
@@ -174,18 +158,12 @@ impl PutDomainPermissionsPolicyFluentBuilder {
         self.inner.get_policy_revision()
     }
     /// <p>A valid displayable JSON Aspen policy string to be set as the access control resource policy on the provided domain.</p>
-    pub fn policy_document(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn policy_document(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.policy_document(input.into());
         self
     }
     /// <p>A valid displayable JSON Aspen policy string to be set as the access control resource policy on the provided domain.</p>
-    pub fn set_policy_document(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_policy_document(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_policy_document(input);
         self
     }

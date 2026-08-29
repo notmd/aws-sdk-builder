@@ -32,21 +32,17 @@ impl ::aws_types::request_id::RequestId for ListPackageGroupsOutput {
 #[cfg(feature = "op_list_package_groups")]
 impl ListPackageGroupsOutput {
     /// Creates a new builder-style object to manufacture [`ListPackageGroupsOutput`](crate::operation::list_package_groups::ListPackageGroupsOutput).
-    pub fn builder(
-    ) -> crate::operation::list_package_groups::builders::ListPackageGroupsOutputBuilder {
+    pub fn builder() -> crate::operation::list_package_groups::builders::ListPackageGroupsOutputBuilder {
         crate::operation::list_package_groups::builders::ListPackageGroupsOutputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_list_package_groups")]
 /// A builder for [`ListPackageGroupsOutput`](crate::operation::list_package_groups::ListPackageGroupsOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct ListPackageGroupsOutputBuilder {
-    pub(crate) package_groups:
-        ::std::option::Option<::std::vec::Vec<crate::types::PackageGroupSummary>>,
+    pub(crate) package_groups: ::std::option::Option<::std::vec::Vec<crate::types::PackageGroupSummary>>,
     pub(crate) next_token: ::std::option::Option<::std::string::String>,
     _request_id: Option<String>,
 }
@@ -64,17 +60,12 @@ impl ListPackageGroupsOutputBuilder {
         self
     }
     /// <p>The list of package groups in the requested domain.</p>
-    pub fn set_package_groups(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<crate::types::PackageGroupSummary>>,
-    ) -> Self {
+    pub fn set_package_groups(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::PackageGroupSummary>>) -> Self {
         self.package_groups = input;
         self
     }
     /// <p>The list of package groups in the requested domain.</p>
-    pub fn get_package_groups(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<crate::types::PackageGroupSummary>> {
+    pub fn get_package_groups(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::PackageGroupSummary>> {
         &self.package_groups
     }
     /// <p>The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.</p>

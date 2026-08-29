@@ -11,9 +11,7 @@ pub struct PutPackageOriginConfigurationOutput {
 #[cfg(feature = "op_put_package_origin_configuration")]
 impl PutPackageOriginConfigurationOutput {
     /// <p>A <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_PackageOriginConfiguration.html">PackageOriginConfiguration</a> object that describes the origin configuration set for the package. It contains a <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_PackageOriginRestrictions.html">PackageOriginRestrictions</a> object that describes how new versions of the package can be introduced to the repository.</p>
-    pub fn origin_configuration(
-        &self,
-    ) -> ::std::option::Option<&crate::types::PackageOriginConfiguration> {
+    pub fn origin_configuration(&self) -> ::std::option::Option<&crate::types::PackageOriginConfiguration> {
         self.origin_configuration.as_ref()
     }
 }
@@ -26,20 +24,17 @@ impl ::aws_types::request_id::RequestId for PutPackageOriginConfigurationOutput 
 #[cfg(feature = "op_put_package_origin_configuration")]
 impl PutPackageOriginConfigurationOutput {
     /// Creates a new builder-style object to manufacture [`PutPackageOriginConfigurationOutput`](crate::operation::put_package_origin_configuration::PutPackageOriginConfigurationOutput).
-    pub fn builder() -> crate::operation::put_package_origin_configuration::builders::PutPackageOriginConfigurationOutputBuilder{
+    pub fn builder() -> crate::operation::put_package_origin_configuration::builders::PutPackageOriginConfigurationOutputBuilder {
         crate::operation::put_package_origin_configuration::builders::PutPackageOriginConfigurationOutputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_put_package_origin_configuration")]
 /// A builder for [`PutPackageOriginConfigurationOutput`](crate::operation::put_package_origin_configuration::PutPackageOriginConfigurationOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct PutPackageOriginConfigurationOutputBuilder {
-    pub(crate) origin_configuration:
-        ::std::option::Option<crate::types::PackageOriginConfiguration>,
+    pub(crate) origin_configuration: ::std::option::Option<crate::types::PackageOriginConfiguration>,
     _request_id: Option<String>,
 }
 #[cfg(feature = "op_put_package_origin_configuration")]
@@ -50,17 +45,12 @@ impl PutPackageOriginConfigurationOutputBuilder {
         self
     }
     /// <p>A <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_PackageOriginConfiguration.html">PackageOriginConfiguration</a> object that describes the origin configuration set for the package. It contains a <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_PackageOriginRestrictions.html">PackageOriginRestrictions</a> object that describes how new versions of the package can be introduced to the repository.</p>
-    pub fn set_origin_configuration(
-        mut self,
-        input: ::std::option::Option<crate::types::PackageOriginConfiguration>,
-    ) -> Self {
+    pub fn set_origin_configuration(mut self, input: ::std::option::Option<crate::types::PackageOriginConfiguration>) -> Self {
         self.origin_configuration = input;
         self
     }
     /// <p>A <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_PackageOriginConfiguration.html">PackageOriginConfiguration</a> object that describes the origin configuration set for the package. It contains a <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_PackageOriginRestrictions.html">PackageOriginRestrictions</a> object that describes how new versions of the package can be introduced to the repository.</p>
-    pub fn get_origin_configuration(
-        &self,
-    ) -> &::std::option::Option<crate::types::PackageOriginConfiguration> {
+    pub fn get_origin_configuration(&self) -> &::std::option::Option<crate::types::PackageOriginConfiguration> {
         &self.origin_configuration
     }
     pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
@@ -73,10 +63,7 @@ impl PutPackageOriginConfigurationOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`PutPackageOriginConfigurationOutput`](crate::operation::put_package_origin_configuration::PutPackageOriginConfigurationOutput).
-    pub fn build(
-        self,
-    ) -> crate::operation::put_package_origin_configuration::PutPackageOriginConfigurationOutput
-    {
+    pub fn build(self) -> crate::operation::put_package_origin_configuration::PutPackageOriginConfigurationOutput {
         crate::operation::put_package_origin_configuration::PutPackageOriginConfigurationOutput {
             origin_configuration: self.origin_configuration,
             _request_id: self._request_id,

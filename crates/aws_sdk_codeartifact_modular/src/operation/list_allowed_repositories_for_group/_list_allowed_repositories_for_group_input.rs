@@ -11,8 +11,7 @@ pub struct ListAllowedRepositoriesForGroupInput {
     /// <p>The pattern of the package group from which to list allowed repositories.</p>
     pub package_group: ::std::option::Option<::std::string::String>,
     /// <p>The origin configuration restriction type of which to list allowed repositories.</p>
-    pub origin_restriction_type:
-        ::std::option::Option<crate::types::PackageGroupOriginRestrictionType>,
+    pub origin_restriction_type: ::std::option::Option<crate::types::PackageGroupOriginRestrictionType>,
     /// <p>The maximum number of results to return per page.</p>
     pub max_results: ::std::option::Option<i32>,
     /// <p>The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.</p>
@@ -33,9 +32,7 @@ impl ListAllowedRepositoriesForGroupInput {
         self.package_group.as_deref()
     }
     /// <p>The origin configuration restriction type of which to list allowed repositories.</p>
-    pub fn origin_restriction_type(
-        &self,
-    ) -> ::std::option::Option<&crate::types::PackageGroupOriginRestrictionType> {
+    pub fn origin_restriction_type(&self) -> ::std::option::Option<&crate::types::PackageGroupOriginRestrictionType> {
         self.origin_restriction_type.as_ref()
     }
     /// <p>The maximum number of results to return per page.</p>
@@ -50,23 +47,20 @@ impl ListAllowedRepositoriesForGroupInput {
 #[cfg(feature = "op_list_allowed_repositories_for_group")]
 impl ListAllowedRepositoriesForGroupInput {
     /// Creates a new builder-style object to manufacture [`ListAllowedRepositoriesForGroupInput`](crate::operation::list_allowed_repositories_for_group::ListAllowedRepositoriesForGroupInput).
-    pub fn builder() -> crate::operation::list_allowed_repositories_for_group::builders::ListAllowedRepositoriesForGroupInputBuilder{
+    pub fn builder() -> crate::operation::list_allowed_repositories_for_group::builders::ListAllowedRepositoriesForGroupInputBuilder {
         crate::operation::list_allowed_repositories_for_group::builders::ListAllowedRepositoriesForGroupInputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_list_allowed_repositories_for_group")]
 /// A builder for [`ListAllowedRepositoriesForGroupInput`](crate::operation::list_allowed_repositories_for_group::ListAllowedRepositoriesForGroupInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct ListAllowedRepositoriesForGroupInputBuilder {
     pub(crate) domain: ::std::option::Option<::std::string::String>,
     pub(crate) domain_owner: ::std::option::Option<::std::string::String>,
     pub(crate) package_group: ::std::option::Option<::std::string::String>,
-    pub(crate) origin_restriction_type:
-        ::std::option::Option<crate::types::PackageGroupOriginRestrictionType>,
+    pub(crate) origin_restriction_type: ::std::option::Option<crate::types::PackageGroupOriginRestrictionType>,
     pub(crate) max_results: ::std::option::Option<i32>,
     pub(crate) next_token: ::std::option::Option<::std::string::String>,
 }
@@ -103,18 +97,12 @@ impl ListAllowedRepositoriesForGroupInputBuilder {
     }
     /// <p>The pattern of the package group from which to list allowed repositories.</p>
     /// This field is required.
-    pub fn package_group(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn package_group(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.package_group = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The pattern of the package group from which to list allowed repositories.</p>
-    pub fn set_package_group(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_package_group(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.package_group = input;
         self
     }
@@ -124,25 +112,17 @@ impl ListAllowedRepositoriesForGroupInputBuilder {
     }
     /// <p>The origin configuration restriction type of which to list allowed repositories.</p>
     /// This field is required.
-    pub fn origin_restriction_type(
-        mut self,
-        input: crate::types::PackageGroupOriginRestrictionType,
-    ) -> Self {
+    pub fn origin_restriction_type(mut self, input: crate::types::PackageGroupOriginRestrictionType) -> Self {
         self.origin_restriction_type = ::std::option::Option::Some(input);
         self
     }
     /// <p>The origin configuration restriction type of which to list allowed repositories.</p>
-    pub fn set_origin_restriction_type(
-        mut self,
-        input: ::std::option::Option<crate::types::PackageGroupOriginRestrictionType>,
-    ) -> Self {
+    pub fn set_origin_restriction_type(mut self, input: ::std::option::Option<crate::types::PackageGroupOriginRestrictionType>) -> Self {
         self.origin_restriction_type = input;
         self
     }
     /// <p>The origin configuration restriction type of which to list allowed repositories.</p>
-    pub fn get_origin_restriction_type(
-        &self,
-    ) -> &::std::option::Option<crate::types::PackageGroupOriginRestrictionType> {
+    pub fn get_origin_restriction_type(&self) -> &::std::option::Option<crate::types::PackageGroupOriginRestrictionType> {
         &self.origin_restriction_type
     }
     /// <p>The maximum number of results to return per page.</p>

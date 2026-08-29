@@ -47,18 +47,14 @@ impl ListAssociatedPackagesInput {
 #[cfg(feature = "op_list_associated_packages")]
 impl ListAssociatedPackagesInput {
     /// Creates a new builder-style object to manufacture [`ListAssociatedPackagesInput`](crate::operation::list_associated_packages::ListAssociatedPackagesInput).
-    pub fn builder(
-    ) -> crate::operation::list_associated_packages::builders::ListAssociatedPackagesInputBuilder
-    {
+    pub fn builder() -> crate::operation::list_associated_packages::builders::ListAssociatedPackagesInputBuilder {
         crate::operation::list_associated_packages::builders::ListAssociatedPackagesInputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_list_associated_packages")]
 /// A builder for [`ListAssociatedPackagesInput`](crate::operation::list_associated_packages::ListAssociatedPackagesInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct ListAssociatedPackagesInputBuilder {
     pub(crate) domain: ::std::option::Option<::std::string::String>,
@@ -101,18 +97,12 @@ impl ListAssociatedPackagesInputBuilder {
     }
     /// <p>The pattern of the package group from which to list associated packages.</p>
     /// This field is required.
-    pub fn package_group(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn package_group(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.package_group = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The pattern of the package group from which to list associated packages.</p>
-    pub fn set_package_group(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_package_group(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.package_group = input;
         self
     }
@@ -169,15 +159,13 @@ impl ListAssociatedPackagesInputBuilder {
         crate::operation::list_associated_packages::ListAssociatedPackagesInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(
-            crate::operation::list_associated_packages::ListAssociatedPackagesInput {
-                domain: self.domain,
-                domain_owner: self.domain_owner,
-                package_group: self.package_group,
-                max_results: self.max_results,
-                next_token: self.next_token,
-                preview: self.preview,
-            },
-        )
+        ::std::result::Result::Ok(crate::operation::list_associated_packages::ListAssociatedPackagesInput {
+            domain: self.domain,
+            domain_owner: self.domain_owner,
+            package_group: self.package_group,
+            max_results: self.max_results,
+            next_token: self.next_token,
+            preview: self.preview,
+        })
     }
 }

@@ -32,22 +32,17 @@ impl ::aws_types::request_id::RequestId for ListSubPackageGroupsOutput {
 #[cfg(feature = "op_list_sub_package_groups")]
 impl ListSubPackageGroupsOutput {
     /// Creates a new builder-style object to manufacture [`ListSubPackageGroupsOutput`](crate::operation::list_sub_package_groups::ListSubPackageGroupsOutput).
-    pub fn builder(
-    ) -> crate::operation::list_sub_package_groups::builders::ListSubPackageGroupsOutputBuilder
-    {
+    pub fn builder() -> crate::operation::list_sub_package_groups::builders::ListSubPackageGroupsOutputBuilder {
         crate::operation::list_sub_package_groups::builders::ListSubPackageGroupsOutputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_list_sub_package_groups")]
 /// A builder for [`ListSubPackageGroupsOutput`](crate::operation::list_sub_package_groups::ListSubPackageGroupsOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct ListSubPackageGroupsOutputBuilder {
-    pub(crate) package_groups:
-        ::std::option::Option<::std::vec::Vec<crate::types::PackageGroupSummary>>,
+    pub(crate) package_groups: ::std::option::Option<::std::vec::Vec<crate::types::PackageGroupSummary>>,
     pub(crate) next_token: ::std::option::Option<::std::string::String>,
     _request_id: Option<String>,
 }
@@ -65,17 +60,12 @@ impl ListSubPackageGroupsOutputBuilder {
         self
     }
     /// <p>A list of sub package groups for the requested package group.</p>
-    pub fn set_package_groups(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<crate::types::PackageGroupSummary>>,
-    ) -> Self {
+    pub fn set_package_groups(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::PackageGroupSummary>>) -> Self {
         self.package_groups = input;
         self
     }
     /// <p>A list of sub package groups for the requested package group.</p>
-    pub fn get_package_groups(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<crate::types::PackageGroupSummary>> {
+    pub fn get_package_groups(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::PackageGroupSummary>> {
         &self.package_groups
     }
     /// <p>If there are additional results, this is the token for the next set of results.</p>

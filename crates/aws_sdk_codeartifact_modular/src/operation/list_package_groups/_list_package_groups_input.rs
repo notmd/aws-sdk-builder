@@ -41,17 +41,14 @@ impl ListPackageGroupsInput {
 #[cfg(feature = "op_list_package_groups")]
 impl ListPackageGroupsInput {
     /// Creates a new builder-style object to manufacture [`ListPackageGroupsInput`](crate::operation::list_package_groups::ListPackageGroupsInput).
-    pub fn builder(
-    ) -> crate::operation::list_package_groups::builders::ListPackageGroupsInputBuilder {
+    pub fn builder() -> crate::operation::list_package_groups::builders::ListPackageGroupsInputBuilder {
         crate::operation::list_package_groups::builders::ListPackageGroupsInputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_list_package_groups")]
 /// A builder for [`ListPackageGroupsInput`](crate::operation::list_package_groups::ListPackageGroupsInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct ListPackageGroupsInputBuilder {
     pub(crate) domain: ::std::option::Option<::std::string::String>,
@@ -136,18 +133,13 @@ impl ListPackageGroupsInputBuilder {
     /// Consumes the builder and constructs a [`ListPackageGroupsInput`](crate::operation::list_package_groups::ListPackageGroupsInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        crate::operation::list_package_groups::ListPackageGroupsInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
-        ::std::result::Result::Ok(
-            crate::operation::list_package_groups::ListPackageGroupsInput {
-                domain: self.domain,
-                domain_owner: self.domain_owner,
-                max_results: self.max_results,
-                next_token: self.next_token,
-                prefix: self.prefix,
-            },
-        )
+    ) -> ::std::result::Result<crate::operation::list_package_groups::ListPackageGroupsInput, ::aws_smithy_types::error::operation::BuildError> {
+        ::std::result::Result::Ok(crate::operation::list_package_groups::ListPackageGroupsInput {
+            domain: self.domain,
+            domain_owner: self.domain_owner,
+            max_results: self.max_results,
+            next_token: self.next_token,
+            prefix: self.prefix,
+        })
     }
 }

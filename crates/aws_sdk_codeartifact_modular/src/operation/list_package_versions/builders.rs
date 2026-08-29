@@ -63,9 +63,7 @@ impl ListPackageVersionsFluentBuilder {
         }
     }
     /// Access the ListPackageVersions as a reference.
-    pub fn as_input(
-        &self,
-    ) -> &crate::operation::list_package_versions::builders::ListPackageVersionsInputBuilder {
+    pub fn as_input(&self) -> &crate::operation::list_package_versions::builders::ListPackageVersionsInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -89,17 +87,12 @@ impl ListPackageVersionsFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins =
-            crate::operation::list_package_versions::ListPackageVersions::operation_runtime_plugins(
-                self.handle.runtime_plugins.clone(),
-                &self.handle.conf,
-                self.config_override,
-            );
-        crate::operation::list_package_versions::ListPackageVersions::orchestrate(
-            &runtime_plugins,
-            input,
-        )
-        .await
+        let runtime_plugins = crate::operation::list_package_versions::ListPackageVersions::operation_runtime_plugins(
+            self.handle.runtime_plugins.clone(),
+            &self.handle.conf,
+            self.config_override,
+        );
+        crate::operation::list_package_versions::ListPackageVersions::orchestrate(&runtime_plugins, input).await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -112,31 +105,20 @@ impl ListPackageVersionsFluentBuilder {
     > {
         crate::client::customize::CustomizableOperation::new(self)
     }
-    pub(crate) fn config_override(
-        mut self,
-        config_override: impl ::std::convert::Into<crate::config::Builder>,
-    ) -> Self {
+    pub(crate) fn config_override(mut self, config_override: impl ::std::convert::Into<crate::config::Builder>) -> Self {
         self.set_config_override(::std::option::Option::Some(config_override.into()));
         self
     }
 
-    pub(crate) fn set_config_override(
-        &mut self,
-        config_override: ::std::option::Option<crate::config::Builder>,
-    ) -> &mut Self {
+    pub(crate) fn set_config_override(&mut self, config_override: ::std::option::Option<crate::config::Builder>) -> &mut Self {
         self.config_override = config_override;
         self
     }
     /// Create a paginator for this request
     ///
     /// Paginators are used by calling [`send().await`](crate::operation::list_package_versions::paginator::ListPackageVersionsPaginator::send) which returns a [`PaginationStream`](aws_smithy_async::future::pagination_stream::PaginationStream).
-    pub fn into_paginator(
-        self,
-    ) -> crate::operation::list_package_versions::paginator::ListPackageVersionsPaginator {
-        crate::operation::list_package_versions::paginator::ListPackageVersionsPaginator::new(
-            self.handle,
-            self.inner,
-        )
+    pub fn into_paginator(self) -> crate::operation::list_package_versions::paginator::ListPackageVersionsPaginator {
+        crate::operation::list_package_versions::paginator::ListPackageVersionsPaginator::new(self.handle, self.inner)
     }
     /// <p>The name of the domain that contains the repository that contains the requested package versions.</p>
     pub fn domain(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
@@ -288,10 +270,7 @@ impl ListPackageVersionsFluentBuilder {
         self
     }
     /// <p>A string that filters the requested package versions by status.</p>
-    pub fn set_status(
-        mut self,
-        input: ::std::option::Option<crate::types::PackageVersionStatus>,
-    ) -> Self {
+    pub fn set_status(mut self, input: ::std::option::Option<crate::types::PackageVersionStatus>) -> Self {
         self.inner = self.inner.set_status(input);
         self
     }
@@ -305,10 +284,7 @@ impl ListPackageVersionsFluentBuilder {
         self
     }
     /// <p>How to sort the requested list of package versions.</p>
-    pub fn set_sort_by(
-        mut self,
-        input: ::std::option::Option<crate::types::PackageVersionSortType>,
-    ) -> Self {
+    pub fn set_sort_by(mut self, input: ::std::option::Option<crate::types::PackageVersionSortType>) -> Self {
         self.inner = self.inner.set_sort_by(input);
         self
     }
@@ -350,17 +326,12 @@ impl ListPackageVersionsFluentBuilder {
         self
     }
     /// <p>The <code>originType</code> used to filter package versions. Only package versions with the provided <code>originType</code> will be returned.</p>
-    pub fn set_origin_type(
-        mut self,
-        input: ::std::option::Option<crate::types::PackageVersionOriginType>,
-    ) -> Self {
+    pub fn set_origin_type(mut self, input: ::std::option::Option<crate::types::PackageVersionOriginType>) -> Self {
         self.inner = self.inner.set_origin_type(input);
         self
     }
     /// <p>The <code>originType</code> used to filter package versions. Only package versions with the provided <code>originType</code> will be returned.</p>
-    pub fn get_origin_type(
-        &self,
-    ) -> &::std::option::Option<crate::types::PackageVersionOriginType> {
+    pub fn get_origin_type(&self) -> &::std::option::Option<crate::types::PackageVersionOriginType> {
         self.inner.get_origin_type()
     }
 }

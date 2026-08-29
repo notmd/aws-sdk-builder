@@ -29,17 +29,14 @@ impl DeleteRepositoryInput {
 #[cfg(feature = "op_delete_repository")]
 impl DeleteRepositoryInput {
     /// Creates a new builder-style object to manufacture [`DeleteRepositoryInput`](crate::operation::delete_repository::DeleteRepositoryInput).
-    pub fn builder() -> crate::operation::delete_repository::builders::DeleteRepositoryInputBuilder
-    {
+    pub fn builder() -> crate::operation::delete_repository::builders::DeleteRepositoryInputBuilder {
         crate::operation::delete_repository::builders::DeleteRepositoryInputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_delete_repository")]
 /// A builder for [`DeleteRepositoryInput`](crate::operation::delete_repository::DeleteRepositoryInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct DeleteRepositoryInputBuilder {
     pub(crate) domain: ::std::option::Option<::std::string::String>,
@@ -95,10 +92,7 @@ impl DeleteRepositoryInputBuilder {
     /// Consumes the builder and constructs a [`DeleteRepositoryInput`](crate::operation::delete_repository::DeleteRepositoryInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        crate::operation::delete_repository::DeleteRepositoryInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    ) -> ::std::result::Result<crate::operation::delete_repository::DeleteRepositoryInput, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::operation::delete_repository::DeleteRepositoryInput {
             domain: self.domain,
             domain_owner: self.domain_owner,

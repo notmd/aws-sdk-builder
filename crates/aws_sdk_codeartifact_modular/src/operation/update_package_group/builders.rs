@@ -63,9 +63,7 @@ impl UpdatePackageGroupFluentBuilder {
         }
     }
     /// Access the UpdatePackageGroup as a reference.
-    pub fn as_input(
-        &self,
-    ) -> &crate::operation::update_package_group::builders::UpdatePackageGroupInputBuilder {
+    pub fn as_input(&self) -> &crate::operation::update_package_group::builders::UpdatePackageGroupInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -89,17 +87,12 @@ impl UpdatePackageGroupFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins =
-            crate::operation::update_package_group::UpdatePackageGroup::operation_runtime_plugins(
-                self.handle.runtime_plugins.clone(),
-                &self.handle.conf,
-                self.config_override,
-            );
-        crate::operation::update_package_group::UpdatePackageGroup::orchestrate(
-            &runtime_plugins,
-            input,
-        )
-        .await
+        let runtime_plugins = crate::operation::update_package_group::UpdatePackageGroup::operation_runtime_plugins(
+            self.handle.runtime_plugins.clone(),
+            &self.handle.conf,
+            self.config_override,
+        );
+        crate::operation::update_package_group::UpdatePackageGroup::orchestrate(&runtime_plugins, input).await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -112,18 +105,12 @@ impl UpdatePackageGroupFluentBuilder {
     > {
         crate::client::customize::CustomizableOperation::new(self)
     }
-    pub(crate) fn config_override(
-        mut self,
-        config_override: impl ::std::convert::Into<crate::config::Builder>,
-    ) -> Self {
+    pub(crate) fn config_override(mut self, config_override: impl ::std::convert::Into<crate::config::Builder>) -> Self {
         self.set_config_override(::std::option::Option::Some(config_override.into()));
         self
     }
 
-    pub(crate) fn set_config_override(
-        &mut self,
-        config_override: ::std::option::Option<crate::config::Builder>,
-    ) -> &mut Self {
+    pub(crate) fn set_config_override(&mut self, config_override: ::std::option::Option<crate::config::Builder>) -> &mut Self {
         self.config_override = config_override;
         self
     }
@@ -156,18 +143,12 @@ impl UpdatePackageGroupFluentBuilder {
         self.inner.get_domain_owner()
     }
     /// <p>The pattern of the package group to be updated.</p>
-    pub fn package_group(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn package_group(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.package_group(input.into());
         self
     }
     /// <p>The pattern of the package group to be updated.</p>
-    pub fn set_package_group(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_package_group(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_package_group(input);
         self
     }

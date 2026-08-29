@@ -41,17 +41,14 @@ impl ListSubPackageGroupsInput {
 #[cfg(feature = "op_list_sub_package_groups")]
 impl ListSubPackageGroupsInput {
     /// Creates a new builder-style object to manufacture [`ListSubPackageGroupsInput`](crate::operation::list_sub_package_groups::ListSubPackageGroupsInput).
-    pub fn builder(
-    ) -> crate::operation::list_sub_package_groups::builders::ListSubPackageGroupsInputBuilder {
+    pub fn builder() -> crate::operation::list_sub_package_groups::builders::ListSubPackageGroupsInputBuilder {
         crate::operation::list_sub_package_groups::builders::ListSubPackageGroupsInputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_list_sub_package_groups")]
 /// A builder for [`ListSubPackageGroupsInput`](crate::operation::list_sub_package_groups::ListSubPackageGroupsInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct ListSubPackageGroupsInputBuilder {
     pub(crate) domain: ::std::option::Option<::std::string::String>,
@@ -93,18 +90,12 @@ impl ListSubPackageGroupsInputBuilder {
     }
     /// <p>The pattern of the package group from which to list sub package groups.</p>
     /// This field is required.
-    pub fn package_group(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn package_group(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.package_group = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The pattern of the package group from which to list sub package groups.</p>
-    pub fn set_package_group(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_package_group(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.package_group = input;
         self
     }
@@ -143,18 +134,14 @@ impl ListSubPackageGroupsInputBuilder {
     /// Consumes the builder and constructs a [`ListSubPackageGroupsInput`](crate::operation::list_sub_package_groups::ListSubPackageGroupsInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        crate::operation::list_sub_package_groups::ListSubPackageGroupsInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
-        ::std::result::Result::Ok(
-            crate::operation::list_sub_package_groups::ListSubPackageGroupsInput {
-                domain: self.domain,
-                domain_owner: self.domain_owner,
-                package_group: self.package_group,
-                max_results: self.max_results,
-                next_token: self.next_token,
-            },
-        )
+    ) -> ::std::result::Result<crate::operation::list_sub_package_groups::ListSubPackageGroupsInput, ::aws_smithy_types::error::operation::BuildError>
+    {
+        ::std::result::Result::Ok(crate::operation::list_sub_package_groups::ListSubPackageGroupsInput {
+            domain: self.domain,
+            domain_owner: self.domain_owner,
+            package_group: self.package_group,
+            max_results: self.max_results,
+            next_token: self.next_token,
+        })
     }
 }

@@ -90,16 +90,14 @@ impl ::aws_types::request_id::RequestId for ListPackageVersionDependenciesOutput
 #[cfg(feature = "op_list_package_version_dependencies")]
 impl ListPackageVersionDependenciesOutput {
     /// Creates a new builder-style object to manufacture [`ListPackageVersionDependenciesOutput`](crate::operation::list_package_version_dependencies::ListPackageVersionDependenciesOutput).
-    pub fn builder() -> crate::operation::list_package_version_dependencies::builders::ListPackageVersionDependenciesOutputBuilder{
+    pub fn builder() -> crate::operation::list_package_version_dependencies::builders::ListPackageVersionDependenciesOutputBuilder {
         crate::operation::list_package_version_dependencies::builders::ListPackageVersionDependenciesOutputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_list_package_version_dependencies")]
 /// A builder for [`ListPackageVersionDependenciesOutput`](crate::operation::list_package_version_dependencies::ListPackageVersionDependenciesOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct ListPackageVersionDependenciesOutputBuilder {
     pub(crate) format: ::std::option::Option<crate::types::PackageFormat>,
@@ -108,8 +106,7 @@ pub struct ListPackageVersionDependenciesOutputBuilder {
     pub(crate) version: ::std::option::Option<::std::string::String>,
     pub(crate) version_revision: ::std::option::Option<::std::string::String>,
     pub(crate) next_token: ::std::option::Option<::std::string::String>,
-    pub(crate) dependencies:
-        ::std::option::Option<::std::vec::Vec<crate::types::PackageDependency>>,
+    pub(crate) dependencies: ::std::option::Option<::std::vec::Vec<crate::types::PackageDependency>>,
     _request_id: Option<String>,
 }
 #[cfg(feature = "op_list_package_version_dependencies")]
@@ -213,18 +210,12 @@ impl ListPackageVersionDependenciesOutputBuilder {
         &self.version
     }
     /// <p>The current revision associated with the package version.</p>
-    pub fn version_revision(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn version_revision(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.version_revision = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The current revision associated with the package version.</p>
-    pub fn set_version_revision(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_version_revision(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.version_revision = input;
         self
     }
@@ -258,17 +249,12 @@ impl ListPackageVersionDependenciesOutputBuilder {
         self
     }
     /// <p>The returned list of <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_PackageDependency.html">PackageDependency</a> objects.</p>
-    pub fn set_dependencies(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<crate::types::PackageDependency>>,
-    ) -> Self {
+    pub fn set_dependencies(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::PackageDependency>>) -> Self {
         self.dependencies = input;
         self
     }
     /// <p>The returned list of <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_PackageDependency.html">PackageDependency</a> objects.</p>
-    pub fn get_dependencies(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<crate::types::PackageDependency>> {
+    pub fn get_dependencies(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::PackageDependency>> {
         &self.dependencies
     }
     pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
@@ -281,10 +267,7 @@ impl ListPackageVersionDependenciesOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`ListPackageVersionDependenciesOutput`](crate::operation::list_package_version_dependencies::ListPackageVersionDependenciesOutput).
-    pub fn build(
-        self,
-    ) -> crate::operation::list_package_version_dependencies::ListPackageVersionDependenciesOutput
-    {
+    pub fn build(self) -> crate::operation::list_package_version_dependencies::ListPackageVersionDependenciesOutput {
         crate::operation::list_package_version_dependencies::ListPackageVersionDependenciesOutput {
             format: self.format,
             namespace: self.namespace,

@@ -48,7 +48,7 @@ impl
             crate::operation::list_package_version_dependencies::ListPackageVersionDependenciesOutput,
             crate::operation::list_package_version_dependencies::ListPackageVersionDependenciesError,
         >,
-    >{
+    > {
         ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
     }
 }
@@ -63,7 +63,7 @@ impl ListPackageVersionDependenciesFluentBuilder {
         }
     }
     /// Access the ListPackageVersionDependencies as a reference.
-    pub fn as_input(&self) -> &crate::operation::list_package_version_dependencies::builders::ListPackageVersionDependenciesInputBuilder{
+    pub fn as_input(&self) -> &crate::operation::list_package_version_dependencies::builders::ListPackageVersionDependenciesInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -82,7 +82,7 @@ impl ListPackageVersionDependenciesFluentBuilder {
             crate::operation::list_package_version_dependencies::ListPackageVersionDependenciesError,
             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
         >,
-    >{
+    > {
         let input = self
             .inner
             .build()
@@ -105,18 +105,12 @@ impl ListPackageVersionDependenciesFluentBuilder {
     > {
         crate::client::customize::CustomizableOperation::new(self)
     }
-    pub(crate) fn config_override(
-        mut self,
-        config_override: impl ::std::convert::Into<crate::config::Builder>,
-    ) -> Self {
+    pub(crate) fn config_override(mut self, config_override: impl ::std::convert::Into<crate::config::Builder>) -> Self {
         self.set_config_override(::std::option::Option::Some(config_override.into()));
         self
     }
 
-    pub(crate) fn set_config_override(
-        &mut self,
-        config_override: ::std::option::Option<crate::config::Builder>,
-    ) -> &mut Self {
+    pub(crate) fn set_config_override(&mut self, config_override: ::std::option::Option<crate::config::Builder>) -> &mut Self {
         self.config_override = config_override;
         self
     }
@@ -247,18 +241,12 @@ impl ListPackageVersionDependenciesFluentBuilder {
         self.inner.get_package()
     }
     /// <p>A string that contains the package version (for example, <code>3.5.2</code>).</p>
-    pub fn package_version(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn package_version(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.package_version(input.into());
         self
     }
     /// <p>A string that contains the package version (for example, <code>3.5.2</code>).</p>
-    pub fn set_package_version(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_package_version(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_package_version(input);
         self
     }

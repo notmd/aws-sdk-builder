@@ -3,24 +3,14 @@ pub(crate) fn de_package_group_description<'a, I>(
     tokens: &mut ::std::iter::Peekable<I>,
     _value: &'a [u8],
     depth: u32,
-) -> ::std::result::Result<
-    Option<crate::types::PackageGroupDescription>,
-    ::aws_smithy_json::deserialize::error::DeserializeError,
->
+) -> ::std::result::Result<Option<crate::types::PackageGroupDescription>, ::aws_smithy_json::deserialize::error::DeserializeError>
 where
-    I: Iterator<
-        Item = Result<
-            ::aws_smithy_json::deserialize::Token<'a>,
-            ::aws_smithy_json::deserialize::error::DeserializeError,
-        >,
-    >,
+    I: Iterator<Item = Result<::aws_smithy_json::deserialize::Token<'a>, ::aws_smithy_json::deserialize::error::DeserializeError>>,
 {
     if depth >= 128u32 {
-        return Err(
-            ::aws_smithy_json::deserialize::error::DeserializeError::custom(
-                "maximum nesting depth exceeded",
-            ),
-        );
+        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
+            "maximum nesting depth exceeded",
+        ));
     }
     match tokens.next().transpose()? {
         Some(::aws_smithy_json::deserialize::Token::ValueNull { .. }) => Ok(None),
@@ -30,102 +20,84 @@ where
             loop {
                 match tokens.next().transpose()? {
                     Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
-                    Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => {
-                        match key.to_unescaped()?.as_ref() {
-                            "arn" => {
-                                builder = builder.set_arn(
-                                    ::aws_smithy_json::deserialize::token::expect_string_or_null(
-                                        tokens.next(),
-                                    )?
+                    Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
+                        "arn" => {
+                            builder = builder.set_arn(
+                                ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
                                     .map(|s| s.to_unescaped().map(|u| u.into_owned()))
                                     .transpose()?,
-                                );
-                            }
-                            "pattern" => {
-                                builder = builder.set_pattern(
-                                    ::aws_smithy_json::deserialize::token::expect_string_or_null(
-                                        tokens.next(),
-                                    )?
+                            );
+                        }
+                        "pattern" => {
+                            builder = builder.set_pattern(
+                                ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
                                     .map(|s| s.to_unescaped().map(|u| u.into_owned()))
                                     .transpose()?,
-                                );
-                            }
-                            "domainName" => {
-                                builder = builder.set_domain_name(
-                                    ::aws_smithy_json::deserialize::token::expect_string_or_null(
-                                        tokens.next(),
-                                    )?
+                            );
+                        }
+                        "domainName" => {
+                            builder = builder.set_domain_name(
+                                ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
                                     .map(|s| s.to_unescaped().map(|u| u.into_owned()))
                                     .transpose()?,
-                                );
-                            }
-                            "domainOwner" => {
-                                builder = builder.set_domain_owner(
-                                    ::aws_smithy_json::deserialize::token::expect_string_or_null(
-                                        tokens.next(),
-                                    )?
+                            );
+                        }
+                        "domainOwner" => {
+                            builder = builder.set_domain_owner(
+                                ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
                                     .map(|s| s.to_unescaped().map(|u| u.into_owned()))
                                     .transpose()?,
-                                );
-                            }
-                            "createdTime" => {
-                                builder = builder.set_created_time(::aws_smithy_json::deserialize::token::expect_timestamp_or_null(
+                            );
+                        }
+                        "createdTime" => {
+                            builder = builder.set_created_time(::aws_smithy_json::deserialize::token::expect_timestamp_or_null(
                                 tokens.next(),
                                 ::aws_smithy_types::date_time::Format::EpochSeconds,
                             )?);
-                            }
-                            "contactInfo" => {
-                                builder = builder.set_contact_info(
-                                    ::aws_smithy_json::deserialize::token::expect_string_or_null(
-                                        tokens.next(),
-                                    )?
+                        }
+                        "contactInfo" => {
+                            builder = builder.set_contact_info(
+                                ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
                                     .map(|s| s.to_unescaped().map(|u| u.into_owned()))
                                     .transpose()?,
-                                );
-                            }
-                            "description" => {
-                                builder = builder.set_description(
-                                    ::aws_smithy_json::deserialize::token::expect_string_or_null(
-                                        tokens.next(),
-                                    )?
+                            );
+                        }
+                        "description" => {
+                            builder = builder.set_description(
+                                ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
                                     .map(|s| s.to_unescaped().map(|u| u.into_owned()))
                                     .transpose()?,
-                                );
-                            }
-                            "originConfiguration" => {
-                                builder = builder.set_origin_configuration(
+                            );
+                        }
+                        "originConfiguration" => {
+                            builder = builder.set_origin_configuration(
                                 crate::protocol_serde::shape_package_group_origin_configuration::de_package_group_origin_configuration(
                                     tokens,
                                     _value,
                                     depth + 1,
                                 )?,
                             );
-                            }
-                            "parent" => {
-                                builder = builder.set_parent(crate::protocol_serde::shape_package_group_reference::de_package_group_reference(
+                        }
+                        "parent" => {
+                            builder = builder.set_parent(crate::protocol_serde::shape_package_group_reference::de_package_group_reference(
                                 tokens,
                                 _value,
                                 depth + 1,
                             )?);
-                            }
-                            _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
                         }
-                    }
+                        _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
+                    },
                     other => {
-                        return Err(
-                            ::aws_smithy_json::deserialize::error::DeserializeError::custom(
-                                format!("expected object key or end object, found: {other:?}"),
-                            ),
-                        )
+                        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
+                            "expected object key or end object, found: {other:?}"
+                        )))
                     }
                 }
             }
             Ok(Some(builder.build()))
         }
-        _ => Err(
-            ::aws_smithy_json::deserialize::error::DeserializeError::custom(
-                "expected start object or null",
-            ),
-        ),
+        _ => Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
+            "expected start object or null",
+        )),
     }
 }

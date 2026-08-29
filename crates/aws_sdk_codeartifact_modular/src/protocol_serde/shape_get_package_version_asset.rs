@@ -15,16 +15,11 @@ pub fn de_get_package_version_asset_http_response(
     Ok({
         #[allow(unused_mut)]
         let mut output = crate::operation::get_package_version_asset::builders::GetPackageVersionAssetOutputBuilder::default();
-        output = output.set_asset(Some(
-            crate::protocol_serde::shape_get_package_version_asset_output::de_asset_payload(
-                _response_body,
-            )?,
-        ));
+        output = output.set_asset(Some(crate::protocol_serde::shape_get_package_version_asset_output::de_asset_payload(
+            _response_body,
+        )?));
         output = output.set_asset_name(
-            crate::protocol_serde::shape_get_package_version_asset_output::de_asset_name_header(
-                _response_headers,
-            )
-            .map_err(|_| {
+            crate::protocol_serde::shape_get_package_version_asset_output::de_asset_name_header(_response_headers).map_err(|_| {
                 crate::operation::get_package_version_asset::GetPackageVersionAssetError::unhandled(
                     "Failed to parse assetName from header `X-AssetName",
                 )
@@ -44,9 +39,7 @@ pub fn de_get_package_version_asset_http_response(
                 )
             })?,
         );
-        output._set_request_id(
-            ::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string),
-        );
+        output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
         output.build()
     })
 }
@@ -61,23 +54,18 @@ pub fn de_get_package_version_asset_http_error(
     crate::operation::get_package_version_asset::GetPackageVersionAssetError,
 > {
     #[allow(unused_mut)]
-    let mut generic_builder = crate::protocol_serde::parse_http_error_metadata(
-        _response_status,
-        _response_headers,
-        _response_body,
-    )
-    .map_err(crate::operation::get_package_version_asset::GetPackageVersionAssetError::unhandled)?;
+    let mut generic_builder = crate::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
+        .map_err(crate::operation::get_package_version_asset::GetPackageVersionAssetError::unhandled)?;
     generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
     let generic = generic_builder.build();
-    let error_code =
-        match generic.code() {
-            Some(code) => code,
-            None => return Err(
-                crate::operation::get_package_version_asset::GetPackageVersionAssetError::unhandled(
-                    generic,
-                ),
-            ),
-        };
+    let error_code = match generic.code() {
+        Some(code) => code,
+        None => {
+            return Err(crate::operation::get_package_version_asset::GetPackageVersionAssetError::unhandled(
+                generic,
+            ))
+        }
+    };
 
     let _error_message = generic.message().map(|msg| msg.to_owned());
     Err(match error_code {

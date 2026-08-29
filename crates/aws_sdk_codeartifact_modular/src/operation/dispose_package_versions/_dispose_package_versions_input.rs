@@ -39,9 +39,7 @@ pub struct DisposePackageVersionsInput {
     /// <p>The versions of the package you want to dispose.</p>
     pub versions: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
     /// <p>The revisions of the package versions you want to dispose.</p>
-    pub version_revisions: ::std::option::Option<
-        ::std::collections::HashMap<::std::string::String, ::std::string::String>,
-    >,
+    pub version_revisions: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
     /// <p>The expected status of the package version to dispose.</p>
     pub expected_status: ::std::option::Option<crate::types::PackageVersionStatus>,
 }
@@ -98,11 +96,7 @@ impl DisposePackageVersionsInput {
         self.versions.as_deref().unwrap_or_default()
     }
     /// <p>The revisions of the package versions you want to dispose.</p>
-    pub fn version_revisions(
-        &self,
-    ) -> ::std::option::Option<
-        &::std::collections::HashMap<::std::string::String, ::std::string::String>,
-    > {
+    pub fn version_revisions(&self) -> ::std::option::Option<&::std::collections::HashMap<::std::string::String, ::std::string::String>> {
         self.version_revisions.as_ref()
     }
     /// <p>The expected status of the package version to dispose.</p>
@@ -113,18 +107,14 @@ impl DisposePackageVersionsInput {
 #[cfg(feature = "op_dispose_package_versions")]
 impl DisposePackageVersionsInput {
     /// Creates a new builder-style object to manufacture [`DisposePackageVersionsInput`](crate::operation::dispose_package_versions::DisposePackageVersionsInput).
-    pub fn builder(
-    ) -> crate::operation::dispose_package_versions::builders::DisposePackageVersionsInputBuilder
-    {
+    pub fn builder() -> crate::operation::dispose_package_versions::builders::DisposePackageVersionsInputBuilder {
         crate::operation::dispose_package_versions::builders::DisposePackageVersionsInputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_dispose_package_versions")]
 /// A builder for [`DisposePackageVersionsInput`](crate::operation::dispose_package_versions::DisposePackageVersionsInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct DisposePackageVersionsInputBuilder {
     pub(crate) domain: ::std::option::Option<::std::string::String>,
@@ -134,9 +124,7 @@ pub struct DisposePackageVersionsInputBuilder {
     pub(crate) namespace: ::std::option::Option<::std::string::String>,
     pub(crate) package: ::std::option::Option<::std::string::String>,
     pub(crate) versions: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
-    pub(crate) version_revisions: ::std::option::Option<
-        ::std::collections::HashMap<::std::string::String, ::std::string::String>,
-    >,
+    pub(crate) version_revisions: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
     pub(crate) expected_status: ::std::option::Option<crate::types::PackageVersionStatus>,
 }
 #[cfg(feature = "op_dispose_package_versions")]
@@ -301,10 +289,7 @@ impl DisposePackageVersionsInputBuilder {
         self
     }
     /// <p>The versions of the package you want to dispose.</p>
-    pub fn set_versions(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
-    ) -> Self {
+    pub fn set_versions(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
         self.versions = input;
         self
     }
@@ -330,19 +315,13 @@ impl DisposePackageVersionsInputBuilder {
     /// <p>The revisions of the package versions you want to dispose.</p>
     pub fn set_version_revisions(
         mut self,
-        input: ::std::option::Option<
-            ::std::collections::HashMap<::std::string::String, ::std::string::String>,
-        >,
+        input: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
     ) -> Self {
         self.version_revisions = input;
         self
     }
     /// <p>The revisions of the package versions you want to dispose.</p>
-    pub fn get_version_revisions(
-        &self,
-    ) -> &::std::option::Option<
-        ::std::collections::HashMap<::std::string::String, ::std::string::String>,
-    > {
+    pub fn get_version_revisions(&self) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>> {
         &self.version_revisions
     }
     /// <p>The expected status of the package version to dispose.</p>
@@ -351,17 +330,12 @@ impl DisposePackageVersionsInputBuilder {
         self
     }
     /// <p>The expected status of the package version to dispose.</p>
-    pub fn set_expected_status(
-        mut self,
-        input: ::std::option::Option<crate::types::PackageVersionStatus>,
-    ) -> Self {
+    pub fn set_expected_status(mut self, input: ::std::option::Option<crate::types::PackageVersionStatus>) -> Self {
         self.expected_status = input;
         self
     }
     /// <p>The expected status of the package version to dispose.</p>
-    pub fn get_expected_status(
-        &self,
-    ) -> &::std::option::Option<crate::types::PackageVersionStatus> {
+    pub fn get_expected_status(&self) -> &::std::option::Option<crate::types::PackageVersionStatus> {
         &self.expected_status
     }
     /// Consumes the builder and constructs a [`DisposePackageVersionsInput`](crate::operation::dispose_package_versions::DisposePackageVersionsInput).
@@ -371,18 +345,16 @@ impl DisposePackageVersionsInputBuilder {
         crate::operation::dispose_package_versions::DisposePackageVersionsInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(
-            crate::operation::dispose_package_versions::DisposePackageVersionsInput {
-                domain: self.domain,
-                domain_owner: self.domain_owner,
-                repository: self.repository,
-                format: self.format,
-                namespace: self.namespace,
-                package: self.package,
-                versions: self.versions,
-                version_revisions: self.version_revisions,
-                expected_status: self.expected_status,
-            },
-        )
+        ::std::result::Result::Ok(crate::operation::dispose_package_versions::DisposePackageVersionsInput {
+            domain: self.domain,
+            domain_owner: self.domain_owner,
+            repository: self.repository,
+            format: self.format,
+            namespace: self.namespace,
+            package: self.package,
+            versions: self.versions,
+            version_revisions: self.version_revisions,
+            expected_status: self.expected_status,
+        })
     }
 }

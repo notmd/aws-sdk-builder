@@ -29,16 +29,14 @@ impl DeleteDomainPermissionsPolicyInput {
 #[cfg(feature = "op_delete_domain_permissions_policy")]
 impl DeleteDomainPermissionsPolicyInput {
     /// Creates a new builder-style object to manufacture [`DeleteDomainPermissionsPolicyInput`](crate::operation::delete_domain_permissions_policy::DeleteDomainPermissionsPolicyInput).
-    pub fn builder() -> crate::operation::delete_domain_permissions_policy::builders::DeleteDomainPermissionsPolicyInputBuilder{
+    pub fn builder() -> crate::operation::delete_domain_permissions_policy::builders::DeleteDomainPermissionsPolicyInputBuilder {
         crate::operation::delete_domain_permissions_policy::builders::DeleteDomainPermissionsPolicyInputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_delete_domain_permissions_policy")]
 /// A builder for [`DeleteDomainPermissionsPolicyInput`](crate::operation::delete_domain_permissions_policy::DeleteDomainPermissionsPolicyInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct DeleteDomainPermissionsPolicyInputBuilder {
     pub(crate) domain: ::std::option::Option<::std::string::String>,
@@ -77,18 +75,12 @@ impl DeleteDomainPermissionsPolicyInputBuilder {
         &self.domain_owner
     }
     /// <p>The current revision of the resource policy to be deleted. This revision is used for optimistic locking, which prevents others from overwriting your changes to the domain's resource policy.</p>
-    pub fn policy_revision(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn policy_revision(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.policy_revision = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The current revision of the resource policy to be deleted. This revision is used for optimistic locking, which prevents others from overwriting your changes to the domain's resource policy.</p>
-    pub fn set_policy_revision(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_policy_revision(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.policy_revision = input;
         self
     }

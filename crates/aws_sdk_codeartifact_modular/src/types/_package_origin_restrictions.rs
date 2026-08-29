@@ -27,9 +27,7 @@ impl PackageOriginRestrictions {
 }
 
 /// A builder for [`PackageOriginRestrictions`](crate::types::PackageOriginRestrictions).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct PackageOriginRestrictionsBuilder {
     pub(crate) publish: ::std::option::Option<crate::types::AllowPublish>,
@@ -58,10 +56,7 @@ impl PackageOriginRestrictionsBuilder {
         self
     }
     /// <p>The package origin configuration that determines if new versions of the package can be added to the repository from an external connection or upstream source.</p>
-    pub fn set_upstream(
-        mut self,
-        input: ::std::option::Option<crate::types::AllowUpstream>,
-    ) -> Self {
+    pub fn set_upstream(mut self, input: ::std::option::Option<crate::types::AllowUpstream>) -> Self {
         self.upstream = input;
         self
     }
@@ -73,12 +68,7 @@ impl PackageOriginRestrictionsBuilder {
     /// This method will fail if any of the following fields are not set:
     /// - [`publish`](crate::types::builders::PackageOriginRestrictionsBuilder::publish)
     /// - [`upstream`](crate::types::builders::PackageOriginRestrictionsBuilder::upstream)
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<
-        crate::types::PackageOriginRestrictions,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    pub fn build(self) -> ::std::result::Result<crate::types::PackageOriginRestrictions, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::PackageOriginRestrictions {
             publish: self.publish.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

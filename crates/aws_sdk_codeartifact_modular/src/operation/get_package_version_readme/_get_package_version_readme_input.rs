@@ -93,18 +93,14 @@ impl GetPackageVersionReadmeInput {
 #[cfg(feature = "op_get_package_version_readme")]
 impl GetPackageVersionReadmeInput {
     /// Creates a new builder-style object to manufacture [`GetPackageVersionReadmeInput`](crate::operation::get_package_version_readme::GetPackageVersionReadmeInput).
-    pub fn builder(
-    ) -> crate::operation::get_package_version_readme::builders::GetPackageVersionReadmeInputBuilder
-    {
+    pub fn builder() -> crate::operation::get_package_version_readme::builders::GetPackageVersionReadmeInputBuilder {
         crate::operation::get_package_version_readme::builders::GetPackageVersionReadmeInputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_get_package_version_readme")]
 /// A builder for [`GetPackageVersionReadmeInput`](crate::operation::get_package_version_readme::GetPackageVersionReadmeInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct GetPackageVersionReadmeInputBuilder {
     pub(crate) domain: ::std::option::Option<::std::string::String>,
@@ -267,18 +263,12 @@ impl GetPackageVersionReadmeInputBuilder {
     }
     /// <p>A string that contains the package version (for example, <code>3.5.2</code>).</p>
     /// This field is required.
-    pub fn package_version(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn package_version(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.package_version = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>A string that contains the package version (for example, <code>3.5.2</code>).</p>
-    pub fn set_package_version(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_package_version(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.package_version = input;
         self
     }
@@ -293,16 +283,14 @@ impl GetPackageVersionReadmeInputBuilder {
         crate::operation::get_package_version_readme::GetPackageVersionReadmeInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(
-            crate::operation::get_package_version_readme::GetPackageVersionReadmeInput {
-                domain: self.domain,
-                domain_owner: self.domain_owner,
-                repository: self.repository,
-                format: self.format,
-                namespace: self.namespace,
-                package: self.package,
-                package_version: self.package_version,
-            },
-        )
+        ::std::result::Result::Ok(crate::operation::get_package_version_readme::GetPackageVersionReadmeInput {
+            domain: self.domain,
+            domain_owner: self.domain_owner,
+            repository: self.repository,
+            format: self.format,
+            namespace: self.namespace,
+            package: self.package,
+            package_version: self.package_version,
+        })
     }
 }

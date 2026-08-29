@@ -3,45 +3,55 @@
 #[non_exhaustive]
 #[derive(::std::fmt::Debug)]
 pub enum Error {
-    /// <p>The operation did not succeed because of an unauthorized access attempt.</p>
+    #[cfg(any(feature = "op_associate_external_connection", feature = "op_copy_package_versions", feature = "op_create_domain", feature = "op_create_package_group", feature = "op_create_repository", feature = "op_delete_domain", feature = "op_delete_domain_permissions_policy", feature = "op_delete_package", feature = "op_delete_package_group", feature = "op_delete_package_versions", feature = "op_delete_repository", feature = "op_delete_repository_permissions_policy", feature = "op_describe_domain", feature = "op_describe_package", feature = "op_describe_package_group", feature = "op_describe_package_version", feature = "op_describe_repository", feature = "op_disassociate_external_connection", feature = "op_dispose_package_versions", feature = "op_get_associated_package_group", feature = "op_get_authorization_token", feature = "op_get_domain_permissions_policy", feature = "op_get_package_version_asset", feature = "op_get_package_version_readme", feature = "op_get_repository_endpoint", feature = "op_get_repository_permissions_policy", feature = "op_list_allowed_repositories_for_group", feature = "op_list_associated_packages", feature = "op_list_domains", feature = "op_list_package_groups", feature = "op_list_package_version_assets", feature = "op_list_package_version_dependencies", feature = "op_list_package_versions", feature = "op_list_packages", feature = "op_list_repositories", feature = "op_list_repositories_in_domain", feature = "op_list_sub_package_groups", feature = "op_list_tags_for_resource", feature = "op_publish_package_version", feature = "op_put_domain_permissions_policy", feature = "op_put_package_origin_configuration", feature = "op_put_repository_permissions_policy", feature = "op_tag_resource", feature = "op_untag_resource", feature = "op_update_package_group", feature = "op_update_package_group_origin_configuration", feature = "op_update_package_versions_status", feature = "op_update_repository"))]
+/// <p>The operation did not succeed because of an unauthorized access attempt.</p>
     AccessDeniedException(crate::types::error::AccessDeniedException),
-    /// <p>The operation did not succeed because prerequisites are not met.</p>
+    #[cfg(any(feature = "op_associate_external_connection", feature = "op_copy_package_versions", feature = "op_create_domain", feature = "op_create_package_group", feature = "op_create_repository", feature = "op_delete_domain", feature = "op_delete_domain_permissions_policy", feature = "op_delete_package", feature = "op_delete_package_group", feature = "op_delete_package_versions", feature = "op_delete_repository", feature = "op_delete_repository_permissions_policy", feature = "op_describe_package_version", feature = "op_disassociate_external_connection", feature = "op_dispose_package_versions", feature = "op_get_package_version_asset", feature = "op_publish_package_version", feature = "op_put_domain_permissions_policy", feature = "op_put_repository_permissions_policy", feature = "op_update_package_versions_status", feature = "op_update_repository"))]
+/// <p>The operation did not succeed because prerequisites are not met.</p>
     ConflictException(crate::types::error::ConflictException),
-    /// <p>The operation did not succeed because of an error that occurred inside CodeArtifact.</p>
+    #[cfg(any(feature = "op_associate_external_connection", feature = "op_copy_package_versions", feature = "op_create_domain", feature = "op_create_package_group", feature = "op_create_repository", feature = "op_delete_domain", feature = "op_delete_domain_permissions_policy", feature = "op_delete_package", feature = "op_delete_package_group", feature = "op_delete_package_versions", feature = "op_delete_repository", feature = "op_delete_repository_permissions_policy", feature = "op_describe_domain", feature = "op_describe_package", feature = "op_describe_package_group", feature = "op_describe_package_version", feature = "op_describe_repository", feature = "op_disassociate_external_connection", feature = "op_dispose_package_versions", feature = "op_get_associated_package_group", feature = "op_get_authorization_token", feature = "op_get_domain_permissions_policy", feature = "op_get_package_version_asset", feature = "op_get_package_version_readme", feature = "op_get_repository_endpoint", feature = "op_get_repository_permissions_policy", feature = "op_list_allowed_repositories_for_group", feature = "op_list_associated_packages", feature = "op_list_domains", feature = "op_list_package_groups", feature = "op_list_package_version_assets", feature = "op_list_package_version_dependencies", feature = "op_list_package_versions", feature = "op_list_packages", feature = "op_list_repositories", feature = "op_list_repositories_in_domain", feature = "op_list_sub_package_groups", feature = "op_publish_package_version", feature = "op_put_domain_permissions_policy", feature = "op_put_package_origin_configuration", feature = "op_put_repository_permissions_policy", feature = "op_update_package_group", feature = "op_update_package_group_origin_configuration", feature = "op_update_package_versions_status", feature = "op_update_repository"))]
+/// <p>The operation did not succeed because of an error that occurred inside CodeArtifact.</p>
     InternalServerException(crate::types::error::InternalServerException),
-    /// <p>The operation did not succeed because the resource requested is not found in the service.</p>
+    #[cfg(any(feature = "op_associate_external_connection", feature = "op_copy_package_versions", feature = "op_create_domain", feature = "op_create_package_group", feature = "op_create_repository", feature = "op_delete_domain_permissions_policy", feature = "op_delete_package", feature = "op_delete_package_group", feature = "op_delete_package_versions", feature = "op_delete_repository", feature = "op_delete_repository_permissions_policy", feature = "op_describe_domain", feature = "op_describe_package", feature = "op_describe_package_group", feature = "op_describe_package_version", feature = "op_describe_repository", feature = "op_disassociate_external_connection", feature = "op_dispose_package_versions", feature = "op_get_associated_package_group", feature = "op_get_authorization_token", feature = "op_get_domain_permissions_policy", feature = "op_get_package_version_asset", feature = "op_get_package_version_readme", feature = "op_get_repository_endpoint", feature = "op_get_repository_permissions_policy", feature = "op_list_allowed_repositories_for_group", feature = "op_list_associated_packages", feature = "op_list_package_groups", feature = "op_list_package_version_assets", feature = "op_list_package_version_dependencies", feature = "op_list_package_versions", feature = "op_list_packages", feature = "op_list_repositories_in_domain", feature = "op_list_sub_package_groups", feature = "op_list_tags_for_resource", feature = "op_publish_package_version", feature = "op_put_domain_permissions_policy", feature = "op_put_package_origin_configuration", feature = "op_put_repository_permissions_policy", feature = "op_tag_resource", feature = "op_untag_resource", feature = "op_update_package_group", feature = "op_update_package_group_origin_configuration", feature = "op_update_package_versions_status", feature = "op_update_repository"))]
+/// <p>The operation did not succeed because the resource requested is not found in the service.</p>
     ResourceNotFoundException(crate::types::error::ResourceNotFoundException),
-    /// <p>The operation did not succeed because it would have exceeded a service limit for your account.</p>
+    #[cfg(any(feature = "op_associate_external_connection", feature = "op_copy_package_versions", feature = "op_create_domain", feature = "op_create_package_group", feature = "op_create_repository", feature = "op_delete_package_group", feature = "op_disassociate_external_connection", feature = "op_list_allowed_repositories_for_group", feature = "op_publish_package_version", feature = "op_put_domain_permissions_policy", feature = "op_put_repository_permissions_policy", feature = "op_tag_resource", feature = "op_update_package_group", feature = "op_update_package_group_origin_configuration", feature = "op_update_repository"))]
+/// <p>The operation did not succeed because it would have exceeded a service limit for your account.</p>
     ServiceQuotaExceededException(crate::types::error::ServiceQuotaExceededException),
-    /// <p>The operation did not succeed because too many requests are sent to the service.</p>
+    #[cfg(any(feature = "op_associate_external_connection", feature = "op_copy_package_versions", feature = "op_create_domain", feature = "op_create_package_group", feature = "op_create_repository", feature = "op_delete_domain", feature = "op_delete_domain_permissions_policy", feature = "op_delete_package", feature = "op_delete_package_group", feature = "op_delete_package_versions", feature = "op_delete_repository", feature = "op_delete_repository_permissions_policy", feature = "op_describe_domain", feature = "op_describe_package", feature = "op_describe_package_group", feature = "op_describe_package_version", feature = "op_describe_repository", feature = "op_disassociate_external_connection", feature = "op_dispose_package_versions", feature = "op_get_authorization_token", feature = "op_get_domain_permissions_policy", feature = "op_get_package_version_asset", feature = "op_get_package_version_readme", feature = "op_get_repository_endpoint", feature = "op_get_repository_permissions_policy", feature = "op_list_allowed_repositories_for_group", feature = "op_list_domains", feature = "op_list_package_groups", feature = "op_list_package_version_assets", feature = "op_list_package_version_dependencies", feature = "op_list_package_versions", feature = "op_list_packages", feature = "op_list_repositories", feature = "op_list_repositories_in_domain", feature = "op_list_sub_package_groups", feature = "op_list_tags_for_resource", feature = "op_publish_package_version", feature = "op_put_domain_permissions_policy", feature = "op_put_package_origin_configuration", feature = "op_put_repository_permissions_policy", feature = "op_tag_resource", feature = "op_untag_resource", feature = "op_update_package_group", feature = "op_update_package_group_origin_configuration", feature = "op_update_package_versions_status", feature = "op_update_repository"))]
+/// <p>The operation did not succeed because too many requests are sent to the service.</p>
     ThrottlingException(crate::types::error::ThrottlingException),
-    /// <p>The operation did not succeed because a parameter in the request was sent with an invalid value.</p>
+    #[cfg(any(feature = "op_associate_external_connection", feature = "op_copy_package_versions", feature = "op_create_domain", feature = "op_create_package_group", feature = "op_create_repository", feature = "op_delete_domain", feature = "op_delete_domain_permissions_policy", feature = "op_delete_package", feature = "op_delete_package_group", feature = "op_delete_package_versions", feature = "op_delete_repository", feature = "op_delete_repository_permissions_policy", feature = "op_describe_domain", feature = "op_describe_package", feature = "op_describe_package_group", feature = "op_describe_package_version", feature = "op_describe_repository", feature = "op_disassociate_external_connection", feature = "op_dispose_package_versions", feature = "op_get_associated_package_group", feature = "op_get_authorization_token", feature = "op_get_domain_permissions_policy", feature = "op_get_package_version_asset", feature = "op_get_package_version_readme", feature = "op_get_repository_endpoint", feature = "op_get_repository_permissions_policy", feature = "op_list_allowed_repositories_for_group", feature = "op_list_associated_packages", feature = "op_list_domains", feature = "op_list_package_groups", feature = "op_list_package_version_assets", feature = "op_list_package_version_dependencies", feature = "op_list_package_versions", feature = "op_list_packages", feature = "op_list_repositories", feature = "op_list_repositories_in_domain", feature = "op_list_sub_package_groups", feature = "op_list_tags_for_resource", feature = "op_publish_package_version", feature = "op_put_domain_permissions_policy", feature = "op_put_package_origin_configuration", feature = "op_put_repository_permissions_policy", feature = "op_tag_resource", feature = "op_untag_resource", feature = "op_update_package_group", feature = "op_update_package_group_origin_configuration", feature = "op_update_package_versions_status", feature = "op_update_repository"))]
+/// <p>The operation did not succeed because a parameter in the request was sent with an invalid value.</p>
     ValidationException(crate::types::error::ValidationException),
     /// An unexpected error occurred (e.g., invalid JSON returned by the service or an unknown error code).
-    #[deprecated(
-        note = "Matching `Unhandled` directly is not forwards compatible. Instead, match using a \
+    #[deprecated(note = "Matching `Unhandled` directly is not forwards compatible. Instead, match using a \
     variable wildcard pattern and check `.code()`:
      \
     &nbsp;&nbsp;&nbsp;`err if err.code() == Some(\"SpecificExceptionCode\") => { /* handle the error */ }`
      \
-    See [`ProvideErrorMetadata`](#impl-ProvideErrorMetadata-for-Error) for what information is available for the error."
-    )]
+    See [`ProvideErrorMetadata`](#impl-ProvideErrorMetadata-for-Error) for what information is available for the error.")]
     Unhandled(crate::error::sealed_unhandled::Unhandled),
 }
 impl ::std::fmt::Display for Error {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         match self {
-            Error::AccessDeniedException(inner) => inner.fmt(f),
-            Error::ConflictException(inner) => inner.fmt(f),
-            Error::InternalServerException(inner) => inner.fmt(f),
-            Error::ResourceNotFoundException(inner) => inner.fmt(f),
-            Error::ServiceQuotaExceededException(inner) => inner.fmt(f),
-            Error::ThrottlingException(inner) => inner.fmt(f),
-            Error::ValidationException(inner) => inner.fmt(f),
+            #[cfg(any(feature = "op_associate_external_connection", feature = "op_copy_package_versions", feature = "op_create_domain", feature = "op_create_package_group", feature = "op_create_repository", feature = "op_delete_domain", feature = "op_delete_domain_permissions_policy", feature = "op_delete_package", feature = "op_delete_package_group", feature = "op_delete_package_versions", feature = "op_delete_repository", feature = "op_delete_repository_permissions_policy", feature = "op_describe_domain", feature = "op_describe_package", feature = "op_describe_package_group", feature = "op_describe_package_version", feature = "op_describe_repository", feature = "op_disassociate_external_connection", feature = "op_dispose_package_versions", feature = "op_get_associated_package_group", feature = "op_get_authorization_token", feature = "op_get_domain_permissions_policy", feature = "op_get_package_version_asset", feature = "op_get_package_version_readme", feature = "op_get_repository_endpoint", feature = "op_get_repository_permissions_policy", feature = "op_list_allowed_repositories_for_group", feature = "op_list_associated_packages", feature = "op_list_domains", feature = "op_list_package_groups", feature = "op_list_package_version_assets", feature = "op_list_package_version_dependencies", feature = "op_list_package_versions", feature = "op_list_packages", feature = "op_list_repositories", feature = "op_list_repositories_in_domain", feature = "op_list_sub_package_groups", feature = "op_list_tags_for_resource", feature = "op_publish_package_version", feature = "op_put_domain_permissions_policy", feature = "op_put_package_origin_configuration", feature = "op_put_repository_permissions_policy", feature = "op_tag_resource", feature = "op_untag_resource", feature = "op_update_package_group", feature = "op_update_package_group_origin_configuration", feature = "op_update_package_versions_status", feature = "op_update_repository"))]
+Error::AccessDeniedException(inner) => inner.fmt(f),
+            #[cfg(any(feature = "op_associate_external_connection", feature = "op_copy_package_versions", feature = "op_create_domain", feature = "op_create_package_group", feature = "op_create_repository", feature = "op_delete_domain", feature = "op_delete_domain_permissions_policy", feature = "op_delete_package", feature = "op_delete_package_group", feature = "op_delete_package_versions", feature = "op_delete_repository", feature = "op_delete_repository_permissions_policy", feature = "op_describe_package_version", feature = "op_disassociate_external_connection", feature = "op_dispose_package_versions", feature = "op_get_package_version_asset", feature = "op_publish_package_version", feature = "op_put_domain_permissions_policy", feature = "op_put_repository_permissions_policy", feature = "op_update_package_versions_status", feature = "op_update_repository"))]
+Error::ConflictException(inner) => inner.fmt(f),
+            #[cfg(any(feature = "op_associate_external_connection", feature = "op_copy_package_versions", feature = "op_create_domain", feature = "op_create_package_group", feature = "op_create_repository", feature = "op_delete_domain", feature = "op_delete_domain_permissions_policy", feature = "op_delete_package", feature = "op_delete_package_group", feature = "op_delete_package_versions", feature = "op_delete_repository", feature = "op_delete_repository_permissions_policy", feature = "op_describe_domain", feature = "op_describe_package", feature = "op_describe_package_group", feature = "op_describe_package_version", feature = "op_describe_repository", feature = "op_disassociate_external_connection", feature = "op_dispose_package_versions", feature = "op_get_associated_package_group", feature = "op_get_authorization_token", feature = "op_get_domain_permissions_policy", feature = "op_get_package_version_asset", feature = "op_get_package_version_readme", feature = "op_get_repository_endpoint", feature = "op_get_repository_permissions_policy", feature = "op_list_allowed_repositories_for_group", feature = "op_list_associated_packages", feature = "op_list_domains", feature = "op_list_package_groups", feature = "op_list_package_version_assets", feature = "op_list_package_version_dependencies", feature = "op_list_package_versions", feature = "op_list_packages", feature = "op_list_repositories", feature = "op_list_repositories_in_domain", feature = "op_list_sub_package_groups", feature = "op_publish_package_version", feature = "op_put_domain_permissions_policy", feature = "op_put_package_origin_configuration", feature = "op_put_repository_permissions_policy", feature = "op_update_package_group", feature = "op_update_package_group_origin_configuration", feature = "op_update_package_versions_status", feature = "op_update_repository"))]
+Error::InternalServerException(inner) => inner.fmt(f),
+            #[cfg(any(feature = "op_associate_external_connection", feature = "op_copy_package_versions", feature = "op_create_domain", feature = "op_create_package_group", feature = "op_create_repository", feature = "op_delete_domain_permissions_policy", feature = "op_delete_package", feature = "op_delete_package_group", feature = "op_delete_package_versions", feature = "op_delete_repository", feature = "op_delete_repository_permissions_policy", feature = "op_describe_domain", feature = "op_describe_package", feature = "op_describe_package_group", feature = "op_describe_package_version", feature = "op_describe_repository", feature = "op_disassociate_external_connection", feature = "op_dispose_package_versions", feature = "op_get_associated_package_group", feature = "op_get_authorization_token", feature = "op_get_domain_permissions_policy", feature = "op_get_package_version_asset", feature = "op_get_package_version_readme", feature = "op_get_repository_endpoint", feature = "op_get_repository_permissions_policy", feature = "op_list_allowed_repositories_for_group", feature = "op_list_associated_packages", feature = "op_list_package_groups", feature = "op_list_package_version_assets", feature = "op_list_package_version_dependencies", feature = "op_list_package_versions", feature = "op_list_packages", feature = "op_list_repositories_in_domain", feature = "op_list_sub_package_groups", feature = "op_list_tags_for_resource", feature = "op_publish_package_version", feature = "op_put_domain_permissions_policy", feature = "op_put_package_origin_configuration", feature = "op_put_repository_permissions_policy", feature = "op_tag_resource", feature = "op_untag_resource", feature = "op_update_package_group", feature = "op_update_package_group_origin_configuration", feature = "op_update_package_versions_status", feature = "op_update_repository"))]
+Error::ResourceNotFoundException(inner) => inner.fmt(f),
+            #[cfg(any(feature = "op_associate_external_connection", feature = "op_copy_package_versions", feature = "op_create_domain", feature = "op_create_package_group", feature = "op_create_repository", feature = "op_delete_package_group", feature = "op_disassociate_external_connection", feature = "op_list_allowed_repositories_for_group", feature = "op_publish_package_version", feature = "op_put_domain_permissions_policy", feature = "op_put_repository_permissions_policy", feature = "op_tag_resource", feature = "op_update_package_group", feature = "op_update_package_group_origin_configuration", feature = "op_update_repository"))]
+Error::ServiceQuotaExceededException(inner) => inner.fmt(f),
+            #[cfg(any(feature = "op_associate_external_connection", feature = "op_copy_package_versions", feature = "op_create_domain", feature = "op_create_package_group", feature = "op_create_repository", feature = "op_delete_domain", feature = "op_delete_domain_permissions_policy", feature = "op_delete_package", feature = "op_delete_package_group", feature = "op_delete_package_versions", feature = "op_delete_repository", feature = "op_delete_repository_permissions_policy", feature = "op_describe_domain", feature = "op_describe_package", feature = "op_describe_package_group", feature = "op_describe_package_version", feature = "op_describe_repository", feature = "op_disassociate_external_connection", feature = "op_dispose_package_versions", feature = "op_get_authorization_token", feature = "op_get_domain_permissions_policy", feature = "op_get_package_version_asset", feature = "op_get_package_version_readme", feature = "op_get_repository_endpoint", feature = "op_get_repository_permissions_policy", feature = "op_list_allowed_repositories_for_group", feature = "op_list_domains", feature = "op_list_package_groups", feature = "op_list_package_version_assets", feature = "op_list_package_version_dependencies", feature = "op_list_package_versions", feature = "op_list_packages", feature = "op_list_repositories", feature = "op_list_repositories_in_domain", feature = "op_list_sub_package_groups", feature = "op_list_tags_for_resource", feature = "op_publish_package_version", feature = "op_put_domain_permissions_policy", feature = "op_put_package_origin_configuration", feature = "op_put_repository_permissions_policy", feature = "op_tag_resource", feature = "op_untag_resource", feature = "op_update_package_group", feature = "op_update_package_group_origin_configuration", feature = "op_update_package_versions_status", feature = "op_update_repository"))]
+Error::ThrottlingException(inner) => inner.fmt(f),
+            #[cfg(any(feature = "op_associate_external_connection", feature = "op_copy_package_versions", feature = "op_create_domain", feature = "op_create_package_group", feature = "op_create_repository", feature = "op_delete_domain", feature = "op_delete_domain_permissions_policy", feature = "op_delete_package", feature = "op_delete_package_group", feature = "op_delete_package_versions", feature = "op_delete_repository", feature = "op_delete_repository_permissions_policy", feature = "op_describe_domain", feature = "op_describe_package", feature = "op_describe_package_group", feature = "op_describe_package_version", feature = "op_describe_repository", feature = "op_disassociate_external_connection", feature = "op_dispose_package_versions", feature = "op_get_associated_package_group", feature = "op_get_authorization_token", feature = "op_get_domain_permissions_policy", feature = "op_get_package_version_asset", feature = "op_get_package_version_readme", feature = "op_get_repository_endpoint", feature = "op_get_repository_permissions_policy", feature = "op_list_allowed_repositories_for_group", feature = "op_list_associated_packages", feature = "op_list_domains", feature = "op_list_package_groups", feature = "op_list_package_version_assets", feature = "op_list_package_version_dependencies", feature = "op_list_package_versions", feature = "op_list_packages", feature = "op_list_repositories", feature = "op_list_repositories_in_domain", feature = "op_list_sub_package_groups", feature = "op_list_tags_for_resource", feature = "op_publish_package_version", feature = "op_put_domain_permissions_policy", feature = "op_put_package_origin_configuration", feature = "op_put_repository_permissions_policy", feature = "op_tag_resource", feature = "op_untag_resource", feature = "op_update_package_group", feature = "op_update_package_group_origin_configuration", feature = "op_update_package_versions_status", feature = "op_update_repository"))]
+Error::ValidationException(inner) => inner.fmt(f),
             Error::Unhandled(_) => {
-                if let ::std::option::Option::Some(code) =
-                    ::aws_smithy_types::error::metadata::ProvideErrorMetadata::code(self)
-                {
+                if let ::std::option::Option::Some(code) = ::aws_smithy_types::error::metadata::ProvideErrorMetadata::code(self) {
                     write!(f, "unhandled error ({code})")
                 } else {
                     f.write_str("unhandled error")
@@ -61,38 +71,35 @@ impl From<::aws_smithy_types::error::operation::BuildError> for Error {
 impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata for Error {
     fn meta(&self) -> &::aws_smithy_types::error::metadata::ErrorMetadata {
         match self {
-            Self::AccessDeniedException(inner) => inner.meta(),
-            Self::ConflictException(inner) => inner.meta(),
-            Self::InternalServerException(inner) => inner.meta(),
-            Self::ResourceNotFoundException(inner) => inner.meta(),
-            Self::ServiceQuotaExceededException(inner) => inner.meta(),
-            Self::ThrottlingException(inner) => inner.meta(),
-            Self::ValidationException(inner) => inner.meta(),
+            #[cfg(any(feature = "op_associate_external_connection", feature = "op_copy_package_versions", feature = "op_create_domain", feature = "op_create_package_group", feature = "op_create_repository", feature = "op_delete_domain", feature = "op_delete_domain_permissions_policy", feature = "op_delete_package", feature = "op_delete_package_group", feature = "op_delete_package_versions", feature = "op_delete_repository", feature = "op_delete_repository_permissions_policy", feature = "op_describe_domain", feature = "op_describe_package", feature = "op_describe_package_group", feature = "op_describe_package_version", feature = "op_describe_repository", feature = "op_disassociate_external_connection", feature = "op_dispose_package_versions", feature = "op_get_associated_package_group", feature = "op_get_authorization_token", feature = "op_get_domain_permissions_policy", feature = "op_get_package_version_asset", feature = "op_get_package_version_readme", feature = "op_get_repository_endpoint", feature = "op_get_repository_permissions_policy", feature = "op_list_allowed_repositories_for_group", feature = "op_list_associated_packages", feature = "op_list_domains", feature = "op_list_package_groups", feature = "op_list_package_version_assets", feature = "op_list_package_version_dependencies", feature = "op_list_package_versions", feature = "op_list_packages", feature = "op_list_repositories", feature = "op_list_repositories_in_domain", feature = "op_list_sub_package_groups", feature = "op_list_tags_for_resource", feature = "op_publish_package_version", feature = "op_put_domain_permissions_policy", feature = "op_put_package_origin_configuration", feature = "op_put_repository_permissions_policy", feature = "op_tag_resource", feature = "op_untag_resource", feature = "op_update_package_group", feature = "op_update_package_group_origin_configuration", feature = "op_update_package_versions_status", feature = "op_update_repository"))]
+Self::AccessDeniedException(inner) => inner.meta(),
+            #[cfg(any(feature = "op_associate_external_connection", feature = "op_copy_package_versions", feature = "op_create_domain", feature = "op_create_package_group", feature = "op_create_repository", feature = "op_delete_domain", feature = "op_delete_domain_permissions_policy", feature = "op_delete_package", feature = "op_delete_package_group", feature = "op_delete_package_versions", feature = "op_delete_repository", feature = "op_delete_repository_permissions_policy", feature = "op_describe_package_version", feature = "op_disassociate_external_connection", feature = "op_dispose_package_versions", feature = "op_get_package_version_asset", feature = "op_publish_package_version", feature = "op_put_domain_permissions_policy", feature = "op_put_repository_permissions_policy", feature = "op_update_package_versions_status", feature = "op_update_repository"))]
+Self::ConflictException(inner) => inner.meta(),
+            #[cfg(any(feature = "op_associate_external_connection", feature = "op_copy_package_versions", feature = "op_create_domain", feature = "op_create_package_group", feature = "op_create_repository", feature = "op_delete_domain", feature = "op_delete_domain_permissions_policy", feature = "op_delete_package", feature = "op_delete_package_group", feature = "op_delete_package_versions", feature = "op_delete_repository", feature = "op_delete_repository_permissions_policy", feature = "op_describe_domain", feature = "op_describe_package", feature = "op_describe_package_group", feature = "op_describe_package_version", feature = "op_describe_repository", feature = "op_disassociate_external_connection", feature = "op_dispose_package_versions", feature = "op_get_associated_package_group", feature = "op_get_authorization_token", feature = "op_get_domain_permissions_policy", feature = "op_get_package_version_asset", feature = "op_get_package_version_readme", feature = "op_get_repository_endpoint", feature = "op_get_repository_permissions_policy", feature = "op_list_allowed_repositories_for_group", feature = "op_list_associated_packages", feature = "op_list_domains", feature = "op_list_package_groups", feature = "op_list_package_version_assets", feature = "op_list_package_version_dependencies", feature = "op_list_package_versions", feature = "op_list_packages", feature = "op_list_repositories", feature = "op_list_repositories_in_domain", feature = "op_list_sub_package_groups", feature = "op_publish_package_version", feature = "op_put_domain_permissions_policy", feature = "op_put_package_origin_configuration", feature = "op_put_repository_permissions_policy", feature = "op_update_package_group", feature = "op_update_package_group_origin_configuration", feature = "op_update_package_versions_status", feature = "op_update_repository"))]
+Self::InternalServerException(inner) => inner.meta(),
+            #[cfg(any(feature = "op_associate_external_connection", feature = "op_copy_package_versions", feature = "op_create_domain", feature = "op_create_package_group", feature = "op_create_repository", feature = "op_delete_domain_permissions_policy", feature = "op_delete_package", feature = "op_delete_package_group", feature = "op_delete_package_versions", feature = "op_delete_repository", feature = "op_delete_repository_permissions_policy", feature = "op_describe_domain", feature = "op_describe_package", feature = "op_describe_package_group", feature = "op_describe_package_version", feature = "op_describe_repository", feature = "op_disassociate_external_connection", feature = "op_dispose_package_versions", feature = "op_get_associated_package_group", feature = "op_get_authorization_token", feature = "op_get_domain_permissions_policy", feature = "op_get_package_version_asset", feature = "op_get_package_version_readme", feature = "op_get_repository_endpoint", feature = "op_get_repository_permissions_policy", feature = "op_list_allowed_repositories_for_group", feature = "op_list_associated_packages", feature = "op_list_package_groups", feature = "op_list_package_version_assets", feature = "op_list_package_version_dependencies", feature = "op_list_package_versions", feature = "op_list_packages", feature = "op_list_repositories_in_domain", feature = "op_list_sub_package_groups", feature = "op_list_tags_for_resource", feature = "op_publish_package_version", feature = "op_put_domain_permissions_policy", feature = "op_put_package_origin_configuration", feature = "op_put_repository_permissions_policy", feature = "op_tag_resource", feature = "op_untag_resource", feature = "op_update_package_group", feature = "op_update_package_group_origin_configuration", feature = "op_update_package_versions_status", feature = "op_update_repository"))]
+Self::ResourceNotFoundException(inner) => inner.meta(),
+            #[cfg(any(feature = "op_associate_external_connection", feature = "op_copy_package_versions", feature = "op_create_domain", feature = "op_create_package_group", feature = "op_create_repository", feature = "op_delete_package_group", feature = "op_disassociate_external_connection", feature = "op_list_allowed_repositories_for_group", feature = "op_publish_package_version", feature = "op_put_domain_permissions_policy", feature = "op_put_repository_permissions_policy", feature = "op_tag_resource", feature = "op_update_package_group", feature = "op_update_package_group_origin_configuration", feature = "op_update_repository"))]
+Self::ServiceQuotaExceededException(inner) => inner.meta(),
+            #[cfg(any(feature = "op_associate_external_connection", feature = "op_copy_package_versions", feature = "op_create_domain", feature = "op_create_package_group", feature = "op_create_repository", feature = "op_delete_domain", feature = "op_delete_domain_permissions_policy", feature = "op_delete_package", feature = "op_delete_package_group", feature = "op_delete_package_versions", feature = "op_delete_repository", feature = "op_delete_repository_permissions_policy", feature = "op_describe_domain", feature = "op_describe_package", feature = "op_describe_package_group", feature = "op_describe_package_version", feature = "op_describe_repository", feature = "op_disassociate_external_connection", feature = "op_dispose_package_versions", feature = "op_get_authorization_token", feature = "op_get_domain_permissions_policy", feature = "op_get_package_version_asset", feature = "op_get_package_version_readme", feature = "op_get_repository_endpoint", feature = "op_get_repository_permissions_policy", feature = "op_list_allowed_repositories_for_group", feature = "op_list_domains", feature = "op_list_package_groups", feature = "op_list_package_version_assets", feature = "op_list_package_version_dependencies", feature = "op_list_package_versions", feature = "op_list_packages", feature = "op_list_repositories", feature = "op_list_repositories_in_domain", feature = "op_list_sub_package_groups", feature = "op_list_tags_for_resource", feature = "op_publish_package_version", feature = "op_put_domain_permissions_policy", feature = "op_put_package_origin_configuration", feature = "op_put_repository_permissions_policy", feature = "op_tag_resource", feature = "op_untag_resource", feature = "op_update_package_group", feature = "op_update_package_group_origin_configuration", feature = "op_update_package_versions_status", feature = "op_update_repository"))]
+Self::ThrottlingException(inner) => inner.meta(),
+            #[cfg(any(feature = "op_associate_external_connection", feature = "op_copy_package_versions", feature = "op_create_domain", feature = "op_create_package_group", feature = "op_create_repository", feature = "op_delete_domain", feature = "op_delete_domain_permissions_policy", feature = "op_delete_package", feature = "op_delete_package_group", feature = "op_delete_package_versions", feature = "op_delete_repository", feature = "op_delete_repository_permissions_policy", feature = "op_describe_domain", feature = "op_describe_package", feature = "op_describe_package_group", feature = "op_describe_package_version", feature = "op_describe_repository", feature = "op_disassociate_external_connection", feature = "op_dispose_package_versions", feature = "op_get_associated_package_group", feature = "op_get_authorization_token", feature = "op_get_domain_permissions_policy", feature = "op_get_package_version_asset", feature = "op_get_package_version_readme", feature = "op_get_repository_endpoint", feature = "op_get_repository_permissions_policy", feature = "op_list_allowed_repositories_for_group", feature = "op_list_associated_packages", feature = "op_list_domains", feature = "op_list_package_groups", feature = "op_list_package_version_assets", feature = "op_list_package_version_dependencies", feature = "op_list_package_versions", feature = "op_list_packages", feature = "op_list_repositories", feature = "op_list_repositories_in_domain", feature = "op_list_sub_package_groups", feature = "op_list_tags_for_resource", feature = "op_publish_package_version", feature = "op_put_domain_permissions_policy", feature = "op_put_package_origin_configuration", feature = "op_put_repository_permissions_policy", feature = "op_tag_resource", feature = "op_untag_resource", feature = "op_update_package_group", feature = "op_update_package_group_origin_configuration", feature = "op_update_package_versions_status", feature = "op_update_repository"))]
+Self::ValidationException(inner) => inner.meta(),
             Self::Unhandled(inner) => &inner.meta,
         }
     }
 }
 #[cfg(feature = "op_associate_external_connection")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::associate_external_connection::AssociateExternalConnectionError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::associate_external_connection::AssociateExternalConnectionError, R>>
+    for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
     fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::associate_external_connection::AssociateExternalConnectionError,
-            R,
-        >,
+        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::associate_external_connection::AssociateExternalConnectionError, R>,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -101,12 +108,8 @@ where
     }
 }
 #[cfg(feature = "op_associate_external_connection")]
-impl From<crate::operation::associate_external_connection::AssociateExternalConnectionError>
-    for Error
-{
-    fn from(
-        err: crate::operation::associate_external_connection::AssociateExternalConnectionError,
-    ) -> Self {
+impl From<crate::operation::associate_external_connection::AssociateExternalConnectionError> for Error {
+    fn from(err: crate::operation::associate_external_connection::AssociateExternalConnectionError) -> Self {
         match err {
             crate::operation::associate_external_connection::AssociateExternalConnectionError::AccessDeniedException(inner) => {
                 Error::AccessDeniedException(inner)
@@ -134,26 +137,13 @@ impl From<crate::operation::associate_external_connection::AssociateExternalConn
     }
 }
 #[cfg(feature = "op_copy_package_versions")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::copy_package_versions::CopyPackageVersionsError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::copy_package_versions::CopyPackageVersionsError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::copy_package_versions::CopyPackageVersionsError,
-            R,
-        >,
-    ) -> Self {
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::copy_package_versions::CopyPackageVersionsError, R>) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -183,26 +173,13 @@ impl From<crate::operation::copy_package_versions::CopyPackageVersionsError> for
     }
 }
 #[cfg(feature = "op_create_domain")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::create_domain::CreateDomainError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::create_domain::CreateDomainError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::create_domain::CreateDomainError,
-            R,
-        >,
-    ) -> Self {
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::create_domain::CreateDomainError, R>) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -214,54 +191,25 @@ where
 impl From<crate::operation::create_domain::CreateDomainError> for Error {
     fn from(err: crate::operation::create_domain::CreateDomainError) -> Self {
         match err {
-            crate::operation::create_domain::CreateDomainError::AccessDeniedException(inner) => {
-                Error::AccessDeniedException(inner)
-            }
-            crate::operation::create_domain::CreateDomainError::ConflictException(inner) => {
-                Error::ConflictException(inner)
-            }
-            crate::operation::create_domain::CreateDomainError::InternalServerException(inner) => {
-                Error::InternalServerException(inner)
-            }
-            crate::operation::create_domain::CreateDomainError::ResourceNotFoundException(
-                inner,
-            ) => Error::ResourceNotFoundException(inner),
-            crate::operation::create_domain::CreateDomainError::ServiceQuotaExceededException(
-                inner,
-            ) => Error::ServiceQuotaExceededException(inner),
-            crate::operation::create_domain::CreateDomainError::ThrottlingException(inner) => {
-                Error::ThrottlingException(inner)
-            }
-            crate::operation::create_domain::CreateDomainError::ValidationException(inner) => {
-                Error::ValidationException(inner)
-            }
-            crate::operation::create_domain::CreateDomainError::Unhandled(inner) => {
-                Error::Unhandled(inner)
-            }
+            crate::operation::create_domain::CreateDomainError::AccessDeniedException(inner) => Error::AccessDeniedException(inner),
+            crate::operation::create_domain::CreateDomainError::ConflictException(inner) => Error::ConflictException(inner),
+            crate::operation::create_domain::CreateDomainError::InternalServerException(inner) => Error::InternalServerException(inner),
+            crate::operation::create_domain::CreateDomainError::ResourceNotFoundException(inner) => Error::ResourceNotFoundException(inner),
+            crate::operation::create_domain::CreateDomainError::ServiceQuotaExceededException(inner) => Error::ServiceQuotaExceededException(inner),
+            crate::operation::create_domain::CreateDomainError::ThrottlingException(inner) => Error::ThrottlingException(inner),
+            crate::operation::create_domain::CreateDomainError::ValidationException(inner) => Error::ValidationException(inner),
+            crate::operation::create_domain::CreateDomainError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
 #[cfg(feature = "op_create_package_group")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::create_package_group::CreatePackageGroupError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::create_package_group::CreatePackageGroupError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::create_package_group::CreatePackageGroupError,
-            R,
-        >,
-    ) -> Self {
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::create_package_group::CreatePackageGroupError, R>) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -289,26 +237,13 @@ impl From<crate::operation::create_package_group::CreatePackageGroupError> for E
     }
 }
 #[cfg(feature = "op_create_repository")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::create_repository::CreateRepositoryError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::create_repository::CreateRepositoryError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::create_repository::CreateRepositoryError,
-            R,
-        >,
-    ) -> Self {
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::create_repository::CreateRepositoryError, R>) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -334,26 +269,13 @@ impl From<crate::operation::create_repository::CreateRepositoryError> for Error 
     }
 }
 #[cfg(feature = "op_delete_domain")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::delete_domain::DeleteDomainError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::delete_domain::DeleteDomainError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::delete_domain::DeleteDomainError,
-            R,
-        >,
-    ) -> Self {
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::delete_domain::DeleteDomainError, R>) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -365,34 +287,19 @@ where
 impl From<crate::operation::delete_domain::DeleteDomainError> for Error {
     fn from(err: crate::operation::delete_domain::DeleteDomainError) -> Self {
         match err {
-            crate::operation::delete_domain::DeleteDomainError::AccessDeniedException(inner) => {
-                Error::AccessDeniedException(inner)
-            }
-            crate::operation::delete_domain::DeleteDomainError::ConflictException(inner) => {
-                Error::ConflictException(inner)
-            }
-            crate::operation::delete_domain::DeleteDomainError::InternalServerException(inner) => {
-                Error::InternalServerException(inner)
-            }
-            crate::operation::delete_domain::DeleteDomainError::ThrottlingException(inner) => {
-                Error::ThrottlingException(inner)
-            }
-            crate::operation::delete_domain::DeleteDomainError::ValidationException(inner) => {
-                Error::ValidationException(inner)
-            }
-            crate::operation::delete_domain::DeleteDomainError::Unhandled(inner) => {
-                Error::Unhandled(inner)
-            }
+            crate::operation::delete_domain::DeleteDomainError::AccessDeniedException(inner) => Error::AccessDeniedException(inner),
+            crate::operation::delete_domain::DeleteDomainError::ConflictException(inner) => Error::ConflictException(inner),
+            crate::operation::delete_domain::DeleteDomainError::InternalServerException(inner) => Error::InternalServerException(inner),
+            crate::operation::delete_domain::DeleteDomainError::ThrottlingException(inner) => Error::ThrottlingException(inner),
+            crate::operation::delete_domain::DeleteDomainError::ValidationException(inner) => Error::ValidationException(inner),
+            crate::operation::delete_domain::DeleteDomainError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
 #[cfg(feature = "op_delete_domain_permissions_policy")]
 impl<R>
     From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::delete_domain_permissions_policy::DeleteDomainPermissionsPolicyError,
-            R,
-        >,
+        ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::delete_domain_permissions_policy::DeleteDomainPermissionsPolicyError, R>,
     > for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
@@ -404,9 +311,7 @@ where
         >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -415,12 +320,8 @@ where
     }
 }
 #[cfg(feature = "op_delete_domain_permissions_policy")]
-impl From<crate::operation::delete_domain_permissions_policy::DeleteDomainPermissionsPolicyError>
-    for Error
-{
-    fn from(
-        err: crate::operation::delete_domain_permissions_policy::DeleteDomainPermissionsPolicyError,
-    ) -> Self {
+impl From<crate::operation::delete_domain_permissions_policy::DeleteDomainPermissionsPolicyError> for Error {
+    fn from(err: crate::operation::delete_domain_permissions_policy::DeleteDomainPermissionsPolicyError) -> Self {
         match err {
             crate::operation::delete_domain_permissions_policy::DeleteDomainPermissionsPolicyError::AccessDeniedException(inner) => {
                 Error::AccessDeniedException(inner)
@@ -445,26 +346,13 @@ impl From<crate::operation::delete_domain_permissions_policy::DeleteDomainPermis
     }
 }
 #[cfg(feature = "op_delete_package")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::delete_package::DeletePackageError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::delete_package::DeletePackageError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::delete_package::DeletePackageError,
-            R,
-        >,
-    ) -> Self {
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::delete_package::DeletePackageError, R>) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -476,51 +364,24 @@ where
 impl From<crate::operation::delete_package::DeletePackageError> for Error {
     fn from(err: crate::operation::delete_package::DeletePackageError) -> Self {
         match err {
-            crate::operation::delete_package::DeletePackageError::AccessDeniedException(inner) => {
-                Error::AccessDeniedException(inner)
-            }
-            crate::operation::delete_package::DeletePackageError::ConflictException(inner) => {
-                Error::ConflictException(inner)
-            }
-            crate::operation::delete_package::DeletePackageError::InternalServerException(
-                inner,
-            ) => Error::InternalServerException(inner),
-            crate::operation::delete_package::DeletePackageError::ResourceNotFoundException(
-                inner,
-            ) => Error::ResourceNotFoundException(inner),
-            crate::operation::delete_package::DeletePackageError::ThrottlingException(inner) => {
-                Error::ThrottlingException(inner)
-            }
-            crate::operation::delete_package::DeletePackageError::ValidationException(inner) => {
-                Error::ValidationException(inner)
-            }
-            crate::operation::delete_package::DeletePackageError::Unhandled(inner) => {
-                Error::Unhandled(inner)
-            }
+            crate::operation::delete_package::DeletePackageError::AccessDeniedException(inner) => Error::AccessDeniedException(inner),
+            crate::operation::delete_package::DeletePackageError::ConflictException(inner) => Error::ConflictException(inner),
+            crate::operation::delete_package::DeletePackageError::InternalServerException(inner) => Error::InternalServerException(inner),
+            crate::operation::delete_package::DeletePackageError::ResourceNotFoundException(inner) => Error::ResourceNotFoundException(inner),
+            crate::operation::delete_package::DeletePackageError::ThrottlingException(inner) => Error::ThrottlingException(inner),
+            crate::operation::delete_package::DeletePackageError::ValidationException(inner) => Error::ValidationException(inner),
+            crate::operation::delete_package::DeletePackageError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
 #[cfg(feature = "op_delete_package_group")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::delete_package_group::DeletePackageGroupError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::delete_package_group::DeletePackageGroupError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::delete_package_group::DeletePackageGroupError,
-            R,
-        >,
-    ) -> Self {
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::delete_package_group::DeletePackageGroupError, R>) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -548,26 +409,15 @@ impl From<crate::operation::delete_package_group::DeletePackageGroupError> for E
     }
 }
 #[cfg(feature = "op_delete_package_versions")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::delete_package_versions::DeletePackageVersionsError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::delete_package_versions::DeletePackageVersionsError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
     fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::delete_package_versions::DeletePackageVersionsError,
-            R,
-        >,
+        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::delete_package_versions::DeletePackageVersionsError, R>,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -596,26 +446,13 @@ impl From<crate::operation::delete_package_versions::DeletePackageVersionsError>
     }
 }
 #[cfg(feature = "op_delete_repository")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::delete_repository::DeleteRepositoryError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::delete_repository::DeleteRepositoryError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::delete_repository::DeleteRepositoryError,
-            R,
-        >,
-    ) -> Self {
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::delete_repository::DeleteRepositoryError, R>) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -692,26 +529,13 @@ impl From<crate::operation::delete_repository_permissions_policy::DeleteReposito
     }
 }
 #[cfg(feature = "op_describe_domain")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::describe_domain::DescribeDomainError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::describe_domain::DescribeDomainError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::describe_domain::DescribeDomainError,
-            R,
-        >,
-    ) -> Self {
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::describe_domain::DescribeDomainError, R>) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -723,48 +547,23 @@ where
 impl From<crate::operation::describe_domain::DescribeDomainError> for Error {
     fn from(err: crate::operation::describe_domain::DescribeDomainError) -> Self {
         match err {
-            crate::operation::describe_domain::DescribeDomainError::AccessDeniedException(
-                inner,
-            ) => Error::AccessDeniedException(inner),
-            crate::operation::describe_domain::DescribeDomainError::InternalServerException(
-                inner,
-            ) => Error::InternalServerException(inner),
-            crate::operation::describe_domain::DescribeDomainError::ResourceNotFoundException(
-                inner,
-            ) => Error::ResourceNotFoundException(inner),
-            crate::operation::describe_domain::DescribeDomainError::ThrottlingException(inner) => {
-                Error::ThrottlingException(inner)
-            }
-            crate::operation::describe_domain::DescribeDomainError::ValidationException(inner) => {
-                Error::ValidationException(inner)
-            }
-            crate::operation::describe_domain::DescribeDomainError::Unhandled(inner) => {
-                Error::Unhandled(inner)
-            }
+            crate::operation::describe_domain::DescribeDomainError::AccessDeniedException(inner) => Error::AccessDeniedException(inner),
+            crate::operation::describe_domain::DescribeDomainError::InternalServerException(inner) => Error::InternalServerException(inner),
+            crate::operation::describe_domain::DescribeDomainError::ResourceNotFoundException(inner) => Error::ResourceNotFoundException(inner),
+            crate::operation::describe_domain::DescribeDomainError::ThrottlingException(inner) => Error::ThrottlingException(inner),
+            crate::operation::describe_domain::DescribeDomainError::ValidationException(inner) => Error::ValidationException(inner),
+            crate::operation::describe_domain::DescribeDomainError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
 #[cfg(feature = "op_describe_package")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::describe_package::DescribePackageError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::describe_package::DescribePackageError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::describe_package::DescribePackageError,
-            R,
-        >,
-    ) -> Self {
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::describe_package::DescribePackageError, R>) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -776,48 +575,23 @@ where
 impl From<crate::operation::describe_package::DescribePackageError> for Error {
     fn from(err: crate::operation::describe_package::DescribePackageError) -> Self {
         match err {
-            crate::operation::describe_package::DescribePackageError::AccessDeniedException(
-                inner,
-            ) => Error::AccessDeniedException(inner),
-            crate::operation::describe_package::DescribePackageError::InternalServerException(
-                inner,
-            ) => Error::InternalServerException(inner),
-            crate::operation::describe_package::DescribePackageError::ResourceNotFoundException(
-                inner,
-            ) => Error::ResourceNotFoundException(inner),
-            crate::operation::describe_package::DescribePackageError::ThrottlingException(
-                inner,
-            ) => Error::ThrottlingException(inner),
-            crate::operation::describe_package::DescribePackageError::ValidationException(
-                inner,
-            ) => Error::ValidationException(inner),
-            crate::operation::describe_package::DescribePackageError::Unhandled(inner) => {
-                Error::Unhandled(inner)
-            }
+            crate::operation::describe_package::DescribePackageError::AccessDeniedException(inner) => Error::AccessDeniedException(inner),
+            crate::operation::describe_package::DescribePackageError::InternalServerException(inner) => Error::InternalServerException(inner),
+            crate::operation::describe_package::DescribePackageError::ResourceNotFoundException(inner) => Error::ResourceNotFoundException(inner),
+            crate::operation::describe_package::DescribePackageError::ThrottlingException(inner) => Error::ThrottlingException(inner),
+            crate::operation::describe_package::DescribePackageError::ValidationException(inner) => Error::ValidationException(inner),
+            crate::operation::describe_package::DescribePackageError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
 #[cfg(feature = "op_describe_package_group")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::describe_package_group::DescribePackageGroupError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::describe_package_group::DescribePackageGroupError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::describe_package_group::DescribePackageGroupError,
-            R,
-        >,
-    ) -> Self {
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::describe_package_group::DescribePackageGroupError, R>) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -843,26 +617,15 @@ impl From<crate::operation::describe_package_group::DescribePackageGroupError> f
     }
 }
 #[cfg(feature = "op_describe_package_version")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::describe_package_version::DescribePackageVersionError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::describe_package_version::DescribePackageVersionError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
     fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::describe_package_version::DescribePackageVersionError,
-            R,
-        >,
+        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::describe_package_version::DescribePackageVersionError, R>,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -891,26 +654,13 @@ impl From<crate::operation::describe_package_version::DescribePackageVersionErro
     }
 }
 #[cfg(feature = "op_describe_repository")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::describe_repository::DescribeRepositoryError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::describe_repository::DescribeRepositoryError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::describe_repository::DescribeRepositoryError,
-            R,
-        >,
-    ) -> Self {
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::describe_repository::DescribeRepositoryError, R>) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -951,9 +701,7 @@ where
         >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -962,12 +710,8 @@ where
     }
 }
 #[cfg(feature = "op_disassociate_external_connection")]
-impl From<crate::operation::disassociate_external_connection::DisassociateExternalConnectionError>
-    for Error
-{
-    fn from(
-        err: crate::operation::disassociate_external_connection::DisassociateExternalConnectionError,
-    ) -> Self {
+impl From<crate::operation::disassociate_external_connection::DisassociateExternalConnectionError> for Error {
+    fn from(err: crate::operation::disassociate_external_connection::DisassociateExternalConnectionError) -> Self {
         match err {
             crate::operation::disassociate_external_connection::DisassociateExternalConnectionError::AccessDeniedException(inner) => {
                 Error::AccessDeniedException(inner)
@@ -995,26 +739,15 @@ impl From<crate::operation::disassociate_external_connection::DisassociateExtern
     }
 }
 #[cfg(feature = "op_dispose_package_versions")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::dispose_package_versions::DisposePackageVersionsError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::dispose_package_versions::DisposePackageVersionsError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
     fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::dispose_package_versions::DisposePackageVersionsError,
-            R,
-        >,
+        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::dispose_package_versions::DisposePackageVersionsError, R>,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -1043,26 +776,16 @@ impl From<crate::operation::dispose_package_versions::DisposePackageVersionsErro
     }
 }
 #[cfg(feature = "op_get_associated_package_group")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::get_associated_package_group::GetAssociatedPackageGroupError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::get_associated_package_group::GetAssociatedPackageGroupError, R>>
+    for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
     fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::get_associated_package_group::GetAssociatedPackageGroupError,
-            R,
-        >,
+        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::get_associated_package_group::GetAssociatedPackageGroupError, R>,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -1071,12 +794,8 @@ where
     }
 }
 #[cfg(feature = "op_get_associated_package_group")]
-impl From<crate::operation::get_associated_package_group::GetAssociatedPackageGroupError>
-    for Error
-{
-    fn from(
-        err: crate::operation::get_associated_package_group::GetAssociatedPackageGroupError,
-    ) -> Self {
+impl From<crate::operation::get_associated_package_group::GetAssociatedPackageGroupError> for Error {
+    fn from(err: crate::operation::get_associated_package_group::GetAssociatedPackageGroupError) -> Self {
         match err {
             crate::operation::get_associated_package_group::GetAssociatedPackageGroupError::AccessDeniedException(inner) => {
                 Error::AccessDeniedException(inner)
@@ -1095,26 +814,15 @@ impl From<crate::operation::get_associated_package_group::GetAssociatedPackageGr
     }
 }
 #[cfg(feature = "op_get_authorization_token")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::get_authorization_token::GetAuthorizationTokenError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::get_authorization_token::GetAuthorizationTokenError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
     fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::get_authorization_token::GetAuthorizationTokenError,
-            R,
-        >,
+        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::get_authorization_token::GetAuthorizationTokenError, R>,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -1142,26 +850,16 @@ impl From<crate::operation::get_authorization_token::GetAuthorizationTokenError>
     }
 }
 #[cfg(feature = "op_get_domain_permissions_policy")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::get_domain_permissions_policy::GetDomainPermissionsPolicyError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::get_domain_permissions_policy::GetDomainPermissionsPolicyError, R>>
+    for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
     fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::get_domain_permissions_policy::GetDomainPermissionsPolicyError,
-            R,
-        >,
+        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::get_domain_permissions_policy::GetDomainPermissionsPolicyError, R>,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -1170,12 +868,8 @@ where
     }
 }
 #[cfg(feature = "op_get_domain_permissions_policy")]
-impl From<crate::operation::get_domain_permissions_policy::GetDomainPermissionsPolicyError>
-    for Error
-{
-    fn from(
-        err: crate::operation::get_domain_permissions_policy::GetDomainPermissionsPolicyError,
-    ) -> Self {
+impl From<crate::operation::get_domain_permissions_policy::GetDomainPermissionsPolicyError> for Error {
+    fn from(err: crate::operation::get_domain_permissions_policy::GetDomainPermissionsPolicyError) -> Self {
         match err {
             crate::operation::get_domain_permissions_policy::GetDomainPermissionsPolicyError::AccessDeniedException(inner) => {
                 Error::AccessDeniedException(inner)
@@ -1197,26 +891,16 @@ impl From<crate::operation::get_domain_permissions_policy::GetDomainPermissionsP
     }
 }
 #[cfg(feature = "op_get_package_version_asset")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::get_package_version_asset::GetPackageVersionAssetError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::get_package_version_asset::GetPackageVersionAssetError, R>>
+    for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
     fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::get_package_version_asset::GetPackageVersionAssetError,
-            R,
-        >,
+        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::get_package_version_asset::GetPackageVersionAssetError, R>,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -1245,26 +929,16 @@ impl From<crate::operation::get_package_version_asset::GetPackageVersionAssetErr
     }
 }
 #[cfg(feature = "op_get_package_version_readme")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::get_package_version_readme::GetPackageVersionReadmeError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::get_package_version_readme::GetPackageVersionReadmeError, R>>
+    for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
     fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::get_package_version_readme::GetPackageVersionReadmeError,
-            R,
-        >,
+        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::get_package_version_readme::GetPackageVersionReadmeError, R>,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -1274,9 +948,7 @@ where
 }
 #[cfg(feature = "op_get_package_version_readme")]
 impl From<crate::operation::get_package_version_readme::GetPackageVersionReadmeError> for Error {
-    fn from(
-        err: crate::operation::get_package_version_readme::GetPackageVersionReadmeError,
-    ) -> Self {
+    fn from(err: crate::operation::get_package_version_readme::GetPackageVersionReadmeError) -> Self {
         match err {
             crate::operation::get_package_version_readme::GetPackageVersionReadmeError::AccessDeniedException(inner) => {
                 Error::AccessDeniedException(inner)
@@ -1298,26 +970,15 @@ impl From<crate::operation::get_package_version_readme::GetPackageVersionReadmeE
     }
 }
 #[cfg(feature = "op_get_repository_endpoint")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::get_repository_endpoint::GetRepositoryEndpointError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::get_repository_endpoint::GetRepositoryEndpointError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
     fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::get_repository_endpoint::GetRepositoryEndpointError,
-            R,
-        >,
+        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::get_repository_endpoint::GetRepositoryEndpointError, R>,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -1371,12 +1032,8 @@ where
     }
 }
 #[cfg(feature = "op_get_repository_permissions_policy")]
-impl From<crate::operation::get_repository_permissions_policy::GetRepositoryPermissionsPolicyError>
-    for Error
-{
-    fn from(
-        err: crate::operation::get_repository_permissions_policy::GetRepositoryPermissionsPolicyError,
-    ) -> Self {
+impl From<crate::operation::get_repository_permissions_policy::GetRepositoryPermissionsPolicyError> for Error {
+    fn from(err: crate::operation::get_repository_permissions_policy::GetRepositoryPermissionsPolicyError) -> Self {
         match err {
             crate::operation::get_repository_permissions_policy::GetRepositoryPermissionsPolicyError::AccessDeniedException(inner) => {
                 Error::AccessDeniedException(inner)
@@ -1424,14 +1081,8 @@ where
     }
 }
 #[cfg(feature = "op_list_allowed_repositories_for_group")]
-impl
-    From<
-        crate::operation::list_allowed_repositories_for_group::ListAllowedRepositoriesForGroupError,
-    > for Error
-{
-    fn from(
-        err: crate::operation::list_allowed_repositories_for_group::ListAllowedRepositoriesForGroupError,
-    ) -> Self {
+impl From<crate::operation::list_allowed_repositories_for_group::ListAllowedRepositoriesForGroupError> for Error {
+    fn from(err: crate::operation::list_allowed_repositories_for_group::ListAllowedRepositoriesForGroupError) -> Self {
         match err {
             crate::operation::list_allowed_repositories_for_group::ListAllowedRepositoriesForGroupError::AccessDeniedException(inner) => {
                 Error::AccessDeniedException(inner)
@@ -1456,26 +1107,15 @@ impl
     }
 }
 #[cfg(feature = "op_list_associated_packages")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::list_associated_packages::ListAssociatedPackagesError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_associated_packages::ListAssociatedPackagesError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
     fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::list_associated_packages::ListAssociatedPackagesError,
-            R,
-        >,
+        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_associated_packages::ListAssociatedPackagesError, R>,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -1502,26 +1142,13 @@ impl From<crate::operation::list_associated_packages::ListAssociatedPackagesErro
     }
 }
 #[cfg(feature = "op_list_domains")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::list_domains::ListDomainsError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_domains::ListDomainsError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::list_domains::ListDomainsError,
-            R,
-        >,
-    ) -> Self {
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_domains::ListDomainsError, R>) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -1533,45 +1160,22 @@ where
 impl From<crate::operation::list_domains::ListDomainsError> for Error {
     fn from(err: crate::operation::list_domains::ListDomainsError) -> Self {
         match err {
-            crate::operation::list_domains::ListDomainsError::AccessDeniedException(inner) => {
-                Error::AccessDeniedException(inner)
-            }
-            crate::operation::list_domains::ListDomainsError::InternalServerException(inner) => {
-                Error::InternalServerException(inner)
-            }
-            crate::operation::list_domains::ListDomainsError::ThrottlingException(inner) => {
-                Error::ThrottlingException(inner)
-            }
-            crate::operation::list_domains::ListDomainsError::ValidationException(inner) => {
-                Error::ValidationException(inner)
-            }
-            crate::operation::list_domains::ListDomainsError::Unhandled(inner) => {
-                Error::Unhandled(inner)
-            }
+            crate::operation::list_domains::ListDomainsError::AccessDeniedException(inner) => Error::AccessDeniedException(inner),
+            crate::operation::list_domains::ListDomainsError::InternalServerException(inner) => Error::InternalServerException(inner),
+            crate::operation::list_domains::ListDomainsError::ThrottlingException(inner) => Error::ThrottlingException(inner),
+            crate::operation::list_domains::ListDomainsError::ValidationException(inner) => Error::ValidationException(inner),
+            crate::operation::list_domains::ListDomainsError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
 #[cfg(feature = "op_list_package_groups")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::list_package_groups::ListPackageGroupsError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_package_groups::ListPackageGroupsError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::list_package_groups::ListPackageGroupsError,
-            R,
-        >,
-    ) -> Self {
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_package_groups::ListPackageGroupsError, R>) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -1595,26 +1199,13 @@ impl From<crate::operation::list_package_groups::ListPackageGroupsError> for Err
     }
 }
 #[cfg(feature = "op_list_packages")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::list_packages::ListPackagesError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_packages::ListPackagesError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::list_packages::ListPackagesError,
-            R,
-        >,
-    ) -> Self {
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_packages::ListPackagesError, R>) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -1626,48 +1217,26 @@ where
 impl From<crate::operation::list_packages::ListPackagesError> for Error {
     fn from(err: crate::operation::list_packages::ListPackagesError) -> Self {
         match err {
-            crate::operation::list_packages::ListPackagesError::AccessDeniedException(inner) => {
-                Error::AccessDeniedException(inner)
-            }
-            crate::operation::list_packages::ListPackagesError::InternalServerException(inner) => {
-                Error::InternalServerException(inner)
-            }
-            crate::operation::list_packages::ListPackagesError::ResourceNotFoundException(
-                inner,
-            ) => Error::ResourceNotFoundException(inner),
-            crate::operation::list_packages::ListPackagesError::ThrottlingException(inner) => {
-                Error::ThrottlingException(inner)
-            }
-            crate::operation::list_packages::ListPackagesError::ValidationException(inner) => {
-                Error::ValidationException(inner)
-            }
-            crate::operation::list_packages::ListPackagesError::Unhandled(inner) => {
-                Error::Unhandled(inner)
-            }
+            crate::operation::list_packages::ListPackagesError::AccessDeniedException(inner) => Error::AccessDeniedException(inner),
+            crate::operation::list_packages::ListPackagesError::InternalServerException(inner) => Error::InternalServerException(inner),
+            crate::operation::list_packages::ListPackagesError::ResourceNotFoundException(inner) => Error::ResourceNotFoundException(inner),
+            crate::operation::list_packages::ListPackagesError::ThrottlingException(inner) => Error::ThrottlingException(inner),
+            crate::operation::list_packages::ListPackagesError::ValidationException(inner) => Error::ValidationException(inner),
+            crate::operation::list_packages::ListPackagesError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
 #[cfg(feature = "op_list_package_version_assets")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::list_package_version_assets::ListPackageVersionAssetsError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_package_version_assets::ListPackageVersionAssetsError, R>>
+    for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
     fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::list_package_version_assets::ListPackageVersionAssetsError,
-            R,
-        >,
+        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_package_version_assets::ListPackageVersionAssetsError, R>,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -1677,9 +1246,7 @@ where
 }
 #[cfg(feature = "op_list_package_version_assets")]
 impl From<crate::operation::list_package_version_assets::ListPackageVersionAssetsError> for Error {
-    fn from(
-        err: crate::operation::list_package_version_assets::ListPackageVersionAssetsError,
-    ) -> Self {
+    fn from(err: crate::operation::list_package_version_assets::ListPackageVersionAssetsError) -> Self {
         match err {
             crate::operation::list_package_version_assets::ListPackageVersionAssetsError::AccessDeniedException(inner) => {
                 Error::AccessDeniedException(inner)
@@ -1727,12 +1294,8 @@ where
     }
 }
 #[cfg(feature = "op_list_package_version_dependencies")]
-impl From<crate::operation::list_package_version_dependencies::ListPackageVersionDependenciesError>
-    for Error
-{
-    fn from(
-        err: crate::operation::list_package_version_dependencies::ListPackageVersionDependenciesError,
-    ) -> Self {
+impl From<crate::operation::list_package_version_dependencies::ListPackageVersionDependenciesError> for Error {
+    fn from(err: crate::operation::list_package_version_dependencies::ListPackageVersionDependenciesError) -> Self {
         match err {
             crate::operation::list_package_version_dependencies::ListPackageVersionDependenciesError::AccessDeniedException(inner) => {
                 Error::AccessDeniedException(inner)
@@ -1754,26 +1317,13 @@ impl From<crate::operation::list_package_version_dependencies::ListPackageVersio
     }
 }
 #[cfg(feature = "op_list_package_versions")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::list_package_versions::ListPackageVersionsError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_package_versions::ListPackageVersionsError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::list_package_versions::ListPackageVersionsError,
-            R,
-        >,
-    ) -> Self {
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_package_versions::ListPackageVersionsError, R>) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -1799,26 +1349,13 @@ impl From<crate::operation::list_package_versions::ListPackageVersionsError> for
     }
 }
 #[cfg(feature = "op_list_repositories")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::list_repositories::ListRepositoriesError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_repositories::ListRepositoriesError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::list_repositories::ListRepositoriesError,
-            R,
-        >,
-    ) -> Self {
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_repositories::ListRepositoriesError, R>) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -1830,45 +1367,25 @@ where
 impl From<crate::operation::list_repositories::ListRepositoriesError> for Error {
     fn from(err: crate::operation::list_repositories::ListRepositoriesError) -> Self {
         match err {
-            crate::operation::list_repositories::ListRepositoriesError::AccessDeniedException(
-                inner,
-            ) => Error::AccessDeniedException(inner),
-            crate::operation::list_repositories::ListRepositoriesError::InternalServerException(
-                inner,
-            ) => Error::InternalServerException(inner),
-            crate::operation::list_repositories::ListRepositoriesError::ThrottlingException(
-                inner,
-            ) => Error::ThrottlingException(inner),
-            crate::operation::list_repositories::ListRepositoriesError::ValidationException(
-                inner,
-            ) => Error::ValidationException(inner),
-            crate::operation::list_repositories::ListRepositoriesError::Unhandled(inner) => {
-                Error::Unhandled(inner)
-            }
+            crate::operation::list_repositories::ListRepositoriesError::AccessDeniedException(inner) => Error::AccessDeniedException(inner),
+            crate::operation::list_repositories::ListRepositoriesError::InternalServerException(inner) => Error::InternalServerException(inner),
+            crate::operation::list_repositories::ListRepositoriesError::ThrottlingException(inner) => Error::ThrottlingException(inner),
+            crate::operation::list_repositories::ListRepositoriesError::ValidationException(inner) => Error::ValidationException(inner),
+            crate::operation::list_repositories::ListRepositoriesError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
 #[cfg(feature = "op_list_repositories_in_domain")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::list_repositories_in_domain::ListRepositoriesInDomainError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_repositories_in_domain::ListRepositoriesInDomainError, R>>
+    for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
     fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::list_repositories_in_domain::ListRepositoriesInDomainError,
-            R,
-        >,
+        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_repositories_in_domain::ListRepositoriesInDomainError, R>,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -1878,9 +1395,7 @@ where
 }
 #[cfg(feature = "op_list_repositories_in_domain")]
 impl From<crate::operation::list_repositories_in_domain::ListRepositoriesInDomainError> for Error {
-    fn from(
-        err: crate::operation::list_repositories_in_domain::ListRepositoriesInDomainError,
-    ) -> Self {
+    fn from(err: crate::operation::list_repositories_in_domain::ListRepositoriesInDomainError) -> Self {
         match err {
             crate::operation::list_repositories_in_domain::ListRepositoriesInDomainError::AccessDeniedException(inner) => {
                 Error::AccessDeniedException(inner)
@@ -1902,26 +1417,15 @@ impl From<crate::operation::list_repositories_in_domain::ListRepositoriesInDomai
     }
 }
 #[cfg(feature = "op_list_sub_package_groups")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::list_sub_package_groups::ListSubPackageGroupsError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_sub_package_groups::ListSubPackageGroupsError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
     fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::list_sub_package_groups::ListSubPackageGroupsError,
-            R,
-        >,
+        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_sub_package_groups::ListSubPackageGroupsError, R>,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -1947,26 +1451,13 @@ impl From<crate::operation::list_sub_package_groups::ListSubPackageGroupsError> 
     }
 }
 #[cfg(feature = "op_list_tags_for_resource")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::list_tags_for_resource::ListTagsForResourceError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_tags_for_resource::ListTagsForResourceError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::list_tags_for_resource::ListTagsForResourceError,
-            R,
-        >,
-    ) -> Self {
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_tags_for_resource::ListTagsForResourceError, R>) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -1989,26 +1480,15 @@ impl From<crate::operation::list_tags_for_resource::ListTagsForResourceError> fo
     }
 }
 #[cfg(feature = "op_publish_package_version")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::publish_package_version::PublishPackageVersionError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::publish_package_version::PublishPackageVersionError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
     fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::publish_package_version::PublishPackageVersionError,
-            R,
-        >,
+        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::publish_package_version::PublishPackageVersionError, R>,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -2040,26 +1520,16 @@ impl From<crate::operation::publish_package_version::PublishPackageVersionError>
     }
 }
 #[cfg(feature = "op_put_domain_permissions_policy")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::put_domain_permissions_policy::PutDomainPermissionsPolicyError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::put_domain_permissions_policy::PutDomainPermissionsPolicyError, R>>
+    for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
     fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::put_domain_permissions_policy::PutDomainPermissionsPolicyError,
-            R,
-        >,
+        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::put_domain_permissions_policy::PutDomainPermissionsPolicyError, R>,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -2068,12 +1538,8 @@ where
     }
 }
 #[cfg(feature = "op_put_domain_permissions_policy")]
-impl From<crate::operation::put_domain_permissions_policy::PutDomainPermissionsPolicyError>
-    for Error
-{
-    fn from(
-        err: crate::operation::put_domain_permissions_policy::PutDomainPermissionsPolicyError,
-    ) -> Self {
+impl From<crate::operation::put_domain_permissions_policy::PutDomainPermissionsPolicyError> for Error {
+    fn from(err: crate::operation::put_domain_permissions_policy::PutDomainPermissionsPolicyError) -> Self {
         match err {
             crate::operation::put_domain_permissions_policy::PutDomainPermissionsPolicyError::AccessDeniedException(inner) => {
                 Error::AccessDeniedException(inner)
@@ -2103,10 +1569,7 @@ impl From<crate::operation::put_domain_permissions_policy::PutDomainPermissionsP
 #[cfg(feature = "op_put_package_origin_configuration")]
 impl<R>
     From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::put_package_origin_configuration::PutPackageOriginConfigurationError,
-            R,
-        >,
+        ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::put_package_origin_configuration::PutPackageOriginConfigurationError, R>,
     > for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
@@ -2118,9 +1581,7 @@ where
         >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -2129,12 +1590,8 @@ where
     }
 }
 #[cfg(feature = "op_put_package_origin_configuration")]
-impl From<crate::operation::put_package_origin_configuration::PutPackageOriginConfigurationError>
-    for Error
-{
-    fn from(
-        err: crate::operation::put_package_origin_configuration::PutPackageOriginConfigurationError,
-    ) -> Self {
+impl From<crate::operation::put_package_origin_configuration::PutPackageOriginConfigurationError> for Error {
+    fn from(err: crate::operation::put_package_origin_configuration::PutPackageOriginConfigurationError) -> Self {
         match err {
             crate::operation::put_package_origin_configuration::PutPackageOriginConfigurationError::AccessDeniedException(inner) => {
                 Error::AccessDeniedException(inner)
@@ -2182,12 +1639,8 @@ where
     }
 }
 #[cfg(feature = "op_put_repository_permissions_policy")]
-impl From<crate::operation::put_repository_permissions_policy::PutRepositoryPermissionsPolicyError>
-    for Error
-{
-    fn from(
-        err: crate::operation::put_repository_permissions_policy::PutRepositoryPermissionsPolicyError,
-    ) -> Self {
+impl From<crate::operation::put_repository_permissions_policy::PutRepositoryPermissionsPolicyError> for Error {
+    fn from(err: crate::operation::put_repository_permissions_policy::PutRepositoryPermissionsPolicyError) -> Self {
         match err {
             crate::operation::put_repository_permissions_policy::PutRepositoryPermissionsPolicyError::AccessDeniedException(inner) => {
                 Error::AccessDeniedException(inner)
@@ -2215,26 +1668,13 @@ impl From<crate::operation::put_repository_permissions_policy::PutRepositoryPerm
     }
 }
 #[cfg(feature = "op_tag_resource")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::tag_resource::TagResourceError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::tag_resource::TagResourceError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::tag_resource::TagResourceError,
-            R,
-        >,
-    ) -> Self {
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::tag_resource::TagResourceError, R>) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -2246,48 +1686,23 @@ where
 impl From<crate::operation::tag_resource::TagResourceError> for Error {
     fn from(err: crate::operation::tag_resource::TagResourceError) -> Self {
         match err {
-            crate::operation::tag_resource::TagResourceError::AccessDeniedException(inner) => {
-                Error::AccessDeniedException(inner)
-            }
-            crate::operation::tag_resource::TagResourceError::ResourceNotFoundException(inner) => {
-                Error::ResourceNotFoundException(inner)
-            }
-            crate::operation::tag_resource::TagResourceError::ServiceQuotaExceededException(
-                inner,
-            ) => Error::ServiceQuotaExceededException(inner),
-            crate::operation::tag_resource::TagResourceError::ThrottlingException(inner) => {
-                Error::ThrottlingException(inner)
-            }
-            crate::operation::tag_resource::TagResourceError::ValidationException(inner) => {
-                Error::ValidationException(inner)
-            }
-            crate::operation::tag_resource::TagResourceError::Unhandled(inner) => {
-                Error::Unhandled(inner)
-            }
+            crate::operation::tag_resource::TagResourceError::AccessDeniedException(inner) => Error::AccessDeniedException(inner),
+            crate::operation::tag_resource::TagResourceError::ResourceNotFoundException(inner) => Error::ResourceNotFoundException(inner),
+            crate::operation::tag_resource::TagResourceError::ServiceQuotaExceededException(inner) => Error::ServiceQuotaExceededException(inner),
+            crate::operation::tag_resource::TagResourceError::ThrottlingException(inner) => Error::ThrottlingException(inner),
+            crate::operation::tag_resource::TagResourceError::ValidationException(inner) => Error::ValidationException(inner),
+            crate::operation::tag_resource::TagResourceError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
 #[cfg(feature = "op_untag_resource")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::untag_resource::UntagResourceError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::untag_resource::UntagResourceError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::untag_resource::UntagResourceError,
-            R,
-        >,
-    ) -> Self {
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::untag_resource::UntagResourceError, R>) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -2299,45 +1714,22 @@ where
 impl From<crate::operation::untag_resource::UntagResourceError> for Error {
     fn from(err: crate::operation::untag_resource::UntagResourceError) -> Self {
         match err {
-            crate::operation::untag_resource::UntagResourceError::AccessDeniedException(inner) => {
-                Error::AccessDeniedException(inner)
-            }
-            crate::operation::untag_resource::UntagResourceError::ResourceNotFoundException(
-                inner,
-            ) => Error::ResourceNotFoundException(inner),
-            crate::operation::untag_resource::UntagResourceError::ThrottlingException(inner) => {
-                Error::ThrottlingException(inner)
-            }
-            crate::operation::untag_resource::UntagResourceError::ValidationException(inner) => {
-                Error::ValidationException(inner)
-            }
-            crate::operation::untag_resource::UntagResourceError::Unhandled(inner) => {
-                Error::Unhandled(inner)
-            }
+            crate::operation::untag_resource::UntagResourceError::AccessDeniedException(inner) => Error::AccessDeniedException(inner),
+            crate::operation::untag_resource::UntagResourceError::ResourceNotFoundException(inner) => Error::ResourceNotFoundException(inner),
+            crate::operation::untag_resource::UntagResourceError::ThrottlingException(inner) => Error::ThrottlingException(inner),
+            crate::operation::untag_resource::UntagResourceError::ValidationException(inner) => Error::ValidationException(inner),
+            crate::operation::untag_resource::UntagResourceError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
 #[cfg(feature = "op_update_package_group")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::update_package_group::UpdatePackageGroupError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::update_package_group::UpdatePackageGroupError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::update_package_group::UpdatePackageGroupError,
-            R,
-        >,
-    ) -> Self {
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::update_package_group::UpdatePackageGroupError, R>) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -2405,12 +1797,8 @@ impl From<crate::operation::update_package_group_origin_configuration::UpdatePac
 }
 #[cfg(feature = "op_update_package_versions_status")]
 impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::update_package_versions_status::UpdatePackageVersionsStatusError,
-            R,
-        >,
-    > for Error
+    From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::update_package_versions_status::UpdatePackageVersionsStatusError, R>>
+    for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
@@ -2421,9 +1809,7 @@ where
         >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -2432,12 +1818,8 @@ where
     }
 }
 #[cfg(feature = "op_update_package_versions_status")]
-impl From<crate::operation::update_package_versions_status::UpdatePackageVersionsStatusError>
-    for Error
-{
-    fn from(
-        err: crate::operation::update_package_versions_status::UpdatePackageVersionsStatusError,
-    ) -> Self {
+impl From<crate::operation::update_package_versions_status::UpdatePackageVersionsStatusError> for Error {
+    fn from(err: crate::operation::update_package_versions_status::UpdatePackageVersionsStatusError) -> Self {
         match err {
             crate::operation::update_package_versions_status::UpdatePackageVersionsStatusError::AccessDeniedException(inner) => {
                 Error::AccessDeniedException(inner)
@@ -2462,26 +1844,13 @@ impl From<crate::operation::update_package_versions_status::UpdatePackageVersion
     }
 }
 #[cfg(feature = "op_update_repository")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::update_repository::UpdateRepositoryError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::update_repository::UpdateRepositoryError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::update_repository::UpdateRepositoryError,
-            R,
-        >,
-    ) -> Self {
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::update_repository::UpdateRepositoryError, R>) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -2509,13 +1878,20 @@ impl From<crate::operation::update_repository::UpdateRepositoryError> for Error 
 impl ::std::error::Error for Error {
     fn source(&self) -> std::option::Option<&(dyn ::std::error::Error + 'static)> {
         match self {
-            Error::AccessDeniedException(inner) => inner.source(),
-            Error::ConflictException(inner) => inner.source(),
-            Error::InternalServerException(inner) => inner.source(),
-            Error::ResourceNotFoundException(inner) => inner.source(),
-            Error::ServiceQuotaExceededException(inner) => inner.source(),
-            Error::ThrottlingException(inner) => inner.source(),
-            Error::ValidationException(inner) => inner.source(),
+            #[cfg(any(feature = "op_associate_external_connection", feature = "op_copy_package_versions", feature = "op_create_domain", feature = "op_create_package_group", feature = "op_create_repository", feature = "op_delete_domain", feature = "op_delete_domain_permissions_policy", feature = "op_delete_package", feature = "op_delete_package_group", feature = "op_delete_package_versions", feature = "op_delete_repository", feature = "op_delete_repository_permissions_policy", feature = "op_describe_domain", feature = "op_describe_package", feature = "op_describe_package_group", feature = "op_describe_package_version", feature = "op_describe_repository", feature = "op_disassociate_external_connection", feature = "op_dispose_package_versions", feature = "op_get_associated_package_group", feature = "op_get_authorization_token", feature = "op_get_domain_permissions_policy", feature = "op_get_package_version_asset", feature = "op_get_package_version_readme", feature = "op_get_repository_endpoint", feature = "op_get_repository_permissions_policy", feature = "op_list_allowed_repositories_for_group", feature = "op_list_associated_packages", feature = "op_list_domains", feature = "op_list_package_groups", feature = "op_list_package_version_assets", feature = "op_list_package_version_dependencies", feature = "op_list_package_versions", feature = "op_list_packages", feature = "op_list_repositories", feature = "op_list_repositories_in_domain", feature = "op_list_sub_package_groups", feature = "op_list_tags_for_resource", feature = "op_publish_package_version", feature = "op_put_domain_permissions_policy", feature = "op_put_package_origin_configuration", feature = "op_put_repository_permissions_policy", feature = "op_tag_resource", feature = "op_untag_resource", feature = "op_update_package_group", feature = "op_update_package_group_origin_configuration", feature = "op_update_package_versions_status", feature = "op_update_repository"))]
+Error::AccessDeniedException(inner) => inner.source(),
+            #[cfg(any(feature = "op_associate_external_connection", feature = "op_copy_package_versions", feature = "op_create_domain", feature = "op_create_package_group", feature = "op_create_repository", feature = "op_delete_domain", feature = "op_delete_domain_permissions_policy", feature = "op_delete_package", feature = "op_delete_package_group", feature = "op_delete_package_versions", feature = "op_delete_repository", feature = "op_delete_repository_permissions_policy", feature = "op_describe_package_version", feature = "op_disassociate_external_connection", feature = "op_dispose_package_versions", feature = "op_get_package_version_asset", feature = "op_publish_package_version", feature = "op_put_domain_permissions_policy", feature = "op_put_repository_permissions_policy", feature = "op_update_package_versions_status", feature = "op_update_repository"))]
+Error::ConflictException(inner) => inner.source(),
+            #[cfg(any(feature = "op_associate_external_connection", feature = "op_copy_package_versions", feature = "op_create_domain", feature = "op_create_package_group", feature = "op_create_repository", feature = "op_delete_domain", feature = "op_delete_domain_permissions_policy", feature = "op_delete_package", feature = "op_delete_package_group", feature = "op_delete_package_versions", feature = "op_delete_repository", feature = "op_delete_repository_permissions_policy", feature = "op_describe_domain", feature = "op_describe_package", feature = "op_describe_package_group", feature = "op_describe_package_version", feature = "op_describe_repository", feature = "op_disassociate_external_connection", feature = "op_dispose_package_versions", feature = "op_get_associated_package_group", feature = "op_get_authorization_token", feature = "op_get_domain_permissions_policy", feature = "op_get_package_version_asset", feature = "op_get_package_version_readme", feature = "op_get_repository_endpoint", feature = "op_get_repository_permissions_policy", feature = "op_list_allowed_repositories_for_group", feature = "op_list_associated_packages", feature = "op_list_domains", feature = "op_list_package_groups", feature = "op_list_package_version_assets", feature = "op_list_package_version_dependencies", feature = "op_list_package_versions", feature = "op_list_packages", feature = "op_list_repositories", feature = "op_list_repositories_in_domain", feature = "op_list_sub_package_groups", feature = "op_publish_package_version", feature = "op_put_domain_permissions_policy", feature = "op_put_package_origin_configuration", feature = "op_put_repository_permissions_policy", feature = "op_update_package_group", feature = "op_update_package_group_origin_configuration", feature = "op_update_package_versions_status", feature = "op_update_repository"))]
+Error::InternalServerException(inner) => inner.source(),
+            #[cfg(any(feature = "op_associate_external_connection", feature = "op_copy_package_versions", feature = "op_create_domain", feature = "op_create_package_group", feature = "op_create_repository", feature = "op_delete_domain_permissions_policy", feature = "op_delete_package", feature = "op_delete_package_group", feature = "op_delete_package_versions", feature = "op_delete_repository", feature = "op_delete_repository_permissions_policy", feature = "op_describe_domain", feature = "op_describe_package", feature = "op_describe_package_group", feature = "op_describe_package_version", feature = "op_describe_repository", feature = "op_disassociate_external_connection", feature = "op_dispose_package_versions", feature = "op_get_associated_package_group", feature = "op_get_authorization_token", feature = "op_get_domain_permissions_policy", feature = "op_get_package_version_asset", feature = "op_get_package_version_readme", feature = "op_get_repository_endpoint", feature = "op_get_repository_permissions_policy", feature = "op_list_allowed_repositories_for_group", feature = "op_list_associated_packages", feature = "op_list_package_groups", feature = "op_list_package_version_assets", feature = "op_list_package_version_dependencies", feature = "op_list_package_versions", feature = "op_list_packages", feature = "op_list_repositories_in_domain", feature = "op_list_sub_package_groups", feature = "op_list_tags_for_resource", feature = "op_publish_package_version", feature = "op_put_domain_permissions_policy", feature = "op_put_package_origin_configuration", feature = "op_put_repository_permissions_policy", feature = "op_tag_resource", feature = "op_untag_resource", feature = "op_update_package_group", feature = "op_update_package_group_origin_configuration", feature = "op_update_package_versions_status", feature = "op_update_repository"))]
+Error::ResourceNotFoundException(inner) => inner.source(),
+            #[cfg(any(feature = "op_associate_external_connection", feature = "op_copy_package_versions", feature = "op_create_domain", feature = "op_create_package_group", feature = "op_create_repository", feature = "op_delete_package_group", feature = "op_disassociate_external_connection", feature = "op_list_allowed_repositories_for_group", feature = "op_publish_package_version", feature = "op_put_domain_permissions_policy", feature = "op_put_repository_permissions_policy", feature = "op_tag_resource", feature = "op_update_package_group", feature = "op_update_package_group_origin_configuration", feature = "op_update_repository"))]
+Error::ServiceQuotaExceededException(inner) => inner.source(),
+            #[cfg(any(feature = "op_associate_external_connection", feature = "op_copy_package_versions", feature = "op_create_domain", feature = "op_create_package_group", feature = "op_create_repository", feature = "op_delete_domain", feature = "op_delete_domain_permissions_policy", feature = "op_delete_package", feature = "op_delete_package_group", feature = "op_delete_package_versions", feature = "op_delete_repository", feature = "op_delete_repository_permissions_policy", feature = "op_describe_domain", feature = "op_describe_package", feature = "op_describe_package_group", feature = "op_describe_package_version", feature = "op_describe_repository", feature = "op_disassociate_external_connection", feature = "op_dispose_package_versions", feature = "op_get_authorization_token", feature = "op_get_domain_permissions_policy", feature = "op_get_package_version_asset", feature = "op_get_package_version_readme", feature = "op_get_repository_endpoint", feature = "op_get_repository_permissions_policy", feature = "op_list_allowed_repositories_for_group", feature = "op_list_domains", feature = "op_list_package_groups", feature = "op_list_package_version_assets", feature = "op_list_package_version_dependencies", feature = "op_list_package_versions", feature = "op_list_packages", feature = "op_list_repositories", feature = "op_list_repositories_in_domain", feature = "op_list_sub_package_groups", feature = "op_list_tags_for_resource", feature = "op_publish_package_version", feature = "op_put_domain_permissions_policy", feature = "op_put_package_origin_configuration", feature = "op_put_repository_permissions_policy", feature = "op_tag_resource", feature = "op_untag_resource", feature = "op_update_package_group", feature = "op_update_package_group_origin_configuration", feature = "op_update_package_versions_status", feature = "op_update_repository"))]
+Error::ThrottlingException(inner) => inner.source(),
+            #[cfg(any(feature = "op_associate_external_connection", feature = "op_copy_package_versions", feature = "op_create_domain", feature = "op_create_package_group", feature = "op_create_repository", feature = "op_delete_domain", feature = "op_delete_domain_permissions_policy", feature = "op_delete_package", feature = "op_delete_package_group", feature = "op_delete_package_versions", feature = "op_delete_repository", feature = "op_delete_repository_permissions_policy", feature = "op_describe_domain", feature = "op_describe_package", feature = "op_describe_package_group", feature = "op_describe_package_version", feature = "op_describe_repository", feature = "op_disassociate_external_connection", feature = "op_dispose_package_versions", feature = "op_get_associated_package_group", feature = "op_get_authorization_token", feature = "op_get_domain_permissions_policy", feature = "op_get_package_version_asset", feature = "op_get_package_version_readme", feature = "op_get_repository_endpoint", feature = "op_get_repository_permissions_policy", feature = "op_list_allowed_repositories_for_group", feature = "op_list_associated_packages", feature = "op_list_domains", feature = "op_list_package_groups", feature = "op_list_package_version_assets", feature = "op_list_package_version_dependencies", feature = "op_list_package_versions", feature = "op_list_packages", feature = "op_list_repositories", feature = "op_list_repositories_in_domain", feature = "op_list_sub_package_groups", feature = "op_list_tags_for_resource", feature = "op_publish_package_version", feature = "op_put_domain_permissions_policy", feature = "op_put_package_origin_configuration", feature = "op_put_repository_permissions_policy", feature = "op_tag_resource", feature = "op_untag_resource", feature = "op_update_package_group", feature = "op_update_package_group_origin_configuration", feature = "op_update_package_versions_status", feature = "op_update_repository"))]
+Error::ValidationException(inner) => inner.source(),
             Error::Unhandled(inner) => ::std::option::Option::Some(&*inner.source),
         }
     }
@@ -2523,13 +1899,20 @@ impl ::std::error::Error for Error {
 impl ::aws_types::request_id::RequestId for Error {
     fn request_id(&self) -> Option<&str> {
         match self {
-            Self::AccessDeniedException(e) => e.request_id(),
-            Self::ConflictException(e) => e.request_id(),
-            Self::InternalServerException(e) => e.request_id(),
-            Self::ResourceNotFoundException(e) => e.request_id(),
-            Self::ServiceQuotaExceededException(e) => e.request_id(),
-            Self::ThrottlingException(e) => e.request_id(),
-            Self::ValidationException(e) => e.request_id(),
+            #[cfg(any(feature = "op_associate_external_connection", feature = "op_copy_package_versions", feature = "op_create_domain", feature = "op_create_package_group", feature = "op_create_repository", feature = "op_delete_domain", feature = "op_delete_domain_permissions_policy", feature = "op_delete_package", feature = "op_delete_package_group", feature = "op_delete_package_versions", feature = "op_delete_repository", feature = "op_delete_repository_permissions_policy", feature = "op_describe_domain", feature = "op_describe_package", feature = "op_describe_package_group", feature = "op_describe_package_version", feature = "op_describe_repository", feature = "op_disassociate_external_connection", feature = "op_dispose_package_versions", feature = "op_get_associated_package_group", feature = "op_get_authorization_token", feature = "op_get_domain_permissions_policy", feature = "op_get_package_version_asset", feature = "op_get_package_version_readme", feature = "op_get_repository_endpoint", feature = "op_get_repository_permissions_policy", feature = "op_list_allowed_repositories_for_group", feature = "op_list_associated_packages", feature = "op_list_domains", feature = "op_list_package_groups", feature = "op_list_package_version_assets", feature = "op_list_package_version_dependencies", feature = "op_list_package_versions", feature = "op_list_packages", feature = "op_list_repositories", feature = "op_list_repositories_in_domain", feature = "op_list_sub_package_groups", feature = "op_list_tags_for_resource", feature = "op_publish_package_version", feature = "op_put_domain_permissions_policy", feature = "op_put_package_origin_configuration", feature = "op_put_repository_permissions_policy", feature = "op_tag_resource", feature = "op_untag_resource", feature = "op_update_package_group", feature = "op_update_package_group_origin_configuration", feature = "op_update_package_versions_status", feature = "op_update_repository"))]
+Self::AccessDeniedException(e) => e.request_id(),
+            #[cfg(any(feature = "op_associate_external_connection", feature = "op_copy_package_versions", feature = "op_create_domain", feature = "op_create_package_group", feature = "op_create_repository", feature = "op_delete_domain", feature = "op_delete_domain_permissions_policy", feature = "op_delete_package", feature = "op_delete_package_group", feature = "op_delete_package_versions", feature = "op_delete_repository", feature = "op_delete_repository_permissions_policy", feature = "op_describe_package_version", feature = "op_disassociate_external_connection", feature = "op_dispose_package_versions", feature = "op_get_package_version_asset", feature = "op_publish_package_version", feature = "op_put_domain_permissions_policy", feature = "op_put_repository_permissions_policy", feature = "op_update_package_versions_status", feature = "op_update_repository"))]
+Self::ConflictException(e) => e.request_id(),
+            #[cfg(any(feature = "op_associate_external_connection", feature = "op_copy_package_versions", feature = "op_create_domain", feature = "op_create_package_group", feature = "op_create_repository", feature = "op_delete_domain", feature = "op_delete_domain_permissions_policy", feature = "op_delete_package", feature = "op_delete_package_group", feature = "op_delete_package_versions", feature = "op_delete_repository", feature = "op_delete_repository_permissions_policy", feature = "op_describe_domain", feature = "op_describe_package", feature = "op_describe_package_group", feature = "op_describe_package_version", feature = "op_describe_repository", feature = "op_disassociate_external_connection", feature = "op_dispose_package_versions", feature = "op_get_associated_package_group", feature = "op_get_authorization_token", feature = "op_get_domain_permissions_policy", feature = "op_get_package_version_asset", feature = "op_get_package_version_readme", feature = "op_get_repository_endpoint", feature = "op_get_repository_permissions_policy", feature = "op_list_allowed_repositories_for_group", feature = "op_list_associated_packages", feature = "op_list_domains", feature = "op_list_package_groups", feature = "op_list_package_version_assets", feature = "op_list_package_version_dependencies", feature = "op_list_package_versions", feature = "op_list_packages", feature = "op_list_repositories", feature = "op_list_repositories_in_domain", feature = "op_list_sub_package_groups", feature = "op_publish_package_version", feature = "op_put_domain_permissions_policy", feature = "op_put_package_origin_configuration", feature = "op_put_repository_permissions_policy", feature = "op_update_package_group", feature = "op_update_package_group_origin_configuration", feature = "op_update_package_versions_status", feature = "op_update_repository"))]
+Self::InternalServerException(e) => e.request_id(),
+            #[cfg(any(feature = "op_associate_external_connection", feature = "op_copy_package_versions", feature = "op_create_domain", feature = "op_create_package_group", feature = "op_create_repository", feature = "op_delete_domain_permissions_policy", feature = "op_delete_package", feature = "op_delete_package_group", feature = "op_delete_package_versions", feature = "op_delete_repository", feature = "op_delete_repository_permissions_policy", feature = "op_describe_domain", feature = "op_describe_package", feature = "op_describe_package_group", feature = "op_describe_package_version", feature = "op_describe_repository", feature = "op_disassociate_external_connection", feature = "op_dispose_package_versions", feature = "op_get_associated_package_group", feature = "op_get_authorization_token", feature = "op_get_domain_permissions_policy", feature = "op_get_package_version_asset", feature = "op_get_package_version_readme", feature = "op_get_repository_endpoint", feature = "op_get_repository_permissions_policy", feature = "op_list_allowed_repositories_for_group", feature = "op_list_associated_packages", feature = "op_list_package_groups", feature = "op_list_package_version_assets", feature = "op_list_package_version_dependencies", feature = "op_list_package_versions", feature = "op_list_packages", feature = "op_list_repositories_in_domain", feature = "op_list_sub_package_groups", feature = "op_list_tags_for_resource", feature = "op_publish_package_version", feature = "op_put_domain_permissions_policy", feature = "op_put_package_origin_configuration", feature = "op_put_repository_permissions_policy", feature = "op_tag_resource", feature = "op_untag_resource", feature = "op_update_package_group", feature = "op_update_package_group_origin_configuration", feature = "op_update_package_versions_status", feature = "op_update_repository"))]
+Self::ResourceNotFoundException(e) => e.request_id(),
+            #[cfg(any(feature = "op_associate_external_connection", feature = "op_copy_package_versions", feature = "op_create_domain", feature = "op_create_package_group", feature = "op_create_repository", feature = "op_delete_package_group", feature = "op_disassociate_external_connection", feature = "op_list_allowed_repositories_for_group", feature = "op_publish_package_version", feature = "op_put_domain_permissions_policy", feature = "op_put_repository_permissions_policy", feature = "op_tag_resource", feature = "op_update_package_group", feature = "op_update_package_group_origin_configuration", feature = "op_update_repository"))]
+Self::ServiceQuotaExceededException(e) => e.request_id(),
+            #[cfg(any(feature = "op_associate_external_connection", feature = "op_copy_package_versions", feature = "op_create_domain", feature = "op_create_package_group", feature = "op_create_repository", feature = "op_delete_domain", feature = "op_delete_domain_permissions_policy", feature = "op_delete_package", feature = "op_delete_package_group", feature = "op_delete_package_versions", feature = "op_delete_repository", feature = "op_delete_repository_permissions_policy", feature = "op_describe_domain", feature = "op_describe_package", feature = "op_describe_package_group", feature = "op_describe_package_version", feature = "op_describe_repository", feature = "op_disassociate_external_connection", feature = "op_dispose_package_versions", feature = "op_get_authorization_token", feature = "op_get_domain_permissions_policy", feature = "op_get_package_version_asset", feature = "op_get_package_version_readme", feature = "op_get_repository_endpoint", feature = "op_get_repository_permissions_policy", feature = "op_list_allowed_repositories_for_group", feature = "op_list_domains", feature = "op_list_package_groups", feature = "op_list_package_version_assets", feature = "op_list_package_version_dependencies", feature = "op_list_package_versions", feature = "op_list_packages", feature = "op_list_repositories", feature = "op_list_repositories_in_domain", feature = "op_list_sub_package_groups", feature = "op_list_tags_for_resource", feature = "op_publish_package_version", feature = "op_put_domain_permissions_policy", feature = "op_put_package_origin_configuration", feature = "op_put_repository_permissions_policy", feature = "op_tag_resource", feature = "op_untag_resource", feature = "op_update_package_group", feature = "op_update_package_group_origin_configuration", feature = "op_update_package_versions_status", feature = "op_update_repository"))]
+Self::ThrottlingException(e) => e.request_id(),
+            #[cfg(any(feature = "op_associate_external_connection", feature = "op_copy_package_versions", feature = "op_create_domain", feature = "op_create_package_group", feature = "op_create_repository", feature = "op_delete_domain", feature = "op_delete_domain_permissions_policy", feature = "op_delete_package", feature = "op_delete_package_group", feature = "op_delete_package_versions", feature = "op_delete_repository", feature = "op_delete_repository_permissions_policy", feature = "op_describe_domain", feature = "op_describe_package", feature = "op_describe_package_group", feature = "op_describe_package_version", feature = "op_describe_repository", feature = "op_disassociate_external_connection", feature = "op_dispose_package_versions", feature = "op_get_associated_package_group", feature = "op_get_authorization_token", feature = "op_get_domain_permissions_policy", feature = "op_get_package_version_asset", feature = "op_get_package_version_readme", feature = "op_get_repository_endpoint", feature = "op_get_repository_permissions_policy", feature = "op_list_allowed_repositories_for_group", feature = "op_list_associated_packages", feature = "op_list_domains", feature = "op_list_package_groups", feature = "op_list_package_version_assets", feature = "op_list_package_version_dependencies", feature = "op_list_package_versions", feature = "op_list_packages", feature = "op_list_repositories", feature = "op_list_repositories_in_domain", feature = "op_list_sub_package_groups", feature = "op_list_tags_for_resource", feature = "op_publish_package_version", feature = "op_put_domain_permissions_policy", feature = "op_put_package_origin_configuration", feature = "op_put_repository_permissions_policy", feature = "op_tag_resource", feature = "op_untag_resource", feature = "op_update_package_group", feature = "op_update_package_group_origin_configuration", feature = "op_update_package_versions_status", feature = "op_update_repository"))]
+Self::ValidationException(e) => e.request_id(),
             Self::Unhandled(e) => e.meta.request_id(),
         }
     }

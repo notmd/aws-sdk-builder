@@ -5,12 +5,7 @@
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
 pub struct CopyPackageVersionsOutput {
     /// <p>A list of the package versions that were successfully copied to your repository.</p>
-    pub successful_versions: ::std::option::Option<
-        ::std::collections::HashMap<
-            ::std::string::String,
-            crate::types::SuccessfulPackageVersionInfo,
-        >,
-    >,
+    pub successful_versions: ::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::SuccessfulPackageVersionInfo>>,
     /// <p>A map of package versions that failed to copy and their error codes. The possible error codes are in the <code>PackageVersionError</code> data type. They are:</p>
     /// <ul>
     /// <li>
@@ -26,9 +21,7 @@ pub struct CopyPackageVersionsOutput {
     /// <li>
     /// <p><code>SKIPPED</code></p></li>
     /// </ul>
-    pub failed_versions: ::std::option::Option<
-        ::std::collections::HashMap<::std::string::String, crate::types::PackageVersionError>,
-    >,
+    pub failed_versions: ::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::PackageVersionError>>,
     _request_id: Option<String>,
 }
 #[cfg(feature = "op_copy_package_versions")]
@@ -36,12 +29,7 @@ impl CopyPackageVersionsOutput {
     /// <p>A list of the package versions that were successfully copied to your repository.</p>
     pub fn successful_versions(
         &self,
-    ) -> ::std::option::Option<
-        &::std::collections::HashMap<
-            ::std::string::String,
-            crate::types::SuccessfulPackageVersionInfo,
-        >,
-    > {
+    ) -> ::std::option::Option<&::std::collections::HashMap<::std::string::String, crate::types::SuccessfulPackageVersionInfo>> {
         self.successful_versions.as_ref()
     }
     /// <p>A map of package versions that failed to copy and their error codes. The possible error codes are in the <code>PackageVersionError</code> data type. They are:</p>
@@ -59,11 +47,7 @@ impl CopyPackageVersionsOutput {
     /// <li>
     /// <p><code>SKIPPED</code></p></li>
     /// </ul>
-    pub fn failed_versions(
-        &self,
-    ) -> ::std::option::Option<
-        &::std::collections::HashMap<::std::string::String, crate::types::PackageVersionError>,
-    > {
+    pub fn failed_versions(&self) -> ::std::option::Option<&::std::collections::HashMap<::std::string::String, crate::types::PackageVersionError>> {
         self.failed_versions.as_ref()
     }
 }
@@ -76,29 +60,19 @@ impl ::aws_types::request_id::RequestId for CopyPackageVersionsOutput {
 #[cfg(feature = "op_copy_package_versions")]
 impl CopyPackageVersionsOutput {
     /// Creates a new builder-style object to manufacture [`CopyPackageVersionsOutput`](crate::operation::copy_package_versions::CopyPackageVersionsOutput).
-    pub fn builder(
-    ) -> crate::operation::copy_package_versions::builders::CopyPackageVersionsOutputBuilder {
-        crate::operation::copy_package_versions::builders::CopyPackageVersionsOutputBuilder::default(
-        )
+    pub fn builder() -> crate::operation::copy_package_versions::builders::CopyPackageVersionsOutputBuilder {
+        crate::operation::copy_package_versions::builders::CopyPackageVersionsOutputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_copy_package_versions")]
 /// A builder for [`CopyPackageVersionsOutput`](crate::operation::copy_package_versions::CopyPackageVersionsOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct CopyPackageVersionsOutputBuilder {
-    pub(crate) successful_versions: ::std::option::Option<
-        ::std::collections::HashMap<
-            ::std::string::String,
-            crate::types::SuccessfulPackageVersionInfo,
-        >,
-    >,
-    pub(crate) failed_versions: ::std::option::Option<
-        ::std::collections::HashMap<::std::string::String, crate::types::PackageVersionError>,
-    >,
+    pub(crate) successful_versions:
+        ::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::SuccessfulPackageVersionInfo>>,
+    pub(crate) failed_versions: ::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::PackageVersionError>>,
     _request_id: Option<String>,
 }
 #[cfg(feature = "op_copy_package_versions")]
@@ -108,11 +82,7 @@ impl CopyPackageVersionsOutputBuilder {
     /// To override the contents of this collection use [`set_successful_versions`](Self::set_successful_versions).
     ///
     /// <p>A list of the package versions that were successfully copied to your repository.</p>
-    pub fn successful_versions(
-        mut self,
-        k: impl ::std::convert::Into<::std::string::String>,
-        v: crate::types::SuccessfulPackageVersionInfo,
-    ) -> Self {
+    pub fn successful_versions(mut self, k: impl ::std::convert::Into<::std::string::String>, v: crate::types::SuccessfulPackageVersionInfo) -> Self {
         let mut hash_map = self.successful_versions.unwrap_or_default();
         hash_map.insert(k.into(), v);
         self.successful_versions = ::std::option::Option::Some(hash_map);
@@ -121,12 +91,7 @@ impl CopyPackageVersionsOutputBuilder {
     /// <p>A list of the package versions that were successfully copied to your repository.</p>
     pub fn set_successful_versions(
         mut self,
-        input: ::std::option::Option<
-            ::std::collections::HashMap<
-                ::std::string::String,
-                crate::types::SuccessfulPackageVersionInfo,
-            >,
-        >,
+        input: ::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::SuccessfulPackageVersionInfo>>,
     ) -> Self {
         self.successful_versions = input;
         self
@@ -134,12 +99,7 @@ impl CopyPackageVersionsOutputBuilder {
     /// <p>A list of the package versions that were successfully copied to your repository.</p>
     pub fn get_successful_versions(
         &self,
-    ) -> &::std::option::Option<
-        ::std::collections::HashMap<
-            ::std::string::String,
-            crate::types::SuccessfulPackageVersionInfo,
-        >,
-    > {
+    ) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::SuccessfulPackageVersionInfo>> {
         &self.successful_versions
     }
     /// Adds a key-value pair to `failed_versions`.
@@ -161,11 +121,7 @@ impl CopyPackageVersionsOutputBuilder {
     /// <li>
     /// <p><code>SKIPPED</code></p></li>
     /// </ul>
-    pub fn failed_versions(
-        mut self,
-        k: impl ::std::convert::Into<::std::string::String>,
-        v: crate::types::PackageVersionError,
-    ) -> Self {
+    pub fn failed_versions(mut self, k: impl ::std::convert::Into<::std::string::String>, v: crate::types::PackageVersionError) -> Self {
         let mut hash_map = self.failed_versions.unwrap_or_default();
         hash_map.insert(k.into(), v);
         self.failed_versions = ::std::option::Option::Some(hash_map);
@@ -188,9 +144,7 @@ impl CopyPackageVersionsOutputBuilder {
     /// </ul>
     pub fn set_failed_versions(
         mut self,
-        input: ::std::option::Option<
-            ::std::collections::HashMap<::std::string::String, crate::types::PackageVersionError>,
-        >,
+        input: ::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::PackageVersionError>>,
     ) -> Self {
         self.failed_versions = input;
         self
@@ -212,9 +166,7 @@ impl CopyPackageVersionsOutputBuilder {
     /// </ul>
     pub fn get_failed_versions(
         &self,
-    ) -> &::std::option::Option<
-        ::std::collections::HashMap<::std::string::String, crate::types::PackageVersionError>,
-    > {
+    ) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::PackageVersionError>> {
         &self.failed_versions
     }
     pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {

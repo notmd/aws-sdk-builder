@@ -105,18 +105,14 @@ impl GetPackageVersionAssetInput {
 #[cfg(feature = "op_get_package_version_asset")]
 impl GetPackageVersionAssetInput {
     /// Creates a new builder-style object to manufacture [`GetPackageVersionAssetInput`](crate::operation::get_package_version_asset::GetPackageVersionAssetInput).
-    pub fn builder(
-    ) -> crate::operation::get_package_version_asset::builders::GetPackageVersionAssetInputBuilder
-    {
+    pub fn builder() -> crate::operation::get_package_version_asset::builders::GetPackageVersionAssetInputBuilder {
         crate::operation::get_package_version_asset::builders::GetPackageVersionAssetInputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_get_package_version_asset")]
 /// A builder for [`GetPackageVersionAssetInput`](crate::operation::get_package_version_asset::GetPackageVersionAssetInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct GetPackageVersionAssetInputBuilder {
     pub(crate) domain: ::std::option::Option<::std::string::String>,
@@ -281,18 +277,12 @@ impl GetPackageVersionAssetInputBuilder {
     }
     /// <p>A string that contains the package version (for example, <code>3.5.2</code>).</p>
     /// This field is required.
-    pub fn package_version(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn package_version(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.package_version = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>A string that contains the package version (for example, <code>3.5.2</code>).</p>
-    pub fn set_package_version(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_package_version(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.package_version = input;
         self
     }
@@ -316,18 +306,12 @@ impl GetPackageVersionAssetInputBuilder {
         &self.asset
     }
     /// <p>The name of the package version revision that contains the requested asset.</p>
-    pub fn package_version_revision(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn package_version_revision(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.package_version_revision = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The name of the package version revision that contains the requested asset.</p>
-    pub fn set_package_version_revision(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_package_version_revision(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.package_version_revision = input;
         self
     }
@@ -342,18 +326,16 @@ impl GetPackageVersionAssetInputBuilder {
         crate::operation::get_package_version_asset::GetPackageVersionAssetInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(
-            crate::operation::get_package_version_asset::GetPackageVersionAssetInput {
-                domain: self.domain,
-                domain_owner: self.domain_owner,
-                repository: self.repository,
-                format: self.format,
-                namespace: self.namespace,
-                package: self.package,
-                package_version: self.package_version,
-                asset: self.asset,
-                package_version_revision: self.package_version_revision,
-            },
-        )
+        ::std::result::Result::Ok(crate::operation::get_package_version_asset::GetPackageVersionAssetInput {
+            domain: self.domain,
+            domain_owner: self.domain_owner,
+            repository: self.repository,
+            format: self.format,
+            namespace: self.namespace,
+            package: self.package,
+            package_version: self.package_version,
+            asset: self.asset,
+            package_version_revision: self.package_version_revision,
+        })
     }
 }

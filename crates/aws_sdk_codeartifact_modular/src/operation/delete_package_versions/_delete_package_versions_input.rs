@@ -101,18 +101,14 @@ impl DeletePackageVersionsInput {
 #[cfg(feature = "op_delete_package_versions")]
 impl DeletePackageVersionsInput {
     /// Creates a new builder-style object to manufacture [`DeletePackageVersionsInput`](crate::operation::delete_package_versions::DeletePackageVersionsInput).
-    pub fn builder(
-    ) -> crate::operation::delete_package_versions::builders::DeletePackageVersionsInputBuilder
-    {
+    pub fn builder() -> crate::operation::delete_package_versions::builders::DeletePackageVersionsInputBuilder {
         crate::operation::delete_package_versions::builders::DeletePackageVersionsInputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_delete_package_versions")]
 /// A builder for [`DeletePackageVersionsInput`](crate::operation::delete_package_versions::DeletePackageVersionsInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct DeletePackageVersionsInputBuilder {
     pub(crate) domain: ::std::option::Option<::std::string::String>,
@@ -286,10 +282,7 @@ impl DeletePackageVersionsInputBuilder {
         self
     }
     /// <p>An array of strings that specify the versions of the package to delete.</p>
-    pub fn set_versions(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
-    ) -> Self {
+    pub fn set_versions(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
         self.versions = input;
         self
     }
@@ -303,37 +296,28 @@ impl DeletePackageVersionsInputBuilder {
         self
     }
     /// <p>The expected status of the package version to delete.</p>
-    pub fn set_expected_status(
-        mut self,
-        input: ::std::option::Option<crate::types::PackageVersionStatus>,
-    ) -> Self {
+    pub fn set_expected_status(mut self, input: ::std::option::Option<crate::types::PackageVersionStatus>) -> Self {
         self.expected_status = input;
         self
     }
     /// <p>The expected status of the package version to delete.</p>
-    pub fn get_expected_status(
-        &self,
-    ) -> &::std::option::Option<crate::types::PackageVersionStatus> {
+    pub fn get_expected_status(&self) -> &::std::option::Option<crate::types::PackageVersionStatus> {
         &self.expected_status
     }
     /// Consumes the builder and constructs a [`DeletePackageVersionsInput`](crate::operation::delete_package_versions::DeletePackageVersionsInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        crate::operation::delete_package_versions::DeletePackageVersionsInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
-        ::std::result::Result::Ok(
-            crate::operation::delete_package_versions::DeletePackageVersionsInput {
-                domain: self.domain,
-                domain_owner: self.domain_owner,
-                repository: self.repository,
-                format: self.format,
-                namespace: self.namespace,
-                package: self.package,
-                versions: self.versions,
-                expected_status: self.expected_status,
-            },
-        )
+    ) -> ::std::result::Result<crate::operation::delete_package_versions::DeletePackageVersionsInput, ::aws_smithy_types::error::operation::BuildError>
+    {
+        ::std::result::Result::Ok(crate::operation::delete_package_versions::DeletePackageVersionsInput {
+            domain: self.domain,
+            domain_owner: self.domain_owner,
+            repository: self.repository,
+            format: self.format,
+            namespace: self.namespace,
+            package: self.package,
+            versions: self.versions,
+            expected_status: self.expected_status,
+        })
     }
 }

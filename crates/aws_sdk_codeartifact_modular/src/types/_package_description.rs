@@ -47,9 +47,7 @@ impl PackageDescription {
         self.name.as_deref()
     }
     /// <p>The package origin configuration for the package.</p>
-    pub fn origin_configuration(
-        &self,
-    ) -> ::std::option::Option<&crate::types::PackageOriginConfiguration> {
+    pub fn origin_configuration(&self) -> ::std::option::Option<&crate::types::PackageOriginConfiguration> {
         self.origin_configuration.as_ref()
     }
 }
@@ -61,16 +59,13 @@ impl PackageDescription {
 }
 
 /// A builder for [`PackageDescription`](crate::types::PackageDescription).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct PackageDescriptionBuilder {
     pub(crate) format: ::std::option::Option<crate::types::PackageFormat>,
     pub(crate) namespace: ::std::option::Option<::std::string::String>,
     pub(crate) name: ::std::option::Option<::std::string::String>,
-    pub(crate) origin_configuration:
-        ::std::option::Option<crate::types::PackageOriginConfiguration>,
+    pub(crate) origin_configuration: ::std::option::Option<crate::types::PackageOriginConfiguration>,
 }
 impl PackageDescriptionBuilder {
     /// <p>A format that specifies the type of the package.</p>
@@ -151,17 +146,12 @@ impl PackageDescriptionBuilder {
         self
     }
     /// <p>The package origin configuration for the package.</p>
-    pub fn set_origin_configuration(
-        mut self,
-        input: ::std::option::Option<crate::types::PackageOriginConfiguration>,
-    ) -> Self {
+    pub fn set_origin_configuration(mut self, input: ::std::option::Option<crate::types::PackageOriginConfiguration>) -> Self {
         self.origin_configuration = input;
         self
     }
     /// <p>The package origin configuration for the package.</p>
-    pub fn get_origin_configuration(
-        &self,
-    ) -> &::std::option::Option<crate::types::PackageOriginConfiguration> {
+    pub fn get_origin_configuration(&self) -> &::std::option::Option<crate::types::PackageOriginConfiguration> {
         &self.origin_configuration
     }
     /// Consumes the builder and constructs a [`PackageDescription`](crate::types::PackageDescription).

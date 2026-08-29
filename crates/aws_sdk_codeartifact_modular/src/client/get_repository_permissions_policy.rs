@@ -11,7 +11,7 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<GetRepositoryPermissionsPolicyError>`](crate::operation::get_repository_permissions_policy::GetRepositoryPermissionsPolicyError)
     pub fn get_repository_permissions_policy(
         &self,
-    ) -> crate::operation::get_repository_permissions_policy::builders::GetRepositoryPermissionsPolicyFluentBuilder{
+    ) -> crate::operation::get_repository_permissions_policy::builders::GetRepositoryPermissionsPolicyFluentBuilder {
         crate::operation::get_repository_permissions_policy::builders::GetRepositoryPermissionsPolicyFluentBuilder::new(self.handle.clone())
     }
 }

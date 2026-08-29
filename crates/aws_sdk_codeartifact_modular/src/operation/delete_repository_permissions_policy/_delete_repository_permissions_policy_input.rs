@@ -35,16 +35,14 @@ impl DeleteRepositoryPermissionsPolicyInput {
 #[cfg(feature = "op_delete_repository_permissions_policy")]
 impl DeleteRepositoryPermissionsPolicyInput {
     /// Creates a new builder-style object to manufacture [`DeleteRepositoryPermissionsPolicyInput`](crate::operation::delete_repository_permissions_policy::DeleteRepositoryPermissionsPolicyInput).
-    pub fn builder() -> crate::operation::delete_repository_permissions_policy::builders::DeleteRepositoryPermissionsPolicyInputBuilder{
+    pub fn builder() -> crate::operation::delete_repository_permissions_policy::builders::DeleteRepositoryPermissionsPolicyInputBuilder {
         crate::operation::delete_repository_permissions_policy::builders::DeleteRepositoryPermissionsPolicyInputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_delete_repository_permissions_policy")]
 /// A builder for [`DeleteRepositoryPermissionsPolicyInput`](crate::operation::delete_repository_permissions_policy::DeleteRepositoryPermissionsPolicyInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct DeleteRepositoryPermissionsPolicyInputBuilder {
     pub(crate) domain: ::std::option::Option<::std::string::String>,
@@ -99,18 +97,12 @@ impl DeleteRepositoryPermissionsPolicyInputBuilder {
         &self.repository
     }
     /// <p>The revision of the repository's resource policy to be deleted. This revision is used for optimistic locking, which prevents others from accidentally overwriting your changes to the repository's resource policy.</p>
-    pub fn policy_revision(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn policy_revision(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.policy_revision = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The revision of the repository's resource policy to be deleted. This revision is used for optimistic locking, which prevents others from accidentally overwriting your changes to the repository's resource policy.</p>
-    pub fn set_policy_revision(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_policy_revision(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.policy_revision = input;
         self
     }
@@ -124,7 +116,7 @@ impl DeleteRepositoryPermissionsPolicyInputBuilder {
     ) -> ::std::result::Result<
         crate::operation::delete_repository_permissions_policy::DeleteRepositoryPermissionsPolicyInput,
         ::aws_smithy_types::error::operation::BuildError,
-    >{
+    > {
         ::std::result::Result::Ok(
             crate::operation::delete_repository_permissions_policy::DeleteRepositoryPermissionsPolicyInput {
                 domain: self.domain,

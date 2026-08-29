@@ -12,7 +12,7 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<DisassociateExternalConnectionError>`](crate::operation::disassociate_external_connection::DisassociateExternalConnectionError)
     pub fn disassociate_external_connection(
         &self,
-    ) -> crate::operation::disassociate_external_connection::builders::DisassociateExternalConnectionFluentBuilder{
+    ) -> crate::operation::disassociate_external_connection::builders::DisassociateExternalConnectionFluentBuilder {
         crate::operation::disassociate_external_connection::builders::DisassociateExternalConnectionFluentBuilder::new(self.handle.clone())
     }
 }

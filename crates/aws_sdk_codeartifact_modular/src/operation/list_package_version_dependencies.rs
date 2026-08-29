@@ -17,7 +17,7 @@ impl ListPackageVersionDependencies {
             crate::operation::list_package_version_dependencies::ListPackageVersionDependenciesError,
             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
         >,
-    >{
+    > {
         let map_err = |err: ::aws_smithy_runtime_api::client::result::SdkError<
             ::aws_smithy_runtime_api::client::interceptors::context::Error,
             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
@@ -27,13 +27,9 @@ impl ListPackageVersionDependencies {
                     .expect("correct error type")
             })
         };
-        let context = Self::orchestrate_with_stop_point(
-            runtime_plugins,
-            input,
-            ::aws_smithy_runtime::client::orchestrator::StopPoint::None,
-        )
-        .await
-        .map_err(map_err)?;
+        let context = Self::orchestrate_with_stop_point(runtime_plugins, input, ::aws_smithy_runtime::client::orchestrator::StopPoint::None)
+            .await
+            .map_err(map_err)?;
         let output = context.finalize().map_err(map_err)?;
         ::std::result::Result::Ok(
             output
@@ -85,49 +81,37 @@ impl ListPackageVersionDependencies {
             for plugin in config_override.runtime_plugins.iter().cloned() {
                 runtime_plugins = runtime_plugins.with_operation_plugin(plugin);
             }
-            runtime_plugins = runtime_plugins.with_operation_plugin(
-                crate::config::ConfigOverrideRuntimePlugin::new(
-                    config_override,
-                    client_config.config.clone(),
-                    &client_config.runtime_components,
-                ),
-            );
+            runtime_plugins = runtime_plugins.with_operation_plugin(crate::config::ConfigOverrideRuntimePlugin::new(
+                config_override,
+                client_config.config.clone(),
+                &client_config.runtime_components,
+            ));
         }
         runtime_plugins
     }
 }
-impl ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugin
-    for ListPackageVersionDependencies
-{
+impl ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugin for ListPackageVersionDependencies {
     fn config(&self) -> ::std::option::Option<::aws_smithy_types::config_bag::FrozenLayer> {
         let mut cfg = ::aws_smithy_types::config_bag::Layer::new("ListPackageVersionDependencies");
 
-        cfg.store_put(
-            ::aws_smithy_runtime_api::client::ser_de::SharedRequestSerializer::new(
-                ListPackageVersionDependenciesRequestSerializer,
-            ),
-        );
-        cfg.store_put(
-            ::aws_smithy_runtime_api::client::ser_de::SharedResponseDeserializer::new(
-                ListPackageVersionDependenciesResponseDeserializer,
-            ),
-        );
+        cfg.store_put(::aws_smithy_runtime_api::client::ser_de::SharedRequestSerializer::new(
+            ListPackageVersionDependenciesRequestSerializer,
+        ));
+        cfg.store_put(::aws_smithy_runtime_api::client::ser_de::SharedResponseDeserializer::new(
+            ListPackageVersionDependenciesResponseDeserializer,
+        ));
 
-        cfg.store_put(
-            ::aws_smithy_runtime_api::client::auth::AuthSchemeOptionResolverParams::new(
-                crate::config::auth::Params::builder()
-                    .operation_name("ListPackageVersionDependencies")
-                    .build()
-                    .expect("required fields set"),
-            ),
-        );
+        cfg.store_put(::aws_smithy_runtime_api::client::auth::AuthSchemeOptionResolverParams::new(
+            crate::config::auth::Params::builder()
+                .operation_name("ListPackageVersionDependencies")
+                .build()
+                .expect("required fields set"),
+        ));
 
-        cfg.store_put(
-            ::aws_smithy_runtime_api::client::orchestrator::Metadata::new(
-                "ListPackageVersionDependencies",
-                "codeartifact",
-            ),
-        );
+        cfg.store_put(::aws_smithy_runtime_api::client::orchestrator::Metadata::new(
+            "ListPackageVersionDependencies",
+            "codeartifact",
+        ));
         let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
         signing_options.double_uri_encode = true;
         signing_options.content_sha256_header = false;
@@ -145,10 +129,7 @@ impl ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugin
     fn runtime_components(
         &self,
         _: &::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder,
-    ) -> ::std::borrow::Cow<
-        '_,
-        ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder,
-    > {
+    ) -> ::std::borrow::Cow<'_, ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder> {
         #[allow(unused_mut)]
         let mut rcb = ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new("ListPackageVersionDependencies")
             .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
@@ -178,9 +159,7 @@ impl ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugin
 struct ListPackageVersionDependenciesTelemetryInputCaptureInterceptor;
 
 #[::aws_smithy_runtime_api::client::interceptors::dyn_dispatch_hint]
-impl ::aws_smithy_runtime_api::client::interceptors::Intercept
-    for ListPackageVersionDependenciesTelemetryInputCaptureInterceptor
-{
+impl ::aws_smithy_runtime_api::client::interceptors::Intercept for ListPackageVersionDependenciesTelemetryInputCaptureInterceptor {
     fn name(&self) -> &'static str {
         "ListPackageVersionDependenciesTelemetryInputCaptureInterceptor"
     }
@@ -203,10 +182,7 @@ impl ::aws_smithy_runtime_api::client::interceptors::Intercept
             return ::std::result::Result::Ok(());
         };
 
-        let ::std::option::Option::Some(input) = context
-            .input()
-            .downcast_ref::<ListPackageVersionDependenciesInput>()
-        else {
+        let ::std::option::Option::Some(input) = context.input().downcast_ref::<ListPackageVersionDependenciesInput>() else {
             // A mismatched input is not this interceptor's concern; skip quietly.
             return ::std::result::Result::Ok(());
         };
@@ -254,9 +230,7 @@ impl ::aws_smithy_runtime_api::client::interceptors::Intercept
 }
 #[derive(Debug)]
 struct ListPackageVersionDependenciesResponseDeserializer;
-impl ::aws_smithy_runtime_api::client::ser_de::DeserializeResponse
-    for ListPackageVersionDependenciesResponseDeserializer
-{
+impl ::aws_smithy_runtime_api::client::ser_de::DeserializeResponse for ListPackageVersionDependenciesResponseDeserializer {
     fn deserialize_nonstreaming_with_config(
         &self,
         response: &::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
@@ -278,23 +252,13 @@ impl ::aws_smithy_runtime_api::client::ser_de::DeserializeResponse
 }
 #[derive(Debug)]
 struct ListPackageVersionDependenciesRequestSerializer;
-impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest
-    for ListPackageVersionDependenciesRequestSerializer
-{
-    #[allow(
-        unused_mut,
-        clippy::let_and_return,
-        clippy::needless_borrow,
-        clippy::useless_conversion
-    )]
+impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for ListPackageVersionDependenciesRequestSerializer {
+    #[allow(unused_mut, clippy::let_and_return, clippy::needless_borrow, clippy::useless_conversion)]
     fn serialize_input(
         &self,
         input: ::aws_smithy_runtime_api::client::interceptors::context::Input,
         _cfg: &mut ::aws_smithy_types::config_bag::ConfigBag,
-    ) -> ::std::result::Result<
-        ::aws_smithy_runtime_api::client::orchestrator::HttpRequest,
-        ::aws_smithy_runtime_api::box_error::BoxError,
-    > {
+    ) -> ::std::result::Result<::aws_smithy_runtime_api::client::orchestrator::HttpRequest, ::aws_smithy_runtime_api::box_error::BoxError> {
         let input = input
             .downcast::<crate::operation::list_package_version_dependencies::ListPackageVersionDependenciesInput>()
             .expect("correct type");
@@ -307,105 +271,73 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest
             fn uri_base(
                 _input: &crate::operation::list_package_version_dependencies::ListPackageVersionDependenciesInput,
                 output: &mut ::std::string::String,
-            ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::BuildError>
-            {
+            ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::BuildError> {
                 use ::std::fmt::Write as _;
-                ::std::write!(output, "/v1/package/version/dependencies")
-                    .expect("formatting should succeed");
+                ::std::write!(output, "/v1/package/version/dependencies").expect("formatting should succeed");
                 ::std::result::Result::Ok(())
             }
             fn uri_query(
                 _input: &crate::operation::list_package_version_dependencies::ListPackageVersionDependenciesInput,
                 mut output: &mut ::std::string::String,
-            ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::BuildError>
-            {
+            ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::BuildError> {
                 let mut query = ::aws_smithy_http::query::Writer::new(output);
                 let inner_1 = &_input.domain;
-                let inner_1 = inner_1.as_ref().ok_or_else(|| {
-                    ::aws_smithy_types::error::operation::BuildError::missing_field(
+                let inner_1 = inner_1
+                    .as_ref()
+                    .ok_or_else(|| ::aws_smithy_types::error::operation::BuildError::missing_field("domain", "cannot be empty or unset"))?;
+                if inner_1.is_empty() {
+                    return ::std::result::Result::Err(::aws_smithy_types::error::operation::BuildError::missing_field(
                         "domain",
                         "cannot be empty or unset",
-                    )
-                })?;
-                if inner_1.is_empty() {
-                    return ::std::result::Result::Err(
-                        ::aws_smithy_types::error::operation::BuildError::missing_field(
-                            "domain",
-                            "cannot be empty or unset",
-                        ),
-                    );
+                    ));
                 }
                 query.push_kv("domain", &::aws_smithy_http::query::fmt_string(inner_1));
                 if let ::std::option::Option::Some(inner_2) = &_input.domain_owner {
                     {
-                        query.push_kv(
-                            "domain-owner",
-                            &::aws_smithy_http::query::fmt_string(inner_2),
-                        );
+                        query.push_kv("domain-owner", &::aws_smithy_http::query::fmt_string(inner_2));
                     }
                 }
                 let inner_3 = &_input.repository;
-                let inner_3 = inner_3.as_ref().ok_or_else(|| {
-                    ::aws_smithy_types::error::operation::BuildError::missing_field(
+                let inner_3 = inner_3
+                    .as_ref()
+                    .ok_or_else(|| ::aws_smithy_types::error::operation::BuildError::missing_field("repository", "cannot be empty or unset"))?;
+                if inner_3.is_empty() {
+                    return ::std::result::Result::Err(::aws_smithy_types::error::operation::BuildError::missing_field(
                         "repository",
                         "cannot be empty or unset",
-                    )
-                })?;
-                if inner_3.is_empty() {
-                    return ::std::result::Result::Err(
-                        ::aws_smithy_types::error::operation::BuildError::missing_field(
-                            "repository",
-                            "cannot be empty or unset",
-                        ),
-                    );
+                    ));
                 }
                 query.push_kv("repository", &::aws_smithy_http::query::fmt_string(inner_3));
                 let inner_4 = &_input.format;
-                let inner_4 = inner_4.as_ref().ok_or_else(|| {
-                    ::aws_smithy_types::error::operation::BuildError::missing_field(
-                        "format",
-                        "cannot be empty or unset",
-                    )
-                })?;
-                query.push_kv(
-                    "format",
-                    &::aws_smithy_http::query::fmt_string(inner_4.as_str()),
-                );
+                let inner_4 = inner_4
+                    .as_ref()
+                    .ok_or_else(|| ::aws_smithy_types::error::operation::BuildError::missing_field("format", "cannot be empty or unset"))?;
+                query.push_kv("format", &::aws_smithy_http::query::fmt_string(inner_4.as_str()));
                 if let ::std::option::Option::Some(inner_5) = &_input.namespace {
                     {
                         query.push_kv("namespace", &::aws_smithy_http::query::fmt_string(inner_5));
                     }
                 }
                 let inner_6 = &_input.package;
-                let inner_6 = inner_6.as_ref().ok_or_else(|| {
-                    ::aws_smithy_types::error::operation::BuildError::missing_field(
+                let inner_6 = inner_6
+                    .as_ref()
+                    .ok_or_else(|| ::aws_smithy_types::error::operation::BuildError::missing_field("package", "cannot be empty or unset"))?;
+                if inner_6.is_empty() {
+                    return ::std::result::Result::Err(::aws_smithy_types::error::operation::BuildError::missing_field(
                         "package",
                         "cannot be empty or unset",
-                    )
-                })?;
-                if inner_6.is_empty() {
-                    return ::std::result::Result::Err(
-                        ::aws_smithy_types::error::operation::BuildError::missing_field(
-                            "package",
-                            "cannot be empty or unset",
-                        ),
-                    );
+                    ));
                 }
                 query.push_kv("package", &::aws_smithy_http::query::fmt_string(inner_6));
                 let inner_7 = &_input.package_version;
-                let inner_7 = inner_7.as_ref().ok_or_else(|| {
-                    ::aws_smithy_types::error::operation::BuildError::missing_field(
+                let inner_7 = inner_7
+                    .as_ref()
+                    .ok_or_else(|| ::aws_smithy_types::error::operation::BuildError::missing_field("package_version", "cannot be empty or unset"))?;
+                if inner_7.is_empty() {
+                    return ::std::result::Result::Err(::aws_smithy_types::error::operation::BuildError::missing_field(
                         "package_version",
                         "cannot be empty or unset",
-                    )
-                })?;
-                if inner_7.is_empty() {
-                    return ::std::result::Result::Err(
-                        ::aws_smithy_types::error::operation::BuildError::missing_field(
-                            "package_version",
-                            "cannot be empty or unset",
-                        ),
-                    );
+                    ));
                 }
                 query.push_kv("version", &::aws_smithy_http::query::fmt_string(inner_7));
                 if let ::std::option::Option::Some(inner_8) = &_input.next_token {
@@ -419,10 +351,7 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest
             fn update_http_builder(
                 input: &crate::operation::list_package_version_dependencies::ListPackageVersionDependenciesInput,
                 builder: ::http_1x::request::Builder,
-            ) -> ::std::result::Result<
-                ::http_1x::request::Builder,
-                ::aws_smithy_types::error::operation::BuildError,
-            > {
+            ) -> ::std::result::Result<::http_1x::request::Builder, ::aws_smithy_types::error::operation::BuildError> {
                 let mut uri = ::std::string::String::new();
                 uri_base(input, &mut uri)?;
                 uri_query(input, &mut uri)?;
@@ -433,22 +362,14 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest
         };
         let body = ::aws_smithy_types::body::SdkBody::from("");
 
-        ::std::result::Result::Ok(
-            request_builder
-                .body(body)
-                .expect("valid request")
-                .try_into()
-                .unwrap(),
-        )
+        ::std::result::Result::Ok(request_builder.body(body).expect("valid request").try_into().unwrap())
     }
 }
 #[derive(Debug)]
 struct ListPackageVersionDependenciesEndpointParamsInterceptor;
 
 #[::aws_smithy_runtime_api::client::interceptors::dyn_dispatch_hint]
-impl ::aws_smithy_runtime_api::client::interceptors::Intercept
-    for ListPackageVersionDependenciesEndpointParamsInterceptor
-{
+impl ::aws_smithy_runtime_api::client::interceptors::Intercept for ListPackageVersionDependenciesEndpointParamsInterceptor {
     fn name(&self) -> &'static str {
         "ListPackageVersionDependenciesEndpointParamsInterceptor"
     }
@@ -469,32 +390,16 @@ impl ::aws_smithy_runtime_api::client::interceptors::Intercept
             .ok_or("failed to downcast to ListPackageVersionDependenciesInput")?;
 
         let params = crate::config::endpoint::Params::builder()
-            .set_region(
-                cfg.load::<::aws_types::region::Region>()
-                    .map(|r| r.as_ref().to_owned()),
-            )
-            .set_use_dual_stack(
-                cfg.load::<::aws_types::endpoint_config::UseDualStack>()
-                    .map(|ty| ty.0),
-            )
-            .set_use_fips(
-                cfg.load::<::aws_types::endpoint_config::UseFips>()
-                    .map(|ty| ty.0),
-            )
-            .set_endpoint(
-                cfg.load::<::aws_types::endpoint_config::EndpointUrl>()
-                    .map(|ty| ty.0.clone()),
-            )
+            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
+            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
+            .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
+            .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
             .build()
             .map_err(|err| {
-                ::aws_smithy_runtime_api::client::interceptors::error::ContextAttachedError::new(
-                    "endpoint params could not be built",
-                    err,
-                )
+                ::aws_smithy_runtime_api::client::interceptors::error::ContextAttachedError::new("endpoint params could not be built", err)
             })?;
-        cfg.interceptor_state().store_put(
-            ::aws_smithy_runtime_api::client::endpoint::EndpointResolverParams::new(params),
-        );
+        cfg.interceptor_state()
+            .store_put(::aws_smithy_runtime_api::client::endpoint::EndpointResolverParams::new(params));
         ::std::result::Result::Ok(())
     }
 }
@@ -517,24 +422,18 @@ pub enum ListPackageVersionDependenciesError {
     /// <p>The operation did not succeed because a parameter in the request was sent with an invalid value.</p>
     ValidationException(crate::types::error::ValidationException),
     /// An unexpected error occurred (e.g., invalid JSON returned by the service or an unknown error code).
-    #[deprecated(
-        note = "Matching `Unhandled` directly is not forwards compatible. Instead, match using a \
+    #[deprecated(note = "Matching `Unhandled` directly is not forwards compatible. Instead, match using a \
     variable wildcard pattern and check `.code()`:
      \
     &nbsp;&nbsp;&nbsp;`err if err.code() == Some(\"SpecificExceptionCode\") => { /* handle the error */ }`
      \
-    See [`ProvideErrorMetadata`](#impl-ProvideErrorMetadata-for-ListPackageVersionDependenciesError) for what information is available for the error."
-    )]
+    See [`ProvideErrorMetadata`](#impl-ProvideErrorMetadata-for-ListPackageVersionDependenciesError) for what information is available for the error.")]
     Unhandled(crate::error::sealed_unhandled::Unhandled),
 }
 impl ListPackageVersionDependenciesError {
     /// Creates the `ListPackageVersionDependenciesError::Unhandled` variant from any error type.
     pub fn unhandled(
-        err: impl ::std::convert::Into<
-            ::std::boxed::Box<
-                dyn ::std::error::Error + ::std::marker::Send + ::std::marker::Sync + 'static,
-            >,
-        >,
+        err: impl ::std::convert::Into<::std::boxed::Box<dyn ::std::error::Error + ::std::marker::Send + ::std::marker::Sync + 'static>>,
     ) -> Self {
         Self::Unhandled(crate::error::sealed_unhandled::Unhandled {
             source: err.into(),
@@ -555,21 +454,11 @@ impl ListPackageVersionDependenciesError {
     ///
     pub fn meta(&self) -> &::aws_smithy_types::error::ErrorMetadata {
         match self {
-            Self::AccessDeniedException(e) => {
-                ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e)
-            }
-            Self::InternalServerException(e) => {
-                ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e)
-            }
-            Self::ResourceNotFoundException(e) => {
-                ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e)
-            }
-            Self::ThrottlingException(e) => {
-                ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e)
-            }
-            Self::ValidationException(e) => {
-                ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e)
-            }
+            Self::AccessDeniedException(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
+            Self::InternalServerException(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
+            Self::ResourceNotFoundException(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
+            Self::ThrottlingException(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
+            Self::ValidationException(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
             Self::Unhandled(e) => &e.meta,
         }
     }
@@ -615,9 +504,7 @@ impl ::std::fmt::Display for ListPackageVersionDependenciesError {
             Self::ThrottlingException(_inner) => _inner.fmt(f),
             Self::ValidationException(_inner) => _inner.fmt(f),
             Self::Unhandled(_inner) => {
-                if let ::std::option::Option::Some(code) =
-                    ::aws_smithy_types::error::metadata::ProvideErrorMetadata::code(self)
-                {
+                if let ::std::option::Option::Some(code) = ::aws_smithy_types::error::metadata::ProvideErrorMetadata::code(self) {
                     write!(f, "unhandled error ({code})")
                 } else {
                     f.write_str("unhandled error")
@@ -634,37 +521,21 @@ impl ::aws_smithy_types::retry::ProvideErrorKind for ListPackageVersionDependenc
         ::std::option::Option::None
     }
 }
-impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata
-    for ListPackageVersionDependenciesError
-{
+impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata for ListPackageVersionDependenciesError {
     fn meta(&self) -> &::aws_smithy_types::error::ErrorMetadata {
         match self {
-            Self::AccessDeniedException(_inner) => {
-                ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner)
-            }
-            Self::InternalServerException(_inner) => {
-                ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner)
-            }
-            Self::ResourceNotFoundException(_inner) => {
-                ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner)
-            }
-            Self::ThrottlingException(_inner) => {
-                ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner)
-            }
-            Self::ValidationException(_inner) => {
-                ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner)
-            }
+            Self::AccessDeniedException(_inner) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner),
+            Self::InternalServerException(_inner) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner),
+            Self::ResourceNotFoundException(_inner) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner),
+            Self::ThrottlingException(_inner) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner),
+            Self::ValidationException(_inner) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner),
             Self::Unhandled(_inner) => &_inner.meta,
         }
     }
 }
-impl ::aws_smithy_runtime_api::client::result::CreateUnhandledError
-    for ListPackageVersionDependenciesError
-{
+impl ::aws_smithy_runtime_api::client::result::CreateUnhandledError for ListPackageVersionDependenciesError {
     fn create_unhandled_error(
-        source: ::std::boxed::Box<
-            dyn ::std::error::Error + ::std::marker::Send + ::std::marker::Sync + 'static,
-        >,
+        source: ::std::boxed::Box<dyn ::std::error::Error + ::std::marker::Send + ::std::marker::Sync + 'static>,
         meta: ::std::option::Option<::aws_smithy_types::error::ErrorMetadata>,
     ) -> Self {
         Self::Unhandled(crate::error::sealed_unhandled::Unhandled {
@@ -673,9 +544,7 @@ impl ::aws_smithy_runtime_api::client::result::CreateUnhandledError
         })
     }
 }
-impl ::aws_types::request_id::RequestId
-    for crate::operation::list_package_version_dependencies::ListPackageVersionDependenciesError
-{
+impl ::aws_types::request_id::RequestId for crate::operation::list_package_version_dependencies::ListPackageVersionDependenciesError {
     fn request_id(&self) -> Option<&str> {
         self.meta().request_id()
     }

@@ -117,18 +117,14 @@ impl ListPackageVersionsInput {
 #[cfg(feature = "op_list_package_versions")]
 impl ListPackageVersionsInput {
     /// Creates a new builder-style object to manufacture [`ListPackageVersionsInput`](crate::operation::list_package_versions::ListPackageVersionsInput).
-    pub fn builder(
-    ) -> crate::operation::list_package_versions::builders::ListPackageVersionsInputBuilder {
-        crate::operation::list_package_versions::builders::ListPackageVersionsInputBuilder::default(
-        )
+    pub fn builder() -> crate::operation::list_package_versions::builders::ListPackageVersionsInputBuilder {
+        crate::operation::list_package_versions::builders::ListPackageVersionsInputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_list_package_versions")]
 /// A builder for [`ListPackageVersionsInput`](crate::operation::list_package_versions::ListPackageVersionsInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct ListPackageVersionsInputBuilder {
     pub(crate) domain: ::std::option::Option<::std::string::String>,
@@ -299,10 +295,7 @@ impl ListPackageVersionsInputBuilder {
         self
     }
     /// <p>A string that filters the requested package versions by status.</p>
-    pub fn set_status(
-        mut self,
-        input: ::std::option::Option<crate::types::PackageVersionStatus>,
-    ) -> Self {
+    pub fn set_status(mut self, input: ::std::option::Option<crate::types::PackageVersionStatus>) -> Self {
         self.status = input;
         self
     }
@@ -316,10 +309,7 @@ impl ListPackageVersionsInputBuilder {
         self
     }
     /// <p>How to sort the requested list of package versions.</p>
-    pub fn set_sort_by(
-        mut self,
-        input: ::std::option::Option<crate::types::PackageVersionSortType>,
-    ) -> Self {
+    pub fn set_sort_by(mut self, input: ::std::option::Option<crate::types::PackageVersionSortType>) -> Self {
         self.sort_by = input;
         self
     }
@@ -361,40 +351,31 @@ impl ListPackageVersionsInputBuilder {
         self
     }
     /// <p>The <code>originType</code> used to filter package versions. Only package versions with the provided <code>originType</code> will be returned.</p>
-    pub fn set_origin_type(
-        mut self,
-        input: ::std::option::Option<crate::types::PackageVersionOriginType>,
-    ) -> Self {
+    pub fn set_origin_type(mut self, input: ::std::option::Option<crate::types::PackageVersionOriginType>) -> Self {
         self.origin_type = input;
         self
     }
     /// <p>The <code>originType</code> used to filter package versions. Only package versions with the provided <code>originType</code> will be returned.</p>
-    pub fn get_origin_type(
-        &self,
-    ) -> &::std::option::Option<crate::types::PackageVersionOriginType> {
+    pub fn get_origin_type(&self) -> &::std::option::Option<crate::types::PackageVersionOriginType> {
         &self.origin_type
     }
     /// Consumes the builder and constructs a [`ListPackageVersionsInput`](crate::operation::list_package_versions::ListPackageVersionsInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        crate::operation::list_package_versions::ListPackageVersionsInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
-        ::std::result::Result::Ok(
-            crate::operation::list_package_versions::ListPackageVersionsInput {
-                domain: self.domain,
-                domain_owner: self.domain_owner,
-                repository: self.repository,
-                format: self.format,
-                namespace: self.namespace,
-                package: self.package,
-                status: self.status,
-                sort_by: self.sort_by,
-                max_results: self.max_results,
-                next_token: self.next_token,
-                origin_type: self.origin_type,
-            },
-        )
+    ) -> ::std::result::Result<crate::operation::list_package_versions::ListPackageVersionsInput, ::aws_smithy_types::error::operation::BuildError>
+    {
+        ::std::result::Result::Ok(crate::operation::list_package_versions::ListPackageVersionsInput {
+            domain: self.domain,
+            domain_owner: self.domain_owner,
+            repository: self.repository,
+            format: self.format,
+            namespace: self.namespace,
+            package: self.package,
+            status: self.status,
+            sort_by: self.sort_by,
+            max_results: self.max_results,
+            next_token: self.next_token,
+            origin_type: self.origin_type,
+        })
     }
 }

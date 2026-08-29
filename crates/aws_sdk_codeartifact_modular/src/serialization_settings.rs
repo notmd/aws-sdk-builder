@@ -57,8 +57,7 @@ impl HeaderSerializationSettings {
 
     /// Returns true if the given default header name should be serialized
     fn include_header(&self, header: &HeaderName) -> bool {
-        (!self.omit_default_content_length || header != CONTENT_LENGTH)
-            && (!self.omit_default_content_type || header != CONTENT_TYPE)
+        (!self.omit_default_content_length || header != CONTENT_LENGTH) && (!self.omit_default_content_type || header != CONTENT_TYPE)
     }
 
     /// Sets a default header on the given request builder if it should be serialized

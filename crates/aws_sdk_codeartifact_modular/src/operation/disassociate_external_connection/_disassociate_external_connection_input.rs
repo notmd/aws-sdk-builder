@@ -35,16 +35,14 @@ impl DisassociateExternalConnectionInput {
 #[cfg(feature = "op_disassociate_external_connection")]
 impl DisassociateExternalConnectionInput {
     /// Creates a new builder-style object to manufacture [`DisassociateExternalConnectionInput`](crate::operation::disassociate_external_connection::DisassociateExternalConnectionInput).
-    pub fn builder() -> crate::operation::disassociate_external_connection::builders::DisassociateExternalConnectionInputBuilder{
+    pub fn builder() -> crate::operation::disassociate_external_connection::builders::DisassociateExternalConnectionInputBuilder {
         crate::operation::disassociate_external_connection::builders::DisassociateExternalConnectionInputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_disassociate_external_connection")]
 /// A builder for [`DisassociateExternalConnectionInput`](crate::operation::disassociate_external_connection::DisassociateExternalConnectionInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct DisassociateExternalConnectionInputBuilder {
     pub(crate) domain: ::std::option::Option<::std::string::String>,
@@ -100,18 +98,12 @@ impl DisassociateExternalConnectionInputBuilder {
     }
     /// <p>The name of the external connection to be removed from the repository.</p>
     /// This field is required.
-    pub fn external_connection(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn external_connection(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.external_connection = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The name of the external connection to be removed from the repository.</p>
-    pub fn set_external_connection(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_external_connection(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.external_connection = input;
         self
     }

@@ -24,16 +24,14 @@ impl ::aws_types::request_id::RequestId for GetRepositoryPermissionsPolicyOutput
 #[cfg(feature = "op_get_repository_permissions_policy")]
 impl GetRepositoryPermissionsPolicyOutput {
     /// Creates a new builder-style object to manufacture [`GetRepositoryPermissionsPolicyOutput`](crate::operation::get_repository_permissions_policy::GetRepositoryPermissionsPolicyOutput).
-    pub fn builder() -> crate::operation::get_repository_permissions_policy::builders::GetRepositoryPermissionsPolicyOutputBuilder{
+    pub fn builder() -> crate::operation::get_repository_permissions_policy::builders::GetRepositoryPermissionsPolicyOutputBuilder {
         crate::operation::get_repository_permissions_policy::builders::GetRepositoryPermissionsPolicyOutputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_get_repository_permissions_policy")]
 /// A builder for [`GetRepositoryPermissionsPolicyOutput`](crate::operation::get_repository_permissions_policy::GetRepositoryPermissionsPolicyOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct GetRepositoryPermissionsPolicyOutputBuilder {
     pub(crate) policy: ::std::option::Option<crate::types::ResourcePolicy>,
@@ -47,10 +45,7 @@ impl GetRepositoryPermissionsPolicyOutputBuilder {
         self
     }
     /// <p>The returned resource policy.</p>
-    pub fn set_policy(
-        mut self,
-        input: ::std::option::Option<crate::types::ResourcePolicy>,
-    ) -> Self {
+    pub fn set_policy(mut self, input: ::std::option::Option<crate::types::ResourcePolicy>) -> Self {
         self.policy = input;
         self
     }
@@ -68,10 +63,7 @@ impl GetRepositoryPermissionsPolicyOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`GetRepositoryPermissionsPolicyOutput`](crate::operation::get_repository_permissions_policy::GetRepositoryPermissionsPolicyOutput).
-    pub fn build(
-        self,
-    ) -> crate::operation::get_repository_permissions_policy::GetRepositoryPermissionsPolicyOutput
-    {
+    pub fn build(self) -> crate::operation::get_repository_permissions_policy::GetRepositoryPermissionsPolicyOutput {
         crate::operation::get_repository_permissions_policy::GetRepositoryPermissionsPolicyOutput {
             policy: self.policy,
             _request_id: self._request_id,

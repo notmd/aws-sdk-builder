@@ -41,18 +41,14 @@ impl GetRepositoryEndpointInput {
 #[cfg(feature = "op_get_repository_endpoint")]
 impl GetRepositoryEndpointInput {
     /// Creates a new builder-style object to manufacture [`GetRepositoryEndpointInput`](crate::operation::get_repository_endpoint::GetRepositoryEndpointInput).
-    pub fn builder(
-    ) -> crate::operation::get_repository_endpoint::builders::GetRepositoryEndpointInputBuilder
-    {
+    pub fn builder() -> crate::operation::get_repository_endpoint::builders::GetRepositoryEndpointInputBuilder {
         crate::operation::get_repository_endpoint::builders::GetRepositoryEndpointInputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_get_repository_endpoint")]
 /// A builder for [`GetRepositoryEndpointInput`](crate::operation::get_repository_endpoint::GetRepositoryEndpointInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct GetRepositoryEndpointInputBuilder {
     pub(crate) domain: ::std::option::Option<::std::string::String>,
@@ -128,10 +124,7 @@ impl GetRepositoryEndpointInputBuilder {
         self
     }
     /// <p>A string that specifies the type of endpoint.</p>
-    pub fn set_endpoint_type(
-        mut self,
-        input: ::std::option::Option<crate::types::EndpointType>,
-    ) -> Self {
+    pub fn set_endpoint_type(mut self, input: ::std::option::Option<crate::types::EndpointType>) -> Self {
         self.endpoint_type = input;
         self
     }
@@ -142,18 +135,14 @@ impl GetRepositoryEndpointInputBuilder {
     /// Consumes the builder and constructs a [`GetRepositoryEndpointInput`](crate::operation::get_repository_endpoint::GetRepositoryEndpointInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        crate::operation::get_repository_endpoint::GetRepositoryEndpointInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
-        ::std::result::Result::Ok(
-            crate::operation::get_repository_endpoint::GetRepositoryEndpointInput {
-                domain: self.domain,
-                domain_owner: self.domain_owner,
-                repository: self.repository,
-                format: self.format,
-                endpoint_type: self.endpoint_type,
-            },
-        )
+    ) -> ::std::result::Result<crate::operation::get_repository_endpoint::GetRepositoryEndpointInput, ::aws_smithy_types::error::operation::BuildError>
+    {
+        ::std::result::Result::Ok(crate::operation::get_repository_endpoint::GetRepositoryEndpointInput {
+            domain: self.domain,
+            domain_owner: self.domain_owner,
+            repository: self.repository,
+            format: self.format,
+            endpoint_type: self.endpoint_type,
+        })
     }
 }

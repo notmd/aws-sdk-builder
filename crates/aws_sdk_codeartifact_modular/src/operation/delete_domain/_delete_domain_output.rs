@@ -31,9 +31,7 @@ impl DeleteDomainOutput {
 
 #[cfg(feature = "op_delete_domain")]
 /// A builder for [`DeleteDomainOutput`](crate::operation::delete_domain::DeleteDomainOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct DeleteDomainOutputBuilder {
     pub(crate) domain: ::std::option::Option<crate::types::DomainDescription>,
@@ -47,10 +45,7 @@ impl DeleteDomainOutputBuilder {
         self
     }
     /// <p>Contains information about the deleted domain after processing the request.</p>
-    pub fn set_domain(
-        mut self,
-        input: ::std::option::Option<crate::types::DomainDescription>,
-    ) -> Self {
+    pub fn set_domain(mut self, input: ::std::option::Option<crate::types::DomainDescription>) -> Self {
         self.domain = input;
         self
     }

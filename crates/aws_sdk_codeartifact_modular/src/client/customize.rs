@@ -24,10 +24,7 @@ impl<T, E, B> CustomizableOperation<T, E, B> {
         }
     }
 
-    pub(crate) fn execute<U>(
-        self,
-        f: impl ::std::ops::FnOnce(B, crate::config::Builder) -> U,
-    ) -> U {
+    pub(crate) fn execute<U>(self, f: impl ::std::ops::FnOnce(B, crate::config::Builder) -> U) -> U {
         let mut config_override = self.config_override.unwrap_or_default();
         self.interceptors.into_iter().for_each(|interceptor| {
             config_override.push_interceptor(interceptor);
@@ -44,27 +41,17 @@ impl<T, E, B> CustomizableOperation<T, E, B> {
     /// `map_request`, and `mutate_request` (the last two are implemented via interceptors under the hood).
     /// The order in which those user-specified operation interceptors are invoked should not be relied upon
     /// as it is an implementation detail.
-    pub fn interceptor(
-        mut self,
-        interceptor: impl ::aws_smithy_runtime_api::client::interceptors::Intercept + 'static,
-    ) -> Self {
-        self.interceptors.push(
-            ::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::new(interceptor),
-        );
+    pub fn interceptor(mut self, interceptor: impl ::aws_smithy_runtime_api::client::interceptors::Intercept + 'static) -> Self {
+        self.interceptors
+            .push(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::new(interceptor));
         self
     }
 
     /// Adds a runtime plugin.
     #[allow(unused)]
-    pub(crate) fn runtime_plugin(
-        mut self,
-        runtime_plugin: impl ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugin + 'static,
-    ) -> Self {
-        self.runtime_plugins.push(
-            ::aws_smithy_runtime_api::client::runtime_plugin::SharedRuntimePlugin::new(
-                runtime_plugin,
-            ),
-        );
+    pub(crate) fn runtime_plugin(mut self, runtime_plugin: impl ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugin + 'static) -> Self {
+        self.runtime_plugins
+            .push(::aws_smithy_runtime_api::client::runtime_plugin::SharedRuntimePlugin::new(runtime_plugin));
         self
     }
 
@@ -73,35 +60,28 @@ impl<T, E, B> CustomizableOperation<T, E, B> {
     where
         F: ::std::ops::Fn(
                 ::aws_smithy_runtime_api::client::orchestrator::HttpRequest,
-            ) -> ::std::result::Result<
-                ::aws_smithy_runtime_api::client::orchestrator::HttpRequest,
-                MapE,
-            > + ::std::marker::Send
+            ) -> ::std::result::Result<::aws_smithy_runtime_api::client::orchestrator::HttpRequest, MapE>
+            + ::std::marker::Send
             + ::std::marker::Sync
             + 'static,
         MapE: ::std::error::Error + ::std::marker::Send + ::std::marker::Sync + 'static,
     {
-        self.interceptors.push(
-            ::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::new(
+        self.interceptors
+            .push(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::new(
                 ::aws_smithy_runtime::client::interceptors::MapRequestInterceptor::new(f),
-            ),
-        );
+            ));
         self
     }
 
     /// Convenience for `map_request` where infallible direct mutation of request is acceptable.
     pub fn mutate_request<F>(mut self, f: F) -> Self
     where
-        F: ::std::ops::Fn(&mut ::aws_smithy_runtime_api::client::orchestrator::HttpRequest)
-            + ::std::marker::Send
-            + ::std::marker::Sync
-            + 'static,
+        F: ::std::ops::Fn(&mut ::aws_smithy_runtime_api::client::orchestrator::HttpRequest) + ::std::marker::Send + ::std::marker::Sync + 'static,
     {
-        self.interceptors.push(
-            ::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::new(
+        self.interceptors
+            .push(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::new(
                 ::aws_smithy_runtime::client::interceptors::MutateRequestInterceptor::new(f),
-            ),
-        );
+            ));
         self
     }
 
@@ -116,10 +96,7 @@ impl<T, E, B> CustomizableOperation<T, E, B> {
     /// | field_1: None,     | field_1: Some(v2),     | field_1: Some(v2), |
     /// | field_2: Some(v1), | field_2: Some(v2),     | field_2: Some(v2), |
     /// | field_3: Some(v1), | field_3: None,         | field_3: Some(v1), |
-    pub fn config_override(
-        mut self,
-        config_override: impl ::std::convert::Into<crate::config::Builder>,
-    ) -> Self {
+    pub fn config_override(mut self, config_override: impl ::std::convert::Into<crate::config::Builder>) -> Self {
         self.config_override = Some(config_override.into());
         self
     }

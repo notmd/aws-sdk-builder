@@ -63,7 +63,7 @@ impl ListAllowedRepositoriesForGroupFluentBuilder {
         }
     }
     /// Access the ListAllowedRepositoriesForGroup as a reference.
-    pub fn as_input(&self) -> &crate::operation::list_allowed_repositories_for_group::builders::ListAllowedRepositoriesForGroupInputBuilder{
+    pub fn as_input(&self) -> &crate::operation::list_allowed_repositories_for_group::builders::ListAllowedRepositoriesForGroupInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -82,7 +82,7 @@ impl ListAllowedRepositoriesForGroupFluentBuilder {
             crate::operation::list_allowed_repositories_for_group::ListAllowedRepositoriesForGroupError,
             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
         >,
-    >{
+    > {
         let input = self
             .inner
             .build()
@@ -102,28 +102,22 @@ impl ListAllowedRepositoriesForGroupFluentBuilder {
         crate::operation::list_allowed_repositories_for_group::ListAllowedRepositoriesForGroupOutput,
         crate::operation::list_allowed_repositories_for_group::ListAllowedRepositoriesForGroupError,
         Self,
-    >{
+    > {
         crate::client::customize::CustomizableOperation::new(self)
     }
-    pub(crate) fn config_override(
-        mut self,
-        config_override: impl ::std::convert::Into<crate::config::Builder>,
-    ) -> Self {
+    pub(crate) fn config_override(mut self, config_override: impl ::std::convert::Into<crate::config::Builder>) -> Self {
         self.set_config_override(::std::option::Option::Some(config_override.into()));
         self
     }
 
-    pub(crate) fn set_config_override(
-        &mut self,
-        config_override: ::std::option::Option<crate::config::Builder>,
-    ) -> &mut Self {
+    pub(crate) fn set_config_override(&mut self, config_override: ::std::option::Option<crate::config::Builder>) -> &mut Self {
         self.config_override = config_override;
         self
     }
     /// Create a paginator for this request
     ///
     /// Paginators are used by calling [`send().await`](crate::operation::list_allowed_repositories_for_group::paginator::ListAllowedRepositoriesForGroupPaginator::send) which returns a [`PaginationStream`](aws_smithy_async::future::pagination_stream::PaginationStream).
-    pub fn into_paginator(self) -> crate::operation::list_allowed_repositories_for_group::paginator::ListAllowedRepositoriesForGroupPaginator{
+    pub fn into_paginator(self) -> crate::operation::list_allowed_repositories_for_group::paginator::ListAllowedRepositoriesForGroupPaginator {
         crate::operation::list_allowed_repositories_for_group::paginator::ListAllowedRepositoriesForGroupPaginator::new(self.handle, self.inner)
     }
     /// <p>The name of the domain that contains the package group from which to list allowed repositories.</p>
@@ -155,18 +149,12 @@ impl ListAllowedRepositoriesForGroupFluentBuilder {
         self.inner.get_domain_owner()
     }
     /// <p>The pattern of the package group from which to list allowed repositories.</p>
-    pub fn package_group(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn package_group(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.package_group(input.into());
         self
     }
     /// <p>The pattern of the package group from which to list allowed repositories.</p>
-    pub fn set_package_group(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_package_group(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_package_group(input);
         self
     }
@@ -175,25 +163,17 @@ impl ListAllowedRepositoriesForGroupFluentBuilder {
         self.inner.get_package_group()
     }
     /// <p>The origin configuration restriction type of which to list allowed repositories.</p>
-    pub fn origin_restriction_type(
-        mut self,
-        input: crate::types::PackageGroupOriginRestrictionType,
-    ) -> Self {
+    pub fn origin_restriction_type(mut self, input: crate::types::PackageGroupOriginRestrictionType) -> Self {
         self.inner = self.inner.origin_restriction_type(input);
         self
     }
     /// <p>The origin configuration restriction type of which to list allowed repositories.</p>
-    pub fn set_origin_restriction_type(
-        mut self,
-        input: ::std::option::Option<crate::types::PackageGroupOriginRestrictionType>,
-    ) -> Self {
+    pub fn set_origin_restriction_type(mut self, input: ::std::option::Option<crate::types::PackageGroupOriginRestrictionType>) -> Self {
         self.inner = self.inner.set_origin_restriction_type(input);
         self
     }
     /// <p>The origin configuration restriction type of which to list allowed repositories.</p>
-    pub fn get_origin_restriction_type(
-        &self,
-    ) -> &::std::option::Option<crate::types::PackageGroupOriginRestrictionType> {
+    pub fn get_origin_restriction_type(&self) -> &::std::option::Option<crate::types::PackageGroupOriginRestrictionType> {
         self.inner.get_origin_restriction_type()
     }
     /// <p>The maximum number of results to return per page.</p>

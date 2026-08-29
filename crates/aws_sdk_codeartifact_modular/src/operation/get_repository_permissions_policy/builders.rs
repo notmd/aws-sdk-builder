@@ -48,7 +48,7 @@ impl
             crate::operation::get_repository_permissions_policy::GetRepositoryPermissionsPolicyOutput,
             crate::operation::get_repository_permissions_policy::GetRepositoryPermissionsPolicyError,
         >,
-    >{
+    > {
         ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
     }
 }
@@ -63,7 +63,7 @@ impl GetRepositoryPermissionsPolicyFluentBuilder {
         }
     }
     /// Access the GetRepositoryPermissionsPolicy as a reference.
-    pub fn as_input(&self) -> &crate::operation::get_repository_permissions_policy::builders::GetRepositoryPermissionsPolicyInputBuilder{
+    pub fn as_input(&self) -> &crate::operation::get_repository_permissions_policy::builders::GetRepositoryPermissionsPolicyInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -82,7 +82,7 @@ impl GetRepositoryPermissionsPolicyFluentBuilder {
             crate::operation::get_repository_permissions_policy::GetRepositoryPermissionsPolicyError,
             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
         >,
-    >{
+    > {
         let input = self
             .inner
             .build()
@@ -105,18 +105,12 @@ impl GetRepositoryPermissionsPolicyFluentBuilder {
     > {
         crate::client::customize::CustomizableOperation::new(self)
     }
-    pub(crate) fn config_override(
-        mut self,
-        config_override: impl ::std::convert::Into<crate::config::Builder>,
-    ) -> Self {
+    pub(crate) fn config_override(mut self, config_override: impl ::std::convert::Into<crate::config::Builder>) -> Self {
         self.set_config_override(::std::option::Option::Some(config_override.into()));
         self
     }
 
-    pub(crate) fn set_config_override(
-        &mut self,
-        config_override: ::std::option::Option<crate::config::Builder>,
-    ) -> &mut Self {
+    pub(crate) fn set_config_override(&mut self, config_override: ::std::option::Option<crate::config::Builder>) -> &mut Self {
         self.config_override = config_override;
         self
     }

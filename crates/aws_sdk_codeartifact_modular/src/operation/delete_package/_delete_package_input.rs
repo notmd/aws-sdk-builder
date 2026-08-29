@@ -94,9 +94,7 @@ impl DeletePackageInput {
 
 #[cfg(feature = "op_delete_package")]
 /// A builder for [`DeletePackageInput`](crate::operation::delete_package::DeletePackageInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct DeletePackageInputBuilder {
     pub(crate) domain: ::std::option::Option<::std::string::String>,
@@ -259,10 +257,7 @@ impl DeletePackageInputBuilder {
     /// Consumes the builder and constructs a [`DeletePackageInput`](crate::operation::delete_package::DeletePackageInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        crate::operation::delete_package::DeletePackageInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    ) -> ::std::result::Result<crate::operation::delete_package::DeletePackageInput, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::operation::delete_package::DeletePackageInput {
             domain: self.domain,
             domain_owner: self.domain_owner,

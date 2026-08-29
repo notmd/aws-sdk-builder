@@ -29,17 +29,14 @@ impl ListRepositoriesInput {
 #[cfg(feature = "op_list_repositories")]
 impl ListRepositoriesInput {
     /// Creates a new builder-style object to manufacture [`ListRepositoriesInput`](crate::operation::list_repositories::ListRepositoriesInput).
-    pub fn builder() -> crate::operation::list_repositories::builders::ListRepositoriesInputBuilder
-    {
+    pub fn builder() -> crate::operation::list_repositories::builders::ListRepositoriesInputBuilder {
         crate::operation::list_repositories::builders::ListRepositoriesInputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_list_repositories")]
 /// A builder for [`ListRepositoriesInput`](crate::operation::list_repositories::ListRepositoriesInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct ListRepositoriesInputBuilder {
     pub(crate) repository_prefix: ::std::option::Option<::std::string::String>,
@@ -49,18 +46,12 @@ pub struct ListRepositoriesInputBuilder {
 #[cfg(feature = "op_list_repositories")]
 impl ListRepositoriesInputBuilder {
     /// <p>A prefix used to filter returned repositories. Only repositories with names that start with <code>repositoryPrefix</code> are returned.</p>
-    pub fn repository_prefix(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn repository_prefix(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.repository_prefix = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>A prefix used to filter returned repositories. Only repositories with names that start with <code>repositoryPrefix</code> are returned.</p>
-    pub fn set_repository_prefix(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_repository_prefix(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.repository_prefix = input;
         self
     }
@@ -99,10 +90,7 @@ impl ListRepositoriesInputBuilder {
     /// Consumes the builder and constructs a [`ListRepositoriesInput`](crate::operation::list_repositories::ListRepositoriesInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        crate::operation::list_repositories::ListRepositoriesInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    ) -> ::std::result::Result<crate::operation::list_repositories::ListRepositoriesInput, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::operation::list_repositories::ListRepositoriesInput {
             repository_prefix: self.repository_prefix,
             max_results: self.max_results,

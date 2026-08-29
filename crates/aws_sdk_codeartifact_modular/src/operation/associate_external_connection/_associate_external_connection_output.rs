@@ -24,16 +24,14 @@ impl ::aws_types::request_id::RequestId for AssociateExternalConnectionOutput {
 #[cfg(feature = "op_associate_external_connection")]
 impl AssociateExternalConnectionOutput {
     /// Creates a new builder-style object to manufacture [`AssociateExternalConnectionOutput`](crate::operation::associate_external_connection::AssociateExternalConnectionOutput).
-    pub fn builder() -> crate::operation::associate_external_connection::builders::AssociateExternalConnectionOutputBuilder{
+    pub fn builder() -> crate::operation::associate_external_connection::builders::AssociateExternalConnectionOutputBuilder {
         crate::operation::associate_external_connection::builders::AssociateExternalConnectionOutputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_associate_external_connection")]
 /// A builder for [`AssociateExternalConnectionOutput`](crate::operation::associate_external_connection::AssociateExternalConnectionOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct AssociateExternalConnectionOutputBuilder {
     pub(crate) repository: ::std::option::Option<crate::types::RepositoryDescription>,
@@ -47,10 +45,7 @@ impl AssociateExternalConnectionOutputBuilder {
         self
     }
     /// <p>Information about the connected repository after processing the request.</p>
-    pub fn set_repository(
-        mut self,
-        input: ::std::option::Option<crate::types::RepositoryDescription>,
-    ) -> Self {
+    pub fn set_repository(mut self, input: ::std::option::Option<crate::types::RepositoryDescription>) -> Self {
         self.repository = input;
         self
     }
@@ -68,9 +63,7 @@ impl AssociateExternalConnectionOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`AssociateExternalConnectionOutput`](crate::operation::associate_external_connection::AssociateExternalConnectionOutput).
-    pub fn build(
-        self,
-    ) -> crate::operation::associate_external_connection::AssociateExternalConnectionOutput {
+    pub fn build(self) -> crate::operation::associate_external_connection::AssociateExternalConnectionOutput {
         crate::operation::associate_external_connection::AssociateExternalConnectionOutput {
             repository: self.repository,
             _request_id: self._request_id,

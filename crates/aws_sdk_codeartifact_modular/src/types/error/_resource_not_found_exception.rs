@@ -57,9 +57,7 @@ impl ResourceNotFoundException {
 }
 
 /// A builder for [`ResourceNotFoundException`](crate::types::error::ResourceNotFoundException).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct ResourceNotFoundExceptionBuilder {
     pub(crate) message: ::std::option::Option<::std::string::String>,
@@ -103,10 +101,7 @@ impl ResourceNotFoundExceptionBuilder {
         self
     }
     /// <p>The type of Amazon Web Services resource.</p>
-    pub fn set_resource_type(
-        mut self,
-        input: ::std::option::Option<crate::types::ResourceType>,
-    ) -> Self {
+    pub fn set_resource_type(mut self, input: ::std::option::Option<crate::types::ResourceType>) -> Self {
         self.resource_type = input;
         self
     }
@@ -121,22 +116,14 @@ impl ResourceNotFoundExceptionBuilder {
     }
 
     /// Sets error metadata
-    pub fn set_meta(
-        &mut self,
-        meta: std::option::Option<::aws_smithy_types::error::ErrorMetadata>,
-    ) -> &mut Self {
+    pub fn set_meta(&mut self, meta: std::option::Option<::aws_smithy_types::error::ErrorMetadata>) -> &mut Self {
         self.meta = meta;
         self
     }
     /// Consumes the builder and constructs a [`ResourceNotFoundException`](crate::types::error::ResourceNotFoundException).
     /// This method will fail if any of the following fields are not set:
     /// - [`message`](crate::types::error::builders::ResourceNotFoundExceptionBuilder::message)
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<
-        crate::types::error::ResourceNotFoundException,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    pub fn build(self) -> ::std::result::Result<crate::types::error::ResourceNotFoundException, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::error::ResourceNotFoundException {
             message: self.message.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(
