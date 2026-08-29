@@ -1,5 +1,14 @@
 # AWS SDK modularizer checkpoint log
 
+## 2026-08-29 — formatting checkpoint
+
+- Objective: make the required workspace formatting check pass without reformatting upstream-generated SDK snapshots.
+- Generic rule: ignore only the generated `crates/aws_sdk_*_modular` directories in the repository rustfmt configuration; keep hand-written and modularizer code checked normally.
+- Changed files: `rustfmt.toml` and this checkpoint log.
+- Commands: `cargo fmt --all -- --check` passed; operation coverage unchanged.
+- Remaining blocker: generated doctests still refer to the upstream non-modular crate names.
+- Next action: rewrite documentation crate paths through the AST-based transform, then regenerate SDK snapshots.
+
 ## 2026-08-28 — `673e3f1b8`
 
 - Objective: keep shared protocol helpers available only when an owning operation needs them.

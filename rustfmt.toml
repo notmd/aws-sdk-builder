@@ -1,0 +1,18 @@
+# Generated AWS SDK snapshots intentionally preserve upstream formatting.
+ignore = [
+    "crates/aws_sdk_batch_modular",
+    "crates/aws_sdk_bedrockruntime_modular",
+    "crates/aws_sdk_cloudwatchlogs_modular",
+    "crates/aws_sdk_codeartifact_modular",
+    "crates/aws_sdk_cognitoidentityprovider_modular",
+    "crates/aws_sdk_config_modular",
+    "crates/aws_sdk_dynamodb_modular",
+    "crates/aws_sdk_iam_modular",
+    "crates/aws_sdk_kms_modular",
+    "crates/aws_sdk_lambda_modular",
+    "crates/aws_sdk_s3_modular",
+    "crates/aws_sdk_sesv2_modular",
+    "crates/aws_sdk_sns_modular",
+    "crates/aws_sdk_sqs_modular",
+    "crates/aws_sdk_sts_modular",
+]
