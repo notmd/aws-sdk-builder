@@ -706,45 +706,59 @@ fn run_public_probe(
     let manifest_path = manifest_path
         .to_str()
         .ok_or_else(|| ConformanceError::Message("probe manifest path is not UTF-8".to_owned()))?;
-    let mut arguments = vec!["check"];
-    if !expect_success {
-        arguments.push("--bins");
+    if expect_success {
+        let arguments = ["check", "--manifest-path", manifest_path];
+        let output = Command::new("cargo")
+            .args(arguments)
+            .env("CARGO_TARGET_DIR", &target)
+            .output()
+            .map_err(|source| {
+                ConformanceError::Message(format!(
+                    "failed to run public API probe for {}: {source}",
+                    service.key
+                ))
+            })?;
+        if !output.status.success() {
+            return Err(ConformanceError::Message(format!(
+                "public API probe failed for {}: {}",
+                service.key,
+                String::from_utf8_lossy(&output.stderr)
+            )));
+        }
+        return Ok(());
     }
-    arguments.extend(["--manifest-path", manifest_path]);
-    let output = Command::new("cargo")
-        .args(arguments)
-        .env("CARGO_TARGET_DIR", &target)
-        .output()
-        .map_err(|source| {
-            ConformanceError::Message(format!(
-                "failed to run public API probe for {}: {source}",
-                service.key
-            ))
-        })?;
-    if output.status.success() != expect_success {
-        let stderr = String::from_utf8_lossy(&output.stderr);
-        return Err(ConformanceError::Message(format!(
-            "public API probe {} for {} had unexpected result: {}",
-            if expect_success {
-                "failed"
-            } else {
-                "succeeded"
-            },
-            service.key,
-            stderr
-        )));
-    }
-    if !expect_success {
-        let stderr = String::from_utf8_lossy(&output.stderr);
-        for operation in operations {
-            let source_path = format!("src/bin/{}.rs", operation.module);
-            if !stderr.contains(&source_path) {
-                let diagnostic = stderr.chars().take(4_000).collect::<String>();
-                return Err(ConformanceError::Message(format!(
-                    "disabled public API probe for {} did not reject {}: {diagnostic}",
-                    service.key, operation.module,
-                )));
-            }
+
+    for operation in operations {
+        let mut arguments = vec!["check", "--bin", operation.module.as_str()];
+        arguments.extend(["--manifest-path", manifest_path]);
+        let output = Command::new("cargo")
+            .args(&arguments)
+            .env("CARGO_TARGET_DIR", &target)
+            .output()
+            .map_err(|source| {
+                ConformanceError::Message(format!(
+                    "failed to run disabled public API probe for {}: {source}",
+                    service.key
+                ))
+            })?;
+        let diagnostics = format!(
+            "{}{}",
+            String::from_utf8_lossy(&output.stdout),
+            String::from_utf8_lossy(&output.stderr)
+        );
+        if output.status.success() {
+            return Err(ConformanceError::Message(format!(
+                "disabled public API probe for {} unexpectedly accepted {}",
+                service.key, operation.module,
+            )));
+        }
+        let source_path = format!("src/bin/{}.rs", operation.module);
+        if !diagnostics.contains(&source_path) {
+            let diagnostic = diagnostics.chars().take(4_000).collect::<String>();
+            return Err(ConformanceError::Message(format!(
+                "disabled public API probe for {} did not reject {}: {diagnostic}",
+                service.key, operation.module,
+            )));
         }
     }
     Ok(())
