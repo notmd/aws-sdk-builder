@@ -1,9 +1,0 @@
---- original
-+++ modified
-@@ -8,5 +8,5 @@
-     // Takes an owned `self` as the implementation will internally call methods that take `self`.
-     // If it took `&self`, that would make this trait object safe, but some implementing types do not
-     // derive `Clone`, unable to yield `self` from `&self`.
--    fn send(self, config_override: crate::config::Builder) -> BoxFuture<SendResult<T, E>>;
-+    fn send(self, config_override: super::super::super::config::Builder) -> BoxFuture<SendResult<T, E>>;
- }
