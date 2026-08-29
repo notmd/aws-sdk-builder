@@ -270,7 +270,7 @@ pub fn transform_tree(
     let type_owners = build_type_owners(&source_files, operations);
     let operation_error_names = operation_error_names(&source_files);
     let symbol_owners = operation_symbols(&source_files, operations, &waiter_owners, &type_owners);
-    let local_symbol_names = local_symbol_names(&source_files);
+    let local_module_roots = local_module_roots(&source_files);
     let mut edits = BTreeMap::<String, BTreeMap<usize, BTreeSet<String>>>::new();
     let mut statement_edits = StatementEdits::new();
     for source_file in &source_files {
@@ -430,7 +430,7 @@ pub fn transform_tree(
                         operations,
                         &waiter_owners,
                         &symbol_owners,
-                        &local_symbol_names,
+                        &local_module_roots,
                         &mut statement_edits,
                     )?;
                 }
@@ -1183,11 +1183,11 @@ fn is_protocol_shape_symbol(symbol: &str) -> bool {
 fn operation_symbol_reference_owners(
     references: &BTreeSet<String>,
     symbol_owners: &BTreeMap<String, BTreeSet<String>>,
-    local_symbol_names: &BTreeSet<String>,
+    local_module_roots: &BTreeSet<String>,
 ) -> BTreeSet<String> {
     references
         .iter()
-        .filter(|reference| is_local_symbol_reference(reference, local_symbol_names))
+        .filter(|reference| is_local_symbol_reference(reference, local_module_roots))
         .filter(|reference| {
             !is_operation_or_client_symbol(reference)
                 && !matches!(
@@ -1200,11 +1200,11 @@ fn operation_symbol_reference_owners(
         .collect()
 }
 
-fn is_local_symbol_reference(reference: &str, local_symbol_names: &BTreeSet<String>) -> bool {
+fn is_local_symbol_reference(reference: &str, local_module_roots: &BTreeSet<String>) -> bool {
     let mut segments = reference.split("::");
     match segments.next() {
         Some("crate" | "self" | "super") => true,
-        Some(root) => local_symbol_names.contains(root),
+        Some(root) => local_module_roots.contains(root),
         None => false,
     }
 }
@@ -1250,41 +1250,6 @@ fn local_module_roots(files: &[SourceFile]) -> BTreeSet<String> {
         })
         .filter(|root| !root.is_empty())
         .collect()
-}
-
-fn local_symbol_names(files: &[SourceFile]) -> BTreeSet<String> {
-    let mut names = local_module_roots(files);
-    for file in files {
-        collect_item_names(&file.syntax.items, &mut names);
-    }
-    names
-}
-
-fn collect_item_names(items: &[Item], names: &mut BTreeSet<String>) {
-    for item in items {
-        let name = match item {
-            Item::Const(item) => Some(&item.ident),
-            Item::Enum(item) => Some(&item.ident),
-            Item::Fn(item) => Some(&item.sig.ident),
-            Item::Macro(item) => item.ident.as_ref(),
-            Item::Mod(item) => Some(&item.ident),
-            Item::Static(item) => Some(&item.ident),
-            Item::Struct(item) => Some(&item.ident),
-            Item::Trait(item) => Some(&item.ident),
-            Item::TraitAlias(item) => Some(&item.ident),
-            Item::Type(item) => Some(&item.ident),
-            Item::Union(item) => Some(&item.ident),
-            _ => None,
-        };
-        if let Some(name) = name {
-            names.insert(name.to_string());
-        }
-        if let Item::Mod(module) = item
-            && let Some((_, nested)) = &module.content
-        {
-            collect_item_names(nested, names);
-        }
-    }
 }
 
 fn waiter_owners(
@@ -1485,7 +1450,7 @@ struct StatementCfgVisitor<'a> {
     operations: &'a [Operation],
     waiter_owners: &'a BTreeMap<String, BTreeSet<String>>,
     symbol_owners: &'a BTreeMap<String, BTreeSet<String>>,
-    local_symbol_names: &'a BTreeSet<String>,
+    local_module_roots: &'a BTreeSet<String>,
     edits: &'a mut StatementEdits,
     error: Option<TransformError>,
 }
@@ -1504,7 +1469,7 @@ impl<'ast> Visit<'ast> for StatementCfgVisitor<'_> {
         let owners = operation_symbol_reference_owners(
             &visitor.references,
             self.symbol_owners,
-            self.local_symbol_names,
+            self.local_module_roots,
         );
         if !owners.is_empty() && !has_matching_cfg(statement_attrs(statement), &owners) {
             match statement_range(statement, self.source) {
@@ -1531,7 +1496,7 @@ fn collect_statement_edits(
     operations: &[Operation],
     waiter_owners: &BTreeMap<String, BTreeSet<String>>,
     symbol_owners: &BTreeMap<String, BTreeSet<String>>,
-    local_symbol_names: &BTreeSet<String>,
+    local_module_roots: &BTreeSet<String>,
     statement_edits: &mut StatementEdits,
 ) -> Result<(), TransformError> {
     let mut visitor = StatementCfgVisitor {
@@ -1540,7 +1505,7 @@ fn collect_statement_edits(
         operations,
         waiter_owners,
         symbol_owners,
-        local_symbol_names,
+        local_module_roots,
         edits: statement_edits,
         error: None,
     };
