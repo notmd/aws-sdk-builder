@@ -109,8 +109,8 @@ mod assume_root;
 /// operation call. For example, this can be used to add an additional HTTP header:
 ///
 /// ```ignore
-/// # async fn wrapper() -> ::std::result::Result<(), aws_sdk_sts::Error> {
-/// # let client: aws_sdk_sts::Client = unimplemented!();
+/// # async fn wrapper() -> ::std::result::Result<(), aws_sdk_sts_modular::Error> {
+/// # let client: aws_sdk_sts_modular::Client = unimplemented!();
 /// use ::http_1x::header::{HeaderName, HeaderValue};
 ///
 /// let result = client.assume_role()

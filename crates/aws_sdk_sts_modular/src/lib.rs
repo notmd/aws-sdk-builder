@@ -42,12 +42,12 @@
 //! Then in code, a client can be created with the following:
 //!
 //! ```rust,ignore
-//! use aws_sdk_sts as sts;
+//! use aws_sdk_sts_modular as sts;
 //!
 //! #[::tokio::main]
 //! async fn main() -> Result<(), sts::Error> {
 //!     let config = aws_config::load_from_env().await;
-//!     let client = aws_sdk_sts::Client::new(&config);
+//!     let client = aws_sdk_sts_modular::Client::new(&config);
 //!
 //!     // ... make some calls with the client
 //!
@@ -55,7 +55,7 @@
 //! }
 //! ```
 //!
-//! See the [client documentation](https://docs.rs/aws-sdk-sts/latest/aws_sdk_sts/client/struct.Client.html)
+//! See the [client documentation](https://docs.rs/aws-sdk-sts/latest/aws_sdk_sts_modular/client/struct.Client.html)
 //! for information on what calls can be made, and the inputs and outputs for each of those calls.
 //!
 //! ## Using the SDK
