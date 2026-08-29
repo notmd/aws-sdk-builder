@@ -8,11 +8,7 @@ impl super::Client {
     /// - On success, responds with [`PutIndexPolicyOutput`](crate::operation::put_index_policy::PutIndexPolicyOutput) with field(s):
     ///   - [`index_policy(Option<IndexPolicy>)`](crate::operation::put_index_policy::PutIndexPolicyOutput::index_policy): <p>The index policy that you just created or updated.</p>
     /// - On failure, responds with [`SdkError<PutIndexPolicyError>`](crate::operation::put_index_policy::PutIndexPolicyError)
-    pub fn put_index_policy(
-        &self,
-    ) -> crate::operation::put_index_policy::builders::PutIndexPolicyFluentBuilder {
-        crate::operation::put_index_policy::builders::PutIndexPolicyFluentBuilder::new(
-            self.handle.clone(),
-        )
+    pub fn put_index_policy(&self) -> crate::operation::put_index_policy::builders::PutIndexPolicyFluentBuilder {
+        crate::operation::put_index_policy::builders::PutIndexPolicyFluentBuilder::new(self.handle.clone())
     }
 }

@@ -24,9 +24,7 @@ impl GetLookupTableInput {
 
 #[cfg(feature = "op_get_lookup_table")]
 /// A builder for [`GetLookupTableInput`](crate::operation::get_lookup_table::GetLookupTableInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct GetLookupTableInputBuilder {
     pub(crate) lookup_table_arn: ::std::option::Option<::std::string::String>,
@@ -35,18 +33,12 @@ pub struct GetLookupTableInputBuilder {
 impl GetLookupTableInputBuilder {
     /// <p>The ARN of the lookup table to retrieve.</p>
     /// This field is required.
-    pub fn lookup_table_arn(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn lookup_table_arn(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.lookup_table_arn = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The ARN of the lookup table to retrieve.</p>
-    pub fn set_lookup_table_arn(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_lookup_table_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.lookup_table_arn = input;
         self
     }
@@ -57,10 +49,7 @@ impl GetLookupTableInputBuilder {
     /// Consumes the builder and constructs a [`GetLookupTableInput`](crate::operation::get_lookup_table::GetLookupTableInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        crate::operation::get_lookup_table::GetLookupTableInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    ) -> ::std::result::Result<crate::operation::get_lookup_table::GetLookupTableInput, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::operation::get_lookup_table::GetLookupTableInput {
             lookup_table_arn: self.lookup_table_arn,
         })

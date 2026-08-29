@@ -9,7 +9,7 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<DisassociateSourceFromS3TableIntegrationError>`](crate::operation::disassociate_source_from_s3_table_integration::DisassociateSourceFromS3TableIntegrationError)
     pub fn disassociate_source_from_s3_table_integration(
         &self,
-    ) -> crate::operation::disassociate_source_from_s3_table_integration::builders::DisassociateSourceFromS3TableIntegrationFluentBuilder{
+    ) -> crate::operation::disassociate_source_from_s3_table_integration::builders::DisassociateSourceFromS3TableIntegrationFluentBuilder {
         crate::operation::disassociate_source_from_s3_table_integration::builders::DisassociateSourceFromS3TableIntegrationFluentBuilder::new(
             self.handle.clone(),
         )

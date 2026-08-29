@@ -18,10 +18,7 @@ pub fn ser_update_anomaly_input_input(
     if let Some(var_5) = &input.suppression_period {
         #[allow(unused_mut)]
         let mut object_6 = object.key("suppressionPeriod").start_object();
-        crate::protocol_serde::shape_suppression_period::ser_suppression_period(
-            &mut object_6,
-            var_5,
-        )?;
+        crate::protocol_serde::shape_suppression_period::ser_suppression_period(&mut object_6, var_5)?;
         object_6.finish();
     }
     if let Some(var_7) = &input.baseline {

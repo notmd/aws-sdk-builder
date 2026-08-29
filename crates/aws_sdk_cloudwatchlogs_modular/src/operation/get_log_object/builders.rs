@@ -71,9 +71,7 @@ impl GetLogObjectFluentBuilder {
         }
     }
     /// Access the GetLogObject as a reference.
-    pub fn as_input(
-        &self,
-    ) -> &crate::operation::get_log_object::builders::GetLogObjectInputBuilder {
+    pub fn as_input(&self) -> &crate::operation::get_log_object::builders::GetLogObjectInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -97,15 +95,12 @@ impl GetLogObjectFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins =
-            crate::operation::get_log_object::GetLogObject::operation_runtime_plugins(
-                self.handle.runtime_plugins.clone(),
-                &self.handle.conf,
-                self.config_override,
-            );
-        let mut output =
-            crate::operation::get_log_object::GetLogObject::orchestrate(&runtime_plugins, input)
-                .await?;
+        let runtime_plugins = crate::operation::get_log_object::GetLogObject::operation_runtime_plugins(
+            self.handle.runtime_plugins.clone(),
+            &self.handle.conf,
+            self.config_override,
+        );
+        let mut output = crate::operation::get_log_object::GetLogObject::orchestrate(&runtime_plugins, input).await?;
 
         // Converts any error encountered beyond this point into an `SdkError` response error
         // with an `HttpResponse`. However, since we have already exited the `orchestrate`
@@ -124,18 +119,13 @@ impl GetLogObjectFluentBuilder {
             ::aws_smithy_runtime_api::client::result::SdkError::response_error(
                 err,
                 ::aws_smithy_runtime_api::client::orchestrator::HttpResponse::new(
-                    ::aws_smithy_runtime_api::http::StatusCode::try_from(200)
-                        .expect("valid successful code"),
+                    ::aws_smithy_runtime_api::http::StatusCode::try_from(200).expect("valid successful code"),
                     ::aws_smithy_types::body::SdkBody::empty(),
                 ),
             )
         }
 
-        let message = output
-            .field_stream
-            .try_recv_initial_response()
-            .await
-            .map_err(response_error)?;
+        let message = output.field_stream.try_recv_initial_response().await.map_err(response_error)?;
 
         match message {
             ::std::option::Option::Some(_message) => ::std::result::Result::Ok(output),
@@ -153,18 +143,12 @@ impl GetLogObjectFluentBuilder {
     > {
         crate::client::customize::CustomizableOperation::new(self)
     }
-    pub(crate) fn config_override(
-        mut self,
-        config_override: impl ::std::convert::Into<crate::config::Builder>,
-    ) -> Self {
+    pub(crate) fn config_override(mut self, config_override: impl ::std::convert::Into<crate::config::Builder>) -> Self {
         self.set_config_override(::std::option::Option::Some(config_override.into()));
         self
     }
 
-    pub(crate) fn set_config_override(
-        &mut self,
-        config_override: ::std::option::Option<crate::config::Builder>,
-    ) -> &mut Self {
+    pub(crate) fn set_config_override(&mut self, config_override: ::std::option::Option<crate::config::Builder>) -> &mut Self {
         self.config_override = config_override;
         self
     }
@@ -183,18 +167,12 @@ impl GetLogObjectFluentBuilder {
         self.inner.get_unmask()
     }
     /// <p>A pointer to the specific log object to retrieve. This is a required parameter that uniquely identifies the log object within CloudWatch Logs. The pointer is typically obtained from a previous query or filter operation.</p>
-    pub fn log_object_pointer(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn log_object_pointer(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.log_object_pointer(input.into());
         self
     }
     /// <p>A pointer to the specific log object to retrieve. This is a required parameter that uniquely identifies the log object within CloudWatch Logs. The pointer is typically obtained from a previous query or filter operation.</p>
-    pub fn set_log_object_pointer(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_log_object_pointer(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_log_object_pointer(input);
         self
     }

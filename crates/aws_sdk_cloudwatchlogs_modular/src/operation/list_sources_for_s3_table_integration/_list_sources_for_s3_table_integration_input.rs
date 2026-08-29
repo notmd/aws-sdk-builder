@@ -29,16 +29,14 @@ impl ListSourcesForS3TableIntegrationInput {
 #[cfg(feature = "op_list_sources_for_s3_table_integration")]
 impl ListSourcesForS3TableIntegrationInput {
     /// Creates a new builder-style object to manufacture [`ListSourcesForS3TableIntegrationInput`](crate::operation::list_sources_for_s3_table_integration::ListSourcesForS3TableIntegrationInput).
-    pub fn builder() -> crate::operation::list_sources_for_s3_table_integration::builders::ListSourcesForS3TableIntegrationInputBuilder{
+    pub fn builder() -> crate::operation::list_sources_for_s3_table_integration::builders::ListSourcesForS3TableIntegrationInputBuilder {
         crate::operation::list_sources_for_s3_table_integration::builders::ListSourcesForS3TableIntegrationInputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_list_sources_for_s3_table_integration")]
 /// A builder for [`ListSourcesForS3TableIntegrationInput`](crate::operation::list_sources_for_s3_table_integration::ListSourcesForS3TableIntegrationInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct ListSourcesForS3TableIntegrationInputBuilder {
     pub(crate) integration_arn: ::std::option::Option<::std::string::String>,
@@ -49,18 +47,12 @@ pub struct ListSourcesForS3TableIntegrationInputBuilder {
 impl ListSourcesForS3TableIntegrationInputBuilder {
     /// <p>The Amazon Resource Name (ARN) of the S3 Table Integration to list associations for.</p>
     /// This field is required.
-    pub fn integration_arn(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn integration_arn(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.integration_arn = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The Amazon Resource Name (ARN) of the S3 Table Integration to list associations for.</p>
-    pub fn set_integration_arn(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_integration_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.integration_arn = input;
         self
     }
@@ -102,7 +94,7 @@ impl ListSourcesForS3TableIntegrationInputBuilder {
     ) -> ::std::result::Result<
         crate::operation::list_sources_for_s3_table_integration::ListSourcesForS3TableIntegrationInput,
         ::aws_smithy_types::error::operation::BuildError,
-    >{
+    > {
         ::std::result::Result::Ok(
             crate::operation::list_sources_for_s3_table_integration::ListSourcesForS3TableIntegrationInput {
                 integration_arn: self.integration_arn,

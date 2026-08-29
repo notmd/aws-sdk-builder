@@ -15,17 +15,14 @@ impl ::aws_types::request_id::RequestId for DeleteDestinationOutput {
 #[cfg(feature = "op_delete_destination")]
 impl DeleteDestinationOutput {
     /// Creates a new builder-style object to manufacture [`DeleteDestinationOutput`](crate::operation::delete_destination::DeleteDestinationOutput).
-    pub fn builder(
-    ) -> crate::operation::delete_destination::builders::DeleteDestinationOutputBuilder {
+    pub fn builder() -> crate::operation::delete_destination::builders::DeleteDestinationOutputBuilder {
         crate::operation::delete_destination::builders::DeleteDestinationOutputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_delete_destination")]
 /// A builder for [`DeleteDestinationOutput`](crate::operation::delete_destination::DeleteDestinationOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct DeleteDestinationOutputBuilder {
     _request_id: Option<String>,

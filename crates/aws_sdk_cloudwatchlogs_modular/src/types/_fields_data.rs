@@ -21,9 +21,7 @@ impl FieldsData {
 }
 
 /// A builder for [`FieldsData`](crate::types::FieldsData).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct FieldsDataBuilder {
     pub(crate) data: ::std::option::Option<::aws_smithy_types::Blob>,

@@ -15,18 +15,14 @@ impl ::aws_types::request_id::RequestId for PutSubscriptionFilterOutput {
 #[cfg(feature = "op_put_subscription_filter")]
 impl PutSubscriptionFilterOutput {
     /// Creates a new builder-style object to manufacture [`PutSubscriptionFilterOutput`](crate::operation::put_subscription_filter::PutSubscriptionFilterOutput).
-    pub fn builder(
-    ) -> crate::operation::put_subscription_filter::builders::PutSubscriptionFilterOutputBuilder
-    {
+    pub fn builder() -> crate::operation::put_subscription_filter::builders::PutSubscriptionFilterOutputBuilder {
         crate::operation::put_subscription_filter::builders::PutSubscriptionFilterOutputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_put_subscription_filter")]
 /// A builder for [`PutSubscriptionFilterOutput`](crate::operation::put_subscription_filter::PutSubscriptionFilterOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct PutSubscriptionFilterOutputBuilder {
     _request_id: Option<String>,

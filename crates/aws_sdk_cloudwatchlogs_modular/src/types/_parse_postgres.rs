@@ -24,9 +24,7 @@ impl ParsePostgres {
 }
 
 /// A builder for [`ParsePostgres`](crate::types::ParsePostgres).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct ParsePostgresBuilder {
     pub(crate) source: ::std::option::Option<::std::string::String>,
@@ -48,8 +46,6 @@ impl ParsePostgresBuilder {
     }
     /// Consumes the builder and constructs a [`ParsePostgres`](crate::types::ParsePostgres).
     pub fn build(self) -> crate::types::ParsePostgres {
-        crate::types::ParsePostgres {
-            source: self.source,
-        }
+        crate::types::ParsePostgres { source: self.source }
     }
 }

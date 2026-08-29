@@ -20,9 +20,7 @@ impl ResourceConfig {
     #[allow(irrefutable_let_patterns)]
     /// Tries to convert the enum instance into [`OpenSearchResourceConfig`](crate::types::ResourceConfig::OpenSearchResourceConfig), extracting the inner [`OpenSearchResourceConfig`](crate::types::OpenSearchResourceConfig).
     /// Returns `Err(&Self)` if it can't be converted.
-    pub fn as_open_search_resource_config(
-        &self,
-    ) -> ::std::result::Result<&crate::types::OpenSearchResourceConfig, &Self> {
+    pub fn as_open_search_resource_config(&self) -> ::std::result::Result<&crate::types::OpenSearchResourceConfig, &Self> {
         if let ResourceConfig::OpenSearchResourceConfig(val) = &self {
             ::std::result::Result::Ok(val)
         } else {

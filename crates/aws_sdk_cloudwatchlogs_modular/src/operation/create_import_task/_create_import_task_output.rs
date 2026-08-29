@@ -36,17 +36,14 @@ impl ::aws_types::request_id::RequestId for CreateImportTaskOutput {
 #[cfg(feature = "op_create_import_task")]
 impl CreateImportTaskOutput {
     /// Creates a new builder-style object to manufacture [`CreateImportTaskOutput`](crate::operation::create_import_task::CreateImportTaskOutput).
-    pub fn builder() -> crate::operation::create_import_task::builders::CreateImportTaskOutputBuilder
-    {
+    pub fn builder() -> crate::operation::create_import_task::builders::CreateImportTaskOutputBuilder {
         crate::operation::create_import_task::builders::CreateImportTaskOutputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_create_import_task")]
 /// A builder for [`CreateImportTaskOutput`](crate::operation::create_import_task::CreateImportTaskOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct CreateImportTaskOutputBuilder {
     pub(crate) import_id: ::std::option::Option<::std::string::String>,
@@ -71,18 +68,12 @@ impl CreateImportTaskOutputBuilder {
         &self.import_id
     }
     /// <p>The ARN of the CloudWatch Logs log group created as the destination for the imported events.</p>
-    pub fn import_destination_arn(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn import_destination_arn(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.import_destination_arn = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The ARN of the CloudWatch Logs log group created as the destination for the imported events.</p>
-    pub fn set_import_destination_arn(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_import_destination_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.import_destination_arn = input;
         self
     }

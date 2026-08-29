@@ -51,18 +51,14 @@ impl PutDataProtectionPolicyInput {
 #[cfg(feature = "op_put_data_protection_policy")]
 impl PutDataProtectionPolicyInput {
     /// Creates a new builder-style object to manufacture [`PutDataProtectionPolicyInput`](crate::operation::put_data_protection_policy::PutDataProtectionPolicyInput).
-    pub fn builder(
-    ) -> crate::operation::put_data_protection_policy::builders::PutDataProtectionPolicyInputBuilder
-    {
+    pub fn builder() -> crate::operation::put_data_protection_policy::builders::PutDataProtectionPolicyInputBuilder {
         crate::operation::put_data_protection_policy::builders::PutDataProtectionPolicyInputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_put_data_protection_policy")]
 /// A builder for [`PutDataProtectionPolicyInput`](crate::operation::put_data_protection_policy::PutDataProtectionPolicyInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct PutDataProtectionPolicyInputBuilder {
     pub(crate) log_group_identifier: ::std::option::Option<::std::string::String>,
@@ -72,18 +68,12 @@ pub struct PutDataProtectionPolicyInputBuilder {
 impl PutDataProtectionPolicyInputBuilder {
     /// <p>Specify either the log group name or log group ARN.</p>
     /// This field is required.
-    pub fn log_group_identifier(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn log_group_identifier(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.log_group_identifier = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>Specify either the log group name or log group ARN.</p>
-    pub fn set_log_group_identifier(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_log_group_identifier(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.log_group_identifier = input;
         self
     }
@@ -107,10 +97,7 @@ impl PutDataProtectionPolicyInputBuilder {
     /// <p>In addition to the two JSON blocks, the <code>policyDocument</code> can also include <code>Name</code>, <code>Description</code>, and <code>Version</code> fields. The <code>Name</code> is used as a dimension when CloudWatch Logs reports audit findings metrics to CloudWatch.</p>
     /// <p>The JSON specified in <code>policyDocument</code> can be up to 30,720 characters.</p>
     /// This field is required.
-    pub fn policy_document(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn policy_document(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.policy_document = ::std::option::Option::Some(input.into());
         self
     }
@@ -129,10 +116,7 @@ impl PutDataProtectionPolicyInputBuilder {
     /// </important>
     /// <p>In addition to the two JSON blocks, the <code>policyDocument</code> can also include <code>Name</code>, <code>Description</code>, and <code>Version</code> fields. The <code>Name</code> is used as a dimension when CloudWatch Logs reports audit findings metrics to CloudWatch.</p>
     /// <p>The JSON specified in <code>policyDocument</code> can be up to 30,720 characters.</p>
-    pub fn set_policy_document(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_policy_document(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.policy_document = input;
         self
     }
@@ -161,11 +145,9 @@ impl PutDataProtectionPolicyInputBuilder {
         crate::operation::put_data_protection_policy::PutDataProtectionPolicyInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(
-            crate::operation::put_data_protection_policy::PutDataProtectionPolicyInput {
-                log_group_identifier: self.log_group_identifier,
-                policy_document: self.policy_document,
-            },
-        )
+        ::std::result::Result::Ok(crate::operation::put_data_protection_policy::PutDataProtectionPolicyInput {
+            log_group_identifier: self.log_group_identifier,
+            policy_document: self.policy_document,
+        })
     }
 }

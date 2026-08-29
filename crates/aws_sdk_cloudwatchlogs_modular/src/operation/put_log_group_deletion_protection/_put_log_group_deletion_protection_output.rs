@@ -15,16 +15,14 @@ impl ::aws_types::request_id::RequestId for PutLogGroupDeletionProtectionOutput 
 #[cfg(feature = "op_put_log_group_deletion_protection")]
 impl PutLogGroupDeletionProtectionOutput {
     /// Creates a new builder-style object to manufacture [`PutLogGroupDeletionProtectionOutput`](crate::operation::put_log_group_deletion_protection::PutLogGroupDeletionProtectionOutput).
-    pub fn builder() -> crate::operation::put_log_group_deletion_protection::builders::PutLogGroupDeletionProtectionOutputBuilder{
+    pub fn builder() -> crate::operation::put_log_group_deletion_protection::builders::PutLogGroupDeletionProtectionOutputBuilder {
         crate::operation::put_log_group_deletion_protection::builders::PutLogGroupDeletionProtectionOutputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_put_log_group_deletion_protection")]
 /// A builder for [`PutLogGroupDeletionProtectionOutput`](crate::operation::put_log_group_deletion_protection::PutLogGroupDeletionProtectionOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct PutLogGroupDeletionProtectionOutputBuilder {
     _request_id: Option<String>,
@@ -41,10 +39,7 @@ impl PutLogGroupDeletionProtectionOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`PutLogGroupDeletionProtectionOutput`](crate::operation::put_log_group_deletion_protection::PutLogGroupDeletionProtectionOutput).
-    pub fn build(
-        self,
-    ) -> crate::operation::put_log_group_deletion_protection::PutLogGroupDeletionProtectionOutput
-    {
+    pub fn build(self) -> crate::operation::put_log_group_deletion_protection::PutLogGroupDeletionProtectionOutput {
         crate::operation::put_log_group_deletion_protection::PutLogGroupDeletionProtectionOutput {
             _request_id: self._request_id,
         }

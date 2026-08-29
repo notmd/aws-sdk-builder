@@ -32,22 +32,17 @@ impl ::aws_types::request_id::RequestId for DescribeDeliverySourcesOutput {
 #[cfg(feature = "op_describe_delivery_sources")]
 impl DescribeDeliverySourcesOutput {
     /// Creates a new builder-style object to manufacture [`DescribeDeliverySourcesOutput`](crate::operation::describe_delivery_sources::DescribeDeliverySourcesOutput).
-    pub fn builder(
-    ) -> crate::operation::describe_delivery_sources::builders::DescribeDeliverySourcesOutputBuilder
-    {
+    pub fn builder() -> crate::operation::describe_delivery_sources::builders::DescribeDeliverySourcesOutputBuilder {
         crate::operation::describe_delivery_sources::builders::DescribeDeliverySourcesOutputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_describe_delivery_sources")]
 /// A builder for [`DescribeDeliverySourcesOutput`](crate::operation::describe_delivery_sources::DescribeDeliverySourcesOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct DescribeDeliverySourcesOutputBuilder {
-    pub(crate) delivery_sources:
-        ::std::option::Option<::std::vec::Vec<crate::types::DeliverySource>>,
+    pub(crate) delivery_sources: ::std::option::Option<::std::vec::Vec<crate::types::DeliverySource>>,
     pub(crate) next_token: ::std::option::Option<::std::string::String>,
     _request_id: Option<String>,
 }
@@ -65,17 +60,12 @@ impl DescribeDeliverySourcesOutputBuilder {
         self
     }
     /// <p>An array of structures. Each structure contains information about one delivery source in the account.</p>
-    pub fn set_delivery_sources(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<crate::types::DeliverySource>>,
-    ) -> Self {
+    pub fn set_delivery_sources(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::DeliverySource>>) -> Self {
         self.delivery_sources = input;
         self
     }
     /// <p>An array of structures. Each structure contains information about one delivery source in the account.</p>
-    pub fn get_delivery_sources(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<crate::types::DeliverySource>> {
+    pub fn get_delivery_sources(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::DeliverySource>> {
         &self.delivery_sources
     }
     /// <p>The token for the next set of items to return. The token expires after 24 hours.</p>
@@ -102,9 +92,7 @@ impl DescribeDeliverySourcesOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`DescribeDeliverySourcesOutput`](crate::operation::describe_delivery_sources::DescribeDeliverySourcesOutput).
-    pub fn build(
-        self,
-    ) -> crate::operation::describe_delivery_sources::DescribeDeliverySourcesOutput {
+    pub fn build(self) -> crate::operation::describe_delivery_sources::DescribeDeliverySourcesOutput {
         crate::operation::describe_delivery_sources::DescribeDeliverySourcesOutput {
             delivery_sources: self.delivery_sources,
             next_token: self.next_token,

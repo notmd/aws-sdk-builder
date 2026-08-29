@@ -10,11 +10,7 @@ impl super::Client {
     /// - On success, responds with [`StartLiveTailOutput`](crate::operation::start_live_tail::StartLiveTailOutput) with field(s):
     ///   - [`response_stream(EventReceiver<StartLiveTailResponseStream, StartLiveTailResponseStreamError>)`](crate::operation::start_live_tail::StartLiveTailOutput::response_stream): <p>An object that includes the stream returned by your request. It can include both log events and exceptions.</p>
     /// - On failure, responds with [`SdkError<StartLiveTailError>`](crate::operation::start_live_tail::StartLiveTailError)
-    pub fn start_live_tail(
-        &self,
-    ) -> crate::operation::start_live_tail::builders::StartLiveTailFluentBuilder {
-        crate::operation::start_live_tail::builders::StartLiveTailFluentBuilder::new(
-            self.handle.clone(),
-        )
+    pub fn start_live_tail(&self) -> crate::operation::start_live_tail::builders::StartLiveTailFluentBuilder {
+        crate::operation::start_live_tail::builders::StartLiveTailFluentBuilder::new(self.handle.clone())
     }
 }

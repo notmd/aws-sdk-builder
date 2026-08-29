@@ -29,17 +29,14 @@ impl DescribeLookupTablesInput {
 #[cfg(feature = "op_describe_lookup_tables")]
 impl DescribeLookupTablesInput {
     /// Creates a new builder-style object to manufacture [`DescribeLookupTablesInput`](crate::operation::describe_lookup_tables::DescribeLookupTablesInput).
-    pub fn builder(
-    ) -> crate::operation::describe_lookup_tables::builders::DescribeLookupTablesInputBuilder {
+    pub fn builder() -> crate::operation::describe_lookup_tables::builders::DescribeLookupTablesInputBuilder {
         crate::operation::describe_lookup_tables::builders::DescribeLookupTablesInputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_describe_lookup_tables")]
 /// A builder for [`DescribeLookupTablesInput`](crate::operation::describe_lookup_tables::DescribeLookupTablesInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct DescribeLookupTablesInputBuilder {
     pub(crate) lookup_table_name_prefix: ::std::option::Option<::std::string::String>,
@@ -49,18 +46,12 @@ pub struct DescribeLookupTablesInputBuilder {
 #[cfg(feature = "op_describe_lookup_tables")]
 impl DescribeLookupTablesInputBuilder {
     /// <p>A prefix to filter lookup tables by name. Only tables whose names start with this prefix are returned. If you don't specify a prefix, all tables in the account and Region are returned.</p>
-    pub fn lookup_table_name_prefix(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn lookup_table_name_prefix(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.lookup_table_name_prefix = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>A prefix to filter lookup tables by name. Only tables whose names start with this prefix are returned. If you don't specify a prefix, all tables in the account and Region are returned.</p>
-    pub fn set_lookup_table_name_prefix(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_lookup_table_name_prefix(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.lookup_table_name_prefix = input;
         self
     }
@@ -99,16 +90,12 @@ impl DescribeLookupTablesInputBuilder {
     /// Consumes the builder and constructs a [`DescribeLookupTablesInput`](crate::operation::describe_lookup_tables::DescribeLookupTablesInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        crate::operation::describe_lookup_tables::DescribeLookupTablesInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
-        ::std::result::Result::Ok(
-            crate::operation::describe_lookup_tables::DescribeLookupTablesInput {
-                lookup_table_name_prefix: self.lookup_table_name_prefix,
-                max_results: self.max_results,
-                next_token: self.next_token,
-            },
-        )
+    ) -> ::std::result::Result<crate::operation::describe_lookup_tables::DescribeLookupTablesInput, ::aws_smithy_types::error::operation::BuildError>
+    {
+        ::std::result::Result::Ok(crate::operation::describe_lookup_tables::DescribeLookupTablesInput {
+            lookup_table_name_prefix: self.lookup_table_name_prefix,
+            max_results: self.max_results,
+            next_token: self.next_token,
+        })
     }
 }

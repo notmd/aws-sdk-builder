@@ -45,9 +45,7 @@ impl LiveTailSessionLogEvent {
 }
 
 /// A builder for [`LiveTailSessionLogEvent`](crate::types::LiveTailSessionLogEvent).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct LiveTailSessionLogEventBuilder {
     pub(crate) log_stream_name: ::std::option::Option<::std::string::String>,
@@ -58,18 +56,12 @@ pub struct LiveTailSessionLogEventBuilder {
 }
 impl LiveTailSessionLogEventBuilder {
     /// <p>The name of the log stream that ingested this log event.</p>
-    pub fn log_stream_name(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn log_stream_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.log_stream_name = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The name of the log stream that ingested this log event.</p>
-    pub fn set_log_stream_name(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_log_stream_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.log_stream_name = input;
         self
     }
@@ -78,18 +70,12 @@ impl LiveTailSessionLogEventBuilder {
         &self.log_stream_name
     }
     /// <p>The name or ARN of the log group that ingested this log event.</p>
-    pub fn log_group_identifier(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn log_group_identifier(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.log_group_identifier = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The name or ARN of the log group that ingested this log event.</p>
-    pub fn set_log_group_identifier(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_log_group_identifier(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.log_group_identifier = input;
         self
     }

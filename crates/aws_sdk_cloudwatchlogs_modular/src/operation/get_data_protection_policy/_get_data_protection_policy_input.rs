@@ -17,18 +17,14 @@ impl GetDataProtectionPolicyInput {
 #[cfg(feature = "op_get_data_protection_policy")]
 impl GetDataProtectionPolicyInput {
     /// Creates a new builder-style object to manufacture [`GetDataProtectionPolicyInput`](crate::operation::get_data_protection_policy::GetDataProtectionPolicyInput).
-    pub fn builder(
-    ) -> crate::operation::get_data_protection_policy::builders::GetDataProtectionPolicyInputBuilder
-    {
+    pub fn builder() -> crate::operation::get_data_protection_policy::builders::GetDataProtectionPolicyInputBuilder {
         crate::operation::get_data_protection_policy::builders::GetDataProtectionPolicyInputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_get_data_protection_policy")]
 /// A builder for [`GetDataProtectionPolicyInput`](crate::operation::get_data_protection_policy::GetDataProtectionPolicyInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct GetDataProtectionPolicyInputBuilder {
     pub(crate) log_group_identifier: ::std::option::Option<::std::string::String>,
@@ -37,18 +33,12 @@ pub struct GetDataProtectionPolicyInputBuilder {
 impl GetDataProtectionPolicyInputBuilder {
     /// <p>The name or ARN of the log group that contains the data protection policy that you want to see.</p>
     /// This field is required.
-    pub fn log_group_identifier(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn log_group_identifier(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.log_group_identifier = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The name or ARN of the log group that contains the data protection policy that you want to see.</p>
-    pub fn set_log_group_identifier(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_log_group_identifier(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.log_group_identifier = input;
         self
     }
@@ -63,10 +53,8 @@ impl GetDataProtectionPolicyInputBuilder {
         crate::operation::get_data_protection_policy::GetDataProtectionPolicyInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(
-            crate::operation::get_data_protection_policy::GetDataProtectionPolicyInput {
-                log_group_identifier: self.log_group_identifier,
-            },
-        )
+        ::std::result::Result::Ok(crate::operation::get_data_protection_policy::GetDataProtectionPolicyInput {
+            log_group_identifier: self.log_group_identifier,
+        })
     }
 }

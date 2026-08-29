@@ -89,9 +89,7 @@ impl StartLiveTailFluentBuilder {
         }
     }
     /// Access the StartLiveTail as a reference.
-    pub fn as_input(
-        &self,
-    ) -> &crate::operation::start_live_tail::builders::StartLiveTailInputBuilder {
+    pub fn as_input(&self) -> &crate::operation::start_live_tail::builders::StartLiveTailInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -115,15 +113,12 @@ impl StartLiveTailFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins =
-            crate::operation::start_live_tail::StartLiveTail::operation_runtime_plugins(
-                self.handle.runtime_plugins.clone(),
-                &self.handle.conf,
-                self.config_override,
-            );
-        let mut output =
-            crate::operation::start_live_tail::StartLiveTail::orchestrate(&runtime_plugins, input)
-                .await?;
+        let runtime_plugins = crate::operation::start_live_tail::StartLiveTail::operation_runtime_plugins(
+            self.handle.runtime_plugins.clone(),
+            &self.handle.conf,
+            self.config_override,
+        );
+        let mut output = crate::operation::start_live_tail::StartLiveTail::orchestrate(&runtime_plugins, input).await?;
 
         // Converts any error encountered beyond this point into an `SdkError` response error
         // with an `HttpResponse`. However, since we have already exited the `orchestrate`
@@ -142,18 +137,13 @@ impl StartLiveTailFluentBuilder {
             ::aws_smithy_runtime_api::client::result::SdkError::response_error(
                 err,
                 ::aws_smithy_runtime_api::client::orchestrator::HttpResponse::new(
-                    ::aws_smithy_runtime_api::http::StatusCode::try_from(200)
-                        .expect("valid successful code"),
+                    ::aws_smithy_runtime_api::http::StatusCode::try_from(200).expect("valid successful code"),
                     ::aws_smithy_types::body::SdkBody::empty(),
                 ),
             )
         }
 
-        let message = output
-            .response_stream
-            .try_recv_initial_response()
-            .await
-            .map_err(response_error)?;
+        let message = output.response_stream.try_recv_initial_response().await.map_err(response_error)?;
 
         match message {
             ::std::option::Option::Some(_message) => ::std::result::Result::Ok(output),
@@ -171,18 +161,12 @@ impl StartLiveTailFluentBuilder {
     > {
         crate::client::customize::CustomizableOperation::new(self)
     }
-    pub(crate) fn config_override(
-        mut self,
-        config_override: impl ::std::convert::Into<crate::config::Builder>,
-    ) -> Self {
+    pub(crate) fn config_override(mut self, config_override: impl ::std::convert::Into<crate::config::Builder>) -> Self {
         self.set_config_override(::std::option::Option::Some(config_override.into()));
         self
     }
 
-    pub(crate) fn set_config_override(
-        &mut self,
-        config_override: ::std::option::Option<crate::config::Builder>,
-    ) -> &mut Self {
+    pub(crate) fn set_config_override(&mut self, config_override: ::std::option::Option<crate::config::Builder>) -> &mut Self {
         self.config_override = config_override;
         self
     }
@@ -196,10 +180,7 @@ impl StartLiveTailFluentBuilder {
     /// <p>If you specify an ARN, the ARN can't end with an asterisk (*).</p><note>
     /// <p>You can include up to 10 log groups.</p>
     /// </note>
-    pub fn log_group_identifiers(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn log_group_identifiers(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.log_group_identifiers(input.into());
         self
     }
@@ -208,10 +189,7 @@ impl StartLiveTailFluentBuilder {
     /// <p>If you specify an ARN, the ARN can't end with an asterisk (*).</p><note>
     /// <p>You can include up to 10 log groups.</p>
     /// </note>
-    pub fn set_log_group_identifiers(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
-    ) -> Self {
+    pub fn set_log_group_identifiers(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
         self.inner = self.inner.set_log_group_identifiers(input);
         self
     }
@@ -220,9 +198,7 @@ impl StartLiveTailFluentBuilder {
     /// <p>If you specify an ARN, the ARN can't end with an asterisk (*).</p><note>
     /// <p>You can include up to 10 log groups.</p>
     /// </note>
-    pub fn get_log_group_identifiers(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
+    pub fn get_log_group_identifiers(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
         self.inner.get_log_group_identifiers()
     }
     ///
@@ -234,10 +210,7 @@ impl StartLiveTailFluentBuilder {
     /// <p>If you specify this field, you can't also specify the <code>logStreamNamePrefixes</code> field.</p><note>
     /// <p>You can specify this parameter only if you specify only one log group in <code>logGroupIdentifiers</code>.</p>
     /// </note>
-    pub fn log_stream_names(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn log_stream_names(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.log_stream_names(input.into());
         self
     }
@@ -245,10 +218,7 @@ impl StartLiveTailFluentBuilder {
     /// <p>If you specify this field, you can't also specify the <code>logStreamNamePrefixes</code> field.</p><note>
     /// <p>You can specify this parameter only if you specify only one log group in <code>logGroupIdentifiers</code>.</p>
     /// </note>
-    pub fn set_log_stream_names(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
-    ) -> Self {
+    pub fn set_log_stream_names(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
         self.inner = self.inner.set_log_stream_names(input);
         self
     }
@@ -256,9 +226,7 @@ impl StartLiveTailFluentBuilder {
     /// <p>If you specify this field, you can't also specify the <code>logStreamNamePrefixes</code> field.</p><note>
     /// <p>You can specify this parameter only if you specify only one log group in <code>logGroupIdentifiers</code>.</p>
     /// </note>
-    pub fn get_log_stream_names(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
+    pub fn get_log_stream_names(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
         self.inner.get_log_stream_names()
     }
     ///
@@ -270,10 +238,7 @@ impl StartLiveTailFluentBuilder {
     /// <p>If you specify this field, you can't also specify the <code>logStreamNames</code> field.</p><note>
     /// <p>You can specify this parameter only if you specify only one log group in <code>logGroupIdentifiers</code>.</p>
     /// </note>
-    pub fn log_stream_name_prefixes(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn log_stream_name_prefixes(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.log_stream_name_prefixes(input.into());
         self
     }
@@ -281,10 +246,7 @@ impl StartLiveTailFluentBuilder {
     /// <p>If you specify this field, you can't also specify the <code>logStreamNames</code> field.</p><note>
     /// <p>You can specify this parameter only if you specify only one log group in <code>logGroupIdentifiers</code>.</p>
     /// </note>
-    pub fn set_log_stream_name_prefixes(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
-    ) -> Self {
+    pub fn set_log_stream_name_prefixes(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
         self.inner = self.inner.set_log_stream_name_prefixes(input);
         self
     }
@@ -292,28 +254,20 @@ impl StartLiveTailFluentBuilder {
     /// <p>If you specify this field, you can't also specify the <code>logStreamNames</code> field.</p><note>
     /// <p>You can specify this parameter only if you specify only one log group in <code>logGroupIdentifiers</code>.</p>
     /// </note>
-    pub fn get_log_stream_name_prefixes(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
+    pub fn get_log_stream_name_prefixes(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
         self.inner.get_log_stream_name_prefixes()
     }
     /// <p>An optional pattern to use to filter the results to include only log events that match the pattern. For example, a filter pattern of <code>error 404</code> causes only log events that include both <code>error</code> and <code>404</code> to be included in the Live Tail stream.</p>
     /// <p>Regular expression filter patterns are supported.</p>
     /// <p>For more information about filter pattern syntax, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/FilterAndPatternSyntax.html">Filter and Pattern Syntax</a>.</p>
-    pub fn log_event_filter_pattern(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn log_event_filter_pattern(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.log_event_filter_pattern(input.into());
         self
     }
     /// <p>An optional pattern to use to filter the results to include only log events that match the pattern. For example, a filter pattern of <code>error 404</code> causes only log events that include both <code>error</code> and <code>404</code> to be included in the Live Tail stream.</p>
     /// <p>Regular expression filter patterns are supported.</p>
     /// <p>For more information about filter pattern syntax, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/FilterAndPatternSyntax.html">Filter and Pattern Syntax</a>.</p>
-    pub fn set_log_event_filter_pattern(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_log_event_filter_pattern(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_log_event_filter_pattern(input);
         self
     }

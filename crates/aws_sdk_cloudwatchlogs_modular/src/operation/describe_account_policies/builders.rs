@@ -41,8 +41,7 @@ impl crate::operation::describe_account_policies::builders::DescribeAccountPolic
 #[derive(::std::clone::Clone, ::std::fmt::Debug)]
 pub struct DescribeAccountPoliciesFluentBuilder {
     handle: ::std::sync::Arc<crate::client::Handle>,
-    inner:
-        crate::operation::describe_account_policies::builders::DescribeAccountPoliciesInputBuilder,
+    inner: crate::operation::describe_account_policies::builders::DescribeAccountPoliciesInputBuilder,
     config_override: ::std::option::Option<crate::config::Builder>,
 }
 #[cfg(feature = "op_describe_account_policies")]
@@ -75,10 +74,7 @@ impl DescribeAccountPoliciesFluentBuilder {
         }
     }
     /// Access the DescribeAccountPolicies as a reference.
-    pub fn as_input(
-        &self,
-    ) -> &crate::operation::describe_account_policies::builders::DescribeAccountPoliciesInputBuilder
-    {
+    pub fn as_input(&self) -> &crate::operation::describe_account_policies::builders::DescribeAccountPoliciesInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -107,11 +103,7 @@ impl DescribeAccountPoliciesFluentBuilder {
             &self.handle.conf,
             self.config_override,
         );
-        crate::operation::describe_account_policies::DescribeAccountPolicies::orchestrate(
-            &runtime_plugins,
-            input,
-        )
-        .await
+        crate::operation::describe_account_policies::DescribeAccountPolicies::orchestrate(&runtime_plugins, input).await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -124,18 +116,12 @@ impl DescribeAccountPoliciesFluentBuilder {
     > {
         crate::client::customize::CustomizableOperation::new(self)
     }
-    pub(crate) fn config_override(
-        mut self,
-        config_override: impl ::std::convert::Into<crate::config::Builder>,
-    ) -> Self {
+    pub(crate) fn config_override(mut self, config_override: impl ::std::convert::Into<crate::config::Builder>) -> Self {
         self.set_config_override(::std::option::Option::Some(config_override.into()));
         self
     }
 
-    pub(crate) fn set_config_override(
-        &mut self,
-        config_override: ::std::option::Option<crate::config::Builder>,
-    ) -> &mut Self {
+    pub(crate) fn set_config_override(&mut self, config_override: ::std::option::Option<crate::config::Builder>) -> &mut Self {
         self.config_override = config_override;
         self
     }
@@ -145,10 +131,7 @@ impl DescribeAccountPoliciesFluentBuilder {
         self
     }
     /// <p>Use this parameter to limit the returned policies to only the policies that match the policy type that you specify.</p>
-    pub fn set_policy_type(
-        mut self,
-        input: ::std::option::Option<crate::types::PolicyType>,
-    ) -> Self {
+    pub fn set_policy_type(mut self, input: ::std::option::Option<crate::types::PolicyType>) -> Self {
         self.inner = self.inner.set_policy_type(input);
         self
     }
@@ -177,27 +160,19 @@ impl DescribeAccountPoliciesFluentBuilder {
     ///
     /// <p>If you are using an account that is set up as a monitoring account for CloudWatch unified cross-account observability, you can use this to specify the account ID of a source account. If you do, the operation returns the account policy for the specified account. Currently, you can specify only one account ID in this parameter.</p>
     /// <p>If you omit this parameter, only the policy in the current account is returned.</p>
-    pub fn account_identifiers(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn account_identifiers(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.account_identifiers(input.into());
         self
     }
     /// <p>If you are using an account that is set up as a monitoring account for CloudWatch unified cross-account observability, you can use this to specify the account ID of a source account. If you do, the operation returns the account policy for the specified account. Currently, you can specify only one account ID in this parameter.</p>
     /// <p>If you omit this parameter, only the policy in the current account is returned.</p>
-    pub fn set_account_identifiers(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
-    ) -> Self {
+    pub fn set_account_identifiers(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
         self.inner = self.inner.set_account_identifiers(input);
         self
     }
     /// <p>If you are using an account that is set up as a monitoring account for CloudWatch unified cross-account observability, you can use this to specify the account ID of a source account. If you do, the operation returns the account policy for the specified account. Currently, you can specify only one account ID in this parameter.</p>
     /// <p>If you omit this parameter, only the policy in the current account is returned.</p>
-    pub fn get_account_identifiers(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
+    pub fn get_account_identifiers(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
         self.inner.get_account_identifiers()
     }
     /// <p>The token for the next set of items to return. (You received this token from a previous call.)</p>

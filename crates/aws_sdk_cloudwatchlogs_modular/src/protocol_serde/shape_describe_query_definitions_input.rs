@@ -7,9 +7,7 @@ pub fn ser_describe_query_definitions_input_input(
         object.key("queryLanguage").string(var_1.as_str());
     }
     if let Some(var_2) = &input.query_definition_name_prefix {
-        object
-            .key("queryDefinitionNamePrefix")
-            .string(var_2.as_str());
+        object.key("queryDefinitionNamePrefix").string(var_2.as_str());
     }
     if let Some(var_3) = &input.max_results {
         object.key("maxResults").number(

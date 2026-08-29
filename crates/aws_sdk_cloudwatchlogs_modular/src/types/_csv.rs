@@ -50,9 +50,7 @@ impl Csv {
 }
 
 /// A builder for [`Csv`](crate::types::Csv).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct CsvBuilder {
     pub(crate) quote_character: ::std::option::Option<::std::string::String>,
@@ -63,18 +61,12 @@ pub struct CsvBuilder {
 }
 impl CsvBuilder {
     /// <p>The character used used as a text qualifier for a single column of data. If you omit this, the double quotation mark <code>"</code> character is used.</p>
-    pub fn quote_character(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn quote_character(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.quote_character = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The character used used as a text qualifier for a single column of data. If you omit this, the double quotation mark <code>"</code> character is used.</p>
-    pub fn set_quote_character(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_quote_character(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.quote_character = input;
         self
     }
@@ -110,10 +102,7 @@ impl CsvBuilder {
     }
     /// <p>An array of names to use for the columns in the transformed log event.</p>
     /// <p>If you omit this, default column names (<code>\[column_1, column_2 ...\]</code>) are used.</p>
-    pub fn set_columns(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
-    ) -> Self {
+    pub fn set_columns(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
         self.columns = input;
         self
     }

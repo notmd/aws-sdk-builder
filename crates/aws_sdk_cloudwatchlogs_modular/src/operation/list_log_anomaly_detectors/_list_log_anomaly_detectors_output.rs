@@ -32,22 +32,17 @@ impl ::aws_types::request_id::RequestId for ListLogAnomalyDetectorsOutput {
 #[cfg(feature = "op_list_log_anomaly_detectors")]
 impl ListLogAnomalyDetectorsOutput {
     /// Creates a new builder-style object to manufacture [`ListLogAnomalyDetectorsOutput`](crate::operation::list_log_anomaly_detectors::ListLogAnomalyDetectorsOutput).
-    pub fn builder(
-    ) -> crate::operation::list_log_anomaly_detectors::builders::ListLogAnomalyDetectorsOutputBuilder
-    {
+    pub fn builder() -> crate::operation::list_log_anomaly_detectors::builders::ListLogAnomalyDetectorsOutputBuilder {
         crate::operation::list_log_anomaly_detectors::builders::ListLogAnomalyDetectorsOutputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_list_log_anomaly_detectors")]
 /// A builder for [`ListLogAnomalyDetectorsOutput`](crate::operation::list_log_anomaly_detectors::ListLogAnomalyDetectorsOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct ListLogAnomalyDetectorsOutputBuilder {
-    pub(crate) anomaly_detectors:
-        ::std::option::Option<::std::vec::Vec<crate::types::AnomalyDetector>>,
+    pub(crate) anomaly_detectors: ::std::option::Option<::std::vec::Vec<crate::types::AnomalyDetector>>,
     pub(crate) next_token: ::std::option::Option<::std::string::String>,
     _request_id: Option<String>,
 }
@@ -65,17 +60,12 @@ impl ListLogAnomalyDetectorsOutputBuilder {
         self
     }
     /// <p>An array of structures, where each structure in the array contains information about one anomaly detector.</p>
-    pub fn set_anomaly_detectors(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<crate::types::AnomalyDetector>>,
-    ) -> Self {
+    pub fn set_anomaly_detectors(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::AnomalyDetector>>) -> Self {
         self.anomaly_detectors = input;
         self
     }
     /// <p>An array of structures, where each structure in the array contains information about one anomaly detector.</p>
-    pub fn get_anomaly_detectors(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<crate::types::AnomalyDetector>> {
+    pub fn get_anomaly_detectors(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::AnomalyDetector>> {
         &self.anomaly_detectors
     }
     /// <p>The token for the next set of items to return. The token expires after 24 hours.</p>
@@ -102,9 +92,7 @@ impl ListLogAnomalyDetectorsOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`ListLogAnomalyDetectorsOutput`](crate::operation::list_log_anomaly_detectors::ListLogAnomalyDetectorsOutput).
-    pub fn build(
-        self,
-    ) -> crate::operation::list_log_anomaly_detectors::ListLogAnomalyDetectorsOutput {
+    pub fn build(self) -> crate::operation::list_log_anomaly_detectors::ListLogAnomalyDetectorsOutput {
         crate::operation::list_log_anomaly_detectors::ListLogAnomalyDetectorsOutput {
             anomaly_detectors: self.anomaly_detectors,
             next_token: self.next_token,

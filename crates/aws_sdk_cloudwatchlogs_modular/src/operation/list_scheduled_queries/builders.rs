@@ -63,9 +63,7 @@ impl ListScheduledQueriesFluentBuilder {
         }
     }
     /// Access the ListScheduledQueries as a reference.
-    pub fn as_input(
-        &self,
-    ) -> &crate::operation::list_scheduled_queries::builders::ListScheduledQueriesInputBuilder {
+    pub fn as_input(&self) -> &crate::operation::list_scheduled_queries::builders::ListScheduledQueriesInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -94,11 +92,7 @@ impl ListScheduledQueriesFluentBuilder {
             &self.handle.conf,
             self.config_override,
         );
-        crate::operation::list_scheduled_queries::ListScheduledQueries::orchestrate(
-            &runtime_plugins,
-            input,
-        )
-        .await
+        crate::operation::list_scheduled_queries::ListScheduledQueries::orchestrate(&runtime_plugins, input).await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -111,31 +105,20 @@ impl ListScheduledQueriesFluentBuilder {
     > {
         crate::client::customize::CustomizableOperation::new(self)
     }
-    pub(crate) fn config_override(
-        mut self,
-        config_override: impl ::std::convert::Into<crate::config::Builder>,
-    ) -> Self {
+    pub(crate) fn config_override(mut self, config_override: impl ::std::convert::Into<crate::config::Builder>) -> Self {
         self.set_config_override(::std::option::Option::Some(config_override.into()));
         self
     }
 
-    pub(crate) fn set_config_override(
-        &mut self,
-        config_override: ::std::option::Option<crate::config::Builder>,
-    ) -> &mut Self {
+    pub(crate) fn set_config_override(&mut self, config_override: ::std::option::Option<crate::config::Builder>) -> &mut Self {
         self.config_override = config_override;
         self
     }
     /// Create a paginator for this request
     ///
     /// Paginators are used by calling [`send().await`](crate::operation::list_scheduled_queries::paginator::ListScheduledQueriesPaginator::send) which returns a [`PaginationStream`](aws_smithy_async::future::pagination_stream::PaginationStream).
-    pub fn into_paginator(
-        self,
-    ) -> crate::operation::list_scheduled_queries::paginator::ListScheduledQueriesPaginator {
-        crate::operation::list_scheduled_queries::paginator::ListScheduledQueriesPaginator::new(
-            self.handle,
-            self.inner,
-        )
+    pub fn into_paginator(self) -> crate::operation::list_scheduled_queries::paginator::ListScheduledQueriesPaginator {
+        crate::operation::list_scheduled_queries::paginator::ListScheduledQueriesPaginator::new(self.handle, self.inner)
     }
     /// <p>The maximum number of scheduled queries to return. Valid range is 1 to 1000.</p>
     pub fn max_results(mut self, input: i32) -> Self {
@@ -171,10 +154,7 @@ impl ListScheduledQueriesFluentBuilder {
         self
     }
     /// <p>Filter scheduled queries by state. Valid values are <code>ENABLED</code> and <code>DISABLED</code>. If not specified, all scheduled queries are returned.</p>
-    pub fn set_state(
-        mut self,
-        input: ::std::option::Option<crate::types::ScheduledQueryState>,
-    ) -> Self {
+    pub fn set_state(mut self, input: ::std::option::Option<crate::types::ScheduledQueryState>) -> Self {
         self.inner = self.inner.set_state(input);
         self
     }
@@ -188,10 +168,7 @@ impl ListScheduledQueriesFluentBuilder {
         self
     }
     /// <p>Filter scheduled queries by schedule type. Valid values are <code>CUSTOMER_MANAGED</code> and <code>AWS_MANAGED</code>. If not specified, scheduled queries of all schedule types are returned.</p>
-    pub fn set_schedule_type(
-        mut self,
-        input: ::std::option::Option<crate::types::ScheduleType>,
-    ) -> Self {
+    pub fn set_schedule_type(mut self, input: ::std::option::Option<crate::types::ScheduleType>) -> Self {
         self.inner = self.inner.set_schedule_type(input);
         self
     }

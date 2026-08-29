@@ -27,9 +27,7 @@ impl LogGroupField {
 }
 
 /// A builder for [`LogGroupField`](crate::types::LogGroupField).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct LogGroupFieldBuilder {
     pub(crate) name: ::std::option::Option<::std::string::String>,

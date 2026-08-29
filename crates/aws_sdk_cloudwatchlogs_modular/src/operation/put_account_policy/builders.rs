@@ -227,9 +227,7 @@ impl PutAccountPolicyFluentBuilder {
         }
     }
     /// Access the PutAccountPolicy as a reference.
-    pub fn as_input(
-        &self,
-    ) -> &crate::operation::put_account_policy::builders::PutAccountPolicyInputBuilder {
+    pub fn as_input(&self) -> &crate::operation::put_account_policy::builders::PutAccountPolicyInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -253,14 +251,12 @@ impl PutAccountPolicyFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins =
-            crate::operation::put_account_policy::PutAccountPolicy::operation_runtime_plugins(
-                self.handle.runtime_plugins.clone(),
-                &self.handle.conf,
-                self.config_override,
-            );
-        crate::operation::put_account_policy::PutAccountPolicy::orchestrate(&runtime_plugins, input)
-            .await
+        let runtime_plugins = crate::operation::put_account_policy::PutAccountPolicy::operation_runtime_plugins(
+            self.handle.runtime_plugins.clone(),
+            &self.handle.conf,
+            self.config_override,
+        );
+        crate::operation::put_account_policy::PutAccountPolicy::orchestrate(&runtime_plugins, input).await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -273,18 +269,12 @@ impl PutAccountPolicyFluentBuilder {
     > {
         crate::client::customize::CustomizableOperation::new(self)
     }
-    pub(crate) fn config_override(
-        mut self,
-        config_override: impl ::std::convert::Into<crate::config::Builder>,
-    ) -> Self {
+    pub(crate) fn config_override(mut self, config_override: impl ::std::convert::Into<crate::config::Builder>) -> Self {
         self.set_config_override(::std::option::Option::Some(config_override.into()));
         self
     }
 
-    pub(crate) fn set_config_override(
-        &mut self,
-        config_override: ::std::option::Option<crate::config::Builder>,
-    ) -> &mut Self {
+    pub(crate) fn set_config_override(&mut self, config_override: ::std::option::Option<crate::config::Builder>) -> &mut Self {
         self.config_override = config_override;
         self
     }
@@ -354,10 +344,7 @@ impl PutAccountPolicyFluentBuilder {
     /// <p>The following is an example of an index policy document that creates indexes with different types.</p>
     /// <p><code>"policyDocument": "{ \"Fields\": \[ \"TransactionId\" \], \"FieldsV2\": {\"RequestId\": {\"type\": \"FIELD_INDEX\"}, \"APIName\": {\"type\": \"FACET\"}, \"StatusCode\": {\"type\": \"FACET\"}}}"</code></p>
     /// <p>You can use <code>FieldsV2</code> to specify the type for each field. Supported types are <code>FIELD_INDEX</code> and <code>FACET</code>. Field names within <code>Fields</code> and <code>FieldsV2</code> must be mutually exclusive.</p>
-    pub fn policy_document(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn policy_document(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.policy_document(input.into());
         self
     }
@@ -413,10 +400,7 @@ impl PutAccountPolicyFluentBuilder {
     /// <p>The following is an example of an index policy document that creates indexes with different types.</p>
     /// <p><code>"policyDocument": "{ \"Fields\": \[ \"TransactionId\" \], \"FieldsV2\": {\"RequestId\": {\"type\": \"FIELD_INDEX\"}, \"APIName\": {\"type\": \"FACET\"}, \"StatusCode\": {\"type\": \"FACET\"}}}"</code></p>
     /// <p>You can use <code>FieldsV2</code> to specify the type for each field. Supported types are <code>FIELD_INDEX</code> and <code>FACET</code>. Field names within <code>Fields</code> and <code>FieldsV2</code> must be mutually exclusive.</p>
-    pub fn set_policy_document(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_policy_document(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_policy_document(input);
         self
     }
@@ -481,10 +465,7 @@ impl PutAccountPolicyFluentBuilder {
         self
     }
     /// <p>The type of policy that you're creating or updating.</p>
-    pub fn set_policy_type(
-        mut self,
-        input: ::std::option::Option<crate::types::PolicyType>,
-    ) -> Self {
+    pub fn set_policy_type(mut self, input: ::std::option::Option<crate::types::PolicyType>) -> Self {
         self.inner = self.inner.set_policy_type(input);
         self
     }
@@ -525,10 +506,7 @@ impl PutAccountPolicyFluentBuilder {
     /// </ul>
     /// <p>The <code>selectionCriteria</code> string can be up to 25KB in length. The length is determined by using its UTF-8 bytes.</p>
     /// <p>Using the <code>selectionCriteria</code> parameter with <code>SUBSCRIPTION_FILTER_POLICY</code> is useful to help prevent infinite loops. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/Subscriptions-recursion-prevention.html">Log recursion prevention</a>.</p>
-    pub fn selection_criteria(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn selection_criteria(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.selection_criteria(input.into());
         self
     }
@@ -551,10 +529,7 @@ impl PutAccountPolicyFluentBuilder {
     /// </ul>
     /// <p>The <code>selectionCriteria</code> string can be up to 25KB in length. The length is determined by using its UTF-8 bytes.</p>
     /// <p>Using the <code>selectionCriteria</code> parameter with <code>SUBSCRIPTION_FILTER_POLICY</code> is useful to help prevent infinite loops. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/Subscriptions-recursion-prevention.html">Log recursion prevention</a>.</p>
-    pub fn set_selection_criteria(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_selection_criteria(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_selection_criteria(input);
         self
     }

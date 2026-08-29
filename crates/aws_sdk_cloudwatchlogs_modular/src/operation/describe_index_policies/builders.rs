@@ -66,10 +66,7 @@ impl DescribeIndexPoliciesFluentBuilder {
         }
     }
     /// Access the DescribeIndexPolicies as a reference.
-    pub fn as_input(
-        &self,
-    ) -> &crate::operation::describe_index_policies::builders::DescribeIndexPoliciesInputBuilder
-    {
+    pub fn as_input(&self) -> &crate::operation::describe_index_policies::builders::DescribeIndexPoliciesInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -98,11 +95,7 @@ impl DescribeIndexPoliciesFluentBuilder {
             &self.handle.conf,
             self.config_override,
         );
-        crate::operation::describe_index_policies::DescribeIndexPolicies::orchestrate(
-            &runtime_plugins,
-            input,
-        )
-        .await
+        crate::operation::describe_index_policies::DescribeIndexPolicies::orchestrate(&runtime_plugins, input).await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -115,18 +108,12 @@ impl DescribeIndexPoliciesFluentBuilder {
     > {
         crate::client::customize::CustomizableOperation::new(self)
     }
-    pub(crate) fn config_override(
-        mut self,
-        config_override: impl ::std::convert::Into<crate::config::Builder>,
-    ) -> Self {
+    pub(crate) fn config_override(mut self, config_override: impl ::std::convert::Into<crate::config::Builder>) -> Self {
         self.set_config_override(::std::option::Option::Some(config_override.into()));
         self
     }
 
-    pub(crate) fn set_config_override(
-        &mut self,
-        config_override: ::std::option::Option<crate::config::Builder>,
-    ) -> &mut Self {
+    pub(crate) fn set_config_override(&mut self, config_override: ::std::option::Option<crate::config::Builder>) -> &mut Self {
         self.config_override = config_override;
         self
     }
@@ -136,25 +123,17 @@ impl DescribeIndexPoliciesFluentBuilder {
     /// To override the contents of this collection use [`set_log_group_identifiers`](Self::set_log_group_identifiers).
     ///
     /// <p>An array containing the name or ARN of the log group that you want to retrieve field index policies for.</p>
-    pub fn log_group_identifiers(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn log_group_identifiers(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.log_group_identifiers(input.into());
         self
     }
     /// <p>An array containing the name or ARN of the log group that you want to retrieve field index policies for.</p>
-    pub fn set_log_group_identifiers(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
-    ) -> Self {
+    pub fn set_log_group_identifiers(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
         self.inner = self.inner.set_log_group_identifiers(input);
         self
     }
     /// <p>An array containing the name or ARN of the log group that you want to retrieve field index policies for.</p>
-    pub fn get_log_group_identifiers(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
+    pub fn get_log_group_identifiers(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
         self.inner.get_log_group_identifiers()
     }
     /// <p>The token for the next set of items to return. The token expires after 24 hours.</p>

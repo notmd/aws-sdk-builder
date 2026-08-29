@@ -12,11 +12,7 @@ impl super::Client {
     ///   - [`next_token(Option<String>)`](crate::operation::list_scheduled_queries::ListScheduledQueriesOutput::next_token): <p>The token for the next set of items to return. The token expires after 24 hours.</p>
     ///   - [`scheduled_queries(Option<Vec::<ScheduledQuerySummary>>)`](crate::operation::list_scheduled_queries::ListScheduledQueriesOutput::scheduled_queries): <p>An array of scheduled query summary information.</p>
     /// - On failure, responds with [`SdkError<ListScheduledQueriesError>`](crate::operation::list_scheduled_queries::ListScheduledQueriesError)
-    pub fn list_scheduled_queries(
-        &self,
-    ) -> crate::operation::list_scheduled_queries::builders::ListScheduledQueriesFluentBuilder {
-        crate::operation::list_scheduled_queries::builders::ListScheduledQueriesFluentBuilder::new(
-            self.handle.clone(),
-        )
+    pub fn list_scheduled_queries(&self) -> crate::operation::list_scheduled_queries::builders::ListScheduledQueriesFluentBuilder {
+        crate::operation::list_scheduled_queries::builders::ListScheduledQueriesFluentBuilder::new(self.handle.clone())
     }
 }

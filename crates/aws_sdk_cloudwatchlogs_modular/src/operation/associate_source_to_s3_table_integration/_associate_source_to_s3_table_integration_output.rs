@@ -24,16 +24,14 @@ impl ::aws_types::request_id::RequestId for AssociateSourceToS3TableIntegrationO
 #[cfg(feature = "op_associate_source_to_s3_table_integration")]
 impl AssociateSourceToS3TableIntegrationOutput {
     /// Creates a new builder-style object to manufacture [`AssociateSourceToS3TableIntegrationOutput`](crate::operation::associate_source_to_s3_table_integration::AssociateSourceToS3TableIntegrationOutput).
-    pub fn builder() -> crate::operation::associate_source_to_s3_table_integration::builders::AssociateSourceToS3TableIntegrationOutputBuilder{
+    pub fn builder() -> crate::operation::associate_source_to_s3_table_integration::builders::AssociateSourceToS3TableIntegrationOutputBuilder {
         crate::operation::associate_source_to_s3_table_integration::builders::AssociateSourceToS3TableIntegrationOutputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_associate_source_to_s3_table_integration")]
 /// A builder for [`AssociateSourceToS3TableIntegrationOutput`](crate::operation::associate_source_to_s3_table_integration::AssociateSourceToS3TableIntegrationOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct AssociateSourceToS3TableIntegrationOutputBuilder {
     pub(crate) identifier: ::std::option::Option<::std::string::String>,
@@ -65,7 +63,7 @@ impl AssociateSourceToS3TableIntegrationOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`AssociateSourceToS3TableIntegrationOutput`](crate::operation::associate_source_to_s3_table_integration::AssociateSourceToS3TableIntegrationOutput).
-    pub fn build(self) -> crate::operation::associate_source_to_s3_table_integration::AssociateSourceToS3TableIntegrationOutput{
+    pub fn build(self) -> crate::operation::associate_source_to_s3_table_integration::AssociateSourceToS3TableIntegrationOutput {
         crate::operation::associate_source_to_s3_table_integration::AssociateSourceToS3TableIntegrationOutput {
             identifier: self.identifier,
             _request_id: self._request_id,

@@ -23,16 +23,14 @@ impl PutDeliveryDestinationPolicyInput {
 #[cfg(feature = "op_put_delivery_destination_policy")]
 impl PutDeliveryDestinationPolicyInput {
     /// Creates a new builder-style object to manufacture [`PutDeliveryDestinationPolicyInput`](crate::operation::put_delivery_destination_policy::PutDeliveryDestinationPolicyInput).
-    pub fn builder() -> crate::operation::put_delivery_destination_policy::builders::PutDeliveryDestinationPolicyInputBuilder{
+    pub fn builder() -> crate::operation::put_delivery_destination_policy::builders::PutDeliveryDestinationPolicyInputBuilder {
         crate::operation::put_delivery_destination_policy::builders::PutDeliveryDestinationPolicyInputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_put_delivery_destination_policy")]
 /// A builder for [`PutDeliveryDestinationPolicyInput`](crate::operation::put_delivery_destination_policy::PutDeliveryDestinationPolicyInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct PutDeliveryDestinationPolicyInputBuilder {
     pub(crate) delivery_destination_name: ::std::option::Option<::std::string::String>,
@@ -42,18 +40,12 @@ pub struct PutDeliveryDestinationPolicyInputBuilder {
 impl PutDeliveryDestinationPolicyInputBuilder {
     /// <p>The name of the delivery destination to assign this policy to.</p>
     /// This field is required.
-    pub fn delivery_destination_name(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn delivery_destination_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.delivery_destination_name = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The name of the delivery destination to assign this policy to.</p>
-    pub fn set_delivery_destination_name(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_delivery_destination_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.delivery_destination_name = input;
         self
     }
@@ -63,18 +55,12 @@ impl PutDeliveryDestinationPolicyInputBuilder {
     }
     /// <p>The contents of the policy.</p>
     /// This field is required.
-    pub fn delivery_destination_policy(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn delivery_destination_policy(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.delivery_destination_policy = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The contents of the policy.</p>
-    pub fn set_delivery_destination_policy(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_delivery_destination_policy(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.delivery_destination_policy = input;
         self
     }
@@ -89,11 +75,9 @@ impl PutDeliveryDestinationPolicyInputBuilder {
         crate::operation::put_delivery_destination_policy::PutDeliveryDestinationPolicyInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(
-            crate::operation::put_delivery_destination_policy::PutDeliveryDestinationPolicyInput {
-                delivery_destination_name: self.delivery_destination_name,
-                delivery_destination_policy: self.delivery_destination_policy,
-            },
-        )
+        ::std::result::Result::Ok(crate::operation::put_delivery_destination_policy::PutDeliveryDestinationPolicyInput {
+            delivery_destination_name: self.delivery_destination_name,
+            delivery_destination_policy: self.delivery_destination_policy,
+        })
     }
 }

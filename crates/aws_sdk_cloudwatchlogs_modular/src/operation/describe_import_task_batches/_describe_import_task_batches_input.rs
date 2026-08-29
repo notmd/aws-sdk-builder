@@ -37,21 +37,18 @@ impl DescribeImportTaskBatchesInput {
 #[cfg(feature = "op_describe_import_task_batches")]
 impl DescribeImportTaskBatchesInput {
     /// Creates a new builder-style object to manufacture [`DescribeImportTaskBatchesInput`](crate::operation::describe_import_task_batches::DescribeImportTaskBatchesInput).
-    pub fn builder() -> crate::operation::describe_import_task_batches::builders::DescribeImportTaskBatchesInputBuilder{
+    pub fn builder() -> crate::operation::describe_import_task_batches::builders::DescribeImportTaskBatchesInputBuilder {
         crate::operation::describe_import_task_batches::builders::DescribeImportTaskBatchesInputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_describe_import_task_batches")]
 /// A builder for [`DescribeImportTaskBatchesInput`](crate::operation::describe_import_task_batches::DescribeImportTaskBatchesInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct DescribeImportTaskBatchesInputBuilder {
     pub(crate) import_id: ::std::option::Option<::std::string::String>,
-    pub(crate) batch_import_status:
-        ::std::option::Option<::std::vec::Vec<crate::types::ImportStatus>>,
+    pub(crate) batch_import_status: ::std::option::Option<::std::vec::Vec<crate::types::ImportStatus>>,
     pub(crate) limit: ::std::option::Option<i32>,
     pub(crate) next_token: ::std::option::Option<::std::string::String>,
 }
@@ -84,17 +81,12 @@ impl DescribeImportTaskBatchesInputBuilder {
         self
     }
     /// <p>Optional filter to list import batches by their status. Accepts multiple status values: IN_PROGRESS, CANCELLED, COMPLETED and FAILED.</p>
-    pub fn set_batch_import_status(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<crate::types::ImportStatus>>,
-    ) -> Self {
+    pub fn set_batch_import_status(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::ImportStatus>>) -> Self {
         self.batch_import_status = input;
         self
     }
     /// <p>Optional filter to list import batches by their status. Accepts multiple status values: IN_PROGRESS, CANCELLED, COMPLETED and FAILED.</p>
-    pub fn get_batch_import_status(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<crate::types::ImportStatus>> {
+    pub fn get_batch_import_status(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::ImportStatus>> {
         &self.batch_import_status
     }
     /// <p>The maximum number of import batches to return in the response. Default: 10</p>
@@ -132,13 +124,11 @@ impl DescribeImportTaskBatchesInputBuilder {
         crate::operation::describe_import_task_batches::DescribeImportTaskBatchesInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(
-            crate::operation::describe_import_task_batches::DescribeImportTaskBatchesInput {
-                import_id: self.import_id,
-                batch_import_status: self.batch_import_status,
-                limit: self.limit,
-                next_token: self.next_token,
-            },
-        )
+        ::std::result::Result::Ok(crate::operation::describe_import_task_batches::DescribeImportTaskBatchesInput {
+            import_id: self.import_id,
+            batch_import_status: self.batch_import_status,
+            limit: self.limit,
+            next_token: self.next_token,
+        })
     }
 }

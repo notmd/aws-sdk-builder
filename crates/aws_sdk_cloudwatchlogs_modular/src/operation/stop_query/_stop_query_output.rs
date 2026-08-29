@@ -31,9 +31,7 @@ impl StopQueryOutput {
 
 #[cfg(feature = "op_stop_query")]
 /// A builder for [`StopQueryOutput`](crate::operation::stop_query::StopQueryOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct StopQueryOutputBuilder {
     pub(crate) success: ::std::option::Option<bool>,

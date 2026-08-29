@@ -42,9 +42,7 @@ impl ListAnomaliesInput {
 
 #[cfg(feature = "op_list_anomalies")]
 /// A builder for [`ListAnomaliesInput`](crate::operation::list_anomalies::ListAnomaliesInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct ListAnomaliesInputBuilder {
     pub(crate) anomaly_detector_arn: ::std::option::Option<::std::string::String>,
@@ -55,18 +53,12 @@ pub struct ListAnomaliesInputBuilder {
 #[cfg(feature = "op_list_anomalies")]
 impl ListAnomaliesInputBuilder {
     /// <p>Use this to optionally limit the results to only the anomalies found by a certain anomaly detector.</p>
-    pub fn anomaly_detector_arn(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn anomaly_detector_arn(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.anomaly_detector_arn = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>Use this to optionally limit the results to only the anomalies found by a certain anomaly detector.</p>
-    pub fn set_anomaly_detector_arn(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_anomaly_detector_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.anomaly_detector_arn = input;
         self
     }
@@ -80,10 +72,7 @@ impl ListAnomaliesInputBuilder {
         self
     }
     /// <p>You can specify this parameter if you want to the operation to return only anomalies that are currently either suppressed or unsuppressed.</p>
-    pub fn set_suppression_state(
-        mut self,
-        input: ::std::option::Option<crate::types::SuppressionState>,
-    ) -> Self {
+    pub fn set_suppression_state(mut self, input: ::std::option::Option<crate::types::SuppressionState>) -> Self {
         self.suppression_state = input;
         self
     }
@@ -122,10 +111,7 @@ impl ListAnomaliesInputBuilder {
     /// Consumes the builder and constructs a [`ListAnomaliesInput`](crate::operation::list_anomalies::ListAnomaliesInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        crate::operation::list_anomalies::ListAnomaliesInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    ) -> ::std::result::Result<crate::operation::list_anomalies::ListAnomaliesInput, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::operation::list_anomalies::ListAnomaliesInput {
             anomaly_detector_arn: self.anomaly_detector_arn,
             suppression_state: self.suppression_state,

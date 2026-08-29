@@ -35,16 +35,14 @@ impl PutBearerTokenAuthenticationInput {
 #[cfg(feature = "op_put_bearer_token_authentication")]
 impl PutBearerTokenAuthenticationInput {
     /// Creates a new builder-style object to manufacture [`PutBearerTokenAuthenticationInput`](crate::operation::put_bearer_token_authentication::PutBearerTokenAuthenticationInput).
-    pub fn builder() -> crate::operation::put_bearer_token_authentication::builders::PutBearerTokenAuthenticationInputBuilder{
+    pub fn builder() -> crate::operation::put_bearer_token_authentication::builders::PutBearerTokenAuthenticationInputBuilder {
         crate::operation::put_bearer_token_authentication::builders::PutBearerTokenAuthenticationInputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_put_bearer_token_authentication")]
 /// A builder for [`PutBearerTokenAuthenticationInput`](crate::operation::put_bearer_token_authentication::PutBearerTokenAuthenticationInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct PutBearerTokenAuthenticationInputBuilder {
     pub(crate) log_group_identifier: ::std::option::Option<::std::string::String>,
@@ -58,10 +56,7 @@ impl PutBearerTokenAuthenticationInputBuilder {
     /// <p>Pattern: <code>\[\.\-_/#A-Za-z0-9\]+</code></p>
     /// <p>Required: Yes</p>
     /// This field is required.
-    pub fn log_group_identifier(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn log_group_identifier(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.log_group_identifier = ::std::option::Option::Some(input.into());
         self
     }
@@ -70,10 +65,7 @@ impl PutBearerTokenAuthenticationInputBuilder {
     /// <p>Length Constraints: Minimum length of 1. Maximum length of 512.</p>
     /// <p>Pattern: <code>\[\.\-_/#A-Za-z0-9\]+</code></p>
     /// <p>Required: Yes</p>
-    pub fn set_log_group_identifier(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_log_group_identifier(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.log_group_identifier = input;
         self
     }
@@ -96,10 +88,7 @@ impl PutBearerTokenAuthenticationInputBuilder {
     /// <p>Whether to enable bearer token authentication.</p>
     /// <p>Type: Boolean</p>
     /// <p>Required: Yes</p>
-    pub fn set_bearer_token_authentication_enabled(
-        mut self,
-        input: ::std::option::Option<bool>,
-    ) -> Self {
+    pub fn set_bearer_token_authentication_enabled(mut self, input: ::std::option::Option<bool>) -> Self {
         self.bearer_token_authentication_enabled = input;
         self
     }
@@ -116,11 +105,9 @@ impl PutBearerTokenAuthenticationInputBuilder {
         crate::operation::put_bearer_token_authentication::PutBearerTokenAuthenticationInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(
-            crate::operation::put_bearer_token_authentication::PutBearerTokenAuthenticationInput {
-                log_group_identifier: self.log_group_identifier,
-                bearer_token_authentication_enabled: self.bearer_token_authentication_enabled,
-            },
-        )
+        ::std::result::Result::Ok(crate::operation::put_bearer_token_authentication::PutBearerTokenAuthenticationInput {
+            log_group_identifier: self.log_group_identifier,
+            bearer_token_authentication_enabled: self.bearer_token_authentication_enabled,
+        })
     }
 }

@@ -23,9 +23,7 @@ impl DeleteKeys {
 }
 
 /// A builder for [`DeleteKeys`](crate::types::DeleteKeys).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct DeleteKeysBuilder {
     pub(crate) with_keys: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
@@ -43,10 +41,7 @@ impl DeleteKeysBuilder {
         self
     }
     /// <p>The list of keys to delete.</p>
-    pub fn set_with_keys(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
-    ) -> Self {
+    pub fn set_with_keys(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
         self.with_keys = input;
         self
     }
@@ -57,12 +52,7 @@ impl DeleteKeysBuilder {
     /// Consumes the builder and constructs a [`DeleteKeys`](crate::types::DeleteKeys).
     /// This method will fail if any of the following fields are not set:
     /// - [`with_keys`](crate::types::builders::DeleteKeysBuilder::with_keys)
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<
-        crate::types::DeleteKeys,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    pub fn build(self) -> ::std::result::Result<crate::types::DeleteKeys, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::DeleteKeys {
             with_keys: self.with_keys.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

@@ -11,10 +11,7 @@ impl super::Client {
     ///   - [`log_group_identifiers(Option<Vec::<String>>)`](crate::operation::list_log_groups_for_query::ListLogGroupsForQueryOutput::log_group_identifiers): <p>An array of the names and ARNs of the log groups that were processed in the query.</p>
     ///   - [`next_token(Option<String>)`](crate::operation::list_log_groups_for_query::ListLogGroupsForQueryOutput::next_token): <p>The token for the next set of items to return. The token expires after 24 hours.</p>
     /// - On failure, responds with [`SdkError<ListLogGroupsForQueryError>`](crate::operation::list_log_groups_for_query::ListLogGroupsForQueryError)
-    pub fn list_log_groups_for_query(
-        &self,
-    ) -> crate::operation::list_log_groups_for_query::builders::ListLogGroupsForQueryFluentBuilder
-    {
+    pub fn list_log_groups_for_query(&self) -> crate::operation::list_log_groups_for_query::builders::ListLogGroupsForQueryFluentBuilder {
         crate::operation::list_log_groups_for_query::builders::ListLogGroupsForQueryFluentBuilder::new(self.handle.clone())
     }
 }

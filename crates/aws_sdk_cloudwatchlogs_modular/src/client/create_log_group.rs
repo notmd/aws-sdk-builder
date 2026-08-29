@@ -10,11 +10,7 @@ impl super::Client {
     ///   - [`deletion_protection_enabled(bool)`](crate::operation::create_log_group::builders::CreateLogGroupFluentBuilder::deletion_protection_enabled) / [`set_deletion_protection_enabled(Option<bool>)`](crate::operation::create_log_group::builders::CreateLogGroupFluentBuilder::set_deletion_protection_enabled):<br>required: **false**<br><p>Use this parameter to enable deletion protection for the new log group. When enabled on a log group, deletion protection blocks all deletion operations until it is explicitly disabled. By default log groups are created without deletion protection enabled.</p><br>
     /// - On success, responds with [`CreateLogGroupOutput`](crate::operation::create_log_group::CreateLogGroupOutput)
     /// - On failure, responds with [`SdkError<CreateLogGroupError>`](crate::operation::create_log_group::CreateLogGroupError)
-    pub fn create_log_group(
-        &self,
-    ) -> crate::operation::create_log_group::builders::CreateLogGroupFluentBuilder {
-        crate::operation::create_log_group::builders::CreateLogGroupFluentBuilder::new(
-            self.handle.clone(),
-        )
+    pub fn create_log_group(&self) -> crate::operation::create_log_group::builders::CreateLogGroupFluentBuilder {
+        crate::operation::create_log_group::builders::CreateLogGroupFluentBuilder::new(self.handle.clone())
     }
 }

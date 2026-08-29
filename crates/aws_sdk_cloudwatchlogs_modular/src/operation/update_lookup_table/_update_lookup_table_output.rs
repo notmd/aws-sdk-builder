@@ -30,17 +30,14 @@ impl ::aws_types::request_id::RequestId for UpdateLookupTableOutput {
 #[cfg(feature = "op_update_lookup_table")]
 impl UpdateLookupTableOutput {
     /// Creates a new builder-style object to manufacture [`UpdateLookupTableOutput`](crate::operation::update_lookup_table::UpdateLookupTableOutput).
-    pub fn builder(
-    ) -> crate::operation::update_lookup_table::builders::UpdateLookupTableOutputBuilder {
+    pub fn builder() -> crate::operation::update_lookup_table::builders::UpdateLookupTableOutputBuilder {
         crate::operation::update_lookup_table::builders::UpdateLookupTableOutputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_update_lookup_table")]
 /// A builder for [`UpdateLookupTableOutput`](crate::operation::update_lookup_table::UpdateLookupTableOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct UpdateLookupTableOutputBuilder {
     pub(crate) lookup_table_arn: ::std::option::Option<::std::string::String>,
@@ -50,18 +47,12 @@ pub struct UpdateLookupTableOutputBuilder {
 #[cfg(feature = "op_update_lookup_table")]
 impl UpdateLookupTableOutputBuilder {
     /// <p>The ARN of the lookup table that was updated.</p>
-    pub fn lookup_table_arn(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn lookup_table_arn(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.lookup_table_arn = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The ARN of the lookup table that was updated.</p>
-    pub fn set_lookup_table_arn(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_lookup_table_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.lookup_table_arn = input;
         self
     }

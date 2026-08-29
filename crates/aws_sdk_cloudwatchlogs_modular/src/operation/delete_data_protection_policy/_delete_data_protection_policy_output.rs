@@ -15,16 +15,14 @@ impl ::aws_types::request_id::RequestId for DeleteDataProtectionPolicyOutput {
 #[cfg(feature = "op_delete_data_protection_policy")]
 impl DeleteDataProtectionPolicyOutput {
     /// Creates a new builder-style object to manufacture [`DeleteDataProtectionPolicyOutput`](crate::operation::delete_data_protection_policy::DeleteDataProtectionPolicyOutput).
-    pub fn builder() -> crate::operation::delete_data_protection_policy::builders::DeleteDataProtectionPolicyOutputBuilder{
+    pub fn builder() -> crate::operation::delete_data_protection_policy::builders::DeleteDataProtectionPolicyOutputBuilder {
         crate::operation::delete_data_protection_policy::builders::DeleteDataProtectionPolicyOutputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_delete_data_protection_policy")]
 /// A builder for [`DeleteDataProtectionPolicyOutput`](crate::operation::delete_data_protection_policy::DeleteDataProtectionPolicyOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct DeleteDataProtectionPolicyOutputBuilder {
     _request_id: Option<String>,
@@ -41,9 +39,7 @@ impl DeleteDataProtectionPolicyOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`DeleteDataProtectionPolicyOutput`](crate::operation::delete_data_protection_policy::DeleteDataProtectionPolicyOutput).
-    pub fn build(
-        self,
-    ) -> crate::operation::delete_data_protection_policy::DeleteDataProtectionPolicyOutput {
+    pub fn build(self) -> crate::operation::delete_data_protection_policy::DeleteDataProtectionPolicyOutput {
         crate::operation::delete_data_protection_policy::DeleteDataProtectionPolicyOutput {
             _request_id: self._request_id,
         }

@@ -63,10 +63,7 @@ impl PutStorageTierPolicyFluentBuilder {
         }
     }
     /// Access the PutStorageTierPolicy as a reference.
-    pub fn as_input(
-        &self,
-    ) -> &crate::operation::put_storage_tier_policy::builders::PutStorageTierPolicyInputBuilder
-    {
+    pub fn as_input(&self) -> &crate::operation::put_storage_tier_policy::builders::PutStorageTierPolicyInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -95,11 +92,7 @@ impl PutStorageTierPolicyFluentBuilder {
             &self.handle.conf,
             self.config_override,
         );
-        crate::operation::put_storage_tier_policy::PutStorageTierPolicy::orchestrate(
-            &runtime_plugins,
-            input,
-        )
-        .await
+        crate::operation::put_storage_tier_policy::PutStorageTierPolicy::orchestrate(&runtime_plugins, input).await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -112,18 +105,12 @@ impl PutStorageTierPolicyFluentBuilder {
     > {
         crate::client::customize::CustomizableOperation::new(self)
     }
-    pub(crate) fn config_override(
-        mut self,
-        config_override: impl ::std::convert::Into<crate::config::Builder>,
-    ) -> Self {
+    pub(crate) fn config_override(mut self, config_override: impl ::std::convert::Into<crate::config::Builder>) -> Self {
         self.set_config_override(::std::option::Option::Some(config_override.into()));
         self
     }
 
-    pub(crate) fn set_config_override(
-        &mut self,
-        config_override: ::std::option::Option<crate::config::Builder>,
-    ) -> &mut Self {
+    pub(crate) fn set_config_override(&mut self, config_override: ::std::option::Option<crate::config::Builder>) -> &mut Self {
         self.config_override = config_override;
         self
     }
@@ -133,10 +120,7 @@ impl PutStorageTierPolicyFluentBuilder {
         self
     }
     /// <p>The storage tier to set for the account. Use <code>INTELLIGENT_TIERING</code> to automatically optimize storage costs by moving log data to the appropriate tier based on access frequency.</p>
-    pub fn set_storage_tier(
-        mut self,
-        input: ::std::option::Option<crate::types::StorageTier>,
-    ) -> Self {
+    pub fn set_storage_tier(mut self, input: ::std::option::Option<crate::types::StorageTier>) -> Self {
         self.inner = self.inner.set_storage_tier(input);
         self
     }

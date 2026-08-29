@@ -14,12 +14,7 @@ impl super::Client {
     ///   - [`emit_system_fields(impl Into<String>)`](crate::operation::put_subscription_filter::builders::PutSubscriptionFilterFluentBuilder::emit_system_fields) / [`set_emit_system_fields(Option<Vec::<String>>)`](crate::operation::put_subscription_filter::builders::PutSubscriptionFilterFluentBuilder::set_emit_system_fields):<br>required: **false**<br><p>A list of system fields to include in the log events sent to the subscription destination. Valid values are <code>@aws.account</code>, <code>@aws.region</code>, and <code>@source.log</code>. These fields provide source information for centralized log data in the forwarded payload.</p><br>
     /// - On success, responds with [`PutSubscriptionFilterOutput`](crate::operation::put_subscription_filter::PutSubscriptionFilterOutput)
     /// - On failure, responds with [`SdkError<PutSubscriptionFilterError>`](crate::operation::put_subscription_filter::PutSubscriptionFilterError)
-    pub fn put_subscription_filter(
-        &self,
-    ) -> crate::operation::put_subscription_filter::builders::PutSubscriptionFilterFluentBuilder
-    {
-        crate::operation::put_subscription_filter::builders::PutSubscriptionFilterFluentBuilder::new(
-            self.handle.clone(),
-        )
+    pub fn put_subscription_filter(&self) -> crate::operation::put_subscription_filter::builders::PutSubscriptionFilterFluentBuilder {
+        crate::operation::put_subscription_filter::builders::PutSubscriptionFilterFluentBuilder::new(self.handle.clone())
     }
 }

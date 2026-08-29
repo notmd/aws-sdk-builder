@@ -63,10 +63,7 @@ impl ListSyslogConfigurationsFluentBuilder {
         }
     }
     /// Access the ListSyslogConfigurations as a reference.
-    pub fn as_input(
-        &self,
-    ) -> &crate::operation::list_syslog_configurations::builders::ListSyslogConfigurationsInputBuilder
-    {
+    pub fn as_input(&self) -> &crate::operation::list_syslog_configurations::builders::ListSyslogConfigurationsInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -95,11 +92,7 @@ impl ListSyslogConfigurationsFluentBuilder {
             &self.handle.conf,
             self.config_override,
         );
-        crate::operation::list_syslog_configurations::ListSyslogConfigurations::orchestrate(
-            &runtime_plugins,
-            input,
-        )
-        .await
+        crate::operation::list_syslog_configurations::ListSyslogConfigurations::orchestrate(&runtime_plugins, input).await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -112,34 +105,22 @@ impl ListSyslogConfigurationsFluentBuilder {
     > {
         crate::client::customize::CustomizableOperation::new(self)
     }
-    pub(crate) fn config_override(
-        mut self,
-        config_override: impl ::std::convert::Into<crate::config::Builder>,
-    ) -> Self {
+    pub(crate) fn config_override(mut self, config_override: impl ::std::convert::Into<crate::config::Builder>) -> Self {
         self.set_config_override(::std::option::Option::Some(config_override.into()));
         self
     }
 
-    pub(crate) fn set_config_override(
-        &mut self,
-        config_override: ::std::option::Option<crate::config::Builder>,
-    ) -> &mut Self {
+    pub(crate) fn set_config_override(&mut self, config_override: ::std::option::Option<crate::config::Builder>) -> &mut Self {
         self.config_override = config_override;
         self
     }
     /// <p>The name or ARN of the log group to filter syslog configurations for.</p>
-    pub fn log_group_identifier(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn log_group_identifier(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.log_group_identifier(input.into());
         self
     }
     /// <p>The name or ARN of the log group to filter syslog configurations for.</p>
-    pub fn set_log_group_identifier(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_log_group_identifier(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_log_group_identifier(input);
         self
     }
@@ -148,18 +129,12 @@ impl ListSyslogConfigurationsFluentBuilder {
         self.inner.get_log_group_identifier()
     }
     /// <p>The ID of the VPC endpoint to filter syslog configurations for.</p>
-    pub fn vpc_endpoint_id(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn vpc_endpoint_id(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.vpc_endpoint_id(input.into());
         self
     }
     /// <p>The ID of the VPC endpoint to filter syslog configurations for.</p>
-    pub fn set_vpc_endpoint_id(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_vpc_endpoint_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_vpc_endpoint_id(input);
         self
     }

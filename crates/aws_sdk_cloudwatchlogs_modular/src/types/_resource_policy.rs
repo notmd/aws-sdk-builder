@@ -51,9 +51,7 @@ impl ResourcePolicy {
 }
 
 /// A builder for [`ResourcePolicy`](crate::types::ResourcePolicy).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct ResourcePolicyBuilder {
     pub(crate) policy_name: ::std::option::Option<::std::string::String>,
@@ -79,18 +77,12 @@ impl ResourcePolicyBuilder {
         &self.policy_name
     }
     /// <p>The details of the policy.</p>
-    pub fn policy_document(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn policy_document(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.policy_document = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The details of the policy.</p>
-    pub fn set_policy_document(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_policy_document(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.policy_document = input;
         self
     }
@@ -118,10 +110,7 @@ impl ResourcePolicyBuilder {
         self
     }
     /// <p>Specifies scope of the resource policy. Valid values are ACCOUNT or RESOURCE.</p>
-    pub fn set_policy_scope(
-        mut self,
-        input: ::std::option::Option<crate::types::PolicyScope>,
-    ) -> Self {
+    pub fn set_policy_scope(mut self, input: ::std::option::Option<crate::types::PolicyScope>) -> Self {
         self.policy_scope = input;
         self
     }

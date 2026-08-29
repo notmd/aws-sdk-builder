@@ -13,8 +13,7 @@ pub struct TriggerHistoryRecord {
     /// <p>Error message if the query execution failed.</p>
     pub error_message: ::std::option::Option<::std::string::String>,
     /// <p>Information about destination processing for this query execution.</p>
-    pub destinations:
-        ::std::option::Option<::std::vec::Vec<crate::types::ScheduledQueryDestination>>,
+    pub destinations: ::std::option::Option<::std::vec::Vec<crate::types::ScheduledQueryDestination>>,
 }
 impl TriggerHistoryRecord {
     /// <p>The unique identifier for this query execution.</p>
@@ -48,17 +47,14 @@ impl TriggerHistoryRecord {
 }
 
 /// A builder for [`TriggerHistoryRecord`](crate::types::TriggerHistoryRecord).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct TriggerHistoryRecordBuilder {
     pub(crate) query_id: ::std::option::Option<::std::string::String>,
     pub(crate) execution_status: ::std::option::Option<crate::types::ExecutionStatus>,
     pub(crate) triggered_timestamp: ::std::option::Option<i64>,
     pub(crate) error_message: ::std::option::Option<::std::string::String>,
-    pub(crate) destinations:
-        ::std::option::Option<::std::vec::Vec<crate::types::ScheduledQueryDestination>>,
+    pub(crate) destinations: ::std::option::Option<::std::vec::Vec<crate::types::ScheduledQueryDestination>>,
 }
 impl TriggerHistoryRecordBuilder {
     /// <p>The unique identifier for this query execution.</p>
@@ -81,10 +77,7 @@ impl TriggerHistoryRecordBuilder {
         self
     }
     /// <p>The execution status of the scheduled query run.</p>
-    pub fn set_execution_status(
-        mut self,
-        input: ::std::option::Option<crate::types::ExecutionStatus>,
-    ) -> Self {
+    pub fn set_execution_status(mut self, input: ::std::option::Option<crate::types::ExecutionStatus>) -> Self {
         self.execution_status = input;
         self
     }
@@ -107,18 +100,12 @@ impl TriggerHistoryRecordBuilder {
         &self.triggered_timestamp
     }
     /// <p>Error message if the query execution failed.</p>
-    pub fn error_message(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn error_message(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.error_message = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>Error message if the query execution failed.</p>
-    pub fn set_error_message(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_error_message(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.error_message = input;
         self
     }
@@ -138,17 +125,12 @@ impl TriggerHistoryRecordBuilder {
         self
     }
     /// <p>Information about destination processing for this query execution.</p>
-    pub fn set_destinations(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<crate::types::ScheduledQueryDestination>>,
-    ) -> Self {
+    pub fn set_destinations(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::ScheduledQueryDestination>>) -> Self {
         self.destinations = input;
         self
     }
     /// <p>Information about destination processing for this query execution.</p>
-    pub fn get_destinations(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<crate::types::ScheduledQueryDestination>> {
+    pub fn get_destinations(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::ScheduledQueryDestination>> {
         &self.destinations
     }
     /// Consumes the builder and constructs a [`TriggerHistoryRecord`](crate::types::TriggerHistoryRecord).

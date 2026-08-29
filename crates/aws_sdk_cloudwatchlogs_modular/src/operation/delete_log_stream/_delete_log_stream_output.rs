@@ -15,17 +15,14 @@ impl ::aws_types::request_id::RequestId for DeleteLogStreamOutput {
 #[cfg(feature = "op_delete_log_stream")]
 impl DeleteLogStreamOutput {
     /// Creates a new builder-style object to manufacture [`DeleteLogStreamOutput`](crate::operation::delete_log_stream::DeleteLogStreamOutput).
-    pub fn builder() -> crate::operation::delete_log_stream::builders::DeleteLogStreamOutputBuilder
-    {
+    pub fn builder() -> crate::operation::delete_log_stream::builders::DeleteLogStreamOutputBuilder {
         crate::operation::delete_log_stream::builders::DeleteLogStreamOutputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_delete_log_stream")]
 /// A builder for [`DeleteLogStreamOutput`](crate::operation::delete_log_stream::DeleteLogStreamOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct DeleteLogStreamOutputBuilder {
     _request_id: Option<String>,

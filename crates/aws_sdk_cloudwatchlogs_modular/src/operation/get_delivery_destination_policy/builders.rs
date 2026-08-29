@@ -63,7 +63,7 @@ impl GetDeliveryDestinationPolicyFluentBuilder {
         }
     }
     /// Access the GetDeliveryDestinationPolicy as a reference.
-    pub fn as_input(&self) -> &crate::operation::get_delivery_destination_policy::builders::GetDeliveryDestinationPolicyInputBuilder{
+    pub fn as_input(&self) -> &crate::operation::get_delivery_destination_policy::builders::GetDeliveryDestinationPolicyInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -105,34 +105,22 @@ impl GetDeliveryDestinationPolicyFluentBuilder {
     > {
         crate::client::customize::CustomizableOperation::new(self)
     }
-    pub(crate) fn config_override(
-        mut self,
-        config_override: impl ::std::convert::Into<crate::config::Builder>,
-    ) -> Self {
+    pub(crate) fn config_override(mut self, config_override: impl ::std::convert::Into<crate::config::Builder>) -> Self {
         self.set_config_override(::std::option::Option::Some(config_override.into()));
         self
     }
 
-    pub(crate) fn set_config_override(
-        &mut self,
-        config_override: ::std::option::Option<crate::config::Builder>,
-    ) -> &mut Self {
+    pub(crate) fn set_config_override(&mut self, config_override: ::std::option::Option<crate::config::Builder>) -> &mut Self {
         self.config_override = config_override;
         self
     }
     /// <p>The name of the delivery destination that you want to retrieve the policy of.</p>
-    pub fn delivery_destination_name(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn delivery_destination_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.delivery_destination_name(input.into());
         self
     }
     /// <p>The name of the delivery destination that you want to retrieve the policy of.</p>
-    pub fn set_delivery_destination_name(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_delivery_destination_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_delivery_destination_name(input);
         self
     }

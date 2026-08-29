@@ -22,11 +22,7 @@ impl super::Client {
     ///   - [`scheduled_query_arn(Option<String>)`](crate::operation::create_scheduled_query::CreateScheduledQueryOutput::scheduled_query_arn): <p>The ARN of the created scheduled query.</p>
     ///   - [`state(Option<ScheduledQueryState>)`](crate::operation::create_scheduled_query::CreateScheduledQueryOutput::state): <p>The current state of the scheduled query.</p>
     /// - On failure, responds with [`SdkError<CreateScheduledQueryError>`](crate::operation::create_scheduled_query::CreateScheduledQueryError)
-    pub fn create_scheduled_query(
-        &self,
-    ) -> crate::operation::create_scheduled_query::builders::CreateScheduledQueryFluentBuilder {
-        crate::operation::create_scheduled_query::builders::CreateScheduledQueryFluentBuilder::new(
-            self.handle.clone(),
-        )
+    pub fn create_scheduled_query(&self) -> crate::operation::create_scheduled_query::builders::CreateScheduledQueryFluentBuilder {
+        crate::operation::create_scheduled_query::builders::CreateScheduledQueryFluentBuilder::new(self.handle.clone())
     }
 }

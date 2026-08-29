@@ -5,8 +5,7 @@
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
 pub struct TestTransformerOutput {
     /// <p>An array where each member of the array includes both the original version and the transformed version of one of the log events that you input.</p>
-    pub transformed_logs:
-        ::std::option::Option<::std::vec::Vec<crate::types::TransformedLogRecord>>,
+    pub transformed_logs: ::std::option::Option<::std::vec::Vec<crate::types::TransformedLogRecord>>,
     _request_id: Option<String>,
 }
 #[cfg(feature = "op_test_transformer")]
@@ -34,13 +33,10 @@ impl TestTransformerOutput {
 
 #[cfg(feature = "op_test_transformer")]
 /// A builder for [`TestTransformerOutput`](crate::operation::test_transformer::TestTransformerOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct TestTransformerOutputBuilder {
-    pub(crate) transformed_logs:
-        ::std::option::Option<::std::vec::Vec<crate::types::TransformedLogRecord>>,
+    pub(crate) transformed_logs: ::std::option::Option<::std::vec::Vec<crate::types::TransformedLogRecord>>,
     _request_id: Option<String>,
 }
 #[cfg(feature = "op_test_transformer")]
@@ -57,17 +53,12 @@ impl TestTransformerOutputBuilder {
         self
     }
     /// <p>An array where each member of the array includes both the original version and the transformed version of one of the log events that you input.</p>
-    pub fn set_transformed_logs(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<crate::types::TransformedLogRecord>>,
-    ) -> Self {
+    pub fn set_transformed_logs(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::TransformedLogRecord>>) -> Self {
         self.transformed_logs = input;
         self
     }
     /// <p>An array where each member of the array includes both the original version and the transformed version of one of the log events that you input.</p>
-    pub fn get_transformed_logs(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<crate::types::TransformedLogRecord>> {
+    pub fn get_transformed_logs(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::TransformedLogRecord>> {
         &self.transformed_logs
     }
     pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {

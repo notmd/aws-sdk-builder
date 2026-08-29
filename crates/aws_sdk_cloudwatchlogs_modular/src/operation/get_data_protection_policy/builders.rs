@@ -30,8 +30,7 @@ impl crate::operation::get_data_protection_policy::builders::GetDataProtectionPo
 #[derive(::std::clone::Clone, ::std::fmt::Debug)]
 pub struct GetDataProtectionPolicyFluentBuilder {
     handle: ::std::sync::Arc<crate::client::Handle>,
-    inner:
-        crate::operation::get_data_protection_policy::builders::GetDataProtectionPolicyInputBuilder,
+    inner: crate::operation::get_data_protection_policy::builders::GetDataProtectionPolicyInputBuilder,
     config_override: ::std::option::Option<crate::config::Builder>,
 }
 #[cfg(feature = "op_get_data_protection_policy")]
@@ -64,10 +63,7 @@ impl GetDataProtectionPolicyFluentBuilder {
         }
     }
     /// Access the GetDataProtectionPolicy as a reference.
-    pub fn as_input(
-        &self,
-    ) -> &crate::operation::get_data_protection_policy::builders::GetDataProtectionPolicyInputBuilder
-    {
+    pub fn as_input(&self) -> &crate::operation::get_data_protection_policy::builders::GetDataProtectionPolicyInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -96,11 +92,7 @@ impl GetDataProtectionPolicyFluentBuilder {
             &self.handle.conf,
             self.config_override,
         );
-        crate::operation::get_data_protection_policy::GetDataProtectionPolicy::orchestrate(
-            &runtime_plugins,
-            input,
-        )
-        .await
+        crate::operation::get_data_protection_policy::GetDataProtectionPolicy::orchestrate(&runtime_plugins, input).await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -113,34 +105,22 @@ impl GetDataProtectionPolicyFluentBuilder {
     > {
         crate::client::customize::CustomizableOperation::new(self)
     }
-    pub(crate) fn config_override(
-        mut self,
-        config_override: impl ::std::convert::Into<crate::config::Builder>,
-    ) -> Self {
+    pub(crate) fn config_override(mut self, config_override: impl ::std::convert::Into<crate::config::Builder>) -> Self {
         self.set_config_override(::std::option::Option::Some(config_override.into()));
         self
     }
 
-    pub(crate) fn set_config_override(
-        &mut self,
-        config_override: ::std::option::Option<crate::config::Builder>,
-    ) -> &mut Self {
+    pub(crate) fn set_config_override(&mut self, config_override: ::std::option::Option<crate::config::Builder>) -> &mut Self {
         self.config_override = config_override;
         self
     }
     /// <p>The name or ARN of the log group that contains the data protection policy that you want to see.</p>
-    pub fn log_group_identifier(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn log_group_identifier(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.log_group_identifier(input.into());
         self
     }
     /// <p>The name or ARN of the log group that contains the data protection policy that you want to see.</p>
-    pub fn set_log_group_identifier(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_log_group_identifier(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_log_group_identifier(input);
         self
     }

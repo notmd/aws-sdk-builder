@@ -15,17 +15,14 @@ impl ::aws_types::request_id::RequestId for CancelExportTaskOutput {
 #[cfg(feature = "op_cancel_export_task")]
 impl CancelExportTaskOutput {
     /// Creates a new builder-style object to manufacture [`CancelExportTaskOutput`](crate::operation::cancel_export_task::CancelExportTaskOutput).
-    pub fn builder() -> crate::operation::cancel_export_task::builders::CancelExportTaskOutputBuilder
-    {
+    pub fn builder() -> crate::operation::cancel_export_task::builders::CancelExportTaskOutputBuilder {
         crate::operation::cancel_export_task::builders::CancelExportTaskOutputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_cancel_export_task")]
 /// A builder for [`CancelExportTaskOutput`](crate::operation::cancel_export_task::CancelExportTaskOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct CancelExportTaskOutputBuilder {
     _request_id: Option<String>,

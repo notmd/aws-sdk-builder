@@ -99,17 +99,14 @@ impl DescribeLogGroupsInput {
 #[cfg(feature = "op_describe_log_groups")]
 impl DescribeLogGroupsInput {
     /// Creates a new builder-style object to manufacture [`DescribeLogGroupsInput`](crate::operation::describe_log_groups::DescribeLogGroupsInput).
-    pub fn builder(
-    ) -> crate::operation::describe_log_groups::builders::DescribeLogGroupsInputBuilder {
+    pub fn builder() -> crate::operation::describe_log_groups::builders::DescribeLogGroupsInputBuilder {
         crate::operation::describe_log_groups::builders::DescribeLogGroupsInputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_describe_log_groups")]
 /// A builder for [`DescribeLogGroupsInput`](crate::operation::describe_log_groups::DescribeLogGroupsInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct DescribeLogGroupsInputBuilder {
     pub(crate) account_identifiers: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
@@ -128,46 +125,32 @@ impl DescribeLogGroupsInputBuilder {
     /// To override the contents of this collection use [`set_account_identifiers`](Self::set_account_identifiers).
     ///
     /// <p>When <code>includeLinkedAccounts</code> is set to <code>true</code>, use this parameter to specify the list of accounts to search. You can specify as many as 20 account IDs in the array.</p>
-    pub fn account_identifiers(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn account_identifiers(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         let mut v = self.account_identifiers.unwrap_or_default();
         v.push(input.into());
         self.account_identifiers = ::std::option::Option::Some(v);
         self
     }
     /// <p>When <code>includeLinkedAccounts</code> is set to <code>true</code>, use this parameter to specify the list of accounts to search. You can specify as many as 20 account IDs in the array.</p>
-    pub fn set_account_identifiers(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
-    ) -> Self {
+    pub fn set_account_identifiers(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
         self.account_identifiers = input;
         self
     }
     /// <p>When <code>includeLinkedAccounts</code> is set to <code>true</code>, use this parameter to specify the list of accounts to search. You can specify as many as 20 account IDs in the array.</p>
-    pub fn get_account_identifiers(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
+    pub fn get_account_identifiers(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
         &self.account_identifiers
     }
     /// <p>The prefix to match.</p><note>
     /// <p><code>logGroupNamePrefix</code> and <code>logGroupNamePattern</code> are mutually exclusive. Only one of these parameters can be passed.</p>
     /// </note>
-    pub fn log_group_name_prefix(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn log_group_name_prefix(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.log_group_name_prefix = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The prefix to match.</p><note>
     /// <p><code>logGroupNamePrefix</code> and <code>logGroupNamePattern</code> are mutually exclusive. Only one of these parameters can be passed.</p>
     /// </note>
-    pub fn set_log_group_name_prefix(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_log_group_name_prefix(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.log_group_name_prefix = input;
         self
     }
@@ -181,10 +164,7 @@ impl DescribeLogGroupsInputBuilder {
     /// <p>If you specify <code>logGroupNamePattern</code> in your request, then only <code>arn</code>, <code>creationTime</code>, and <code>logGroupName</code> are included in the response.</p><note>
     /// <p><code>logGroupNamePattern</code> and <code>logGroupNamePrefix</code> are mutually exclusive. Only one of these parameters can be passed.</p>
     /// </note>
-    pub fn log_group_name_pattern(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn log_group_name_pattern(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.log_group_name_pattern = ::std::option::Option::Some(input.into());
         self
     }
@@ -192,10 +172,7 @@ impl DescribeLogGroupsInputBuilder {
     /// <p>If you specify <code>logGroupNamePattern</code> in your request, then only <code>arn</code>, <code>creationTime</code>, and <code>logGroupName</code> are included in the response.</p><note>
     /// <p><code>logGroupNamePattern</code> and <code>logGroupNamePrefix</code> are mutually exclusive. Only one of these parameters can be passed.</p>
     /// </note>
-    pub fn set_log_group_name_pattern(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_log_group_name_pattern(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.log_group_name_pattern = input;
         self
     }
@@ -280,10 +257,7 @@ impl DescribeLogGroupsInputBuilder {
     /// <p>Use the <code>Delivery</code> log class only for delivering Lambda logs to store in Amazon S3 or Amazon Data Firehose. Log events in log groups in the Delivery class are kept in CloudWatch Logs for only one day. This log class doesn't offer rich CloudWatch Logs capabilities such as CloudWatch Logs Insights queries.</p></li>
     /// </ul>
     /// <p>For details about the features supported by each class, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatch_Logs_Log_Classes.html">Log classes</a></p>
-    pub fn set_log_group_class(
-        mut self,
-        input: ::std::option::Option<crate::types::LogGroupClass>,
-    ) -> Self {
+    pub fn set_log_group_class(mut self, input: ::std::option::Option<crate::types::LogGroupClass>) -> Self {
         self.log_group_class = input;
         self
     }
@@ -307,10 +281,7 @@ impl DescribeLogGroupsInputBuilder {
     ///
     /// <p>Use this array to filter the list of log groups returned. If you specify this parameter, the only other filter that you can choose to specify is <code>includeLinkedAccounts</code>.</p>
     /// <p>If you are using this operation in a monitoring account, you can specify the ARNs of log groups in source accounts and in the monitoring account itself. If you are using this operation in an account that is not a cross-account monitoring account, you can specify only log group names in the same account as the operation.</p>
-    pub fn log_group_identifiers(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn log_group_identifiers(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         let mut v = self.log_group_identifiers.unwrap_or_default();
         v.push(input.into());
         self.log_group_identifiers = ::std::option::Option::Some(v);
@@ -318,38 +289,28 @@ impl DescribeLogGroupsInputBuilder {
     }
     /// <p>Use this array to filter the list of log groups returned. If you specify this parameter, the only other filter that you can choose to specify is <code>includeLinkedAccounts</code>.</p>
     /// <p>If you are using this operation in a monitoring account, you can specify the ARNs of log groups in source accounts and in the monitoring account itself. If you are using this operation in an account that is not a cross-account monitoring account, you can specify only log group names in the same account as the operation.</p>
-    pub fn set_log_group_identifiers(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
-    ) -> Self {
+    pub fn set_log_group_identifiers(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
         self.log_group_identifiers = input;
         self
     }
     /// <p>Use this array to filter the list of log groups returned. If you specify this parameter, the only other filter that you can choose to specify is <code>includeLinkedAccounts</code>.</p>
     /// <p>If you are using this operation in a monitoring account, you can specify the ARNs of log groups in source accounts and in the monitoring account itself. If you are using this operation in an account that is not a cross-account monitoring account, you can specify only log group names in the same account as the operation.</p>
-    pub fn get_log_group_identifiers(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
+    pub fn get_log_group_identifiers(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
         &self.log_group_identifiers
     }
     /// Consumes the builder and constructs a [`DescribeLogGroupsInput`](crate::operation::describe_log_groups::DescribeLogGroupsInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        crate::operation::describe_log_groups::DescribeLogGroupsInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
-        ::std::result::Result::Ok(
-            crate::operation::describe_log_groups::DescribeLogGroupsInput {
-                account_identifiers: self.account_identifiers,
-                log_group_name_prefix: self.log_group_name_prefix,
-                log_group_name_pattern: self.log_group_name_pattern,
-                next_token: self.next_token,
-                limit: self.limit,
-                include_linked_accounts: self.include_linked_accounts,
-                log_group_class: self.log_group_class,
-                log_group_identifiers: self.log_group_identifiers,
-            },
-        )
+    ) -> ::std::result::Result<crate::operation::describe_log_groups::DescribeLogGroupsInput, ::aws_smithy_types::error::operation::BuildError> {
+        ::std::result::Result::Ok(crate::operation::describe_log_groups::DescribeLogGroupsInput {
+            account_identifiers: self.account_identifiers,
+            log_group_name_prefix: self.log_group_name_prefix,
+            log_group_name_pattern: self.log_group_name_pattern,
+            next_token: self.next_token,
+            limit: self.limit,
+            include_linked_accounts: self.include_linked_accounts,
+            log_group_class: self.log_group_class,
+            log_group_identifiers: self.log_group_identifiers,
+        })
     }
 }

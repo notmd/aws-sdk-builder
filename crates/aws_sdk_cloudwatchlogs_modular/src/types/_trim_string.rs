@@ -23,9 +23,7 @@ impl TrimString {
 }
 
 /// A builder for [`TrimString`](crate::types::TrimString).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct TrimStringBuilder {
     pub(crate) with_keys: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
@@ -43,10 +41,7 @@ impl TrimStringBuilder {
         self
     }
     /// <p>The array containing the keys of the fields to trim.</p>
-    pub fn set_with_keys(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
-    ) -> Self {
+    pub fn set_with_keys(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
         self.with_keys = input;
         self
     }
@@ -57,12 +52,7 @@ impl TrimStringBuilder {
     /// Consumes the builder and constructs a [`TrimString`](crate::types::TrimString).
     /// This method will fail if any of the following fields are not set:
     /// - [`with_keys`](crate::types::builders::TrimStringBuilder::with_keys)
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<
-        crate::types::TrimString,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    pub fn build(self) -> ::std::result::Result<crate::types::TrimString, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::TrimString {
             with_keys: self.with_keys.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

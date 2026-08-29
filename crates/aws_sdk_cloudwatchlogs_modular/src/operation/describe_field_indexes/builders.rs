@@ -64,9 +64,7 @@ impl DescribeFieldIndexesFluentBuilder {
         }
     }
     /// Access the DescribeFieldIndexes as a reference.
-    pub fn as_input(
-        &self,
-    ) -> &crate::operation::describe_field_indexes::builders::DescribeFieldIndexesInputBuilder {
+    pub fn as_input(&self) -> &crate::operation::describe_field_indexes::builders::DescribeFieldIndexesInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -95,11 +93,7 @@ impl DescribeFieldIndexesFluentBuilder {
             &self.handle.conf,
             self.config_override,
         );
-        crate::operation::describe_field_indexes::DescribeFieldIndexes::orchestrate(
-            &runtime_plugins,
-            input,
-        )
-        .await
+        crate::operation::describe_field_indexes::DescribeFieldIndexes::orchestrate(&runtime_plugins, input).await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -112,18 +106,12 @@ impl DescribeFieldIndexesFluentBuilder {
     > {
         crate::client::customize::CustomizableOperation::new(self)
     }
-    pub(crate) fn config_override(
-        mut self,
-        config_override: impl ::std::convert::Into<crate::config::Builder>,
-    ) -> Self {
+    pub(crate) fn config_override(mut self, config_override: impl ::std::convert::Into<crate::config::Builder>) -> Self {
         self.set_config_override(::std::option::Option::Some(config_override.into()));
         self
     }
 
-    pub(crate) fn set_config_override(
-        &mut self,
-        config_override: ::std::option::Option<crate::config::Builder>,
-    ) -> &mut Self {
+    pub(crate) fn set_config_override(&mut self, config_override: ::std::option::Option<crate::config::Builder>) -> &mut Self {
         self.config_override = config_override;
         self
     }
@@ -133,25 +121,17 @@ impl DescribeFieldIndexesFluentBuilder {
     /// To override the contents of this collection use [`set_log_group_identifiers`](Self::set_log_group_identifiers).
     ///
     /// <p>An array containing the names or ARNs of the log groups that you want to retrieve field indexes for.</p>
-    pub fn log_group_identifiers(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn log_group_identifiers(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.log_group_identifiers(input.into());
         self
     }
     /// <p>An array containing the names or ARNs of the log groups that you want to retrieve field indexes for.</p>
-    pub fn set_log_group_identifiers(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
-    ) -> Self {
+    pub fn set_log_group_identifiers(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
         self.inner = self.inner.set_log_group_identifiers(input);
         self
     }
     /// <p>An array containing the names or ARNs of the log groups that you want to retrieve field indexes for.</p>
-    pub fn get_log_group_identifiers(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
+    pub fn get_log_group_identifiers(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
         self.inner.get_log_group_identifiers()
     }
     ///
@@ -189,10 +169,7 @@ impl DescribeFieldIndexesFluentBuilder {
     /// </ul>
     /// <p>If you omit this parameter, the response includes the <code>DEFAULT</code>, <code>CUSTOM</code>, and <code>INACTIVE</code> categories.</p>
     /// <p>For more information about automatically indexed fields and using the <code>AUTO</code> category, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatchLogs-Field-Indexing-Automatic.html">Automatically indexed fields</a>.</p>
-    pub fn set_index_categories(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<crate::types::IndexCategory>>,
-    ) -> Self {
+    pub fn set_index_categories(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::IndexCategory>>) -> Self {
         self.inner = self.inner.set_index_categories(input);
         self
     }
@@ -209,9 +186,7 @@ impl DescribeFieldIndexesFluentBuilder {
     /// </ul>
     /// <p>If you omit this parameter, the response includes the <code>DEFAULT</code>, <code>CUSTOM</code>, and <code>INACTIVE</code> categories.</p>
     /// <p>For more information about automatically indexed fields and using the <code>AUTO</code> category, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatchLogs-Field-Indexing-Automatic.html">Automatically indexed fields</a>.</p>
-    pub fn get_index_categories(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<crate::types::IndexCategory>> {
+    pub fn get_index_categories(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::IndexCategory>> {
         self.inner.get_index_categories()
     }
     /// <p>The token for the next set of items to return. The token expires after 24 hours.</p>

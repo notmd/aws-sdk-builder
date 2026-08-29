@@ -25,18 +25,14 @@ impl DescribeIndexPoliciesInput {
 #[cfg(feature = "op_describe_index_policies")]
 impl DescribeIndexPoliciesInput {
     /// Creates a new builder-style object to manufacture [`DescribeIndexPoliciesInput`](crate::operation::describe_index_policies::DescribeIndexPoliciesInput).
-    pub fn builder(
-    ) -> crate::operation::describe_index_policies::builders::DescribeIndexPoliciesInputBuilder
-    {
+    pub fn builder() -> crate::operation::describe_index_policies::builders::DescribeIndexPoliciesInputBuilder {
         crate::operation::describe_index_policies::builders::DescribeIndexPoliciesInputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_describe_index_policies")]
 /// A builder for [`DescribeIndexPoliciesInput`](crate::operation::describe_index_policies::DescribeIndexPoliciesInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct DescribeIndexPoliciesInputBuilder {
     pub(crate) log_group_identifiers: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
@@ -49,27 +45,19 @@ impl DescribeIndexPoliciesInputBuilder {
     /// To override the contents of this collection use [`set_log_group_identifiers`](Self::set_log_group_identifiers).
     ///
     /// <p>An array containing the name or ARN of the log group that you want to retrieve field index policies for.</p>
-    pub fn log_group_identifiers(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn log_group_identifiers(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         let mut v = self.log_group_identifiers.unwrap_or_default();
         v.push(input.into());
         self.log_group_identifiers = ::std::option::Option::Some(v);
         self
     }
     /// <p>An array containing the name or ARN of the log group that you want to retrieve field index policies for.</p>
-    pub fn set_log_group_identifiers(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
-    ) -> Self {
+    pub fn set_log_group_identifiers(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
         self.log_group_identifiers = input;
         self
     }
     /// <p>An array containing the name or ARN of the log group that you want to retrieve field index policies for.</p>
-    pub fn get_log_group_identifiers(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
+    pub fn get_log_group_identifiers(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
         &self.log_group_identifiers
     }
     /// <p>The token for the next set of items to return. The token expires after 24 hours.</p>
@@ -89,15 +77,11 @@ impl DescribeIndexPoliciesInputBuilder {
     /// Consumes the builder and constructs a [`DescribeIndexPoliciesInput`](crate::operation::describe_index_policies::DescribeIndexPoliciesInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        crate::operation::describe_index_policies::DescribeIndexPoliciesInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
-        ::std::result::Result::Ok(
-            crate::operation::describe_index_policies::DescribeIndexPoliciesInput {
-                log_group_identifiers: self.log_group_identifiers,
-                next_token: self.next_token,
-            },
-        )
+    ) -> ::std::result::Result<crate::operation::describe_index_policies::DescribeIndexPoliciesInput, ::aws_smithy_types::error::operation::BuildError>
+    {
+        ::std::result::Result::Ok(crate::operation::describe_index_policies::DescribeIndexPoliciesInput {
+            log_group_identifiers: self.log_group_identifiers,
+            next_token: self.next_token,
+        })
     }
 }

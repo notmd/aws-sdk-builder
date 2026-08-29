@@ -138,9 +138,7 @@ impl Anomaly {
 }
 
 /// A builder for [`Anomaly`](crate::types::Anomaly).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct AnomalyBuilder {
     pub(crate) anomaly_id: ::std::option::Option<::std::string::String>,
@@ -154,8 +152,7 @@ pub struct AnomalyBuilder {
     pub(crate) description: ::std::option::Option<::std::string::String>,
     pub(crate) active: ::std::option::Option<bool>,
     pub(crate) state: ::std::option::Option<crate::types::State>,
-    pub(crate) histogram:
-        ::std::option::Option<::std::collections::HashMap<::std::string::String, i64>>,
+    pub(crate) histogram: ::std::option::Option<::std::collections::HashMap<::std::string::String, i64>>,
     pub(crate) log_samples: ::std::option::Option<::std::vec::Vec<crate::types::LogEvent>>,
     pub(crate) pattern_tokens: ::std::option::Option<::std::vec::Vec<crate::types::PatternToken>>,
     pub(crate) log_group_arn_list: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
@@ -197,18 +194,12 @@ impl AnomalyBuilder {
     }
     /// <p>The ARN of the anomaly detector that identified this anomaly.</p>
     /// This field is required.
-    pub fn anomaly_detector_arn(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn anomaly_detector_arn(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.anomaly_detector_arn = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The ARN of the anomaly detector that identified this anomaly.</p>
-    pub fn set_anomaly_detector_arn(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_anomaly_detector_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.anomaly_detector_arn = input;
         self
     }
@@ -218,18 +209,12 @@ impl AnomalyBuilder {
     }
     /// <p>The pattern used to help identify this anomaly, in string format.</p>
     /// This field is required.
-    pub fn pattern_string(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn pattern_string(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.pattern_string = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The pattern used to help identify this anomaly, in string format.</p>
-    pub fn set_pattern_string(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_pattern_string(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.pattern_string = input;
         self
     }
@@ -238,18 +223,12 @@ impl AnomalyBuilder {
         &self.pattern_string
     }
     /// <p>The pattern used to help identify this anomaly, in regular expression format.</p>
-    pub fn pattern_regex(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn pattern_regex(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.pattern_regex = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The pattern used to help identify this anomaly, in regular expression format.</p>
-    pub fn set_pattern_regex(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_pattern_regex(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.pattern_regex = input;
         self
     }
@@ -351,28 +330,19 @@ impl AnomalyBuilder {
     /// To override the contents of this collection use [`set_histogram`](Self::set_histogram).
     ///
     /// <p>A map showing times when the anomaly detector ran, and the number of occurrences of this anomaly that were detected at each of those runs. The times are specified in epoch time, which is the number of seconds since <code>January 1, 1970, 00:00:00 UTC</code>.</p>
-    pub fn histogram(
-        mut self,
-        k: impl ::std::convert::Into<::std::string::String>,
-        v: i64,
-    ) -> Self {
+    pub fn histogram(mut self, k: impl ::std::convert::Into<::std::string::String>, v: i64) -> Self {
         let mut hash_map = self.histogram.unwrap_or_default();
         hash_map.insert(k.into(), v);
         self.histogram = ::std::option::Option::Some(hash_map);
         self
     }
     /// <p>A map showing times when the anomaly detector ran, and the number of occurrences of this anomaly that were detected at each of those runs. The times are specified in epoch time, which is the number of seconds since <code>January 1, 1970, 00:00:00 UTC</code>.</p>
-    pub fn set_histogram(
-        mut self,
-        input: ::std::option::Option<::std::collections::HashMap<::std::string::String, i64>>,
-    ) -> Self {
+    pub fn set_histogram(mut self, input: ::std::option::Option<::std::collections::HashMap<::std::string::String, i64>>) -> Self {
         self.histogram = input;
         self
     }
     /// <p>A map showing times when the anomaly detector ran, and the number of occurrences of this anomaly that were detected at each of those runs. The times are specified in epoch time, which is the number of seconds since <code>January 1, 1970, 00:00:00 UTC</code>.</p>
-    pub fn get_histogram(
-        &self,
-    ) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, i64>> {
+    pub fn get_histogram(&self) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, i64>> {
         &self.histogram
     }
     /// Appends an item to `log_samples`.
@@ -387,17 +357,12 @@ impl AnomalyBuilder {
         self
     }
     /// <p>An array of sample log event messages that are considered to be part of this anomaly.</p>
-    pub fn set_log_samples(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<crate::types::LogEvent>>,
-    ) -> Self {
+    pub fn set_log_samples(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::LogEvent>>) -> Self {
         self.log_samples = input;
         self
     }
     /// <p>An array of sample log event messages that are considered to be part of this anomaly.</p>
-    pub fn get_log_samples(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<crate::types::LogEvent>> {
+    pub fn get_log_samples(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::LogEvent>> {
         &self.log_samples
     }
     /// Appends an item to `pattern_tokens`.
@@ -412,17 +377,12 @@ impl AnomalyBuilder {
         self
     }
     /// <p>An array of structures where each structure contains information about one token that makes up the pattern.</p>
-    pub fn set_pattern_tokens(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<crate::types::PatternToken>>,
-    ) -> Self {
+    pub fn set_pattern_tokens(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::PatternToken>>) -> Self {
         self.pattern_tokens = input;
         self
     }
     /// <p>An array of structures where each structure contains information about one token that makes up the pattern.</p>
-    pub fn get_pattern_tokens(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<crate::types::PatternToken>> {
+    pub fn get_pattern_tokens(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::PatternToken>> {
         &self.pattern_tokens
     }
     /// Appends an item to `log_group_arn_list`.
@@ -430,27 +390,19 @@ impl AnomalyBuilder {
     /// To override the contents of this collection use [`set_log_group_arn_list`](Self::set_log_group_arn_list).
     ///
     /// <p>An array of ARNS of the log groups that contained log events considered to be part of this anomaly.</p>
-    pub fn log_group_arn_list(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn log_group_arn_list(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         let mut v = self.log_group_arn_list.unwrap_or_default();
         v.push(input.into());
         self.log_group_arn_list = ::std::option::Option::Some(v);
         self
     }
     /// <p>An array of ARNS of the log groups that contained log events considered to be part of this anomaly.</p>
-    pub fn set_log_group_arn_list(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
-    ) -> Self {
+    pub fn set_log_group_arn_list(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
         self.log_group_arn_list = input;
         self
     }
     /// <p>An array of ARNS of the log groups that contained log events considered to be part of this anomaly.</p>
-    pub fn get_log_group_arn_list(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
+    pub fn get_log_group_arn_list(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
         &self.log_group_arn_list
     }
     /// <p>Indicates whether this anomaly is currently suppressed. To suppress an anomaly, use <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_UpdateAnomaly.html">UpdateAnomaly</a>.</p>
@@ -522,12 +474,7 @@ impl AnomalyBuilder {
     /// - [`log_samples`](crate::types::builders::AnomalyBuilder::log_samples)
     /// - [`pattern_tokens`](crate::types::builders::AnomalyBuilder::pattern_tokens)
     /// - [`log_group_arn_list`](crate::types::builders::AnomalyBuilder::log_group_arn_list)
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<
-        crate::types::Anomaly,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    pub fn build(self) -> ::std::result::Result<crate::types::Anomaly, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::Anomaly {
             anomaly_id: self.anomaly_id.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

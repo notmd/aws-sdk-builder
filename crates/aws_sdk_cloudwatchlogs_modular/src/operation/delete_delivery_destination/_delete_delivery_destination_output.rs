@@ -15,16 +15,14 @@ impl ::aws_types::request_id::RequestId for DeleteDeliveryDestinationOutput {
 #[cfg(feature = "op_delete_delivery_destination")]
 impl DeleteDeliveryDestinationOutput {
     /// Creates a new builder-style object to manufacture [`DeleteDeliveryDestinationOutput`](crate::operation::delete_delivery_destination::DeleteDeliveryDestinationOutput).
-    pub fn builder() -> crate::operation::delete_delivery_destination::builders::DeleteDeliveryDestinationOutputBuilder{
+    pub fn builder() -> crate::operation::delete_delivery_destination::builders::DeleteDeliveryDestinationOutputBuilder {
         crate::operation::delete_delivery_destination::builders::DeleteDeliveryDestinationOutputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_delete_delivery_destination")]
 /// A builder for [`DeleteDeliveryDestinationOutput`](crate::operation::delete_delivery_destination::DeleteDeliveryDestinationOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct DeleteDeliveryDestinationOutputBuilder {
     _request_id: Option<String>,
@@ -41,9 +39,7 @@ impl DeleteDeliveryDestinationOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`DeleteDeliveryDestinationOutput`](crate::operation::delete_delivery_destination::DeleteDeliveryDestinationOutput).
-    pub fn build(
-        self,
-    ) -> crate::operation::delete_delivery_destination::DeleteDeliveryDestinationOutput {
+    pub fn build(self) -> crate::operation::delete_delivery_destination::DeleteDeliveryDestinationOutput {
         crate::operation::delete_delivery_destination::DeleteDeliveryDestinationOutput {
             _request_id: self._request_id,
         }

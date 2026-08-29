@@ -7,11 +7,7 @@ impl super::Client {
     ///   - [`force(bool)`](crate::operation::delete_integration::builders::DeleteIntegrationFluentBuilder::force) / [`set_force(Option<bool>)`](crate::operation::delete_integration::builders::DeleteIntegrationFluentBuilder::set_force):<br>required: **false**<br><p>Specify <code>true</code> to force the deletion of the integration even if vended logs dashboards currently exist.</p> <p>The default is <code>false</code>.</p><br>
     /// - On success, responds with [`DeleteIntegrationOutput`](crate::operation::delete_integration::DeleteIntegrationOutput)
     /// - On failure, responds with [`SdkError<DeleteIntegrationError>`](crate::operation::delete_integration::DeleteIntegrationError)
-    pub fn delete_integration(
-        &self,
-    ) -> crate::operation::delete_integration::builders::DeleteIntegrationFluentBuilder {
-        crate::operation::delete_integration::builders::DeleteIntegrationFluentBuilder::new(
-            self.handle.clone(),
-        )
+    pub fn delete_integration(&self) -> crate::operation::delete_integration::builders::DeleteIntegrationFluentBuilder {
+        crate::operation::delete_integration::builders::DeleteIntegrationFluentBuilder::new(self.handle.clone())
     }
 }

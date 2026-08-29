@@ -23,8 +23,7 @@ pub struct LogGroup {
     /// <p>Displays whether this log group has a protection policy, or whether it had one in the past. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutDataProtectionPolicy.html">PutDataProtectionPolicy</a>.</p>
     pub data_protection_status: ::std::option::Option<crate::types::DataProtectionStatus>,
     /// <p>Displays all the properties that this log group has inherited from account-level settings.</p>
-    pub inherited_properties:
-        ::std::option::Option<::std::vec::Vec<crate::types::InheritedProperty>>,
+    pub inherited_properties: ::std::option::Option<::std::vec::Vec<crate::types::InheritedProperty>>,
     /// <p>This specifies the log group class for this log group. There are three classes:</p>
     /// <ul>
     /// <li>
@@ -84,9 +83,7 @@ impl LogGroup {
         self.kms_key_id.as_deref()
     }
     /// <p>Displays whether this log group has a protection policy, or whether it had one in the past. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutDataProtectionPolicy.html">PutDataProtectionPolicy</a>.</p>
-    pub fn data_protection_status(
-        &self,
-    ) -> ::std::option::Option<&crate::types::DataProtectionStatus> {
+    pub fn data_protection_status(&self) -> ::std::option::Option<&crate::types::DataProtectionStatus> {
         self.data_protection_status.as_ref()
     }
     /// <p>Displays all the properties that this log group has inherited from account-level settings.</p>
@@ -138,9 +135,7 @@ impl LogGroup {
 }
 
 /// A builder for [`LogGroup`](crate::types::LogGroup).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct LogGroupBuilder {
     pub(crate) log_group_name: ::std::option::Option<::std::string::String>,
@@ -151,8 +146,7 @@ pub struct LogGroupBuilder {
     pub(crate) stored_bytes: ::std::option::Option<i64>,
     pub(crate) kms_key_id: ::std::option::Option<::std::string::String>,
     pub(crate) data_protection_status: ::std::option::Option<crate::types::DataProtectionStatus>,
-    pub(crate) inherited_properties:
-        ::std::option::Option<::std::vec::Vec<crate::types::InheritedProperty>>,
+    pub(crate) inherited_properties: ::std::option::Option<::std::vec::Vec<crate::types::InheritedProperty>>,
     pub(crate) log_group_class: ::std::option::Option<crate::types::LogGroupClass>,
     pub(crate) log_group_arn: ::std::option::Option<::std::string::String>,
     pub(crate) deletion_protection_enabled: ::std::option::Option<bool>,
@@ -160,18 +154,12 @@ pub struct LogGroupBuilder {
 }
 impl LogGroupBuilder {
     /// <p>The name of the log group.</p>
-    pub fn log_group_name(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn log_group_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.log_group_name = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The name of the log group.</p>
-    pub fn set_log_group_name(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_log_group_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.log_group_name = input;
         self
     }
@@ -275,17 +263,12 @@ impl LogGroupBuilder {
         self
     }
     /// <p>Displays whether this log group has a protection policy, or whether it had one in the past. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutDataProtectionPolicy.html">PutDataProtectionPolicy</a>.</p>
-    pub fn set_data_protection_status(
-        mut self,
-        input: ::std::option::Option<crate::types::DataProtectionStatus>,
-    ) -> Self {
+    pub fn set_data_protection_status(mut self, input: ::std::option::Option<crate::types::DataProtectionStatus>) -> Self {
         self.data_protection_status = input;
         self
     }
     /// <p>Displays whether this log group has a protection policy, or whether it had one in the past. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutDataProtectionPolicy.html">PutDataProtectionPolicy</a>.</p>
-    pub fn get_data_protection_status(
-        &self,
-    ) -> &::std::option::Option<crate::types::DataProtectionStatus> {
+    pub fn get_data_protection_status(&self) -> &::std::option::Option<crate::types::DataProtectionStatus> {
         &self.data_protection_status
     }
     /// Appends an item to `inherited_properties`.
@@ -300,17 +283,12 @@ impl LogGroupBuilder {
         self
     }
     /// <p>Displays all the properties that this log group has inherited from account-level settings.</p>
-    pub fn set_inherited_properties(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<crate::types::InheritedProperty>>,
-    ) -> Self {
+    pub fn set_inherited_properties(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::InheritedProperty>>) -> Self {
         self.inherited_properties = input;
         self
     }
     /// <p>Displays all the properties that this log group has inherited from account-level settings.</p>
-    pub fn get_inherited_properties(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<crate::types::InheritedProperty>> {
+    pub fn get_inherited_properties(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::InheritedProperty>> {
         &self.inherited_properties
     }
     /// <p>This specifies the log group class for this log group. There are three classes:</p>
@@ -337,10 +315,7 @@ impl LogGroupBuilder {
     /// <p>Use the <code>Delivery</code> log class only for delivering Lambda logs to store in Amazon S3 or Amazon Data Firehose. Log events in log groups in the Delivery class are kept in CloudWatch Logs for only one day. This log class doesn't offer rich CloudWatch Logs capabilities such as CloudWatch Logs Insights queries.</p></li>
     /// </ul>
     /// <p>For details about the features supported by the Standard and Infrequent Access classes, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatch_Logs_Log_Classes.html">Log classes</a></p>
-    pub fn set_log_group_class(
-        mut self,
-        input: ::std::option::Option<crate::types::LogGroupClass>,
-    ) -> Self {
+    pub fn set_log_group_class(mut self, input: ::std::option::Option<crate::types::LogGroupClass>) -> Self {
         self.log_group_class = input;
         self
     }
@@ -367,10 +342,7 @@ impl LogGroupBuilder {
     /// <li>
     /// <p>In IAM policies, when specifying permissions for <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_TagResource.html">TagResource</a>, <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_UntagResource.html">UntagResource</a>, and <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_ListTagsForResource.html">ListTagsForResource</a>.</p></li>
     /// </ul>
-    pub fn log_group_arn(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn log_group_arn(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.log_group_arn = ::std::option::Option::Some(input.into());
         self
     }
@@ -384,10 +356,7 @@ impl LogGroupBuilder {
     /// <li>
     /// <p>In IAM policies, when specifying permissions for <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_TagResource.html">TagResource</a>, <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_UntagResource.html">UntagResource</a>, and <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_ListTagsForResource.html">ListTagsForResource</a>.</p></li>
     /// </ul>
-    pub fn set_log_group_arn(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_log_group_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.log_group_arn = input;
         self
     }
@@ -424,10 +393,7 @@ impl LogGroupBuilder {
         self
     }
     /// <p>Indicates whether bearer token authentication is enabled for this log group. When enabled, bearer token authentication is allowed on operations until it is explicitly disabled.</p>
-    pub fn set_bearer_token_authentication_enabled(
-        mut self,
-        input: ::std::option::Option<bool>,
-    ) -> Self {
+    pub fn set_bearer_token_authentication_enabled(mut self, input: ::std::option::Option<bool>) -> Self {
         self.bearer_token_authentication_enabled = input;
         self
     }

@@ -15,17 +15,14 @@ impl ::aws_types::request_id::RequestId for DeleteScheduledQueryOutput {
 #[cfg(feature = "op_delete_scheduled_query")]
 impl DeleteScheduledQueryOutput {
     /// Creates a new builder-style object to manufacture [`DeleteScheduledQueryOutput`](crate::operation::delete_scheduled_query::DeleteScheduledQueryOutput).
-    pub fn builder(
-    ) -> crate::operation::delete_scheduled_query::builders::DeleteScheduledQueryOutputBuilder {
+    pub fn builder() -> crate::operation::delete_scheduled_query::builders::DeleteScheduledQueryOutputBuilder {
         crate::operation::delete_scheduled_query::builders::DeleteScheduledQueryOutputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_delete_scheduled_query")]
 /// A builder for [`DeleteScheduledQueryOutput`](crate::operation::delete_scheduled_query::DeleteScheduledQueryOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct DeleteScheduledQueryOutputBuilder {
     _request_id: Option<String>,

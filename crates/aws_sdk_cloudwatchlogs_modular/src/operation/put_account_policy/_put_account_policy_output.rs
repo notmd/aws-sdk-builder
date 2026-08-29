@@ -24,17 +24,14 @@ impl ::aws_types::request_id::RequestId for PutAccountPolicyOutput {
 #[cfg(feature = "op_put_account_policy")]
 impl PutAccountPolicyOutput {
     /// Creates a new builder-style object to manufacture [`PutAccountPolicyOutput`](crate::operation::put_account_policy::PutAccountPolicyOutput).
-    pub fn builder() -> crate::operation::put_account_policy::builders::PutAccountPolicyOutputBuilder
-    {
+    pub fn builder() -> crate::operation::put_account_policy::builders::PutAccountPolicyOutputBuilder {
         crate::operation::put_account_policy::builders::PutAccountPolicyOutputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_put_account_policy")]
 /// A builder for [`PutAccountPolicyOutput`](crate::operation::put_account_policy::PutAccountPolicyOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct PutAccountPolicyOutputBuilder {
     pub(crate) account_policy: ::std::option::Option<crate::types::AccountPolicy>,
@@ -48,10 +45,7 @@ impl PutAccountPolicyOutputBuilder {
         self
     }
     /// <p>The account policy that you created.</p>
-    pub fn set_account_policy(
-        mut self,
-        input: ::std::option::Option<crate::types::AccountPolicy>,
-    ) -> Self {
+    pub fn set_account_policy(mut self, input: ::std::option::Option<crate::types::AccountPolicy>) -> Self {
         self.account_policy = input;
         self
     }

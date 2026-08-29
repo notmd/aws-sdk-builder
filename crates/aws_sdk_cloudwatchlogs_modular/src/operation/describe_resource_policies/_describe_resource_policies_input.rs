@@ -35,18 +35,14 @@ impl DescribeResourcePoliciesInput {
 #[cfg(feature = "op_describe_resource_policies")]
 impl DescribeResourcePoliciesInput {
     /// Creates a new builder-style object to manufacture [`DescribeResourcePoliciesInput`](crate::operation::describe_resource_policies::DescribeResourcePoliciesInput).
-    pub fn builder(
-    ) -> crate::operation::describe_resource_policies::builders::DescribeResourcePoliciesInputBuilder
-    {
+    pub fn builder() -> crate::operation::describe_resource_policies::builders::DescribeResourcePoliciesInputBuilder {
         crate::operation::describe_resource_policies::builders::DescribeResourcePoliciesInputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_describe_resource_policies")]
 /// A builder for [`DescribeResourcePoliciesInput`](crate::operation::describe_resource_policies::DescribeResourcePoliciesInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct DescribeResourcePoliciesInputBuilder {
     pub(crate) next_token: ::std::option::Option<::std::string::String>,
@@ -104,10 +100,7 @@ impl DescribeResourcePoliciesInputBuilder {
         self
     }
     /// <p>Specifies the scope of the resource policy. Valid values are <code>ACCOUNT</code> or <code>RESOURCE</code>. When not specified, defaults to <code>ACCOUNT</code>.</p>
-    pub fn set_policy_scope(
-        mut self,
-        input: ::std::option::Option<crate::types::PolicyScope>,
-    ) -> Self {
+    pub fn set_policy_scope(mut self, input: ::std::option::Option<crate::types::PolicyScope>) -> Self {
         self.policy_scope = input;
         self
     }
@@ -122,13 +115,11 @@ impl DescribeResourcePoliciesInputBuilder {
         crate::operation::describe_resource_policies::DescribeResourcePoliciesInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(
-            crate::operation::describe_resource_policies::DescribeResourcePoliciesInput {
-                next_token: self.next_token,
-                limit: self.limit,
-                resource_arn: self.resource_arn,
-                policy_scope: self.policy_scope,
-            },
-        )
+        ::std::result::Result::Ok(crate::operation::describe_resource_policies::DescribeResourcePoliciesInput {
+            next_token: self.next_token,
+            limit: self.limit,
+            resource_arn: self.resource_arn,
+            policy_scope: self.policy_scope,
+        })
     }
 }

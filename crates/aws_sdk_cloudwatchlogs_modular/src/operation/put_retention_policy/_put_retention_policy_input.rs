@@ -25,17 +25,14 @@ impl PutRetentionPolicyInput {
 #[cfg(feature = "op_put_retention_policy")]
 impl PutRetentionPolicyInput {
     /// Creates a new builder-style object to manufacture [`PutRetentionPolicyInput`](crate::operation::put_retention_policy::PutRetentionPolicyInput).
-    pub fn builder(
-    ) -> crate::operation::put_retention_policy::builders::PutRetentionPolicyInputBuilder {
+    pub fn builder() -> crate::operation::put_retention_policy::builders::PutRetentionPolicyInputBuilder {
         crate::operation::put_retention_policy::builders::PutRetentionPolicyInputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_put_retention_policy")]
 /// A builder for [`PutRetentionPolicyInput`](crate::operation::put_retention_policy::PutRetentionPolicyInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct PutRetentionPolicyInputBuilder {
     pub(crate) log_group_name: ::std::option::Option<::std::string::String>,
@@ -45,18 +42,12 @@ pub struct PutRetentionPolicyInputBuilder {
 impl PutRetentionPolicyInputBuilder {
     /// <p>The name of the log group.</p>
     /// This field is required.
-    pub fn log_group_name(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn log_group_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.log_group_name = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The name of the log group.</p>
-    pub fn set_log_group_name(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_log_group_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.log_group_name = input;
         self
     }
@@ -85,15 +76,11 @@ impl PutRetentionPolicyInputBuilder {
     /// Consumes the builder and constructs a [`PutRetentionPolicyInput`](crate::operation::put_retention_policy::PutRetentionPolicyInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        crate::operation::put_retention_policy::PutRetentionPolicyInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
-        ::std::result::Result::Ok(
-            crate::operation::put_retention_policy::PutRetentionPolicyInput {
-                log_group_name: self.log_group_name,
-                retention_in_days: self.retention_in_days,
-            },
-        )
+    ) -> ::std::result::Result<crate::operation::put_retention_policy::PutRetentionPolicyInput, ::aws_smithy_types::error::operation::BuildError>
+    {
+        ::std::result::Result::Ok(crate::operation::put_retention_policy::PutRetentionPolicyInput {
+            log_group_name: self.log_group_name,
+            retention_in_days: self.retention_in_days,
+        })
     }
 }

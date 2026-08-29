@@ -45,10 +45,7 @@ pub fn ser_update_scheduled_query_input_input(
     if let Some(var_12) = &input.destination_configuration {
         #[allow(unused_mut)]
         let mut object_13 = object.key("destinationConfiguration").start_object();
-        crate::protocol_serde::shape_destination_configuration::ser_destination_configuration(
-            &mut object_13,
-            var_12,
-        )?;
+        crate::protocol_serde::shape_destination_configuration::ser_destination_configuration(&mut object_13, var_12)?;
         object_13.finish();
     }
     if let Some(var_14) = &input.schedule_start_time {

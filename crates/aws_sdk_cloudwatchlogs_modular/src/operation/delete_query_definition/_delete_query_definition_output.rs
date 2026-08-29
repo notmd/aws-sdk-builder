@@ -24,18 +24,14 @@ impl ::aws_types::request_id::RequestId for DeleteQueryDefinitionOutput {
 #[cfg(feature = "op_delete_query_definition")]
 impl DeleteQueryDefinitionOutput {
     /// Creates a new builder-style object to manufacture [`DeleteQueryDefinitionOutput`](crate::operation::delete_query_definition::DeleteQueryDefinitionOutput).
-    pub fn builder(
-    ) -> crate::operation::delete_query_definition::builders::DeleteQueryDefinitionOutputBuilder
-    {
+    pub fn builder() -> crate::operation::delete_query_definition::builders::DeleteQueryDefinitionOutputBuilder {
         crate::operation::delete_query_definition::builders::DeleteQueryDefinitionOutputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_delete_query_definition")]
 /// A builder for [`DeleteQueryDefinitionOutput`](crate::operation::delete_query_definition::DeleteQueryDefinitionOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct DeleteQueryDefinitionOutputBuilder {
     pub(crate) success: ::std::option::Option<bool>,

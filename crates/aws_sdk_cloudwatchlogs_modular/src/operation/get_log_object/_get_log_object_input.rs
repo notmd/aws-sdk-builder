@@ -31,9 +31,7 @@ impl GetLogObjectInput {
 
 #[cfg(feature = "op_get_log_object")]
 /// A builder for [`GetLogObjectInput`](crate::operation::get_log_object::GetLogObjectInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct GetLogObjectInputBuilder {
     pub(crate) unmask: ::std::option::Option<bool>,
@@ -57,18 +55,12 @@ impl GetLogObjectInputBuilder {
     }
     /// <p>A pointer to the specific log object to retrieve. This is a required parameter that uniquely identifies the log object within CloudWatch Logs. The pointer is typically obtained from a previous query or filter operation.</p>
     /// This field is required.
-    pub fn log_object_pointer(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn log_object_pointer(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.log_object_pointer = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>A pointer to the specific log object to retrieve. This is a required parameter that uniquely identifies the log object within CloudWatch Logs. The pointer is typically obtained from a previous query or filter operation.</p>
-    pub fn set_log_object_pointer(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_log_object_pointer(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.log_object_pointer = input;
         self
     }
@@ -79,10 +71,7 @@ impl GetLogObjectInputBuilder {
     /// Consumes the builder and constructs a [`GetLogObjectInput`](crate::operation::get_log_object::GetLogObjectInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        crate::operation::get_log_object::GetLogObjectInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    ) -> ::std::result::Result<crate::operation::get_log_object::GetLogObjectInput, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::operation::get_log_object::GetLogObjectInput {
             unmask: self.unmask,
             log_object_pointer: self.log_object_pointer,

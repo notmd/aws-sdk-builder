@@ -26,21 +26,17 @@ impl ::aws_types::request_id::RequestId for GetLogGroupFieldsOutput {
 #[cfg(feature = "op_get_log_group_fields")]
 impl GetLogGroupFieldsOutput {
     /// Creates a new builder-style object to manufacture [`GetLogGroupFieldsOutput`](crate::operation::get_log_group_fields::GetLogGroupFieldsOutput).
-    pub fn builder(
-    ) -> crate::operation::get_log_group_fields::builders::GetLogGroupFieldsOutputBuilder {
+    pub fn builder() -> crate::operation::get_log_group_fields::builders::GetLogGroupFieldsOutputBuilder {
         crate::operation::get_log_group_fields::builders::GetLogGroupFieldsOutputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_get_log_group_fields")]
 /// A builder for [`GetLogGroupFieldsOutput`](crate::operation::get_log_group_fields::GetLogGroupFieldsOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct GetLogGroupFieldsOutputBuilder {
-    pub(crate) log_group_fields:
-        ::std::option::Option<::std::vec::Vec<crate::types::LogGroupField>>,
+    pub(crate) log_group_fields: ::std::option::Option<::std::vec::Vec<crate::types::LogGroupField>>,
     _request_id: Option<String>,
 }
 #[cfg(feature = "op_get_log_group_fields")]
@@ -57,17 +53,12 @@ impl GetLogGroupFieldsOutputBuilder {
         self
     }
     /// <p>The array of fields found in the query. Each object in the array contains the name of the field, along with the percentage of time it appeared in the log events that were queried.</p>
-    pub fn set_log_group_fields(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<crate::types::LogGroupField>>,
-    ) -> Self {
+    pub fn set_log_group_fields(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::LogGroupField>>) -> Self {
         self.log_group_fields = input;
         self
     }
     /// <p>The array of fields found in the query. Each object in the array contains the name of the field, along with the percentage of time it appeared in the log events that were queried.</p>
-    pub fn get_log_group_fields(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<crate::types::LogGroupField>> {
+    pub fn get_log_group_fields(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::LogGroupField>> {
         &self.log_group_fields
     }
     pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {

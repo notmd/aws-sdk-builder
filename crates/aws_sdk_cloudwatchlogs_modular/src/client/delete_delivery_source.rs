@@ -6,11 +6,7 @@ impl super::Client {
     ///   - [`name(impl Into<String>)`](crate::operation::delete_delivery_source::builders::DeleteDeliverySourceFluentBuilder::name) / [`set_name(Option<String>)`](crate::operation::delete_delivery_source::builders::DeleteDeliverySourceFluentBuilder::set_name):<br>required: **true**<br><p>The name of the delivery source that you want to delete.</p><br>
     /// - On success, responds with [`DeleteDeliverySourceOutput`](crate::operation::delete_delivery_source::DeleteDeliverySourceOutput)
     /// - On failure, responds with [`SdkError<DeleteDeliverySourceError>`](crate::operation::delete_delivery_source::DeleteDeliverySourceError)
-    pub fn delete_delivery_source(
-        &self,
-    ) -> crate::operation::delete_delivery_source::builders::DeleteDeliverySourceFluentBuilder {
-        crate::operation::delete_delivery_source::builders::DeleteDeliverySourceFluentBuilder::new(
-            self.handle.clone(),
-        )
+    pub fn delete_delivery_source(&self) -> crate::operation::delete_delivery_source::builders::DeleteDeliverySourceFluentBuilder {
+        crate::operation::delete_delivery_source::builders::DeleteDeliverySourceFluentBuilder::new(self.handle.clone())
     }
 }

@@ -23,18 +23,14 @@ impl DescribeDeliverySourcesInput {
 #[cfg(feature = "op_describe_delivery_sources")]
 impl DescribeDeliverySourcesInput {
     /// Creates a new builder-style object to manufacture [`DescribeDeliverySourcesInput`](crate::operation::describe_delivery_sources::DescribeDeliverySourcesInput).
-    pub fn builder(
-    ) -> crate::operation::describe_delivery_sources::builders::DescribeDeliverySourcesInputBuilder
-    {
+    pub fn builder() -> crate::operation::describe_delivery_sources::builders::DescribeDeliverySourcesInputBuilder {
         crate::operation::describe_delivery_sources::builders::DescribeDeliverySourcesInputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_describe_delivery_sources")]
 /// A builder for [`DescribeDeliverySourcesInput`](crate::operation::describe_delivery_sources::DescribeDeliverySourcesInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct DescribeDeliverySourcesInputBuilder {
     pub(crate) next_token: ::std::option::Option<::std::string::String>,
@@ -77,11 +73,9 @@ impl DescribeDeliverySourcesInputBuilder {
         crate::operation::describe_delivery_sources::DescribeDeliverySourcesInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(
-            crate::operation::describe_delivery_sources::DescribeDeliverySourcesInput {
-                next_token: self.next_token,
-                limit: self.limit,
-            },
-        )
+        ::std::result::Result::Ok(crate::operation::describe_delivery_sources::DescribeDeliverySourcesInput {
+            next_token: self.next_token,
+            limit: self.limit,
+        })
     }
 }

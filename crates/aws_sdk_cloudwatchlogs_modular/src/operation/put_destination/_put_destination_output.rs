@@ -31,9 +31,7 @@ impl PutDestinationOutput {
 
 #[cfg(feature = "op_put_destination")]
 /// A builder for [`PutDestinationOutput`](crate::operation::put_destination::PutDestinationOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct PutDestinationOutputBuilder {
     pub(crate) destination: ::std::option::Option<crate::types::Destination>,
@@ -47,10 +45,7 @@ impl PutDestinationOutputBuilder {
         self
     }
     /// <p>The destination.</p>
-    pub fn set_destination(
-        mut self,
-        input: ::std::option::Option<crate::types::Destination>,
-    ) -> Self {
+    pub fn set_destination(mut self, input: ::std::option::Option<crate::types::Destination>) -> Self {
         self.destination = input;
         self
     }

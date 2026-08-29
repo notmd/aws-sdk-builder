@@ -32,17 +32,14 @@ impl ::aws_types::request_id::RequestId for DescribeLookupTablesOutput {
 #[cfg(feature = "op_describe_lookup_tables")]
 impl DescribeLookupTablesOutput {
     /// Creates a new builder-style object to manufacture [`DescribeLookupTablesOutput`](crate::operation::describe_lookup_tables::DescribeLookupTablesOutput).
-    pub fn builder(
-    ) -> crate::operation::describe_lookup_tables::builders::DescribeLookupTablesOutputBuilder {
+    pub fn builder() -> crate::operation::describe_lookup_tables::builders::DescribeLookupTablesOutputBuilder {
         crate::operation::describe_lookup_tables::builders::DescribeLookupTablesOutputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_describe_lookup_tables")]
 /// A builder for [`DescribeLookupTablesOutput`](crate::operation::describe_lookup_tables::DescribeLookupTablesOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct DescribeLookupTablesOutputBuilder {
     pub(crate) lookup_tables: ::std::option::Option<::std::vec::Vec<crate::types::LookupTable>>,
@@ -63,17 +60,12 @@ impl DescribeLookupTablesOutputBuilder {
         self
     }
     /// <p>An array of structures, where each structure contains metadata about one lookup table.</p>
-    pub fn set_lookup_tables(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<crate::types::LookupTable>>,
-    ) -> Self {
+    pub fn set_lookup_tables(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::LookupTable>>) -> Self {
         self.lookup_tables = input;
         self
     }
     /// <p>An array of structures, where each structure contains metadata about one lookup table.</p>
-    pub fn get_lookup_tables(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<crate::types::LookupTable>> {
+    pub fn get_lookup_tables(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::LookupTable>> {
         &self.lookup_tables
     }
     /// <p>The token to use when requesting the next set of items.</p>

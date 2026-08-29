@@ -39,17 +39,14 @@ impl GetLogGroupFieldsInput {
 #[cfg(feature = "op_get_log_group_fields")]
 impl GetLogGroupFieldsInput {
     /// Creates a new builder-style object to manufacture [`GetLogGroupFieldsInput`](crate::operation::get_log_group_fields::GetLogGroupFieldsInput).
-    pub fn builder(
-    ) -> crate::operation::get_log_group_fields::builders::GetLogGroupFieldsInputBuilder {
+    pub fn builder() -> crate::operation::get_log_group_fields::builders::GetLogGroupFieldsInputBuilder {
         crate::operation::get_log_group_fields::builders::GetLogGroupFieldsInputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_get_log_group_fields")]
 /// A builder for [`GetLogGroupFieldsInput`](crate::operation::get_log_group_fields::GetLogGroupFieldsInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct GetLogGroupFieldsInputBuilder {
     pub(crate) log_group_name: ::std::option::Option<::std::string::String>,
@@ -61,20 +58,14 @@ impl GetLogGroupFieldsInputBuilder {
     /// <p>The name of the log group to search.</p><note>
     /// <p>You must include either <code>logGroupIdentifier</code> or <code>logGroupName</code>, but not both.</p>
     /// </note>
-    pub fn log_group_name(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn log_group_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.log_group_name = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The name of the log group to search.</p><note>
     /// <p>You must include either <code>logGroupIdentifier</code> or <code>logGroupName</code>, but not both.</p>
     /// </note>
-    pub fn set_log_group_name(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_log_group_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.log_group_name = input;
         self
     }
@@ -104,20 +95,14 @@ impl GetLogGroupFieldsInputBuilder {
     /// <p>Specify either the name or ARN of the log group to view. If the log group is in a source account and you are using a monitoring account, you must specify the ARN.</p><note>
     /// <p>You must include either <code>logGroupIdentifier</code> or <code>logGroupName</code>, but not both.</p>
     /// </note>
-    pub fn log_group_identifier(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn log_group_identifier(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.log_group_identifier = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>Specify either the name or ARN of the log group to view. If the log group is in a source account and you are using a monitoring account, you must specify the ARN.</p><note>
     /// <p>You must include either <code>logGroupIdentifier</code> or <code>logGroupName</code>, but not both.</p>
     /// </note>
-    pub fn set_log_group_identifier(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_log_group_identifier(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.log_group_identifier = input;
         self
     }
@@ -130,16 +115,11 @@ impl GetLogGroupFieldsInputBuilder {
     /// Consumes the builder and constructs a [`GetLogGroupFieldsInput`](crate::operation::get_log_group_fields::GetLogGroupFieldsInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        crate::operation::get_log_group_fields::GetLogGroupFieldsInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
-        ::std::result::Result::Ok(
-            crate::operation::get_log_group_fields::GetLogGroupFieldsInput {
-                log_group_name: self.log_group_name,
-                time: self.time,
-                log_group_identifier: self.log_group_identifier,
-            },
-        )
+    ) -> ::std::result::Result<crate::operation::get_log_group_fields::GetLogGroupFieldsInput, ::aws_smithy_types::error::operation::BuildError> {
+        ::std::result::Result::Ok(crate::operation::get_log_group_fields::GetLogGroupFieldsInput {
+            log_group_name: self.log_group_name,
+            time: self.time,
+            log_group_identifier: self.log_group_identifier,
+        })
     }
 }

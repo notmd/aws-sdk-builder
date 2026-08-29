@@ -49,25 +49,20 @@ impl GetScheduledQueryHistoryInput {
 #[cfg(feature = "op_get_scheduled_query_history")]
 impl GetScheduledQueryHistoryInput {
     /// Creates a new builder-style object to manufacture [`GetScheduledQueryHistoryInput`](crate::operation::get_scheduled_query_history::GetScheduledQueryHistoryInput).
-    pub fn builder(
-    ) -> crate::operation::get_scheduled_query_history::builders::GetScheduledQueryHistoryInputBuilder
-    {
+    pub fn builder() -> crate::operation::get_scheduled_query_history::builders::GetScheduledQueryHistoryInputBuilder {
         crate::operation::get_scheduled_query_history::builders::GetScheduledQueryHistoryInputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_get_scheduled_query_history")]
 /// A builder for [`GetScheduledQueryHistoryInput`](crate::operation::get_scheduled_query_history::GetScheduledQueryHistoryInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct GetScheduledQueryHistoryInputBuilder {
     pub(crate) identifier: ::std::option::Option<::std::string::String>,
     pub(crate) start_time: ::std::option::Option<i64>,
     pub(crate) end_time: ::std::option::Option<i64>,
-    pub(crate) execution_statuses:
-        ::std::option::Option<::std::vec::Vec<crate::types::ExecutionStatus>>,
+    pub(crate) execution_statuses: ::std::option::Option<::std::vec::Vec<crate::types::ExecutionStatus>>,
     pub(crate) max_results: ::std::option::Option<i32>,
     pub(crate) next_token: ::std::option::Option<::std::string::String>,
 }
@@ -130,17 +125,12 @@ impl GetScheduledQueryHistoryInputBuilder {
         self
     }
     /// <p>An array of execution statuses to filter the history results. Only executions with the specified statuses are returned.</p>
-    pub fn set_execution_statuses(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<crate::types::ExecutionStatus>>,
-    ) -> Self {
+    pub fn set_execution_statuses(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::ExecutionStatus>>) -> Self {
         self.execution_statuses = input;
         self
     }
     /// <p>An array of execution statuses to filter the history results. Only executions with the specified statuses are returned.</p>
-    pub fn get_execution_statuses(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<crate::types::ExecutionStatus>> {
+    pub fn get_execution_statuses(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::ExecutionStatus>> {
         &self.execution_statuses
     }
     /// <p>The maximum number of history records to return. Valid range is 1 to 1000.</p>
@@ -178,15 +168,13 @@ impl GetScheduledQueryHistoryInputBuilder {
         crate::operation::get_scheduled_query_history::GetScheduledQueryHistoryInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(
-            crate::operation::get_scheduled_query_history::GetScheduledQueryHistoryInput {
-                identifier: self.identifier,
-                start_time: self.start_time,
-                end_time: self.end_time,
-                execution_statuses: self.execution_statuses,
-                max_results: self.max_results,
-                next_token: self.next_token,
-            },
-        )
+        ::std::result::Result::Ok(crate::operation::get_scheduled_query_history::GetScheduledQueryHistoryInput {
+            identifier: self.identifier,
+            start_time: self.start_time,
+            end_time: self.end_time,
+            execution_statuses: self.execution_statuses,
+            max_results: self.max_results,
+            next_token: self.next_token,
+        })
     }
 }

@@ -21,9 +21,7 @@ impl IntegrationDetails {
     #[allow(irrefutable_let_patterns)]
     /// Tries to convert the enum instance into [`OpenSearchIntegrationDetails`](crate::types::IntegrationDetails::OpenSearchIntegrationDetails), extracting the inner [`OpenSearchIntegrationDetails`](crate::types::OpenSearchIntegrationDetails).
     /// Returns `Err(&Self)` if it can't be converted.
-    pub fn as_open_search_integration_details(
-        &self,
-    ) -> ::std::result::Result<&crate::types::OpenSearchIntegrationDetails, &Self> {
+    pub fn as_open_search_integration_details(&self) -> ::std::result::Result<&crate::types::OpenSearchIntegrationDetails, &Self> {
         if let IntegrationDetails::OpenSearchIntegrationDetails(val) = &self {
             ::std::result::Result::Ok(val)
         } else {

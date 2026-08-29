@@ -59,17 +59,14 @@ impl LiveTailSessionStart {
 }
 
 /// A builder for [`LiveTailSessionStart`](crate::types::LiveTailSessionStart).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct LiveTailSessionStartBuilder {
     pub(crate) request_id: ::std::option::Option<::std::string::String>,
     pub(crate) session_id: ::std::option::Option<::std::string::String>,
     pub(crate) log_group_identifiers: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
     pub(crate) log_stream_names: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
-    pub(crate) log_stream_name_prefixes:
-        ::std::option::Option<::std::vec::Vec<::std::string::String>>,
+    pub(crate) log_stream_name_prefixes: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
     pub(crate) log_event_filter_pattern: ::std::option::Option<::std::string::String>,
 }
 impl LiveTailSessionStartBuilder {
@@ -106,27 +103,19 @@ impl LiveTailSessionStartBuilder {
     /// To override the contents of this collection use [`set_log_group_identifiers`](Self::set_log_group_identifiers).
     ///
     /// <p>An array of the names and ARNs of the log groups included in this Live Tail session.</p>
-    pub fn log_group_identifiers(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn log_group_identifiers(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         let mut v = self.log_group_identifiers.unwrap_or_default();
         v.push(input.into());
         self.log_group_identifiers = ::std::option::Option::Some(v);
         self
     }
     /// <p>An array of the names and ARNs of the log groups included in this Live Tail session.</p>
-    pub fn set_log_group_identifiers(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
-    ) -> Self {
+    pub fn set_log_group_identifiers(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
         self.log_group_identifiers = input;
         self
     }
     /// <p>An array of the names and ARNs of the log groups included in this Live Tail session.</p>
-    pub fn get_log_group_identifiers(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
+    pub fn get_log_group_identifiers(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
         &self.log_group_identifiers
     }
     /// Appends an item to `log_stream_names`.
@@ -134,27 +123,19 @@ impl LiveTailSessionStartBuilder {
     /// To override the contents of this collection use [`set_log_stream_names`](Self::set_log_stream_names).
     ///
     /// <p>If your StartLiveTail operation request included a <code>logStreamNames</code> parameter that filtered the session to only include certain log streams, these streams are listed here.</p>
-    pub fn log_stream_names(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn log_stream_names(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         let mut v = self.log_stream_names.unwrap_or_default();
         v.push(input.into());
         self.log_stream_names = ::std::option::Option::Some(v);
         self
     }
     /// <p>If your StartLiveTail operation request included a <code>logStreamNames</code> parameter that filtered the session to only include certain log streams, these streams are listed here.</p>
-    pub fn set_log_stream_names(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
-    ) -> Self {
+    pub fn set_log_stream_names(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
         self.log_stream_names = input;
         self
     }
     /// <p>If your StartLiveTail operation request included a <code>logStreamNames</code> parameter that filtered the session to only include certain log streams, these streams are listed here.</p>
-    pub fn get_log_stream_names(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
+    pub fn get_log_stream_names(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
         &self.log_stream_names
     }
     /// Appends an item to `log_stream_name_prefixes`.
@@ -162,44 +143,30 @@ impl LiveTailSessionStartBuilder {
     /// To override the contents of this collection use [`set_log_stream_name_prefixes`](Self::set_log_stream_name_prefixes).
     ///
     /// <p>If your StartLiveTail operation request included a <code>logStreamNamePrefixes</code> parameter that filtered the session to only include log streams that have names that start with certain prefixes, these prefixes are listed here.</p>
-    pub fn log_stream_name_prefixes(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn log_stream_name_prefixes(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         let mut v = self.log_stream_name_prefixes.unwrap_or_default();
         v.push(input.into());
         self.log_stream_name_prefixes = ::std::option::Option::Some(v);
         self
     }
     /// <p>If your StartLiveTail operation request included a <code>logStreamNamePrefixes</code> parameter that filtered the session to only include log streams that have names that start with certain prefixes, these prefixes are listed here.</p>
-    pub fn set_log_stream_name_prefixes(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
-    ) -> Self {
+    pub fn set_log_stream_name_prefixes(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
         self.log_stream_name_prefixes = input;
         self
     }
     /// <p>If your StartLiveTail operation request included a <code>logStreamNamePrefixes</code> parameter that filtered the session to only include log streams that have names that start with certain prefixes, these prefixes are listed here.</p>
-    pub fn get_log_stream_name_prefixes(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
+    pub fn get_log_stream_name_prefixes(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
         &self.log_stream_name_prefixes
     }
     /// <p>An optional pattern to filter the results to include only log events that match the pattern. For example, a filter pattern of <code>error 404</code> displays only log events that include both <code>error</code> and <code>404</code>.</p>
     /// <p>For more information about filter pattern syntax, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/FilterAndPatternSyntax.html">Filter and Pattern Syntax</a>.</p>
-    pub fn log_event_filter_pattern(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn log_event_filter_pattern(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.log_event_filter_pattern = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>An optional pattern to filter the results to include only log events that match the pattern. For example, a filter pattern of <code>error 404</code> displays only log events that include both <code>error</code> and <code>404</code>.</p>
     /// <p>For more information about filter pattern syntax, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/FilterAndPatternSyntax.html">Filter and Pattern Syntax</a>.</p>
-    pub fn set_log_event_filter_pattern(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_log_event_filter_pattern(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.log_event_filter_pattern = input;
         self
     }

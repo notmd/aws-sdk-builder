@@ -8,14 +8,11 @@ pub struct LiveTailSessionUpdate {
     pub session_metadata: ::std::option::Option<crate::types::LiveTailSessionMetadata>,
     /// <p>An array, where each member of the array includes the information for one log event in the Live Tail session.</p>
     /// <p>A <code>sessionResults</code> array can include as many as 500 log events. If the number of log events matching the request exceeds 500 per second, the log events are sampled down to 500 log events to be included in each <code>sessionUpdate</code> structure.</p>
-    pub session_results:
-        ::std::option::Option<::std::vec::Vec<crate::types::LiveTailSessionLogEvent>>,
+    pub session_results: ::std::option::Option<::std::vec::Vec<crate::types::LiveTailSessionLogEvent>>,
 }
 impl LiveTailSessionUpdate {
     /// <p>This object contains the session metadata for a Live Tail session.</p>
-    pub fn session_metadata(
-        &self,
-    ) -> ::std::option::Option<&crate::types::LiveTailSessionMetadata> {
+    pub fn session_metadata(&self) -> ::std::option::Option<&crate::types::LiveTailSessionMetadata> {
         self.session_metadata.as_ref()
     }
     /// <p>An array, where each member of the array includes the information for one log event in the Live Tail session.</p>
@@ -34,14 +31,11 @@ impl LiveTailSessionUpdate {
 }
 
 /// A builder for [`LiveTailSessionUpdate`](crate::types::LiveTailSessionUpdate).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct LiveTailSessionUpdateBuilder {
     pub(crate) session_metadata: ::std::option::Option<crate::types::LiveTailSessionMetadata>,
-    pub(crate) session_results:
-        ::std::option::Option<::std::vec::Vec<crate::types::LiveTailSessionLogEvent>>,
+    pub(crate) session_results: ::std::option::Option<::std::vec::Vec<crate::types::LiveTailSessionLogEvent>>,
 }
 impl LiveTailSessionUpdateBuilder {
     /// <p>This object contains the session metadata for a Live Tail session.</p>
@@ -50,17 +44,12 @@ impl LiveTailSessionUpdateBuilder {
         self
     }
     /// <p>This object contains the session metadata for a Live Tail session.</p>
-    pub fn set_session_metadata(
-        mut self,
-        input: ::std::option::Option<crate::types::LiveTailSessionMetadata>,
-    ) -> Self {
+    pub fn set_session_metadata(mut self, input: ::std::option::Option<crate::types::LiveTailSessionMetadata>) -> Self {
         self.session_metadata = input;
         self
     }
     /// <p>This object contains the session metadata for a Live Tail session.</p>
-    pub fn get_session_metadata(
-        &self,
-    ) -> &::std::option::Option<crate::types::LiveTailSessionMetadata> {
+    pub fn get_session_metadata(&self) -> &::std::option::Option<crate::types::LiveTailSessionMetadata> {
         &self.session_metadata
     }
     /// Appends an item to `session_results`.
@@ -77,18 +66,13 @@ impl LiveTailSessionUpdateBuilder {
     }
     /// <p>An array, where each member of the array includes the information for one log event in the Live Tail session.</p>
     /// <p>A <code>sessionResults</code> array can include as many as 500 log events. If the number of log events matching the request exceeds 500 per second, the log events are sampled down to 500 log events to be included in each <code>sessionUpdate</code> structure.</p>
-    pub fn set_session_results(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<crate::types::LiveTailSessionLogEvent>>,
-    ) -> Self {
+    pub fn set_session_results(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::LiveTailSessionLogEvent>>) -> Self {
         self.session_results = input;
         self
     }
     /// <p>An array, where each member of the array includes the information for one log event in the Live Tail session.</p>
     /// <p>A <code>sessionResults</code> array can include as many as 500 log events. If the number of log events matching the request exceeds 500 per second, the log events are sampled down to 500 log events to be included in each <code>sessionUpdate</code> structure.</p>
-    pub fn get_session_results(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<crate::types::LiveTailSessionLogEvent>> {
+    pub fn get_session_results(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::LiveTailSessionLogEvent>> {
         &self.session_results
     }
     /// Consumes the builder and constructs a [`LiveTailSessionUpdate`](crate::types::LiveTailSessionUpdate).

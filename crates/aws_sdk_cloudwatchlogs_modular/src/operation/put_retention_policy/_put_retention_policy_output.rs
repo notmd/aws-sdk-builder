@@ -15,17 +15,14 @@ impl ::aws_types::request_id::RequestId for PutRetentionPolicyOutput {
 #[cfg(feature = "op_put_retention_policy")]
 impl PutRetentionPolicyOutput {
     /// Creates a new builder-style object to manufacture [`PutRetentionPolicyOutput`](crate::operation::put_retention_policy::PutRetentionPolicyOutput).
-    pub fn builder(
-    ) -> crate::operation::put_retention_policy::builders::PutRetentionPolicyOutputBuilder {
+    pub fn builder() -> crate::operation::put_retention_policy::builders::PutRetentionPolicyOutputBuilder {
         crate::operation::put_retention_policy::builders::PutRetentionPolicyOutputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_put_retention_policy")]
 /// A builder for [`PutRetentionPolicyOutput`](crate::operation::put_retention_policy::PutRetentionPolicyOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct PutRetentionPolicyOutputBuilder {
     _request_id: Option<String>,

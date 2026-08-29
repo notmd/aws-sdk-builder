@@ -23,9 +23,7 @@ impl ParseRoute53 {
 }
 
 /// A builder for [`ParseRoute53`](crate::types::ParseRoute53).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct ParseRoute53Builder {
     pub(crate) source: ::std::option::Option<::std::string::String>,
@@ -47,8 +45,6 @@ impl ParseRoute53Builder {
     }
     /// Consumes the builder and constructs a [`ParseRoute53`](crate::types::ParseRoute53).
     pub fn build(self) -> crate::types::ParseRoute53 {
-        crate::types::ParseRoute53 {
-            source: self.source,
-        }
+        crate::types::ParseRoute53 { source: self.source }
     }
 }

@@ -30,17 +30,14 @@ impl ::aws_types::request_id::RequestId for CreateScheduledQueryOutput {
 #[cfg(feature = "op_create_scheduled_query")]
 impl CreateScheduledQueryOutput {
     /// Creates a new builder-style object to manufacture [`CreateScheduledQueryOutput`](crate::operation::create_scheduled_query::CreateScheduledQueryOutput).
-    pub fn builder(
-    ) -> crate::operation::create_scheduled_query::builders::CreateScheduledQueryOutputBuilder {
+    pub fn builder() -> crate::operation::create_scheduled_query::builders::CreateScheduledQueryOutputBuilder {
         crate::operation::create_scheduled_query::builders::CreateScheduledQueryOutputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_create_scheduled_query")]
 /// A builder for [`CreateScheduledQueryOutput`](crate::operation::create_scheduled_query::CreateScheduledQueryOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct CreateScheduledQueryOutputBuilder {
     pub(crate) scheduled_query_arn: ::std::option::Option<::std::string::String>,
@@ -50,18 +47,12 @@ pub struct CreateScheduledQueryOutputBuilder {
 #[cfg(feature = "op_create_scheduled_query")]
 impl CreateScheduledQueryOutputBuilder {
     /// <p>The ARN of the created scheduled query.</p>
-    pub fn scheduled_query_arn(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn scheduled_query_arn(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.scheduled_query_arn = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The ARN of the created scheduled query.</p>
-    pub fn set_scheduled_query_arn(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_scheduled_query_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.scheduled_query_arn = input;
         self
     }
@@ -75,10 +66,7 @@ impl CreateScheduledQueryOutputBuilder {
         self
     }
     /// <p>The current state of the scheduled query.</p>
-    pub fn set_state(
-        mut self,
-        input: ::std::option::Option<crate::types::ScheduledQueryState>,
-    ) -> Self {
+    pub fn set_state(mut self, input: ::std::option::Option<crate::types::ScheduledQueryState>) -> Self {
         self.state = input;
         self
     }

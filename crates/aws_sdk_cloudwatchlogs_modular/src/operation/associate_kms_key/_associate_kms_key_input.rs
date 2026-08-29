@@ -56,9 +56,7 @@ impl AssociateKmsKeyInput {
 
 #[cfg(feature = "op_associate_kms_key")]
 /// A builder for [`AssociateKmsKeyInput`](crate::operation::associate_kms_key::AssociateKmsKeyInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct AssociateKmsKeyInputBuilder {
     pub(crate) log_group_name: ::std::option::Option<::std::string::String>,
@@ -69,19 +67,13 @@ pub struct AssociateKmsKeyInputBuilder {
 impl AssociateKmsKeyInputBuilder {
     /// <p>The name of the log group.</p>
     /// <p>In your <code>AssociateKmsKey</code> operation, you must specify either the <code>resourceIdentifier</code> parameter or the <code>logGroup</code> parameter, but you can't specify both.</p>
-    pub fn log_group_name(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn log_group_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.log_group_name = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The name of the log group.</p>
     /// <p>In your <code>AssociateKmsKey</code> operation, you must specify either the <code>resourceIdentifier</code> parameter or the <code>logGroup</code> parameter, but you can't specify both.</p>
-    pub fn set_log_group_name(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_log_group_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.log_group_name = input;
         self
     }
@@ -115,10 +107,7 @@ impl AssociateKmsKeyInputBuilder {
     /// <p><code>arn:aws:logs:<i>REGION</i>:<i>ACCOUNT_ID</i>:log-group:<i>LOG_GROUP_NAME</i> </code></p></li>
     /// </ul>
     /// <p>In your <code>AssociateKmsKey</code> operation, you must specify either the <code>resourceIdentifier</code> parameter or the <code>logGroup</code> parameter, but you can't specify both.</p>
-    pub fn resource_identifier(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn resource_identifier(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.resource_identifier = ::std::option::Option::Some(input.into());
         self
     }
@@ -132,10 +121,7 @@ impl AssociateKmsKeyInputBuilder {
     /// <p><code>arn:aws:logs:<i>REGION</i>:<i>ACCOUNT_ID</i>:log-group:<i>LOG_GROUP_NAME</i> </code></p></li>
     /// </ul>
     /// <p>In your <code>AssociateKmsKey</code> operation, you must specify either the <code>resourceIdentifier</code> parameter or the <code>logGroup</code> parameter, but you can't specify both.</p>
-    pub fn set_resource_identifier(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_resource_identifier(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.resource_identifier = input;
         self
     }
@@ -155,10 +141,7 @@ impl AssociateKmsKeyInputBuilder {
     /// Consumes the builder and constructs a [`AssociateKmsKeyInput`](crate::operation::associate_kms_key::AssociateKmsKeyInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        crate::operation::associate_kms_key::AssociateKmsKeyInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    ) -> ::std::result::Result<crate::operation::associate_kms_key::AssociateKmsKeyInput, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::operation::associate_kms_key::AssociateKmsKeyInput {
             log_group_name: self.log_group_name,
             kms_key_id: self.kms_key_id,

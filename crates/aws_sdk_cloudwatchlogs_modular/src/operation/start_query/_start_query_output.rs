@@ -31,9 +31,7 @@ impl StartQueryOutput {
 
 #[cfg(feature = "op_start_query")]
 /// A builder for [`StartQueryOutput`](crate::operation::start_query::StartQueryOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct StartQueryOutputBuilder {
     pub(crate) query_id: ::std::option::Option<::std::string::String>,

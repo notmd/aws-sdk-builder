@@ -34,9 +34,7 @@ impl QueryParameter {
 }
 
 /// A builder for [`QueryParameter`](crate::types::QueryParameter).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct QueryParameterBuilder {
     pub(crate) name: ::std::option::Option<::std::string::String>,
@@ -60,18 +58,12 @@ impl QueryParameterBuilder {
         &self.name
     }
     /// <p>The default value to use for this query parameter if no value is supplied at execution time.</p>
-    pub fn default_value(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn default_value(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.default_value = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The default value to use for this query parameter if no value is supplied at execution time.</p>
-    pub fn set_default_value(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_default_value(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.default_value = input;
         self
     }
@@ -96,12 +88,7 @@ impl QueryParameterBuilder {
     /// Consumes the builder and constructs a [`QueryParameter`](crate::types::QueryParameter).
     /// This method will fail if any of the following fields are not set:
     /// - [`name`](crate::types::builders::QueryParameterBuilder::name)
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<
-        crate::types::QueryParameter,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    pub fn build(self) -> ::std::result::Result<crate::types::QueryParameter, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::QueryParameter {
             name: self.name.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

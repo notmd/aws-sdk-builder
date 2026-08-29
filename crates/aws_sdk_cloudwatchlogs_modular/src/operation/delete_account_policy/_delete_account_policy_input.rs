@@ -23,18 +23,14 @@ impl DeleteAccountPolicyInput {
 #[cfg(feature = "op_delete_account_policy")]
 impl DeleteAccountPolicyInput {
     /// Creates a new builder-style object to manufacture [`DeleteAccountPolicyInput`](crate::operation::delete_account_policy::DeleteAccountPolicyInput).
-    pub fn builder(
-    ) -> crate::operation::delete_account_policy::builders::DeleteAccountPolicyInputBuilder {
-        crate::operation::delete_account_policy::builders::DeleteAccountPolicyInputBuilder::default(
-        )
+    pub fn builder() -> crate::operation::delete_account_policy::builders::DeleteAccountPolicyInputBuilder {
+        crate::operation::delete_account_policy::builders::DeleteAccountPolicyInputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_delete_account_policy")]
 /// A builder for [`DeleteAccountPolicyInput`](crate::operation::delete_account_policy::DeleteAccountPolicyInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct DeleteAccountPolicyInputBuilder {
     pub(crate) policy_name: ::std::option::Option<::std::string::String>,
@@ -64,10 +60,7 @@ impl DeleteAccountPolicyInputBuilder {
         self
     }
     /// <p>The type of policy to delete.</p>
-    pub fn set_policy_type(
-        mut self,
-        input: ::std::option::Option<crate::types::PolicyType>,
-    ) -> Self {
+    pub fn set_policy_type(mut self, input: ::std::option::Option<crate::types::PolicyType>) -> Self {
         self.policy_type = input;
         self
     }
@@ -78,15 +71,11 @@ impl DeleteAccountPolicyInputBuilder {
     /// Consumes the builder and constructs a [`DeleteAccountPolicyInput`](crate::operation::delete_account_policy::DeleteAccountPolicyInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        crate::operation::delete_account_policy::DeleteAccountPolicyInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
-        ::std::result::Result::Ok(
-            crate::operation::delete_account_policy::DeleteAccountPolicyInput {
-                policy_name: self.policy_name,
-                policy_type: self.policy_type,
-            },
-        )
+    ) -> ::std::result::Result<crate::operation::delete_account_policy::DeleteAccountPolicyInput, ::aws_smithy_types::error::operation::BuildError>
+    {
+        ::std::result::Result::Ok(crate::operation::delete_account_policy::DeleteAccountPolicyInput {
+            policy_name: self.policy_name,
+            policy_type: self.policy_type,
+        })
     }
 }

@@ -7,8 +7,7 @@ pub struct ListScheduledQueriesOutput {
     /// <p>The token for the next set of items to return. The token expires after 24 hours.</p>
     pub next_token: ::std::option::Option<::std::string::String>,
     /// <p>An array of scheduled query summary information.</p>
-    pub scheduled_queries:
-        ::std::option::Option<::std::vec::Vec<crate::types::ScheduledQuerySummary>>,
+    pub scheduled_queries: ::std::option::Option<::std::vec::Vec<crate::types::ScheduledQuerySummary>>,
     _request_id: Option<String>,
 }
 #[cfg(feature = "op_list_scheduled_queries")]
@@ -33,22 +32,18 @@ impl ::aws_types::request_id::RequestId for ListScheduledQueriesOutput {
 #[cfg(feature = "op_list_scheduled_queries")]
 impl ListScheduledQueriesOutput {
     /// Creates a new builder-style object to manufacture [`ListScheduledQueriesOutput`](crate::operation::list_scheduled_queries::ListScheduledQueriesOutput).
-    pub fn builder(
-    ) -> crate::operation::list_scheduled_queries::builders::ListScheduledQueriesOutputBuilder {
+    pub fn builder() -> crate::operation::list_scheduled_queries::builders::ListScheduledQueriesOutputBuilder {
         crate::operation::list_scheduled_queries::builders::ListScheduledQueriesOutputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_list_scheduled_queries")]
 /// A builder for [`ListScheduledQueriesOutput`](crate::operation::list_scheduled_queries::ListScheduledQueriesOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct ListScheduledQueriesOutputBuilder {
     pub(crate) next_token: ::std::option::Option<::std::string::String>,
-    pub(crate) scheduled_queries:
-        ::std::option::Option<::std::vec::Vec<crate::types::ScheduledQuerySummary>>,
+    pub(crate) scheduled_queries: ::std::option::Option<::std::vec::Vec<crate::types::ScheduledQuerySummary>>,
     _request_id: Option<String>,
 }
 #[cfg(feature = "op_list_scheduled_queries")]
@@ -79,17 +74,12 @@ impl ListScheduledQueriesOutputBuilder {
         self
     }
     /// <p>An array of scheduled query summary information.</p>
-    pub fn set_scheduled_queries(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<crate::types::ScheduledQuerySummary>>,
-    ) -> Self {
+    pub fn set_scheduled_queries(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::ScheduledQuerySummary>>) -> Self {
         self.scheduled_queries = input;
         self
     }
     /// <p>An array of scheduled query summary information.</p>
-    pub fn get_scheduled_queries(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<crate::types::ScheduledQuerySummary>> {
+    pub fn get_scheduled_queries(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::ScheduledQuerySummary>> {
         &self.scheduled_queries
     }
     pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {

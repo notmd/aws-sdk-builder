@@ -15,17 +15,14 @@ impl ::aws_types::request_id::RequestId for CreateLogStreamOutput {
 #[cfg(feature = "op_create_log_stream")]
 impl CreateLogStreamOutput {
     /// Creates a new builder-style object to manufacture [`CreateLogStreamOutput`](crate::operation::create_log_stream::CreateLogStreamOutput).
-    pub fn builder() -> crate::operation::create_log_stream::builders::CreateLogStreamOutputBuilder
-    {
+    pub fn builder() -> crate::operation::create_log_stream::builders::CreateLogStreamOutputBuilder {
         crate::operation::create_log_stream::builders::CreateLogStreamOutputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_create_log_stream")]
 /// A builder for [`CreateLogStreamOutput`](crate::operation::create_log_stream::CreateLogStreamOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct CreateLogStreamOutputBuilder {
     _request_id: Option<String>,

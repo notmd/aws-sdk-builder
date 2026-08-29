@@ -23,9 +23,7 @@ impl RenameKeys {
 }
 
 /// A builder for [`RenameKeys`](crate::types::RenameKeys).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct RenameKeysBuilder {
     pub(crate) entries: ::std::option::Option<::std::vec::Vec<crate::types::RenameKeyEntry>>,
@@ -43,28 +41,18 @@ impl RenameKeysBuilder {
         self
     }
     /// <p>An array of <code>RenameKeyEntry</code> objects, where each object contains the information about a single key to rename.</p>
-    pub fn set_entries(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<crate::types::RenameKeyEntry>>,
-    ) -> Self {
+    pub fn set_entries(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::RenameKeyEntry>>) -> Self {
         self.entries = input;
         self
     }
     /// <p>An array of <code>RenameKeyEntry</code> objects, where each object contains the information about a single key to rename.</p>
-    pub fn get_entries(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<crate::types::RenameKeyEntry>> {
+    pub fn get_entries(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::RenameKeyEntry>> {
         &self.entries
     }
     /// Consumes the builder and constructs a [`RenameKeys`](crate::types::RenameKeys).
     /// This method will fail if any of the following fields are not set:
     /// - [`entries`](crate::types::builders::RenameKeysBuilder::entries)
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<
-        crate::types::RenameKeys,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    pub fn build(self) -> ::std::result::Result<crate::types::RenameKeys, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::RenameKeys {
             entries: self.entries.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

@@ -33,10 +33,7 @@ pub fn ser_put_query_definition_input_input(
             {
                 #[allow(unused_mut)]
                 let mut object_12 = array_10.value().start_object();
-                crate::protocol_serde::shape_query_parameter::ser_query_parameter(
-                    &mut object_12,
-                    item_11,
-                )?;
+                crate::protocol_serde::shape_query_parameter::ser_query_parameter(&mut object_12, item_11)?;
                 object_12.finish();
             }
         }

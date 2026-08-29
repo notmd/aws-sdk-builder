@@ -12,11 +12,7 @@ impl super::Client {
     ///   - [`imports(Option<Vec::<Import>>)`](crate::operation::describe_import_tasks::DescribeImportTasksOutput::imports): <p>The list of import tasks that match the request filters.</p>
     ///   - [`next_token(Option<String>)`](crate::operation::describe_import_tasks::DescribeImportTasksOutput::next_token): <p>The token to use when requesting the next set of results. Not present if there are no additional results to retrieve.</p>
     /// - On failure, responds with [`SdkError<DescribeImportTasksError>`](crate::operation::describe_import_tasks::DescribeImportTasksError)
-    pub fn describe_import_tasks(
-        &self,
-    ) -> crate::operation::describe_import_tasks::builders::DescribeImportTasksFluentBuilder {
-        crate::operation::describe_import_tasks::builders::DescribeImportTasksFluentBuilder::new(
-            self.handle.clone(),
-        )
+    pub fn describe_import_tasks(&self) -> crate::operation::describe_import_tasks::builders::DescribeImportTasksFluentBuilder {
+        crate::operation::describe_import_tasks::builders::DescribeImportTasksFluentBuilder::new(self.handle.clone())
     }
 }

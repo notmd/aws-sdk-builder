@@ -39,9 +39,7 @@ impl PutIntegrationOutput {
 
 #[cfg(feature = "op_put_integration")]
 /// A builder for [`PutIntegrationOutput`](crate::operation::put_integration::PutIntegrationOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct PutIntegrationOutputBuilder {
     pub(crate) integration_name: ::std::option::Option<::std::string::String>,
@@ -51,18 +49,12 @@ pub struct PutIntegrationOutputBuilder {
 #[cfg(feature = "op_put_integration")]
 impl PutIntegrationOutputBuilder {
     /// <p>The name of the integration that you just created.</p>
-    pub fn integration_name(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn integration_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.integration_name = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The name of the integration that you just created.</p>
-    pub fn set_integration_name(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_integration_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.integration_name = input;
         self
     }
@@ -78,18 +70,13 @@ impl PutIntegrationOutputBuilder {
     }
     /// <p>The status of the integration that you just created.</p>
     /// <p>After you create an integration, it takes a few minutes to complete. During this time, you'll see the status as <code>PROVISIONING</code>.</p>
-    pub fn set_integration_status(
-        mut self,
-        input: ::std::option::Option<crate::types::IntegrationStatus>,
-    ) -> Self {
+    pub fn set_integration_status(mut self, input: ::std::option::Option<crate::types::IntegrationStatus>) -> Self {
         self.integration_status = input;
         self
     }
     /// <p>The status of the integration that you just created.</p>
     /// <p>After you create an integration, it takes a few minutes to complete. During this time, you'll see the status as <code>PROVISIONING</code>.</p>
-    pub fn get_integration_status(
-        &self,
-    ) -> &::std::option::Option<crate::types::IntegrationStatus> {
+    pub fn get_integration_status(&self) -> &::std::option::Option<crate::types::IntegrationStatus> {
         &self.integration_status
     }
     pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {

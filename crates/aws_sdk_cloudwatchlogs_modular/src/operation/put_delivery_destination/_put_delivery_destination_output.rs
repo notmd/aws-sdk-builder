@@ -11,9 +11,7 @@ pub struct PutDeliveryDestinationOutput {
 #[cfg(feature = "op_put_delivery_destination")]
 impl PutDeliveryDestinationOutput {
     /// <p>A structure containing information about the delivery destination that you just created or updated.</p>
-    pub fn delivery_destination(
-        &self,
-    ) -> ::std::option::Option<&crate::types::DeliveryDestination> {
+    pub fn delivery_destination(&self) -> ::std::option::Option<&crate::types::DeliveryDestination> {
         self.delivery_destination.as_ref()
     }
 }
@@ -26,18 +24,14 @@ impl ::aws_types::request_id::RequestId for PutDeliveryDestinationOutput {
 #[cfg(feature = "op_put_delivery_destination")]
 impl PutDeliveryDestinationOutput {
     /// Creates a new builder-style object to manufacture [`PutDeliveryDestinationOutput`](crate::operation::put_delivery_destination::PutDeliveryDestinationOutput).
-    pub fn builder(
-    ) -> crate::operation::put_delivery_destination::builders::PutDeliveryDestinationOutputBuilder
-    {
+    pub fn builder() -> crate::operation::put_delivery_destination::builders::PutDeliveryDestinationOutputBuilder {
         crate::operation::put_delivery_destination::builders::PutDeliveryDestinationOutputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_put_delivery_destination")]
 /// A builder for [`PutDeliveryDestinationOutput`](crate::operation::put_delivery_destination::PutDeliveryDestinationOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct PutDeliveryDestinationOutputBuilder {
     pub(crate) delivery_destination: ::std::option::Option<crate::types::DeliveryDestination>,
@@ -51,17 +45,12 @@ impl PutDeliveryDestinationOutputBuilder {
         self
     }
     /// <p>A structure containing information about the delivery destination that you just created or updated.</p>
-    pub fn set_delivery_destination(
-        mut self,
-        input: ::std::option::Option<crate::types::DeliveryDestination>,
-    ) -> Self {
+    pub fn set_delivery_destination(mut self, input: ::std::option::Option<crate::types::DeliveryDestination>) -> Self {
         self.delivery_destination = input;
         self
     }
     /// <p>A structure containing information about the delivery destination that you just created or updated.</p>
-    pub fn get_delivery_destination(
-        &self,
-    ) -> &::std::option::Option<crate::types::DeliveryDestination> {
+    pub fn get_delivery_destination(&self) -> &::std::option::Option<crate::types::DeliveryDestination> {
         &self.delivery_destination
     }
     pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {

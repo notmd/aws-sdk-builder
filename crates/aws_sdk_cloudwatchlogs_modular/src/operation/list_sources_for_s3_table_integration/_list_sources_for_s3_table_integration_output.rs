@@ -32,20 +32,17 @@ impl ::aws_types::request_id::RequestId for ListSourcesForS3TableIntegrationOutp
 #[cfg(feature = "op_list_sources_for_s3_table_integration")]
 impl ListSourcesForS3TableIntegrationOutput {
     /// Creates a new builder-style object to manufacture [`ListSourcesForS3TableIntegrationOutput`](crate::operation::list_sources_for_s3_table_integration::ListSourcesForS3TableIntegrationOutput).
-    pub fn builder() -> crate::operation::list_sources_for_s3_table_integration::builders::ListSourcesForS3TableIntegrationOutputBuilder{
+    pub fn builder() -> crate::operation::list_sources_for_s3_table_integration::builders::ListSourcesForS3TableIntegrationOutputBuilder {
         crate::operation::list_sources_for_s3_table_integration::builders::ListSourcesForS3TableIntegrationOutputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_list_sources_for_s3_table_integration")]
 /// A builder for [`ListSourcesForS3TableIntegrationOutput`](crate::operation::list_sources_for_s3_table_integration::ListSourcesForS3TableIntegrationOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct ListSourcesForS3TableIntegrationOutputBuilder {
-    pub(crate) sources:
-        ::std::option::Option<::std::vec::Vec<crate::types::S3TableIntegrationSource>>,
+    pub(crate) sources: ::std::option::Option<::std::vec::Vec<crate::types::S3TableIntegrationSource>>,
     pub(crate) next_token: ::std::option::Option<::std::string::String>,
     _request_id: Option<String>,
 }
@@ -63,17 +60,12 @@ impl ListSourcesForS3TableIntegrationOutputBuilder {
         self
     }
     /// <p>The list of data source associations for the specified S3 Table Integration.</p>
-    pub fn set_sources(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<crate::types::S3TableIntegrationSource>>,
-    ) -> Self {
+    pub fn set_sources(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::S3TableIntegrationSource>>) -> Self {
         self.sources = input;
         self
     }
     /// <p>The list of data source associations for the specified S3 Table Integration.</p>
-    pub fn get_sources(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<crate::types::S3TableIntegrationSource>> {
+    pub fn get_sources(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::S3TableIntegrationSource>> {
         &self.sources
     }
     /// <p>The token for the next set of items to return. The token expires after 24 hours.</p>
@@ -100,7 +92,7 @@ impl ListSourcesForS3TableIntegrationOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`ListSourcesForS3TableIntegrationOutput`](crate::operation::list_sources_for_s3_table_integration::ListSourcesForS3TableIntegrationOutput).
-    pub fn build(self) -> crate::operation::list_sources_for_s3_table_integration::ListSourcesForS3TableIntegrationOutput{
+    pub fn build(self) -> crate::operation::list_sources_for_s3_table_integration::ListSourcesForS3TableIntegrationOutput {
         crate::operation::list_sources_for_s3_table_integration::ListSourcesForS3TableIntegrationOutput {
             sources: self.sources,
             next_token: self.next_token,

@@ -27,9 +27,7 @@ impl ImportFilter {
 }
 
 /// A builder for [`ImportFilter`](crate::types::ImportFilter).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct ImportFilterBuilder {
     pub(crate) start_event_time: ::std::option::Option<i64>,

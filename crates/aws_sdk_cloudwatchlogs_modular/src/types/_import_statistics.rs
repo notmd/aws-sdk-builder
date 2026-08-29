@@ -21,9 +21,7 @@ impl ImportStatistics {
 }
 
 /// A builder for [`ImportStatistics`](crate::types::ImportStatistics).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct ImportStatisticsBuilder {
     pub(crate) bytes_imported: ::std::option::Option<i64>,

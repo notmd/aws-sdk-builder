@@ -41,9 +41,7 @@ impl AnomalyDetector {
         self.log_group_arn_list.as_deref().unwrap_or_default()
     }
     /// <p>Specifies how often the anomaly detector runs and look for anomalies.</p>
-    pub fn evaluation_frequency(
-        &self,
-    ) -> ::std::option::Option<&crate::types::EvaluationFrequency> {
+    pub fn evaluation_frequency(&self) -> ::std::option::Option<&crate::types::EvaluationFrequency> {
         self.evaluation_frequency.as_ref()
     }
     /// <p>A symbolic description of how CloudWatch Logs should interpret the data in each log event. For example, a log event can contain timestamps, IP addresses, strings, and so on. You use the filter pattern to specify what to look for in the log event message.</p>
@@ -51,9 +49,7 @@ impl AnomalyDetector {
         self.filter_pattern.as_deref()
     }
     /// <p>Specifies the current status of the anomaly detector. To pause an anomaly detector, use the <code>enabled</code> parameter in the <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_UpdateLogAnomalyDetector.html">UpdateLogAnomalyDetector</a> operation.</p>
-    pub fn anomaly_detector_status(
-        &self,
-    ) -> ::std::option::Option<&crate::types::AnomalyDetectorStatus> {
+    pub fn anomaly_detector_status(&self) -> ::std::option::Option<&crate::types::AnomalyDetectorStatus> {
         self.anomaly_detector_status.as_ref()
     }
     /// <p>The ARN of the KMS key assigned to this anomaly detector, if any.</p>
@@ -81,9 +77,7 @@ impl AnomalyDetector {
 }
 
 /// A builder for [`AnomalyDetector`](crate::types::AnomalyDetector).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct AnomalyDetectorBuilder {
     pub(crate) anomaly_detector_arn: ::std::option::Option<::std::string::String>,
@@ -99,18 +93,12 @@ pub struct AnomalyDetectorBuilder {
 }
 impl AnomalyDetectorBuilder {
     /// <p>The ARN of the anomaly detector.</p>
-    pub fn anomaly_detector_arn(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn anomaly_detector_arn(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.anomaly_detector_arn = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The ARN of the anomaly detector.</p>
-    pub fn set_anomaly_detector_arn(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_anomaly_detector_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.anomaly_detector_arn = input;
         self
     }
@@ -119,18 +107,12 @@ impl AnomalyDetectorBuilder {
         &self.anomaly_detector_arn
     }
     /// <p>The name of the anomaly detector.</p>
-    pub fn detector_name(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn detector_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.detector_name = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The name of the anomaly detector.</p>
-    pub fn set_detector_name(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_detector_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.detector_name = input;
         self
     }
@@ -143,27 +125,19 @@ impl AnomalyDetectorBuilder {
     /// To override the contents of this collection use [`set_log_group_arn_list`](Self::set_log_group_arn_list).
     ///
     /// <p>A list of the ARNs of the log groups that this anomaly detector watches.</p>
-    pub fn log_group_arn_list(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn log_group_arn_list(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         let mut v = self.log_group_arn_list.unwrap_or_default();
         v.push(input.into());
         self.log_group_arn_list = ::std::option::Option::Some(v);
         self
     }
     /// <p>A list of the ARNs of the log groups that this anomaly detector watches.</p>
-    pub fn set_log_group_arn_list(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
-    ) -> Self {
+    pub fn set_log_group_arn_list(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
         self.log_group_arn_list = input;
         self
     }
     /// <p>A list of the ARNs of the log groups that this anomaly detector watches.</p>
-    pub fn get_log_group_arn_list(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
+    pub fn get_log_group_arn_list(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
         &self.log_group_arn_list
     }
     /// <p>Specifies how often the anomaly detector runs and look for anomalies.</p>
@@ -172,32 +146,21 @@ impl AnomalyDetectorBuilder {
         self
     }
     /// <p>Specifies how often the anomaly detector runs and look for anomalies.</p>
-    pub fn set_evaluation_frequency(
-        mut self,
-        input: ::std::option::Option<crate::types::EvaluationFrequency>,
-    ) -> Self {
+    pub fn set_evaluation_frequency(mut self, input: ::std::option::Option<crate::types::EvaluationFrequency>) -> Self {
         self.evaluation_frequency = input;
         self
     }
     /// <p>Specifies how often the anomaly detector runs and look for anomalies.</p>
-    pub fn get_evaluation_frequency(
-        &self,
-    ) -> &::std::option::Option<crate::types::EvaluationFrequency> {
+    pub fn get_evaluation_frequency(&self) -> &::std::option::Option<crate::types::EvaluationFrequency> {
         &self.evaluation_frequency
     }
     /// <p>A symbolic description of how CloudWatch Logs should interpret the data in each log event. For example, a log event can contain timestamps, IP addresses, strings, and so on. You use the filter pattern to specify what to look for in the log event message.</p>
-    pub fn filter_pattern(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn filter_pattern(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.filter_pattern = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>A symbolic description of how CloudWatch Logs should interpret the data in each log event. For example, a log event can contain timestamps, IP addresses, strings, and so on. You use the filter pattern to specify what to look for in the log event message.</p>
-    pub fn set_filter_pattern(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_filter_pattern(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.filter_pattern = input;
         self
     }
@@ -211,17 +174,12 @@ impl AnomalyDetectorBuilder {
         self
     }
     /// <p>Specifies the current status of the anomaly detector. To pause an anomaly detector, use the <code>enabled</code> parameter in the <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_UpdateLogAnomalyDetector.html">UpdateLogAnomalyDetector</a> operation.</p>
-    pub fn set_anomaly_detector_status(
-        mut self,
-        input: ::std::option::Option<crate::types::AnomalyDetectorStatus>,
-    ) -> Self {
+    pub fn set_anomaly_detector_status(mut self, input: ::std::option::Option<crate::types::AnomalyDetectorStatus>) -> Self {
         self.anomaly_detector_status = input;
         self
     }
     /// <p>Specifies the current status of the anomaly detector. To pause an anomaly detector, use the <code>enabled</code> parameter in the <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_UpdateLogAnomalyDetector.html">UpdateLogAnomalyDetector</a> operation.</p>
-    pub fn get_anomaly_detector_status(
-        &self,
-    ) -> &::std::option::Option<crate::types::AnomalyDetectorStatus> {
+    pub fn get_anomaly_detector_status(&self) -> &::std::option::Option<crate::types::AnomalyDetectorStatus> {
         &self.anomaly_detector_status
     }
     /// <p>The ARN of the KMS key assigned to this anomaly detector, if any.</p>

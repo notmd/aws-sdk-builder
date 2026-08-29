@@ -96,9 +96,7 @@ impl CreateImportTaskFluentBuilder {
         }
     }
     /// Access the CreateImportTask as a reference.
-    pub fn as_input(
-        &self,
-    ) -> &crate::operation::create_import_task::builders::CreateImportTaskInputBuilder {
+    pub fn as_input(&self) -> &crate::operation::create_import_task::builders::CreateImportTaskInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -122,14 +120,12 @@ impl CreateImportTaskFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins =
-            crate::operation::create_import_task::CreateImportTask::operation_runtime_plugins(
-                self.handle.runtime_plugins.clone(),
-                &self.handle.conf,
-                self.config_override,
-            );
-        crate::operation::create_import_task::CreateImportTask::orchestrate(&runtime_plugins, input)
-            .await
+        let runtime_plugins = crate::operation::create_import_task::CreateImportTask::operation_runtime_plugins(
+            self.handle.runtime_plugins.clone(),
+            &self.handle.conf,
+            self.config_override,
+        );
+        crate::operation::create_import_task::CreateImportTask::orchestrate(&runtime_plugins, input).await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -142,34 +138,22 @@ impl CreateImportTaskFluentBuilder {
     > {
         crate::client::customize::CustomizableOperation::new(self)
     }
-    pub(crate) fn config_override(
-        mut self,
-        config_override: impl ::std::convert::Into<crate::config::Builder>,
-    ) -> Self {
+    pub(crate) fn config_override(mut self, config_override: impl ::std::convert::Into<crate::config::Builder>) -> Self {
         self.set_config_override(::std::option::Option::Some(config_override.into()));
         self
     }
 
-    pub(crate) fn set_config_override(
-        &mut self,
-        config_override: ::std::option::Option<crate::config::Builder>,
-    ) -> &mut Self {
+    pub(crate) fn set_config_override(&mut self, config_override: ::std::option::Option<crate::config::Builder>) -> &mut Self {
         self.config_override = config_override;
         self
     }
     /// <p>The ARN of the source to import from.</p>
-    pub fn import_source_arn(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn import_source_arn(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.import_source_arn(input.into());
         self
     }
     /// <p>The ARN of the source to import from.</p>
-    pub fn set_import_source_arn(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_import_source_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_import_source_arn(input);
         self
     }
@@ -178,18 +162,12 @@ impl CreateImportTaskFluentBuilder {
         self.inner.get_import_source_arn()
     }
     /// <p>The ARN of the IAM role that grants CloudWatch Logs permission to import from the CloudTrail Lake Event Data Store.</p>
-    pub fn import_role_arn(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn import_role_arn(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.import_role_arn(input.into());
         self
     }
     /// <p>The ARN of the IAM role that grants CloudWatch Logs permission to import from the CloudTrail Lake Event Data Store.</p>
-    pub fn set_import_role_arn(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_import_role_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_import_role_arn(input);
         self
     }
@@ -203,10 +181,7 @@ impl CreateImportTaskFluentBuilder {
         self
     }
     /// <p>Optional filters to constrain the import by CloudTrail event time. Times are specified in Unix timestamp milliseconds. The range of data being imported must be within the specified source's retention period.</p>
-    pub fn set_import_filter(
-        mut self,
-        input: ::std::option::Option<crate::types::ImportFilter>,
-    ) -> Self {
+    pub fn set_import_filter(mut self, input: ::std::option::Option<crate::types::ImportFilter>) -> Self {
         self.inner = self.inner.set_import_filter(input);
         self
     }

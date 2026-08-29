@@ -39,9 +39,7 @@ impl ListAnomaliesOutput {
 
 #[cfg(feature = "op_list_anomalies")]
 /// A builder for [`ListAnomaliesOutput`](crate::operation::list_anomalies::ListAnomaliesOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct ListAnomaliesOutputBuilder {
     pub(crate) anomalies: ::std::option::Option<::std::vec::Vec<crate::types::Anomaly>>,
@@ -62,10 +60,7 @@ impl ListAnomaliesOutputBuilder {
         self
     }
     /// <p>An array of structures, where each structure contains information about one anomaly that a log anomaly detector has found.</p>
-    pub fn set_anomalies(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<crate::types::Anomaly>>,
-    ) -> Self {
+    pub fn set_anomalies(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::Anomaly>>) -> Self {
         self.anomalies = input;
         self
     }

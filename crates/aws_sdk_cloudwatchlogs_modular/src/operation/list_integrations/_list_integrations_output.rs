@@ -5,8 +5,7 @@
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
 pub struct ListIntegrationsOutput {
     /// <p>An array, where each object in the array contains information about one CloudWatch Logs integration in this account.</p>
-    pub integration_summaries:
-        ::std::option::Option<::std::vec::Vec<crate::types::IntegrationSummary>>,
+    pub integration_summaries: ::std::option::Option<::std::vec::Vec<crate::types::IntegrationSummary>>,
     _request_id: Option<String>,
 }
 #[cfg(feature = "op_list_integrations")]
@@ -27,21 +26,17 @@ impl ::aws_types::request_id::RequestId for ListIntegrationsOutput {
 #[cfg(feature = "op_list_integrations")]
 impl ListIntegrationsOutput {
     /// Creates a new builder-style object to manufacture [`ListIntegrationsOutput`](crate::operation::list_integrations::ListIntegrationsOutput).
-    pub fn builder() -> crate::operation::list_integrations::builders::ListIntegrationsOutputBuilder
-    {
+    pub fn builder() -> crate::operation::list_integrations::builders::ListIntegrationsOutputBuilder {
         crate::operation::list_integrations::builders::ListIntegrationsOutputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_list_integrations")]
 /// A builder for [`ListIntegrationsOutput`](crate::operation::list_integrations::ListIntegrationsOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct ListIntegrationsOutputBuilder {
-    pub(crate) integration_summaries:
-        ::std::option::Option<::std::vec::Vec<crate::types::IntegrationSummary>>,
+    pub(crate) integration_summaries: ::std::option::Option<::std::vec::Vec<crate::types::IntegrationSummary>>,
     _request_id: Option<String>,
 }
 #[cfg(feature = "op_list_integrations")]
@@ -58,17 +53,12 @@ impl ListIntegrationsOutputBuilder {
         self
     }
     /// <p>An array, where each object in the array contains information about one CloudWatch Logs integration in this account.</p>
-    pub fn set_integration_summaries(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<crate::types::IntegrationSummary>>,
-    ) -> Self {
+    pub fn set_integration_summaries(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::IntegrationSummary>>) -> Self {
         self.integration_summaries = input;
         self
     }
     /// <p>An array, where each object in the array contains information about one CloudWatch Logs integration in this account.</p>
-    pub fn get_integration_summaries(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<crate::types::IntegrationSummary>> {
+    pub fn get_integration_summaries(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::IntegrationSummary>> {
         &self.integration_summaries
     }
     pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {

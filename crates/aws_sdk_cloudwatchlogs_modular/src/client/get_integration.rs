@@ -10,11 +10,7 @@ impl super::Client {
     ///   - [`integration_status(Option<IntegrationStatus>)`](crate::operation::get_integration::GetIntegrationOutput::integration_status): <p>The current status of this integration.</p>
     ///   - [`integration_details(Option<IntegrationDetails>)`](crate::operation::get_integration::GetIntegrationOutput::integration_details): <p>A structure that contains information about the integration configuration. For an integration with OpenSearch Service, this includes information about OpenSearch Service resources such as the collection, the workspace, and policies.</p>
     /// - On failure, responds with [`SdkError<GetIntegrationError>`](crate::operation::get_integration::GetIntegrationError)
-    pub fn get_integration(
-        &self,
-    ) -> crate::operation::get_integration::builders::GetIntegrationFluentBuilder {
-        crate::operation::get_integration::builders::GetIntegrationFluentBuilder::new(
-            self.handle.clone(),
-        )
+    pub fn get_integration(&self) -> crate::operation::get_integration::builders::GetIntegrationFluentBuilder {
+        crate::operation::get_integration::builders::GetIntegrationFluentBuilder::new(self.handle.clone())
     }
 }

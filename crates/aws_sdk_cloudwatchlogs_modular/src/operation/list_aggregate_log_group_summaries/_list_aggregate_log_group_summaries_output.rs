@@ -5,8 +5,7 @@
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
 pub struct ListAggregateLogGroupSummariesOutput {
     /// <p>The list of aggregate log group summaries grouped by the specified data source characteristics.</p>
-    pub aggregate_log_group_summaries:
-        ::std::option::Option<::std::vec::Vec<crate::types::AggregateLogGroupSummary>>,
+    pub aggregate_log_group_summaries: ::std::option::Option<::std::vec::Vec<crate::types::AggregateLogGroupSummary>>,
     /// <p>The token for the next set of items to return. The token expires after 24 hours.</p>
     pub next_token: ::std::option::Option<::std::string::String>,
     _request_id: Option<String>,
@@ -17,9 +16,7 @@ impl ListAggregateLogGroupSummariesOutput {
     ///
     /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.aggregate_log_group_summaries.is_none()`.
     pub fn aggregate_log_group_summaries(&self) -> &[crate::types::AggregateLogGroupSummary] {
-        self.aggregate_log_group_summaries
-            .as_deref()
-            .unwrap_or_default()
+        self.aggregate_log_group_summaries.as_deref().unwrap_or_default()
     }
     /// <p>The token for the next set of items to return. The token expires after 24 hours.</p>
     pub fn next_token(&self) -> ::std::option::Option<&str> {
@@ -35,20 +32,17 @@ impl ::aws_types::request_id::RequestId for ListAggregateLogGroupSummariesOutput
 #[cfg(feature = "op_list_aggregate_log_group_summaries")]
 impl ListAggregateLogGroupSummariesOutput {
     /// Creates a new builder-style object to manufacture [`ListAggregateLogGroupSummariesOutput`](crate::operation::list_aggregate_log_group_summaries::ListAggregateLogGroupSummariesOutput).
-    pub fn builder() -> crate::operation::list_aggregate_log_group_summaries::builders::ListAggregateLogGroupSummariesOutputBuilder{
+    pub fn builder() -> crate::operation::list_aggregate_log_group_summaries::builders::ListAggregateLogGroupSummariesOutputBuilder {
         crate::operation::list_aggregate_log_group_summaries::builders::ListAggregateLogGroupSummariesOutputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_list_aggregate_log_group_summaries")]
 /// A builder for [`ListAggregateLogGroupSummariesOutput`](crate::operation::list_aggregate_log_group_summaries::ListAggregateLogGroupSummariesOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct ListAggregateLogGroupSummariesOutputBuilder {
-    pub(crate) aggregate_log_group_summaries:
-        ::std::option::Option<::std::vec::Vec<crate::types::AggregateLogGroupSummary>>,
+    pub(crate) aggregate_log_group_summaries: ::std::option::Option<::std::vec::Vec<crate::types::AggregateLogGroupSummary>>,
     pub(crate) next_token: ::std::option::Option<::std::string::String>,
     _request_id: Option<String>,
 }
@@ -59,10 +53,7 @@ impl ListAggregateLogGroupSummariesOutputBuilder {
     /// To override the contents of this collection use [`set_aggregate_log_group_summaries`](Self::set_aggregate_log_group_summaries).
     ///
     /// <p>The list of aggregate log group summaries grouped by the specified data source characteristics.</p>
-    pub fn aggregate_log_group_summaries(
-        mut self,
-        input: crate::types::AggregateLogGroupSummary,
-    ) -> Self {
+    pub fn aggregate_log_group_summaries(mut self, input: crate::types::AggregateLogGroupSummary) -> Self {
         let mut v = self.aggregate_log_group_summaries.unwrap_or_default();
         v.push(input);
         self.aggregate_log_group_summaries = ::std::option::Option::Some(v);
@@ -77,9 +68,7 @@ impl ListAggregateLogGroupSummariesOutputBuilder {
         self
     }
     /// <p>The list of aggregate log group summaries grouped by the specified data source characteristics.</p>
-    pub fn get_aggregate_log_group_summaries(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<crate::types::AggregateLogGroupSummary>> {
+    pub fn get_aggregate_log_group_summaries(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::AggregateLogGroupSummary>> {
         &self.aggregate_log_group_summaries
     }
     /// <p>The token for the next set of items to return. The token expires after 24 hours.</p>
@@ -106,10 +95,7 @@ impl ListAggregateLogGroupSummariesOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`ListAggregateLogGroupSummariesOutput`](crate::operation::list_aggregate_log_group_summaries::ListAggregateLogGroupSummariesOutput).
-    pub fn build(
-        self,
-    ) -> crate::operation::list_aggregate_log_group_summaries::ListAggregateLogGroupSummariesOutput
-    {
+    pub fn build(self) -> crate::operation::list_aggregate_log_group_summaries::ListAggregateLogGroupSummariesOutput {
         crate::operation::list_aggregate_log_group_summaries::ListAggregateLogGroupSummariesOutput {
             aggregate_log_group_summaries: self.aggregate_log_group_summaries,
             next_token: self.next_token,

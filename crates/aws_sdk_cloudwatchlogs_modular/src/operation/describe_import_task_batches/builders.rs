@@ -6,9 +6,7 @@ pub use crate::operation::describe_import_task_batches::_describe_import_task_ba
 pub use crate::operation::describe_import_task_batches::_describe_import_task_batches_output::DescribeImportTaskBatchesOutputBuilder;
 
 #[cfg(feature = "op_describe_import_task_batches")]
-impl
-    crate::operation::describe_import_task_batches::builders::DescribeImportTaskBatchesInputBuilder
-{
+impl crate::operation::describe_import_task_batches::builders::DescribeImportTaskBatchesInputBuilder {
     /// Sends a request with this input using the given client.
     pub async fn send_with(
         self,
@@ -65,7 +63,7 @@ impl DescribeImportTaskBatchesFluentBuilder {
         }
     }
     /// Access the DescribeImportTaskBatches as a reference.
-    pub fn as_input(&self) -> &crate::operation::describe_import_task_batches::builders::DescribeImportTaskBatchesInputBuilder{
+    pub fn as_input(&self) -> &crate::operation::describe_import_task_batches::builders::DescribeImportTaskBatchesInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -94,11 +92,7 @@ impl DescribeImportTaskBatchesFluentBuilder {
             &self.handle.conf,
             self.config_override,
         );
-        crate::operation::describe_import_task_batches::DescribeImportTaskBatches::orchestrate(
-            &runtime_plugins,
-            input,
-        )
-        .await
+        crate::operation::describe_import_task_batches::DescribeImportTaskBatches::orchestrate(&runtime_plugins, input).await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -111,18 +105,12 @@ impl DescribeImportTaskBatchesFluentBuilder {
     > {
         crate::client::customize::CustomizableOperation::new(self)
     }
-    pub(crate) fn config_override(
-        mut self,
-        config_override: impl ::std::convert::Into<crate::config::Builder>,
-    ) -> Self {
+    pub(crate) fn config_override(mut self, config_override: impl ::std::convert::Into<crate::config::Builder>) -> Self {
         self.set_config_override(::std::option::Option::Some(config_override.into()));
         self
     }
 
-    pub(crate) fn set_config_override(
-        &mut self,
-        config_override: ::std::option::Option<crate::config::Builder>,
-    ) -> &mut Self {
+    pub(crate) fn set_config_override(&mut self, config_override: ::std::option::Option<crate::config::Builder>) -> &mut Self {
         self.config_override = config_override;
         self
     }
@@ -151,17 +139,12 @@ impl DescribeImportTaskBatchesFluentBuilder {
         self
     }
     /// <p>Optional filter to list import batches by their status. Accepts multiple status values: IN_PROGRESS, CANCELLED, COMPLETED and FAILED.</p>
-    pub fn set_batch_import_status(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<crate::types::ImportStatus>>,
-    ) -> Self {
+    pub fn set_batch_import_status(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::ImportStatus>>) -> Self {
         self.inner = self.inner.set_batch_import_status(input);
         self
     }
     /// <p>Optional filter to list import batches by their status. Accepts multiple status values: IN_PROGRESS, CANCELLED, COMPLETED and FAILED.</p>
-    pub fn get_batch_import_status(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<crate::types::ImportStatus>> {
+    pub fn get_batch_import_status(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::ImportStatus>> {
         self.inner.get_batch_import_status()
     }
     /// <p>The maximum number of import batches to return in the response. Default: 10</p>

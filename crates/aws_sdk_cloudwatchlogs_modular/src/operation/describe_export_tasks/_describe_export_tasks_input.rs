@@ -35,18 +35,14 @@ impl DescribeExportTasksInput {
 #[cfg(feature = "op_describe_export_tasks")]
 impl DescribeExportTasksInput {
     /// Creates a new builder-style object to manufacture [`DescribeExportTasksInput`](crate::operation::describe_export_tasks::DescribeExportTasksInput).
-    pub fn builder(
-    ) -> crate::operation::describe_export_tasks::builders::DescribeExportTasksInputBuilder {
-        crate::operation::describe_export_tasks::builders::DescribeExportTasksInputBuilder::default(
-        )
+    pub fn builder() -> crate::operation::describe_export_tasks::builders::DescribeExportTasksInputBuilder {
+        crate::operation::describe_export_tasks::builders::DescribeExportTasksInputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_describe_export_tasks")]
 /// A builder for [`DescribeExportTasksInput`](crate::operation::describe_export_tasks::DescribeExportTasksInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct DescribeExportTasksInputBuilder {
     pub(crate) task_id: ::std::option::Option<::std::string::String>,
@@ -76,10 +72,7 @@ impl DescribeExportTasksInputBuilder {
         self
     }
     /// <p>The status code of the export task. Specifying a status code filters the results to zero or more export tasks.</p>
-    pub fn set_status_code(
-        mut self,
-        input: ::std::option::Option<crate::types::ExportTaskStatusCode>,
-    ) -> Self {
+    pub fn set_status_code(mut self, input: ::std::option::Option<crate::types::ExportTaskStatusCode>) -> Self {
         self.status_code = input;
         self
     }
@@ -118,17 +111,13 @@ impl DescribeExportTasksInputBuilder {
     /// Consumes the builder and constructs a [`DescribeExportTasksInput`](crate::operation::describe_export_tasks::DescribeExportTasksInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        crate::operation::describe_export_tasks::DescribeExportTasksInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
-        ::std::result::Result::Ok(
-            crate::operation::describe_export_tasks::DescribeExportTasksInput {
-                task_id: self.task_id,
-                status_code: self.status_code,
-                next_token: self.next_token,
-                limit: self.limit,
-            },
-        )
+    ) -> ::std::result::Result<crate::operation::describe_export_tasks::DescribeExportTasksInput, ::aws_smithy_types::error::operation::BuildError>
+    {
+        ::std::result::Result::Ok(crate::operation::describe_export_tasks::DescribeExportTasksInput {
+            task_id: self.task_id,
+            status_code: self.status_code,
+            next_token: self.next_token,
+            limit: self.limit,
+        })
     }
 }

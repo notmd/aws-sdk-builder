@@ -32,17 +32,14 @@ impl ::aws_types::request_id::RequestId for DescribeDeliveriesOutput {
 #[cfg(feature = "op_describe_deliveries")]
 impl DescribeDeliveriesOutput {
     /// Creates a new builder-style object to manufacture [`DescribeDeliveriesOutput`](crate::operation::describe_deliveries::DescribeDeliveriesOutput).
-    pub fn builder(
-    ) -> crate::operation::describe_deliveries::builders::DescribeDeliveriesOutputBuilder {
+    pub fn builder() -> crate::operation::describe_deliveries::builders::DescribeDeliveriesOutputBuilder {
         crate::operation::describe_deliveries::builders::DescribeDeliveriesOutputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_describe_deliveries")]
 /// A builder for [`DescribeDeliveriesOutput`](crate::operation::describe_deliveries::DescribeDeliveriesOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct DescribeDeliveriesOutputBuilder {
     pub(crate) deliveries: ::std::option::Option<::std::vec::Vec<crate::types::Delivery>>,
@@ -63,17 +60,12 @@ impl DescribeDeliveriesOutputBuilder {
         self
     }
     /// <p>An array of structures. Each structure contains information about one delivery in the account.</p>
-    pub fn set_deliveries(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<crate::types::Delivery>>,
-    ) -> Self {
+    pub fn set_deliveries(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::Delivery>>) -> Self {
         self.deliveries = input;
         self
     }
     /// <p>An array of structures. Each structure contains information about one delivery in the account.</p>
-    pub fn get_deliveries(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<crate::types::Delivery>> {
+    pub fn get_deliveries(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::Delivery>> {
         &self.deliveries
     }
     /// <p>The token for the next set of items to return. The token expires after 24 hours.</p>

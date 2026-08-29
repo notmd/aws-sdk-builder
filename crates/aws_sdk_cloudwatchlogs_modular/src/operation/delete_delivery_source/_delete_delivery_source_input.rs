@@ -17,17 +17,14 @@ impl DeleteDeliverySourceInput {
 #[cfg(feature = "op_delete_delivery_source")]
 impl DeleteDeliverySourceInput {
     /// Creates a new builder-style object to manufacture [`DeleteDeliverySourceInput`](crate::operation::delete_delivery_source::DeleteDeliverySourceInput).
-    pub fn builder(
-    ) -> crate::operation::delete_delivery_source::builders::DeleteDeliverySourceInputBuilder {
+    pub fn builder() -> crate::operation::delete_delivery_source::builders::DeleteDeliverySourceInputBuilder {
         crate::operation::delete_delivery_source::builders::DeleteDeliverySourceInputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_delete_delivery_source")]
 /// A builder for [`DeleteDeliverySourceInput`](crate::operation::delete_delivery_source::DeleteDeliverySourceInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct DeleteDeliverySourceInputBuilder {
     pub(crate) name: ::std::option::Option<::std::string::String>,
@@ -52,12 +49,8 @@ impl DeleteDeliverySourceInputBuilder {
     /// Consumes the builder and constructs a [`DeleteDeliverySourceInput`](crate::operation::delete_delivery_source::DeleteDeliverySourceInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        crate::operation::delete_delivery_source::DeleteDeliverySourceInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
-        ::std::result::Result::Ok(
-            crate::operation::delete_delivery_source::DeleteDeliverySourceInput { name: self.name },
-        )
+    ) -> ::std::result::Result<crate::operation::delete_delivery_source::DeleteDeliverySourceInput, ::aws_smithy_types::error::operation::BuildError>
+    {
+        ::std::result::Result::Ok(crate::operation::delete_delivery_source::DeleteDeliverySourceInput { name: self.name })
     }
 }

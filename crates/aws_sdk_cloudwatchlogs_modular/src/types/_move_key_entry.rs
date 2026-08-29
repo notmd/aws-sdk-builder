@@ -35,9 +35,7 @@ impl MoveKeyEntry {
 }
 
 /// A builder for [`MoveKeyEntry`](crate::types::MoveKeyEntry).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct MoveKeyEntryBuilder {
     pub(crate) source: ::std::option::Option<::std::string::String>,
@@ -93,12 +91,7 @@ impl MoveKeyEntryBuilder {
     /// This method will fail if any of the following fields are not set:
     /// - [`source`](crate::types::builders::MoveKeyEntryBuilder::source)
     /// - [`target`](crate::types::builders::MoveKeyEntryBuilder::target)
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<
-        crate::types::MoveKeyEntry,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    pub fn build(self) -> ::std::result::Result<crate::types::MoveKeyEntry, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::MoveKeyEntry {
             source: self.source.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

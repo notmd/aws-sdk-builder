@@ -510,7 +510,11 @@
 - `src/operation/update_scheduled_query/_update_scheduled_query_output.rs`
 - `src/operation/update_scheduled_query/builders.rs`
 - `src/protocol_serde.rs`
+- `src/serde_util.rs`
+- `src/types.rs`
+- `src/types/builders.rs`
 - `src/types/error.rs`
+- `src/types/error/builders.rs`
 
 ## Customizations
 

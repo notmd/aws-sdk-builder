@@ -28,9 +28,7 @@ impl InputLogEvent {
 }
 
 /// A builder for [`InputLogEvent`](crate::types::InputLogEvent).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct InputLogEventBuilder {
     pub(crate) timestamp: ::std::option::Option<i64>,
@@ -71,12 +69,7 @@ impl InputLogEventBuilder {
     /// This method will fail if any of the following fields are not set:
     /// - [`timestamp`](crate::types::builders::InputLogEventBuilder::timestamp)
     /// - [`message`](crate::types::builders::InputLogEventBuilder::message)
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<
-        crate::types::InputLogEvent,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    pub fn build(self) -> ::std::result::Result<crate::types::InputLogEvent, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::InputLogEvent {
             timestamp: self.timestamp.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

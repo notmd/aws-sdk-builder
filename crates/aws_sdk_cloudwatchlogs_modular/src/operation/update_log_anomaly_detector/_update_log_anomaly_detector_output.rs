@@ -15,16 +15,14 @@ impl ::aws_types::request_id::RequestId for UpdateLogAnomalyDetectorOutput {
 #[cfg(feature = "op_update_log_anomaly_detector")]
 impl UpdateLogAnomalyDetectorOutput {
     /// Creates a new builder-style object to manufacture [`UpdateLogAnomalyDetectorOutput`](crate::operation::update_log_anomaly_detector::UpdateLogAnomalyDetectorOutput).
-    pub fn builder() -> crate::operation::update_log_anomaly_detector::builders::UpdateLogAnomalyDetectorOutputBuilder{
+    pub fn builder() -> crate::operation::update_log_anomaly_detector::builders::UpdateLogAnomalyDetectorOutputBuilder {
         crate::operation::update_log_anomaly_detector::builders::UpdateLogAnomalyDetectorOutputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_update_log_anomaly_detector")]
 /// A builder for [`UpdateLogAnomalyDetectorOutput`](crate::operation::update_log_anomaly_detector::UpdateLogAnomalyDetectorOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct UpdateLogAnomalyDetectorOutputBuilder {
     _request_id: Option<String>,
@@ -41,9 +39,7 @@ impl UpdateLogAnomalyDetectorOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`UpdateLogAnomalyDetectorOutput`](crate::operation::update_log_anomaly_detector::UpdateLogAnomalyDetectorOutput).
-    pub fn build(
-        self,
-    ) -> crate::operation::update_log_anomaly_detector::UpdateLogAnomalyDetectorOutput {
+    pub fn build(self) -> crate::operation::update_log_anomaly_detector::UpdateLogAnomalyDetectorOutput {
         crate::operation::update_log_anomaly_detector::UpdateLogAnomalyDetectorOutput {
             _request_id: self._request_id,
         }

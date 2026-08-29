@@ -49,7 +49,7 @@ impl
             crate::operation::list_aggregate_log_group_summaries::ListAggregateLogGroupSummariesOutput,
             crate::operation::list_aggregate_log_group_summaries::ListAggregateLogGroupSummariesError,
         >,
-    >{
+    > {
         ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
     }
 }
@@ -64,7 +64,7 @@ impl ListAggregateLogGroupSummariesFluentBuilder {
         }
     }
     /// Access the ListAggregateLogGroupSummaries as a reference.
-    pub fn as_input(&self) -> &crate::operation::list_aggregate_log_group_summaries::builders::ListAggregateLogGroupSummariesInputBuilder{
+    pub fn as_input(&self) -> &crate::operation::list_aggregate_log_group_summaries::builders::ListAggregateLogGroupSummariesInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -83,7 +83,7 @@ impl ListAggregateLogGroupSummariesFluentBuilder {
             crate::operation::list_aggregate_log_group_summaries::ListAggregateLogGroupSummariesError,
             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
         >,
-    >{
+    > {
         let input = self
             .inner
             .build()
@@ -106,25 +106,19 @@ impl ListAggregateLogGroupSummariesFluentBuilder {
     > {
         crate::client::customize::CustomizableOperation::new(self)
     }
-    pub(crate) fn config_override(
-        mut self,
-        config_override: impl ::std::convert::Into<crate::config::Builder>,
-    ) -> Self {
+    pub(crate) fn config_override(mut self, config_override: impl ::std::convert::Into<crate::config::Builder>) -> Self {
         self.set_config_override(::std::option::Option::Some(config_override.into()));
         self
     }
 
-    pub(crate) fn set_config_override(
-        &mut self,
-        config_override: ::std::option::Option<crate::config::Builder>,
-    ) -> &mut Self {
+    pub(crate) fn set_config_override(&mut self, config_override: ::std::option::Option<crate::config::Builder>) -> &mut Self {
         self.config_override = config_override;
         self
     }
     /// Create a paginator for this request
     ///
     /// Paginators are used by calling [`send().await`](crate::operation::list_aggregate_log_group_summaries::paginator::ListAggregateLogGroupSummariesPaginator::send) which returns a [`PaginationStream`](aws_smithy_async::future::pagination_stream::PaginationStream).
-    pub fn into_paginator(self) -> crate::operation::list_aggregate_log_group_summaries::paginator::ListAggregateLogGroupSummariesPaginator{
+    pub fn into_paginator(self) -> crate::operation::list_aggregate_log_group_summaries::paginator::ListAggregateLogGroupSummariesPaginator {
         crate::operation::list_aggregate_log_group_summaries::paginator::ListAggregateLogGroupSummariesPaginator::new(self.handle, self.inner)
     }
     ///
@@ -133,25 +127,17 @@ impl ListAggregateLogGroupSummariesFluentBuilder {
     /// To override the contents of this collection use [`set_account_identifiers`](Self::set_account_identifiers).
     ///
     /// <p>When <code>includeLinkedAccounts</code> is set to <code>true</code>, use this parameter to specify the list of accounts to search. You can specify as many as 20 account IDs in the array.</p>
-    pub fn account_identifiers(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn account_identifiers(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.account_identifiers(input.into());
         self
     }
     /// <p>When <code>includeLinkedAccounts</code> is set to <code>true</code>, use this parameter to specify the list of accounts to search. You can specify as many as 20 account IDs in the array.</p>
-    pub fn set_account_identifiers(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
-    ) -> Self {
+    pub fn set_account_identifiers(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
         self.inner = self.inner.set_account_identifiers(input);
         self
     }
     /// <p>When <code>includeLinkedAccounts</code> is set to <code>true</code>, use this parameter to specify the list of accounts to search. You can specify as many as 20 account IDs in the array.</p>
-    pub fn get_account_identifiers(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
+    pub fn get_account_identifiers(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
         self.inner.get_account_identifiers()
     }
     /// <p>If you are using a monitoring account, set this to <code>true</code> to have the operation return log groups in the accounts listed in <code>accountIdentifiers</code>.</p>
@@ -180,10 +166,7 @@ impl ListAggregateLogGroupSummariesFluentBuilder {
         self
     }
     /// <p>Filters the results by log group class to include only log groups of the specified class.</p>
-    pub fn set_log_group_class(
-        mut self,
-        input: ::std::option::Option<crate::types::LogGroupClass>,
-    ) -> Self {
+    pub fn set_log_group_class(mut self, input: ::std::option::Option<crate::types::LogGroupClass>) -> Self {
         self.inner = self.inner.set_log_group_class(input);
         self
     }
@@ -201,10 +184,7 @@ impl ListAggregateLogGroupSummariesFluentBuilder {
     /// <p>To match multiple patterns, separate them with a <code>|</code> as in the example <code>^/aws/lambda|discovery</code></p></li>
     /// </ul>
     /// <p>You can specify as many as five different regular expression patterns in this field, each of which must be between 3 and 24 characters. You can include the <code>^</code> symbol as many as five times, and include the <code>|</code> symbol as many as four times.</p>
-    pub fn log_group_name_pattern(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn log_group_name_pattern(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.log_group_name_pattern(input.into());
         self
     }
@@ -218,10 +198,7 @@ impl ListAggregateLogGroupSummariesFluentBuilder {
     /// <p>To match multiple patterns, separate them with a <code>|</code> as in the example <code>^/aws/lambda|discovery</code></p></li>
     /// </ul>
     /// <p>You can specify as many as five different regular expression patterns in this field, each of which must be between 3 and 24 characters. You can include the <code>^</code> symbol as many as five times, and include the <code>|</code> symbol as many as four times.</p>
-    pub fn set_log_group_name_pattern(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_log_group_name_pattern(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_log_group_name_pattern(input);
         self
     }
@@ -249,17 +226,12 @@ impl ListAggregateLogGroupSummariesFluentBuilder {
         self
     }
     /// <p>Filters the results by data source characteristics to include only log groups associated with the specified data sources.</p>
-    pub fn set_data_sources(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<crate::types::DataSourceFilter>>,
-    ) -> Self {
+    pub fn set_data_sources(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::DataSourceFilter>>) -> Self {
         self.inner = self.inner.set_data_sources(input);
         self
     }
     /// <p>Filters the results by data source characteristics to include only log groups associated with the specified data sources.</p>
-    pub fn get_data_sources(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<crate::types::DataSourceFilter>> {
+    pub fn get_data_sources(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::DataSourceFilter>> {
         self.inner.get_data_sources()
     }
     /// <p>Specifies how to group the log groups in the summary.</p>
@@ -268,17 +240,12 @@ impl ListAggregateLogGroupSummariesFluentBuilder {
         self
     }
     /// <p>Specifies how to group the log groups in the summary.</p>
-    pub fn set_group_by(
-        mut self,
-        input: ::std::option::Option<crate::types::ListAggregateLogGroupSummariesGroupBy>,
-    ) -> Self {
+    pub fn set_group_by(mut self, input: ::std::option::Option<crate::types::ListAggregateLogGroupSummariesGroupBy>) -> Self {
         self.inner = self.inner.set_group_by(input);
         self
     }
     /// <p>Specifies how to group the log groups in the summary.</p>
-    pub fn get_group_by(
-        &self,
-    ) -> &::std::option::Option<crate::types::ListAggregateLogGroupSummariesGroupBy> {
+    pub fn get_group_by(&self) -> &::std::option::Option<crate::types::ListAggregateLogGroupSummariesGroupBy> {
         self.inner.get_group_by()
     }
     /// <p>The token for the next set of items to return. The token expires after 24 hours.</p>

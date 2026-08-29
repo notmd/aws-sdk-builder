@@ -15,17 +15,14 @@ impl ::aws_types::request_id::RequestId for PutDestinationPolicyOutput {
 #[cfg(feature = "op_put_destination_policy")]
 impl PutDestinationPolicyOutput {
     /// Creates a new builder-style object to manufacture [`PutDestinationPolicyOutput`](crate::operation::put_destination_policy::PutDestinationPolicyOutput).
-    pub fn builder(
-    ) -> crate::operation::put_destination_policy::builders::PutDestinationPolicyOutputBuilder {
+    pub fn builder() -> crate::operation::put_destination_policy::builders::PutDestinationPolicyOutputBuilder {
         crate::operation::put_destination_policy::builders::PutDestinationPolicyOutputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_put_destination_policy")]
 /// A builder for [`PutDestinationPolicyOutput`](crate::operation::put_destination_policy::PutDestinationPolicyOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct PutDestinationPolicyOutputBuilder {
     _request_id: Option<String>,

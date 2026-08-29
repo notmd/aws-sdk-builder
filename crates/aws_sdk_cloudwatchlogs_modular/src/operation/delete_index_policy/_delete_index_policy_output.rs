@@ -15,17 +15,14 @@ impl ::aws_types::request_id::RequestId for DeleteIndexPolicyOutput {
 #[cfg(feature = "op_delete_index_policy")]
 impl DeleteIndexPolicyOutput {
     /// Creates a new builder-style object to manufacture [`DeleteIndexPolicyOutput`](crate::operation::delete_index_policy::DeleteIndexPolicyOutput).
-    pub fn builder(
-    ) -> crate::operation::delete_index_policy::builders::DeleteIndexPolicyOutputBuilder {
+    pub fn builder() -> crate::operation::delete_index_policy::builders::DeleteIndexPolicyOutputBuilder {
         crate::operation::delete_index_policy::builders::DeleteIndexPolicyOutputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_delete_index_policy")]
 /// A builder for [`DeleteIndexPolicyOutput`](crate::operation::delete_index_policy::DeleteIndexPolicyOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct DeleteIndexPolicyOutputBuilder {
     _request_id: Option<String>,

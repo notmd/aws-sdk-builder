@@ -23,9 +23,7 @@ impl CopyValue {
 }
 
 /// A builder for [`CopyValue`](crate::types::CopyValue).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct CopyValueBuilder {
     pub(crate) entries: ::std::option::Option<::std::vec::Vec<crate::types::CopyValueEntry>>,
@@ -43,28 +41,18 @@ impl CopyValueBuilder {
         self
     }
     /// <p>An array of <code>CopyValueEntry</code> objects, where each object contains the information about one field value to copy.</p>
-    pub fn set_entries(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<crate::types::CopyValueEntry>>,
-    ) -> Self {
+    pub fn set_entries(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::CopyValueEntry>>) -> Self {
         self.entries = input;
         self
     }
     /// <p>An array of <code>CopyValueEntry</code> objects, where each object contains the information about one field value to copy.</p>
-    pub fn get_entries(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<crate::types::CopyValueEntry>> {
+    pub fn get_entries(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::CopyValueEntry>> {
         &self.entries
     }
     /// Consumes the builder and constructs a [`CopyValue`](crate::types::CopyValue).
     /// This method will fail if any of the following fields are not set:
     /// - [`entries`](crate::types::builders::CopyValueBuilder::entries)
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<
-        crate::types::CopyValue,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    pub fn build(self) -> ::std::result::Result<crate::types::CopyValue, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::CopyValue {
             entries: self.entries.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

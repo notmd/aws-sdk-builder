@@ -91,9 +91,7 @@ impl UpdateScheduledQueryOutput {
         self.end_time_offset
     }
     /// <p>The destination configuration of the updated scheduled query.</p>
-    pub fn destination_configuration(
-        &self,
-    ) -> ::std::option::Option<&crate::types::DestinationConfiguration> {
+    pub fn destination_configuration(&self) -> ::std::option::Option<&crate::types::DestinationConfiguration> {
         self.destination_configuration.as_ref()
     }
     /// <p>The state of the updated scheduled query.</p>
@@ -142,17 +140,14 @@ impl ::aws_types::request_id::RequestId for UpdateScheduledQueryOutput {
 #[cfg(feature = "op_update_scheduled_query")]
 impl UpdateScheduledQueryOutput {
     /// Creates a new builder-style object to manufacture [`UpdateScheduledQueryOutput`](crate::operation::update_scheduled_query::UpdateScheduledQueryOutput).
-    pub fn builder(
-    ) -> crate::operation::update_scheduled_query::builders::UpdateScheduledQueryOutputBuilder {
+    pub fn builder() -> crate::operation::update_scheduled_query::builders::UpdateScheduledQueryOutputBuilder {
         crate::operation::update_scheduled_query::builders::UpdateScheduledQueryOutputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_update_scheduled_query")]
 /// A builder for [`UpdateScheduledQueryOutput`](crate::operation::update_scheduled_query::UpdateScheduledQueryOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct UpdateScheduledQueryOutputBuilder {
     pub(crate) scheduled_query_arn: ::std::option::Option<::std::string::String>,
@@ -165,8 +160,7 @@ pub struct UpdateScheduledQueryOutputBuilder {
     pub(crate) timezone: ::std::option::Option<::std::string::String>,
     pub(crate) start_time_offset: ::std::option::Option<i64>,
     pub(crate) end_time_offset: ::std::option::Option<i64>,
-    pub(crate) destination_configuration:
-        ::std::option::Option<crate::types::DestinationConfiguration>,
+    pub(crate) destination_configuration: ::std::option::Option<crate::types::DestinationConfiguration>,
     pub(crate) state: ::std::option::Option<crate::types::ScheduledQueryState>,
     pub(crate) schedule_type: ::std::option::Option<crate::types::ScheduleType>,
     pub(crate) last_triggered_time: ::std::option::Option<i64>,
@@ -181,18 +175,12 @@ pub struct UpdateScheduledQueryOutputBuilder {
 #[cfg(feature = "op_update_scheduled_query")]
 impl UpdateScheduledQueryOutputBuilder {
     /// <p>The ARN of the updated scheduled query.</p>
-    pub fn scheduled_query_arn(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn scheduled_query_arn(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.scheduled_query_arn = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The ARN of the updated scheduled query.</p>
-    pub fn set_scheduled_query_arn(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_scheduled_query_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.scheduled_query_arn = input;
         self
     }
@@ -234,10 +222,7 @@ impl UpdateScheduledQueryOutputBuilder {
         self
     }
     /// <p>The query language of the updated scheduled query.</p>
-    pub fn set_query_language(
-        mut self,
-        input: ::std::option::Option<crate::types::QueryLanguage>,
-    ) -> Self {
+    pub fn set_query_language(mut self, input: ::std::option::Option<crate::types::QueryLanguage>) -> Self {
         self.query_language = input;
         self
     }
@@ -264,42 +249,28 @@ impl UpdateScheduledQueryOutputBuilder {
     /// To override the contents of this collection use [`set_log_group_identifiers`](Self::set_log_group_identifiers).
     ///
     /// <p>The log groups queried by the updated scheduled query.</p>
-    pub fn log_group_identifiers(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn log_group_identifiers(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         let mut v = self.log_group_identifiers.unwrap_or_default();
         v.push(input.into());
         self.log_group_identifiers = ::std::option::Option::Some(v);
         self
     }
     /// <p>The log groups queried by the updated scheduled query.</p>
-    pub fn set_log_group_identifiers(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
-    ) -> Self {
+    pub fn set_log_group_identifiers(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
         self.log_group_identifiers = input;
         self
     }
     /// <p>The log groups queried by the updated scheduled query.</p>
-    pub fn get_log_group_identifiers(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
+    pub fn get_log_group_identifiers(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
         &self.log_group_identifiers
     }
     /// <p>The cron expression of the updated scheduled query.</p>
-    pub fn schedule_expression(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn schedule_expression(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.schedule_expression = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The cron expression of the updated scheduled query.</p>
-    pub fn set_schedule_expression(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_schedule_expression(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.schedule_expression = input;
         self
     }
@@ -350,25 +321,17 @@ impl UpdateScheduledQueryOutputBuilder {
         &self.end_time_offset
     }
     /// <p>The destination configuration of the updated scheduled query.</p>
-    pub fn destination_configuration(
-        mut self,
-        input: crate::types::DestinationConfiguration,
-    ) -> Self {
+    pub fn destination_configuration(mut self, input: crate::types::DestinationConfiguration) -> Self {
         self.destination_configuration = ::std::option::Option::Some(input);
         self
     }
     /// <p>The destination configuration of the updated scheduled query.</p>
-    pub fn set_destination_configuration(
-        mut self,
-        input: ::std::option::Option<crate::types::DestinationConfiguration>,
-    ) -> Self {
+    pub fn set_destination_configuration(mut self, input: ::std::option::Option<crate::types::DestinationConfiguration>) -> Self {
         self.destination_configuration = input;
         self
     }
     /// <p>The destination configuration of the updated scheduled query.</p>
-    pub fn get_destination_configuration(
-        &self,
-    ) -> &::std::option::Option<crate::types::DestinationConfiguration> {
+    pub fn get_destination_configuration(&self) -> &::std::option::Option<crate::types::DestinationConfiguration> {
         &self.destination_configuration
     }
     /// <p>The state of the updated scheduled query.</p>
@@ -377,10 +340,7 @@ impl UpdateScheduledQueryOutputBuilder {
         self
     }
     /// <p>The state of the updated scheduled query.</p>
-    pub fn set_state(
-        mut self,
-        input: ::std::option::Option<crate::types::ScheduledQueryState>,
-    ) -> Self {
+    pub fn set_state(mut self, input: ::std::option::Option<crate::types::ScheduledQueryState>) -> Self {
         self.state = input;
         self
     }
@@ -394,10 +354,7 @@ impl UpdateScheduledQueryOutputBuilder {
         self
     }
     /// <p>The schedule type of the updated scheduled query.</p>
-    pub fn set_schedule_type(
-        mut self,
-        input: ::std::option::Option<crate::types::ScheduleType>,
-    ) -> Self {
+    pub fn set_schedule_type(mut self, input: ::std::option::Option<crate::types::ScheduleType>) -> Self {
         self.schedule_type = input;
         self
     }
@@ -425,17 +382,12 @@ impl UpdateScheduledQueryOutputBuilder {
         self
     }
     /// <p>The status of the most recent execution of the updated scheduled query.</p>
-    pub fn set_last_execution_status(
-        mut self,
-        input: ::std::option::Option<crate::types::ExecutionStatus>,
-    ) -> Self {
+    pub fn set_last_execution_status(mut self, input: ::std::option::Option<crate::types::ExecutionStatus>) -> Self {
         self.last_execution_status = input;
         self
     }
     /// <p>The status of the most recent execution of the updated scheduled query.</p>
-    pub fn get_last_execution_status(
-        &self,
-    ) -> &::std::option::Option<crate::types::ExecutionStatus> {
+    pub fn get_last_execution_status(&self) -> &::std::option::Option<crate::types::ExecutionStatus> {
         &self.last_execution_status
     }
     /// <p>The start time of the updated scheduled query.</p>
@@ -467,18 +419,12 @@ impl UpdateScheduledQueryOutputBuilder {
         &self.schedule_end_time
     }
     /// <p>The execution role ARN of the updated scheduled query.</p>
-    pub fn execution_role_arn(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn execution_role_arn(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.execution_role_arn = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The execution role ARN of the updated scheduled query.</p>
-    pub fn set_execution_role_arn(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_execution_role_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.execution_role_arn = input;
         self
     }

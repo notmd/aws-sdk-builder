@@ -17,17 +17,14 @@ impl CancelImportTaskInput {
 #[cfg(feature = "op_cancel_import_task")]
 impl CancelImportTaskInput {
     /// Creates a new builder-style object to manufacture [`CancelImportTaskInput`](crate::operation::cancel_import_task::CancelImportTaskInput).
-    pub fn builder() -> crate::operation::cancel_import_task::builders::CancelImportTaskInputBuilder
-    {
+    pub fn builder() -> crate::operation::cancel_import_task::builders::CancelImportTaskInputBuilder {
         crate::operation::cancel_import_task::builders::CancelImportTaskInputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_cancel_import_task")]
 /// A builder for [`CancelImportTaskInput`](crate::operation::cancel_import_task::CancelImportTaskInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct CancelImportTaskInputBuilder {
     pub(crate) import_id: ::std::option::Option<::std::string::String>,
@@ -52,14 +49,7 @@ impl CancelImportTaskInputBuilder {
     /// Consumes the builder and constructs a [`CancelImportTaskInput`](crate::operation::cancel_import_task::CancelImportTaskInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        crate::operation::cancel_import_task::CancelImportTaskInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
-        ::std::result::Result::Ok(
-            crate::operation::cancel_import_task::CancelImportTaskInput {
-                import_id: self.import_id,
-            },
-        )
+    ) -> ::std::result::Result<crate::operation::cancel_import_task::CancelImportTaskInput, ::aws_smithy_types::error::operation::BuildError> {
+        ::std::result::Result::Ok(crate::operation::cancel_import_task::CancelImportTaskInput { import_id: self.import_id })
     }
 }

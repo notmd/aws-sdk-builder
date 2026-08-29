@@ -35,17 +35,14 @@ impl ListScheduledQueriesInput {
 #[cfg(feature = "op_list_scheduled_queries")]
 impl ListScheduledQueriesInput {
     /// Creates a new builder-style object to manufacture [`ListScheduledQueriesInput`](crate::operation::list_scheduled_queries::ListScheduledQueriesInput).
-    pub fn builder(
-    ) -> crate::operation::list_scheduled_queries::builders::ListScheduledQueriesInputBuilder {
+    pub fn builder() -> crate::operation::list_scheduled_queries::builders::ListScheduledQueriesInputBuilder {
         crate::operation::list_scheduled_queries::builders::ListScheduledQueriesInputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_list_scheduled_queries")]
 /// A builder for [`ListScheduledQueriesInput`](crate::operation::list_scheduled_queries::ListScheduledQueriesInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct ListScheduledQueriesInputBuilder {
     pub(crate) max_results: ::std::option::Option<i32>,
@@ -89,10 +86,7 @@ impl ListScheduledQueriesInputBuilder {
         self
     }
     /// <p>Filter scheduled queries by state. Valid values are <code>ENABLED</code> and <code>DISABLED</code>. If not specified, all scheduled queries are returned.</p>
-    pub fn set_state(
-        mut self,
-        input: ::std::option::Option<crate::types::ScheduledQueryState>,
-    ) -> Self {
+    pub fn set_state(mut self, input: ::std::option::Option<crate::types::ScheduledQueryState>) -> Self {
         self.state = input;
         self
     }
@@ -106,10 +100,7 @@ impl ListScheduledQueriesInputBuilder {
         self
     }
     /// <p>Filter scheduled queries by schedule type. Valid values are <code>CUSTOMER_MANAGED</code> and <code>AWS_MANAGED</code>. If not specified, scheduled queries of all schedule types are returned.</p>
-    pub fn set_schedule_type(
-        mut self,
-        input: ::std::option::Option<crate::types::ScheduleType>,
-    ) -> Self {
+    pub fn set_schedule_type(mut self, input: ::std::option::Option<crate::types::ScheduleType>) -> Self {
         self.schedule_type = input;
         self
     }
@@ -120,17 +111,13 @@ impl ListScheduledQueriesInputBuilder {
     /// Consumes the builder and constructs a [`ListScheduledQueriesInput`](crate::operation::list_scheduled_queries::ListScheduledQueriesInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        crate::operation::list_scheduled_queries::ListScheduledQueriesInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
-        ::std::result::Result::Ok(
-            crate::operation::list_scheduled_queries::ListScheduledQueriesInput {
-                max_results: self.max_results,
-                next_token: self.next_token,
-                state: self.state,
-                schedule_type: self.schedule_type,
-            },
-        )
+    ) -> ::std::result::Result<crate::operation::list_scheduled_queries::ListScheduledQueriesInput, ::aws_smithy_types::error::operation::BuildError>
+    {
+        ::std::result::Result::Ok(crate::operation::list_scheduled_queries::ListScheduledQueriesInput {
+            max_results: self.max_results,
+            next_token: self.next_token,
+            state: self.state,
+            schedule_type: self.schedule_type,
+        })
     }
 }

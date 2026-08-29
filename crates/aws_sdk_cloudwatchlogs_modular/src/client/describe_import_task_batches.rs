@@ -13,7 +13,7 @@ impl super::Client {
     ///   - [`import_batches(Option<Vec::<ImportBatch>>)`](crate::operation::describe_import_task_batches::DescribeImportTaskBatchesOutput::import_batches): <p>The list of import batches that match the request filters.</p>
     ///   - [`next_token(Option<String>)`](crate::operation::describe_import_task_batches::DescribeImportTaskBatchesOutput::next_token): <p>The token to use when requesting the next set of results. Not present if there are no additional results to retrieve.</p>
     /// - On failure, responds with [`SdkError<DescribeImportTaskBatchesError>`](crate::operation::describe_import_task_batches::DescribeImportTaskBatchesError)
-    pub fn describe_import_task_batches(&self) -> crate::operation::describe_import_task_batches::builders::DescribeImportTaskBatchesFluentBuilder{
+    pub fn describe_import_task_batches(&self) -> crate::operation::describe_import_task_batches::builders::DescribeImportTaskBatchesFluentBuilder {
         crate::operation::describe_import_task_batches::builders::DescribeImportTaskBatchesFluentBuilder::new(self.handle.clone())
     }
 }

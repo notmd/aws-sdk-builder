@@ -179,17 +179,14 @@ impl PutAccountPolicyInput {
 #[cfg(feature = "op_put_account_policy")]
 impl PutAccountPolicyInput {
     /// Creates a new builder-style object to manufacture [`PutAccountPolicyInput`](crate::operation::put_account_policy::PutAccountPolicyInput).
-    pub fn builder() -> crate::operation::put_account_policy::builders::PutAccountPolicyInputBuilder
-    {
+    pub fn builder() -> crate::operation::put_account_policy::builders::PutAccountPolicyInputBuilder {
         crate::operation::put_account_policy::builders::PutAccountPolicyInputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_put_account_policy")]
 /// A builder for [`PutAccountPolicyInput`](crate::operation::put_account_policy::PutAccountPolicyInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct PutAccountPolicyInputBuilder {
     pub(crate) policy_name: ::std::option::Option<::std::string::String>,
@@ -268,10 +265,7 @@ impl PutAccountPolicyInputBuilder {
     /// <p><code>"policyDocument": "{ \"Fields\": \[ \"TransactionId\" \], \"FieldsV2\": {\"RequestId\": {\"type\": \"FIELD_INDEX\"}, \"APIName\": {\"type\": \"FACET\"}, \"StatusCode\": {\"type\": \"FACET\"}}}"</code></p>
     /// <p>You can use <code>FieldsV2</code> to specify the type for each field. Supported types are <code>FIELD_INDEX</code> and <code>FACET</code>. Field names within <code>Fields</code> and <code>FieldsV2</code> must be mutually exclusive.</p>
     /// This field is required.
-    pub fn policy_document(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn policy_document(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.policy_document = ::std::option::Option::Some(input.into());
         self
     }
@@ -327,10 +321,7 @@ impl PutAccountPolicyInputBuilder {
     /// <p>The following is an example of an index policy document that creates indexes with different types.</p>
     /// <p><code>"policyDocument": "{ \"Fields\": \[ \"TransactionId\" \], \"FieldsV2\": {\"RequestId\": {\"type\": \"FIELD_INDEX\"}, \"APIName\": {\"type\": \"FACET\"}, \"StatusCode\": {\"type\": \"FACET\"}}}"</code></p>
     /// <p>You can use <code>FieldsV2</code> to specify the type for each field. Supported types are <code>FIELD_INDEX</code> and <code>FACET</code>. Field names within <code>Fields</code> and <code>FieldsV2</code> must be mutually exclusive.</p>
-    pub fn set_policy_document(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_policy_document(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.policy_document = input;
         self
     }
@@ -396,10 +387,7 @@ impl PutAccountPolicyInputBuilder {
         self
     }
     /// <p>The type of policy that you're creating or updating.</p>
-    pub fn set_policy_type(
-        mut self,
-        input: ::std::option::Option<crate::types::PolicyType>,
-    ) -> Self {
+    pub fn set_policy_type(mut self, input: ::std::option::Option<crate::types::PolicyType>) -> Self {
         self.policy_type = input;
         self
     }
@@ -440,10 +428,7 @@ impl PutAccountPolicyInputBuilder {
     /// </ul>
     /// <p>The <code>selectionCriteria</code> string can be up to 25KB in length. The length is determined by using its UTF-8 bytes.</p>
     /// <p>Using the <code>selectionCriteria</code> parameter with <code>SUBSCRIPTION_FILTER_POLICY</code> is useful to help prevent infinite loops. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/Subscriptions-recursion-prevention.html">Log recursion prevention</a>.</p>
-    pub fn selection_criteria(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn selection_criteria(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.selection_criteria = ::std::option::Option::Some(input.into());
         self
     }
@@ -466,10 +451,7 @@ impl PutAccountPolicyInputBuilder {
     /// </ul>
     /// <p>The <code>selectionCriteria</code> string can be up to 25KB in length. The length is determined by using its UTF-8 bytes.</p>
     /// <p>Using the <code>selectionCriteria</code> parameter with <code>SUBSCRIPTION_FILTER_POLICY</code> is useful to help prevent infinite loops. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/Subscriptions-recursion-prevention.html">Log recursion prevention</a>.</p>
-    pub fn set_selection_criteria(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_selection_criteria(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.selection_criteria = input;
         self
     }
@@ -498,18 +480,13 @@ impl PutAccountPolicyInputBuilder {
     /// Consumes the builder and constructs a [`PutAccountPolicyInput`](crate::operation::put_account_policy::PutAccountPolicyInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        crate::operation::put_account_policy::PutAccountPolicyInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
-        ::std::result::Result::Ok(
-            crate::operation::put_account_policy::PutAccountPolicyInput {
-                policy_name: self.policy_name,
-                policy_document: self.policy_document,
-                policy_type: self.policy_type,
-                scope: self.scope,
-                selection_criteria: self.selection_criteria,
-            },
-        )
+    ) -> ::std::result::Result<crate::operation::put_account_policy::PutAccountPolicyInput, ::aws_smithy_types::error::operation::BuildError> {
+        ::std::result::Result::Ok(crate::operation::put_account_policy::PutAccountPolicyInput {
+            policy_name: self.policy_name,
+            policy_document: self.policy_document,
+            policy_type: self.policy_type,
+            scope: self.scope,
+            selection_criteria: self.selection_criteria,
+        })
     }
 }

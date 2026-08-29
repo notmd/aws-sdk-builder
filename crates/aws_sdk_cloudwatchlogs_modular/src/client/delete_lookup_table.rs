@@ -6,11 +6,7 @@ impl super::Client {
     ///   - [`lookup_table_arn(impl Into<String>)`](crate::operation::delete_lookup_table::builders::DeleteLookupTableFluentBuilder::lookup_table_arn) / [`set_lookup_table_arn(Option<String>)`](crate::operation::delete_lookup_table::builders::DeleteLookupTableFluentBuilder::set_lookup_table_arn):<br>required: **true**<br><p>The ARN of the lookup table to delete.</p><br>
     /// - On success, responds with [`DeleteLookupTableOutput`](crate::operation::delete_lookup_table::DeleteLookupTableOutput)
     /// - On failure, responds with [`SdkError<DeleteLookupTableError>`](crate::operation::delete_lookup_table::DeleteLookupTableError)
-    pub fn delete_lookup_table(
-        &self,
-    ) -> crate::operation::delete_lookup_table::builders::DeleteLookupTableFluentBuilder {
-        crate::operation::delete_lookup_table::builders::DeleteLookupTableFluentBuilder::new(
-            self.handle.clone(),
-        )
+    pub fn delete_lookup_table(&self) -> crate::operation::delete_lookup_table::builders::DeleteLookupTableFluentBuilder {
+        crate::operation::delete_lookup_table::builders::DeleteLookupTableFluentBuilder::new(self.handle.clone())
     }
 }

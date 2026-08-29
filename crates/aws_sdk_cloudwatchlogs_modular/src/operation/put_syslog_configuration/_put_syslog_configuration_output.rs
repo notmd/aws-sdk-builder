@@ -15,18 +15,14 @@ impl ::aws_types::request_id::RequestId for PutSyslogConfigurationOutput {
 #[cfg(feature = "op_put_syslog_configuration")]
 impl PutSyslogConfigurationOutput {
     /// Creates a new builder-style object to manufacture [`PutSyslogConfigurationOutput`](crate::operation::put_syslog_configuration::PutSyslogConfigurationOutput).
-    pub fn builder(
-    ) -> crate::operation::put_syslog_configuration::builders::PutSyslogConfigurationOutputBuilder
-    {
+    pub fn builder() -> crate::operation::put_syslog_configuration::builders::PutSyslogConfigurationOutputBuilder {
         crate::operation::put_syslog_configuration::builders::PutSyslogConfigurationOutputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_put_syslog_configuration")]
 /// A builder for [`PutSyslogConfigurationOutput`](crate::operation::put_syslog_configuration::PutSyslogConfigurationOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct PutSyslogConfigurationOutputBuilder {
     _request_id: Option<String>,

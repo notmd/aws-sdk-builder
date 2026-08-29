@@ -36,9 +36,7 @@ impl GetQueryResultsInput {
 
 #[cfg(feature = "op_get_query_results")]
 /// A builder for [`GetQueryResultsInput`](crate::operation::get_query_results::GetQueryResultsInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct GetQueryResultsInputBuilder {
     pub(crate) query_id: ::std::option::Option<::std::string::String>,
@@ -93,10 +91,7 @@ impl GetQueryResultsInputBuilder {
     /// Consumes the builder and constructs a [`GetQueryResultsInput`](crate::operation::get_query_results::GetQueryResultsInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        crate::operation::get_query_results::GetQueryResultsInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    ) -> ::std::result::Result<crate::operation::get_query_results::GetQueryResultsInput, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::operation::get_query_results::GetQueryResultsInput {
             query_id: self.query_id,
             next_token: self.next_token,

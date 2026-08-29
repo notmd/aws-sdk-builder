@@ -67,17 +67,14 @@ impl DescribeLogStreamsInput {
 #[cfg(feature = "op_describe_log_streams")]
 impl DescribeLogStreamsInput {
     /// Creates a new builder-style object to manufacture [`DescribeLogStreamsInput`](crate::operation::describe_log_streams::DescribeLogStreamsInput).
-    pub fn builder(
-    ) -> crate::operation::describe_log_streams::builders::DescribeLogStreamsInputBuilder {
+    pub fn builder() -> crate::operation::describe_log_streams::builders::DescribeLogStreamsInputBuilder {
         crate::operation::describe_log_streams::builders::DescribeLogStreamsInputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_describe_log_streams")]
 /// A builder for [`DescribeLogStreamsInput`](crate::operation::describe_log_streams::DescribeLogStreamsInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct DescribeLogStreamsInputBuilder {
     pub(crate) log_group_name: ::std::option::Option<::std::string::String>,
@@ -93,20 +90,14 @@ impl DescribeLogStreamsInputBuilder {
     /// <p>The name of the log group.</p><note>
     /// <p>You must include either <code>logGroupIdentifier</code> or <code>logGroupName</code>, but not both.</p>
     /// </note>
-    pub fn log_group_name(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn log_group_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.log_group_name = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The name of the log group.</p><note>
     /// <p>You must include either <code>logGroupIdentifier</code> or <code>logGroupName</code>, but not both.</p>
     /// </note>
-    pub fn set_log_group_name(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_log_group_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.log_group_name = input;
         self
     }
@@ -119,20 +110,14 @@ impl DescribeLogStreamsInputBuilder {
     /// <p>Specify either the name or ARN of the log group to view. If the log group is in a source account and you are using a monitoring account, you must use the log group ARN.</p><note>
     /// <p>You must include either <code>logGroupIdentifier</code> or <code>logGroupName</code>, but not both.</p>
     /// </note>
-    pub fn log_group_identifier(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn log_group_identifier(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.log_group_identifier = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>Specify either the name or ARN of the log group to view. If the log group is in a source account and you are using a monitoring account, you must use the log group ARN.</p><note>
     /// <p>You must include either <code>logGroupIdentifier</code> or <code>logGroupName</code>, but not both.</p>
     /// </note>
-    pub fn set_log_group_identifier(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_log_group_identifier(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.log_group_identifier = input;
         self
     }
@@ -144,19 +129,13 @@ impl DescribeLogStreamsInputBuilder {
     }
     /// <p>The prefix to match.</p>
     /// <p>If <code>orderBy</code> is <code>LastEventTime</code>, you cannot specify this parameter.</p>
-    pub fn log_stream_name_prefix(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn log_stream_name_prefix(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.log_stream_name_prefix = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The prefix to match.</p>
     /// <p>If <code>orderBy</code> is <code>LastEventTime</code>, you cannot specify this parameter.</p>
-    pub fn set_log_stream_name_prefix(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_log_stream_name_prefix(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.log_stream_name_prefix = input;
         self
     }
@@ -230,20 +209,16 @@ impl DescribeLogStreamsInputBuilder {
     /// Consumes the builder and constructs a [`DescribeLogStreamsInput`](crate::operation::describe_log_streams::DescribeLogStreamsInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        crate::operation::describe_log_streams::DescribeLogStreamsInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
-        ::std::result::Result::Ok(
-            crate::operation::describe_log_streams::DescribeLogStreamsInput {
-                log_group_name: self.log_group_name,
-                log_group_identifier: self.log_group_identifier,
-                log_stream_name_prefix: self.log_stream_name_prefix,
-                order_by: self.order_by,
-                descending: self.descending,
-                next_token: self.next_token,
-                limit: self.limit,
-            },
-        )
+    ) -> ::std::result::Result<crate::operation::describe_log_streams::DescribeLogStreamsInput, ::aws_smithy_types::error::operation::BuildError>
+    {
+        ::std::result::Result::Ok(crate::operation::describe_log_streams::DescribeLogStreamsInput {
+            log_group_name: self.log_group_name,
+            log_group_identifier: self.log_group_identifier,
+            log_stream_name_prefix: self.log_stream_name_prefix,
+            order_by: self.order_by,
+            descending: self.descending,
+            next_token: self.next_token,
+            limit: self.limit,
+        })
     }
 }

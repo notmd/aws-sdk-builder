@@ -17,17 +17,14 @@ impl GetScheduledQueryInput {
 #[cfg(feature = "op_get_scheduled_query")]
 impl GetScheduledQueryInput {
     /// Creates a new builder-style object to manufacture [`GetScheduledQueryInput`](crate::operation::get_scheduled_query::GetScheduledQueryInput).
-    pub fn builder(
-    ) -> crate::operation::get_scheduled_query::builders::GetScheduledQueryInputBuilder {
+    pub fn builder() -> crate::operation::get_scheduled_query::builders::GetScheduledQueryInputBuilder {
         crate::operation::get_scheduled_query::builders::GetScheduledQueryInputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_get_scheduled_query")]
 /// A builder for [`GetScheduledQueryInput`](crate::operation::get_scheduled_query::GetScheduledQueryInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct GetScheduledQueryInputBuilder {
     pub(crate) identifier: ::std::option::Option<::std::string::String>,
@@ -52,14 +49,7 @@ impl GetScheduledQueryInputBuilder {
     /// Consumes the builder and constructs a [`GetScheduledQueryInput`](crate::operation::get_scheduled_query::GetScheduledQueryInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        crate::operation::get_scheduled_query::GetScheduledQueryInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
-        ::std::result::Result::Ok(
-            crate::operation::get_scheduled_query::GetScheduledQueryInput {
-                identifier: self.identifier,
-            },
-        )
+    ) -> ::std::result::Result<crate::operation::get_scheduled_query::GetScheduledQueryInput, ::aws_smithy_types::error::operation::BuildError> {
+        ::std::result::Result::Ok(crate::operation::get_scheduled_query::GetScheduledQueryInput { identifier: self.identifier })
     }
 }

@@ -23,16 +23,14 @@ impl AssociateSourceToS3TableIntegrationInput {
 #[cfg(feature = "op_associate_source_to_s3_table_integration")]
 impl AssociateSourceToS3TableIntegrationInput {
     /// Creates a new builder-style object to manufacture [`AssociateSourceToS3TableIntegrationInput`](crate::operation::associate_source_to_s3_table_integration::AssociateSourceToS3TableIntegrationInput).
-    pub fn builder() -> crate::operation::associate_source_to_s3_table_integration::builders::AssociateSourceToS3TableIntegrationInputBuilder{
+    pub fn builder() -> crate::operation::associate_source_to_s3_table_integration::builders::AssociateSourceToS3TableIntegrationInputBuilder {
         crate::operation::associate_source_to_s3_table_integration::builders::AssociateSourceToS3TableIntegrationInputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_associate_source_to_s3_table_integration")]
 /// A builder for [`AssociateSourceToS3TableIntegrationInput`](crate::operation::associate_source_to_s3_table_integration::AssociateSourceToS3TableIntegrationInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct AssociateSourceToS3TableIntegrationInputBuilder {
     pub(crate) integration_arn: ::std::option::Option<::std::string::String>,
@@ -42,18 +40,12 @@ pub struct AssociateSourceToS3TableIntegrationInputBuilder {
 impl AssociateSourceToS3TableIntegrationInputBuilder {
     /// <p>The Amazon Resource Name (ARN) of the S3 Table Integration to associate the data source with.</p>
     /// This field is required.
-    pub fn integration_arn(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn integration_arn(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.integration_arn = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The Amazon Resource Name (ARN) of the S3 Table Integration to associate the data source with.</p>
-    pub fn set_integration_arn(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_integration_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.integration_arn = input;
         self
     }
@@ -68,10 +60,7 @@ impl AssociateSourceToS3TableIntegrationInputBuilder {
         self
     }
     /// <p>The data source to associate with the S3 Table Integration. Contains the name and type of the data source.</p>
-    pub fn set_data_source(
-        mut self,
-        input: ::std::option::Option<crate::types::DataSource>,
-    ) -> Self {
+    pub fn set_data_source(mut self, input: ::std::option::Option<crate::types::DataSource>) -> Self {
         self.data_source = input;
         self
     }
@@ -85,7 +74,7 @@ impl AssociateSourceToS3TableIntegrationInputBuilder {
     ) -> ::std::result::Result<
         crate::operation::associate_source_to_s3_table_integration::AssociateSourceToS3TableIntegrationInput,
         ::aws_smithy_types::error::operation::BuildError,
-    >{
+    > {
         ::std::result::Result::Ok(
             crate::operation::associate_source_to_s3_table_integration::AssociateSourceToS3TableIntegrationInput {
                 integration_arn: self.integration_arn,

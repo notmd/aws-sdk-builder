@@ -45,9 +45,7 @@ impl GetLogEventsOutput {
 
 #[cfg(feature = "op_get_log_events")]
 /// A builder for [`GetLogEventsOutput`](crate::operation::get_log_events::GetLogEventsOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct GetLogEventsOutputBuilder {
     pub(crate) events: ::std::option::Option<::std::vec::Vec<crate::types::OutputLogEvent>>,
@@ -69,32 +67,21 @@ impl GetLogEventsOutputBuilder {
         self
     }
     /// <p>The events.</p>
-    pub fn set_events(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<crate::types::OutputLogEvent>>,
-    ) -> Self {
+    pub fn set_events(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::OutputLogEvent>>) -> Self {
         self.events = input;
         self
     }
     /// <p>The events.</p>
-    pub fn get_events(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<crate::types::OutputLogEvent>> {
+    pub fn get_events(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::OutputLogEvent>> {
         &self.events
     }
     /// <p>The token for the next set of items in the forward direction. The token expires after 24 hours. If you have reached the end of the stream, it returns the same token you passed in.</p>
-    pub fn next_forward_token(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn next_forward_token(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.next_forward_token = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The token for the next set of items in the forward direction. The token expires after 24 hours. If you have reached the end of the stream, it returns the same token you passed in.</p>
-    pub fn set_next_forward_token(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_next_forward_token(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.next_forward_token = input;
         self
     }
@@ -103,18 +90,12 @@ impl GetLogEventsOutputBuilder {
         &self.next_forward_token
     }
     /// <p>The token for the next set of items in the backward direction. The token expires after 24 hours. This token is not null. If you have reached the end of the stream, it returns the same token you passed in.</p>
-    pub fn next_backward_token(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn next_backward_token(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.next_backward_token = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The token for the next set of items in the backward direction. The token expires after 24 hours. This token is not null. If you have reached the end of the stream, it returns the same token you passed in.</p>
-    pub fn set_next_backward_token(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_next_backward_token(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.next_backward_token = input;
         self
     }

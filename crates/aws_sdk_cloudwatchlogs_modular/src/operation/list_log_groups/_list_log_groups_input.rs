@@ -102,9 +102,7 @@ impl ListLogGroupsInput {
 
 #[cfg(feature = "op_list_log_groups")]
 /// A builder for [`ListLogGroupsInput`](crate::operation::list_log_groups::ListLogGroupsInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct ListLogGroupsInputBuilder {
     pub(crate) log_group_name_pattern: ::std::option::Option<::std::string::String>,
@@ -129,10 +127,7 @@ impl ListLogGroupsInputBuilder {
     /// <p>To match multiple patterns, separate them with a <code>|</code> as in the example <code>^/aws/lambda|discovery</code></p></li>
     /// </ul>
     /// <p>You can specify as many as five different regular expression patterns in this field, each of which must be between 3 and 24 characters. You can include the <code>^</code> symbol as many as five times, and include the <code>|</code> symbol as many as four times.</p>
-    pub fn log_group_name_pattern(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn log_group_name_pattern(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.log_group_name_pattern = ::std::option::Option::Some(input.into());
         self
     }
@@ -146,10 +141,7 @@ impl ListLogGroupsInputBuilder {
     /// <p>To match multiple patterns, separate them with a <code>|</code> as in the example <code>^/aws/lambda|discovery</code></p></li>
     /// </ul>
     /// <p>You can specify as many as five different regular expression patterns in this field, each of which must be between 3 and 24 characters. You can include the <code>^</code> symbol as many as five times, and include the <code>|</code> symbol as many as four times.</p>
-    pub fn set_log_group_name_pattern(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_log_group_name_pattern(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.log_group_name_pattern = input;
         self
     }
@@ -172,10 +164,7 @@ impl ListLogGroupsInputBuilder {
         self
     }
     /// <p>Use this parameter to limit the results to only those log groups in the specified log group class. If you omit this parameter, log groups of all classes can be returned.</p>
-    pub fn set_log_group_class(
-        mut self,
-        input: ::std::option::Option<crate::types::LogGroupClass>,
-    ) -> Self {
+    pub fn set_log_group_class(mut self, input: ::std::option::Option<crate::types::LogGroupClass>) -> Self {
         self.log_group_class = input;
         self
     }
@@ -208,27 +197,19 @@ impl ListLogGroupsInputBuilder {
     /// To override the contents of this collection use [`set_account_identifiers`](Self::set_account_identifiers).
     ///
     /// <p>When <code>includeLinkedAccounts</code> is set to <code>true</code>, use this parameter to specify the list of accounts to search. You can specify as many as 20 account IDs in the array.</p>
-    pub fn account_identifiers(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn account_identifiers(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         let mut v = self.account_identifiers.unwrap_or_default();
         v.push(input.into());
         self.account_identifiers = ::std::option::Option::Some(v);
         self
     }
     /// <p>When <code>includeLinkedAccounts</code> is set to <code>true</code>, use this parameter to specify the list of accounts to search. You can specify as many as 20 account IDs in the array.</p>
-    pub fn set_account_identifiers(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
-    ) -> Self {
+    pub fn set_account_identifiers(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
         self.account_identifiers = input;
         self
     }
     /// <p>When <code>includeLinkedAccounts</code> is set to <code>true</code>, use this parameter to specify the list of accounts to search. You can specify as many as 20 account IDs in the array.</p>
-    pub fn get_account_identifiers(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
+    pub fn get_account_identifiers(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
         &self.account_identifiers
     }
     /// <p>The token for the next set of items to return. The token expires after 24 hours.</p>
@@ -271,17 +252,12 @@ impl ListLogGroupsInputBuilder {
         self
     }
     /// <p>An array of data source filters to filter log groups by their associated data sources. You can filter by data source name, type, or both. Multiple filters within the same dimension are combined with OR logic, while filters across different dimensions are combined with AND logic.</p>
-    pub fn set_data_sources(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<crate::types::DataSourceFilter>>,
-    ) -> Self {
+    pub fn set_data_sources(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::DataSourceFilter>>) -> Self {
         self.data_sources = input;
         self
     }
     /// <p>An array of data source filters to filter log groups by their associated data sources. You can filter by data source name, type, or both. Multiple filters within the same dimension are combined with OR logic, while filters across different dimensions are combined with AND logic.</p>
-    pub fn get_data_sources(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<crate::types::DataSourceFilter>> {
+    pub fn get_data_sources(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::DataSourceFilter>> {
         &self.data_sources
     }
     /// Appends an item to `field_index_names`.
@@ -289,27 +265,19 @@ impl ListLogGroupsInputBuilder {
     /// To override the contents of this collection use [`set_field_index_names`](Self::set_field_index_names).
     ///
     /// <p>An array of field index names to filter log groups that have specific field indexes. Only log groups containing all specified field indexes are returned. You can specify 1 to 20 field index names, each with 1 to 512 characters.</p>
-    pub fn field_index_names(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn field_index_names(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         let mut v = self.field_index_names.unwrap_or_default();
         v.push(input.into());
         self.field_index_names = ::std::option::Option::Some(v);
         self
     }
     /// <p>An array of field index names to filter log groups that have specific field indexes. Only log groups containing all specified field indexes are returned. You can specify 1 to 20 field index names, each with 1 to 512 characters.</p>
-    pub fn set_field_index_names(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
-    ) -> Self {
+    pub fn set_field_index_names(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
         self.field_index_names = input;
         self
     }
     /// <p>An array of field index names to filter log groups that have specific field indexes. Only log groups containing all specified field indexes are returned. You can specify 1 to 20 field index names, each with 1 to 512 characters.</p>
-    pub fn get_field_index_names(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
+    pub fn get_field_index_names(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
         &self.field_index_names
     }
     /// Appends an item to `log_group_tags`.
@@ -324,26 +292,18 @@ impl ListLogGroupsInputBuilder {
         self
     }
     /// <p>An array of tag filters to return only log groups that have specific tags. Multiple filters are combined with AND logic.</p>
-    pub fn set_log_group_tags(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<crate::types::TagFilter>>,
-    ) -> Self {
+    pub fn set_log_group_tags(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::TagFilter>>) -> Self {
         self.log_group_tags = input;
         self
     }
     /// <p>An array of tag filters to return only log groups that have specific tags. Multiple filters are combined with AND logic.</p>
-    pub fn get_log_group_tags(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<crate::types::TagFilter>> {
+    pub fn get_log_group_tags(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::TagFilter>> {
         &self.log_group_tags
     }
     /// Consumes the builder and constructs a [`ListLogGroupsInput`](crate::operation::list_log_groups::ListLogGroupsInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        crate::operation::list_log_groups::ListLogGroupsInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    ) -> ::std::result::Result<crate::operation::list_log_groups::ListLogGroupsInput, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::operation::list_log_groups::ListLogGroupsInput {
             log_group_name_pattern: self.log_group_name_pattern,
             log_group_class: self.log_group_class,

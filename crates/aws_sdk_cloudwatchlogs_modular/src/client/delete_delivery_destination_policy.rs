@@ -8,7 +8,7 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<DeleteDeliveryDestinationPolicyError>`](crate::operation::delete_delivery_destination_policy::DeleteDeliveryDestinationPolicyError)
     pub fn delete_delivery_destination_policy(
         &self,
-    ) -> crate::operation::delete_delivery_destination_policy::builders::DeleteDeliveryDestinationPolicyFluentBuilder{
+    ) -> crate::operation::delete_delivery_destination_policy::builders::DeleteDeliveryDestinationPolicyFluentBuilder {
         crate::operation::delete_delivery_destination_policy::builders::DeleteDeliveryDestinationPolicyFluentBuilder::new(self.handle.clone())
     }
 }

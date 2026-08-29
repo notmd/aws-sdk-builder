@@ -15,17 +15,14 @@ impl ::aws_types::request_id::RequestId for DeleteMetricFilterOutput {
 #[cfg(feature = "op_delete_metric_filter")]
 impl DeleteMetricFilterOutput {
     /// Creates a new builder-style object to manufacture [`DeleteMetricFilterOutput`](crate::operation::delete_metric_filter::DeleteMetricFilterOutput).
-    pub fn builder(
-    ) -> crate::operation::delete_metric_filter::builders::DeleteMetricFilterOutputBuilder {
+    pub fn builder() -> crate::operation::delete_metric_filter::builders::DeleteMetricFilterOutputBuilder {
         crate::operation::delete_metric_filter::builders::DeleteMetricFilterOutputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_delete_metric_filter")]
 /// A builder for [`DeleteMetricFilterOutput`](crate::operation::delete_metric_filter::DeleteMetricFilterOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct DeleteMetricFilterOutputBuilder {
     _request_id: Option<String>,
