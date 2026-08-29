@@ -265,6 +265,12 @@ pub fn transform_tree(
     if !changed_files.is_empty() {
         source_files = collect_source_files(&source_root, crate_root)?;
     }
+    let redundant_cfg_files =
+        remove_redundant_operation_child_cfgs(crate_root, &source_files, operations)?;
+    changed_files.extend(redundant_cfg_files);
+    if !changed_files.is_empty() {
+        source_files = collect_source_files(&source_root, crate_root)?;
+    }
 
     let waiter_owners = waiter_owners(&source_files, operations);
     let type_owners = build_type_owners(&source_files, operations);
@@ -1342,6 +1348,105 @@ fn is_operation_or_client_child_path(relative: &str, operations: &[Operation]) -
             })
 }
 
+fn parent_operation_feature<'a>(relative: &str, operations: &'a [Operation]) -> Option<&'a str> {
+    let path = relative.strip_prefix("src/").unwrap_or(relative);
+    let mut components = path.split('/');
+    if !matches!(components.next(), Some("operation")) {
+        return None;
+    }
+    let module = components.next()?.strip_suffix(".rs")?;
+    operations
+        .iter()
+        .find(|operation| operation.module == module)
+        .map(|operation| operation.feature.as_str())
+}
+
+struct RedundantCfgVisitor<'a> {
+    source: &'a str,
+    feature: Option<&'a str>,
+    operation_features: &'a BTreeSet<String>,
+    removals: Vec<(usize, usize)>,
+}
+
+impl<'ast> Visit<'ast> for RedundantCfgVisitor<'_> {
+    fn visit_attribute(&mut self, attribute: &'ast Attribute) {
+        let matches_parent = self
+            .feature
+            .is_some_and(|feature| is_exact_feature_cfg(attribute, feature));
+        let matches_protocol_parent = self.feature.is_none()
+            && self
+                .operation_features
+                .iter()
+                .any(|feature| is_exact_feature_cfg(attribute, feature));
+        if matches_parent || matches_protocol_parent {
+            if let (Ok(start), Ok(mut end)) = (
+                source_offset(self.source, attribute.span().start()),
+                source_offset(self.source, attribute.span().end()),
+            ) {
+                if self.source.as_bytes().get(end) == Some(&b'\r') {
+                    end += 1;
+                }
+                if self.source.as_bytes().get(end) == Some(&b'\n') {
+                    end += 1;
+                }
+                self.removals.push((start, end));
+            }
+        }
+        visit::visit_attribute(self, attribute);
+    }
+}
+
+fn is_exact_feature_cfg(attribute: &Attribute, feature: &str) -> bool {
+    if !attribute.path().is_ident("cfg") {
+        return false;
+    }
+    let Meta::List(list) = &attribute.meta else {
+        return false;
+    };
+    list.tokens.to_string() == format!("feature = {feature:?}")
+}
+
+fn remove_redundant_operation_child_cfgs(
+    crate_root: &Path,
+    files: &[SourceFile],
+    operations: &[Operation],
+) -> Result<Vec<String>, TransformError> {
+    let mut changed = Vec::new();
+    let operation_features = operations
+        .iter()
+        .map(|operation| operation.feature.clone())
+        .collect::<BTreeSet<_>>();
+    for file in files {
+        let feature = parent_operation_feature(&file.relative, operations);
+        let protocol_child = is_protocol_serde_child_path(&file.relative);
+        if feature.is_none() && !protocol_child {
+            continue;
+        }
+        let mut visitor = RedundantCfgVisitor {
+            source: &file.source,
+            feature,
+            operation_features: &operation_features,
+            removals: Vec::new(),
+        };
+        visitor.visit_file(&file.syntax);
+        if visitor.removals.is_empty() {
+            continue;
+        }
+        let updated = apply_removals(&file.source, &visitor.removals, &file.relative)?;
+        if updated == file.source {
+            continue;
+        }
+        fs::write(crate_root.join(&file.relative), updated).map_err(|source| {
+            TransformError::Io {
+                path: crate_root.join(&file.relative),
+                source,
+            }
+        })?;
+        changed.push(file.relative.clone());
+    }
+    Ok(changed)
+}
+
 fn is_parent_gated_child_path(relative: &str, operations: &[Operation]) -> bool {
     is_operation_or_client_child_path(relative, operations)
         || is_protocol_serde_child_path(relative)
@@ -2265,7 +2370,7 @@ mod tests {
             directory
                 .path()
                 .join("src/protocol_serde/shape_get_thing.rs"),
-            "pub(crate) fn serialize() {}\n",
+            "#[cfg(feature = \"op_get_thing\")]\npub(crate) fn serialize() {}\n",
         )
         .unwrap();
         fs::write(
