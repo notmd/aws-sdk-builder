@@ -7,12 +7,14 @@ use crate::{
 use std::{
     collections::{BTreeMap, BTreeSet},
     ffi::OsString,
+    fmt::Write,
     fs,
     path::{Component, Path, PathBuf},
     process::Command,
 };
 use tempfile::TempDir;
 use thiserror::Error;
+use toml_edit::{Array, DocumentMut, Item as TomlItem, Table, Value};
 
 #[derive(Debug, Error)]
 pub enum ConformanceError {
@@ -91,6 +93,7 @@ fn run_conformance(manifest: &Manifest, root: &Path) -> Result<(), ConformanceEr
         let changed_files = write_stage_artifacts(service, &staged, &upstream, &operations)?;
         verify_diff_artifacts(&staged)?;
         check_feature_matrix(service, &staged, &model, &operations, workspace.path())?;
+        check_public_api(service, &staged, &operations, workspace.path())?;
         reports.push((
             service.key.clone(),
             Coverage {
@@ -554,6 +557,193 @@ fn check_feature_matrix(
     for group in model.shared_operation_groups(operations) {
         if group.len() > 1 {
             run_cargo_check(stage, &target_base, &group)?;
+        }
+    }
+    Ok(())
+}
+
+fn check_public_api(
+    service: &ServiceManifest,
+    stage: &Path,
+    operations: &[Operation],
+    workspace: &Path,
+) -> Result<(), ConformanceError> {
+    let enabled_probe = TempDir::new().map_err(|source| ConformanceError::Io {
+        path: workspace.to_owned(),
+        source,
+    })?;
+    write_probe_manifest(
+        service,
+        stage,
+        enabled_probe.path(),
+        operations
+            .iter()
+            .map(|operation| operation.feature.as_str()),
+    )?;
+    let enabled_source = enabled_probe.path().join("src/main.rs");
+    fs::create_dir_all(enabled_source.parent().expect("probe source has parent")).map_err(
+        |source| ConformanceError::Io {
+            path: enabled_source.clone(),
+            source,
+        },
+    )?;
+    fs::write(
+        &enabled_source,
+        enabled_probe_source(&service.library_name, operations),
+    )
+    .map_err(|source| ConformanceError::Io {
+        path: enabled_source,
+        source,
+    })?;
+    run_public_probe(
+        service,
+        enabled_probe.path(),
+        workspace
+            .join("public-api-target")
+            .join(&service.key)
+            .join("enabled"),
+        true,
+        &[],
+    )?;
+
+    let disabled_probe = TempDir::new().map_err(|source| ConformanceError::Io {
+        path: workspace.to_owned(),
+        source,
+    })?;
+    write_probe_manifest(service, stage, disabled_probe.path(), std::iter::empty())?;
+    let bins = disabled_probe.path().join("src/bin");
+    fs::create_dir_all(&bins).map_err(|source| ConformanceError::Io {
+        path: bins.clone(),
+        source,
+    })?;
+    for operation in operations {
+        let path = bins.join(format!("{}.rs", operation.module));
+        fs::write(
+            &path,
+            disabled_probe_source(&service.library_name, &operation.module),
+        )
+        .map_err(|source| ConformanceError::Io { path, source })?;
+    }
+    run_public_probe(
+        service,
+        disabled_probe.path(),
+        workspace
+            .join("public-api-target")
+            .join(&service.key)
+            .join("disabled"),
+        false,
+        operations,
+    )
+}
+
+fn write_probe_manifest<'a, I>(
+    service: &ServiceManifest,
+    stage: &Path,
+    probe: &Path,
+    features: I,
+) -> Result<(), ConformanceError>
+where
+    I: IntoIterator<Item = &'a str>,
+{
+    let mut package = Table::new();
+    package["name"] = toml_edit::value(format!("aws-sdk-modularizer-probe-{}", service.key));
+    package["version"] = toml_edit::value("0.0.0");
+    package["edition"] = toml_edit::value("2021");
+
+    let mut dependency = Table::new();
+    dependency["package"] = toml_edit::value(service.package_name.clone());
+    dependency["path"] = toml_edit::value(stage.to_string_lossy().into_owned());
+    let mut feature_array = Array::new();
+    for feature in features {
+        feature_array.push(feature);
+    }
+    if !feature_array.is_empty() {
+        dependency["features"] = TomlItem::Value(Value::Array(feature_array));
+    }
+
+    let mut dependencies = Table::new();
+    dependencies["service"] = TomlItem::Table(dependency);
+    let mut document = DocumentMut::new();
+    document["package"] = TomlItem::Table(package);
+    document["dependencies"] = TomlItem::Table(dependencies);
+    let path = probe.join("Cargo.toml");
+    fs::create_dir_all(probe).map_err(|source| ConformanceError::Io {
+        path: probe.to_owned(),
+        source,
+    })?;
+    fs::write(&path, document.to_string()).map_err(|source| ConformanceError::Io { path, source })
+}
+
+fn enabled_probe_source(library_name: &str, operations: &[Operation]) -> String {
+    let mut source = String::from("#![allow(unused_imports)]\n");
+    for operation in operations {
+        writeln!(source, "use service::operation::{};", operation.module)
+            .expect("writing to a String cannot fail");
+    }
+    writeln!(source, "\nfn probe(client: &{library_name}::Client) {{")
+        .expect("writing to a String cannot fail");
+    for operation in operations {
+        writeln!(source, "    let _ = client.{}();", operation.module)
+            .expect("writing to a String cannot fail");
+    }
+    source.push_str("}\n\nfn main() {}\n");
+    source
+}
+
+fn disabled_probe_source(library_name: &str, module: &str) -> String {
+    format!(
+        "use service::operation::{module};\n\nfn main() {{\n    let client: &{library_name}::Client = unreachable!();\n    let _ = client.{module}();\n}}\n"
+    )
+}
+
+fn run_public_probe(
+    service: &ServiceManifest,
+    probe: &Path,
+    target: PathBuf,
+    expect_success: bool,
+    operations: &[Operation],
+) -> Result<(), ConformanceError> {
+    fs::create_dir_all(&target).map_err(|source| ConformanceError::Io {
+        path: target.clone(),
+        source,
+    })?;
+    let manifest_path = probe.join("Cargo.toml");
+    let manifest_path = manifest_path
+        .to_str()
+        .ok_or_else(|| ConformanceError::Message("probe manifest path is not UTF-8".to_owned()))?;
+    let output = Command::new("cargo")
+        .args(["check", "--manifest-path", manifest_path])
+        .env("CARGO_TARGET_DIR", &target)
+        .output()
+        .map_err(|source| {
+            ConformanceError::Message(format!(
+                "failed to run public API probe for {}: {source}",
+                service.key
+            ))
+        })?;
+    if output.status.success() != expect_success {
+        let stderr = String::from_utf8_lossy(&output.stderr);
+        return Err(ConformanceError::Message(format!(
+            "public API probe {} for {} had unexpected result: {}",
+            if expect_success {
+                "failed"
+            } else {
+                "succeeded"
+            },
+            service.key,
+            stderr
+        )));
+    }
+    if !expect_success {
+        let stderr = String::from_utf8_lossy(&output.stderr);
+        for operation in operations {
+            let source_path = format!("src/bin/{}.rs", operation.module);
+            if !stderr.contains(&source_path) {
+                return Err(ConformanceError::Message(format!(
+                    "disabled public API probe for {} did not reject {}",
+                    service.key, operation.module
+                )));
+            }
         }
     }
     Ok(())
