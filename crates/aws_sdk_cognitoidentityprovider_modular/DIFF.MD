@@ -144,8 +144,10 @@
 
 - `Cargo.toml`
 - `src/client.rs`
+- `src/config.rs`
 - `src/error_meta.rs`
 - `src/lens.rs`
+- `src/lib.rs`
 - `src/operation.rs`
 - `src/protocol_serde.rs`
 - `src/serde_util.rs`
