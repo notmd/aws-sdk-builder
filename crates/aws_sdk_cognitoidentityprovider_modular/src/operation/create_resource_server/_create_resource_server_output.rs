@@ -24,17 +24,14 @@ impl ::aws_types::request_id::RequestId for CreateResourceServerOutput {
 #[cfg(feature = "op_create_resource_server")]
 impl CreateResourceServerOutput {
     /// Creates a new builder-style object to manufacture [`CreateResourceServerOutput`](crate::operation::create_resource_server::CreateResourceServerOutput).
-    pub fn builder(
-    ) -> crate::operation::create_resource_server::builders::CreateResourceServerOutputBuilder {
+    pub fn builder() -> crate::operation::create_resource_server::builders::CreateResourceServerOutputBuilder {
         crate::operation::create_resource_server::builders::CreateResourceServerOutputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_create_resource_server")]
 /// A builder for [`CreateResourceServerOutput`](crate::operation::create_resource_server::CreateResourceServerOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct CreateResourceServerOutputBuilder {
     pub(crate) resource_server: ::std::option::Option<crate::types::ResourceServerType>,
@@ -49,10 +46,7 @@ impl CreateResourceServerOutputBuilder {
         self
     }
     /// <p>The details of the new resource server.</p>
-    pub fn set_resource_server(
-        mut self,
-        input: ::std::option::Option<crate::types::ResourceServerType>,
-    ) -> Self {
+    pub fn set_resource_server(mut self, input: ::std::option::Option<crate::types::ResourceServerType>) -> Self {
         self.resource_server = input;
         self
     }

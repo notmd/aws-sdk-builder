@@ -6,11 +6,7 @@ impl super::Client {
     ///   - [`access_token(impl Into<String>)`](crate::operation::global_sign_out::builders::GlobalSignOutFluentBuilder::access_token) / [`set_access_token(Option<String>)`](crate::operation::global_sign_out::builders::GlobalSignOutFluentBuilder::set_access_token):<br>required: **true**<br><p>A valid access token that Amazon Cognito issued to the currently signed-in user. Must include a scope claim for <code>aws.cognito.signin.user.admin</code>.</p><br>
     /// - On success, responds with [`GlobalSignOutOutput`](crate::operation::global_sign_out::GlobalSignOutOutput)
     /// - On failure, responds with [`SdkError<GlobalSignOutError>`](crate::operation::global_sign_out::GlobalSignOutError)
-    pub fn global_sign_out(
-        &self,
-    ) -> crate::operation::global_sign_out::builders::GlobalSignOutFluentBuilder {
-        crate::operation::global_sign_out::builders::GlobalSignOutFluentBuilder::new(
-            self.handle.clone(),
-        )
+    pub fn global_sign_out(&self) -> crate::operation::global_sign_out::builders::GlobalSignOutFluentBuilder {
+        crate::operation::global_sign_out::builders::GlobalSignOutFluentBuilder::new(self.handle.clone())
     }
 }

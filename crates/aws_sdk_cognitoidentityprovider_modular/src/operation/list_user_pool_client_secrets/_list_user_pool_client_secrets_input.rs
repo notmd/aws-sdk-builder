@@ -40,7 +40,7 @@ impl ::std::fmt::Debug for ListUserPoolClientSecretsInput {
 #[cfg(feature = "op_list_user_pool_client_secrets")]
 impl ListUserPoolClientSecretsInput {
     /// Creates a new builder-style object to manufacture [`ListUserPoolClientSecretsInput`](crate::operation::list_user_pool_client_secrets::ListUserPoolClientSecretsInput).
-    pub fn builder() -> crate::operation::list_user_pool_client_secrets::builders::ListUserPoolClientSecretsInputBuilder{
+    pub fn builder() -> crate::operation::list_user_pool_client_secrets::builders::ListUserPoolClientSecretsInputBuilder {
         crate::operation::list_user_pool_client_secrets::builders::ListUserPoolClientSecretsInputBuilder::default()
     }
 }
@@ -107,13 +107,11 @@ impl ListUserPoolClientSecretsInputBuilder {
         crate::operation::list_user_pool_client_secrets::ListUserPoolClientSecretsInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(
-            crate::operation::list_user_pool_client_secrets::ListUserPoolClientSecretsInput {
-                user_pool_id: self.user_pool_id,
-                client_id: self.client_id,
-                next_token: self.next_token,
-            },
-        )
+        ::std::result::Result::Ok(crate::operation::list_user_pool_client_secrets::ListUserPoolClientSecretsInput {
+            user_pool_id: self.user_pool_id,
+            client_id: self.client_id,
+            next_token: self.next_token,
+        })
     }
 }
 #[cfg(feature = "op_list_user_pool_client_secrets")]

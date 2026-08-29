@@ -15,16 +15,14 @@ impl ::aws_types::request_id::RequestId for AdminUpdateAuthEventFeedbackOutput {
 #[cfg(feature = "op_admin_update_auth_event_feedback")]
 impl AdminUpdateAuthEventFeedbackOutput {
     /// Creates a new builder-style object to manufacture [`AdminUpdateAuthEventFeedbackOutput`](crate::operation::admin_update_auth_event_feedback::AdminUpdateAuthEventFeedbackOutput).
-    pub fn builder() -> crate::operation::admin_update_auth_event_feedback::builders::AdminUpdateAuthEventFeedbackOutputBuilder{
+    pub fn builder() -> crate::operation::admin_update_auth_event_feedback::builders::AdminUpdateAuthEventFeedbackOutputBuilder {
         crate::operation::admin_update_auth_event_feedback::builders::AdminUpdateAuthEventFeedbackOutputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_admin_update_auth_event_feedback")]
 /// A builder for [`AdminUpdateAuthEventFeedbackOutput`](crate::operation::admin_update_auth_event_feedback::AdminUpdateAuthEventFeedbackOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct AdminUpdateAuthEventFeedbackOutputBuilder {
     _request_id: Option<String>,
@@ -41,10 +39,7 @@ impl AdminUpdateAuthEventFeedbackOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`AdminUpdateAuthEventFeedbackOutput`](crate::operation::admin_update_auth_event_feedback::AdminUpdateAuthEventFeedbackOutput).
-    pub fn build(
-        self,
-    ) -> crate::operation::admin_update_auth_event_feedback::AdminUpdateAuthEventFeedbackOutput
-    {
+    pub fn build(self) -> crate::operation::admin_update_auth_event_feedback::AdminUpdateAuthEventFeedbackOutput {
         crate::operation::admin_update_auth_event_feedback::AdminUpdateAuthEventFeedbackOutput {
             _request_id: self._request_id,
         }

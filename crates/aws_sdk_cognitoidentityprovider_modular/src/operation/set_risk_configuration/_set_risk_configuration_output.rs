@@ -11,9 +11,7 @@ pub struct SetRiskConfigurationOutput {
 #[cfg(feature = "op_set_risk_configuration")]
 impl SetRiskConfigurationOutput {
     /// <p>The API response that contains the risk configuration that you set and the timestamp of the most recent change.</p>
-    pub fn risk_configuration(
-        &self,
-    ) -> ::std::option::Option<&crate::types::RiskConfigurationType> {
+    pub fn risk_configuration(&self) -> ::std::option::Option<&crate::types::RiskConfigurationType> {
         self.risk_configuration.as_ref()
     }
 }
@@ -26,17 +24,14 @@ impl ::aws_types::request_id::RequestId for SetRiskConfigurationOutput {
 #[cfg(feature = "op_set_risk_configuration")]
 impl SetRiskConfigurationOutput {
     /// Creates a new builder-style object to manufacture [`SetRiskConfigurationOutput`](crate::operation::set_risk_configuration::SetRiskConfigurationOutput).
-    pub fn builder(
-    ) -> crate::operation::set_risk_configuration::builders::SetRiskConfigurationOutputBuilder {
+    pub fn builder() -> crate::operation::set_risk_configuration::builders::SetRiskConfigurationOutputBuilder {
         crate::operation::set_risk_configuration::builders::SetRiskConfigurationOutputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_set_risk_configuration")]
 /// A builder for [`SetRiskConfigurationOutput`](crate::operation::set_risk_configuration::SetRiskConfigurationOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct SetRiskConfigurationOutputBuilder {
     pub(crate) risk_configuration: ::std::option::Option<crate::types::RiskConfigurationType>,
@@ -51,17 +46,12 @@ impl SetRiskConfigurationOutputBuilder {
         self
     }
     /// <p>The API response that contains the risk configuration that you set and the timestamp of the most recent change.</p>
-    pub fn set_risk_configuration(
-        mut self,
-        input: ::std::option::Option<crate::types::RiskConfigurationType>,
-    ) -> Self {
+    pub fn set_risk_configuration(mut self, input: ::std::option::Option<crate::types::RiskConfigurationType>) -> Self {
         self.risk_configuration = input;
         self
     }
     /// <p>The API response that contains the risk configuration that you set and the timestamp of the most recent change.</p>
-    pub fn get_risk_configuration(
-        &self,
-    ) -> &::std::option::Option<crate::types::RiskConfigurationType> {
+    pub fn get_risk_configuration(&self) -> &::std::option::Option<crate::types::RiskConfigurationType> {
         &self.risk_configuration
     }
     pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {

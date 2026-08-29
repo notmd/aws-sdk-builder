@@ -76,7 +76,7 @@ impl AdminDisableProviderForUserFluentBuilder {
         }
     }
     /// Access the AdminDisableProviderForUser as a reference.
-    pub fn as_input(&self) -> &crate::operation::admin_disable_provider_for_user::builders::AdminDisableProviderForUserInputBuilder{
+    pub fn as_input(&self) -> &crate::operation::admin_disable_provider_for_user::builders::AdminDisableProviderForUserInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -105,11 +105,7 @@ impl AdminDisableProviderForUserFluentBuilder {
             &self.handle.conf,
             self.config_override,
         );
-        crate::operation::admin_disable_provider_for_user::AdminDisableProviderForUser::orchestrate(
-            &runtime_plugins,
-            input,
-        )
-        .await
+        crate::operation::admin_disable_provider_for_user::AdminDisableProviderForUser::orchestrate(&runtime_plugins, input).await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -122,18 +118,12 @@ impl AdminDisableProviderForUserFluentBuilder {
     > {
         crate::client::customize::CustomizableOperation::new(self)
     }
-    pub(crate) fn config_override(
-        mut self,
-        config_override: impl ::std::convert::Into<crate::config::Builder>,
-    ) -> Self {
+    pub(crate) fn config_override(mut self, config_override: impl ::std::convert::Into<crate::config::Builder>) -> Self {
         self.set_config_override(::std::option::Option::Some(config_override.into()));
         self
     }
 
-    pub(crate) fn set_config_override(
-        &mut self,
-        config_override: ::std::option::Option<crate::config::Builder>,
-    ) -> &mut Self {
+    pub(crate) fn set_config_override(&mut self, config_override: ::std::option::Option<crate::config::Builder>) -> &mut Self {
         self.config_override = config_override;
         self
     }
@@ -157,10 +147,7 @@ impl AdminDisableProviderForUserFluentBuilder {
         self
     }
     /// <p>The user profile that you want to delete a linked identity from.</p>
-    pub fn set_user(
-        mut self,
-        input: ::std::option::Option<crate::types::ProviderUserIdentifierType>,
-    ) -> Self {
+    pub fn set_user(mut self, input: ::std::option::Option<crate::types::ProviderUserIdentifierType>) -> Self {
         self.inner = self.inner.set_user(input);
         self
     }

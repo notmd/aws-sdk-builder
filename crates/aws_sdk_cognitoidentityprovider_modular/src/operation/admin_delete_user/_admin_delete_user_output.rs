@@ -15,17 +15,14 @@ impl ::aws_types::request_id::RequestId for AdminDeleteUserOutput {
 #[cfg(feature = "op_admin_delete_user")]
 impl AdminDeleteUserOutput {
     /// Creates a new builder-style object to manufacture [`AdminDeleteUserOutput`](crate::operation::admin_delete_user::AdminDeleteUserOutput).
-    pub fn builder() -> crate::operation::admin_delete_user::builders::AdminDeleteUserOutputBuilder
-    {
+    pub fn builder() -> crate::operation::admin_delete_user::builders::AdminDeleteUserOutputBuilder {
         crate::operation::admin_delete_user::builders::AdminDeleteUserOutputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_admin_delete_user")]
 /// A builder for [`AdminDeleteUserOutput`](crate::operation::admin_delete_user::AdminDeleteUserOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct AdminDeleteUserOutputBuilder {
     _request_id: Option<String>,

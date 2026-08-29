@@ -47,9 +47,7 @@ impl WebAuthnConfigurationType {
         self.user_verification.as_ref()
     }
     /// <p>Sets whether passkeys can be used as multi-factor authentication (MFA). When set to <code>MULTI_FACTOR_WITH_USER_VERIFICATION</code>, passkey authentication with user verification satisfies MFA requirements. When set to <code>SINGLE_FACTOR</code> or not set, passkeys are a single authentication factor. To activate this setting, your user pool must be in the <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/feature-plans-features-essentials.html"> Essentials tier</a> or higher.</p>
-    pub fn factor_configuration(
-        &self,
-    ) -> ::std::option::Option<&crate::types::WebAuthnFactorConfigurationType> {
+    pub fn factor_configuration(&self) -> ::std::option::Option<&crate::types::WebAuthnFactorConfigurationType> {
         self.factor_configuration.as_ref()
     }
 }
@@ -61,15 +59,12 @@ impl WebAuthnConfigurationType {
 }
 
 /// A builder for [`WebAuthnConfigurationType`](crate::types::WebAuthnConfigurationType).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct WebAuthnConfigurationTypeBuilder {
     pub(crate) relying_party_id: ::std::option::Option<::std::string::String>,
     pub(crate) user_verification: ::std::option::Option<crate::types::UserVerificationType>,
-    pub(crate) factor_configuration:
-        ::std::option::Option<crate::types::WebAuthnFactorConfigurationType>,
+    pub(crate) factor_configuration: ::std::option::Option<crate::types::WebAuthnFactorConfigurationType>,
 }
 impl WebAuthnConfigurationTypeBuilder {
     /// <p>Sets or displays the authentication domain, typically your user pool domain, that passkey providers must use as a relying party (RP) in their configuration.</p>
@@ -82,10 +77,7 @@ impl WebAuthnConfigurationTypeBuilder {
     /// <li>
     /// <p>Your application performs authentication with managed login or the classic hosted UI.</p></li>
     /// </ul>
-    pub fn relying_party_id(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn relying_party_id(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.relying_party_id = ::std::option::Option::Some(input.into());
         self
     }
@@ -99,10 +91,7 @@ impl WebAuthnConfigurationTypeBuilder {
     /// <li>
     /// <p>Your application performs authentication with managed login or the classic hosted UI.</p></li>
     /// </ul>
-    pub fn set_relying_party_id(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_relying_party_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.relying_party_id = input;
         self
     }
@@ -125,39 +114,26 @@ impl WebAuthnConfigurationTypeBuilder {
         self
     }
     /// <p>When <code>required</code>, users can only register and sign in users with passkeys that are capable of <a href="https://www.w3.org/TR/webauthn-2/#enum-userVerificationRequirement">user verification</a>. When <code>preferred</code>, your user pool doesn't require the use of authenticators with user verification but encourages it.</p>
-    pub fn set_user_verification(
-        mut self,
-        input: ::std::option::Option<crate::types::UserVerificationType>,
-    ) -> Self {
+    pub fn set_user_verification(mut self, input: ::std::option::Option<crate::types::UserVerificationType>) -> Self {
         self.user_verification = input;
         self
     }
     /// <p>When <code>required</code>, users can only register and sign in users with passkeys that are capable of <a href="https://www.w3.org/TR/webauthn-2/#enum-userVerificationRequirement">user verification</a>. When <code>preferred</code>, your user pool doesn't require the use of authenticators with user verification but encourages it.</p>
-    pub fn get_user_verification(
-        &self,
-    ) -> &::std::option::Option<crate::types::UserVerificationType> {
+    pub fn get_user_verification(&self) -> &::std::option::Option<crate::types::UserVerificationType> {
         &self.user_verification
     }
     /// <p>Sets whether passkeys can be used as multi-factor authentication (MFA). When set to <code>MULTI_FACTOR_WITH_USER_VERIFICATION</code>, passkey authentication with user verification satisfies MFA requirements. When set to <code>SINGLE_FACTOR</code> or not set, passkeys are a single authentication factor. To activate this setting, your user pool must be in the <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/feature-plans-features-essentials.html"> Essentials tier</a> or higher.</p>
-    pub fn factor_configuration(
-        mut self,
-        input: crate::types::WebAuthnFactorConfigurationType,
-    ) -> Self {
+    pub fn factor_configuration(mut self, input: crate::types::WebAuthnFactorConfigurationType) -> Self {
         self.factor_configuration = ::std::option::Option::Some(input);
         self
     }
     /// <p>Sets whether passkeys can be used as multi-factor authentication (MFA). When set to <code>MULTI_FACTOR_WITH_USER_VERIFICATION</code>, passkey authentication with user verification satisfies MFA requirements. When set to <code>SINGLE_FACTOR</code> or not set, passkeys are a single authentication factor. To activate this setting, your user pool must be in the <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/feature-plans-features-essentials.html"> Essentials tier</a> or higher.</p>
-    pub fn set_factor_configuration(
-        mut self,
-        input: ::std::option::Option<crate::types::WebAuthnFactorConfigurationType>,
-    ) -> Self {
+    pub fn set_factor_configuration(mut self, input: ::std::option::Option<crate::types::WebAuthnFactorConfigurationType>) -> Self {
         self.factor_configuration = input;
         self
     }
     /// <p>Sets whether passkeys can be used as multi-factor authentication (MFA). When set to <code>MULTI_FACTOR_WITH_USER_VERIFICATION</code>, passkey authentication with user verification satisfies MFA requirements. When set to <code>SINGLE_FACTOR</code> or not set, passkeys are a single authentication factor. To activate this setting, your user pool must be in the <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/feature-plans-features-essentials.html"> Essentials tier</a> or higher.</p>
-    pub fn get_factor_configuration(
-        &self,
-    ) -> &::std::option::Option<crate::types::WebAuthnFactorConfigurationType> {
+    pub fn get_factor_configuration(&self) -> &::std::option::Option<crate::types::WebAuthnFactorConfigurationType> {
         &self.factor_configuration
     }
     /// Consumes the builder and constructs a [`WebAuthnConfigurationType`](crate::types::WebAuthnConfigurationType).

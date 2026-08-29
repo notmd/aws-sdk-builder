@@ -15,9 +15,7 @@ impl LimitDefinitionType {
         &self.limit_class
     }
     /// <p>The attributes that identify the specific limit. For API rate limits, specify the <code>Category</code> key with a value like <code>UserAuthentication</code> or <code>UserCreation</code>.</p>
-    pub fn attributes(
-        &self,
-    ) -> &::std::collections::HashMap<::std::string::String, ::std::string::String> {
+    pub fn attributes(&self) -> &::std::collections::HashMap<::std::string::String, ::std::string::String> {
         &self.attributes
     }
 }
@@ -29,15 +27,11 @@ impl LimitDefinitionType {
 }
 
 /// A builder for [`LimitDefinitionType`](crate::types::LimitDefinitionType).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct LimitDefinitionTypeBuilder {
     pub(crate) limit_class: ::std::option::Option<crate::types::LimitClass>,
-    pub(crate) attributes: ::std::option::Option<
-        ::std::collections::HashMap<::std::string::String, ::std::string::String>,
-    >,
+    pub(crate) attributes: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
 }
 impl LimitDefinitionTypeBuilder {
     /// <p>The class of the limit. For API rate limits, this is <code>API_CATEGORY</code>.</p>
@@ -47,10 +41,7 @@ impl LimitDefinitionTypeBuilder {
         self
     }
     /// <p>The class of the limit. For API rate limits, this is <code>API_CATEGORY</code>.</p>
-    pub fn set_limit_class(
-        mut self,
-        input: ::std::option::Option<crate::types::LimitClass>,
-    ) -> Self {
+    pub fn set_limit_class(mut self, input: ::std::option::Option<crate::types::LimitClass>) -> Self {
         self.limit_class = input;
         self
     }
@@ -63,44 +54,26 @@ impl LimitDefinitionTypeBuilder {
     /// To override the contents of this collection use [`set_attributes`](Self::set_attributes).
     ///
     /// <p>The attributes that identify the specific limit. For API rate limits, specify the <code>Category</code> key with a value like <code>UserAuthentication</code> or <code>UserCreation</code>.</p>
-    pub fn attributes(
-        mut self,
-        k: impl ::std::convert::Into<::std::string::String>,
-        v: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn attributes(mut self, k: impl ::std::convert::Into<::std::string::String>, v: impl ::std::convert::Into<::std::string::String>) -> Self {
         let mut hash_map = self.attributes.unwrap_or_default();
         hash_map.insert(k.into(), v.into());
         self.attributes = ::std::option::Option::Some(hash_map);
         self
     }
     /// <p>The attributes that identify the specific limit. For API rate limits, specify the <code>Category</code> key with a value like <code>UserAuthentication</code> or <code>UserCreation</code>.</p>
-    pub fn set_attributes(
-        mut self,
-        input: ::std::option::Option<
-            ::std::collections::HashMap<::std::string::String, ::std::string::String>,
-        >,
-    ) -> Self {
+    pub fn set_attributes(mut self, input: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>) -> Self {
         self.attributes = input;
         self
     }
     /// <p>The attributes that identify the specific limit. For API rate limits, specify the <code>Category</code> key with a value like <code>UserAuthentication</code> or <code>UserCreation</code>.</p>
-    pub fn get_attributes(
-        &self,
-    ) -> &::std::option::Option<
-        ::std::collections::HashMap<::std::string::String, ::std::string::String>,
-    > {
+    pub fn get_attributes(&self) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>> {
         &self.attributes
     }
     /// Consumes the builder and constructs a [`LimitDefinitionType`](crate::types::LimitDefinitionType).
     /// This method will fail if any of the following fields are not set:
     /// - [`limit_class`](crate::types::builders::LimitDefinitionTypeBuilder::limit_class)
     /// - [`attributes`](crate::types::builders::LimitDefinitionTypeBuilder::attributes)
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<
-        crate::types::LimitDefinitionType,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    pub fn build(self) -> ::std::result::Result<crate::types::LimitDefinitionType, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::LimitDefinitionType {
             limit_class: self.limit_class.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

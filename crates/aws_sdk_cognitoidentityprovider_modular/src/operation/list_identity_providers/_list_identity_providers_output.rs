@@ -31,18 +31,14 @@ impl ::aws_types::request_id::RequestId for ListIdentityProvidersOutput {
 #[cfg(feature = "op_list_identity_providers")]
 impl ListIdentityProvidersOutput {
     /// Creates a new builder-style object to manufacture [`ListIdentityProvidersOutput`](crate::operation::list_identity_providers::ListIdentityProvidersOutput).
-    pub fn builder(
-    ) -> crate::operation::list_identity_providers::builders::ListIdentityProvidersOutputBuilder
-    {
+    pub fn builder() -> crate::operation::list_identity_providers::builders::ListIdentityProvidersOutputBuilder {
         crate::operation::list_identity_providers::builders::ListIdentityProvidersOutputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_list_identity_providers")]
 /// A builder for [`ListIdentityProvidersOutput`](crate::operation::list_identity_providers::ListIdentityProvidersOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct ListIdentityProvidersOutputBuilder {
     pub(crate) providers: ::std::option::Option<::std::vec::Vec<crate::types::ProviderDescription>>,
@@ -63,17 +59,12 @@ impl ListIdentityProvidersOutputBuilder {
         self
     }
     /// <p>An array of the IdPs in your user pool. For each, the response includes identifiers, the IdP name and type, and trust-relationship details like the issuer URL.</p>
-    pub fn set_providers(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<crate::types::ProviderDescription>>,
-    ) -> Self {
+    pub fn set_providers(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::ProviderDescription>>) -> Self {
         self.providers = input;
         self
     }
     /// <p>An array of the IdPs in your user pool. For each, the response includes identifiers, the IdP name and type, and trust-relationship details like the issuer URL.</p>
-    pub fn get_providers(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<crate::types::ProviderDescription>> {
+    pub fn get_providers(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::ProviderDescription>> {
         &self.providers
     }
     /// <p>The identifier that Amazon Cognito returned with the previous request to this operation. When you include a pagination token in your request, Amazon Cognito returns the next set of items in the list. By use of this token, you can paginate through the full list of items.</p>
@@ -104,10 +95,8 @@ impl ListIdentityProvidersOutputBuilder {
     /// - [`providers`](crate::operation::list_identity_providers::builders::ListIdentityProvidersOutputBuilder::providers)
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        crate::operation::list_identity_providers::ListIdentityProvidersOutput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    ) -> ::std::result::Result<crate::operation::list_identity_providers::ListIdentityProvidersOutput, ::aws_smithy_types::error::operation::BuildError>
+    {
         ::std::result::Result::Ok(crate::operation::list_identity_providers::ListIdentityProvidersOutput {
             providers: self.providers.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

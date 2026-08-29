@@ -25,7 +25,7 @@ impl ::std::fmt::Debug for StartWebAuthnRegistrationInput {
 #[cfg(feature = "op_start_web_authn_registration")]
 impl StartWebAuthnRegistrationInput {
     /// Creates a new builder-style object to manufacture [`StartWebAuthnRegistrationInput`](crate::operation::start_web_authn_registration::StartWebAuthnRegistrationInput).
-    pub fn builder() -> crate::operation::start_web_authn_registration::builders::StartWebAuthnRegistrationInputBuilder{
+    pub fn builder() -> crate::operation::start_web_authn_registration::builders::StartWebAuthnRegistrationInputBuilder {
         crate::operation::start_web_authn_registration::builders::StartWebAuthnRegistrationInputBuilder::default()
     }
 }
@@ -61,11 +61,9 @@ impl StartWebAuthnRegistrationInputBuilder {
         crate::operation::start_web_authn_registration::StartWebAuthnRegistrationInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(
-            crate::operation::start_web_authn_registration::StartWebAuthnRegistrationInput {
-                access_token: self.access_token,
-            },
-        )
+        ::std::result::Result::Ok(crate::operation::start_web_authn_registration::StartWebAuthnRegistrationInput {
+            access_token: self.access_token,
+        })
     }
 }
 #[cfg(feature = "op_start_web_authn_registration")]

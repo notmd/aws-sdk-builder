@@ -15,16 +15,14 @@ impl ::aws_types::request_id::RequestId for DeleteWebAuthnCredentialOutput {
 #[cfg(feature = "op_delete_web_authn_credential")]
 impl DeleteWebAuthnCredentialOutput {
     /// Creates a new builder-style object to manufacture [`DeleteWebAuthnCredentialOutput`](crate::operation::delete_web_authn_credential::DeleteWebAuthnCredentialOutput).
-    pub fn builder() -> crate::operation::delete_web_authn_credential::builders::DeleteWebAuthnCredentialOutputBuilder{
+    pub fn builder() -> crate::operation::delete_web_authn_credential::builders::DeleteWebAuthnCredentialOutputBuilder {
         crate::operation::delete_web_authn_credential::builders::DeleteWebAuthnCredentialOutputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_delete_web_authn_credential")]
 /// A builder for [`DeleteWebAuthnCredentialOutput`](crate::operation::delete_web_authn_credential::DeleteWebAuthnCredentialOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct DeleteWebAuthnCredentialOutputBuilder {
     _request_id: Option<String>,
@@ -41,9 +39,7 @@ impl DeleteWebAuthnCredentialOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`DeleteWebAuthnCredentialOutput`](crate::operation::delete_web_authn_credential::DeleteWebAuthnCredentialOutput).
-    pub fn build(
-        self,
-    ) -> crate::operation::delete_web_authn_credential::DeleteWebAuthnCredentialOutput {
+    pub fn build(self) -> crate::operation::delete_web_authn_credential::DeleteWebAuthnCredentialOutput {
         crate::operation::delete_web_authn_credential::DeleteWebAuthnCredentialOutput {
             _request_id: self._request_id,
         }

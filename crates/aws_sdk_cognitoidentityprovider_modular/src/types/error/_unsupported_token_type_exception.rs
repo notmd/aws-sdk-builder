@@ -45,9 +45,7 @@ impl UnsupportedTokenTypeException {
 }
 
 /// A builder for [`UnsupportedTokenTypeException`](crate::types::error::UnsupportedTokenTypeException).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct UnsupportedTokenTypeExceptionBuilder {
     pub(crate) message: ::std::option::Option<::std::string::String>,
@@ -75,10 +73,7 @@ impl UnsupportedTokenTypeExceptionBuilder {
     }
 
     /// Sets error metadata
-    pub fn set_meta(
-        &mut self,
-        meta: std::option::Option<::aws_smithy_types::error::ErrorMetadata>,
-    ) -> &mut Self {
+    pub fn set_meta(&mut self, meta: std::option::Option<::aws_smithy_types::error::ErrorMetadata>) -> &mut Self {
         self.meta = meta;
         self
     }

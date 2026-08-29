@@ -23,9 +23,7 @@ impl GlobalSignOutOutput {
 
 #[cfg(feature = "op_global_sign_out")]
 /// A builder for [`GlobalSignOutOutput`](crate::operation::global_sign_out::GlobalSignOutOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct GlobalSignOutOutputBuilder {
     _request_id: Option<String>,

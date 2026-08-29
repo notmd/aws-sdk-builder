@@ -61,9 +61,7 @@ impl PasswordPolicyType {
 }
 
 /// A builder for [`PasswordPolicyType`](crate::types::PasswordPolicyType).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct PasswordPolicyTypeBuilder {
     pub(crate) minimum_length: ::std::option::Option<i32>,
@@ -169,10 +167,7 @@ impl PasswordPolicyTypeBuilder {
     /// <p>The number of days a temporary password is valid in the password policy. If the user doesn't sign in during this time, an administrator must reset their password. Defaults to <code>7</code>. If you submit a value of <code>0</code>, Amazon Cognito treats it as a null value and sets <code>TemporaryPasswordValidityDays</code> to its default value.</p><note>
     /// <p>When you set <code>TemporaryPasswordValidityDays</code> for a user pool, you can no longer set a value for the legacy <code>UnusedAccountValidityDays</code> parameter in that user pool.</p>
     /// </note>
-    pub fn set_temporary_password_validity_days(
-        mut self,
-        input: ::std::option::Option<i32>,
-    ) -> Self {
+    pub fn set_temporary_password_validity_days(mut self, input: ::std::option::Option<i32>) -> Self {
         self.temporary_password_validity_days = input;
         self
     }
@@ -191,9 +186,7 @@ impl PasswordPolicyTypeBuilder {
             require_numbers: self.require_numbers.unwrap_or_default(),
             require_symbols: self.require_symbols.unwrap_or_default(),
             password_history_size: self.password_history_size,
-            temporary_password_validity_days: self
-                .temporary_password_validity_days
-                .unwrap_or_default(),
+            temporary_password_validity_days: self.temporary_password_validity_days.unwrap_or_default(),
         }
     }
 }

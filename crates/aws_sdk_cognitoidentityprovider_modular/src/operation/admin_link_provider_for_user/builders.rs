@@ -6,9 +6,7 @@ pub use crate::operation::admin_link_provider_for_user::_admin_link_provider_for
 pub use crate::operation::admin_link_provider_for_user::_admin_link_provider_for_user_output::AdminLinkProviderForUserOutputBuilder;
 
 #[cfg(feature = "op_admin_link_provider_for_user")]
-impl
-    crate::operation::admin_link_provider_for_user::builders::AdminLinkProviderForUserInputBuilder
-{
+impl crate::operation::admin_link_provider_for_user::builders::AdminLinkProviderForUserInputBuilder {
     /// Sends a request with this input using the given client.
     pub async fn send_with(
         self,
@@ -79,7 +77,7 @@ impl AdminLinkProviderForUserFluentBuilder {
         }
     }
     /// Access the AdminLinkProviderForUser as a reference.
-    pub fn as_input(&self) -> &crate::operation::admin_link_provider_for_user::builders::AdminLinkProviderForUserInputBuilder{
+    pub fn as_input(&self) -> &crate::operation::admin_link_provider_for_user::builders::AdminLinkProviderForUserInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -108,11 +106,7 @@ impl AdminLinkProviderForUserFluentBuilder {
             &self.handle.conf,
             self.config_override,
         );
-        crate::operation::admin_link_provider_for_user::AdminLinkProviderForUser::orchestrate(
-            &runtime_plugins,
-            input,
-        )
-        .await
+        crate::operation::admin_link_provider_for_user::AdminLinkProviderForUser::orchestrate(&runtime_plugins, input).await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -125,18 +119,12 @@ impl AdminLinkProviderForUserFluentBuilder {
     > {
         crate::client::customize::CustomizableOperation::new(self)
     }
-    pub(crate) fn config_override(
-        mut self,
-        config_override: impl ::std::convert::Into<crate::config::Builder>,
-    ) -> Self {
+    pub(crate) fn config_override(mut self, config_override: impl ::std::convert::Into<crate::config::Builder>) -> Self {
         self.set_config_override(::std::option::Option::Some(config_override.into()));
         self
     }
 
-    pub(crate) fn set_config_override(
-        &mut self,
-        config_override: ::std::option::Option<crate::config::Builder>,
-    ) -> &mut Self {
+    pub(crate) fn set_config_override(&mut self, config_override: ::std::option::Option<crate::config::Builder>) -> &mut Self {
         self.config_override = config_override;
         self
     }
@@ -170,10 +158,7 @@ impl AdminLinkProviderForUserFluentBuilder {
     /// <p>The <code>ProviderName</code> should be set to <code>Cognito</code> for users in Cognito user pools.</p><important>
     /// <p>All attributes in the DestinationUser profile must be mutable. If you have assigned the user any immutable custom attributes, the operation won't succeed.</p>
     /// </important>
-    pub fn set_destination_user(
-        mut self,
-        input: ::std::option::Option<crate::types::ProviderUserIdentifierType>,
-    ) -> Self {
+    pub fn set_destination_user(mut self, input: ::std::option::Option<crate::types::ProviderUserIdentifierType>) -> Self {
         self.inner = self.inner.set_destination_user(input);
         self
     }
@@ -183,9 +168,7 @@ impl AdminLinkProviderForUserFluentBuilder {
     /// <p>The <code>ProviderName</code> should be set to <code>Cognito</code> for users in Cognito user pools.</p><important>
     /// <p>All attributes in the DestinationUser profile must be mutable. If you have assigned the user any immutable custom attributes, the operation won't succeed.</p>
     /// </important>
-    pub fn get_destination_user(
-        &self,
-    ) -> &::std::option::Option<crate::types::ProviderUserIdentifierType> {
+    pub fn get_destination_user(&self) -> &::std::option::Option<crate::types::ProviderUserIdentifierType> {
         self.inner.get_destination_user()
     }
     /// <p>An external IdP account for a user who doesn't exist yet in the user pool. This user must be a federated user (for example, a SAML or Facebook user), not another native user.</p>
@@ -212,10 +195,7 @@ impl AdminLinkProviderForUserFluentBuilder {
     /// <li>
     /// <p>When you set <code>ProviderAttributeName</code> to <code>Cognito_Subject</code>, Amazon Cognito will automatically parse the default unique identifier found in the subject from the IdP token.</p></li>
     /// </ul>
-    pub fn set_source_user(
-        mut self,
-        input: ::std::option::Option<crate::types::ProviderUserIdentifierType>,
-    ) -> Self {
+    pub fn set_source_user(mut self, input: ::std::option::Option<crate::types::ProviderUserIdentifierType>) -> Self {
         self.inner = self.inner.set_source_user(input);
         self
     }
@@ -229,9 +209,7 @@ impl AdminLinkProviderForUserFluentBuilder {
     /// <li>
     /// <p>When you set <code>ProviderAttributeName</code> to <code>Cognito_Subject</code>, Amazon Cognito will automatically parse the default unique identifier found in the subject from the IdP token.</p></li>
     /// </ul>
-    pub fn get_source_user(
-        &self,
-    ) -> &::std::option::Option<crate::types::ProviderUserIdentifierType> {
+    pub fn get_source_user(&self) -> &::std::option::Option<crate::types::ProviderUserIdentifierType> {
         self.inner.get_source_user()
     }
 }

@@ -11,7 +11,7 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<AdminUpdateAuthEventFeedbackError>`](crate::operation::admin_update_auth_event_feedback::AdminUpdateAuthEventFeedbackError)
     pub fn admin_update_auth_event_feedback(
         &self,
-    ) -> crate::operation::admin_update_auth_event_feedback::builders::AdminUpdateAuthEventFeedbackFluentBuilder{
+    ) -> crate::operation::admin_update_auth_event_feedback::builders::AdminUpdateAuthEventFeedbackFluentBuilder {
         crate::operation::admin_update_auth_event_feedback::builders::AdminUpdateAuthEventFeedbackFluentBuilder::new(self.handle.clone())
     }
 }

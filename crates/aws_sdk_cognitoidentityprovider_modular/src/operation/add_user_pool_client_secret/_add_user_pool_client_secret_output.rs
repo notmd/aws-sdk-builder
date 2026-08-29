@@ -12,9 +12,7 @@ pub struct AddUserPoolClientSecretOutput {
 #[cfg(feature = "op_add_user_pool_client_secret")]
 impl AddUserPoolClientSecretOutput {
     /// <p>The details of the newly created client secret, including its unique identifier and creation timestamp. The ClientSecretValue is only returned when Amazon Cognito generates the secret. For custom secrets that you provide, the ClientSecretValue is not included in the response.</p>
-    pub fn client_secret_descriptor(
-        &self,
-    ) -> ::std::option::Option<&crate::types::ClientSecretDescriptorType> {
+    pub fn client_secret_descriptor(&self) -> ::std::option::Option<&crate::types::ClientSecretDescriptorType> {
         self.client_secret_descriptor.as_ref()
     }
 }
@@ -27,46 +25,33 @@ impl ::aws_types::request_id::RequestId for AddUserPoolClientSecretOutput {
 #[cfg(feature = "op_add_user_pool_client_secret")]
 impl AddUserPoolClientSecretOutput {
     /// Creates a new builder-style object to manufacture [`AddUserPoolClientSecretOutput`](crate::operation::add_user_pool_client_secret::AddUserPoolClientSecretOutput).
-    pub fn builder(
-    ) -> crate::operation::add_user_pool_client_secret::builders::AddUserPoolClientSecretOutputBuilder
-    {
+    pub fn builder() -> crate::operation::add_user_pool_client_secret::builders::AddUserPoolClientSecretOutputBuilder {
         crate::operation::add_user_pool_client_secret::builders::AddUserPoolClientSecretOutputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_add_user_pool_client_secret")]
 /// A builder for [`AddUserPoolClientSecretOutput`](crate::operation::add_user_pool_client_secret::AddUserPoolClientSecretOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct AddUserPoolClientSecretOutputBuilder {
-    pub(crate) client_secret_descriptor:
-        ::std::option::Option<crate::types::ClientSecretDescriptorType>,
+    pub(crate) client_secret_descriptor: ::std::option::Option<crate::types::ClientSecretDescriptorType>,
     _request_id: Option<String>,
 }
 #[cfg(feature = "op_add_user_pool_client_secret")]
 impl AddUserPoolClientSecretOutputBuilder {
     /// <p>The details of the newly created client secret, including its unique identifier and creation timestamp. The ClientSecretValue is only returned when Amazon Cognito generates the secret. For custom secrets that you provide, the ClientSecretValue is not included in the response.</p>
-    pub fn client_secret_descriptor(
-        mut self,
-        input: crate::types::ClientSecretDescriptorType,
-    ) -> Self {
+    pub fn client_secret_descriptor(mut self, input: crate::types::ClientSecretDescriptorType) -> Self {
         self.client_secret_descriptor = ::std::option::Option::Some(input);
         self
     }
     /// <p>The details of the newly created client secret, including its unique identifier and creation timestamp. The ClientSecretValue is only returned when Amazon Cognito generates the secret. For custom secrets that you provide, the ClientSecretValue is not included in the response.</p>
-    pub fn set_client_secret_descriptor(
-        mut self,
-        input: ::std::option::Option<crate::types::ClientSecretDescriptorType>,
-    ) -> Self {
+    pub fn set_client_secret_descriptor(mut self, input: ::std::option::Option<crate::types::ClientSecretDescriptorType>) -> Self {
         self.client_secret_descriptor = input;
         self
     }
     /// <p>The details of the newly created client secret, including its unique identifier and creation timestamp. The ClientSecretValue is only returned when Amazon Cognito generates the secret. For custom secrets that you provide, the ClientSecretValue is not included in the response.</p>
-    pub fn get_client_secret_descriptor(
-        &self,
-    ) -> &::std::option::Option<crate::types::ClientSecretDescriptorType> {
+    pub fn get_client_secret_descriptor(&self) -> &::std::option::Option<crate::types::ClientSecretDescriptorType> {
         &self.client_secret_descriptor
     }
     pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
@@ -79,9 +64,7 @@ impl AddUserPoolClientSecretOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`AddUserPoolClientSecretOutput`](crate::operation::add_user_pool_client_secret::AddUserPoolClientSecretOutput).
-    pub fn build(
-        self,
-    ) -> crate::operation::add_user_pool_client_secret::AddUserPoolClientSecretOutput {
+    pub fn build(self) -> crate::operation::add_user_pool_client_secret::AddUserPoolClientSecretOutput {
         crate::operation::add_user_pool_client_secret::AddUserPoolClientSecretOutput {
             client_secret_descriptor: self.client_secret_descriptor,
             _request_id: self._request_id,

@@ -5,8 +5,7 @@
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
 pub struct AccountRecoverySettingType {
     /// <p>The list of options and priorities for user message delivery in forgot-password operations. Sets or displays user pool preferences for email or SMS message priority, whether users should fall back to a second delivery method, and whether passwords should only be reset by administrators.</p>
-    pub recovery_mechanisms:
-        ::std::option::Option<::std::vec::Vec<crate::types::RecoveryOptionType>>,
+    pub recovery_mechanisms: ::std::option::Option<::std::vec::Vec<crate::types::RecoveryOptionType>>,
 }
 impl AccountRecoverySettingType {
     /// <p>The list of options and priorities for user message delivery in forgot-password operations. Sets or displays user pool preferences for email or SMS message priority, whether users should fall back to a second delivery method, and whether passwords should only be reset by administrators.</p>
@@ -24,13 +23,10 @@ impl AccountRecoverySettingType {
 }
 
 /// A builder for [`AccountRecoverySettingType`](crate::types::AccountRecoverySettingType).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct AccountRecoverySettingTypeBuilder {
-    pub(crate) recovery_mechanisms:
-        ::std::option::Option<::std::vec::Vec<crate::types::RecoveryOptionType>>,
+    pub(crate) recovery_mechanisms: ::std::option::Option<::std::vec::Vec<crate::types::RecoveryOptionType>>,
 }
 impl AccountRecoverySettingTypeBuilder {
     /// Appends an item to `recovery_mechanisms`.
@@ -45,17 +41,12 @@ impl AccountRecoverySettingTypeBuilder {
         self
     }
     /// <p>The list of options and priorities for user message delivery in forgot-password operations. Sets or displays user pool preferences for email or SMS message priority, whether users should fall back to a second delivery method, and whether passwords should only be reset by administrators.</p>
-    pub fn set_recovery_mechanisms(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<crate::types::RecoveryOptionType>>,
-    ) -> Self {
+    pub fn set_recovery_mechanisms(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::RecoveryOptionType>>) -> Self {
         self.recovery_mechanisms = input;
         self
     }
     /// <p>The list of options and priorities for user message delivery in forgot-password operations. Sets or displays user pool preferences for email or SMS message priority, whether users should fall back to a second delivery method, and whether passwords should only be reset by administrators.</p>
-    pub fn get_recovery_mechanisms(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<crate::types::RecoveryOptionType>> {
+    pub fn get_recovery_mechanisms(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::RecoveryOptionType>> {
         &self.recovery_mechanisms
     }
     /// Consumes the builder and constructs a [`AccountRecoverySettingType`](crate::types::AccountRecoverySettingType).

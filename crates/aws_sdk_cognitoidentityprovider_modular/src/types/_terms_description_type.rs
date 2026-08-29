@@ -47,9 +47,7 @@ impl TermsDescriptionType {
 }
 
 /// A builder for [`TermsDescriptionType`](crate::types::TermsDescriptionType).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct TermsDescriptionTypeBuilder {
     pub(crate) terms_id: ::std::option::Option<::std::string::String>,
@@ -96,10 +94,7 @@ impl TermsDescriptionTypeBuilder {
         self
     }
     /// <p>This parameter is reserved for future use and currently accepts one value.</p>
-    pub fn set_enforcement(
-        mut self,
-        input: ::std::option::Option<crate::types::TermsEnforcementType>,
-    ) -> Self {
+    pub fn set_enforcement(mut self, input: ::std::option::Option<crate::types::TermsEnforcementType>) -> Self {
         self.enforcement = input;
         self
     }
@@ -114,10 +109,7 @@ impl TermsDescriptionTypeBuilder {
         self
     }
     /// <p>The date and time when the item was created. Amazon Cognito returns this timestamp in UNIX epoch time format. Your SDK might render the output in a human-readable format like ISO 8601 or a Java <code>Date</code> object.</p>
-    pub fn set_creation_date(
-        mut self,
-        input: ::std::option::Option<::aws_smithy_types::DateTime>,
-    ) -> Self {
+    pub fn set_creation_date(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
         self.creation_date = input;
         self
     }
@@ -132,10 +124,7 @@ impl TermsDescriptionTypeBuilder {
         self
     }
     /// <p>The date and time when the item was modified. Amazon Cognito returns this timestamp in UNIX epoch time format. Your SDK might render the output in a human-readable format like ISO 8601 or a Java <code>Date</code> object.</p>
-    pub fn set_last_modified_date(
-        mut self,
-        input: ::std::option::Option<::aws_smithy_types::DateTime>,
-    ) -> Self {
+    pub fn set_last_modified_date(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
         self.last_modified_date = input;
         self
     }
@@ -150,12 +139,7 @@ impl TermsDescriptionTypeBuilder {
     /// - [`enforcement`](crate::types::builders::TermsDescriptionTypeBuilder::enforcement)
     /// - [`creation_date`](crate::types::builders::TermsDescriptionTypeBuilder::creation_date)
     /// - [`last_modified_date`](crate::types::builders::TermsDescriptionTypeBuilder::last_modified_date)
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<
-        crate::types::TermsDescriptionType,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    pub fn build(self) -> ::std::result::Result<crate::types::TermsDescriptionType, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::TermsDescriptionType {
             terms_id: self.terms_id.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

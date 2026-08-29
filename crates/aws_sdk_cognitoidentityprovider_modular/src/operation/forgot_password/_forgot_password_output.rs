@@ -12,9 +12,7 @@ pub struct ForgotPasswordOutput {
 #[cfg(feature = "op_forgot_password")]
 impl ForgotPasswordOutput {
     /// <p>Information about the phone number or email address that Amazon Cognito sent the password-recovery code to.</p>
-    pub fn code_delivery_details(
-        &self,
-    ) -> ::std::option::Option<&crate::types::CodeDeliveryDetailsType> {
+    pub fn code_delivery_details(&self) -> ::std::option::Option<&crate::types::CodeDeliveryDetailsType> {
         self.code_delivery_details.as_ref()
     }
 }
@@ -34,9 +32,7 @@ impl ForgotPasswordOutput {
 
 #[cfg(feature = "op_forgot_password")]
 /// A builder for [`ForgotPasswordOutput`](crate::operation::forgot_password::ForgotPasswordOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct ForgotPasswordOutputBuilder {
     pub(crate) code_delivery_details: ::std::option::Option<crate::types::CodeDeliveryDetailsType>,
@@ -50,17 +46,12 @@ impl ForgotPasswordOutputBuilder {
         self
     }
     /// <p>Information about the phone number or email address that Amazon Cognito sent the password-recovery code to.</p>
-    pub fn set_code_delivery_details(
-        mut self,
-        input: ::std::option::Option<crate::types::CodeDeliveryDetailsType>,
-    ) -> Self {
+    pub fn set_code_delivery_details(mut self, input: ::std::option::Option<crate::types::CodeDeliveryDetailsType>) -> Self {
         self.code_delivery_details = input;
         self
     }
     /// <p>Information about the phone number or email address that Amazon Cognito sent the password-recovery code to.</p>
-    pub fn get_code_delivery_details(
-        &self,
-    ) -> &::std::option::Option<crate::types::CodeDeliveryDetailsType> {
+    pub fn get_code_delivery_details(&self) -> &::std::option::Option<crate::types::CodeDeliveryDetailsType> {
         &self.code_delivery_details
     }
     pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {

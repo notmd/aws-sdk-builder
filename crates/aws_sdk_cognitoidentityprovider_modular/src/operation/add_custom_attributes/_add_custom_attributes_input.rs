@@ -52,8 +52,7 @@ pub struct AddCustomAttributesInput {
     /// <p>This legacy option creates an attribute with a <code>dev:</code> prefix. You can only set the value of a developer-only attribute with administrative IAM credentials.</p>
     /// </dd>
     /// </dl>
-    pub custom_attributes:
-        ::std::option::Option<::std::vec::Vec<crate::types::SchemaAttributeType>>,
+    pub custom_attributes: ::std::option::Option<::std::vec::Vec<crate::types::SchemaAttributeType>>,
 }
 #[cfg(feature = "op_add_custom_attributes")]
 impl AddCustomAttributesInput {
@@ -115,23 +114,18 @@ impl AddCustomAttributesInput {
 #[cfg(feature = "op_add_custom_attributes")]
 impl AddCustomAttributesInput {
     /// Creates a new builder-style object to manufacture [`AddCustomAttributesInput`](crate::operation::add_custom_attributes::AddCustomAttributesInput).
-    pub fn builder(
-    ) -> crate::operation::add_custom_attributes::builders::AddCustomAttributesInputBuilder {
-        crate::operation::add_custom_attributes::builders::AddCustomAttributesInputBuilder::default(
-        )
+    pub fn builder() -> crate::operation::add_custom_attributes::builders::AddCustomAttributesInputBuilder {
+        crate::operation::add_custom_attributes::builders::AddCustomAttributesInputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_add_custom_attributes")]
 /// A builder for [`AddCustomAttributesInput`](crate::operation::add_custom_attributes::AddCustomAttributesInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct AddCustomAttributesInputBuilder {
     pub(crate) user_pool_id: ::std::option::Option<::std::string::String>,
-    pub(crate) custom_attributes:
-        ::std::option::Option<::std::vec::Vec<crate::types::SchemaAttributeType>>,
+    pub(crate) custom_attributes: ::std::option::Option<::std::vec::Vec<crate::types::SchemaAttributeType>>,
 }
 #[cfg(feature = "op_add_custom_attributes")]
 impl AddCustomAttributesInputBuilder {
@@ -250,10 +244,7 @@ impl AddCustomAttributesInputBuilder {
     /// <p>This legacy option creates an attribute with a <code>dev:</code> prefix. You can only set the value of a developer-only attribute with administrative IAM credentials.</p>
     /// </dd>
     /// </dl>
-    pub fn set_custom_attributes(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<crate::types::SchemaAttributeType>>,
-    ) -> Self {
+    pub fn set_custom_attributes(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::SchemaAttributeType>>) -> Self {
         self.custom_attributes = input;
         self
     }
@@ -302,23 +293,17 @@ impl AddCustomAttributesInputBuilder {
     /// <p>This legacy option creates an attribute with a <code>dev:</code> prefix. You can only set the value of a developer-only attribute with administrative IAM credentials.</p>
     /// </dd>
     /// </dl>
-    pub fn get_custom_attributes(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<crate::types::SchemaAttributeType>> {
+    pub fn get_custom_attributes(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::SchemaAttributeType>> {
         &self.custom_attributes
     }
     /// Consumes the builder and constructs a [`AddCustomAttributesInput`](crate::operation::add_custom_attributes::AddCustomAttributesInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        crate::operation::add_custom_attributes::AddCustomAttributesInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
-        ::std::result::Result::Ok(
-            crate::operation::add_custom_attributes::AddCustomAttributesInput {
-                user_pool_id: self.user_pool_id,
-                custom_attributes: self.custom_attributes,
-            },
-        )
+    ) -> ::std::result::Result<crate::operation::add_custom_attributes::AddCustomAttributesInput, ::aws_smithy_types::error::operation::BuildError>
+    {
+        ::std::result::Result::Ok(crate::operation::add_custom_attributes::AddCustomAttributesInput {
+            user_pool_id: self.user_pool_id,
+            custom_attributes: self.custom_attributes,
+        })
     }
 }

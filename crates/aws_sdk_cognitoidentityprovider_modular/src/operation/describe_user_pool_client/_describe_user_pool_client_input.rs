@@ -33,9 +33,7 @@ impl ::std::fmt::Debug for DescribeUserPoolClientInput {
 #[cfg(feature = "op_describe_user_pool_client")]
 impl DescribeUserPoolClientInput {
     /// Creates a new builder-style object to manufacture [`DescribeUserPoolClientInput`](crate::operation::describe_user_pool_client::DescribeUserPoolClientInput).
-    pub fn builder(
-    ) -> crate::operation::describe_user_pool_client::builders::DescribeUserPoolClientInputBuilder
-    {
+    pub fn builder() -> crate::operation::describe_user_pool_client::builders::DescribeUserPoolClientInputBuilder {
         crate::operation::describe_user_pool_client::builders::DescribeUserPoolClientInputBuilder::default()
     }
 }
@@ -87,12 +85,10 @@ impl DescribeUserPoolClientInputBuilder {
         crate::operation::describe_user_pool_client::DescribeUserPoolClientInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(
-            crate::operation::describe_user_pool_client::DescribeUserPoolClientInput {
-                user_pool_id: self.user_pool_id,
-                client_id: self.client_id,
-            },
-        )
+        ::std::result::Result::Ok(crate::operation::describe_user_pool_client::DescribeUserPoolClientInput {
+            user_pool_id: self.user_pool_id,
+            client_id: self.client_id,
+        })
     }
 }
 #[cfg(feature = "op_describe_user_pool_client")]

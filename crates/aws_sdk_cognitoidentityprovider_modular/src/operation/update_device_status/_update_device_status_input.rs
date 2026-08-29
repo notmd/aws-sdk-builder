@@ -23,9 +23,7 @@ impl UpdateDeviceStatusInput {
         self.device_key.as_deref()
     }
     /// <p>To enable device authentication with the specified device, set to <code>remembered</code>.To disable, set to <code>not_remembered</code>.</p>
-    pub fn device_remembered_status(
-        &self,
-    ) -> ::std::option::Option<&crate::types::DeviceRememberedStatusType> {
+    pub fn device_remembered_status(&self) -> ::std::option::Option<&crate::types::DeviceRememberedStatusType> {
         self.device_remembered_status.as_ref()
     }
 }
@@ -42,8 +40,7 @@ impl ::std::fmt::Debug for UpdateDeviceStatusInput {
 #[cfg(feature = "op_update_device_status")]
 impl UpdateDeviceStatusInput {
     /// Creates a new builder-style object to manufacture [`UpdateDeviceStatusInput`](crate::operation::update_device_status::UpdateDeviceStatusInput).
-    pub fn builder(
-    ) -> crate::operation::update_device_status::builders::UpdateDeviceStatusInputBuilder {
+    pub fn builder() -> crate::operation::update_device_status::builders::UpdateDeviceStatusInputBuilder {
         crate::operation::update_device_status::builders::UpdateDeviceStatusInputBuilder::default()
     }
 }
@@ -55,8 +52,7 @@ impl UpdateDeviceStatusInput {
 pub struct UpdateDeviceStatusInputBuilder {
     pub(crate) access_token: ::std::option::Option<::std::string::String>,
     pub(crate) device_key: ::std::option::Option<::std::string::String>,
-    pub(crate) device_remembered_status:
-        ::std::option::Option<crate::types::DeviceRememberedStatusType>,
+    pub(crate) device_remembered_status: ::std::option::Option<crate::types::DeviceRememberedStatusType>,
 }
 #[cfg(feature = "op_update_device_status")]
 impl UpdateDeviceStatusInputBuilder {
@@ -91,41 +87,29 @@ impl UpdateDeviceStatusInputBuilder {
         &self.device_key
     }
     /// <p>To enable device authentication with the specified device, set to <code>remembered</code>.To disable, set to <code>not_remembered</code>.</p>
-    pub fn device_remembered_status(
-        mut self,
-        input: crate::types::DeviceRememberedStatusType,
-    ) -> Self {
+    pub fn device_remembered_status(mut self, input: crate::types::DeviceRememberedStatusType) -> Self {
         self.device_remembered_status = ::std::option::Option::Some(input);
         self
     }
     /// <p>To enable device authentication with the specified device, set to <code>remembered</code>.To disable, set to <code>not_remembered</code>.</p>
-    pub fn set_device_remembered_status(
-        mut self,
-        input: ::std::option::Option<crate::types::DeviceRememberedStatusType>,
-    ) -> Self {
+    pub fn set_device_remembered_status(mut self, input: ::std::option::Option<crate::types::DeviceRememberedStatusType>) -> Self {
         self.device_remembered_status = input;
         self
     }
     /// <p>To enable device authentication with the specified device, set to <code>remembered</code>.To disable, set to <code>not_remembered</code>.</p>
-    pub fn get_device_remembered_status(
-        &self,
-    ) -> &::std::option::Option<crate::types::DeviceRememberedStatusType> {
+    pub fn get_device_remembered_status(&self) -> &::std::option::Option<crate::types::DeviceRememberedStatusType> {
         &self.device_remembered_status
     }
     /// Consumes the builder and constructs a [`UpdateDeviceStatusInput`](crate::operation::update_device_status::UpdateDeviceStatusInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        crate::operation::update_device_status::UpdateDeviceStatusInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
-        ::std::result::Result::Ok(
-            crate::operation::update_device_status::UpdateDeviceStatusInput {
-                access_token: self.access_token,
-                device_key: self.device_key,
-                device_remembered_status: self.device_remembered_status,
-            },
-        )
+    ) -> ::std::result::Result<crate::operation::update_device_status::UpdateDeviceStatusInput, ::aws_smithy_types::error::operation::BuildError>
+    {
+        ::std::result::Result::Ok(crate::operation::update_device_status::UpdateDeviceStatusInput {
+            access_token: self.access_token,
+            device_key: self.device_key,
+            device_remembered_status: self.device_remembered_status,
+        })
     }
 }
 #[cfg(feature = "op_update_device_status")]

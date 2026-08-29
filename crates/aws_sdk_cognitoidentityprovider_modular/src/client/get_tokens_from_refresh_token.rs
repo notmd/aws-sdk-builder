@@ -11,7 +11,7 @@ impl super::Client {
     /// - On success, responds with [`GetTokensFromRefreshTokenOutput`](crate::operation::get_tokens_from_refresh_token::GetTokensFromRefreshTokenOutput) with field(s):
     ///   - [`authentication_result(Option<AuthenticationResultType>)`](crate::operation::get_tokens_from_refresh_token::GetTokensFromRefreshTokenOutput::authentication_result): <p>The object that your application receives after authentication. Contains tokens and information for device authentication.</p>
     /// - On failure, responds with [`SdkError<GetTokensFromRefreshTokenError>`](crate::operation::get_tokens_from_refresh_token::GetTokensFromRefreshTokenError)
-    pub fn get_tokens_from_refresh_token(&self) -> crate::operation::get_tokens_from_refresh_token::builders::GetTokensFromRefreshTokenFluentBuilder{
+    pub fn get_tokens_from_refresh_token(&self) -> crate::operation::get_tokens_from_refresh_token::builders::GetTokensFromRefreshTokenFluentBuilder {
         crate::operation::get_tokens_from_refresh_token::builders::GetTokensFromRefreshTokenFluentBuilder::new(self.handle.clone())
     }
 }

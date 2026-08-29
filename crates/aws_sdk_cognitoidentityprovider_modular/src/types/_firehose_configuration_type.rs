@@ -21,9 +21,7 @@ impl FirehoseConfigurationType {
 }
 
 /// A builder for [`FirehoseConfigurationType`](crate::types::FirehoseConfigurationType).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct FirehoseConfigurationTypeBuilder {
     pub(crate) stream_arn: ::std::option::Option<::std::string::String>,
@@ -45,8 +43,6 @@ impl FirehoseConfigurationTypeBuilder {
     }
     /// Consumes the builder and constructs a [`FirehoseConfigurationType`](crate::types::FirehoseConfigurationType).
     pub fn build(self) -> crate::types::FirehoseConfigurationType {
-        crate::types::FirehoseConfigurationType {
-            stream_arn: self.stream_arn,
-        }
+        crate::types::FirehoseConfigurationType { stream_arn: self.stream_arn }
     }
 }

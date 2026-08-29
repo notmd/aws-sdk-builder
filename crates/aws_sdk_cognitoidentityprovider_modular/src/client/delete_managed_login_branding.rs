@@ -9,7 +9,7 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<DeleteManagedLoginBrandingError>`](crate::operation::delete_managed_login_branding::DeleteManagedLoginBrandingError)
     pub fn delete_managed_login_branding(
         &self,
-    ) -> crate::operation::delete_managed_login_branding::builders::DeleteManagedLoginBrandingFluentBuilder{
+    ) -> crate::operation::delete_managed_login_branding::builders::DeleteManagedLoginBrandingFluentBuilder {
         crate::operation::delete_managed_login_branding::builders::DeleteManagedLoginBrandingFluentBuilder::new(self.handle.clone())
     }
 }

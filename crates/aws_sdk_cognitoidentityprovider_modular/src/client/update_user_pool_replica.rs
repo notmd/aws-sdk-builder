@@ -9,10 +9,7 @@ impl super::Client {
     /// - On success, responds with [`UpdateUserPoolReplicaOutput`](crate::operation::update_user_pool_replica::UpdateUserPoolReplicaOutput) with field(s):
     ///   - [`user_pool_replica(Option<UserPoolReplicaType>)`](crate::operation::update_user_pool_replica::UpdateUserPoolReplicaOutput::user_pool_replica): <p>Information about the updated user pool replica.</p>
     /// - On failure, responds with [`SdkError<UpdateUserPoolReplicaError>`](crate::operation::update_user_pool_replica::UpdateUserPoolReplicaError)
-    pub fn update_user_pool_replica(
-        &self,
-    ) -> crate::operation::update_user_pool_replica::builders::UpdateUserPoolReplicaFluentBuilder
-    {
+    pub fn update_user_pool_replica(&self) -> crate::operation::update_user_pool_replica::builders::UpdateUserPoolReplicaFluentBuilder {
         crate::operation::update_user_pool_replica::builders::UpdateUserPoolReplicaFluentBuilder::new(self.handle.clone())
     }
 }

@@ -24,18 +24,14 @@ impl ::aws_types::request_id::RequestId for UpdateUserPoolReplicaOutput {
 #[cfg(feature = "op_update_user_pool_replica")]
 impl UpdateUserPoolReplicaOutput {
     /// Creates a new builder-style object to manufacture [`UpdateUserPoolReplicaOutput`](crate::operation::update_user_pool_replica::UpdateUserPoolReplicaOutput).
-    pub fn builder(
-    ) -> crate::operation::update_user_pool_replica::builders::UpdateUserPoolReplicaOutputBuilder
-    {
+    pub fn builder() -> crate::operation::update_user_pool_replica::builders::UpdateUserPoolReplicaOutputBuilder {
         crate::operation::update_user_pool_replica::builders::UpdateUserPoolReplicaOutputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_update_user_pool_replica")]
 /// A builder for [`UpdateUserPoolReplicaOutput`](crate::operation::update_user_pool_replica::UpdateUserPoolReplicaOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct UpdateUserPoolReplicaOutputBuilder {
     pub(crate) user_pool_replica: ::std::option::Option<crate::types::UserPoolReplicaType>,
@@ -49,17 +45,12 @@ impl UpdateUserPoolReplicaOutputBuilder {
         self
     }
     /// <p>Information about the updated user pool replica.</p>
-    pub fn set_user_pool_replica(
-        mut self,
-        input: ::std::option::Option<crate::types::UserPoolReplicaType>,
-    ) -> Self {
+    pub fn set_user_pool_replica(mut self, input: ::std::option::Option<crate::types::UserPoolReplicaType>) -> Self {
         self.user_pool_replica = input;
         self
     }
     /// <p>Information about the updated user pool replica.</p>
-    pub fn get_user_pool_replica(
-        &self,
-    ) -> &::std::option::Option<crate::types::UserPoolReplicaType> {
+    pub fn get_user_pool_replica(&self) -> &::std::option::Option<crate::types::UserPoolReplicaType> {
         &self.user_pool_replica
     }
     pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {

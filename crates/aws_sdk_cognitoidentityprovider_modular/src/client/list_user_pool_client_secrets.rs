@@ -10,7 +10,7 @@ impl super::Client {
     ///   - [`client_secrets(Option<Vec::<ClientSecretDescriptorType>>)`](crate::operation::list_user_pool_client_secrets::ListUserPoolClientSecretsOutput::client_secrets): <p>A list of client secret descriptors containing the identifier and creation date for each secret. For security reasons, the response never reveals the actual secret value in ClientSecretValue.</p>
     ///   - [`next_token(Option<String>)`](crate::operation::list_user_pool_client_secrets::ListUserPoolClientSecretsOutput::next_token): <p>The identifier that Amazon Cognito returned with the previous request to this operation. When you include a pagination token in your request, Amazon Cognito returns the next set of items in the list. By use of this token, you can paginate through the full list of items.</p>
     /// - On failure, responds with [`SdkError<ListUserPoolClientSecretsError>`](crate::operation::list_user_pool_client_secrets::ListUserPoolClientSecretsError)
-    pub fn list_user_pool_client_secrets(&self) -> crate::operation::list_user_pool_client_secrets::builders::ListUserPoolClientSecretsFluentBuilder{
+    pub fn list_user_pool_client_secrets(&self) -> crate::operation::list_user_pool_client_secrets::builders::ListUserPoolClientSecretsFluentBuilder {
         crate::operation::list_user_pool_client_secrets::builders::ListUserPoolClientSecretsFluentBuilder::new(self.handle.clone())
     }
 }

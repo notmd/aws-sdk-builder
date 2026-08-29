@@ -27,9 +27,7 @@ impl SmsMfaSettingsType {
 }
 
 /// A builder for [`SmsMfaSettingsType`](crate::types::SmsMfaSettingsType).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct SmsMfaSettingsTypeBuilder {
     pub(crate) enabled: ::std::option::Option<bool>,

@@ -50,14 +50,11 @@ pub struct AdminInitiateAuthOutput {
     /// <p>The parameters of an authentication challenge. Amazon Cognito returns challenge parameters as a guide to the responses your user or application must provide for the returned <code>ChallengeName</code>. Calculate responses to the challenge parameters and pass them in the <code>ChallengeParameters</code> of <code>AdminRespondToAuthChallenge</code>.</p>
     /// <p>All challenges require <code>USERNAME</code> and, when the app client has a client secret, <code>SECRET_HASH</code>.</p>
     /// <p>In SRP challenges, Amazon Cognito returns the <code>username</code> attribute in <code>USER_ID_FOR_SRP</code> instead of any email address, preferred username, or phone number alias that you might have specified in your <code>AdminInitiateAuth</code> request. You must use the username and not an alias in the <code>ChallengeResponses</code> of your challenge response.</p>
-    pub challenge_parameters: ::std::option::Option<
-        ::std::collections::HashMap<::std::string::String, ::std::string::String>,
-    >,
+    pub challenge_parameters: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
     /// <p>The outcome of successful authentication. This is only returned if the user pool has no additional challenges to return. If Amazon Cognito returns another challenge, the response includes <code>ChallengeName</code>, <code>ChallengeParameters</code>, and <code>Session</code> so that your user can answer the challenge.</p>
     pub authentication_result: ::std::option::Option<crate::types::AuthenticationResultType>,
     /// <p>This response parameter lists the available authentication challenges that users can select from in <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/authentication-flows-selection-sdk.html#authentication-flows-selection-choice">choice-based authentication</a>. For example, they might be able to choose between passkey authentication, a one-time password from an SMS message, and a traditional password.</p>
-    pub available_challenges:
-        ::std::option::Option<::std::vec::Vec<crate::types::ChallengeNameType>>,
+    pub available_challenges: ::std::option::Option<::std::vec::Vec<crate::types::ChallengeNameType>>,
     _request_id: Option<String>,
 }
 #[cfg(feature = "op_admin_initiate_auth")]
@@ -111,17 +108,11 @@ impl AdminInitiateAuthOutput {
     /// <p>The parameters of an authentication challenge. Amazon Cognito returns challenge parameters as a guide to the responses your user or application must provide for the returned <code>ChallengeName</code>. Calculate responses to the challenge parameters and pass them in the <code>ChallengeParameters</code> of <code>AdminRespondToAuthChallenge</code>.</p>
     /// <p>All challenges require <code>USERNAME</code> and, when the app client has a client secret, <code>SECRET_HASH</code>.</p>
     /// <p>In SRP challenges, Amazon Cognito returns the <code>username</code> attribute in <code>USER_ID_FOR_SRP</code> instead of any email address, preferred username, or phone number alias that you might have specified in your <code>AdminInitiateAuth</code> request. You must use the username and not an alias in the <code>ChallengeResponses</code> of your challenge response.</p>
-    pub fn challenge_parameters(
-        &self,
-    ) -> ::std::option::Option<
-        &::std::collections::HashMap<::std::string::String, ::std::string::String>,
-    > {
+    pub fn challenge_parameters(&self) -> ::std::option::Option<&::std::collections::HashMap<::std::string::String, ::std::string::String>> {
         self.challenge_parameters.as_ref()
     }
     /// <p>The outcome of successful authentication. This is only returned if the user pool has no additional challenges to return. If Amazon Cognito returns another challenge, the response includes <code>ChallengeName</code>, <code>ChallengeParameters</code>, and <code>Session</code> so that your user can answer the challenge.</p>
-    pub fn authentication_result(
-        &self,
-    ) -> ::std::option::Option<&crate::types::AuthenticationResultType> {
+    pub fn authentication_result(&self) -> ::std::option::Option<&crate::types::AuthenticationResultType> {
         self.authentication_result.as_ref()
     }
     /// <p>This response parameter lists the available authentication challenges that users can select from in <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/authentication-flows-selection-sdk.html#authentication-flows-selection-choice">choice-based authentication</a>. For example, they might be able to choose between passkey authentication, a one-time password from an SMS message, and a traditional password.</p>
@@ -153,8 +144,7 @@ impl ::aws_types::request_id::RequestId for AdminInitiateAuthOutput {
 #[cfg(feature = "op_admin_initiate_auth")]
 impl AdminInitiateAuthOutput {
     /// Creates a new builder-style object to manufacture [`AdminInitiateAuthOutput`](crate::operation::admin_initiate_auth::AdminInitiateAuthOutput).
-    pub fn builder(
-    ) -> crate::operation::admin_initiate_auth::builders::AdminInitiateAuthOutputBuilder {
+    pub fn builder() -> crate::operation::admin_initiate_auth::builders::AdminInitiateAuthOutputBuilder {
         crate::operation::admin_initiate_auth::builders::AdminInitiateAuthOutputBuilder::default()
     }
 }
@@ -166,12 +156,9 @@ impl AdminInitiateAuthOutput {
 pub struct AdminInitiateAuthOutputBuilder {
     pub(crate) challenge_name: ::std::option::Option<crate::types::ChallengeNameType>,
     pub(crate) session: ::std::option::Option<::std::string::String>,
-    pub(crate) challenge_parameters: ::std::option::Option<
-        ::std::collections::HashMap<::std::string::String, ::std::string::String>,
-    >,
+    pub(crate) challenge_parameters: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
     pub(crate) authentication_result: ::std::option::Option<crate::types::AuthenticationResultType>,
-    pub(crate) available_challenges:
-        ::std::option::Option<::std::vec::Vec<crate::types::ChallengeNameType>>,
+    pub(crate) available_challenges: ::std::option::Option<::std::vec::Vec<crate::types::ChallengeNameType>>,
     _request_id: Option<String>,
 }
 #[cfg(feature = "op_admin_initiate_auth")]
@@ -258,10 +245,7 @@ impl AdminInitiateAuthOutputBuilder {
     /// <p>To set up time-based one-time password (TOTP) MFA, use the session returned in this challenge from <code>InitiateAuth</code> or <code>AdminInitiateAuth</code> as an input to <code>AssociateSoftwareToken</code>. Then, use the session returned by <code>VerifySoftwareToken</code> as an input to <code>RespondToAuthChallenge</code> or <code>AdminRespondToAuthChallenge</code> with challenge name <code>MFA_SETUP</code> to complete sign-in.</p>
     /// <p>To set up SMS or email MFA, collect a <code>phone_number</code> or <code>email</code> attribute for the user. Then restart the authentication flow with an <code>InitiateAuth</code> or <code>AdminInitiateAuth</code> request.</p></li>
     /// </ul>
-    pub fn set_challenge_name(
-        mut self,
-        input: ::std::option::Option<crate::types::ChallengeNameType>,
-    ) -> Self {
+    pub fn set_challenge_name(mut self, input: ::std::option::Option<crate::types::ChallengeNameType>) -> Self {
         self.challenge_name = input;
         self
     }
@@ -343,9 +327,7 @@ impl AdminInitiateAuthOutputBuilder {
     /// <p>In SRP challenges, Amazon Cognito returns the <code>username</code> attribute in <code>USER_ID_FOR_SRP</code> instead of any email address, preferred username, or phone number alias that you might have specified in your <code>AdminInitiateAuth</code> request. You must use the username and not an alias in the <code>ChallengeResponses</code> of your challenge response.</p>
     pub fn set_challenge_parameters(
         mut self,
-        input: ::std::option::Option<
-            ::std::collections::HashMap<::std::string::String, ::std::string::String>,
-        >,
+        input: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
     ) -> Self {
         self.challenge_parameters = input;
         self
@@ -353,11 +335,7 @@ impl AdminInitiateAuthOutputBuilder {
     /// <p>The parameters of an authentication challenge. Amazon Cognito returns challenge parameters as a guide to the responses your user or application must provide for the returned <code>ChallengeName</code>. Calculate responses to the challenge parameters and pass them in the <code>ChallengeParameters</code> of <code>AdminRespondToAuthChallenge</code>.</p>
     /// <p>All challenges require <code>USERNAME</code> and, when the app client has a client secret, <code>SECRET_HASH</code>.</p>
     /// <p>In SRP challenges, Amazon Cognito returns the <code>username</code> attribute in <code>USER_ID_FOR_SRP</code> instead of any email address, preferred username, or phone number alias that you might have specified in your <code>AdminInitiateAuth</code> request. You must use the username and not an alias in the <code>ChallengeResponses</code> of your challenge response.</p>
-    pub fn get_challenge_parameters(
-        &self,
-    ) -> &::std::option::Option<
-        ::std::collections::HashMap<::std::string::String, ::std::string::String>,
-    > {
+    pub fn get_challenge_parameters(&self) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>> {
         &self.challenge_parameters
     }
     /// <p>The outcome of successful authentication. This is only returned if the user pool has no additional challenges to return. If Amazon Cognito returns another challenge, the response includes <code>ChallengeName</code>, <code>ChallengeParameters</code>, and <code>Session</code> so that your user can answer the challenge.</p>
@@ -366,17 +344,12 @@ impl AdminInitiateAuthOutputBuilder {
         self
     }
     /// <p>The outcome of successful authentication. This is only returned if the user pool has no additional challenges to return. If Amazon Cognito returns another challenge, the response includes <code>ChallengeName</code>, <code>ChallengeParameters</code>, and <code>Session</code> so that your user can answer the challenge.</p>
-    pub fn set_authentication_result(
-        mut self,
-        input: ::std::option::Option<crate::types::AuthenticationResultType>,
-    ) -> Self {
+    pub fn set_authentication_result(mut self, input: ::std::option::Option<crate::types::AuthenticationResultType>) -> Self {
         self.authentication_result = input;
         self
     }
     /// <p>The outcome of successful authentication. This is only returned if the user pool has no additional challenges to return. If Amazon Cognito returns another challenge, the response includes <code>ChallengeName</code>, <code>ChallengeParameters</code>, and <code>Session</code> so that your user can answer the challenge.</p>
-    pub fn get_authentication_result(
-        &self,
-    ) -> &::std::option::Option<crate::types::AuthenticationResultType> {
+    pub fn get_authentication_result(&self) -> &::std::option::Option<crate::types::AuthenticationResultType> {
         &self.authentication_result
     }
     /// Appends an item to `available_challenges`.
@@ -391,17 +364,12 @@ impl AdminInitiateAuthOutputBuilder {
         self
     }
     /// <p>This response parameter lists the available authentication challenges that users can select from in <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/authentication-flows-selection-sdk.html#authentication-flows-selection-choice">choice-based authentication</a>. For example, they might be able to choose between passkey authentication, a one-time password from an SMS message, and a traditional password.</p>
-    pub fn set_available_challenges(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<crate::types::ChallengeNameType>>,
-    ) -> Self {
+    pub fn set_available_challenges(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::ChallengeNameType>>) -> Self {
         self.available_challenges = input;
         self
     }
     /// <p>This response parameter lists the available authentication challenges that users can select from in <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/authentication-flows-selection-sdk.html#authentication-flows-selection-choice">choice-based authentication</a>. For example, they might be able to choose between passkey authentication, a one-time password from an SMS message, and a traditional password.</p>
-    pub fn get_available_challenges(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<crate::types::ChallengeNameType>> {
+    pub fn get_available_challenges(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::ChallengeNameType>> {
         &self.available_challenges
     }
     pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {

@@ -15,18 +15,14 @@ impl ::aws_types::request_id::RequestId for DeleteUserPoolClientOutput {
 #[cfg(feature = "op_delete_user_pool_client")]
 impl DeleteUserPoolClientOutput {
     /// Creates a new builder-style object to manufacture [`DeleteUserPoolClientOutput`](crate::operation::delete_user_pool_client::DeleteUserPoolClientOutput).
-    pub fn builder(
-    ) -> crate::operation::delete_user_pool_client::builders::DeleteUserPoolClientOutputBuilder
-    {
+    pub fn builder() -> crate::operation::delete_user_pool_client::builders::DeleteUserPoolClientOutputBuilder {
         crate::operation::delete_user_pool_client::builders::DeleteUserPoolClientOutputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_delete_user_pool_client")]
 /// A builder for [`DeleteUserPoolClientOutput`](crate::operation::delete_user_pool_client::DeleteUserPoolClientOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct DeleteUserPoolClientOutputBuilder {
     _request_id: Option<String>,

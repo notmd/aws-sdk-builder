@@ -29,16 +29,14 @@ impl DescribeManagedLoginBrandingInput {
 #[cfg(feature = "op_describe_managed_login_branding")]
 impl DescribeManagedLoginBrandingInput {
     /// Creates a new builder-style object to manufacture [`DescribeManagedLoginBrandingInput`](crate::operation::describe_managed_login_branding::DescribeManagedLoginBrandingInput).
-    pub fn builder() -> crate::operation::describe_managed_login_branding::builders::DescribeManagedLoginBrandingInputBuilder{
+    pub fn builder() -> crate::operation::describe_managed_login_branding::builders::DescribeManagedLoginBrandingInputBuilder {
         crate::operation::describe_managed_login_branding::builders::DescribeManagedLoginBrandingInputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_describe_managed_login_branding")]
 /// A builder for [`DescribeManagedLoginBrandingInput`](crate::operation::describe_managed_login_branding::DescribeManagedLoginBrandingInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct DescribeManagedLoginBrandingInputBuilder {
     pub(crate) user_pool_id: ::std::option::Option<::std::string::String>,
@@ -64,18 +62,12 @@ impl DescribeManagedLoginBrandingInputBuilder {
     }
     /// <p>The ID of the managed login branding style that you want to get more information about.</p>
     /// This field is required.
-    pub fn managed_login_branding_id(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn managed_login_branding_id(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.managed_login_branding_id = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The ID of the managed login branding style that you want to get more information about.</p>
-    pub fn set_managed_login_branding_id(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_managed_login_branding_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.managed_login_branding_id = input;
         self
     }
@@ -104,12 +96,10 @@ impl DescribeManagedLoginBrandingInputBuilder {
         crate::operation::describe_managed_login_branding::DescribeManagedLoginBrandingInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(
-            crate::operation::describe_managed_login_branding::DescribeManagedLoginBrandingInput {
-                user_pool_id: self.user_pool_id,
-                managed_login_branding_id: self.managed_login_branding_id,
-                return_merged_resources: self.return_merged_resources,
-            },
-        )
+        ::std::result::Result::Ok(crate::operation::describe_managed_login_branding::DescribeManagedLoginBrandingInput {
+            user_pool_id: self.user_pool_id,
+            managed_login_branding_id: self.managed_login_branding_id,
+            return_merged_resources: self.return_merged_resources,
+        })
     }
 }

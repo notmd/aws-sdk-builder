@@ -40,13 +40,10 @@ impl ListUserPoolsOutput {
 
 #[cfg(feature = "op_list_user_pools")]
 /// A builder for [`ListUserPoolsOutput`](crate::operation::list_user_pools::ListUserPoolsOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct ListUserPoolsOutputBuilder {
-    pub(crate) user_pools:
-        ::std::option::Option<::std::vec::Vec<crate::types::UserPoolDescriptionType>>,
+    pub(crate) user_pools: ::std::option::Option<::std::vec::Vec<crate::types::UserPoolDescriptionType>>,
     pub(crate) next_token: ::std::option::Option<::std::string::String>,
     _request_id: Option<String>,
 }
@@ -64,17 +61,12 @@ impl ListUserPoolsOutputBuilder {
         self
     }
     /// <p>An array of user pools and their configuration details.</p>
-    pub fn set_user_pools(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<crate::types::UserPoolDescriptionType>>,
-    ) -> Self {
+    pub fn set_user_pools(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::UserPoolDescriptionType>>) -> Self {
         self.user_pools = input;
         self
     }
     /// <p>An array of user pools and their configuration details.</p>
-    pub fn get_user_pools(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<crate::types::UserPoolDescriptionType>> {
+    pub fn get_user_pools(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::UserPoolDescriptionType>> {
         &self.user_pools
     }
     /// <p>The identifier that Amazon Cognito returned with the previous request to this operation. When you include a pagination token in your request, Amazon Cognito returns the next set of items in the list. By use of this token, you can paginate through the full list of items.</p>

@@ -7,10 +7,7 @@ impl super::Client {
     ///   - [`username(impl Into<String>)`](crate::operation::admin_user_global_sign_out::builders::AdminUserGlobalSignOutFluentBuilder::username) / [`set_username(Option<String>)`](crate::operation::admin_user_global_sign_out::builders::AdminUserGlobalSignOutFluentBuilder::set_username):<br>required: **true**<br><p>The name of the user that you want to query or modify. The value of this parameter is typically your user's username, but it can be any of their alias attributes. If <code>username</code> isn't an alias attribute in your user pool, this value must be the <code>sub</code> of a local user or the username of a user from a third-party IdP.</p><br>
     /// - On success, responds with [`AdminUserGlobalSignOutOutput`](crate::operation::admin_user_global_sign_out::AdminUserGlobalSignOutOutput)
     /// - On failure, responds with [`SdkError<AdminUserGlobalSignOutError>`](crate::operation::admin_user_global_sign_out::AdminUserGlobalSignOutError)
-    pub fn admin_user_global_sign_out(
-        &self,
-    ) -> crate::operation::admin_user_global_sign_out::builders::AdminUserGlobalSignOutFluentBuilder
-    {
+    pub fn admin_user_global_sign_out(&self) -> crate::operation::admin_user_global_sign_out::builders::AdminUserGlobalSignOutFluentBuilder {
         crate::operation::admin_user_global_sign_out::builders::AdminUserGlobalSignOutFluentBuilder::new(self.handle.clone())
     }
 }

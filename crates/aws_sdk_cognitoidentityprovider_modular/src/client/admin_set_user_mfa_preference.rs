@@ -11,7 +11,7 @@ impl super::Client {
     ///   - [`user_pool_id(impl Into<String>)`](crate::operation::admin_set_user_mfa_preference::builders::AdminSetUserMFAPreferenceFluentBuilder::user_pool_id) / [`set_user_pool_id(Option<String>)`](crate::operation::admin_set_user_mfa_preference::builders::AdminSetUserMFAPreferenceFluentBuilder::set_user_pool_id):<br>required: **true**<br><p>The ID of the user pool where you want to set a user's MFA preferences.</p><br>
     /// - On success, responds with [`AdminSetUserMfaPreferenceOutput`](crate::operation::admin_set_user_mfa_preference::AdminSetUserMfaPreferenceOutput)
     /// - On failure, responds with [`SdkError<AdminSetUserMFAPreferenceError>`](crate::operation::admin_set_user_mfa_preference::AdminSetUserMFAPreferenceError)
-    pub fn admin_set_user_mfa_preference(&self) -> crate::operation::admin_set_user_mfa_preference::builders::AdminSetUserMFAPreferenceFluentBuilder{
+    pub fn admin_set_user_mfa_preference(&self) -> crate::operation::admin_set_user_mfa_preference::builders::AdminSetUserMFAPreferenceFluentBuilder {
         crate::operation::admin_set_user_mfa_preference::builders::AdminSetUserMFAPreferenceFluentBuilder::new(self.handle.clone())
     }
 }

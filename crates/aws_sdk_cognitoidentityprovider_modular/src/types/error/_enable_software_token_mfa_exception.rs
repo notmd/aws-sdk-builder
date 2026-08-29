@@ -16,10 +16,7 @@ impl EnableSoftwareTokenMfaException {
 }
 impl ::std::fmt::Display for EnableSoftwareTokenMfaException {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        ::std::write!(
-            f,
-            "EnableSoftwareTokenMfaException [EnableSoftwareTokenMFAException]"
-        )?;
+        ::std::write!(f, "EnableSoftwareTokenMfaException [EnableSoftwareTokenMFAException]")?;
         if let ::std::option::Option::Some(inner_1) = &self.message {
             {
                 ::std::write!(f, ": {inner_1}")?;
@@ -48,9 +45,7 @@ impl EnableSoftwareTokenMfaException {
 }
 
 /// A builder for [`EnableSoftwareTokenMfaException`](crate::types::error::EnableSoftwareTokenMfaException).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct EnableSoftwareTokenMfaExceptionBuilder {
     pub(crate) message: ::std::option::Option<::std::string::String>,
@@ -78,10 +73,7 @@ impl EnableSoftwareTokenMfaExceptionBuilder {
     }
 
     /// Sets error metadata
-    pub fn set_meta(
-        &mut self,
-        meta: std::option::Option<::aws_smithy_types::error::ErrorMetadata>,
-    ) -> &mut Self {
+    pub fn set_meta(&mut self, meta: std::option::Option<::aws_smithy_types::error::ErrorMetadata>) -> &mut Self {
         self.meta = meta;
         self
     }

@@ -6,8 +6,7 @@
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
 pub struct ListUserPoolClientsOutput {
     /// <p>An array of app clients and their details. Includes app client ID and name.</p>
-    pub user_pool_clients:
-        ::std::option::Option<::std::vec::Vec<crate::types::UserPoolClientDescription>>,
+    pub user_pool_clients: ::std::option::Option<::std::vec::Vec<crate::types::UserPoolClientDescription>>,
     /// <p>The identifier that Amazon Cognito returned with the previous request to this operation. When you include a pagination token in your request, Amazon Cognito returns the next set of items in the list. By use of this token, you can paginate through the full list of items.</p>
     pub next_token: ::std::option::Option<::std::string::String>,
     _request_id: Option<String>,
@@ -34,21 +33,17 @@ impl ::aws_types::request_id::RequestId for ListUserPoolClientsOutput {
 #[cfg(feature = "op_list_user_pool_clients")]
 impl ListUserPoolClientsOutput {
     /// Creates a new builder-style object to manufacture [`ListUserPoolClientsOutput`](crate::operation::list_user_pool_clients::ListUserPoolClientsOutput).
-    pub fn builder(
-    ) -> crate::operation::list_user_pool_clients::builders::ListUserPoolClientsOutputBuilder {
+    pub fn builder() -> crate::operation::list_user_pool_clients::builders::ListUserPoolClientsOutputBuilder {
         crate::operation::list_user_pool_clients::builders::ListUserPoolClientsOutputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_list_user_pool_clients")]
 /// A builder for [`ListUserPoolClientsOutput`](crate::operation::list_user_pool_clients::ListUserPoolClientsOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct ListUserPoolClientsOutputBuilder {
-    pub(crate) user_pool_clients:
-        ::std::option::Option<::std::vec::Vec<crate::types::UserPoolClientDescription>>,
+    pub(crate) user_pool_clients: ::std::option::Option<::std::vec::Vec<crate::types::UserPoolClientDescription>>,
     pub(crate) next_token: ::std::option::Option<::std::string::String>,
     _request_id: Option<String>,
 }
@@ -66,17 +61,12 @@ impl ListUserPoolClientsOutputBuilder {
         self
     }
     /// <p>An array of app clients and their details. Includes app client ID and name.</p>
-    pub fn set_user_pool_clients(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<crate::types::UserPoolClientDescription>>,
-    ) -> Self {
+    pub fn set_user_pool_clients(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::UserPoolClientDescription>>) -> Self {
         self.user_pool_clients = input;
         self
     }
     /// <p>An array of app clients and their details. Includes app client ID and name.</p>
-    pub fn get_user_pool_clients(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<crate::types::UserPoolClientDescription>> {
+    pub fn get_user_pool_clients(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::UserPoolClientDescription>> {
         &self.user_pool_clients
     }
     /// <p>The identifier that Amazon Cognito returned with the previous request to this operation. When you include a pagination token in your request, Amazon Cognito returns the next set of items in the list. By use of this token, you can paginate through the full list of items.</p>

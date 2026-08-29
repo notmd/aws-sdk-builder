@@ -545,6 +545,10 @@
 - `src/operation/verify_user_attribute/builders.rs`
 - `src/protocol_serde.rs`
 - `src/serde_util.rs`
+- `src/types.rs`
+- `src/types/builders.rs`
+- `src/types/error.rs`
+- `src/types/error/builders.rs`
 
 ## Customizations
 

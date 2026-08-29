@@ -44,9 +44,7 @@ impl CustomDomainConfigType {
 }
 
 /// A builder for [`CustomDomainConfigType`](crate::types::CustomDomainConfigType).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct CustomDomainConfigTypeBuilder {
     pub(crate) certificate_arn: ::std::option::Option<::std::string::String>,
@@ -55,18 +53,12 @@ pub struct CustomDomainConfigTypeBuilder {
 impl CustomDomainConfigTypeBuilder {
     /// <p>The Amazon Resource Name (ARN) of an Certificate Manager SSL certificate. You use this certificate for the subdomain of your custom domain.</p>
     /// This field is required.
-    pub fn certificate_arn(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn certificate_arn(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.certificate_arn = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The Amazon Resource Name (ARN) of an Certificate Manager SSL certificate. You use this certificate for the subdomain of your custom domain.</p>
-    pub fn set_certificate_arn(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_certificate_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.certificate_arn = input;
         self
     }
@@ -96,10 +88,7 @@ impl CustomDomainConfigTypeBuilder {
     /// <li>
     /// <p><code>TLS_V1</code> (strongly discouraged): Permits fallback to TLS 1.0. It offers the broadest compatibility, including support for legacy clients that are more than a decade old. This compatibility comes at the expense of allowing TLS versions and cryptographic algorithms that are no longer considered safe for commercial use. <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/secure-connections-supported-viewer-protocols-ciphers.html">Supported protocols and ciphers for TLSv1</a>.</p></li>
     /// </ul>
-    pub fn set_security_policy(
-        mut self,
-        input: ::std::option::Option<crate::types::SecurityPolicyType>,
-    ) -> Self {
+    pub fn set_security_policy(mut self, input: ::std::option::Option<crate::types::SecurityPolicyType>) -> Self {
         self.security_policy = input;
         self
     }
@@ -118,12 +107,7 @@ impl CustomDomainConfigTypeBuilder {
     /// Consumes the builder and constructs a [`CustomDomainConfigType`](crate::types::CustomDomainConfigType).
     /// This method will fail if any of the following fields are not set:
     /// - [`certificate_arn`](crate::types::builders::CustomDomainConfigTypeBuilder::certificate_arn)
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<
-        crate::types::CustomDomainConfigType,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    pub fn build(self) -> ::std::result::Result<crate::types::CustomDomainConfigType, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::CustomDomainConfigType {
             certificate_arn: self.certificate_arn.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

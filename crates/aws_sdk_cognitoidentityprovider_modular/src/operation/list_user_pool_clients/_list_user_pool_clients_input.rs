@@ -30,18 +30,14 @@ impl ListUserPoolClientsInput {
 #[cfg(feature = "op_list_user_pool_clients")]
 impl ListUserPoolClientsInput {
     /// Creates a new builder-style object to manufacture [`ListUserPoolClientsInput`](crate::operation::list_user_pool_clients::ListUserPoolClientsInput).
-    pub fn builder(
-    ) -> crate::operation::list_user_pool_clients::builders::ListUserPoolClientsInputBuilder {
-        crate::operation::list_user_pool_clients::builders::ListUserPoolClientsInputBuilder::default(
-        )
+    pub fn builder() -> crate::operation::list_user_pool_clients::builders::ListUserPoolClientsInputBuilder {
+        crate::operation::list_user_pool_clients::builders::ListUserPoolClientsInputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_list_user_pool_clients")]
 /// A builder for [`ListUserPoolClientsInput`](crate::operation::list_user_pool_clients::ListUserPoolClientsInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct ListUserPoolClientsInputBuilder {
     pub(crate) user_pool_id: ::std::option::Option<::std::string::String>,
@@ -96,16 +92,12 @@ impl ListUserPoolClientsInputBuilder {
     /// Consumes the builder and constructs a [`ListUserPoolClientsInput`](crate::operation::list_user_pool_clients::ListUserPoolClientsInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        crate::operation::list_user_pool_clients::ListUserPoolClientsInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
-        ::std::result::Result::Ok(
-            crate::operation::list_user_pool_clients::ListUserPoolClientsInput {
-                user_pool_id: self.user_pool_id,
-                max_results: self.max_results,
-                next_token: self.next_token,
-            },
-        )
+    ) -> ::std::result::Result<crate::operation::list_user_pool_clients::ListUserPoolClientsInput, ::aws_smithy_types::error::operation::BuildError>
+    {
+        ::std::result::Result::Ok(crate::operation::list_user_pool_clients::ListUserPoolClientsInput {
+            user_pool_id: self.user_pool_id,
+            max_results: self.max_results,
+            next_token: self.next_token,
+        })
     }
 }

@@ -21,9 +21,7 @@ impl RoutingType {
 }
 
 /// A builder for [`RoutingType`](crate::types::RoutingType).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct RoutingTypeBuilder {
     pub(crate) failover: ::std::option::Option<crate::types::FailoverType>,
@@ -35,10 +33,7 @@ impl RoutingTypeBuilder {
         self
     }
     /// <p>The failover configuration that specifies the secondary region and health check settings.</p>
-    pub fn set_failover(
-        mut self,
-        input: ::std::option::Option<crate::types::FailoverType>,
-    ) -> Self {
+    pub fn set_failover(mut self, input: ::std::option::Option<crate::types::FailoverType>) -> Self {
         self.failover = input;
         self
     }
@@ -48,8 +43,6 @@ impl RoutingTypeBuilder {
     }
     /// Consumes the builder and constructs a [`RoutingType`](crate::types::RoutingType).
     pub fn build(self) -> crate::types::RoutingType {
-        crate::types::RoutingType {
-            failover: self.failover,
-        }
+        crate::types::RoutingType { failover: self.failover }
     }
 }

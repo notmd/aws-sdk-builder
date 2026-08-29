@@ -63,7 +63,7 @@ impl SetLogDeliveryConfigurationFluentBuilder {
         }
     }
     /// Access the SetLogDeliveryConfiguration as a reference.
-    pub fn as_input(&self) -> &crate::operation::set_log_delivery_configuration::builders::SetLogDeliveryConfigurationInputBuilder{
+    pub fn as_input(&self) -> &crate::operation::set_log_delivery_configuration::builders::SetLogDeliveryConfigurationInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -92,11 +92,7 @@ impl SetLogDeliveryConfigurationFluentBuilder {
             &self.handle.conf,
             self.config_override,
         );
-        crate::operation::set_log_delivery_configuration::SetLogDeliveryConfiguration::orchestrate(
-            &runtime_plugins,
-            input,
-        )
-        .await
+        crate::operation::set_log_delivery_configuration::SetLogDeliveryConfiguration::orchestrate(&runtime_plugins, input).await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -109,18 +105,12 @@ impl SetLogDeliveryConfigurationFluentBuilder {
     > {
         crate::client::customize::CustomizableOperation::new(self)
     }
-    pub(crate) fn config_override(
-        mut self,
-        config_override: impl ::std::convert::Into<crate::config::Builder>,
-    ) -> Self {
+    pub(crate) fn config_override(mut self, config_override: impl ::std::convert::Into<crate::config::Builder>) -> Self {
         self.set_config_override(::std::option::Option::Some(config_override.into()));
         self
     }
 
-    pub(crate) fn set_config_override(
-        &mut self,
-        config_override: ::std::option::Option<crate::config::Builder>,
-    ) -> &mut Self {
+    pub(crate) fn set_config_override(&mut self, config_override: ::std::option::Option<crate::config::Builder>) -> &mut Self {
         self.config_override = config_override;
         self
     }
@@ -149,17 +139,12 @@ impl SetLogDeliveryConfigurationFluentBuilder {
         self
     }
     /// <p>A collection of the logging configurations for a user pool.</p>
-    pub fn set_log_configurations(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<crate::types::LogConfigurationType>>,
-    ) -> Self {
+    pub fn set_log_configurations(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::LogConfigurationType>>) -> Self {
         self.inner = self.inner.set_log_configurations(input);
         self
     }
     /// <p>A collection of the logging configurations for a user pool.</p>
-    pub fn get_log_configurations(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<crate::types::LogConfigurationType>> {
+    pub fn get_log_configurations(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::LogConfigurationType>> {
         self.inner.get_log_configurations()
     }
 }

@@ -12,9 +12,7 @@ pub struct ResendConfirmationCodeOutput {
 #[cfg(feature = "op_resend_confirmation_code")]
 impl ResendConfirmationCodeOutput {
     /// <p>Information about the phone number or email address that Amazon Cognito sent the confirmation code to.</p>
-    pub fn code_delivery_details(
-        &self,
-    ) -> ::std::option::Option<&crate::types::CodeDeliveryDetailsType> {
+    pub fn code_delivery_details(&self) -> ::std::option::Option<&crate::types::CodeDeliveryDetailsType> {
         self.code_delivery_details.as_ref()
     }
 }
@@ -27,18 +25,14 @@ impl ::aws_types::request_id::RequestId for ResendConfirmationCodeOutput {
 #[cfg(feature = "op_resend_confirmation_code")]
 impl ResendConfirmationCodeOutput {
     /// Creates a new builder-style object to manufacture [`ResendConfirmationCodeOutput`](crate::operation::resend_confirmation_code::ResendConfirmationCodeOutput).
-    pub fn builder(
-    ) -> crate::operation::resend_confirmation_code::builders::ResendConfirmationCodeOutputBuilder
-    {
+    pub fn builder() -> crate::operation::resend_confirmation_code::builders::ResendConfirmationCodeOutputBuilder {
         crate::operation::resend_confirmation_code::builders::ResendConfirmationCodeOutputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_resend_confirmation_code")]
 /// A builder for [`ResendConfirmationCodeOutput`](crate::operation::resend_confirmation_code::ResendConfirmationCodeOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct ResendConfirmationCodeOutputBuilder {
     pub(crate) code_delivery_details: ::std::option::Option<crate::types::CodeDeliveryDetailsType>,
@@ -52,17 +46,12 @@ impl ResendConfirmationCodeOutputBuilder {
         self
     }
     /// <p>Information about the phone number or email address that Amazon Cognito sent the confirmation code to.</p>
-    pub fn set_code_delivery_details(
-        mut self,
-        input: ::std::option::Option<crate::types::CodeDeliveryDetailsType>,
-    ) -> Self {
+    pub fn set_code_delivery_details(mut self, input: ::std::option::Option<crate::types::CodeDeliveryDetailsType>) -> Self {
         self.code_delivery_details = input;
         self
     }
     /// <p>Information about the phone number or email address that Amazon Cognito sent the confirmation code to.</p>
-    pub fn get_code_delivery_details(
-        &self,
-    ) -> &::std::option::Option<crate::types::CodeDeliveryDetailsType> {
+    pub fn get_code_delivery_details(&self) -> &::std::option::Option<crate::types::CodeDeliveryDetailsType> {
         &self.code_delivery_details
     }
     pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {

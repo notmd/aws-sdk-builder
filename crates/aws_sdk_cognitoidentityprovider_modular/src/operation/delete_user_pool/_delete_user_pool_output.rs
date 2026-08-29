@@ -22,9 +22,7 @@ impl DeleteUserPoolOutput {
 
 #[cfg(feature = "op_delete_user_pool")]
 /// A builder for [`DeleteUserPoolOutput`](crate::operation::delete_user_pool::DeleteUserPoolOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct DeleteUserPoolOutputBuilder {
     _request_id: Option<String>,

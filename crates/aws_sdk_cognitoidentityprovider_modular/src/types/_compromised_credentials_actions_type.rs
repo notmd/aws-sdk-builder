@@ -21,47 +21,31 @@ impl CompromisedCredentialsActionsType {
 }
 
 /// A builder for [`CompromisedCredentialsActionsType`](crate::types::CompromisedCredentialsActionsType).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct CompromisedCredentialsActionsTypeBuilder {
-    pub(crate) event_action:
-        ::std::option::Option<crate::types::CompromisedCredentialsEventActionType>,
+    pub(crate) event_action: ::std::option::Option<crate::types::CompromisedCredentialsEventActionType>,
 }
 impl CompromisedCredentialsActionsTypeBuilder {
     /// <p>The action that Amazon Cognito takes when it detects compromised credentials.</p>
     /// This field is required.
-    pub fn event_action(
-        mut self,
-        input: crate::types::CompromisedCredentialsEventActionType,
-    ) -> Self {
+    pub fn event_action(mut self, input: crate::types::CompromisedCredentialsEventActionType) -> Self {
         self.event_action = ::std::option::Option::Some(input);
         self
     }
     /// <p>The action that Amazon Cognito takes when it detects compromised credentials.</p>
-    pub fn set_event_action(
-        mut self,
-        input: ::std::option::Option<crate::types::CompromisedCredentialsEventActionType>,
-    ) -> Self {
+    pub fn set_event_action(mut self, input: ::std::option::Option<crate::types::CompromisedCredentialsEventActionType>) -> Self {
         self.event_action = input;
         self
     }
     /// <p>The action that Amazon Cognito takes when it detects compromised credentials.</p>
-    pub fn get_event_action(
-        &self,
-    ) -> &::std::option::Option<crate::types::CompromisedCredentialsEventActionType> {
+    pub fn get_event_action(&self) -> &::std::option::Option<crate::types::CompromisedCredentialsEventActionType> {
         &self.event_action
     }
     /// Consumes the builder and constructs a [`CompromisedCredentialsActionsType`](crate::types::CompromisedCredentialsActionsType).
     /// This method will fail if any of the following fields are not set:
     /// - [`event_action`](crate::types::builders::CompromisedCredentialsActionsTypeBuilder::event_action)
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<
-        crate::types::CompromisedCredentialsActionsType,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    pub fn build(self) -> ::std::result::Result<crate::types::CompromisedCredentialsActionsType, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::CompromisedCredentialsActionsType {
             event_action: self.event_action.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

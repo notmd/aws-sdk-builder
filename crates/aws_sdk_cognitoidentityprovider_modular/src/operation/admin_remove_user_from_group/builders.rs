@@ -6,9 +6,7 @@ pub use crate::operation::admin_remove_user_from_group::_admin_remove_user_from_
 pub use crate::operation::admin_remove_user_from_group::_admin_remove_user_from_group_output::AdminRemoveUserFromGroupOutputBuilder;
 
 #[cfg(feature = "op_admin_remove_user_from_group")]
-impl
-    crate::operation::admin_remove_user_from_group::builders::AdminRemoveUserFromGroupInputBuilder
-{
+impl crate::operation::admin_remove_user_from_group::builders::AdminRemoveUserFromGroupInputBuilder {
     /// Sends a request with this input using the given client.
     pub async fn send_with(
         self,
@@ -74,7 +72,7 @@ impl AdminRemoveUserFromGroupFluentBuilder {
         }
     }
     /// Access the AdminRemoveUserFromGroup as a reference.
-    pub fn as_input(&self) -> &crate::operation::admin_remove_user_from_group::builders::AdminRemoveUserFromGroupInputBuilder{
+    pub fn as_input(&self) -> &crate::operation::admin_remove_user_from_group::builders::AdminRemoveUserFromGroupInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -103,11 +101,7 @@ impl AdminRemoveUserFromGroupFluentBuilder {
             &self.handle.conf,
             self.config_override,
         );
-        crate::operation::admin_remove_user_from_group::AdminRemoveUserFromGroup::orchestrate(
-            &runtime_plugins,
-            input,
-        )
-        .await
+        crate::operation::admin_remove_user_from_group::AdminRemoveUserFromGroup::orchestrate(&runtime_plugins, input).await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -120,18 +114,12 @@ impl AdminRemoveUserFromGroupFluentBuilder {
     > {
         crate::client::customize::CustomizableOperation::new(self)
     }
-    pub(crate) fn config_override(
-        mut self,
-        config_override: impl ::std::convert::Into<crate::config::Builder>,
-    ) -> Self {
+    pub(crate) fn config_override(mut self, config_override: impl ::std::convert::Into<crate::config::Builder>) -> Self {
         self.set_config_override(::std::option::Option::Some(config_override.into()));
         self
     }
 
-    pub(crate) fn set_config_override(
-        &mut self,
-        config_override: ::std::option::Option<crate::config::Builder>,
-    ) -> &mut Self {
+    pub(crate) fn set_config_override(&mut self, config_override: ::std::option::Option<crate::config::Builder>) -> &mut Self {
         self.config_override = config_override;
         self
     }

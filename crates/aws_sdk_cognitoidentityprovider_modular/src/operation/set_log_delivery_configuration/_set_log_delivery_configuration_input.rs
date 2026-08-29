@@ -7,8 +7,7 @@ pub struct SetLogDeliveryConfigurationInput {
     /// <p>The ID of the user pool where you want to configure logging.</p>
     pub user_pool_id: ::std::option::Option<::std::string::String>,
     /// <p>A collection of the logging configurations for a user pool.</p>
-    pub log_configurations:
-        ::std::option::Option<::std::vec::Vec<crate::types::LogConfigurationType>>,
+    pub log_configurations: ::std::option::Option<::std::vec::Vec<crate::types::LogConfigurationType>>,
 }
 #[cfg(feature = "op_set_log_delivery_configuration")]
 impl SetLogDeliveryConfigurationInput {
@@ -26,21 +25,18 @@ impl SetLogDeliveryConfigurationInput {
 #[cfg(feature = "op_set_log_delivery_configuration")]
 impl SetLogDeliveryConfigurationInput {
     /// Creates a new builder-style object to manufacture [`SetLogDeliveryConfigurationInput`](crate::operation::set_log_delivery_configuration::SetLogDeliveryConfigurationInput).
-    pub fn builder() -> crate::operation::set_log_delivery_configuration::builders::SetLogDeliveryConfigurationInputBuilder{
+    pub fn builder() -> crate::operation::set_log_delivery_configuration::builders::SetLogDeliveryConfigurationInputBuilder {
         crate::operation::set_log_delivery_configuration::builders::SetLogDeliveryConfigurationInputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_set_log_delivery_configuration")]
 /// A builder for [`SetLogDeliveryConfigurationInput`](crate::operation::set_log_delivery_configuration::SetLogDeliveryConfigurationInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct SetLogDeliveryConfigurationInputBuilder {
     pub(crate) user_pool_id: ::std::option::Option<::std::string::String>,
-    pub(crate) log_configurations:
-        ::std::option::Option<::std::vec::Vec<crate::types::LogConfigurationType>>,
+    pub(crate) log_configurations: ::std::option::Option<::std::vec::Vec<crate::types::LogConfigurationType>>,
 }
 #[cfg(feature = "op_set_log_delivery_configuration")]
 impl SetLogDeliveryConfigurationInputBuilder {
@@ -71,17 +67,12 @@ impl SetLogDeliveryConfigurationInputBuilder {
         self
     }
     /// <p>A collection of the logging configurations for a user pool.</p>
-    pub fn set_log_configurations(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<crate::types::LogConfigurationType>>,
-    ) -> Self {
+    pub fn set_log_configurations(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::LogConfigurationType>>) -> Self {
         self.log_configurations = input;
         self
     }
     /// <p>A collection of the logging configurations for a user pool.</p>
-    pub fn get_log_configurations(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<crate::types::LogConfigurationType>> {
+    pub fn get_log_configurations(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::LogConfigurationType>> {
         &self.log_configurations
     }
     /// Consumes the builder and constructs a [`SetLogDeliveryConfigurationInput`](crate::operation::set_log_delivery_configuration::SetLogDeliveryConfigurationInput).
@@ -91,11 +82,9 @@ impl SetLogDeliveryConfigurationInputBuilder {
         crate::operation::set_log_delivery_configuration::SetLogDeliveryConfigurationInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(
-            crate::operation::set_log_delivery_configuration::SetLogDeliveryConfigurationInput {
-                user_pool_id: self.user_pool_id,
-                log_configurations: self.log_configurations,
-            },
-        )
+        ::std::result::Result::Ok(crate::operation::set_log_delivery_configuration::SetLogDeliveryConfigurationInput {
+            user_pool_id: self.user_pool_id,
+            log_configurations: self.log_configurations,
+        })
     }
 }

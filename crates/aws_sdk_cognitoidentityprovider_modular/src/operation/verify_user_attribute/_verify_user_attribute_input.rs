@@ -40,10 +40,8 @@ impl ::std::fmt::Debug for VerifyUserAttributeInput {
 #[cfg(feature = "op_verify_user_attribute")]
 impl VerifyUserAttributeInput {
     /// Creates a new builder-style object to manufacture [`VerifyUserAttributeInput`](crate::operation::verify_user_attribute::VerifyUserAttributeInput).
-    pub fn builder(
-    ) -> crate::operation::verify_user_attribute::builders::VerifyUserAttributeInputBuilder {
-        crate::operation::verify_user_attribute::builders::VerifyUserAttributeInputBuilder::default(
-        )
+    pub fn builder() -> crate::operation::verify_user_attribute::builders::VerifyUserAttributeInputBuilder {
+        crate::operation::verify_user_attribute::builders::VerifyUserAttributeInputBuilder::default()
     }
 }
 
@@ -75,18 +73,12 @@ impl VerifyUserAttributeInputBuilder {
     }
     /// <p>The name of the attribute that you want to verify.</p>
     /// This field is required.
-    pub fn attribute_name(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn attribute_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.attribute_name = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The name of the attribute that you want to verify.</p>
-    pub fn set_attribute_name(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_attribute_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.attribute_name = input;
         self
     }
@@ -112,17 +104,13 @@ impl VerifyUserAttributeInputBuilder {
     /// Consumes the builder and constructs a [`VerifyUserAttributeInput`](crate::operation::verify_user_attribute::VerifyUserAttributeInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        crate::operation::verify_user_attribute::VerifyUserAttributeInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
-        ::std::result::Result::Ok(
-            crate::operation::verify_user_attribute::VerifyUserAttributeInput {
-                access_token: self.access_token,
-                attribute_name: self.attribute_name,
-                code: self.code,
-            },
-        )
+    ) -> ::std::result::Result<crate::operation::verify_user_attribute::VerifyUserAttributeInput, ::aws_smithy_types::error::operation::BuildError>
+    {
+        ::std::result::Result::Ok(crate::operation::verify_user_attribute::VerifyUserAttributeInput {
+            access_token: self.access_token,
+            attribute_name: self.attribute_name,
+            code: self.code,
+        })
     }
 }
 #[cfg(feature = "op_verify_user_attribute")]

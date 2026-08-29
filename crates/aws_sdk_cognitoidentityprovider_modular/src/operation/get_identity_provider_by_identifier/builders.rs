@@ -63,7 +63,7 @@ impl GetIdentityProviderByIdentifierFluentBuilder {
         }
     }
     /// Access the GetIdentityProviderByIdentifier as a reference.
-    pub fn as_input(&self) -> &crate::operation::get_identity_provider_by_identifier::builders::GetIdentityProviderByIdentifierInputBuilder{
+    pub fn as_input(&self) -> &crate::operation::get_identity_provider_by_identifier::builders::GetIdentityProviderByIdentifierInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -82,7 +82,7 @@ impl GetIdentityProviderByIdentifierFluentBuilder {
             crate::operation::get_identity_provider_by_identifier::GetIdentityProviderByIdentifierError,
             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
         >,
-    >{
+    > {
         let input = self
             .inner
             .build()
@@ -102,21 +102,15 @@ impl GetIdentityProviderByIdentifierFluentBuilder {
         crate::operation::get_identity_provider_by_identifier::GetIdentityProviderByIdentifierOutput,
         crate::operation::get_identity_provider_by_identifier::GetIdentityProviderByIdentifierError,
         Self,
-    >{
+    > {
         crate::client::customize::CustomizableOperation::new(self)
     }
-    pub(crate) fn config_override(
-        mut self,
-        config_override: impl ::std::convert::Into<crate::config::Builder>,
-    ) -> Self {
+    pub(crate) fn config_override(mut self, config_override: impl ::std::convert::Into<crate::config::Builder>) -> Self {
         self.set_config_override(::std::option::Option::Some(config_override.into()));
         self
     }
 
-    pub(crate) fn set_config_override(
-        &mut self,
-        config_override: ::std::option::Option<crate::config::Builder>,
-    ) -> &mut Self {
+    pub(crate) fn set_config_override(&mut self, config_override: ::std::option::Option<crate::config::Builder>) -> &mut Self {
         self.config_override = config_override;
         self
     }
@@ -135,18 +129,12 @@ impl GetIdentityProviderByIdentifierFluentBuilder {
         self.inner.get_user_pool_id()
     }
     /// <p>The identifier that you assigned to your user pool. The identifier is an alternative name for an IdP that is distinct from the IdP name. For example, an IdP with a name of <code>MyIdP</code> might have an identifier of the email domain <code>example.com</code>.</p>
-    pub fn idp_identifier(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn idp_identifier(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.idp_identifier(input.into());
         self
     }
     /// <p>The identifier that you assigned to your user pool. The identifier is an alternative name for an IdP that is distinct from the IdP name. For example, an IdP with a name of <code>MyIdP</code> might have an identifier of the email domain <code>example.com</code>.</p>
-    pub fn set_idp_identifier(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_idp_identifier(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_idp_identifier(input);
         self
     }

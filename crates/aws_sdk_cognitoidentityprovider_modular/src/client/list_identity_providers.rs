@@ -11,12 +11,7 @@ impl super::Client {
     ///   - [`providers(Vec::<ProviderDescription>)`](crate::operation::list_identity_providers::ListIdentityProvidersOutput::providers): <p>An array of the IdPs in your user pool. For each, the response includes identifiers, the IdP name and type, and trust-relationship details like the issuer URL.</p>
     ///   - [`next_token(Option<String>)`](crate::operation::list_identity_providers::ListIdentityProvidersOutput::next_token): <p>The identifier that Amazon Cognito returned with the previous request to this operation. When you include a pagination token in your request, Amazon Cognito returns the next set of items in the list. By use of this token, you can paginate through the full list of items.</p>
     /// - On failure, responds with [`SdkError<ListIdentityProvidersError>`](crate::operation::list_identity_providers::ListIdentityProvidersError)
-    pub fn list_identity_providers(
-        &self,
-    ) -> crate::operation::list_identity_providers::builders::ListIdentityProvidersFluentBuilder
-    {
-        crate::operation::list_identity_providers::builders::ListIdentityProvidersFluentBuilder::new(
-            self.handle.clone(),
-        )
+    pub fn list_identity_providers(&self) -> crate::operation::list_identity_providers::builders::ListIdentityProvidersFluentBuilder {
+        crate::operation::list_identity_providers::builders::ListIdentityProvidersFluentBuilder::new(self.handle.clone())
     }
 }

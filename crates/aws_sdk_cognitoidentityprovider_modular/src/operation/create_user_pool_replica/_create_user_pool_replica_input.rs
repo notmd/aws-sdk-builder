@@ -9,9 +9,7 @@ pub struct CreateUserPoolReplicaInput {
     /// <p>The Amazon Web Services Region where you want to create the replica user pool.</p>
     pub region_name: ::std::option::Option<::std::string::String>,
     /// <p>A map of tags to assign to the replica user pool. Each tag consists of a key and an optional value, both of which you define. You can maintain tags independently on replica user pools.</p>
-    pub user_pool_tags: ::std::option::Option<
-        ::std::collections::HashMap<::std::string::String, ::std::string::String>,
-    >,
+    pub user_pool_tags: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
 }
 #[cfg(feature = "op_create_user_pool_replica")]
 impl CreateUserPoolReplicaInput {
@@ -24,36 +22,26 @@ impl CreateUserPoolReplicaInput {
         self.region_name.as_deref()
     }
     /// <p>A map of tags to assign to the replica user pool. Each tag consists of a key and an optional value, both of which you define. You can maintain tags independently on replica user pools.</p>
-    pub fn user_pool_tags(
-        &self,
-    ) -> ::std::option::Option<
-        &::std::collections::HashMap<::std::string::String, ::std::string::String>,
-    > {
+    pub fn user_pool_tags(&self) -> ::std::option::Option<&::std::collections::HashMap<::std::string::String, ::std::string::String>> {
         self.user_pool_tags.as_ref()
     }
 }
 #[cfg(feature = "op_create_user_pool_replica")]
 impl CreateUserPoolReplicaInput {
     /// Creates a new builder-style object to manufacture [`CreateUserPoolReplicaInput`](crate::operation::create_user_pool_replica::CreateUserPoolReplicaInput).
-    pub fn builder(
-    ) -> crate::operation::create_user_pool_replica::builders::CreateUserPoolReplicaInputBuilder
-    {
+    pub fn builder() -> crate::operation::create_user_pool_replica::builders::CreateUserPoolReplicaInputBuilder {
         crate::operation::create_user_pool_replica::builders::CreateUserPoolReplicaInputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_create_user_pool_replica")]
 /// A builder for [`CreateUserPoolReplicaInput`](crate::operation::create_user_pool_replica::CreateUserPoolReplicaInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct CreateUserPoolReplicaInputBuilder {
     pub(crate) user_pool_id: ::std::option::Option<::std::string::String>,
     pub(crate) region_name: ::std::option::Option<::std::string::String>,
-    pub(crate) user_pool_tags: ::std::option::Option<
-        ::std::collections::HashMap<::std::string::String, ::std::string::String>,
-    >,
+    pub(crate) user_pool_tags: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
 }
 #[cfg(feature = "op_create_user_pool_replica")]
 impl CreateUserPoolReplicaInputBuilder {
@@ -105,34 +93,24 @@ impl CreateUserPoolReplicaInputBuilder {
     /// <p>A map of tags to assign to the replica user pool. Each tag consists of a key and an optional value, both of which you define. You can maintain tags independently on replica user pools.</p>
     pub fn set_user_pool_tags(
         mut self,
-        input: ::std::option::Option<
-            ::std::collections::HashMap<::std::string::String, ::std::string::String>,
-        >,
+        input: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
     ) -> Self {
         self.user_pool_tags = input;
         self
     }
     /// <p>A map of tags to assign to the replica user pool. Each tag consists of a key and an optional value, both of which you define. You can maintain tags independently on replica user pools.</p>
-    pub fn get_user_pool_tags(
-        &self,
-    ) -> &::std::option::Option<
-        ::std::collections::HashMap<::std::string::String, ::std::string::String>,
-    > {
+    pub fn get_user_pool_tags(&self) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>> {
         &self.user_pool_tags
     }
     /// Consumes the builder and constructs a [`CreateUserPoolReplicaInput`](crate::operation::create_user_pool_replica::CreateUserPoolReplicaInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        crate::operation::create_user_pool_replica::CreateUserPoolReplicaInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
-        ::std::result::Result::Ok(
-            crate::operation::create_user_pool_replica::CreateUserPoolReplicaInput {
-                user_pool_id: self.user_pool_id,
-                region_name: self.region_name,
-                user_pool_tags: self.user_pool_tags,
-            },
-        )
+    ) -> ::std::result::Result<crate::operation::create_user_pool_replica::CreateUserPoolReplicaInput, ::aws_smithy_types::error::operation::BuildError>
+    {
+        ::std::result::Result::Ok(crate::operation::create_user_pool_replica::CreateUserPoolReplicaInput {
+            user_pool_id: self.user_pool_id,
+            region_name: self.region_name,
+            user_pool_tags: self.user_pool_tags,
+        })
     }
 }

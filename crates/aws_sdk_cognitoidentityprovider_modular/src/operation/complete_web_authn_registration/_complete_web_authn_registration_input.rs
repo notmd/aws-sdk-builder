@@ -32,7 +32,7 @@ impl ::std::fmt::Debug for CompleteWebAuthnRegistrationInput {
 #[cfg(feature = "op_complete_web_authn_registration")]
 impl CompleteWebAuthnRegistrationInput {
     /// Creates a new builder-style object to manufacture [`CompleteWebAuthnRegistrationInput`](crate::operation::complete_web_authn_registration::CompleteWebAuthnRegistrationInput).
-    pub fn builder() -> crate::operation::complete_web_authn_registration::builders::CompleteWebAuthnRegistrationInputBuilder{
+    pub fn builder() -> crate::operation::complete_web_authn_registration::builders::CompleteWebAuthnRegistrationInputBuilder {
         crate::operation::complete_web_authn_registration::builders::CompleteWebAuthnRegistrationInputBuilder::default()
     }
 }
@@ -69,10 +69,7 @@ impl CompleteWebAuthnRegistrationInputBuilder {
         self
     }
     /// <p>A <a href="https://www.w3.org/TR/WebAuthn-3/#dictdef-registrationresponsejson">RegistrationResponseJSON</a> public-key credential response from the user's passkey provider.</p>
-    pub fn set_credential(
-        mut self,
-        input: ::std::option::Option<::aws_smithy_types::Document>,
-    ) -> Self {
+    pub fn set_credential(mut self, input: ::std::option::Option<::aws_smithy_types::Document>) -> Self {
         self.credential = input;
         self
     }
@@ -87,12 +84,10 @@ impl CompleteWebAuthnRegistrationInputBuilder {
         crate::operation::complete_web_authn_registration::CompleteWebAuthnRegistrationInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(
-            crate::operation::complete_web_authn_registration::CompleteWebAuthnRegistrationInput {
-                access_token: self.access_token,
-                credential: self.credential,
-            },
-        )
+        ::std::result::Result::Ok(crate::operation::complete_web_authn_registration::CompleteWebAuthnRegistrationInput {
+            access_token: self.access_token,
+            credential: self.credential,
+        })
     }
 }
 #[cfg(feature = "op_complete_web_authn_registration")]

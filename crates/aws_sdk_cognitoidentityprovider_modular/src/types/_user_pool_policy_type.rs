@@ -27,9 +27,7 @@ impl UserPoolPolicyType {
 }
 
 /// A builder for [`UserPoolPolicyType`](crate::types::UserPoolPolicyType).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct UserPoolPolicyTypeBuilder {
     pub(crate) password_policy: ::std::option::Option<crate::types::PasswordPolicyType>,
@@ -42,10 +40,7 @@ impl UserPoolPolicyTypeBuilder {
         self
     }
     /// <p>The password policy settings for a user pool, including complexity, history, and length requirements.</p>
-    pub fn set_password_policy(
-        mut self,
-        input: ::std::option::Option<crate::types::PasswordPolicyType>,
-    ) -> Self {
+    pub fn set_password_policy(mut self, input: ::std::option::Option<crate::types::PasswordPolicyType>) -> Self {
         self.password_policy = input;
         self
     }
@@ -59,10 +54,7 @@ impl UserPoolPolicyTypeBuilder {
         self
     }
     /// <p>The policy for allowed types of authentication in a user pool.</p>
-    pub fn set_sign_in_policy(
-        mut self,
-        input: ::std::option::Option<crate::types::SignInPolicyType>,
-    ) -> Self {
+    pub fn set_sign_in_policy(mut self, input: ::std::option::Option<crate::types::SignInPolicyType>) -> Self {
         self.sign_in_policy = input;
         self
     }

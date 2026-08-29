@@ -36,9 +36,7 @@ impl ListTermsInput {
 
 #[cfg(feature = "op_list_terms")]
 /// A builder for [`ListTermsInput`](crate::operation::list_terms::ListTermsInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct ListTermsInputBuilder {
     pub(crate) user_pool_id: ::std::option::Option<::std::string::String>,
@@ -91,12 +89,7 @@ impl ListTermsInputBuilder {
         &self.next_token
     }
     /// Consumes the builder and constructs a [`ListTermsInput`](crate::operation::list_terms::ListTermsInput).
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<
-        crate::operation::list_terms::ListTermsInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    pub fn build(self) -> ::std::result::Result<crate::operation::list_terms::ListTermsInput, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::operation::list_terms::ListTermsInput {
             user_pool_id: self.user_pool_id,
             max_results: self.max_results,

@@ -33,9 +33,7 @@ impl ::std::fmt::Debug for AdminUserGlobalSignOutInput {
 #[cfg(feature = "op_admin_user_global_sign_out")]
 impl AdminUserGlobalSignOutInput {
     /// Creates a new builder-style object to manufacture [`AdminUserGlobalSignOutInput`](crate::operation::admin_user_global_sign_out::AdminUserGlobalSignOutInput).
-    pub fn builder(
-    ) -> crate::operation::admin_user_global_sign_out::builders::AdminUserGlobalSignOutInputBuilder
-    {
+    pub fn builder() -> crate::operation::admin_user_global_sign_out::builders::AdminUserGlobalSignOutInputBuilder {
         crate::operation::admin_user_global_sign_out::builders::AdminUserGlobalSignOutInputBuilder::default()
     }
 }
@@ -87,12 +85,10 @@ impl AdminUserGlobalSignOutInputBuilder {
         crate::operation::admin_user_global_sign_out::AdminUserGlobalSignOutInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(
-            crate::operation::admin_user_global_sign_out::AdminUserGlobalSignOutInput {
-                user_pool_id: self.user_pool_id,
-                username: self.username,
-            },
-        )
+        ::std::result::Result::Ok(crate::operation::admin_user_global_sign_out::AdminUserGlobalSignOutInput {
+            user_pool_id: self.user_pool_id,
+            username: self.username,
+        })
     }
 }
 #[cfg(feature = "op_admin_user_global_sign_out")]

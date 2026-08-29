@@ -15,16 +15,14 @@ impl ::aws_types::request_id::RequestId for AdminRemoveUserFromGroupOutput {
 #[cfg(feature = "op_admin_remove_user_from_group")]
 impl AdminRemoveUserFromGroupOutput {
     /// Creates a new builder-style object to manufacture [`AdminRemoveUserFromGroupOutput`](crate::operation::admin_remove_user_from_group::AdminRemoveUserFromGroupOutput).
-    pub fn builder() -> crate::operation::admin_remove_user_from_group::builders::AdminRemoveUserFromGroupOutputBuilder{
+    pub fn builder() -> crate::operation::admin_remove_user_from_group::builders::AdminRemoveUserFromGroupOutputBuilder {
         crate::operation::admin_remove_user_from_group::builders::AdminRemoveUserFromGroupOutputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_admin_remove_user_from_group")]
 /// A builder for [`AdminRemoveUserFromGroupOutput`](crate::operation::admin_remove_user_from_group::AdminRemoveUserFromGroupOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct AdminRemoveUserFromGroupOutputBuilder {
     _request_id: Option<String>,
@@ -41,9 +39,7 @@ impl AdminRemoveUserFromGroupOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`AdminRemoveUserFromGroupOutput`](crate::operation::admin_remove_user_from_group::AdminRemoveUserFromGroupOutput).
-    pub fn build(
-        self,
-    ) -> crate::operation::admin_remove_user_from_group::AdminRemoveUserFromGroupOutput {
+    pub fn build(self) -> crate::operation::admin_remove_user_from_group::AdminRemoveUserFromGroupOutput {
         crate::operation::admin_remove_user_from_group::AdminRemoveUserFromGroupOutput {
             _request_id: self._request_id,
         }

@@ -7,11 +7,7 @@ impl super::Client {
     /// - On success, responds with [`GetProvisionedLimitOutput`](crate::operation::get_provisioned_limit::GetProvisionedLimitOutput) with field(s):
     ///   - [`limit(Option<LimitType>)`](crate::operation::get_provisioned_limit::GetProvisionedLimitOutput::limit): <p>The provisioned and default limit values for the requested limit.</p>
     /// - On failure, responds with [`SdkError<GetProvisionedLimitError>`](crate::operation::get_provisioned_limit::GetProvisionedLimitError)
-    pub fn get_provisioned_limit(
-        &self,
-    ) -> crate::operation::get_provisioned_limit::builders::GetProvisionedLimitFluentBuilder {
-        crate::operation::get_provisioned_limit::builders::GetProvisionedLimitFluentBuilder::new(
-            self.handle.clone(),
-        )
+    pub fn get_provisioned_limit(&self) -> crate::operation::get_provisioned_limit::builders::GetProvisionedLimitFluentBuilder {
+        crate::operation::get_provisioned_limit::builders::GetProvisionedLimitFluentBuilder::new(self.handle.clone())
     }
 }

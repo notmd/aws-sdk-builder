@@ -3,21 +3,15 @@ pub(crate) fn type_erase_result<O, E>(
     result: ::std::result::Result<O, E>,
 ) -> ::std::result::Result<
     ::aws_smithy_runtime_api::client::interceptors::context::Output,
-    ::aws_smithy_runtime_api::client::orchestrator::OrchestratorError<
-        ::aws_smithy_runtime_api::client::interceptors::context::Error,
-    >,
+    ::aws_smithy_runtime_api::client::orchestrator::OrchestratorError<::aws_smithy_runtime_api::client::interceptors::context::Error>,
 >
 where
     O: ::std::fmt::Debug + ::std::marker::Send + ::std::marker::Sync + 'static,
     E: ::std::error::Error + std::fmt::Debug + ::std::marker::Send + ::std::marker::Sync + 'static,
 {
     result
-        .map(|output| {
-            ::aws_smithy_runtime_api::client::interceptors::context::Output::erase(output)
-        })
-        .map_err(|error| {
-            ::aws_smithy_runtime_api::client::interceptors::context::Error::erase(error)
-        })
+        .map(|output| ::aws_smithy_runtime_api::client::interceptors::context::Output::erase(output))
+        .map_err(|error| ::aws_smithy_runtime_api::client::interceptors::context::Error::erase(error))
         .map_err(::std::convert::Into::into)
 }
 
@@ -25,10 +19,7 @@ pub fn parse_http_error_metadata(
     _response_status: u16,
     response_headers: &::aws_smithy_runtime_api::http::Headers,
     response_body: &[u8],
-) -> ::std::result::Result<
-    ::aws_smithy_types::error::metadata::Builder,
-    ::aws_smithy_json::deserialize::error::DeserializeError,
-> {
+) -> ::std::result::Result<::aws_smithy_types::error::metadata::Builder, ::aws_smithy_json::deserialize::error::DeserializeError> {
     crate::json_errors::parse_error_metadata(response_body, response_headers)
 }
 
@@ -517,16 +508,7 @@ pub(crate) mod shape_admin_update_user_attributes_input;
 #[cfg(feature = "op_admin_user_global_sign_out")]
 pub(crate) mod shape_admin_user_global_sign_out_input;
 
-#[cfg(any(
-    feature = "op_admin_disable_provider_for_user",
-    feature = "op_admin_link_provider_for_user",
-    feature = "op_admin_respond_to_auth_challenge",
-    feature = "op_admin_update_user_attributes",
-    feature = "op_confirm_sign_up",
-    feature = "op_respond_to_auth_challenge",
-    feature = "op_update_user_attributes",
-    feature = "op_verify_user_attribute"
-))]
+#[cfg(any(feature = "op_admin_disable_provider_for_user", feature = "op_admin_link_provider_for_user", feature = "op_admin_respond_to_auth_challenge", feature = "op_admin_update_user_attributes", feature = "op_confirm_sign_up", feature = "op_respond_to_auth_challenge", feature = "op_update_user_attributes", feature = "op_verify_user_attribute"))]
 pub(crate) mod shape_alias_exists_exception;
 
 #[cfg(feature = "op_associate_software_token")]
@@ -535,49 +517,16 @@ pub(crate) mod shape_associate_software_token_input;
 #[cfg(feature = "op_change_password")]
 pub(crate) mod shape_change_password_input;
 
-#[cfg(any(
-    feature = "op_admin_create_user",
-    feature = "op_forgot_password",
-    feature = "op_get_user_attribute_verification_code",
-    feature = "op_resend_confirmation_code",
-    feature = "op_set_risk_configuration",
-    feature = "op_sign_up",
-    feature = "op_update_user_attributes"
-))]
+#[cfg(any(feature = "op_admin_create_user", feature = "op_forgot_password", feature = "op_get_user_attribute_verification_code", feature = "op_resend_confirmation_code", feature = "op_set_risk_configuration", feature = "op_sign_up", feature = "op_update_user_attributes"))]
 pub(crate) mod shape_code_delivery_failure_exception;
 
-#[cfg(any(
-    feature = "op_admin_respond_to_auth_challenge",
-    feature = "op_confirm_forgot_password",
-    feature = "op_confirm_sign_up",
-    feature = "op_respond_to_auth_challenge",
-    feature = "op_update_user_attributes",
-    feature = "op_verify_software_token",
-    feature = "op_verify_user_attribute"
-))]
+#[cfg(any(feature = "op_admin_respond_to_auth_challenge", feature = "op_confirm_forgot_password", feature = "op_confirm_sign_up", feature = "op_respond_to_auth_challenge", feature = "op_update_user_attributes", feature = "op_verify_software_token", feature = "op_verify_user_attribute"))]
 pub(crate) mod shape_code_mismatch_exception;
 
 #[cfg(feature = "op_complete_web_authn_registration")]
 pub(crate) mod shape_complete_web_authn_registration_input;
 
-#[cfg(any(
-    feature = "op_associate_software_token",
-    feature = "op_create_managed_login_branding",
-    feature = "op_create_terms",
-    feature = "op_create_user_pool_domain",
-    feature = "op_delete_identity_provider",
-    feature = "op_delete_managed_login_branding",
-    feature = "op_delete_terms",
-    feature = "op_delete_user_pool_client",
-    feature = "op_delete_user_pool_domain",
-    feature = "op_set_user_pool_mfa_config",
-    feature = "op_update_identity_provider",
-    feature = "op_update_managed_login_branding",
-    feature = "op_update_terms",
-    feature = "op_update_user_pool",
-    feature = "op_update_user_pool_client",
-    feature = "op_update_user_pool_domain"
-))]
+#[cfg(any(feature = "op_associate_software_token", feature = "op_create_managed_login_branding", feature = "op_create_terms", feature = "op_create_user_pool_domain", feature = "op_delete_identity_provider", feature = "op_delete_managed_login_branding", feature = "op_delete_terms", feature = "op_delete_user_pool_client", feature = "op_delete_user_pool_domain", feature = "op_set_user_pool_mfa_config", feature = "op_update_identity_provider", feature = "op_update_managed_login_branding", feature = "op_update_terms", feature = "op_update_user_pool", feature = "op_update_user_pool_client", feature = "op_update_user_pool_domain"))]
 pub(crate) mod shape_concurrent_modification_exception;
 
 #[cfg(feature = "op_confirm_device")]
@@ -697,62 +646,13 @@ pub(crate) mod shape_duplicate_provider_exception;
 #[cfg(feature = "op_verify_software_token")]
 pub(crate) mod shape_enable_software_token_mfa_exception;
 
-#[cfg(any(
-    feature = "op_admin_respond_to_auth_challenge",
-    feature = "op_confirm_forgot_password",
-    feature = "op_confirm_sign_up",
-    feature = "op_respond_to_auth_challenge",
-    feature = "op_update_user_attributes",
-    feature = "op_verify_user_attribute"
-))]
+#[cfg(any(feature = "op_admin_respond_to_auth_challenge", feature = "op_confirm_forgot_password", feature = "op_confirm_sign_up", feature = "op_respond_to_auth_challenge", feature = "op_update_user_attributes", feature = "op_verify_user_attribute"))]
 pub(crate) mod shape_expired_code_exception;
 
-#[cfg(any(
-    feature = "op_create_user_pool",
-    feature = "op_create_user_pool_client",
-    feature = "op_create_user_pool_domain",
-    feature = "op_create_user_pool_replica",
-    feature = "op_set_log_delivery_configuration",
-    feature = "op_set_user_pool_mfa_config",
-    feature = "op_update_user_pool",
-    feature = "op_update_user_pool_client",
-    feature = "op_update_user_pool_domain"
-))]
+#[cfg(any(feature = "op_create_user_pool", feature = "op_create_user_pool_client", feature = "op_create_user_pool_domain", feature = "op_create_user_pool_replica", feature = "op_set_log_delivery_configuration", feature = "op_set_user_pool_mfa_config", feature = "op_update_user_pool", feature = "op_update_user_pool_client", feature = "op_update_user_pool_domain"))]
 pub(crate) mod shape_feature_unavailable_in_tier_exception;
 
-#[cfg(any(
-    feature = "op_associate_software_token",
-    feature = "op_change_password",
-    feature = "op_complete_web_authn_registration",
-    feature = "op_confirm_device",
-    feature = "op_confirm_forgot_password",
-    feature = "op_confirm_sign_up",
-    feature = "op_delete_user",
-    feature = "op_delete_user_attributes",
-    feature = "op_delete_web_authn_credential",
-    feature = "op_forget_device",
-    feature = "op_forgot_password",
-    feature = "op_get_device",
-    feature = "op_get_tokens_from_refresh_token",
-    feature = "op_get_user",
-    feature = "op_get_user_attribute_verification_code",
-    feature = "op_get_user_auth_factors",
-    feature = "op_global_sign_out",
-    feature = "op_initiate_auth",
-    feature = "op_list_devices",
-    feature = "op_list_web_authn_credentials",
-    feature = "op_resend_confirmation_code",
-    feature = "op_respond_to_auth_challenge",
-    feature = "op_revoke_token",
-    feature = "op_set_user_mfa_preference",
-    feature = "op_set_user_settings",
-    feature = "op_sign_up",
-    feature = "op_start_web_authn_registration",
-    feature = "op_update_device_status",
-    feature = "op_update_user_attributes",
-    feature = "op_verify_software_token",
-    feature = "op_verify_user_attribute"
-))]
+#[cfg(any(feature = "op_associate_software_token", feature = "op_change_password", feature = "op_complete_web_authn_registration", feature = "op_confirm_device", feature = "op_confirm_forgot_password", feature = "op_confirm_sign_up", feature = "op_delete_user", feature = "op_delete_user_attributes", feature = "op_delete_web_authn_credential", feature = "op_forget_device", feature = "op_forgot_password", feature = "op_get_device", feature = "op_get_tokens_from_refresh_token", feature = "op_get_user", feature = "op_get_user_attribute_verification_code", feature = "op_get_user_auth_factors", feature = "op_global_sign_out", feature = "op_initiate_auth", feature = "op_list_devices", feature = "op_list_web_authn_credentials", feature = "op_resend_confirmation_code", feature = "op_respond_to_auth_challenge", feature = "op_revoke_token", feature = "op_set_user_mfa_preference", feature = "op_set_user_settings", feature = "op_sign_up", feature = "op_start_web_authn_registration", feature = "op_update_device_status", feature = "op_update_user_attributes", feature = "op_verify_software_token", feature = "op_verify_user_attribute"))]
 pub(crate) mod shape_forbidden_exception;
 
 #[cfg(feature = "op_forget_device")]
@@ -809,419 +709,37 @@ pub(crate) mod shape_group_exists_exception;
 #[cfg(feature = "op_initiate_auth")]
 pub(crate) mod shape_initiate_auth_input;
 
-#[cfg(any(
-    feature = "op_add_custom_attributes",
-    feature = "op_admin_add_user_to_group",
-    feature = "op_admin_confirm_sign_up",
-    feature = "op_admin_create_user",
-    feature = "op_admin_delete_user",
-    feature = "op_admin_delete_user_attributes",
-    feature = "op_admin_disable_provider_for_user",
-    feature = "op_admin_disable_user",
-    feature = "op_admin_enable_user",
-    feature = "op_admin_forget_device",
-    feature = "op_admin_get_device",
-    feature = "op_admin_get_user",
-    feature = "op_admin_get_user_auth_factors",
-    feature = "op_admin_initiate_auth",
-    feature = "op_admin_link_provider_for_user",
-    feature = "op_admin_list_devices",
-    feature = "op_admin_list_groups_for_user",
-    feature = "op_admin_list_user_auth_events",
-    feature = "op_admin_remove_user_from_group",
-    feature = "op_admin_reset_user_password",
-    feature = "op_admin_respond_to_auth_challenge",
-    feature = "op_admin_set_user_mfa_preference",
-    feature = "op_admin_set_user_password",
-    feature = "op_admin_set_user_settings",
-    feature = "op_admin_update_auth_event_feedback",
-    feature = "op_admin_update_device_status",
-    feature = "op_admin_update_user_attributes",
-    feature = "op_admin_user_global_sign_out",
-    feature = "op_associate_software_token",
-    feature = "op_change_password",
-    feature = "op_complete_web_authn_registration",
-    feature = "op_confirm_device",
-    feature = "op_confirm_forgot_password",
-    feature = "op_confirm_sign_up",
-    feature = "op_create_group",
-    feature = "op_create_identity_provider",
-    feature = "op_create_managed_login_branding",
-    feature = "op_create_resource_server",
-    feature = "op_create_terms",
-    feature = "op_create_user_import_job",
-    feature = "op_create_user_pool",
-    feature = "op_create_user_pool_client",
-    feature = "op_create_user_pool_domain",
-    feature = "op_create_user_pool_replica",
-    feature = "op_delete_group",
-    feature = "op_delete_identity_provider",
-    feature = "op_delete_managed_login_branding",
-    feature = "op_delete_resource_server",
-    feature = "op_delete_terms",
-    feature = "op_delete_user",
-    feature = "op_delete_user_attributes",
-    feature = "op_delete_user_pool",
-    feature = "op_delete_user_pool_client",
-    feature = "op_delete_user_pool_domain",
-    feature = "op_delete_user_pool_replica",
-    feature = "op_delete_web_authn_credential",
-    feature = "op_describe_identity_provider",
-    feature = "op_describe_managed_login_branding",
-    feature = "op_describe_managed_login_branding_by_client",
-    feature = "op_describe_resource_server",
-    feature = "op_describe_risk_configuration",
-    feature = "op_describe_terms",
-    feature = "op_describe_user_import_job",
-    feature = "op_describe_user_pool",
-    feature = "op_describe_user_pool_client",
-    feature = "op_describe_user_pool_domain",
-    feature = "op_forget_device",
-    feature = "op_forgot_password",
-    feature = "op_get_csv_header",
-    feature = "op_get_device",
-    feature = "op_get_group",
-    feature = "op_get_identity_provider_by_identifier",
-    feature = "op_get_log_delivery_configuration",
-    feature = "op_get_provisioned_limit",
-    feature = "op_get_signing_certificate",
-    feature = "op_get_tokens_from_refresh_token",
-    feature = "op_get_ui_customization",
-    feature = "op_get_user",
-    feature = "op_get_user_attribute_verification_code",
-    feature = "op_get_user_auth_factors",
-    feature = "op_get_user_pool_mfa_config",
-    feature = "op_global_sign_out",
-    feature = "op_initiate_auth",
-    feature = "op_list_devices",
-    feature = "op_list_groups",
-    feature = "op_list_identity_providers",
-    feature = "op_list_resource_servers",
-    feature = "op_list_tags_for_resource",
-    feature = "op_list_terms",
-    feature = "op_list_user_import_jobs",
-    feature = "op_list_user_pool_clients",
-    feature = "op_list_user_pool_replicas",
-    feature = "op_list_user_pools",
-    feature = "op_list_users",
-    feature = "op_list_users_in_group",
-    feature = "op_list_web_authn_credentials",
-    feature = "op_resend_confirmation_code",
-    feature = "op_respond_to_auth_challenge",
-    feature = "op_revoke_token",
-    feature = "op_set_log_delivery_configuration",
-    feature = "op_set_risk_configuration",
-    feature = "op_set_ui_customization",
-    feature = "op_set_user_mfa_preference",
-    feature = "op_set_user_pool_mfa_config",
-    feature = "op_set_user_settings",
-    feature = "op_sign_up",
-    feature = "op_start_user_import_job",
-    feature = "op_start_web_authn_registration",
-    feature = "op_stop_user_import_job",
-    feature = "op_tag_resource",
-    feature = "op_untag_resource",
-    feature = "op_update_auth_event_feedback",
-    feature = "op_update_device_status",
-    feature = "op_update_group",
-    feature = "op_update_identity_provider",
-    feature = "op_update_managed_login_branding",
-    feature = "op_update_provisioned_limit",
-    feature = "op_update_resource_server",
-    feature = "op_update_terms",
-    feature = "op_update_user_attributes",
-    feature = "op_update_user_pool",
-    feature = "op_update_user_pool_client",
-    feature = "op_update_user_pool_domain",
-    feature = "op_update_user_pool_replica",
-    feature = "op_verify_software_token",
-    feature = "op_verify_user_attribute"
-))]
+#[cfg(any(feature = "op_add_custom_attributes", feature = "op_admin_add_user_to_group", feature = "op_admin_confirm_sign_up", feature = "op_admin_create_user", feature = "op_admin_delete_user", feature = "op_admin_delete_user_attributes", feature = "op_admin_disable_provider_for_user", feature = "op_admin_disable_user", feature = "op_admin_enable_user", feature = "op_admin_forget_device", feature = "op_admin_get_device", feature = "op_admin_get_user", feature = "op_admin_get_user_auth_factors", feature = "op_admin_initiate_auth", feature = "op_admin_link_provider_for_user", feature = "op_admin_list_devices", feature = "op_admin_list_groups_for_user", feature = "op_admin_list_user_auth_events", feature = "op_admin_remove_user_from_group", feature = "op_admin_reset_user_password", feature = "op_admin_respond_to_auth_challenge", feature = "op_admin_set_user_mfa_preference", feature = "op_admin_set_user_password", feature = "op_admin_set_user_settings", feature = "op_admin_update_auth_event_feedback", feature = "op_admin_update_device_status", feature = "op_admin_update_user_attributes", feature = "op_admin_user_global_sign_out", feature = "op_associate_software_token", feature = "op_change_password", feature = "op_complete_web_authn_registration", feature = "op_confirm_device", feature = "op_confirm_forgot_password", feature = "op_confirm_sign_up", feature = "op_create_group", feature = "op_create_identity_provider", feature = "op_create_managed_login_branding", feature = "op_create_resource_server", feature = "op_create_terms", feature = "op_create_user_import_job", feature = "op_create_user_pool", feature = "op_create_user_pool_client", feature = "op_create_user_pool_domain", feature = "op_create_user_pool_replica", feature = "op_delete_group", feature = "op_delete_identity_provider", feature = "op_delete_managed_login_branding", feature = "op_delete_resource_server", feature = "op_delete_terms", feature = "op_delete_user", feature = "op_delete_user_attributes", feature = "op_delete_user_pool", feature = "op_delete_user_pool_client", feature = "op_delete_user_pool_domain", feature = "op_delete_user_pool_replica", feature = "op_delete_web_authn_credential", feature = "op_describe_identity_provider", feature = "op_describe_managed_login_branding", feature = "op_describe_managed_login_branding_by_client", feature = "op_describe_resource_server", feature = "op_describe_risk_configuration", feature = "op_describe_terms", feature = "op_describe_user_import_job", feature = "op_describe_user_pool", feature = "op_describe_user_pool_client", feature = "op_describe_user_pool_domain", feature = "op_forget_device", feature = "op_forgot_password", feature = "op_get_csv_header", feature = "op_get_device", feature = "op_get_group", feature = "op_get_identity_provider_by_identifier", feature = "op_get_log_delivery_configuration", feature = "op_get_provisioned_limit", feature = "op_get_signing_certificate", feature = "op_get_tokens_from_refresh_token", feature = "op_get_ui_customization", feature = "op_get_user", feature = "op_get_user_attribute_verification_code", feature = "op_get_user_auth_factors", feature = "op_get_user_pool_mfa_config", feature = "op_global_sign_out", feature = "op_initiate_auth", feature = "op_list_devices", feature = "op_list_groups", feature = "op_list_identity_providers", feature = "op_list_resource_servers", feature = "op_list_tags_for_resource", feature = "op_list_terms", feature = "op_list_user_import_jobs", feature = "op_list_user_pool_clients", feature = "op_list_user_pool_replicas", feature = "op_list_user_pools", feature = "op_list_users", feature = "op_list_users_in_group", feature = "op_list_web_authn_credentials", feature = "op_resend_confirmation_code", feature = "op_respond_to_auth_challenge", feature = "op_revoke_token", feature = "op_set_log_delivery_configuration", feature = "op_set_risk_configuration", feature = "op_set_ui_customization", feature = "op_set_user_mfa_preference", feature = "op_set_user_pool_mfa_config", feature = "op_set_user_settings", feature = "op_sign_up", feature = "op_start_user_import_job", feature = "op_start_web_authn_registration", feature = "op_stop_user_import_job", feature = "op_tag_resource", feature = "op_untag_resource", feature = "op_update_auth_event_feedback", feature = "op_update_device_status", feature = "op_update_group", feature = "op_update_identity_provider", feature = "op_update_managed_login_branding", feature = "op_update_provisioned_limit", feature = "op_update_resource_server", feature = "op_update_terms", feature = "op_update_user_attributes", feature = "op_update_user_pool", feature = "op_update_user_pool_client", feature = "op_update_user_pool_domain", feature = "op_update_user_pool_replica", feature = "op_verify_software_token", feature = "op_verify_user_attribute"))]
 pub(crate) mod shape_internal_error_exception;
 
-#[cfg(any(
-    feature = "op_add_user_pool_client_secret",
-    feature = "op_delete_user_pool_client_secret",
-    feature = "op_list_user_pool_client_secrets"
-))]
+#[cfg(any(feature = "op_add_user_pool_client_secret", feature = "op_delete_user_pool_client_secret", feature = "op_list_user_pool_client_secrets"))]
 pub(crate) mod shape_internal_server_exception;
 
-#[cfg(any(
-    feature = "op_admin_initiate_auth",
-    feature = "op_admin_reset_user_password",
-    feature = "op_admin_respond_to_auth_challenge",
-    feature = "op_admin_update_user_attributes",
-    feature = "op_create_user_pool",
-    feature = "op_forgot_password",
-    feature = "op_get_user_attribute_verification_code",
-    feature = "op_initiate_auth",
-    feature = "op_resend_confirmation_code",
-    feature = "op_respond_to_auth_challenge",
-    feature = "op_set_risk_configuration",
-    feature = "op_sign_up",
-    feature = "op_update_user_attributes",
-    feature = "op_update_user_pool"
-))]
+#[cfg(any(feature = "op_admin_initiate_auth", feature = "op_admin_reset_user_password", feature = "op_admin_respond_to_auth_challenge", feature = "op_admin_update_user_attributes", feature = "op_create_user_pool", feature = "op_forgot_password", feature = "op_get_user_attribute_verification_code", feature = "op_initiate_auth", feature = "op_resend_confirmation_code", feature = "op_respond_to_auth_challenge", feature = "op_set_risk_configuration", feature = "op_sign_up", feature = "op_update_user_attributes", feature = "op_update_user_pool"))]
 pub(crate) mod shape_invalid_email_role_access_policy_exception;
 
-#[cfg(any(
-    feature = "op_admin_confirm_sign_up",
-    feature = "op_admin_create_user",
-    feature = "op_admin_initiate_auth",
-    feature = "op_admin_reset_user_password",
-    feature = "op_admin_respond_to_auth_challenge",
-    feature = "op_admin_update_user_attributes",
-    feature = "op_confirm_device",
-    feature = "op_confirm_forgot_password",
-    feature = "op_confirm_sign_up",
-    feature = "op_forgot_password",
-    feature = "op_get_tokens_from_refresh_token",
-    feature = "op_get_user_attribute_verification_code",
-    feature = "op_initiate_auth",
-    feature = "op_resend_confirmation_code",
-    feature = "op_respond_to_auth_challenge",
-    feature = "op_sign_up",
-    feature = "op_update_user_attributes"
-))]
+#[cfg(any(feature = "op_admin_confirm_sign_up", feature = "op_admin_create_user", feature = "op_admin_initiate_auth", feature = "op_admin_reset_user_password", feature = "op_admin_respond_to_auth_challenge", feature = "op_admin_update_user_attributes", feature = "op_confirm_device", feature = "op_confirm_forgot_password", feature = "op_confirm_sign_up", feature = "op_forgot_password", feature = "op_get_tokens_from_refresh_token", feature = "op_get_user_attribute_verification_code", feature = "op_initiate_auth", feature = "op_resend_confirmation_code", feature = "op_respond_to_auth_challenge", feature = "op_sign_up", feature = "op_update_user_attributes"))]
 pub(crate) mod shape_invalid_lambda_response_exception;
 
-#[cfg(any(
-    feature = "op_create_user_pool_client",
-    feature = "op_update_user_pool_client"
-))]
+#[cfg(any(feature = "op_create_user_pool_client", feature = "op_update_user_pool_client"))]
 pub(crate) mod shape_invalid_o_auth_flow_exception;
 
-#[cfg(any(
-    feature = "op_add_custom_attributes",
-    feature = "op_add_user_pool_client_secret",
-    feature = "op_admin_add_user_to_group",
-    feature = "op_admin_confirm_sign_up",
-    feature = "op_admin_create_user",
-    feature = "op_admin_delete_user",
-    feature = "op_admin_delete_user_attributes",
-    feature = "op_admin_disable_provider_for_user",
-    feature = "op_admin_disable_user",
-    feature = "op_admin_enable_user",
-    feature = "op_admin_forget_device",
-    feature = "op_admin_get_device",
-    feature = "op_admin_get_user",
-    feature = "op_admin_get_user_auth_factors",
-    feature = "op_admin_initiate_auth",
-    feature = "op_admin_link_provider_for_user",
-    feature = "op_admin_list_devices",
-    feature = "op_admin_list_groups_for_user",
-    feature = "op_admin_list_user_auth_events",
-    feature = "op_admin_remove_user_from_group",
-    feature = "op_admin_reset_user_password",
-    feature = "op_admin_respond_to_auth_challenge",
-    feature = "op_admin_set_user_mfa_preference",
-    feature = "op_admin_set_user_password",
-    feature = "op_admin_set_user_settings",
-    feature = "op_admin_update_auth_event_feedback",
-    feature = "op_admin_update_device_status",
-    feature = "op_admin_update_user_attributes",
-    feature = "op_admin_user_global_sign_out",
-    feature = "op_associate_software_token",
-    feature = "op_change_password",
-    feature = "op_complete_web_authn_registration",
-    feature = "op_confirm_device",
-    feature = "op_confirm_forgot_password",
-    feature = "op_confirm_sign_up",
-    feature = "op_create_group",
-    feature = "op_create_identity_provider",
-    feature = "op_create_managed_login_branding",
-    feature = "op_create_resource_server",
-    feature = "op_create_terms",
-    feature = "op_create_user_import_job",
-    feature = "op_create_user_pool",
-    feature = "op_create_user_pool_client",
-    feature = "op_create_user_pool_domain",
-    feature = "op_create_user_pool_replica",
-    feature = "op_delete_group",
-    feature = "op_delete_identity_provider",
-    feature = "op_delete_managed_login_branding",
-    feature = "op_delete_resource_server",
-    feature = "op_delete_terms",
-    feature = "op_delete_user",
-    feature = "op_delete_user_attributes",
-    feature = "op_delete_user_pool",
-    feature = "op_delete_user_pool_client",
-    feature = "op_delete_user_pool_client_secret",
-    feature = "op_delete_user_pool_domain",
-    feature = "op_delete_user_pool_replica",
-    feature = "op_delete_web_authn_credential",
-    feature = "op_describe_identity_provider",
-    feature = "op_describe_managed_login_branding",
-    feature = "op_describe_managed_login_branding_by_client",
-    feature = "op_describe_resource_server",
-    feature = "op_describe_risk_configuration",
-    feature = "op_describe_terms",
-    feature = "op_describe_user_import_job",
-    feature = "op_describe_user_pool",
-    feature = "op_describe_user_pool_client",
-    feature = "op_describe_user_pool_domain",
-    feature = "op_forget_device",
-    feature = "op_forgot_password",
-    feature = "op_get_csv_header",
-    feature = "op_get_device",
-    feature = "op_get_group",
-    feature = "op_get_identity_provider_by_identifier",
-    feature = "op_get_log_delivery_configuration",
-    feature = "op_get_provisioned_limit",
-    feature = "op_get_signing_certificate",
-    feature = "op_get_tokens_from_refresh_token",
-    feature = "op_get_ui_customization",
-    feature = "op_get_user",
-    feature = "op_get_user_attribute_verification_code",
-    feature = "op_get_user_auth_factors",
-    feature = "op_get_user_pool_mfa_config",
-    feature = "op_global_sign_out",
-    feature = "op_initiate_auth",
-    feature = "op_list_devices",
-    feature = "op_list_groups",
-    feature = "op_list_identity_providers",
-    feature = "op_list_resource_servers",
-    feature = "op_list_tags_for_resource",
-    feature = "op_list_terms",
-    feature = "op_list_user_import_jobs",
-    feature = "op_list_user_pool_client_secrets",
-    feature = "op_list_user_pool_clients",
-    feature = "op_list_user_pool_replicas",
-    feature = "op_list_user_pools",
-    feature = "op_list_users",
-    feature = "op_list_users_in_group",
-    feature = "op_list_web_authn_credentials",
-    feature = "op_resend_confirmation_code",
-    feature = "op_respond_to_auth_challenge",
-    feature = "op_revoke_token",
-    feature = "op_set_log_delivery_configuration",
-    feature = "op_set_risk_configuration",
-    feature = "op_set_ui_customization",
-    feature = "op_set_user_mfa_preference",
-    feature = "op_set_user_pool_mfa_config",
-    feature = "op_set_user_settings",
-    feature = "op_sign_up",
-    feature = "op_start_user_import_job",
-    feature = "op_start_web_authn_registration",
-    feature = "op_stop_user_import_job",
-    feature = "op_tag_resource",
-    feature = "op_untag_resource",
-    feature = "op_update_auth_event_feedback",
-    feature = "op_update_device_status",
-    feature = "op_update_group",
-    feature = "op_update_identity_provider",
-    feature = "op_update_managed_login_branding",
-    feature = "op_update_provisioned_limit",
-    feature = "op_update_resource_server",
-    feature = "op_update_terms",
-    feature = "op_update_user_attributes",
-    feature = "op_update_user_pool",
-    feature = "op_update_user_pool_client",
-    feature = "op_update_user_pool_domain",
-    feature = "op_update_user_pool_replica",
-    feature = "op_verify_software_token",
-    feature = "op_verify_user_attribute"
-))]
+#[cfg(any(feature = "op_add_custom_attributes", feature = "op_add_user_pool_client_secret", feature = "op_admin_add_user_to_group", feature = "op_admin_confirm_sign_up", feature = "op_admin_create_user", feature = "op_admin_delete_user", feature = "op_admin_delete_user_attributes", feature = "op_admin_disable_provider_for_user", feature = "op_admin_disable_user", feature = "op_admin_enable_user", feature = "op_admin_forget_device", feature = "op_admin_get_device", feature = "op_admin_get_user", feature = "op_admin_get_user_auth_factors", feature = "op_admin_initiate_auth", feature = "op_admin_link_provider_for_user", feature = "op_admin_list_devices", feature = "op_admin_list_groups_for_user", feature = "op_admin_list_user_auth_events", feature = "op_admin_remove_user_from_group", feature = "op_admin_reset_user_password", feature = "op_admin_respond_to_auth_challenge", feature = "op_admin_set_user_mfa_preference", feature = "op_admin_set_user_password", feature = "op_admin_set_user_settings", feature = "op_admin_update_auth_event_feedback", feature = "op_admin_update_device_status", feature = "op_admin_update_user_attributes", feature = "op_admin_user_global_sign_out", feature = "op_associate_software_token", feature = "op_change_password", feature = "op_complete_web_authn_registration", feature = "op_confirm_device", feature = "op_confirm_forgot_password", feature = "op_confirm_sign_up", feature = "op_create_group", feature = "op_create_identity_provider", feature = "op_create_managed_login_branding", feature = "op_create_resource_server", feature = "op_create_terms", feature = "op_create_user_import_job", feature = "op_create_user_pool", feature = "op_create_user_pool_client", feature = "op_create_user_pool_domain", feature = "op_create_user_pool_replica", feature = "op_delete_group", feature = "op_delete_identity_provider", feature = "op_delete_managed_login_branding", feature = "op_delete_resource_server", feature = "op_delete_terms", feature = "op_delete_user", feature = "op_delete_user_attributes", feature = "op_delete_user_pool", feature = "op_delete_user_pool_client", feature = "op_delete_user_pool_client_secret", feature = "op_delete_user_pool_domain", feature = "op_delete_user_pool_replica", feature = "op_delete_web_authn_credential", feature = "op_describe_identity_provider", feature = "op_describe_managed_login_branding", feature = "op_describe_managed_login_branding_by_client", feature = "op_describe_resource_server", feature = "op_describe_risk_configuration", feature = "op_describe_terms", feature = "op_describe_user_import_job", feature = "op_describe_user_pool", feature = "op_describe_user_pool_client", feature = "op_describe_user_pool_domain", feature = "op_forget_device", feature = "op_forgot_password", feature = "op_get_csv_header", feature = "op_get_device", feature = "op_get_group", feature = "op_get_identity_provider_by_identifier", feature = "op_get_log_delivery_configuration", feature = "op_get_provisioned_limit", feature = "op_get_signing_certificate", feature = "op_get_tokens_from_refresh_token", feature = "op_get_ui_customization", feature = "op_get_user", feature = "op_get_user_attribute_verification_code", feature = "op_get_user_auth_factors", feature = "op_get_user_pool_mfa_config", feature = "op_global_sign_out", feature = "op_initiate_auth", feature = "op_list_devices", feature = "op_list_groups", feature = "op_list_identity_providers", feature = "op_list_resource_servers", feature = "op_list_tags_for_resource", feature = "op_list_terms", feature = "op_list_user_import_jobs", feature = "op_list_user_pool_client_secrets", feature = "op_list_user_pool_clients", feature = "op_list_user_pool_replicas", feature = "op_list_user_pools", feature = "op_list_users", feature = "op_list_users_in_group", feature = "op_list_web_authn_credentials", feature = "op_resend_confirmation_code", feature = "op_respond_to_auth_challenge", feature = "op_revoke_token", feature = "op_set_log_delivery_configuration", feature = "op_set_risk_configuration", feature = "op_set_ui_customization", feature = "op_set_user_mfa_preference", feature = "op_set_user_pool_mfa_config", feature = "op_set_user_settings", feature = "op_sign_up", feature = "op_start_user_import_job", feature = "op_start_web_authn_registration", feature = "op_stop_user_import_job", feature = "op_tag_resource", feature = "op_untag_resource", feature = "op_update_auth_event_feedback", feature = "op_update_device_status", feature = "op_update_group", feature = "op_update_identity_provider", feature = "op_update_managed_login_branding", feature = "op_update_provisioned_limit", feature = "op_update_resource_server", feature = "op_update_terms", feature = "op_update_user_attributes", feature = "op_update_user_pool", feature = "op_update_user_pool_client", feature = "op_update_user_pool_domain", feature = "op_update_user_pool_replica", feature = "op_verify_software_token", feature = "op_verify_user_attribute"))]
 pub(crate) mod shape_invalid_parameter_exception;
 
-#[cfg(any(
-    feature = "op_admin_create_user",
-    feature = "op_admin_respond_to_auth_challenge",
-    feature = "op_admin_set_user_password",
-    feature = "op_change_password",
-    feature = "op_confirm_device",
-    feature = "op_confirm_forgot_password",
-    feature = "op_respond_to_auth_challenge",
-    feature = "op_sign_up"
-))]
+#[cfg(any(feature = "op_admin_create_user", feature = "op_admin_respond_to_auth_challenge", feature = "op_admin_set_user_password", feature = "op_change_password", feature = "op_confirm_device", feature = "op_confirm_forgot_password", feature = "op_respond_to_auth_challenge", feature = "op_sign_up"))]
 pub(crate) mod shape_invalid_password_exception;
 
-#[cfg(any(
-    feature = "op_admin_create_user",
-    feature = "op_admin_initiate_auth",
-    feature = "op_admin_reset_user_password",
-    feature = "op_admin_respond_to_auth_challenge",
-    feature = "op_admin_update_user_attributes",
-    feature = "op_create_user_pool",
-    feature = "op_forgot_password",
-    feature = "op_get_user_attribute_verification_code",
-    feature = "op_initiate_auth",
-    feature = "op_resend_confirmation_code",
-    feature = "op_respond_to_auth_challenge",
-    feature = "op_set_user_pool_mfa_config",
-    feature = "op_sign_up",
-    feature = "op_update_user_attributes",
-    feature = "op_update_user_pool"
-))]
+#[cfg(any(feature = "op_admin_create_user", feature = "op_admin_initiate_auth", feature = "op_admin_reset_user_password", feature = "op_admin_respond_to_auth_challenge", feature = "op_admin_update_user_attributes", feature = "op_create_user_pool", feature = "op_forgot_password", feature = "op_get_user_attribute_verification_code", feature = "op_initiate_auth", feature = "op_resend_confirmation_code", feature = "op_respond_to_auth_challenge", feature = "op_set_user_pool_mfa_config", feature = "op_sign_up", feature = "op_update_user_attributes", feature = "op_update_user_pool"))]
 pub(crate) mod shape_invalid_sms_role_access_policy_exception;
 
-#[cfg(any(
-    feature = "op_admin_create_user",
-    feature = "op_admin_initiate_auth",
-    feature = "op_admin_reset_user_password",
-    feature = "op_admin_respond_to_auth_challenge",
-    feature = "op_admin_update_user_attributes",
-    feature = "op_create_user_pool",
-    feature = "op_forgot_password",
-    feature = "op_get_user_attribute_verification_code",
-    feature = "op_initiate_auth",
-    feature = "op_resend_confirmation_code",
-    feature = "op_respond_to_auth_challenge",
-    feature = "op_set_user_pool_mfa_config",
-    feature = "op_sign_up",
-    feature = "op_update_user_attributes",
-    feature = "op_update_user_pool"
-))]
+#[cfg(any(feature = "op_admin_create_user", feature = "op_admin_initiate_auth", feature = "op_admin_reset_user_password", feature = "op_admin_respond_to_auth_challenge", feature = "op_admin_update_user_attributes", feature = "op_create_user_pool", feature = "op_forgot_password", feature = "op_get_user_attribute_verification_code", feature = "op_initiate_auth", feature = "op_resend_confirmation_code", feature = "op_respond_to_auth_challenge", feature = "op_set_user_pool_mfa_config", feature = "op_sign_up", feature = "op_update_user_attributes", feature = "op_update_user_pool"))]
 pub(crate) mod shape_invalid_sms_role_trust_relationship_exception;
 
-#[cfg(any(
-    feature = "op_admin_forget_device",
-    feature = "op_admin_get_device",
-    feature = "op_admin_initiate_auth",
-    feature = "op_admin_list_devices",
-    feature = "op_admin_respond_to_auth_challenge",
-    feature = "op_admin_update_device_status",
-    feature = "op_confirm_device",
-    feature = "op_forget_device",
-    feature = "op_get_device",
-    feature = "op_initiate_auth",
-    feature = "op_list_devices",
-    feature = "op_respond_to_auth_challenge",
-    feature = "op_update_device_status",
-    feature = "op_verify_software_token"
-))]
+#[cfg(any(feature = "op_admin_forget_device", feature = "op_admin_get_device", feature = "op_admin_initiate_auth", feature = "op_admin_list_devices", feature = "op_admin_respond_to_auth_challenge", feature = "op_admin_update_device_status", feature = "op_confirm_device", feature = "op_forget_device", feature = "op_get_device", feature = "op_initiate_auth", feature = "op_list_devices", feature = "op_respond_to_auth_challenge", feature = "op_update_device_status", feature = "op_verify_software_token"))]
 pub(crate) mod shape_invalid_user_pool_configuration_exception;
 
-#[cfg(any(
-    feature = "op_add_user_pool_client_secret",
-    feature = "op_admin_confirm_sign_up",
-    feature = "op_admin_link_provider_for_user",
-    feature = "op_admin_reset_user_password",
-    feature = "op_change_password",
-    feature = "op_complete_web_authn_registration",
-    feature = "op_confirm_forgot_password",
-    feature = "op_confirm_sign_up",
-    feature = "op_create_group",
-    feature = "op_create_identity_provider",
-    feature = "op_create_managed_login_branding",
-    feature = "op_create_resource_server",
-    feature = "op_create_terms",
-    feature = "op_create_user_import_job",
-    feature = "op_create_user_pool",
-    feature = "op_create_user_pool_client",
-    feature = "op_create_user_pool_domain",
-    feature = "op_create_user_pool_replica",
-    feature = "op_delete_user_pool_client_secret",
-    feature = "op_delete_web_authn_credential",
-    feature = "op_forgot_password",
-    feature = "op_get_user_attribute_verification_code",
-    feature = "op_list_user_pool_client_secrets",
-    feature = "op_list_web_authn_credentials",
-    feature = "op_resend_confirmation_code",
-    feature = "op_sign_up",
-    feature = "op_start_web_authn_registration",
-    feature = "op_verify_user_attribute"
-))]
+#[cfg(any(feature = "op_add_user_pool_client_secret", feature = "op_admin_confirm_sign_up", feature = "op_admin_link_provider_for_user", feature = "op_admin_reset_user_password", feature = "op_change_password", feature = "op_complete_web_authn_registration", feature = "op_confirm_forgot_password", feature = "op_confirm_sign_up", feature = "op_create_group", feature = "op_create_identity_provider", feature = "op_create_managed_login_branding", feature = "op_create_resource_server", feature = "op_create_terms", feature = "op_create_user_import_job", feature = "op_create_user_pool", feature = "op_create_user_pool_client", feature = "op_create_user_pool_domain", feature = "op_create_user_pool_replica", feature = "op_delete_user_pool_client_secret", feature = "op_delete_web_authn_credential", feature = "op_forgot_password", feature = "op_get_user_attribute_verification_code", feature = "op_list_user_pool_client_secrets", feature = "op_list_web_authn_credentials", feature = "op_resend_confirmation_code", feature = "op_sign_up", feature = "op_start_web_authn_registration", feature = "op_verify_user_attribute"))]
 pub(crate) mod shape_limit_exceeded_exception;
 
 #[cfg(feature = "op_list_devices")]
@@ -1269,303 +787,22 @@ pub(crate) mod shape_list_web_authn_credentials_input;
 #[cfg(feature = "op_create_managed_login_branding")]
 pub(crate) mod shape_managed_login_branding_exists_exception;
 
-#[cfg(any(
-    feature = "op_admin_initiate_auth",
-    feature = "op_admin_respond_to_auth_challenge",
-    feature = "op_respond_to_auth_challenge"
-))]
+#[cfg(any(feature = "op_admin_initiate_auth", feature = "op_admin_respond_to_auth_challenge", feature = "op_respond_to_auth_challenge"))]
 pub(crate) mod shape_mfa_method_not_found_exception;
 
-#[cfg(any(
-    feature = "op_add_custom_attributes",
-    feature = "op_admin_add_user_to_group",
-    feature = "op_admin_confirm_sign_up",
-    feature = "op_admin_create_user",
-    feature = "op_admin_delete_user",
-    feature = "op_admin_delete_user_attributes",
-    feature = "op_admin_disable_provider_for_user",
-    feature = "op_admin_disable_user",
-    feature = "op_admin_enable_user",
-    feature = "op_admin_forget_device",
-    feature = "op_admin_get_device",
-    feature = "op_admin_get_user",
-    feature = "op_admin_get_user_auth_factors",
-    feature = "op_admin_initiate_auth",
-    feature = "op_admin_link_provider_for_user",
-    feature = "op_admin_list_devices",
-    feature = "op_admin_list_groups_for_user",
-    feature = "op_admin_list_user_auth_events",
-    feature = "op_admin_remove_user_from_group",
-    feature = "op_admin_reset_user_password",
-    feature = "op_admin_respond_to_auth_challenge",
-    feature = "op_admin_set_user_mfa_preference",
-    feature = "op_admin_set_user_password",
-    feature = "op_admin_set_user_settings",
-    feature = "op_admin_update_auth_event_feedback",
-    feature = "op_admin_update_device_status",
-    feature = "op_admin_update_user_attributes",
-    feature = "op_admin_user_global_sign_out",
-    feature = "op_associate_software_token",
-    feature = "op_change_password",
-    feature = "op_complete_web_authn_registration",
-    feature = "op_confirm_device",
-    feature = "op_confirm_forgot_password",
-    feature = "op_confirm_sign_up",
-    feature = "op_create_group",
-    feature = "op_create_identity_provider",
-    feature = "op_create_managed_login_branding",
-    feature = "op_create_resource_server",
-    feature = "op_create_terms",
-    feature = "op_create_user_import_job",
-    feature = "op_create_user_pool",
-    feature = "op_create_user_pool_client",
-    feature = "op_create_user_pool_domain",
-    feature = "op_create_user_pool_replica",
-    feature = "op_delete_group",
-    feature = "op_delete_identity_provider",
-    feature = "op_delete_managed_login_branding",
-    feature = "op_delete_resource_server",
-    feature = "op_delete_terms",
-    feature = "op_delete_user",
-    feature = "op_delete_user_attributes",
-    feature = "op_delete_user_pool",
-    feature = "op_delete_user_pool_client",
-    feature = "op_delete_user_pool_domain",
-    feature = "op_delete_user_pool_replica",
-    feature = "op_delete_web_authn_credential",
-    feature = "op_describe_identity_provider",
-    feature = "op_describe_managed_login_branding",
-    feature = "op_describe_managed_login_branding_by_client",
-    feature = "op_describe_resource_server",
-    feature = "op_describe_risk_configuration",
-    feature = "op_describe_terms",
-    feature = "op_describe_user_import_job",
-    feature = "op_describe_user_pool",
-    feature = "op_describe_user_pool_client",
-    feature = "op_describe_user_pool_domain",
-    feature = "op_forget_device",
-    feature = "op_forgot_password",
-    feature = "op_get_csv_header",
-    feature = "op_get_device",
-    feature = "op_get_group",
-    feature = "op_get_identity_provider_by_identifier",
-    feature = "op_get_log_delivery_configuration",
-    feature = "op_get_provisioned_limit",
-    feature = "op_get_tokens_from_refresh_token",
-    feature = "op_get_ui_customization",
-    feature = "op_get_user",
-    feature = "op_get_user_attribute_verification_code",
-    feature = "op_get_user_auth_factors",
-    feature = "op_get_user_pool_mfa_config",
-    feature = "op_global_sign_out",
-    feature = "op_initiate_auth",
-    feature = "op_list_devices",
-    feature = "op_list_groups",
-    feature = "op_list_identity_providers",
-    feature = "op_list_resource_servers",
-    feature = "op_list_tags_for_resource",
-    feature = "op_list_terms",
-    feature = "op_list_user_import_jobs",
-    feature = "op_list_user_pool_clients",
-    feature = "op_list_user_pool_replicas",
-    feature = "op_list_user_pools",
-    feature = "op_list_users",
-    feature = "op_list_users_in_group",
-    feature = "op_list_web_authn_credentials",
-    feature = "op_resend_confirmation_code",
-    feature = "op_respond_to_auth_challenge",
-    feature = "op_set_log_delivery_configuration",
-    feature = "op_set_risk_configuration",
-    feature = "op_set_ui_customization",
-    feature = "op_set_user_mfa_preference",
-    feature = "op_set_user_pool_mfa_config",
-    feature = "op_set_user_settings",
-    feature = "op_sign_up",
-    feature = "op_start_user_import_job",
-    feature = "op_start_web_authn_registration",
-    feature = "op_stop_user_import_job",
-    feature = "op_tag_resource",
-    feature = "op_untag_resource",
-    feature = "op_update_auth_event_feedback",
-    feature = "op_update_device_status",
-    feature = "op_update_group",
-    feature = "op_update_identity_provider",
-    feature = "op_update_managed_login_branding",
-    feature = "op_update_provisioned_limit",
-    feature = "op_update_resource_server",
-    feature = "op_update_terms",
-    feature = "op_update_user_attributes",
-    feature = "op_update_user_pool",
-    feature = "op_update_user_pool_client",
-    feature = "op_update_user_pool_domain",
-    feature = "op_update_user_pool_replica",
-    feature = "op_verify_software_token",
-    feature = "op_verify_user_attribute"
-))]
+#[cfg(any(feature = "op_add_custom_attributes", feature = "op_admin_add_user_to_group", feature = "op_admin_confirm_sign_up", feature = "op_admin_create_user", feature = "op_admin_delete_user", feature = "op_admin_delete_user_attributes", feature = "op_admin_disable_provider_for_user", feature = "op_admin_disable_user", feature = "op_admin_enable_user", feature = "op_admin_forget_device", feature = "op_admin_get_device", feature = "op_admin_get_user", feature = "op_admin_get_user_auth_factors", feature = "op_admin_initiate_auth", feature = "op_admin_link_provider_for_user", feature = "op_admin_list_devices", feature = "op_admin_list_groups_for_user", feature = "op_admin_list_user_auth_events", feature = "op_admin_remove_user_from_group", feature = "op_admin_reset_user_password", feature = "op_admin_respond_to_auth_challenge", feature = "op_admin_set_user_mfa_preference", feature = "op_admin_set_user_password", feature = "op_admin_set_user_settings", feature = "op_admin_update_auth_event_feedback", feature = "op_admin_update_device_status", feature = "op_admin_update_user_attributes", feature = "op_admin_user_global_sign_out", feature = "op_associate_software_token", feature = "op_change_password", feature = "op_complete_web_authn_registration", feature = "op_confirm_device", feature = "op_confirm_forgot_password", feature = "op_confirm_sign_up", feature = "op_create_group", feature = "op_create_identity_provider", feature = "op_create_managed_login_branding", feature = "op_create_resource_server", feature = "op_create_terms", feature = "op_create_user_import_job", feature = "op_create_user_pool", feature = "op_create_user_pool_client", feature = "op_create_user_pool_domain", feature = "op_create_user_pool_replica", feature = "op_delete_group", feature = "op_delete_identity_provider", feature = "op_delete_managed_login_branding", feature = "op_delete_resource_server", feature = "op_delete_terms", feature = "op_delete_user", feature = "op_delete_user_attributes", feature = "op_delete_user_pool", feature = "op_delete_user_pool_client", feature = "op_delete_user_pool_domain", feature = "op_delete_user_pool_replica", feature = "op_delete_web_authn_credential", feature = "op_describe_identity_provider", feature = "op_describe_managed_login_branding", feature = "op_describe_managed_login_branding_by_client", feature = "op_describe_resource_server", feature = "op_describe_risk_configuration", feature = "op_describe_terms", feature = "op_describe_user_import_job", feature = "op_describe_user_pool", feature = "op_describe_user_pool_client", feature = "op_describe_user_pool_domain", feature = "op_forget_device", feature = "op_forgot_password", feature = "op_get_csv_header", feature = "op_get_device", feature = "op_get_group", feature = "op_get_identity_provider_by_identifier", feature = "op_get_log_delivery_configuration", feature = "op_get_provisioned_limit", feature = "op_get_tokens_from_refresh_token", feature = "op_get_ui_customization", feature = "op_get_user", feature = "op_get_user_attribute_verification_code", feature = "op_get_user_auth_factors", feature = "op_get_user_pool_mfa_config", feature = "op_global_sign_out", feature = "op_initiate_auth", feature = "op_list_devices", feature = "op_list_groups", feature = "op_list_identity_providers", feature = "op_list_resource_servers", feature = "op_list_tags_for_resource", feature = "op_list_terms", feature = "op_list_user_import_jobs", feature = "op_list_user_pool_clients", feature = "op_list_user_pool_replicas", feature = "op_list_user_pools", feature = "op_list_users", feature = "op_list_users_in_group", feature = "op_list_web_authn_credentials", feature = "op_resend_confirmation_code", feature = "op_respond_to_auth_challenge", feature = "op_set_log_delivery_configuration", feature = "op_set_risk_configuration", feature = "op_set_ui_customization", feature = "op_set_user_mfa_preference", feature = "op_set_user_pool_mfa_config", feature = "op_set_user_settings", feature = "op_sign_up", feature = "op_start_user_import_job", feature = "op_start_web_authn_registration", feature = "op_stop_user_import_job", feature = "op_tag_resource", feature = "op_untag_resource", feature = "op_update_auth_event_feedback", feature = "op_update_device_status", feature = "op_update_group", feature = "op_update_identity_provider", feature = "op_update_managed_login_branding", feature = "op_update_provisioned_limit", feature = "op_update_resource_server", feature = "op_update_terms", feature = "op_update_user_attributes", feature = "op_update_user_pool", feature = "op_update_user_pool_client", feature = "op_update_user_pool_domain", feature = "op_update_user_pool_replica", feature = "op_verify_software_token", feature = "op_verify_user_attribute"))]
 pub(crate) mod shape_not_authorized_exception;
 
-#[cfg(any(
-    feature = "op_add_custom_attributes",
-    feature = "op_admin_add_user_to_group",
-    feature = "op_admin_confirm_sign_up",
-    feature = "op_admin_create_user",
-    feature = "op_admin_delete_user",
-    feature = "op_admin_delete_user_attributes",
-    feature = "op_admin_disable_provider_for_user",
-    feature = "op_admin_disable_user",
-    feature = "op_admin_enable_user",
-    feature = "op_admin_forget_device",
-    feature = "op_admin_get_device",
-    feature = "op_admin_get_user",
-    feature = "op_admin_get_user_auth_factors",
-    feature = "op_admin_initiate_auth",
-    feature = "op_admin_link_provider_for_user",
-    feature = "op_admin_list_devices",
-    feature = "op_admin_list_groups_for_user",
-    feature = "op_admin_list_user_auth_events",
-    feature = "op_admin_remove_user_from_group",
-    feature = "op_admin_reset_user_password",
-    feature = "op_admin_respond_to_auth_challenge",
-    feature = "op_admin_set_user_mfa_preference",
-    feature = "op_admin_set_user_password",
-    feature = "op_admin_set_user_settings",
-    feature = "op_admin_update_auth_event_feedback",
-    feature = "op_admin_update_device_status",
-    feature = "op_admin_update_user_attributes",
-    feature = "op_admin_user_global_sign_out",
-    feature = "op_associate_software_token",
-    feature = "op_change_password",
-    feature = "op_complete_web_authn_registration",
-    feature = "op_confirm_device",
-    feature = "op_confirm_forgot_password",
-    feature = "op_confirm_sign_up",
-    feature = "op_create_group",
-    feature = "op_create_managed_login_branding",
-    feature = "op_create_resource_server",
-    feature = "op_create_terms",
-    feature = "op_create_user_import_job",
-    feature = "op_create_user_pool_client",
-    feature = "op_create_user_pool_domain",
-    feature = "op_create_user_pool_replica",
-    feature = "op_delete_group",
-    feature = "op_delete_managed_login_branding",
-    feature = "op_delete_resource_server",
-    feature = "op_delete_terms",
-    feature = "op_delete_user",
-    feature = "op_delete_user_attributes",
-    feature = "op_delete_user_pool",
-    feature = "op_delete_user_pool_client",
-    feature = "op_delete_user_pool_domain",
-    feature = "op_delete_user_pool_replica",
-    feature = "op_delete_web_authn_credential",
-    feature = "op_describe_managed_login_branding",
-    feature = "op_describe_managed_login_branding_by_client",
-    feature = "op_describe_resource_server",
-    feature = "op_describe_risk_configuration",
-    feature = "op_describe_terms",
-    feature = "op_describe_user_import_job",
-    feature = "op_describe_user_pool",
-    feature = "op_describe_user_pool_client",
-    feature = "op_describe_user_pool_domain",
-    feature = "op_forget_device",
-    feature = "op_forgot_password",
-    feature = "op_get_csv_header",
-    feature = "op_get_device",
-    feature = "op_get_group",
-    feature = "op_get_signing_certificate",
-    feature = "op_get_tokens_from_refresh_token",
-    feature = "op_get_ui_customization",
-    feature = "op_get_user",
-    feature = "op_get_user_attribute_verification_code",
-    feature = "op_get_user_auth_factors",
-    feature = "op_global_sign_out",
-    feature = "op_initiate_auth",
-    feature = "op_list_devices",
-    feature = "op_list_groups",
-    feature = "op_list_resource_servers",
-    feature = "op_list_tags_for_resource",
-    feature = "op_list_terms",
-    feature = "op_list_user_import_jobs",
-    feature = "op_list_user_pool_clients",
-    feature = "op_list_user_pool_replicas",
-    feature = "op_list_users",
-    feature = "op_list_users_in_group",
-    feature = "op_list_web_authn_credentials",
-    feature = "op_resend_confirmation_code",
-    feature = "op_respond_to_auth_challenge",
-    feature = "op_revoke_token",
-    feature = "op_set_risk_configuration",
-    feature = "op_set_ui_customization",
-    feature = "op_set_user_mfa_preference",
-    feature = "op_set_user_pool_mfa_config",
-    feature = "op_set_user_settings",
-    feature = "op_sign_up",
-    feature = "op_start_user_import_job",
-    feature = "op_start_web_authn_registration",
-    feature = "op_stop_user_import_job",
-    feature = "op_tag_resource",
-    feature = "op_untag_resource",
-    feature = "op_update_auth_event_feedback",
-    feature = "op_update_device_status",
-    feature = "op_update_group",
-    feature = "op_update_managed_login_branding",
-    feature = "op_update_resource_server",
-    feature = "op_update_terms",
-    feature = "op_update_user_attributes",
-    feature = "op_update_user_pool",
-    feature = "op_update_user_pool_client",
-    feature = "op_update_user_pool_domain",
-    feature = "op_update_user_pool_replica",
-    feature = "op_verify_software_token",
-    feature = "op_verify_user_attribute"
-))]
+#[cfg(any(feature = "op_add_custom_attributes", feature = "op_admin_add_user_to_group", feature = "op_admin_confirm_sign_up", feature = "op_admin_create_user", feature = "op_admin_delete_user", feature = "op_admin_delete_user_attributes", feature = "op_admin_disable_provider_for_user", feature = "op_admin_disable_user", feature = "op_admin_enable_user", feature = "op_admin_forget_device", feature = "op_admin_get_device", feature = "op_admin_get_user", feature = "op_admin_get_user_auth_factors", feature = "op_admin_initiate_auth", feature = "op_admin_link_provider_for_user", feature = "op_admin_list_devices", feature = "op_admin_list_groups_for_user", feature = "op_admin_list_user_auth_events", feature = "op_admin_remove_user_from_group", feature = "op_admin_reset_user_password", feature = "op_admin_respond_to_auth_challenge", feature = "op_admin_set_user_mfa_preference", feature = "op_admin_set_user_password", feature = "op_admin_set_user_settings", feature = "op_admin_update_auth_event_feedback", feature = "op_admin_update_device_status", feature = "op_admin_update_user_attributes", feature = "op_admin_user_global_sign_out", feature = "op_associate_software_token", feature = "op_change_password", feature = "op_complete_web_authn_registration", feature = "op_confirm_device", feature = "op_confirm_forgot_password", feature = "op_confirm_sign_up", feature = "op_create_group", feature = "op_create_managed_login_branding", feature = "op_create_resource_server", feature = "op_create_terms", feature = "op_create_user_import_job", feature = "op_create_user_pool_client", feature = "op_create_user_pool_domain", feature = "op_create_user_pool_replica", feature = "op_delete_group", feature = "op_delete_managed_login_branding", feature = "op_delete_resource_server", feature = "op_delete_terms", feature = "op_delete_user", feature = "op_delete_user_attributes", feature = "op_delete_user_pool", feature = "op_delete_user_pool_client", feature = "op_delete_user_pool_domain", feature = "op_delete_user_pool_replica", feature = "op_delete_web_authn_credential", feature = "op_describe_managed_login_branding", feature = "op_describe_managed_login_branding_by_client", feature = "op_describe_resource_server", feature = "op_describe_risk_configuration", feature = "op_describe_terms", feature = "op_describe_user_import_job", feature = "op_describe_user_pool", feature = "op_describe_user_pool_client", feature = "op_describe_user_pool_domain", feature = "op_forget_device", feature = "op_forgot_password", feature = "op_get_csv_header", feature = "op_get_device", feature = "op_get_group", feature = "op_get_signing_certificate", feature = "op_get_tokens_from_refresh_token", feature = "op_get_ui_customization", feature = "op_get_user", feature = "op_get_user_attribute_verification_code", feature = "op_get_user_auth_factors", feature = "op_global_sign_out", feature = "op_initiate_auth", feature = "op_list_devices", feature = "op_list_groups", feature = "op_list_resource_servers", feature = "op_list_tags_for_resource", feature = "op_list_terms", feature = "op_list_user_import_jobs", feature = "op_list_user_pool_clients", feature = "op_list_user_pool_replicas", feature = "op_list_users", feature = "op_list_users_in_group", feature = "op_list_web_authn_credentials", feature = "op_resend_confirmation_code", feature = "op_respond_to_auth_challenge", feature = "op_revoke_token", feature = "op_set_risk_configuration", feature = "op_set_ui_customization", feature = "op_set_user_mfa_preference", feature = "op_set_user_pool_mfa_config", feature = "op_set_user_settings", feature = "op_sign_up", feature = "op_start_user_import_job", feature = "op_start_web_authn_registration", feature = "op_stop_user_import_job", feature = "op_tag_resource", feature = "op_untag_resource", feature = "op_update_auth_event_feedback", feature = "op_update_device_status", feature = "op_update_group", feature = "op_update_managed_login_branding", feature = "op_update_resource_server", feature = "op_update_terms", feature = "op_update_user_attributes", feature = "op_update_user_pool", feature = "op_update_user_pool_client", feature = "op_update_user_pool_domain", feature = "op_update_user_pool_replica", feature = "op_verify_software_token", feature = "op_verify_user_attribute"))]
 pub(crate) mod shape_operation_not_enabled_exception;
 
-#[cfg(any(
-    feature = "op_admin_respond_to_auth_challenge",
-    feature = "op_admin_set_user_password",
-    feature = "op_change_password",
-    feature = "op_confirm_forgot_password",
-    feature = "op_respond_to_auth_challenge"
-))]
+#[cfg(any(feature = "op_admin_respond_to_auth_challenge", feature = "op_admin_set_user_password", feature = "op_change_password", feature = "op_confirm_forgot_password", feature = "op_respond_to_auth_challenge"))]
 pub(crate) mod shape_password_history_policy_violation_exception;
 
-#[cfg(any(
-    feature = "op_admin_initiate_auth",
-    feature = "op_admin_respond_to_auth_challenge",
-    feature = "op_admin_set_user_mfa_preference",
-    feature = "op_change_password",
-    feature = "op_complete_web_authn_registration",
-    feature = "op_confirm_device",
-    feature = "op_delete_user",
-    feature = "op_delete_user_attributes",
-    feature = "op_delete_web_authn_credential",
-    feature = "op_forget_device",
-    feature = "op_get_device",
-    feature = "op_get_user",
-    feature = "op_get_user_attribute_verification_code",
-    feature = "op_get_user_auth_factors",
-    feature = "op_global_sign_out",
-    feature = "op_initiate_auth",
-    feature = "op_list_devices",
-    feature = "op_list_web_authn_credentials",
-    feature = "op_respond_to_auth_challenge",
-    feature = "op_set_user_mfa_preference",
-    feature = "op_set_user_settings",
-    feature = "op_start_web_authn_registration",
-    feature = "op_update_device_status",
-    feature = "op_update_user_attributes",
-    feature = "op_verify_software_token",
-    feature = "op_verify_user_attribute"
-))]
+#[cfg(any(feature = "op_admin_initiate_auth", feature = "op_admin_respond_to_auth_challenge", feature = "op_admin_set_user_mfa_preference", feature = "op_change_password", feature = "op_complete_web_authn_registration", feature = "op_confirm_device", feature = "op_delete_user", feature = "op_delete_user_attributes", feature = "op_delete_web_authn_credential", feature = "op_forget_device", feature = "op_get_device", feature = "op_get_user", feature = "op_get_user_attribute_verification_code", feature = "op_get_user_auth_factors", feature = "op_global_sign_out", feature = "op_initiate_auth", feature = "op_list_devices", feature = "op_list_web_authn_credentials", feature = "op_respond_to_auth_challenge", feature = "op_set_user_mfa_preference", feature = "op_set_user_settings", feature = "op_start_web_authn_registration", feature = "op_update_device_status", feature = "op_update_user_attributes", feature = "op_verify_software_token", feature = "op_verify_user_attribute"))]
 pub(crate) mod shape_password_reset_required_exception;
 
-#[cfg(any(
-    feature = "op_admin_create_user",
-    feature = "op_create_user_import_job",
-    feature = "op_start_user_import_job",
-    feature = "op_stop_user_import_job"
-))]
+#[cfg(any(feature = "op_admin_create_user", feature = "op_create_user_import_job", feature = "op_start_user_import_job", feature = "op_stop_user_import_job"))]
 pub(crate) mod shape_precondition_not_met_exception;
 
 #[cfg(feature = "op_get_tokens_from_refresh_token")]
@@ -1574,131 +811,7 @@ pub(crate) mod shape_refresh_token_reuse_exception;
 #[cfg(feature = "op_resend_confirmation_code")]
 pub(crate) mod shape_resend_confirmation_code_input;
 
-#[cfg(any(
-    feature = "op_add_custom_attributes",
-    feature = "op_add_user_pool_client_secret",
-    feature = "op_admin_add_user_to_group",
-    feature = "op_admin_confirm_sign_up",
-    feature = "op_admin_create_user",
-    feature = "op_admin_delete_user",
-    feature = "op_admin_delete_user_attributes",
-    feature = "op_admin_disable_provider_for_user",
-    feature = "op_admin_disable_user",
-    feature = "op_admin_enable_user",
-    feature = "op_admin_forget_device",
-    feature = "op_admin_get_device",
-    feature = "op_admin_get_user",
-    feature = "op_admin_get_user_auth_factors",
-    feature = "op_admin_initiate_auth",
-    feature = "op_admin_link_provider_for_user",
-    feature = "op_admin_list_devices",
-    feature = "op_admin_list_groups_for_user",
-    feature = "op_admin_list_user_auth_events",
-    feature = "op_admin_remove_user_from_group",
-    feature = "op_admin_reset_user_password",
-    feature = "op_admin_respond_to_auth_challenge",
-    feature = "op_admin_set_user_mfa_preference",
-    feature = "op_admin_set_user_password",
-    feature = "op_admin_set_user_settings",
-    feature = "op_admin_update_auth_event_feedback",
-    feature = "op_admin_update_device_status",
-    feature = "op_admin_update_user_attributes",
-    feature = "op_admin_user_global_sign_out",
-    feature = "op_associate_software_token",
-    feature = "op_change_password",
-    feature = "op_confirm_device",
-    feature = "op_confirm_forgot_password",
-    feature = "op_confirm_sign_up",
-    feature = "op_create_group",
-    feature = "op_create_identity_provider",
-    feature = "op_create_managed_login_branding",
-    feature = "op_create_resource_server",
-    feature = "op_create_terms",
-    feature = "op_create_user_import_job",
-    feature = "op_create_user_pool_client",
-    feature = "op_create_user_pool_domain",
-    feature = "op_create_user_pool_replica",
-    feature = "op_delete_group",
-    feature = "op_delete_identity_provider",
-    feature = "op_delete_managed_login_branding",
-    feature = "op_delete_resource_server",
-    feature = "op_delete_terms",
-    feature = "op_delete_user",
-    feature = "op_delete_user_attributes",
-    feature = "op_delete_user_pool",
-    feature = "op_delete_user_pool_client",
-    feature = "op_delete_user_pool_client_secret",
-    feature = "op_delete_user_pool_domain",
-    feature = "op_delete_user_pool_replica",
-    feature = "op_delete_web_authn_credential",
-    feature = "op_describe_identity_provider",
-    feature = "op_describe_managed_login_branding",
-    feature = "op_describe_managed_login_branding_by_client",
-    feature = "op_describe_resource_server",
-    feature = "op_describe_risk_configuration",
-    feature = "op_describe_terms",
-    feature = "op_describe_user_import_job",
-    feature = "op_describe_user_pool",
-    feature = "op_describe_user_pool_client",
-    feature = "op_describe_user_pool_domain",
-    feature = "op_forget_device",
-    feature = "op_forgot_password",
-    feature = "op_get_csv_header",
-    feature = "op_get_device",
-    feature = "op_get_group",
-    feature = "op_get_identity_provider_by_identifier",
-    feature = "op_get_log_delivery_configuration",
-    feature = "op_get_provisioned_limit",
-    feature = "op_get_signing_certificate",
-    feature = "op_get_tokens_from_refresh_token",
-    feature = "op_get_ui_customization",
-    feature = "op_get_user",
-    feature = "op_get_user_attribute_verification_code",
-    feature = "op_get_user_auth_factors",
-    feature = "op_get_user_pool_mfa_config",
-    feature = "op_global_sign_out",
-    feature = "op_initiate_auth",
-    feature = "op_list_devices",
-    feature = "op_list_groups",
-    feature = "op_list_identity_providers",
-    feature = "op_list_resource_servers",
-    feature = "op_list_tags_for_resource",
-    feature = "op_list_terms",
-    feature = "op_list_user_import_jobs",
-    feature = "op_list_user_pool_client_secrets",
-    feature = "op_list_user_pool_clients",
-    feature = "op_list_user_pool_replicas",
-    feature = "op_list_users",
-    feature = "op_list_users_in_group",
-    feature = "op_resend_confirmation_code",
-    feature = "op_respond_to_auth_challenge",
-    feature = "op_set_log_delivery_configuration",
-    feature = "op_set_risk_configuration",
-    feature = "op_set_ui_customization",
-    feature = "op_set_user_mfa_preference",
-    feature = "op_set_user_pool_mfa_config",
-    feature = "op_set_user_settings",
-    feature = "op_sign_up",
-    feature = "op_start_user_import_job",
-    feature = "op_stop_user_import_job",
-    feature = "op_tag_resource",
-    feature = "op_untag_resource",
-    feature = "op_update_auth_event_feedback",
-    feature = "op_update_device_status",
-    feature = "op_update_group",
-    feature = "op_update_identity_provider",
-    feature = "op_update_managed_login_branding",
-    feature = "op_update_provisioned_limit",
-    feature = "op_update_resource_server",
-    feature = "op_update_terms",
-    feature = "op_update_user_attributes",
-    feature = "op_update_user_pool",
-    feature = "op_update_user_pool_client",
-    feature = "op_update_user_pool_domain",
-    feature = "op_update_user_pool_replica",
-    feature = "op_verify_software_token",
-    feature = "op_verify_user_attribute"
-))]
+#[cfg(any(feature = "op_add_custom_attributes", feature = "op_add_user_pool_client_secret", feature = "op_admin_add_user_to_group", feature = "op_admin_confirm_sign_up", feature = "op_admin_create_user", feature = "op_admin_delete_user", feature = "op_admin_delete_user_attributes", feature = "op_admin_disable_provider_for_user", feature = "op_admin_disable_user", feature = "op_admin_enable_user", feature = "op_admin_forget_device", feature = "op_admin_get_device", feature = "op_admin_get_user", feature = "op_admin_get_user_auth_factors", feature = "op_admin_initiate_auth", feature = "op_admin_link_provider_for_user", feature = "op_admin_list_devices", feature = "op_admin_list_groups_for_user", feature = "op_admin_list_user_auth_events", feature = "op_admin_remove_user_from_group", feature = "op_admin_reset_user_password", feature = "op_admin_respond_to_auth_challenge", feature = "op_admin_set_user_mfa_preference", feature = "op_admin_set_user_password", feature = "op_admin_set_user_settings", feature = "op_admin_update_auth_event_feedback", feature = "op_admin_update_device_status", feature = "op_admin_update_user_attributes", feature = "op_admin_user_global_sign_out", feature = "op_associate_software_token", feature = "op_change_password", feature = "op_confirm_device", feature = "op_confirm_forgot_password", feature = "op_confirm_sign_up", feature = "op_create_group", feature = "op_create_identity_provider", feature = "op_create_managed_login_branding", feature = "op_create_resource_server", feature = "op_create_terms", feature = "op_create_user_import_job", feature = "op_create_user_pool_client", feature = "op_create_user_pool_domain", feature = "op_create_user_pool_replica", feature = "op_delete_group", feature = "op_delete_identity_provider", feature = "op_delete_managed_login_branding", feature = "op_delete_resource_server", feature = "op_delete_terms", feature = "op_delete_user", feature = "op_delete_user_attributes", feature = "op_delete_user_pool", feature = "op_delete_user_pool_client", feature = "op_delete_user_pool_client_secret", feature = "op_delete_user_pool_domain", feature = "op_delete_user_pool_replica", feature = "op_delete_web_authn_credential", feature = "op_describe_identity_provider", feature = "op_describe_managed_login_branding", feature = "op_describe_managed_login_branding_by_client", feature = "op_describe_resource_server", feature = "op_describe_risk_configuration", feature = "op_describe_terms", feature = "op_describe_user_import_job", feature = "op_describe_user_pool", feature = "op_describe_user_pool_client", feature = "op_describe_user_pool_domain", feature = "op_forget_device", feature = "op_forgot_password", feature = "op_get_csv_header", feature = "op_get_device", feature = "op_get_group", feature = "op_get_identity_provider_by_identifier", feature = "op_get_log_delivery_configuration", feature = "op_get_provisioned_limit", feature = "op_get_signing_certificate", feature = "op_get_tokens_from_refresh_token", feature = "op_get_ui_customization", feature = "op_get_user", feature = "op_get_user_attribute_verification_code", feature = "op_get_user_auth_factors", feature = "op_get_user_pool_mfa_config", feature = "op_global_sign_out", feature = "op_initiate_auth", feature = "op_list_devices", feature = "op_list_groups", feature = "op_list_identity_providers", feature = "op_list_resource_servers", feature = "op_list_tags_for_resource", feature = "op_list_terms", feature = "op_list_user_import_jobs", feature = "op_list_user_pool_client_secrets", feature = "op_list_user_pool_clients", feature = "op_list_user_pool_replicas", feature = "op_list_users", feature = "op_list_users_in_group", feature = "op_resend_confirmation_code", feature = "op_respond_to_auth_challenge", feature = "op_set_log_delivery_configuration", feature = "op_set_risk_configuration", feature = "op_set_ui_customization", feature = "op_set_user_mfa_preference", feature = "op_set_user_pool_mfa_config", feature = "op_set_user_settings", feature = "op_sign_up", feature = "op_start_user_import_job", feature = "op_stop_user_import_job", feature = "op_tag_resource", feature = "op_untag_resource", feature = "op_update_auth_event_feedback", feature = "op_update_device_status", feature = "op_update_group", feature = "op_update_identity_provider", feature = "op_update_managed_login_branding", feature = "op_update_provisioned_limit", feature = "op_update_resource_server", feature = "op_update_terms", feature = "op_update_user_attributes", feature = "op_update_user_pool", feature = "op_update_user_pool_client", feature = "op_update_user_pool_domain", feature = "op_update_user_pool_replica", feature = "op_verify_software_token", feature = "op_verify_user_attribute"))]
 pub(crate) mod shape_resource_not_found_exception;
 
 #[cfg(feature = "op_respond_to_auth_challenge")]
@@ -1707,10 +820,7 @@ pub(crate) mod shape_respond_to_auth_challenge_input;
 #[cfg(feature = "op_revoke_token")]
 pub(crate) mod shape_revoke_token_input;
 
-#[cfg(any(
-    feature = "op_create_user_pool_client",
-    feature = "op_update_user_pool_client"
-))]
+#[cfg(any(feature = "op_create_user_pool_client", feature = "op_update_user_pool_client"))]
 pub(crate) mod shape_scope_does_not_exist_exception;
 
 #[cfg(feature = "op_update_provisioned_limit")]
@@ -1737,12 +847,7 @@ pub(crate) mod shape_set_user_settings_input;
 #[cfg(feature = "op_sign_up")]
 pub(crate) mod shape_sign_up_input;
 
-#[cfg(any(
-    feature = "op_admin_respond_to_auth_challenge",
-    feature = "op_associate_software_token",
-    feature = "op_respond_to_auth_challenge",
-    feature = "op_verify_software_token"
-))]
+#[cfg(any(feature = "op_admin_respond_to_auth_challenge", feature = "op_associate_software_token", feature = "op_respond_to_auth_challenge", feature = "op_verify_software_token"))]
 pub(crate) mod shape_software_token_mfa_not_found_exception;
 
 #[cfg(feature = "op_start_user_import_job")]
@@ -1763,171 +868,22 @@ pub(crate) mod shape_terms_exists_exception;
 #[cfg(any(feature = "op_create_user_pool", feature = "op_update_user_pool"))]
 pub(crate) mod shape_tier_change_not_allowed_exception;
 
-#[cfg(any(
-    feature = "op_admin_confirm_sign_up",
-    feature = "op_confirm_forgot_password",
-    feature = "op_confirm_sign_up"
-))]
+#[cfg(any(feature = "op_admin_confirm_sign_up", feature = "op_confirm_forgot_password", feature = "op_confirm_sign_up"))]
 pub(crate) mod shape_too_many_failed_attempts_exception;
 
-#[cfg(any(
-    feature = "op_add_custom_attributes",
-    feature = "op_add_user_pool_client_secret",
-    feature = "op_admin_add_user_to_group",
-    feature = "op_admin_confirm_sign_up",
-    feature = "op_admin_create_user",
-    feature = "op_admin_delete_user",
-    feature = "op_admin_delete_user_attributes",
-    feature = "op_admin_disable_provider_for_user",
-    feature = "op_admin_disable_user",
-    feature = "op_admin_enable_user",
-    feature = "op_admin_forget_device",
-    feature = "op_admin_get_device",
-    feature = "op_admin_get_user",
-    feature = "op_admin_get_user_auth_factors",
-    feature = "op_admin_initiate_auth",
-    feature = "op_admin_link_provider_for_user",
-    feature = "op_admin_list_devices",
-    feature = "op_admin_list_groups_for_user",
-    feature = "op_admin_list_user_auth_events",
-    feature = "op_admin_remove_user_from_group",
-    feature = "op_admin_reset_user_password",
-    feature = "op_admin_respond_to_auth_challenge",
-    feature = "op_admin_set_user_password",
-    feature = "op_admin_update_auth_event_feedback",
-    feature = "op_admin_update_device_status",
-    feature = "op_admin_update_user_attributes",
-    feature = "op_admin_user_global_sign_out",
-    feature = "op_change_password",
-    feature = "op_complete_web_authn_registration",
-    feature = "op_confirm_device",
-    feature = "op_confirm_forgot_password",
-    feature = "op_confirm_sign_up",
-    feature = "op_create_group",
-    feature = "op_create_identity_provider",
-    feature = "op_create_managed_login_branding",
-    feature = "op_create_resource_server",
-    feature = "op_create_terms",
-    feature = "op_create_user_import_job",
-    feature = "op_create_user_pool",
-    feature = "op_create_user_pool_client",
-    feature = "op_create_user_pool_replica",
-    feature = "op_delete_group",
-    feature = "op_delete_identity_provider",
-    feature = "op_delete_managed_login_branding",
-    feature = "op_delete_resource_server",
-    feature = "op_delete_terms",
-    feature = "op_delete_user",
-    feature = "op_delete_user_attributes",
-    feature = "op_delete_user_pool",
-    feature = "op_delete_user_pool_client",
-    feature = "op_delete_user_pool_client_secret",
-    feature = "op_delete_user_pool_replica",
-    feature = "op_delete_web_authn_credential",
-    feature = "op_describe_identity_provider",
-    feature = "op_describe_managed_login_branding",
-    feature = "op_describe_managed_login_branding_by_client",
-    feature = "op_describe_resource_server",
-    feature = "op_describe_risk_configuration",
-    feature = "op_describe_terms",
-    feature = "op_describe_user_import_job",
-    feature = "op_describe_user_pool",
-    feature = "op_describe_user_pool_client",
-    feature = "op_forget_device",
-    feature = "op_forgot_password",
-    feature = "op_get_csv_header",
-    feature = "op_get_device",
-    feature = "op_get_group",
-    feature = "op_get_identity_provider_by_identifier",
-    feature = "op_get_log_delivery_configuration",
-    feature = "op_get_provisioned_limit",
-    feature = "op_get_tokens_from_refresh_token",
-    feature = "op_get_ui_customization",
-    feature = "op_get_user",
-    feature = "op_get_user_attribute_verification_code",
-    feature = "op_get_user_auth_factors",
-    feature = "op_get_user_pool_mfa_config",
-    feature = "op_global_sign_out",
-    feature = "op_initiate_auth",
-    feature = "op_list_devices",
-    feature = "op_list_groups",
-    feature = "op_list_identity_providers",
-    feature = "op_list_resource_servers",
-    feature = "op_list_tags_for_resource",
-    feature = "op_list_terms",
-    feature = "op_list_user_import_jobs",
-    feature = "op_list_user_pool_client_secrets",
-    feature = "op_list_user_pool_clients",
-    feature = "op_list_user_pool_replicas",
-    feature = "op_list_user_pools",
-    feature = "op_list_users",
-    feature = "op_list_users_in_group",
-    feature = "op_list_web_authn_credentials",
-    feature = "op_resend_confirmation_code",
-    feature = "op_respond_to_auth_challenge",
-    feature = "op_revoke_token",
-    feature = "op_set_log_delivery_configuration",
-    feature = "op_set_risk_configuration",
-    feature = "op_set_ui_customization",
-    feature = "op_set_user_pool_mfa_config",
-    feature = "op_sign_up",
-    feature = "op_start_user_import_job",
-    feature = "op_start_web_authn_registration",
-    feature = "op_stop_user_import_job",
-    feature = "op_tag_resource",
-    feature = "op_untag_resource",
-    feature = "op_update_auth_event_feedback",
-    feature = "op_update_device_status",
-    feature = "op_update_group",
-    feature = "op_update_identity_provider",
-    feature = "op_update_managed_login_branding",
-    feature = "op_update_provisioned_limit",
-    feature = "op_update_resource_server",
-    feature = "op_update_terms",
-    feature = "op_update_user_attributes",
-    feature = "op_update_user_pool",
-    feature = "op_update_user_pool_client",
-    feature = "op_update_user_pool_domain",
-    feature = "op_update_user_pool_replica",
-    feature = "op_verify_software_token",
-    feature = "op_verify_user_attribute"
-))]
+#[cfg(any(feature = "op_add_custom_attributes", feature = "op_add_user_pool_client_secret", feature = "op_admin_add_user_to_group", feature = "op_admin_confirm_sign_up", feature = "op_admin_create_user", feature = "op_admin_delete_user", feature = "op_admin_delete_user_attributes", feature = "op_admin_disable_provider_for_user", feature = "op_admin_disable_user", feature = "op_admin_enable_user", feature = "op_admin_forget_device", feature = "op_admin_get_device", feature = "op_admin_get_user", feature = "op_admin_get_user_auth_factors", feature = "op_admin_initiate_auth", feature = "op_admin_link_provider_for_user", feature = "op_admin_list_devices", feature = "op_admin_list_groups_for_user", feature = "op_admin_list_user_auth_events", feature = "op_admin_remove_user_from_group", feature = "op_admin_reset_user_password", feature = "op_admin_respond_to_auth_challenge", feature = "op_admin_set_user_password", feature = "op_admin_update_auth_event_feedback", feature = "op_admin_update_device_status", feature = "op_admin_update_user_attributes", feature = "op_admin_user_global_sign_out", feature = "op_change_password", feature = "op_complete_web_authn_registration", feature = "op_confirm_device", feature = "op_confirm_forgot_password", feature = "op_confirm_sign_up", feature = "op_create_group", feature = "op_create_identity_provider", feature = "op_create_managed_login_branding", feature = "op_create_resource_server", feature = "op_create_terms", feature = "op_create_user_import_job", feature = "op_create_user_pool", feature = "op_create_user_pool_client", feature = "op_create_user_pool_replica", feature = "op_delete_group", feature = "op_delete_identity_provider", feature = "op_delete_managed_login_branding", feature = "op_delete_resource_server", feature = "op_delete_terms", feature = "op_delete_user", feature = "op_delete_user_attributes", feature = "op_delete_user_pool", feature = "op_delete_user_pool_client", feature = "op_delete_user_pool_client_secret", feature = "op_delete_user_pool_replica", feature = "op_delete_web_authn_credential", feature = "op_describe_identity_provider", feature = "op_describe_managed_login_branding", feature = "op_describe_managed_login_branding_by_client", feature = "op_describe_resource_server", feature = "op_describe_risk_configuration", feature = "op_describe_terms", feature = "op_describe_user_import_job", feature = "op_describe_user_pool", feature = "op_describe_user_pool_client", feature = "op_forget_device", feature = "op_forgot_password", feature = "op_get_csv_header", feature = "op_get_device", feature = "op_get_group", feature = "op_get_identity_provider_by_identifier", feature = "op_get_log_delivery_configuration", feature = "op_get_provisioned_limit", feature = "op_get_tokens_from_refresh_token", feature = "op_get_ui_customization", feature = "op_get_user", feature = "op_get_user_attribute_verification_code", feature = "op_get_user_auth_factors", feature = "op_get_user_pool_mfa_config", feature = "op_global_sign_out", feature = "op_initiate_auth", feature = "op_list_devices", feature = "op_list_groups", feature = "op_list_identity_providers", feature = "op_list_resource_servers", feature = "op_list_tags_for_resource", feature = "op_list_terms", feature = "op_list_user_import_jobs", feature = "op_list_user_pool_client_secrets", feature = "op_list_user_pool_clients", feature = "op_list_user_pool_replicas", feature = "op_list_user_pools", feature = "op_list_users", feature = "op_list_users_in_group", feature = "op_list_web_authn_credentials", feature = "op_resend_confirmation_code", feature = "op_respond_to_auth_challenge", feature = "op_revoke_token", feature = "op_set_log_delivery_configuration", feature = "op_set_risk_configuration", feature = "op_set_ui_customization", feature = "op_set_user_pool_mfa_config", feature = "op_sign_up", feature = "op_start_user_import_job", feature = "op_start_web_authn_registration", feature = "op_stop_user_import_job", feature = "op_tag_resource", feature = "op_untag_resource", feature = "op_update_auth_event_feedback", feature = "op_update_device_status", feature = "op_update_group", feature = "op_update_identity_provider", feature = "op_update_managed_login_branding", feature = "op_update_provisioned_limit", feature = "op_update_resource_server", feature = "op_update_terms", feature = "op_update_user_attributes", feature = "op_update_user_pool", feature = "op_update_user_pool_client", feature = "op_update_user_pool_domain", feature = "op_update_user_pool_replica", feature = "op_verify_software_token", feature = "op_verify_user_attribute"))]
 pub(crate) mod shape_too_many_requests_exception;
 
 #[cfg(feature = "op_revoke_token")]
 pub(crate) mod shape_unauthorized_exception;
 
-#[cfg(any(
-    feature = "op_admin_confirm_sign_up",
-    feature = "op_admin_create_user",
-    feature = "op_admin_initiate_auth",
-    feature = "op_admin_reset_user_password",
-    feature = "op_admin_respond_to_auth_challenge",
-    feature = "op_admin_update_user_attributes",
-    feature = "op_confirm_forgot_password",
-    feature = "op_confirm_sign_up",
-    feature = "op_forgot_password",
-    feature = "op_get_tokens_from_refresh_token",
-    feature = "op_get_user_attribute_verification_code",
-    feature = "op_initiate_auth",
-    feature = "op_resend_confirmation_code",
-    feature = "op_respond_to_auth_challenge",
-    feature = "op_sign_up",
-    feature = "op_update_user_attributes"
-))]
+#[cfg(any(feature = "op_admin_confirm_sign_up", feature = "op_admin_create_user", feature = "op_admin_initiate_auth", feature = "op_admin_reset_user_password", feature = "op_admin_respond_to_auth_challenge", feature = "op_admin_update_user_attributes", feature = "op_confirm_forgot_password", feature = "op_confirm_sign_up", feature = "op_forgot_password", feature = "op_get_tokens_from_refresh_token", feature = "op_get_user_attribute_verification_code", feature = "op_initiate_auth", feature = "op_resend_confirmation_code", feature = "op_respond_to_auth_challenge", feature = "op_sign_up", feature = "op_update_user_attributes"))]
 pub(crate) mod shape_unexpected_lambda_exception;
 
-#[cfg(any(
-    feature = "op_delete_identity_provider",
-    feature = "op_update_identity_provider"
-))]
+#[cfg(any(feature = "op_delete_identity_provider", feature = "op_update_identity_provider"))]
 pub(crate) mod shape_unsupported_identity_provider_exception;
 
-#[cfg(any(
-    feature = "op_admin_initiate_auth",
-    feature = "op_initiate_auth",
-    feature = "op_revoke_token"
-))]
+#[cfg(any(feature = "op_admin_initiate_auth", feature = "op_initiate_auth", feature = "op_revoke_token"))]
 pub(crate) mod shape_unsupported_operation_exception;
 
 #[cfg(feature = "op_revoke_token")]
@@ -1978,135 +934,25 @@ pub(crate) mod shape_update_user_pool_input;
 #[cfg(feature = "op_update_user_pool_replica")]
 pub(crate) mod shape_update_user_pool_replica_input;
 
-#[cfg(any(
-    feature = "op_add_custom_attributes",
-    feature = "op_delete_user_pool",
-    feature = "op_update_user_pool"
-))]
+#[cfg(any(feature = "op_add_custom_attributes", feature = "op_delete_user_pool", feature = "op_update_user_pool"))]
 pub(crate) mod shape_user_import_in_progress_exception;
 
-#[cfg(any(
-    feature = "op_admin_confirm_sign_up",
-    feature = "op_admin_create_user",
-    feature = "op_admin_initiate_auth",
-    feature = "op_admin_reset_user_password",
-    feature = "op_admin_respond_to_auth_challenge",
-    feature = "op_admin_update_user_attributes",
-    feature = "op_confirm_forgot_password",
-    feature = "op_confirm_sign_up",
-    feature = "op_forgot_password",
-    feature = "op_get_tokens_from_refresh_token",
-    feature = "op_get_user_attribute_verification_code",
-    feature = "op_initiate_auth",
-    feature = "op_resend_confirmation_code",
-    feature = "op_respond_to_auth_challenge",
-    feature = "op_sign_up",
-    feature = "op_update_user_attributes"
-))]
+#[cfg(any(feature = "op_admin_confirm_sign_up", feature = "op_admin_create_user", feature = "op_admin_initiate_auth", feature = "op_admin_reset_user_password", feature = "op_admin_respond_to_auth_challenge", feature = "op_admin_update_user_attributes", feature = "op_confirm_forgot_password", feature = "op_confirm_sign_up", feature = "op_forgot_password", feature = "op_get_tokens_from_refresh_token", feature = "op_get_user_attribute_verification_code", feature = "op_initiate_auth", feature = "op_resend_confirmation_code", feature = "op_respond_to_auth_challenge", feature = "op_sign_up", feature = "op_update_user_attributes"))]
 pub(crate) mod shape_user_lambda_validation_exception;
 
-#[cfg(any(
-    feature = "op_admin_initiate_auth",
-    feature = "op_admin_respond_to_auth_challenge",
-    feature = "op_admin_set_user_mfa_preference",
-    feature = "op_change_password",
-    feature = "op_confirm_device",
-    feature = "op_confirm_forgot_password",
-    feature = "op_delete_user",
-    feature = "op_delete_user_attributes",
-    feature = "op_forget_device",
-    feature = "op_get_device",
-    feature = "op_get_user",
-    feature = "op_get_user_attribute_verification_code",
-    feature = "op_get_user_auth_factors",
-    feature = "op_global_sign_out",
-    feature = "op_initiate_auth",
-    feature = "op_list_devices",
-    feature = "op_respond_to_auth_challenge",
-    feature = "op_set_user_mfa_preference",
-    feature = "op_set_user_settings",
-    feature = "op_update_device_status",
-    feature = "op_update_user_attributes",
-    feature = "op_verify_software_token",
-    feature = "op_verify_user_attribute"
-))]
+#[cfg(any(feature = "op_admin_initiate_auth", feature = "op_admin_respond_to_auth_challenge", feature = "op_admin_set_user_mfa_preference", feature = "op_change_password", feature = "op_confirm_device", feature = "op_confirm_forgot_password", feature = "op_delete_user", feature = "op_delete_user_attributes", feature = "op_forget_device", feature = "op_get_device", feature = "op_get_user", feature = "op_get_user_attribute_verification_code", feature = "op_get_user_auth_factors", feature = "op_global_sign_out", feature = "op_initiate_auth", feature = "op_list_devices", feature = "op_respond_to_auth_challenge", feature = "op_set_user_mfa_preference", feature = "op_set_user_settings", feature = "op_update_device_status", feature = "op_update_user_attributes", feature = "op_verify_software_token", feature = "op_verify_user_attribute"))]
 pub(crate) mod shape_user_not_confirmed_exception;
 
-#[cfg(any(
-    feature = "op_admin_add_user_to_group",
-    feature = "op_admin_confirm_sign_up",
-    feature = "op_admin_create_user",
-    feature = "op_admin_delete_user",
-    feature = "op_admin_delete_user_attributes",
-    feature = "op_admin_disable_provider_for_user",
-    feature = "op_admin_disable_user",
-    feature = "op_admin_enable_user",
-    feature = "op_admin_forget_device",
-    feature = "op_admin_get_user",
-    feature = "op_admin_get_user_auth_factors",
-    feature = "op_admin_initiate_auth",
-    feature = "op_admin_link_provider_for_user",
-    feature = "op_admin_list_groups_for_user",
-    feature = "op_admin_list_user_auth_events",
-    feature = "op_admin_remove_user_from_group",
-    feature = "op_admin_reset_user_password",
-    feature = "op_admin_respond_to_auth_challenge",
-    feature = "op_admin_set_user_mfa_preference",
-    feature = "op_admin_set_user_password",
-    feature = "op_admin_set_user_settings",
-    feature = "op_admin_update_auth_event_feedback",
-    feature = "op_admin_update_device_status",
-    feature = "op_admin_update_user_attributes",
-    feature = "op_admin_user_global_sign_out",
-    feature = "op_change_password",
-    feature = "op_confirm_device",
-    feature = "op_confirm_forgot_password",
-    feature = "op_confirm_sign_up",
-    feature = "op_delete_user",
-    feature = "op_delete_user_attributes",
-    feature = "op_forget_device",
-    feature = "op_forgot_password",
-    feature = "op_get_device",
-    feature = "op_get_tokens_from_refresh_token",
-    feature = "op_get_user",
-    feature = "op_get_user_attribute_verification_code",
-    feature = "op_get_user_auth_factors",
-    feature = "op_initiate_auth",
-    feature = "op_list_devices",
-    feature = "op_resend_confirmation_code",
-    feature = "op_respond_to_auth_challenge",
-    feature = "op_set_user_mfa_preference",
-    feature = "op_set_user_settings",
-    feature = "op_update_auth_event_feedback",
-    feature = "op_update_device_status",
-    feature = "op_update_user_attributes",
-    feature = "op_verify_software_token",
-    feature = "op_verify_user_attribute"
-))]
+#[cfg(any(feature = "op_admin_add_user_to_group", feature = "op_admin_confirm_sign_up", feature = "op_admin_create_user", feature = "op_admin_delete_user", feature = "op_admin_delete_user_attributes", feature = "op_admin_disable_provider_for_user", feature = "op_admin_disable_user", feature = "op_admin_enable_user", feature = "op_admin_forget_device", feature = "op_admin_get_user", feature = "op_admin_get_user_auth_factors", feature = "op_admin_initiate_auth", feature = "op_admin_link_provider_for_user", feature = "op_admin_list_groups_for_user", feature = "op_admin_list_user_auth_events", feature = "op_admin_remove_user_from_group", feature = "op_admin_reset_user_password", feature = "op_admin_respond_to_auth_challenge", feature = "op_admin_set_user_mfa_preference", feature = "op_admin_set_user_password", feature = "op_admin_set_user_settings", feature = "op_admin_update_auth_event_feedback", feature = "op_admin_update_device_status", feature = "op_admin_update_user_attributes", feature = "op_admin_user_global_sign_out", feature = "op_change_password", feature = "op_confirm_device", feature = "op_confirm_forgot_password", feature = "op_confirm_sign_up", feature = "op_delete_user", feature = "op_delete_user_attributes", feature = "op_forget_device", feature = "op_forgot_password", feature = "op_get_device", feature = "op_get_tokens_from_refresh_token", feature = "op_get_user", feature = "op_get_user_attribute_verification_code", feature = "op_get_user_auth_factors", feature = "op_initiate_auth", feature = "op_list_devices", feature = "op_resend_confirmation_code", feature = "op_respond_to_auth_challenge", feature = "op_set_user_mfa_preference", feature = "op_set_user_settings", feature = "op_update_auth_event_feedback", feature = "op_update_device_status", feature = "op_update_user_attributes", feature = "op_verify_software_token", feature = "op_verify_user_attribute"))]
 pub(crate) mod shape_user_not_found_exception;
 
-#[cfg(any(
-    feature = "op_admin_list_user_auth_events",
-    feature = "op_admin_update_auth_event_feedback",
-    feature = "op_describe_risk_configuration",
-    feature = "op_set_risk_configuration",
-    feature = "op_update_auth_event_feedback"
-))]
+#[cfg(any(feature = "op_admin_list_user_auth_events", feature = "op_admin_update_auth_event_feedback", feature = "op_describe_risk_configuration", feature = "op_set_risk_configuration", feature = "op_update_auth_event_feedback"))]
 pub(crate) mod shape_user_pool_add_on_not_enabled_exception;
 
-#[cfg(any(
-    feature = "op_create_user_pool",
-    feature = "op_create_user_pool_replica",
-    feature = "op_describe_user_pool",
-    feature = "op_update_user_pool"
-))]
+#[cfg(any(feature = "op_create_user_pool", feature = "op_create_user_pool_replica", feature = "op_describe_user_pool", feature = "op_update_user_pool"))]
 pub(crate) mod shape_user_pool_tagging_exception;
 
-#[cfg(any(
-    feature = "op_admin_create_user",
-    feature = "op_confirm_device",
-    feature = "op_sign_up"
-))]
+#[cfg(any(feature = "op_admin_create_user", feature = "op_confirm_device", feature = "op_sign_up"))]
 pub(crate) mod shape_username_exists_exception;
 
 #[cfg(feature = "op_verify_software_token")]
@@ -2127,10 +973,7 @@ pub(crate) mod shape_web_authn_configuration_missing_exception;
 #[cfg(feature = "op_complete_web_authn_registration")]
 pub(crate) mod shape_web_authn_credential_not_supported_exception;
 
-#[cfg(any(
-    feature = "op_complete_web_authn_registration",
-    feature = "op_start_web_authn_registration"
-))]
+#[cfg(any(feature = "op_complete_web_authn_registration", feature = "op_start_web_authn_registration"))]
 pub(crate) mod shape_web_authn_not_enabled_exception;
 
 #[cfg(feature = "op_complete_web_authn_registration")]
@@ -2139,158 +982,67 @@ pub(crate) mod shape_web_authn_origin_not_allowed_exception;
 #[cfg(feature = "op_complete_web_authn_registration")]
 pub(crate) mod shape_web_authn_relying_party_mismatch_exception;
 
-#[cfg(any(
-    feature = "op_create_user_pool",
-    feature = "op_describe_user_pool",
-    feature = "op_update_user_pool"
-))]
+#[cfg(any(feature = "op_create_user_pool", feature = "op_describe_user_pool", feature = "op_update_user_pool"))]
 pub(crate) mod shape_account_recovery_setting_type;
 
-#[cfg(any(
-    feature = "op_describe_risk_configuration",
-    feature = "op_set_risk_configuration"
-))]
+#[cfg(any(feature = "op_describe_risk_configuration", feature = "op_set_risk_configuration"))]
 pub(crate) mod shape_account_takeover_risk_configuration_type;
 
-#[cfg(any(
-    feature = "op_admin_create_user",
-    feature = "op_create_user_pool",
-    feature = "op_describe_user_pool",
-    feature = "op_update_user_pool"
-))]
+#[cfg(any(feature = "op_create_user_pool", feature = "op_describe_user_pool", feature = "op_update_user_pool"))]
 pub(crate) mod shape_admin_create_user_config_type;
 
-#[cfg(any(
-    feature = "op_create_user_pool_client",
-    feature = "op_describe_user_pool_client",
-    feature = "op_update_user_pool_client"
-))]
+#[cfg(any(feature = "op_create_user_pool_client", feature = "op_describe_user_pool_client", feature = "op_update_user_pool_client"))]
 pub(crate) mod shape_analytics_configuration_type;
 
-#[cfg(any(
-    feature = "op_admin_initiate_auth",
-    feature = "op_admin_respond_to_auth_challenge",
-    feature = "op_confirm_forgot_password",
-    feature = "op_confirm_sign_up",
-    feature = "op_forgot_password",
-    feature = "op_initiate_auth",
-    feature = "op_resend_confirmation_code",
-    feature = "op_respond_to_auth_challenge",
-    feature = "op_sign_up"
-))]
+#[cfg(any(feature = "op_admin_initiate_auth", feature = "op_admin_respond_to_auth_challenge", feature = "op_confirm_forgot_password", feature = "op_confirm_sign_up", feature = "op_forgot_password", feature = "op_initiate_auth", feature = "op_resend_confirmation_code", feature = "op_respond_to_auth_challenge", feature = "op_sign_up"))]
 pub(crate) mod shape_analytics_metadata_type;
 
-#[cfg(any(
-    feature = "op_create_managed_login_branding",
-    feature = "op_describe_managed_login_branding",
-    feature = "op_describe_managed_login_branding_by_client",
-    feature = "op_update_managed_login_branding"
-))]
+#[cfg(any(feature = "op_create_managed_login_branding", feature = "op_describe_managed_login_branding", feature = "op_describe_managed_login_branding_by_client", feature = "op_update_managed_login_branding"))]
 pub(crate) mod shape_asset_type;
 
-#[cfg(any(
-    feature = "op_admin_create_user",
-    feature = "op_admin_get_device",
-    feature = "op_admin_get_user",
-    feature = "op_admin_list_devices",
-    feature = "op_get_device",
-    feature = "op_get_user",
-    feature = "op_list_devices",
-    feature = "op_list_users",
-    feature = "op_list_users_in_group"
-))]
+#[cfg(any(feature = "op_admin_create_user", feature = "op_admin_get_device", feature = "op_admin_get_user", feature = "op_admin_list_devices", feature = "op_get_device", feature = "op_get_user", feature = "op_list_devices", feature = "op_list_users", feature = "op_list_users_in_group"))]
 pub(crate) mod shape_attribute_list_type;
 
-#[cfg(any(
-    feature = "op_admin_create_user",
-    feature = "op_admin_get_device",
-    feature = "op_admin_get_user",
-    feature = "op_admin_list_devices",
-    feature = "op_admin_update_user_attributes",
-    feature = "op_get_device",
-    feature = "op_get_user",
-    feature = "op_list_devices",
-    feature = "op_list_users",
-    feature = "op_list_users_in_group",
-    feature = "op_sign_up",
-    feature = "op_update_user_attributes"
-))]
+#[cfg(any(feature = "op_admin_create_user", feature = "op_admin_get_device", feature = "op_admin_get_user", feature = "op_admin_list_devices", feature = "op_admin_update_user_attributes", feature = "op_get_device", feature = "op_get_user", feature = "op_list_devices", feature = "op_list_users", feature = "op_list_users_in_group", feature = "op_sign_up", feature = "op_update_user_attributes"))]
 pub(crate) mod shape_attribute_type;
 
 #[cfg(feature = "op_admin_list_user_auth_events")]
 pub(crate) mod shape_auth_events_type;
 
-#[cfg(any(
-    feature = "op_admin_initiate_auth",
-    feature = "op_admin_respond_to_auth_challenge",
-    feature = "op_get_tokens_from_refresh_token",
-    feature = "op_initiate_auth",
-    feature = "op_respond_to_auth_challenge"
-))]
+#[cfg(any(feature = "op_admin_initiate_auth", feature = "op_admin_respond_to_auth_challenge", feature = "op_get_tokens_from_refresh_token", feature = "op_initiate_auth", feature = "op_respond_to_auth_challenge"))]
 pub(crate) mod shape_authentication_result_type;
 
 #[cfg(any(feature = "op_admin_initiate_auth", feature = "op_initiate_auth"))]
 pub(crate) mod shape_available_challenge_list_type;
 
-#[cfg(any(
-    feature = "op_admin_initiate_auth",
-    feature = "op_admin_respond_to_auth_challenge",
-    feature = "op_initiate_auth",
-    feature = "op_respond_to_auth_challenge"
-))]
+#[cfg(any(feature = "op_admin_initiate_auth", feature = "op_admin_respond_to_auth_challenge", feature = "op_initiate_auth", feature = "op_respond_to_auth_challenge"))]
 pub(crate) mod shape_challenge_parameters_type;
 
 #[cfg(feature = "op_list_user_pool_client_secrets")]
 pub(crate) mod shape_client_secret_descriptor_list_type;
 
-#[cfg(any(
-    feature = "op_add_user_pool_client_secret",
-    feature = "op_list_user_pool_client_secrets"
-))]
+#[cfg(any(feature = "op_add_user_pool_client_secret", feature = "op_list_user_pool_client_secrets"))]
 pub(crate) mod shape_client_secret_descriptor_type;
 
 #[cfg(feature = "op_update_user_attributes")]
 pub(crate) mod shape_code_delivery_details_list_type;
 
-#[cfg(any(
-    feature = "op_forgot_password",
-    feature = "op_get_user_attribute_verification_code",
-    feature = "op_resend_confirmation_code",
-    feature = "op_sign_up",
-    feature = "op_update_user_attributes"
-))]
+#[cfg(any(feature = "op_forgot_password", feature = "op_get_user_attribute_verification_code", feature = "op_resend_confirmation_code", feature = "op_sign_up", feature = "op_update_user_attributes"))]
 pub(crate) mod shape_code_delivery_details_type;
 
-#[cfg(any(
-    feature = "op_describe_risk_configuration",
-    feature = "op_set_risk_configuration"
-))]
+#[cfg(any(feature = "op_describe_risk_configuration", feature = "op_set_risk_configuration"))]
 pub(crate) mod shape_compromised_credentials_risk_configuration_type;
 
-#[cfg(any(
-    feature = "op_admin_get_user_auth_factors",
-    feature = "op_get_user_auth_factors"
-))]
+#[cfg(any(feature = "op_admin_get_user_auth_factors", feature = "op_get_user_auth_factors"))]
 pub(crate) mod shape_configured_user_auth_factors_list_type;
 
-#[cfg(any(
-    feature = "op_admin_initiate_auth",
-    feature = "op_admin_respond_to_auth_challenge"
-))]
+#[cfg(any(feature = "op_admin_initiate_auth", feature = "op_admin_respond_to_auth_challenge"))]
 pub(crate) mod shape_context_data_type;
 
-#[cfg(any(
-    feature = "op_create_user_pool_domain",
-    feature = "op_describe_user_pool_domain",
-    feature = "op_update_user_pool_domain"
-))]
+#[cfg(any(feature = "op_create_user_pool_domain", feature = "op_describe_user_pool_domain", feature = "op_update_user_pool_domain"))]
 pub(crate) mod shape_custom_domain_config_type;
 
-#[cfg(any(
-    feature = "op_create_user_pool",
-    feature = "op_describe_user_pool",
-    feature = "op_update_user_pool"
-))]
+#[cfg(any(feature = "op_create_user_pool", feature = "op_describe_user_pool", feature = "op_update_user_pool"))]
 pub(crate) mod shape_device_configuration_type;
 
 #[cfg(any(feature = "op_admin_list_devices", feature = "op_list_devices"))]
@@ -2299,341 +1051,163 @@ pub(crate) mod shape_device_list_type;
 #[cfg(feature = "op_confirm_device")]
 pub(crate) mod shape_device_secret_verifier_config_type;
 
-#[cfg(any(
-    feature = "op_admin_get_device",
-    feature = "op_admin_list_devices",
-    feature = "op_get_device",
-    feature = "op_list_devices"
-))]
+#[cfg(any(feature = "op_admin_get_device", feature = "op_admin_list_devices", feature = "op_get_device", feature = "op_list_devices"))]
 pub(crate) mod shape_device_type;
 
 #[cfg(feature = "op_describe_user_pool_domain")]
 pub(crate) mod shape_domain_description_type;
 
-#[cfg(any(
-    feature = "op_create_user_pool",
-    feature = "op_describe_user_pool",
-    feature = "op_update_user_pool"
-))]
+#[cfg(any(feature = "op_create_user_pool", feature = "op_describe_user_pool", feature = "op_update_user_pool"))]
 pub(crate) mod shape_email_configuration_type;
 
-#[cfg(any(
-    feature = "op_get_user_pool_mfa_config",
-    feature = "op_set_user_pool_mfa_config"
-))]
+#[cfg(any(feature = "op_get_user_pool_mfa_config", feature = "op_set_user_pool_mfa_config"))]
 pub(crate) mod shape_email_mfa_config_type;
 
-#[cfg(any(
-    feature = "op_admin_set_user_mfa_preference",
-    feature = "op_set_user_mfa_preference"
-))]
+#[cfg(any(feature = "op_admin_set_user_mfa_preference", feature = "op_set_user_mfa_preference"))]
 pub(crate) mod shape_email_mfa_settings_type;
 
 #[cfg(any(feature = "op_admin_list_groups_for_user", feature = "op_list_groups"))]
 pub(crate) mod shape_group_list_type;
 
-#[cfg(any(
-    feature = "op_admin_list_groups_for_user",
-    feature = "op_create_group",
-    feature = "op_get_group",
-    feature = "op_list_groups",
-    feature = "op_update_group"
-))]
+#[cfg(any(feature = "op_admin_list_groups_for_user", feature = "op_create_group", feature = "op_get_group", feature = "op_list_groups", feature = "op_update_group"))]
 pub(crate) mod shape_group_type;
 
-#[cfg(any(
-    feature = "op_create_identity_provider",
-    feature = "op_describe_identity_provider",
-    feature = "op_get_identity_provider_by_identifier",
-    feature = "op_update_identity_provider"
-))]
+#[cfg(any(feature = "op_create_identity_provider", feature = "op_describe_identity_provider", feature = "op_get_identity_provider_by_identifier", feature = "op_update_identity_provider"))]
 pub(crate) mod shape_identity_provider_type;
 
-#[cfg(any(
-    feature = "op_create_user_pool",
-    feature = "op_describe_user_pool",
-    feature = "op_update_user_pool"
-))]
+#[cfg(any(feature = "op_create_user_pool", feature = "op_describe_user_pool", feature = "op_update_user_pool"))]
 pub(crate) mod shape_issuer_configuration_type;
 
-#[cfg(any(
-    feature = "op_create_user_pool",
-    feature = "op_describe_user_pool",
-    feature = "op_update_user_pool"
-))]
+#[cfg(any(feature = "op_create_user_pool", feature = "op_describe_user_pool", feature = "op_update_user_pool"))]
 pub(crate) mod shape_key_configuration_type;
 
-#[cfg(any(
-    feature = "op_create_user_pool",
-    feature = "op_describe_user_pool",
-    feature = "op_list_user_pools",
-    feature = "op_update_user_pool"
-))]
+#[cfg(any(feature = "op_create_user_pool", feature = "op_describe_user_pool", feature = "op_list_user_pools", feature = "op_update_user_pool"))]
 pub(crate) mod shape_lambda_config_type;
 
-#[cfg(any(
-    feature = "op_get_provisioned_limit",
-    feature = "op_update_provisioned_limit"
-))]
+#[cfg(any(feature = "op_get_provisioned_limit", feature = "op_update_provisioned_limit"))]
 pub(crate) mod shape_limit_definition_type;
 
-#[cfg(any(
-    feature = "op_get_provisioned_limit",
-    feature = "op_update_provisioned_limit"
-))]
+#[cfg(any(feature = "op_get_provisioned_limit", feature = "op_update_provisioned_limit"))]
 pub(crate) mod shape_limit_type;
 
 #[cfg(feature = "op_get_csv_header")]
 pub(crate) mod shape_list_of_string_types;
 
-#[cfg(any(
-    feature = "op_get_log_delivery_configuration",
-    feature = "op_set_log_delivery_configuration"
-))]
+#[cfg(any(feature = "op_get_log_delivery_configuration", feature = "op_set_log_delivery_configuration"))]
 pub(crate) mod shape_log_configuration_type;
 
-#[cfg(any(
-    feature = "op_get_log_delivery_configuration",
-    feature = "op_set_log_delivery_configuration"
-))]
+#[cfg(any(feature = "op_get_log_delivery_configuration", feature = "op_set_log_delivery_configuration"))]
 pub(crate) mod shape_log_delivery_configuration_type;
 
-#[cfg(any(
-    feature = "op_create_managed_login_branding",
-    feature = "op_describe_managed_login_branding",
-    feature = "op_describe_managed_login_branding_by_client",
-    feature = "op_update_managed_login_branding"
-))]
+#[cfg(any(feature = "op_create_managed_login_branding", feature = "op_describe_managed_login_branding", feature = "op_describe_managed_login_branding_by_client", feature = "op_update_managed_login_branding"))]
 pub(crate) mod shape_managed_login_branding_type;
 
-#[cfg(any(
-    feature = "op_admin_create_user",
-    feature = "op_admin_get_user",
-    feature = "op_get_user",
-    feature = "op_list_users",
-    feature = "op_list_users_in_group"
-))]
+#[cfg(any(feature = "op_admin_create_user", feature = "op_admin_get_user", feature = "op_get_user", feature = "op_list_users", feature = "op_list_users_in_group"))]
 pub(crate) mod shape_mfa_option_list_type;
 
-#[cfg(any(
-    feature = "op_admin_create_user",
-    feature = "op_admin_get_user",
-    feature = "op_admin_set_user_settings",
-    feature = "op_get_user",
-    feature = "op_list_users",
-    feature = "op_list_users_in_group",
-    feature = "op_set_user_settings"
-))]
+#[cfg(any(feature = "op_admin_create_user", feature = "op_admin_get_user", feature = "op_admin_set_user_settings", feature = "op_get_user", feature = "op_list_users", feature = "op_list_users_in_group", feature = "op_set_user_settings"))]
 pub(crate) mod shape_mfa_option_type;
 
-#[cfg(any(
-    feature = "op_admin_disable_provider_for_user",
-    feature = "op_admin_link_provider_for_user"
-))]
+#[cfg(any(feature = "op_admin_disable_provider_for_user", feature = "op_admin_link_provider_for_user"))]
 pub(crate) mod shape_provider_user_identifier_type;
 
 #[cfg(feature = "op_list_identity_providers")]
 pub(crate) mod shape_providers_list_type;
 
-#[cfg(any(
-    feature = "op_create_user_pool_client",
-    feature = "op_describe_user_pool_client",
-    feature = "op_update_user_pool_client"
-))]
+#[cfg(any(feature = "op_create_user_pool_client", feature = "op_describe_user_pool_client", feature = "op_update_user_pool_client"))]
 pub(crate) mod shape_refresh_token_rotation_type;
 
-#[cfg(any(
-    feature = "op_create_resource_server",
-    feature = "op_describe_resource_server",
-    feature = "op_list_resource_servers",
-    feature = "op_update_resource_server"
-))]
+#[cfg(any(feature = "op_create_resource_server", feature = "op_describe_resource_server", feature = "op_list_resource_servers", feature = "op_update_resource_server"))]
 pub(crate) mod shape_resource_server_scope_type;
 
-#[cfg(any(
-    feature = "op_create_resource_server",
-    feature = "op_describe_resource_server",
-    feature = "op_list_resource_servers",
-    feature = "op_update_resource_server"
-))]
+#[cfg(any(feature = "op_create_resource_server", feature = "op_describe_resource_server", feature = "op_list_resource_servers", feature = "op_update_resource_server"))]
 pub(crate) mod shape_resource_server_type;
 
 #[cfg(feature = "op_list_resource_servers")]
 pub(crate) mod shape_resource_servers_list_type;
 
-#[cfg(any(
-    feature = "op_describe_risk_configuration",
-    feature = "op_set_risk_configuration"
-))]
+#[cfg(any(feature = "op_describe_risk_configuration", feature = "op_set_risk_configuration"))]
 pub(crate) mod shape_risk_configuration_type;
 
-#[cfg(any(
-    feature = "op_describe_risk_configuration",
-    feature = "op_set_risk_configuration"
-))]
+#[cfg(any(feature = "op_describe_risk_configuration", feature = "op_set_risk_configuration"))]
 pub(crate) mod shape_risk_exception_configuration_type;
 
-#[cfg(any(
-    feature = "op_create_user_pool_domain",
-    feature = "op_describe_user_pool_domain",
-    feature = "op_update_user_pool_domain"
-))]
+#[cfg(any(feature = "op_create_user_pool_domain", feature = "op_describe_user_pool_domain", feature = "op_update_user_pool_domain"))]
 pub(crate) mod shape_routing_type;
 
-#[cfg(any(
-    feature = "op_add_custom_attributes",
-    feature = "op_create_user_pool",
-    feature = "op_describe_user_pool"
-))]
+#[cfg(any(feature = "op_add_custom_attributes", feature = "op_create_user_pool", feature = "op_describe_user_pool"))]
 pub(crate) mod shape_schema_attribute_type;
 
-#[cfg(any(
-    feature = "op_create_user_pool",
-    feature = "op_describe_user_pool",
-    feature = "op_get_user_pool_mfa_config",
-    feature = "op_set_user_pool_mfa_config",
-    feature = "op_update_user_pool"
-))]
+#[cfg(any(feature = "op_create_user_pool", feature = "op_describe_user_pool", feature = "op_get_user_pool_mfa_config", feature = "op_set_user_pool_mfa_config", feature = "op_update_user_pool"))]
 pub(crate) mod shape_sms_configuration_type;
 
-#[cfg(any(
-    feature = "op_get_user_pool_mfa_config",
-    feature = "op_set_user_pool_mfa_config"
-))]
+#[cfg(any(feature = "op_get_user_pool_mfa_config", feature = "op_set_user_pool_mfa_config"))]
 pub(crate) mod shape_sms_mfa_config_type;
 
-#[cfg(any(
-    feature = "op_admin_set_user_mfa_preference",
-    feature = "op_set_user_mfa_preference"
-))]
+#[cfg(any(feature = "op_admin_set_user_mfa_preference", feature = "op_set_user_mfa_preference"))]
 pub(crate) mod shape_sms_mfa_settings_type;
 
-#[cfg(any(
-    feature = "op_get_user_pool_mfa_config",
-    feature = "op_set_user_pool_mfa_config"
-))]
+#[cfg(any(feature = "op_get_user_pool_mfa_config", feature = "op_set_user_pool_mfa_config"))]
 pub(crate) mod shape_software_token_mfa_config_type;
 
-#[cfg(any(
-    feature = "op_admin_set_user_mfa_preference",
-    feature = "op_set_user_mfa_preference"
-))]
+#[cfg(any(feature = "op_admin_set_user_mfa_preference", feature = "op_set_user_mfa_preference"))]
 pub(crate) mod shape_software_token_mfa_settings_type;
 
 #[cfg(feature = "op_list_terms")]
 pub(crate) mod shape_terms_description_list_type;
 
-#[cfg(any(
-    feature = "op_create_terms",
-    feature = "op_describe_terms",
-    feature = "op_update_terms"
-))]
+#[cfg(any(feature = "op_create_terms", feature = "op_describe_terms", feature = "op_update_terms"))]
 pub(crate) mod shape_terms_type;
 
-#[cfg(any(
-    feature = "op_create_user_pool_client",
-    feature = "op_describe_user_pool_client",
-    feature = "op_update_user_pool_client"
-))]
+#[cfg(any(feature = "op_create_user_pool_client", feature = "op_describe_user_pool_client", feature = "op_update_user_pool_client"))]
 pub(crate) mod shape_token_validity_units_type;
 
-#[cfg(any(
-    feature = "op_get_ui_customization",
-    feature = "op_set_ui_customization"
-))]
+#[cfg(any(feature = "op_get_ui_customization", feature = "op_set_ui_customization"))]
 pub(crate) mod shape_ui_customization_type;
 
-#[cfg(any(
-    feature = "op_create_user_pool",
-    feature = "op_describe_user_pool",
-    feature = "op_update_user_pool"
-))]
+#[cfg(any(feature = "op_create_user_pool", feature = "op_describe_user_pool", feature = "op_update_user_pool"))]
 pub(crate) mod shape_user_attribute_update_settings_type;
 
-#[cfg(any(
-    feature = "op_confirm_forgot_password",
-    feature = "op_confirm_sign_up",
-    feature = "op_forgot_password",
-    feature = "op_initiate_auth",
-    feature = "op_resend_confirmation_code",
-    feature = "op_respond_to_auth_challenge",
-    feature = "op_sign_up"
-))]
+#[cfg(any(feature = "op_confirm_forgot_password", feature = "op_confirm_sign_up", feature = "op_forgot_password", feature = "op_initiate_auth", feature = "op_resend_confirmation_code", feature = "op_respond_to_auth_challenge", feature = "op_sign_up"))]
 pub(crate) mod shape_user_context_data_type;
 
-#[cfg(any(
-    feature = "op_create_user_import_job",
-    feature = "op_describe_user_import_job",
-    feature = "op_list_user_import_jobs",
-    feature = "op_start_user_import_job",
-    feature = "op_stop_user_import_job"
-))]
+#[cfg(any(feature = "op_create_user_import_job", feature = "op_describe_user_import_job", feature = "op_list_user_import_jobs", feature = "op_start_user_import_job", feature = "op_stop_user_import_job"))]
 pub(crate) mod shape_user_import_job_type;
 
 #[cfg(feature = "op_list_user_import_jobs")]
 pub(crate) mod shape_user_import_jobs_list_type;
 
-#[cfg(any(
-    feature = "op_admin_get_user",
-    feature = "op_admin_get_user_auth_factors",
-    feature = "op_get_user",
-    feature = "op_get_user_auth_factors"
-))]
+#[cfg(any(feature = "op_admin_get_user", feature = "op_admin_get_user_auth_factors", feature = "op_get_user", feature = "op_get_user_auth_factors"))]
 pub(crate) mod shape_user_mfa_setting_list_type;
 
-#[cfg(any(
-    feature = "op_create_user_pool",
-    feature = "op_describe_user_pool",
-    feature = "op_update_user_pool"
-))]
+#[cfg(any(feature = "op_create_user_pool", feature = "op_describe_user_pool", feature = "op_update_user_pool"))]
 pub(crate) mod shape_user_pool_add_ons_type;
 
 #[cfg(feature = "op_list_user_pool_clients")]
 pub(crate) mod shape_user_pool_client_list_type;
 
-#[cfg(any(
-    feature = "op_create_user_pool_client",
-    feature = "op_describe_user_pool_client",
-    feature = "op_update_user_pool_client"
-))]
+#[cfg(any(feature = "op_create_user_pool_client", feature = "op_describe_user_pool_client", feature = "op_update_user_pool_client"))]
 pub(crate) mod shape_user_pool_client_type;
 
 #[cfg(feature = "op_list_user_pools")]
 pub(crate) mod shape_user_pool_list_type;
 
-#[cfg(any(
-    feature = "op_create_user_pool",
-    feature = "op_describe_user_pool",
-    feature = "op_update_user_pool"
-))]
+#[cfg(any(feature = "op_create_user_pool", feature = "op_describe_user_pool", feature = "op_update_user_pool"))]
 pub(crate) mod shape_user_pool_policy_type;
 
 #[cfg(feature = "op_list_user_pool_replicas")]
 pub(crate) mod shape_user_pool_replica_list_type;
 
-#[cfg(any(
-    feature = "op_create_user_pool_replica",
-    feature = "op_delete_user_pool_replica",
-    feature = "op_list_user_pool_replicas",
-    feature = "op_update_user_pool_replica"
-))]
+#[cfg(any(feature = "op_create_user_pool_replica", feature = "op_delete_user_pool_replica", feature = "op_list_user_pool_replicas", feature = "op_update_user_pool_replica"))]
 pub(crate) mod shape_user_pool_replica_type;
 
-#[cfg(any(
-    feature = "op_create_user_pool",
-    feature = "op_describe_user_pool",
-    feature = "op_list_tags_for_resource"
-))]
+#[cfg(any(feature = "op_create_user_pool", feature = "op_describe_user_pool", feature = "op_list_tags_for_resource"))]
 pub(crate) mod shape_user_pool_tags_type;
 
 #[cfg(any(feature = "op_create_user_pool", feature = "op_describe_user_pool"))]
 pub(crate) mod shape_user_pool_type;
 
-#[cfg(any(
-    feature = "op_admin_create_user",
-    feature = "op_list_users",
-    feature = "op_list_users_in_group"
-))]
+#[cfg(any(feature = "op_admin_create_user", feature = "op_list_users", feature = "op_list_users_in_group"))]
 pub(crate) mod shape_user_type;
 
 #[cfg(any(feature = "op_create_user_pool", feature = "op_describe_user_pool"))]
@@ -2642,415 +1216,133 @@ pub(crate) mod shape_username_configuration_type;
 #[cfg(any(feature = "op_list_users", feature = "op_list_users_in_group"))]
 pub(crate) mod shape_users_list_type;
 
-#[cfg(any(
-    feature = "op_create_user_pool",
-    feature = "op_describe_user_pool",
-    feature = "op_update_user_pool"
-))]
+#[cfg(any(feature = "op_create_user_pool", feature = "op_describe_user_pool", feature = "op_update_user_pool"))]
 pub(crate) mod shape_verification_message_template_type;
 
-#[cfg(any(
-    feature = "op_get_user_pool_mfa_config",
-    feature = "op_set_user_pool_mfa_config"
-))]
+#[cfg(any(feature = "op_get_user_pool_mfa_config", feature = "op_set_user_pool_mfa_config"))]
 pub(crate) mod shape_web_authn_configuration_type;
 
 #[cfg(feature = "op_list_web_authn_credentials")]
 pub(crate) mod shape_web_authn_credential_description_list_type;
 
-#[cfg(any(
-    feature = "op_admin_set_user_mfa_preference",
-    feature = "op_set_user_mfa_preference"
-))]
+#[cfg(any(feature = "op_admin_set_user_mfa_preference", feature = "op_set_user_mfa_preference"))]
 pub(crate) mod shape_web_authn_mfa_settings_type;
 
-#[cfg(any(
-    feature = "op_describe_risk_configuration",
-    feature = "op_set_risk_configuration"
-))]
+#[cfg(any(feature = "op_describe_risk_configuration", feature = "op_set_risk_configuration"))]
 pub(crate) mod shape_account_takeover_actions_type;
 
-#[cfg(any(
-    feature = "op_create_user_pool",
-    feature = "op_describe_user_pool",
-    feature = "op_update_user_pool"
-))]
+#[cfg(any(feature = "op_create_user_pool", feature = "op_describe_user_pool", feature = "op_update_user_pool"))]
 pub(crate) mod shape_advanced_security_additional_flows_type;
 
 #[cfg(any(feature = "op_create_user_pool", feature = "op_describe_user_pool"))]
 pub(crate) mod shape_alias_attributes_list_type;
 
-#[cfg(any(
-    feature = "op_create_managed_login_branding",
-    feature = "op_describe_managed_login_branding",
-    feature = "op_describe_managed_login_branding_by_client",
-    feature = "op_update_managed_login_branding"
-))]
+#[cfg(any(feature = "op_create_managed_login_branding", feature = "op_describe_managed_login_branding", feature = "op_describe_managed_login_branding_by_client", feature = "op_update_managed_login_branding"))]
 pub(crate) mod shape_asset_list_type;
 
-#[cfg(any(
-    feature = "op_create_identity_provider",
-    feature = "op_describe_identity_provider",
-    feature = "op_get_identity_provider_by_identifier",
-    feature = "op_update_identity_provider"
-))]
+#[cfg(any(feature = "op_create_identity_provider", feature = "op_describe_identity_provider", feature = "op_get_identity_provider_by_identifier", feature = "op_update_identity_provider"))]
 pub(crate) mod shape_attribute_mapping_type;
 
 #[cfg(feature = "op_admin_list_user_auth_events")]
 pub(crate) mod shape_auth_event_type;
 
-#[cfg(any(
-    feature = "op_create_user_pool_client",
-    feature = "op_describe_user_pool_client",
-    feature = "op_update_user_pool_client"
-))]
+#[cfg(any(feature = "op_create_user_pool_client", feature = "op_describe_user_pool_client", feature = "op_update_user_pool_client"))]
 pub(crate) mod shape_callback_urls_list_type;
 
-#[cfg(any(
-    feature = "op_create_user_pool_client",
-    feature = "op_describe_user_pool_client",
-    feature = "op_update_user_pool_client"
-))]
+#[cfg(any(feature = "op_create_user_pool_client", feature = "op_describe_user_pool_client", feature = "op_update_user_pool_client"))]
 pub(crate) mod shape_client_permission_list_type;
 
-#[cfg(any(
-    feature = "op_get_log_delivery_configuration",
-    feature = "op_set_log_delivery_configuration"
-))]
+#[cfg(any(feature = "op_get_log_delivery_configuration", feature = "op_set_log_delivery_configuration"))]
 pub(crate) mod shape_cloud_watch_logs_configuration_type;
 
-#[cfg(any(
-    feature = "op_describe_risk_configuration",
-    feature = "op_set_risk_configuration"
-))]
+#[cfg(any(feature = "op_describe_risk_configuration", feature = "op_set_risk_configuration"))]
 pub(crate) mod shape_compromised_credentials_actions_type;
 
-#[cfg(any(
-    feature = "op_create_user_pool",
-    feature = "op_describe_user_pool",
-    feature = "op_list_user_pools",
-    feature = "op_update_user_pool"
-))]
+#[cfg(any(feature = "op_create_user_pool", feature = "op_describe_user_pool", feature = "op_list_user_pools", feature = "op_update_user_pool"))]
 pub(crate) mod shape_custom_email_lambda_version_config_type;
 
-#[cfg(any(
-    feature = "op_create_user_pool",
-    feature = "op_describe_user_pool",
-    feature = "op_list_user_pools",
-    feature = "op_update_user_pool"
-))]
+#[cfg(any(feature = "op_create_user_pool", feature = "op_describe_user_pool", feature = "op_list_user_pools", feature = "op_update_user_pool"))]
 pub(crate) mod shape_custom_sms_lambda_version_config_type;
 
-#[cfg(any(
-    feature = "op_create_user_pool",
-    feature = "op_describe_user_pool",
-    feature = "op_get_user_pool_mfa_config",
-    feature = "op_set_user_pool_mfa_config",
-    feature = "op_update_user_pool"
-))]
+#[cfg(any(feature = "op_create_user_pool", feature = "op_describe_user_pool", feature = "op_get_user_pool_mfa_config", feature = "op_set_user_pool_mfa_config", feature = "op_update_user_pool"))]
 pub(crate) mod shape_eums_sms_configuration_type;
 
-#[cfg(any(
-    feature = "op_create_user_pool_client",
-    feature = "op_describe_user_pool_client",
-    feature = "op_update_user_pool_client"
-))]
+#[cfg(any(feature = "op_create_user_pool_client", feature = "op_describe_user_pool_client", feature = "op_update_user_pool_client"))]
 pub(crate) mod shape_explicit_auth_flows_list_type;
 
-#[cfg(any(
-    feature = "op_create_user_pool_domain",
-    feature = "op_describe_user_pool_domain",
-    feature = "op_update_user_pool_domain"
-))]
+#[cfg(any(feature = "op_create_user_pool_domain", feature = "op_describe_user_pool_domain", feature = "op_update_user_pool_domain"))]
 pub(crate) mod shape_failover_type;
 
-#[cfg(any(
-    feature = "op_get_log_delivery_configuration",
-    feature = "op_set_log_delivery_configuration"
-))]
+#[cfg(any(feature = "op_get_log_delivery_configuration", feature = "op_set_log_delivery_configuration"))]
 pub(crate) mod shape_firehose_configuration_type;
 
-#[cfg(any(
-    feature = "op_admin_initiate_auth",
-    feature = "op_admin_respond_to_auth_challenge"
-))]
+#[cfg(any(feature = "op_admin_initiate_auth", feature = "op_admin_respond_to_auth_challenge"))]
 pub(crate) mod shape_http_header;
 
-#[cfg(any(
-    feature = "op_create_identity_provider",
-    feature = "op_describe_identity_provider",
-    feature = "op_get_identity_provider_by_identifier",
-    feature = "op_update_identity_provider"
-))]
+#[cfg(any(feature = "op_create_identity_provider", feature = "op_describe_identity_provider", feature = "op_get_identity_provider_by_identifier", feature = "op_update_identity_provider"))]
 pub(crate) mod shape_idp_identifiers_list_type;
 
-#[cfg(any(
-    feature = "op_create_user_pool",
-    feature = "op_describe_user_pool",
-    feature = "op_list_user_pools",
-    feature = "op_update_user_pool"
-))]
+#[cfg(any(feature = "op_create_user_pool", feature = "op_describe_user_pool", feature = "op_list_user_pools", feature = "op_update_user_pool"))]
 pub(crate) mod shape_inbound_federation_lambda_type;
 
-#[cfg(any(
-    feature = "op_create_terms",
-    feature = "op_describe_terms",
-    feature = "op_update_terms"
-))]
+#[cfg(any(feature = "op_create_terms", feature = "op_describe_terms", feature = "op_update_terms"))]
 pub(crate) mod shape_links_type;
 
-#[cfg(any(
-    feature = "op_get_log_delivery_configuration",
-    feature = "op_set_log_delivery_configuration"
-))]
+#[cfg(any(feature = "op_get_log_delivery_configuration", feature = "op_set_log_delivery_configuration"))]
 pub(crate) mod shape_log_configuration_list_type;
 
-#[cfg(any(
-    feature = "op_create_user_pool_client",
-    feature = "op_describe_user_pool_client",
-    feature = "op_update_user_pool_client"
-))]
+#[cfg(any(feature = "op_create_user_pool_client", feature = "op_describe_user_pool_client", feature = "op_update_user_pool_client"))]
 pub(crate) mod shape_logout_urls_list_type;
 
-#[cfg(any(
-    feature = "op_admin_create_user",
-    feature = "op_create_user_pool",
-    feature = "op_describe_user_pool",
-    feature = "op_update_user_pool"
-))]
+#[cfg(any(feature = "op_create_user_pool", feature = "op_describe_user_pool", feature = "op_update_user_pool"))]
 pub(crate) mod shape_message_template_type;
 
-#[cfg(any(
-    feature = "op_admin_initiate_auth",
-    feature = "op_admin_respond_to_auth_challenge",
-    feature = "op_get_tokens_from_refresh_token",
-    feature = "op_initiate_auth",
-    feature = "op_respond_to_auth_challenge"
-))]
+#[cfg(any(feature = "op_admin_initiate_auth", feature = "op_admin_respond_to_auth_challenge", feature = "op_get_tokens_from_refresh_token", feature = "op_initiate_auth", feature = "op_respond_to_auth_challenge"))]
 pub(crate) mod shape_new_device_metadata_type;
 
-#[cfg(any(
-    feature = "op_describe_risk_configuration",
-    feature = "op_set_risk_configuration"
-))]
+#[cfg(any(feature = "op_describe_risk_configuration", feature = "op_set_risk_configuration"))]
 pub(crate) mod shape_notify_configuration_type;
 
-#[cfg(any(
-    feature = "op_add_custom_attributes",
-    feature = "op_create_user_pool",
-    feature = "op_describe_user_pool"
-))]
+#[cfg(any(feature = "op_add_custom_attributes", feature = "op_create_user_pool", feature = "op_describe_user_pool"))]
 pub(crate) mod shape_number_attribute_constraints_type;
 
-#[cfg(any(
-    feature = "op_create_user_pool_client",
-    feature = "op_describe_user_pool_client",
-    feature = "op_update_user_pool_client"
-))]
+#[cfg(any(feature = "op_create_user_pool_client", feature = "op_describe_user_pool_client", feature = "op_update_user_pool_client"))]
 pub(crate) mod shape_o_auth_flows_type;
 
-#[cfg(any(
-    feature = "op_create_user_pool",
-    feature = "op_describe_user_pool",
-    feature = "op_update_user_pool"
-))]
+#[cfg(any(feature = "op_create_user_pool", feature = "op_describe_user_pool", feature = "op_update_user_pool"))]
 pub(crate) mod shape_password_policy_type;
 
-#[cfg(any(
-    feature = "op_create_user_pool",
-    feature = "op_describe_user_pool",
-    feature = "op_list_user_pools",
-    feature = "op_update_user_pool"
-))]
+#[cfg(any(feature = "op_create_user_pool", feature = "op_describe_user_pool", feature = "op_list_user_pools", feature = "op_update_user_pool"))]
 pub(crate) mod shape_pre_token_generation_version_config_type;
 
 #[cfg(feature = "op_list_identity_providers")]
 pub(crate) mod shape_provider_description;
 
-#[cfg(any(
-    feature = "op_create_identity_provider",
-    feature = "op_describe_identity_provider",
-    feature = "op_get_identity_provider_by_identifier",
-    feature = "op_update_identity_provider"
-))]
+#[cfg(any(feature = "op_create_identity_provider", feature = "op_describe_identity_provider", feature = "op_get_identity_provider_by_identifier", feature = "op_update_identity_provider"))]
 pub(crate) mod shape_provider_details_type;
 
-#[cfg(any(
-    feature = "op_add_custom_attributes",
-    feature = "op_add_user_pool_client_secret",
-    feature = "op_admin_add_user_to_group",
-    feature = "op_admin_confirm_sign_up",
-    feature = "op_admin_create_user",
-    feature = "op_admin_delete_user",
-    feature = "op_admin_delete_user_attributes",
-    feature = "op_admin_disable_provider_for_user",
-    feature = "op_admin_disable_user",
-    feature = "op_admin_enable_user",
-    feature = "op_admin_forget_device",
-    feature = "op_admin_get_device",
-    feature = "op_admin_get_user",
-    feature = "op_admin_get_user_auth_factors",
-    feature = "op_admin_initiate_auth",
-    feature = "op_admin_link_provider_for_user",
-    feature = "op_admin_list_devices",
-    feature = "op_admin_list_groups_for_user",
-    feature = "op_admin_list_user_auth_events",
-    feature = "op_admin_remove_user_from_group",
-    feature = "op_admin_reset_user_password",
-    feature = "op_admin_respond_to_auth_challenge",
-    feature = "op_admin_set_user_mfa_preference",
-    feature = "op_admin_set_user_password",
-    feature = "op_admin_set_user_settings",
-    feature = "op_admin_update_auth_event_feedback",
-    feature = "op_admin_update_device_status",
-    feature = "op_admin_update_user_attributes",
-    feature = "op_admin_user_global_sign_out",
-    feature = "op_associate_software_token",
-    feature = "op_change_password",
-    feature = "op_complete_web_authn_registration",
-    feature = "op_confirm_device",
-    feature = "op_confirm_forgot_password",
-    feature = "op_confirm_sign_up",
-    feature = "op_create_group",
-    feature = "op_create_identity_provider",
-    feature = "op_create_managed_login_branding",
-    feature = "op_create_resource_server",
-    feature = "op_create_terms",
-    feature = "op_create_user_import_job",
-    feature = "op_create_user_pool",
-    feature = "op_create_user_pool_client",
-    feature = "op_create_user_pool_domain",
-    feature = "op_create_user_pool_replica",
-    feature = "op_delete_group",
-    feature = "op_delete_identity_provider",
-    feature = "op_delete_managed_login_branding",
-    feature = "op_delete_resource_server",
-    feature = "op_delete_terms",
-    feature = "op_delete_user",
-    feature = "op_delete_user_attributes",
-    feature = "op_delete_user_pool",
-    feature = "op_delete_user_pool_client",
-    feature = "op_delete_user_pool_client_secret",
-    feature = "op_delete_user_pool_domain",
-    feature = "op_delete_user_pool_replica",
-    feature = "op_delete_web_authn_credential",
-    feature = "op_describe_identity_provider",
-    feature = "op_describe_managed_login_branding",
-    feature = "op_describe_managed_login_branding_by_client",
-    feature = "op_describe_resource_server",
-    feature = "op_describe_risk_configuration",
-    feature = "op_describe_terms",
-    feature = "op_describe_user_import_job",
-    feature = "op_describe_user_pool",
-    feature = "op_describe_user_pool_client",
-    feature = "op_describe_user_pool_domain",
-    feature = "op_forget_device",
-    feature = "op_forgot_password",
-    feature = "op_get_csv_header",
-    feature = "op_get_device",
-    feature = "op_get_group",
-    feature = "op_get_identity_provider_by_identifier",
-    feature = "op_get_log_delivery_configuration",
-    feature = "op_get_provisioned_limit",
-    feature = "op_get_signing_certificate",
-    feature = "op_get_tokens_from_refresh_token",
-    feature = "op_get_ui_customization",
-    feature = "op_get_user",
-    feature = "op_get_user_attribute_verification_code",
-    feature = "op_get_user_auth_factors",
-    feature = "op_get_user_pool_mfa_config",
-    feature = "op_global_sign_out",
-    feature = "op_initiate_auth",
-    feature = "op_list_devices",
-    feature = "op_list_groups",
-    feature = "op_list_identity_providers",
-    feature = "op_list_resource_servers",
-    feature = "op_list_tags_for_resource",
-    feature = "op_list_terms",
-    feature = "op_list_user_import_jobs",
-    feature = "op_list_user_pool_client_secrets",
-    feature = "op_list_user_pool_clients",
-    feature = "op_list_user_pool_replicas",
-    feature = "op_list_user_pools",
-    feature = "op_list_users",
-    feature = "op_list_users_in_group",
-    feature = "op_list_web_authn_credentials",
-    feature = "op_resend_confirmation_code",
-    feature = "op_respond_to_auth_challenge",
-    feature = "op_revoke_token",
-    feature = "op_set_log_delivery_configuration",
-    feature = "op_set_risk_configuration",
-    feature = "op_set_ui_customization",
-    feature = "op_set_user_mfa_preference",
-    feature = "op_set_user_pool_mfa_config",
-    feature = "op_set_user_settings",
-    feature = "op_sign_up",
-    feature = "op_start_user_import_job",
-    feature = "op_start_web_authn_registration",
-    feature = "op_stop_user_import_job",
-    feature = "op_tag_resource",
-    feature = "op_untag_resource",
-    feature = "op_update_auth_event_feedback",
-    feature = "op_update_device_status",
-    feature = "op_update_group",
-    feature = "op_update_identity_provider",
-    feature = "op_update_managed_login_branding",
-    feature = "op_update_provisioned_limit",
-    feature = "op_update_resource_server",
-    feature = "op_update_terms",
-    feature = "op_update_user_attributes",
-    feature = "op_update_user_pool",
-    feature = "op_update_user_pool_client",
-    feature = "op_update_user_pool_domain",
-    feature = "op_update_user_pool_replica",
-    feature = "op_verify_software_token",
-    feature = "op_verify_user_attribute"
-))]
+#[cfg(any(feature = "op_create_user_pool", feature = "op_describe_user_pool", feature = "op_update_user_pool"))]
 pub(crate) mod shape_recovery_option_type;
 
-#[cfg(any(
-    feature = "op_create_resource_server",
-    feature = "op_describe_resource_server",
-    feature = "op_list_resource_servers",
-    feature = "op_update_resource_server"
-))]
+#[cfg(any(feature = "op_create_resource_server", feature = "op_describe_resource_server", feature = "op_list_resource_servers", feature = "op_update_resource_server"))]
 pub(crate) mod shape_resource_server_scope_list_type;
 
-#[cfg(any(
-    feature = "op_get_log_delivery_configuration",
-    feature = "op_set_log_delivery_configuration"
-))]
+#[cfg(any(feature = "op_get_log_delivery_configuration", feature = "op_set_log_delivery_configuration"))]
 pub(crate) mod shape_s3_configuration_type;
 
 #[cfg(any(feature = "op_create_user_pool", feature = "op_describe_user_pool"))]
 pub(crate) mod shape_schema_attributes_list_type;
 
-#[cfg(any(
-    feature = "op_create_user_pool_client",
-    feature = "op_describe_user_pool_client",
-    feature = "op_update_user_pool_client"
-))]
+#[cfg(any(feature = "op_create_user_pool_client", feature = "op_describe_user_pool_client", feature = "op_update_user_pool_client"))]
 pub(crate) mod shape_scope_list_type;
 
-#[cfg(any(
-    feature = "op_create_user_pool",
-    feature = "op_describe_user_pool",
-    feature = "op_update_user_pool"
-))]
+#[cfg(any(feature = "op_create_user_pool", feature = "op_describe_user_pool", feature = "op_update_user_pool"))]
 pub(crate) mod shape_sign_in_policy_type;
 
-#[cfg(any(
-    feature = "op_add_custom_attributes",
-    feature = "op_create_user_pool",
-    feature = "op_describe_user_pool"
-))]
+#[cfg(any(feature = "op_add_custom_attributes", feature = "op_create_user_pool", feature = "op_describe_user_pool"))]
 pub(crate) mod shape_string_attribute_constraints_type;
 
-#[cfg(any(
-    feature = "op_create_user_pool_client",
-    feature = "op_describe_user_pool_client",
-    feature = "op_update_user_pool_client"
-))]
+#[cfg(any(feature = "op_create_user_pool_client", feature = "op_describe_user_pool_client", feature = "op_update_user_pool_client"))]
 pub(crate) mod shape_supported_identity_providers_list_type;
 
 #[cfg(feature = "op_list_terms")]
@@ -3071,150 +1363,13 @@ pub(crate) mod shape_verified_attributes_list_type;
 #[cfg(feature = "op_list_web_authn_credentials")]
 pub(crate) mod shape_web_authn_credential_description;
 
-#[cfg(any(
-    feature = "op_add_custom_attributes",
-    feature = "op_add_user_pool_client_secret",
-    feature = "op_admin_add_user_to_group",
-    feature = "op_admin_confirm_sign_up",
-    feature = "op_admin_create_user",
-    feature = "op_admin_delete_user",
-    feature = "op_admin_delete_user_attributes",
-    feature = "op_admin_disable_provider_for_user",
-    feature = "op_admin_disable_user",
-    feature = "op_admin_enable_user",
-    feature = "op_admin_forget_device",
-    feature = "op_admin_get_device",
-    feature = "op_admin_get_user",
-    feature = "op_admin_get_user_auth_factors",
-    feature = "op_admin_initiate_auth",
-    feature = "op_admin_link_provider_for_user",
-    feature = "op_admin_list_devices",
-    feature = "op_admin_list_groups_for_user",
-    feature = "op_admin_list_user_auth_events",
-    feature = "op_admin_remove_user_from_group",
-    feature = "op_admin_reset_user_password",
-    feature = "op_admin_respond_to_auth_challenge",
-    feature = "op_admin_set_user_mfa_preference",
-    feature = "op_admin_set_user_password",
-    feature = "op_admin_set_user_settings",
-    feature = "op_admin_update_auth_event_feedback",
-    feature = "op_admin_update_device_status",
-    feature = "op_admin_update_user_attributes",
-    feature = "op_admin_user_global_sign_out",
-    feature = "op_associate_software_token",
-    feature = "op_change_password",
-    feature = "op_complete_web_authn_registration",
-    feature = "op_confirm_device",
-    feature = "op_confirm_forgot_password",
-    feature = "op_confirm_sign_up",
-    feature = "op_create_group",
-    feature = "op_create_identity_provider",
-    feature = "op_create_managed_login_branding",
-    feature = "op_create_resource_server",
-    feature = "op_create_terms",
-    feature = "op_create_user_import_job",
-    feature = "op_create_user_pool",
-    feature = "op_create_user_pool_client",
-    feature = "op_create_user_pool_domain",
-    feature = "op_create_user_pool_replica",
-    feature = "op_delete_group",
-    feature = "op_delete_identity_provider",
-    feature = "op_delete_managed_login_branding",
-    feature = "op_delete_resource_server",
-    feature = "op_delete_terms",
-    feature = "op_delete_user",
-    feature = "op_delete_user_attributes",
-    feature = "op_delete_user_pool",
-    feature = "op_delete_user_pool_client",
-    feature = "op_delete_user_pool_client_secret",
-    feature = "op_delete_user_pool_domain",
-    feature = "op_delete_user_pool_replica",
-    feature = "op_delete_web_authn_credential",
-    feature = "op_describe_identity_provider",
-    feature = "op_describe_managed_login_branding",
-    feature = "op_describe_managed_login_branding_by_client",
-    feature = "op_describe_resource_server",
-    feature = "op_describe_risk_configuration",
-    feature = "op_describe_terms",
-    feature = "op_describe_user_import_job",
-    feature = "op_describe_user_pool",
-    feature = "op_describe_user_pool_client",
-    feature = "op_describe_user_pool_domain",
-    feature = "op_forget_device",
-    feature = "op_forgot_password",
-    feature = "op_get_csv_header",
-    feature = "op_get_device",
-    feature = "op_get_group",
-    feature = "op_get_identity_provider_by_identifier",
-    feature = "op_get_log_delivery_configuration",
-    feature = "op_get_provisioned_limit",
-    feature = "op_get_signing_certificate",
-    feature = "op_get_tokens_from_refresh_token",
-    feature = "op_get_ui_customization",
-    feature = "op_get_user",
-    feature = "op_get_user_attribute_verification_code",
-    feature = "op_get_user_auth_factors",
-    feature = "op_get_user_pool_mfa_config",
-    feature = "op_global_sign_out",
-    feature = "op_initiate_auth",
-    feature = "op_list_devices",
-    feature = "op_list_groups",
-    feature = "op_list_identity_providers",
-    feature = "op_list_resource_servers",
-    feature = "op_list_tags_for_resource",
-    feature = "op_list_terms",
-    feature = "op_list_user_import_jobs",
-    feature = "op_list_user_pool_client_secrets",
-    feature = "op_list_user_pool_clients",
-    feature = "op_list_user_pool_replicas",
-    feature = "op_list_user_pools",
-    feature = "op_list_users",
-    feature = "op_list_users_in_group",
-    feature = "op_list_web_authn_credentials",
-    feature = "op_resend_confirmation_code",
-    feature = "op_respond_to_auth_challenge",
-    feature = "op_revoke_token",
-    feature = "op_set_log_delivery_configuration",
-    feature = "op_set_risk_configuration",
-    feature = "op_set_ui_customization",
-    feature = "op_set_user_mfa_preference",
-    feature = "op_set_user_pool_mfa_config",
-    feature = "op_set_user_settings",
-    feature = "op_sign_up",
-    feature = "op_start_user_import_job",
-    feature = "op_start_web_authn_registration",
-    feature = "op_stop_user_import_job",
-    feature = "op_tag_resource",
-    feature = "op_untag_resource",
-    feature = "op_update_auth_event_feedback",
-    feature = "op_update_device_status",
-    feature = "op_update_group",
-    feature = "op_update_identity_provider",
-    feature = "op_update_managed_login_branding",
-    feature = "op_update_provisioned_limit",
-    feature = "op_update_resource_server",
-    feature = "op_update_terms",
-    feature = "op_update_user_attributes",
-    feature = "op_update_user_pool",
-    feature = "op_update_user_pool_client",
-    feature = "op_update_user_pool_domain",
-    feature = "op_update_user_pool_replica",
-    feature = "op_verify_software_token",
-    feature = "op_verify_user_attribute"
-))]
+#[cfg(any(feature = "op_describe_risk_configuration", feature = "op_set_risk_configuration"))]
 pub(crate) mod shape_account_takeover_action_type;
 
-#[cfg(any(
-    feature = "op_create_user_pool",
-    feature = "op_describe_user_pool",
-    feature = "op_update_user_pool"
-))]
+#[cfg(any(feature = "op_create_user_pool", feature = "op_describe_user_pool", feature = "op_update_user_pool"))]
 pub(crate) mod shape_attributes_require_verification_before_update_type;
 
-#[cfg(any(
-    feature = "op_describe_risk_configuration",
-    feature = "op_set_risk_configuration"
-))]
+#[cfg(any(feature = "op_describe_risk_configuration", feature = "op_set_risk_configuration"))]
 pub(crate) mod shape_blocked_ip_range_list_type;
 
 #[cfg(feature = "op_admin_list_user_auth_events")]
@@ -3226,435 +1381,32 @@ pub(crate) mod shape_event_context_data_type;
 #[cfg(feature = "op_admin_list_user_auth_events")]
 pub(crate) mod shape_event_feedback_type;
 
-#[cfg(any(
-    feature = "op_describe_risk_configuration",
-    feature = "op_set_risk_configuration"
-))]
+#[cfg(any(feature = "op_describe_risk_configuration", feature = "op_set_risk_configuration"))]
 pub(crate) mod shape_event_filters_type;
 
 #[cfg(feature = "op_admin_list_user_auth_events")]
 pub(crate) mod shape_event_risk_type;
 
-#[cfg(any(
-    feature = "op_add_custom_attributes",
-    feature = "op_add_user_pool_client_secret",
-    feature = "op_admin_add_user_to_group",
-    feature = "op_admin_confirm_sign_up",
-    feature = "op_admin_create_user",
-    feature = "op_admin_delete_user",
-    feature = "op_admin_delete_user_attributes",
-    feature = "op_admin_disable_provider_for_user",
-    feature = "op_admin_disable_user",
-    feature = "op_admin_enable_user",
-    feature = "op_admin_forget_device",
-    feature = "op_admin_get_device",
-    feature = "op_admin_get_user",
-    feature = "op_admin_get_user_auth_factors",
-    feature = "op_admin_initiate_auth",
-    feature = "op_admin_link_provider_for_user",
-    feature = "op_admin_list_devices",
-    feature = "op_admin_list_groups_for_user",
-    feature = "op_admin_list_user_auth_events",
-    feature = "op_admin_remove_user_from_group",
-    feature = "op_admin_reset_user_password",
-    feature = "op_admin_respond_to_auth_challenge",
-    feature = "op_admin_set_user_mfa_preference",
-    feature = "op_admin_set_user_password",
-    feature = "op_admin_set_user_settings",
-    feature = "op_admin_update_auth_event_feedback",
-    feature = "op_admin_update_device_status",
-    feature = "op_admin_update_user_attributes",
-    feature = "op_admin_user_global_sign_out",
-    feature = "op_associate_software_token",
-    feature = "op_change_password",
-    feature = "op_complete_web_authn_registration",
-    feature = "op_confirm_device",
-    feature = "op_confirm_forgot_password",
-    feature = "op_confirm_sign_up",
-    feature = "op_create_group",
-    feature = "op_create_identity_provider",
-    feature = "op_create_managed_login_branding",
-    feature = "op_create_resource_server",
-    feature = "op_create_terms",
-    feature = "op_create_user_import_job",
-    feature = "op_create_user_pool",
-    feature = "op_create_user_pool_client",
-    feature = "op_create_user_pool_domain",
-    feature = "op_create_user_pool_replica",
-    feature = "op_delete_group",
-    feature = "op_delete_identity_provider",
-    feature = "op_delete_managed_login_branding",
-    feature = "op_delete_resource_server",
-    feature = "op_delete_terms",
-    feature = "op_delete_user",
-    feature = "op_delete_user_attributes",
-    feature = "op_delete_user_pool",
-    feature = "op_delete_user_pool_client",
-    feature = "op_delete_user_pool_client_secret",
-    feature = "op_delete_user_pool_domain",
-    feature = "op_delete_user_pool_replica",
-    feature = "op_delete_web_authn_credential",
-    feature = "op_describe_identity_provider",
-    feature = "op_describe_managed_login_branding",
-    feature = "op_describe_managed_login_branding_by_client",
-    feature = "op_describe_resource_server",
-    feature = "op_describe_risk_configuration",
-    feature = "op_describe_terms",
-    feature = "op_describe_user_import_job",
-    feature = "op_describe_user_pool",
-    feature = "op_describe_user_pool_client",
-    feature = "op_describe_user_pool_domain",
-    feature = "op_forget_device",
-    feature = "op_forgot_password",
-    feature = "op_get_csv_header",
-    feature = "op_get_device",
-    feature = "op_get_group",
-    feature = "op_get_identity_provider_by_identifier",
-    feature = "op_get_log_delivery_configuration",
-    feature = "op_get_provisioned_limit",
-    feature = "op_get_signing_certificate",
-    feature = "op_get_tokens_from_refresh_token",
-    feature = "op_get_ui_customization",
-    feature = "op_get_user",
-    feature = "op_get_user_attribute_verification_code",
-    feature = "op_get_user_auth_factors",
-    feature = "op_get_user_pool_mfa_config",
-    feature = "op_global_sign_out",
-    feature = "op_initiate_auth",
-    feature = "op_list_devices",
-    feature = "op_list_groups",
-    feature = "op_list_identity_providers",
-    feature = "op_list_resource_servers",
-    feature = "op_list_tags_for_resource",
-    feature = "op_list_terms",
-    feature = "op_list_user_import_jobs",
-    feature = "op_list_user_pool_client_secrets",
-    feature = "op_list_user_pool_clients",
-    feature = "op_list_user_pool_replicas",
-    feature = "op_list_user_pools",
-    feature = "op_list_users",
-    feature = "op_list_users_in_group",
-    feature = "op_list_web_authn_credentials",
-    feature = "op_resend_confirmation_code",
-    feature = "op_respond_to_auth_challenge",
-    feature = "op_revoke_token",
-    feature = "op_set_log_delivery_configuration",
-    feature = "op_set_risk_configuration",
-    feature = "op_set_ui_customization",
-    feature = "op_set_user_mfa_preference",
-    feature = "op_set_user_pool_mfa_config",
-    feature = "op_set_user_settings",
-    feature = "op_sign_up",
-    feature = "op_start_user_import_job",
-    feature = "op_start_web_authn_registration",
-    feature = "op_stop_user_import_job",
-    feature = "op_tag_resource",
-    feature = "op_untag_resource",
-    feature = "op_update_auth_event_feedback",
-    feature = "op_update_device_status",
-    feature = "op_update_group",
-    feature = "op_update_identity_provider",
-    feature = "op_update_managed_login_branding",
-    feature = "op_update_provisioned_limit",
-    feature = "op_update_resource_server",
-    feature = "op_update_terms",
-    feature = "op_update_user_attributes",
-    feature = "op_update_user_pool",
-    feature = "op_update_user_pool_client",
-    feature = "op_update_user_pool_domain",
-    feature = "op_update_user_pool_replica",
-    feature = "op_verify_software_token",
-    feature = "op_verify_user_attribute"
-))]
+#[cfg(any(feature = "op_describe_risk_configuration", feature = "op_set_risk_configuration"))]
 pub(crate) mod shape_notify_email_type;
 
-#[cfg(any(
-    feature = "op_create_user_pool",
-    feature = "op_describe_user_pool",
-    feature = "op_update_user_pool"
-))]
+#[cfg(any(feature = "op_create_user_pool", feature = "op_describe_user_pool", feature = "op_update_user_pool"))]
 pub(crate) mod shape_recovery_mechanisms_type;
 
 #[cfg(feature = "op_list_user_pools")]
 pub(crate) mod shape_replica_regions_type;
 
-#[cfg(any(
-    feature = "op_describe_risk_configuration",
-    feature = "op_set_risk_configuration"
-))]
+#[cfg(any(feature = "op_describe_risk_configuration", feature = "op_set_risk_configuration"))]
 pub(crate) mod shape_skipped_ip_range_list_type;
 
-#[cfg(any(
-    feature = "op_get_provisioned_limit",
-    feature = "op_update_provisioned_limit"
-))]
+#[cfg(any(feature = "op_get_provisioned_limit", feature = "op_update_provisioned_limit"))]
 pub(crate) mod shape_string_to_string_map_type;
 
 #[cfg(feature = "op_list_web_authn_credentials")]
 pub(crate) mod shape_web_authn_authenticator_transports_list;
 
-#[cfg(any(
-    feature = "op_add_custom_attributes",
-    feature = "op_add_user_pool_client_secret",
-    feature = "op_admin_add_user_to_group",
-    feature = "op_admin_confirm_sign_up",
-    feature = "op_admin_create_user",
-    feature = "op_admin_delete_user",
-    feature = "op_admin_delete_user_attributes",
-    feature = "op_admin_disable_provider_for_user",
-    feature = "op_admin_disable_user",
-    feature = "op_admin_enable_user",
-    feature = "op_admin_forget_device",
-    feature = "op_admin_get_device",
-    feature = "op_admin_get_user",
-    feature = "op_admin_get_user_auth_factors",
-    feature = "op_admin_initiate_auth",
-    feature = "op_admin_link_provider_for_user",
-    feature = "op_admin_list_devices",
-    feature = "op_admin_list_groups_for_user",
-    feature = "op_admin_list_user_auth_events",
-    feature = "op_admin_remove_user_from_group",
-    feature = "op_admin_reset_user_password",
-    feature = "op_admin_respond_to_auth_challenge",
-    feature = "op_admin_set_user_mfa_preference",
-    feature = "op_admin_set_user_password",
-    feature = "op_admin_set_user_settings",
-    feature = "op_admin_update_auth_event_feedback",
-    feature = "op_admin_update_device_status",
-    feature = "op_admin_update_user_attributes",
-    feature = "op_admin_user_global_sign_out",
-    feature = "op_associate_software_token",
-    feature = "op_change_password",
-    feature = "op_complete_web_authn_registration",
-    feature = "op_confirm_device",
-    feature = "op_confirm_forgot_password",
-    feature = "op_confirm_sign_up",
-    feature = "op_create_group",
-    feature = "op_create_identity_provider",
-    feature = "op_create_managed_login_branding",
-    feature = "op_create_resource_server",
-    feature = "op_create_terms",
-    feature = "op_create_user_import_job",
-    feature = "op_create_user_pool",
-    feature = "op_create_user_pool_client",
-    feature = "op_create_user_pool_domain",
-    feature = "op_create_user_pool_replica",
-    feature = "op_delete_group",
-    feature = "op_delete_identity_provider",
-    feature = "op_delete_managed_login_branding",
-    feature = "op_delete_resource_server",
-    feature = "op_delete_terms",
-    feature = "op_delete_user",
-    feature = "op_delete_user_attributes",
-    feature = "op_delete_user_pool",
-    feature = "op_delete_user_pool_client",
-    feature = "op_delete_user_pool_client_secret",
-    feature = "op_delete_user_pool_domain",
-    feature = "op_delete_user_pool_replica",
-    feature = "op_delete_web_authn_credential",
-    feature = "op_describe_identity_provider",
-    feature = "op_describe_managed_login_branding",
-    feature = "op_describe_managed_login_branding_by_client",
-    feature = "op_describe_resource_server",
-    feature = "op_describe_risk_configuration",
-    feature = "op_describe_terms",
-    feature = "op_describe_user_import_job",
-    feature = "op_describe_user_pool",
-    feature = "op_describe_user_pool_client",
-    feature = "op_describe_user_pool_domain",
-    feature = "op_forget_device",
-    feature = "op_forgot_password",
-    feature = "op_get_csv_header",
-    feature = "op_get_device",
-    feature = "op_get_group",
-    feature = "op_get_identity_provider_by_identifier",
-    feature = "op_get_log_delivery_configuration",
-    feature = "op_get_provisioned_limit",
-    feature = "op_get_signing_certificate",
-    feature = "op_get_tokens_from_refresh_token",
-    feature = "op_get_ui_customization",
-    feature = "op_get_user",
-    feature = "op_get_user_attribute_verification_code",
-    feature = "op_get_user_auth_factors",
-    feature = "op_get_user_pool_mfa_config",
-    feature = "op_global_sign_out",
-    feature = "op_initiate_auth",
-    feature = "op_list_devices",
-    feature = "op_list_groups",
-    feature = "op_list_identity_providers",
-    feature = "op_list_resource_servers",
-    feature = "op_list_tags_for_resource",
-    feature = "op_list_terms",
-    feature = "op_list_user_import_jobs",
-    feature = "op_list_user_pool_client_secrets",
-    feature = "op_list_user_pool_clients",
-    feature = "op_list_user_pool_replicas",
-    feature = "op_list_user_pools",
-    feature = "op_list_users",
-    feature = "op_list_users_in_group",
-    feature = "op_list_web_authn_credentials",
-    feature = "op_resend_confirmation_code",
-    feature = "op_respond_to_auth_challenge",
-    feature = "op_revoke_token",
-    feature = "op_set_log_delivery_configuration",
-    feature = "op_set_risk_configuration",
-    feature = "op_set_ui_customization",
-    feature = "op_set_user_mfa_preference",
-    feature = "op_set_user_pool_mfa_config",
-    feature = "op_set_user_settings",
-    feature = "op_sign_up",
-    feature = "op_start_user_import_job",
-    feature = "op_start_web_authn_registration",
-    feature = "op_stop_user_import_job",
-    feature = "op_tag_resource",
-    feature = "op_untag_resource",
-    feature = "op_update_auth_event_feedback",
-    feature = "op_update_device_status",
-    feature = "op_update_group",
-    feature = "op_update_identity_provider",
-    feature = "op_update_managed_login_branding",
-    feature = "op_update_provisioned_limit",
-    feature = "op_update_resource_server",
-    feature = "op_update_terms",
-    feature = "op_update_user_attributes",
-    feature = "op_update_user_pool",
-    feature = "op_update_user_pool_client",
-    feature = "op_update_user_pool_domain",
-    feature = "op_update_user_pool_replica",
-    feature = "op_verify_software_token",
-    feature = "op_verify_user_attribute"
-))]
+#[cfg(any(feature = "op_create_user_pool", feature = "op_describe_user_pool", feature = "op_update_user_pool"))]
 pub(crate) mod shape_allowed_first_auth_factors_list_type;
 
-#[cfg(any(
-    feature = "op_add_custom_attributes",
-    feature = "op_add_user_pool_client_secret",
-    feature = "op_admin_add_user_to_group",
-    feature = "op_admin_confirm_sign_up",
-    feature = "op_admin_create_user",
-    feature = "op_admin_delete_user",
-    feature = "op_admin_delete_user_attributes",
-    feature = "op_admin_disable_provider_for_user",
-    feature = "op_admin_disable_user",
-    feature = "op_admin_enable_user",
-    feature = "op_admin_forget_device",
-    feature = "op_admin_get_device",
-    feature = "op_admin_get_user",
-    feature = "op_admin_get_user_auth_factors",
-    feature = "op_admin_initiate_auth",
-    feature = "op_admin_link_provider_for_user",
-    feature = "op_admin_list_devices",
-    feature = "op_admin_list_groups_for_user",
-    feature = "op_admin_list_user_auth_events",
-    feature = "op_admin_remove_user_from_group",
-    feature = "op_admin_reset_user_password",
-    feature = "op_admin_respond_to_auth_challenge",
-    feature = "op_admin_set_user_mfa_preference",
-    feature = "op_admin_set_user_password",
-    feature = "op_admin_set_user_settings",
-    feature = "op_admin_update_auth_event_feedback",
-    feature = "op_admin_update_device_status",
-    feature = "op_admin_update_user_attributes",
-    feature = "op_admin_user_global_sign_out",
-    feature = "op_associate_software_token",
-    feature = "op_change_password",
-    feature = "op_complete_web_authn_registration",
-    feature = "op_confirm_device",
-    feature = "op_confirm_forgot_password",
-    feature = "op_confirm_sign_up",
-    feature = "op_create_group",
-    feature = "op_create_identity_provider",
-    feature = "op_create_managed_login_branding",
-    feature = "op_create_resource_server",
-    feature = "op_create_terms",
-    feature = "op_create_user_import_job",
-    feature = "op_create_user_pool",
-    feature = "op_create_user_pool_client",
-    feature = "op_create_user_pool_domain",
-    feature = "op_create_user_pool_replica",
-    feature = "op_delete_group",
-    feature = "op_delete_identity_provider",
-    feature = "op_delete_managed_login_branding",
-    feature = "op_delete_resource_server",
-    feature = "op_delete_terms",
-    feature = "op_delete_user",
-    feature = "op_delete_user_attributes",
-    feature = "op_delete_user_pool",
-    feature = "op_delete_user_pool_client",
-    feature = "op_delete_user_pool_client_secret",
-    feature = "op_delete_user_pool_domain",
-    feature = "op_delete_user_pool_replica",
-    feature = "op_delete_web_authn_credential",
-    feature = "op_describe_identity_provider",
-    feature = "op_describe_managed_login_branding",
-    feature = "op_describe_managed_login_branding_by_client",
-    feature = "op_describe_resource_server",
-    feature = "op_describe_risk_configuration",
-    feature = "op_describe_terms",
-    feature = "op_describe_user_import_job",
-    feature = "op_describe_user_pool",
-    feature = "op_describe_user_pool_client",
-    feature = "op_describe_user_pool_domain",
-    feature = "op_forget_device",
-    feature = "op_forgot_password",
-    feature = "op_get_csv_header",
-    feature = "op_get_device",
-    feature = "op_get_group",
-    feature = "op_get_identity_provider_by_identifier",
-    feature = "op_get_log_delivery_configuration",
-    feature = "op_get_provisioned_limit",
-    feature = "op_get_signing_certificate",
-    feature = "op_get_tokens_from_refresh_token",
-    feature = "op_get_ui_customization",
-    feature = "op_get_user",
-    feature = "op_get_user_attribute_verification_code",
-    feature = "op_get_user_auth_factors",
-    feature = "op_get_user_pool_mfa_config",
-    feature = "op_global_sign_out",
-    feature = "op_initiate_auth",
-    feature = "op_list_devices",
-    feature = "op_list_groups",
-    feature = "op_list_identity_providers",
-    feature = "op_list_resource_servers",
-    feature = "op_list_tags_for_resource",
-    feature = "op_list_terms",
-    feature = "op_list_user_import_jobs",
-    feature = "op_list_user_pool_client_secrets",
-    feature = "op_list_user_pool_clients",
-    feature = "op_list_user_pool_replicas",
-    feature = "op_list_user_pools",
-    feature = "op_list_users",
-    feature = "op_list_users_in_group",
-    feature = "op_list_web_authn_credentials",
-    feature = "op_resend_confirmation_code",
-    feature = "op_respond_to_auth_challenge",
-    feature = "op_revoke_token",
-    feature = "op_set_log_delivery_configuration",
-    feature = "op_set_risk_configuration",
-    feature = "op_set_ui_customization",
-    feature = "op_set_user_mfa_preference",
-    feature = "op_set_user_pool_mfa_config",
-    feature = "op_set_user_settings",
-    feature = "op_sign_up",
-    feature = "op_start_user_import_job",
-    feature = "op_start_web_authn_registration",
-    feature = "op_stop_user_import_job",
-    feature = "op_tag_resource",
-    feature = "op_untag_resource",
-    feature = "op_update_auth_event_feedback",
-    feature = "op_update_device_status",
-    feature = "op_update_group",
-    feature = "op_update_identity_provider",
-    feature = "op_update_managed_login_branding",
-    feature = "op_update_provisioned_limit",
-    feature = "op_update_resource_server",
-    feature = "op_update_terms",
-    feature = "op_update_user_attributes",
-    feature = "op_update_user_pool",
-    feature = "op_update_user_pool_client",
-    feature = "op_update_user_pool_domain",
-    feature = "op_update_user_pool_replica",
-    feature = "op_verify_software_token",
-    feature = "op_verify_user_attribute"
-))]
+#[cfg(feature = "op_admin_list_user_auth_events")]
 pub(crate) mod shape_challenge_response_type;

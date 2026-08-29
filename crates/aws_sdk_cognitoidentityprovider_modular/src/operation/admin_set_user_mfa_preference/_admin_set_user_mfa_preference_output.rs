@@ -15,16 +15,14 @@ impl ::aws_types::request_id::RequestId for AdminSetUserMfaPreferenceOutput {
 #[cfg(feature = "op_admin_set_user_mfa_preference")]
 impl AdminSetUserMfaPreferenceOutput {
     /// Creates a new builder-style object to manufacture [`AdminSetUserMfaPreferenceOutput`](crate::operation::admin_set_user_mfa_preference::AdminSetUserMfaPreferenceOutput).
-    pub fn builder() -> crate::operation::admin_set_user_mfa_preference::builders::AdminSetUserMfaPreferenceOutputBuilder{
+    pub fn builder() -> crate::operation::admin_set_user_mfa_preference::builders::AdminSetUserMfaPreferenceOutputBuilder {
         crate::operation::admin_set_user_mfa_preference::builders::AdminSetUserMfaPreferenceOutputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_admin_set_user_mfa_preference")]
 /// A builder for [`AdminSetUserMfaPreferenceOutput`](crate::operation::admin_set_user_mfa_preference::AdminSetUserMfaPreferenceOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct AdminSetUserMfaPreferenceOutputBuilder {
     _request_id: Option<String>,
@@ -41,9 +39,7 @@ impl AdminSetUserMfaPreferenceOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`AdminSetUserMfaPreferenceOutput`](crate::operation::admin_set_user_mfa_preference::AdminSetUserMfaPreferenceOutput).
-    pub fn build(
-        self,
-    ) -> crate::operation::admin_set_user_mfa_preference::AdminSetUserMfaPreferenceOutput {
+    pub fn build(self) -> crate::operation::admin_set_user_mfa_preference::AdminSetUserMfaPreferenceOutput {
         crate::operation::admin_set_user_mfa_preference::AdminSetUserMfaPreferenceOutput {
             _request_id: self._request_id,
         }

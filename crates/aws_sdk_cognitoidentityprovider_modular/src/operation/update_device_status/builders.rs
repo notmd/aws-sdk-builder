@@ -66,9 +66,7 @@ impl UpdateDeviceStatusFluentBuilder {
         }
     }
     /// Access the UpdateDeviceStatus as a reference.
-    pub fn as_input(
-        &self,
-    ) -> &crate::operation::update_device_status::builders::UpdateDeviceStatusInputBuilder {
+    pub fn as_input(&self) -> &crate::operation::update_device_status::builders::UpdateDeviceStatusInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -92,17 +90,12 @@ impl UpdateDeviceStatusFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins =
-            crate::operation::update_device_status::UpdateDeviceStatus::operation_runtime_plugins(
-                self.handle.runtime_plugins.clone(),
-                &self.handle.conf,
-                self.config_override,
-            );
-        crate::operation::update_device_status::UpdateDeviceStatus::orchestrate(
-            &runtime_plugins,
-            input,
-        )
-        .await
+        let runtime_plugins = crate::operation::update_device_status::UpdateDeviceStatus::operation_runtime_plugins(
+            self.handle.runtime_plugins.clone(),
+            &self.handle.conf,
+            self.config_override,
+        );
+        crate::operation::update_device_status::UpdateDeviceStatus::orchestrate(&runtime_plugins, input).await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -115,18 +108,12 @@ impl UpdateDeviceStatusFluentBuilder {
     > {
         crate::client::customize::CustomizableOperation::new(self)
     }
-    pub(crate) fn config_override(
-        mut self,
-        config_override: impl ::std::convert::Into<crate::config::Builder>,
-    ) -> Self {
+    pub(crate) fn config_override(mut self, config_override: impl ::std::convert::Into<crate::config::Builder>) -> Self {
         self.set_config_override(::std::option::Option::Some(config_override.into()));
         self
     }
 
-    pub(crate) fn set_config_override(
-        &mut self,
-        config_override: ::std::option::Option<crate::config::Builder>,
-    ) -> &mut Self {
+    pub(crate) fn set_config_override(&mut self, config_override: ::std::option::Option<crate::config::Builder>) -> &mut Self {
         self.config_override = config_override;
         self
     }
@@ -159,25 +146,17 @@ impl UpdateDeviceStatusFluentBuilder {
         self.inner.get_device_key()
     }
     /// <p>To enable device authentication with the specified device, set to <code>remembered</code>.To disable, set to <code>not_remembered</code>.</p>
-    pub fn device_remembered_status(
-        mut self,
-        input: crate::types::DeviceRememberedStatusType,
-    ) -> Self {
+    pub fn device_remembered_status(mut self, input: crate::types::DeviceRememberedStatusType) -> Self {
         self.inner = self.inner.device_remembered_status(input);
         self
     }
     /// <p>To enable device authentication with the specified device, set to <code>remembered</code>.To disable, set to <code>not_remembered</code>.</p>
-    pub fn set_device_remembered_status(
-        mut self,
-        input: ::std::option::Option<crate::types::DeviceRememberedStatusType>,
-    ) -> Self {
+    pub fn set_device_remembered_status(mut self, input: ::std::option::Option<crate::types::DeviceRememberedStatusType>) -> Self {
         self.inner = self.inner.set_device_remembered_status(input);
         self
     }
     /// <p>To enable device authentication with the specified device, set to <code>remembered</code>.To disable, set to <code>not_remembered</code>.</p>
-    pub fn get_device_remembered_status(
-        &self,
-    ) -> &::std::option::Option<crate::types::DeviceRememberedStatusType> {
+    pub fn get_device_remembered_status(&self) -> &::std::option::Option<crate::types::DeviceRememberedStatusType> {
         self.inner.get_device_remembered_status()
     }
 }

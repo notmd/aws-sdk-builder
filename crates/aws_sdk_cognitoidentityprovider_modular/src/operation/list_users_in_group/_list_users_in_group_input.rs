@@ -35,17 +35,14 @@ impl ListUsersInGroupInput {
 #[cfg(feature = "op_list_users_in_group")]
 impl ListUsersInGroupInput {
     /// Creates a new builder-style object to manufacture [`ListUsersInGroupInput`](crate::operation::list_users_in_group::ListUsersInGroupInput).
-    pub fn builder() -> crate::operation::list_users_in_group::builders::ListUsersInGroupInputBuilder
-    {
+    pub fn builder() -> crate::operation::list_users_in_group::builders::ListUsersInGroupInputBuilder {
         crate::operation::list_users_in_group::builders::ListUsersInGroupInputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_list_users_in_group")]
 /// A builder for [`ListUsersInGroupInput`](crate::operation::list_users_in_group::ListUsersInGroupInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct ListUsersInGroupInputBuilder {
     pub(crate) user_pool_id: ::std::option::Option<::std::string::String>,
@@ -116,17 +113,12 @@ impl ListUsersInGroupInputBuilder {
     /// Consumes the builder and constructs a [`ListUsersInGroupInput`](crate::operation::list_users_in_group::ListUsersInGroupInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        crate::operation::list_users_in_group::ListUsersInGroupInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
-        ::std::result::Result::Ok(
-            crate::operation::list_users_in_group::ListUsersInGroupInput {
-                user_pool_id: self.user_pool_id,
-                group_name: self.group_name,
-                limit: self.limit,
-                next_token: self.next_token,
-            },
-        )
+    ) -> ::std::result::Result<crate::operation::list_users_in_group::ListUsersInGroupInput, ::aws_smithy_types::error::operation::BuildError> {
+        ::std::result::Result::Ok(crate::operation::list_users_in_group::ListUsersInGroupInput {
+            user_pool_id: self.user_pool_id,
+            group_name: self.group_name,
+            limit: self.limit,
+            next_token: self.next_token,
+        })
     }
 }

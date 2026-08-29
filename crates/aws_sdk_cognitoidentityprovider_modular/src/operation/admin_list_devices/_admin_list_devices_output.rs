@@ -33,17 +33,14 @@ impl ::aws_types::request_id::RequestId for AdminListDevicesOutput {
 #[cfg(feature = "op_admin_list_devices")]
 impl AdminListDevicesOutput {
     /// Creates a new builder-style object to manufacture [`AdminListDevicesOutput`](crate::operation::admin_list_devices::AdminListDevicesOutput).
-    pub fn builder() -> crate::operation::admin_list_devices::builders::AdminListDevicesOutputBuilder
-    {
+    pub fn builder() -> crate::operation::admin_list_devices::builders::AdminListDevicesOutputBuilder {
         crate::operation::admin_list_devices::builders::AdminListDevicesOutputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_admin_list_devices")]
 /// A builder for [`AdminListDevicesOutput`](crate::operation::admin_list_devices::AdminListDevicesOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct AdminListDevicesOutputBuilder {
     pub(crate) devices: ::std::option::Option<::std::vec::Vec<crate::types::DeviceType>>,
@@ -64,10 +61,7 @@ impl AdminListDevicesOutputBuilder {
         self
     }
     /// <p>An array of devices and their information. Each entry that's returned includes device information, last-accessed and created dates, and the device key.</p>
-    pub fn set_devices(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<crate::types::DeviceType>>,
-    ) -> Self {
+    pub fn set_devices(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::DeviceType>>) -> Self {
         self.devices = input;
         self
     }
@@ -76,18 +70,12 @@ impl AdminListDevicesOutputBuilder {
         &self.devices
     }
     /// <p>The identifier that Amazon Cognito returned with the previous request to this operation. When you include a pagination token in your request, Amazon Cognito returns the next set of items in the list. By use of this token, you can paginate through the full list of items.</p>
-    pub fn pagination_token(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn pagination_token(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.pagination_token = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The identifier that Amazon Cognito returned with the previous request to this operation. When you include a pagination token in your request, Amazon Cognito returns the next set of items in the list. By use of this token, you can paginate through the full list of items.</p>
-    pub fn set_pagination_token(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_pagination_token(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.pagination_token = input;
         self
     }

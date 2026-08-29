@@ -16,10 +16,7 @@ impl SoftwareTokenMfaNotFoundException {
 }
 impl ::std::fmt::Display for SoftwareTokenMfaNotFoundException {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        ::std::write!(
-            f,
-            "SoftwareTokenMfaNotFoundException [SoftwareTokenMFANotFoundException]"
-        )?;
+        ::std::write!(f, "SoftwareTokenMfaNotFoundException [SoftwareTokenMFANotFoundException]")?;
         if let ::std::option::Option::Some(inner_1) = &self.message {
             {
                 ::std::write!(f, ": {inner_1}")?;
@@ -35,9 +32,7 @@ impl ::aws_types::request_id::RequestId for crate::types::error::SoftwareTokenMf
         self.meta().request_id()
     }
 }
-impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata
-    for SoftwareTokenMfaNotFoundException
-{
+impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata for SoftwareTokenMfaNotFoundException {
     fn meta(&self) -> &::aws_smithy_types::error::ErrorMetadata {
         &self.meta
     }
@@ -50,9 +45,7 @@ impl SoftwareTokenMfaNotFoundException {
 }
 
 /// A builder for [`SoftwareTokenMfaNotFoundException`](crate::types::error::SoftwareTokenMfaNotFoundException).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct SoftwareTokenMfaNotFoundExceptionBuilder {
     pub(crate) message: ::std::option::Option<::std::string::String>,
@@ -80,10 +73,7 @@ impl SoftwareTokenMfaNotFoundExceptionBuilder {
     }
 
     /// Sets error metadata
-    pub fn set_meta(
-        &mut self,
-        meta: std::option::Option<::aws_smithy_types::error::ErrorMetadata>,
-    ) -> &mut Self {
+    pub fn set_meta(&mut self, meta: std::option::Option<::aws_smithy_types::error::ErrorMetadata>) -> &mut Self {
         self.meta = meta;
         self
     }

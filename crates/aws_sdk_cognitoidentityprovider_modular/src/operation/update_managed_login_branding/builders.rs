@@ -74,7 +74,7 @@ impl UpdateManagedLoginBrandingFluentBuilder {
         }
     }
     /// Access the UpdateManagedLoginBranding as a reference.
-    pub fn as_input(&self) -> &crate::operation::update_managed_login_branding::builders::UpdateManagedLoginBrandingInputBuilder{
+    pub fn as_input(&self) -> &crate::operation::update_managed_login_branding::builders::UpdateManagedLoginBrandingInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -103,11 +103,7 @@ impl UpdateManagedLoginBrandingFluentBuilder {
             &self.handle.conf,
             self.config_override,
         );
-        crate::operation::update_managed_login_branding::UpdateManagedLoginBranding::orchestrate(
-            &runtime_plugins,
-            input,
-        )
-        .await
+        crate::operation::update_managed_login_branding::UpdateManagedLoginBranding::orchestrate(&runtime_plugins, input).await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -120,18 +116,12 @@ impl UpdateManagedLoginBrandingFluentBuilder {
     > {
         crate::client::customize::CustomizableOperation::new(self)
     }
-    pub(crate) fn config_override(
-        mut self,
-        config_override: impl ::std::convert::Into<crate::config::Builder>,
-    ) -> Self {
+    pub(crate) fn config_override(mut self, config_override: impl ::std::convert::Into<crate::config::Builder>) -> Self {
         self.set_config_override(::std::option::Option::Some(config_override.into()));
         self
     }
 
-    pub(crate) fn set_config_override(
-        &mut self,
-        config_override: ::std::option::Option<crate::config::Builder>,
-    ) -> &mut Self {
+    pub(crate) fn set_config_override(&mut self, config_override: ::std::option::Option<crate::config::Builder>) -> &mut Self {
         self.config_override = config_override;
         self
     }
@@ -150,18 +140,12 @@ impl UpdateManagedLoginBrandingFluentBuilder {
         self.inner.get_user_pool_id()
     }
     /// <p>The ID of the managed login branding style that you want to update.</p>
-    pub fn managed_login_branding_id(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn managed_login_branding_id(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.managed_login_branding_id(input.into());
         self
     }
     /// <p>The ID of the managed login branding style that you want to update.</p>
-    pub fn set_managed_login_branding_id(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_managed_login_branding_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_managed_login_branding_id(input);
         self
     }
@@ -214,10 +198,7 @@ impl UpdateManagedLoginBrandingFluentBuilder {
     /// <li>
     /// <p><code>languageSelector</code> (for localization, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-managed-login.html#managed-login-localization">Managed login localization)</a></p></li>
     /// </ul>
-    pub fn set_settings(
-        mut self,
-        input: ::std::option::Option<::aws_smithy_types::Document>,
-    ) -> Self {
+    pub fn set_settings(mut self, input: ::std::option::Option<::aws_smithy_types::Document>) -> Self {
         self.inner = self.inner.set_settings(input);
         self
     }
@@ -247,10 +228,7 @@ impl UpdateManagedLoginBrandingFluentBuilder {
         self
     }
     /// <p>An array of image files that you want to apply to roles like backgrounds, logos, and icons. Each object must also indicate whether it is for dark mode, light mode, or browser-adaptive mode.</p>
-    pub fn set_assets(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<crate::types::AssetType>>,
-    ) -> Self {
+    pub fn set_assets(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::AssetType>>) -> Self {
         self.inner = self.inner.set_assets(input);
         self
     }

@@ -32,9 +32,7 @@ impl CreateUserPoolOutput {
 
 #[cfg(feature = "op_create_user_pool")]
 /// A builder for [`CreateUserPoolOutput`](crate::operation::create_user_pool::CreateUserPoolOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct CreateUserPoolOutputBuilder {
     pub(crate) user_pool: ::std::option::Option<crate::types::UserPoolType>,
@@ -48,10 +46,7 @@ impl CreateUserPoolOutputBuilder {
         self
     }
     /// <p>The details of the created user pool.</p>
-    pub fn set_user_pool(
-        mut self,
-        input: ::std::option::Option<crate::types::UserPoolType>,
-    ) -> Self {
+    pub fn set_user_pool(mut self, input: ::std::option::Option<crate::types::UserPoolType>) -> Self {
         self.user_pool = input;
         self
     }

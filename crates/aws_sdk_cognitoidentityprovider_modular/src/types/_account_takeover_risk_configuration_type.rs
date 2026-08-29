@@ -11,9 +11,7 @@ pub struct AccountTakeoverRiskConfigurationType {
 }
 impl AccountTakeoverRiskConfigurationType {
     /// <p>The settings for composing and sending an email message when threat protection assesses a risk level with adaptive authentication. When you choose to notify users in <code>AccountTakeoverRiskConfiguration</code>, Amazon Cognito sends an email message using the method and template that you set with this data type.</p>
-    pub fn notify_configuration(
-        &self,
-    ) -> ::std::option::Option<&crate::types::NotifyConfigurationType> {
+    pub fn notify_configuration(&self) -> ::std::option::Option<&crate::types::NotifyConfigurationType> {
         self.notify_configuration.as_ref()
     }
     /// <p>A list of account-takeover actions for each level of risk that Amazon Cognito might assess with threat protection.</p>
@@ -29,9 +27,7 @@ impl AccountTakeoverRiskConfigurationType {
 }
 
 /// A builder for [`AccountTakeoverRiskConfigurationType`](crate::types::AccountTakeoverRiskConfigurationType).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct AccountTakeoverRiskConfigurationTypeBuilder {
     pub(crate) notify_configuration: ::std::option::Option<crate::types::NotifyConfigurationType>,
@@ -44,17 +40,12 @@ impl AccountTakeoverRiskConfigurationTypeBuilder {
         self
     }
     /// <p>The settings for composing and sending an email message when threat protection assesses a risk level with adaptive authentication. When you choose to notify users in <code>AccountTakeoverRiskConfiguration</code>, Amazon Cognito sends an email message using the method and template that you set with this data type.</p>
-    pub fn set_notify_configuration(
-        mut self,
-        input: ::std::option::Option<crate::types::NotifyConfigurationType>,
-    ) -> Self {
+    pub fn set_notify_configuration(mut self, input: ::std::option::Option<crate::types::NotifyConfigurationType>) -> Self {
         self.notify_configuration = input;
         self
     }
     /// <p>The settings for composing and sending an email message when threat protection assesses a risk level with adaptive authentication. When you choose to notify users in <code>AccountTakeoverRiskConfiguration</code>, Amazon Cognito sends an email message using the method and template that you set with this data type.</p>
-    pub fn get_notify_configuration(
-        &self,
-    ) -> &::std::option::Option<crate::types::NotifyConfigurationType> {
+    pub fn get_notify_configuration(&self) -> &::std::option::Option<crate::types::NotifyConfigurationType> {
         &self.notify_configuration
     }
     /// <p>A list of account-takeover actions for each level of risk that Amazon Cognito might assess with threat protection.</p>
@@ -64,10 +55,7 @@ impl AccountTakeoverRiskConfigurationTypeBuilder {
         self
     }
     /// <p>A list of account-takeover actions for each level of risk that Amazon Cognito might assess with threat protection.</p>
-    pub fn set_actions(
-        mut self,
-        input: ::std::option::Option<crate::types::AccountTakeoverActionsType>,
-    ) -> Self {
+    pub fn set_actions(mut self, input: ::std::option::Option<crate::types::AccountTakeoverActionsType>) -> Self {
         self.actions = input;
         self
     }

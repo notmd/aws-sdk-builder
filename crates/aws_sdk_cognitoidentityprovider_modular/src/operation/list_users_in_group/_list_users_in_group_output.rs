@@ -32,17 +32,14 @@ impl ::aws_types::request_id::RequestId for ListUsersInGroupOutput {
 #[cfg(feature = "op_list_users_in_group")]
 impl ListUsersInGroupOutput {
     /// Creates a new builder-style object to manufacture [`ListUsersInGroupOutput`](crate::operation::list_users_in_group::ListUsersInGroupOutput).
-    pub fn builder(
-    ) -> crate::operation::list_users_in_group::builders::ListUsersInGroupOutputBuilder {
+    pub fn builder() -> crate::operation::list_users_in_group::builders::ListUsersInGroupOutputBuilder {
         crate::operation::list_users_in_group::builders::ListUsersInGroupOutputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_list_users_in_group")]
 /// A builder for [`ListUsersInGroupOutput`](crate::operation::list_users_in_group::ListUsersInGroupOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct ListUsersInGroupOutputBuilder {
     pub(crate) users: ::std::option::Option<::std::vec::Vec<crate::types::UserType>>,
@@ -63,10 +60,7 @@ impl ListUsersInGroupOutputBuilder {
         self
     }
     /// <p>An array of users who are members in the group, and their attributes.</p>
-    pub fn set_users(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<crate::types::UserType>>,
-    ) -> Self {
+    pub fn set_users(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::UserType>>) -> Self {
         self.users = input;
         self
     }

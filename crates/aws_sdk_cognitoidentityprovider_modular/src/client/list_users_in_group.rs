@@ -12,11 +12,7 @@ impl super::Client {
     ///   - [`users(Option<Vec::<UserType>>)`](crate::operation::list_users_in_group::ListUsersInGroupOutput::users): <p>An array of users who are members in the group, and their attributes.</p>
     ///   - [`next_token(Option<String>)`](crate::operation::list_users_in_group::ListUsersInGroupOutput::next_token): <p>The identifier that Amazon Cognito returned with the previous request to this operation. When you include a pagination token in your request, Amazon Cognito returns the next set of items in the list. By use of this token, you can paginate through the full list of items.</p>
     /// - On failure, responds with [`SdkError<ListUsersInGroupError>`](crate::operation::list_users_in_group::ListUsersInGroupError)
-    pub fn list_users_in_group(
-        &self,
-    ) -> crate::operation::list_users_in_group::builders::ListUsersInGroupFluentBuilder {
-        crate::operation::list_users_in_group::builders::ListUsersInGroupFluentBuilder::new(
-            self.handle.clone(),
-        )
+    pub fn list_users_in_group(&self) -> crate::operation::list_users_in_group::builders::ListUsersInGroupFluentBuilder {
+        crate::operation::list_users_in_group::builders::ListUsersInGroupFluentBuilder::new(self.handle.clone())
     }
 }

@@ -4,9 +4,7 @@ pub fn ser_sms_configuration_type(
     input: &crate::types::SmsConfigurationType,
 ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
     {
-        object
-            .key("SnsCallerArn")
-            .string(input.sns_caller_arn.as_str());
+        object.key("SnsCallerArn").string(input.sns_caller_arn.as_str());
     }
     if let Some(var_1) = &input.external_id {
         object.key("ExternalId").string(var_1.as_str());
@@ -17,10 +15,7 @@ pub fn ser_sms_configuration_type(
     if let Some(var_3) = &input.eums_sms {
         #[allow(unused_mut)]
         let mut object_4 = object.key("EumsSms").start_object();
-        crate::protocol_serde::shape_eums_sms_configuration_type::ser_eums_sms_configuration_type(
-            &mut object_4,
-            var_3,
-        )?;
+        crate::protocol_serde::shape_eums_sms_configuration_type::ser_eums_sms_configuration_type(&mut object_4, var_3)?;
         object_4.finish();
     }
     Ok(())
@@ -30,24 +25,14 @@ pub(crate) fn de_sms_configuration_type<'a, I>(
     tokens: &mut ::std::iter::Peekable<I>,
     _value: &'a [u8],
     depth: u32,
-) -> ::std::result::Result<
-    Option<crate::types::SmsConfigurationType>,
-    ::aws_smithy_json::deserialize::error::DeserializeError,
->
+) -> ::std::result::Result<Option<crate::types::SmsConfigurationType>, ::aws_smithy_json::deserialize::error::DeserializeError>
 where
-    I: Iterator<
-        Item = Result<
-            ::aws_smithy_json::deserialize::Token<'a>,
-            ::aws_smithy_json::deserialize::error::DeserializeError,
-        >,
-    >,
+    I: Iterator<Item = Result<::aws_smithy_json::deserialize::Token<'a>, ::aws_smithy_json::deserialize::error::DeserializeError>>,
 {
     if depth >= 128u32 {
-        return Err(
-            ::aws_smithy_json::deserialize::error::DeserializeError::custom(
-                "maximum nesting depth exceeded",
-            ),
-        );
+        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
+            "maximum nesting depth exceeded",
+        ));
     }
     match tokens.next().transpose()? {
         Some(::aws_smithy_json::deserialize::Token::ValueNull { .. }) => Ok(None),
@@ -57,60 +42,48 @@ where
             loop {
                 match tokens.next().transpose()? {
                     Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
-                    Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => {
-                        match key.to_unescaped()?.as_ref() {
-                            "SnsCallerArn" => {
-                                builder = builder.set_sns_caller_arn(
-                                    ::aws_smithy_json::deserialize::token::expect_string_or_null(
-                                        tokens.next(),
-                                    )?
+                    Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
+                        "SnsCallerArn" => {
+                            builder = builder.set_sns_caller_arn(
+                                ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
                                     .map(|s| s.to_unescaped().map(|u| u.into_owned()))
                                     .transpose()?,
-                                );
-                            }
-                            "ExternalId" => {
-                                builder = builder.set_external_id(
-                                    ::aws_smithy_json::deserialize::token::expect_string_or_null(
-                                        tokens.next(),
-                                    )?
+                            );
+                        }
+                        "ExternalId" => {
+                            builder = builder.set_external_id(
+                                ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
                                     .map(|s| s.to_unescaped().map(|u| u.into_owned()))
                                     .transpose()?,
-                                );
-                            }
-                            "SnsRegion" => {
-                                builder = builder.set_sns_region(
-                                    ::aws_smithy_json::deserialize::token::expect_string_or_null(
-                                        tokens.next(),
-                                    )?
+                            );
+                        }
+                        "SnsRegion" => {
+                            builder = builder.set_sns_region(
+                                ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
                                     .map(|s| s.to_unescaped().map(|u| u.into_owned()))
                                     .transpose()?,
-                                );
-                            }
-                            "EumsSms" => {
-                                builder = builder.set_eums_sms(crate::protocol_serde::shape_eums_sms_configuration_type::de_eums_sms_configuration_type(
+                            );
+                        }
+                        "EumsSms" => {
+                            builder = builder.set_eums_sms(crate::protocol_serde::shape_eums_sms_configuration_type::de_eums_sms_configuration_type(
                                 tokens,
                                 _value,
                                 depth + 1,
                             )?);
-                            }
-                            _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
                         }
-                    }
+                        _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
+                    },
                     other => {
-                        return Err(
-                            ::aws_smithy_json::deserialize::error::DeserializeError::custom(
-                                format!("expected object key or end object, found: {other:?}"),
-                            ),
-                        )
+                        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
+                            "expected object key or end object, found: {other:?}"
+                        )))
                     }
                 }
             }
             Ok(Some(builder.build()))
         }
-        _ => Err(
-            ::aws_smithy_json::deserialize::error::DeserializeError::custom(
-                "expected start object or null",
-            ),
-        ),
+        _ => Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
+            "expected start object or null",
+        )),
     }
 }

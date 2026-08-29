@@ -31,9 +31,7 @@ impl ListUserPoolsInput {
 
 #[cfg(feature = "op_list_user_pools")]
 /// A builder for [`ListUserPoolsInput`](crate::operation::list_user_pools::ListUserPoolsInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct ListUserPoolsInputBuilder {
     pub(crate) next_token: ::std::option::Option<::std::string::String>,
@@ -73,10 +71,7 @@ impl ListUserPoolsInputBuilder {
     /// Consumes the builder and constructs a [`ListUserPoolsInput`](crate::operation::list_user_pools::ListUserPoolsInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        crate::operation::list_user_pools::ListUserPoolsInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    ) -> ::std::result::Result<crate::operation::list_user_pools::ListUserPoolsInput, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::operation::list_user_pools::ListUserPoolsInput {
             next_token: self.next_token,
             max_results: self.max_results,

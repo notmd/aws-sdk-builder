@@ -25,17 +25,14 @@ impl ::aws_types::request_id::RequestId for StopUserImportJobOutput {
 #[cfg(feature = "op_stop_user_import_job")]
 impl StopUserImportJobOutput {
     /// Creates a new builder-style object to manufacture [`StopUserImportJobOutput`](crate::operation::stop_user_import_job::StopUserImportJobOutput).
-    pub fn builder(
-    ) -> crate::operation::stop_user_import_job::builders::StopUserImportJobOutputBuilder {
+    pub fn builder() -> crate::operation::stop_user_import_job::builders::StopUserImportJobOutputBuilder {
         crate::operation::stop_user_import_job::builders::StopUserImportJobOutputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_stop_user_import_job")]
 /// A builder for [`StopUserImportJobOutput`](crate::operation::stop_user_import_job::StopUserImportJobOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct StopUserImportJobOutputBuilder {
     pub(crate) user_import_job: ::std::option::Option<crate::types::UserImportJobType>,
@@ -49,10 +46,7 @@ impl StopUserImportJobOutputBuilder {
         self
     }
     /// <p>The details of the user import job. Includes logging destination, status, and the Amazon S3 pre-signed URL for CSV upload.</p>
-    pub fn set_user_import_job(
-        mut self,
-        input: ::std::option::Option<crate::types::UserImportJobType>,
-    ) -> Self {
+    pub fn set_user_import_job(mut self, input: ::std::option::Option<crate::types::UserImportJobType>) -> Self {
         self.user_import_job = input;
         self
     }

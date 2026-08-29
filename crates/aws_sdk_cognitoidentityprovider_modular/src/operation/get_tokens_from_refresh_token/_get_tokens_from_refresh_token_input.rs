@@ -26,9 +26,7 @@ pub struct GetTokensFromRefreshTokenInput {
     /// <p>Encrypt the <code>ClientMetadata</code> value. Don't send sensitive information in this parameter.</p></li>
     /// </ul>
     /// </note>
-    pub client_metadata: ::std::option::Option<
-        ::std::collections::HashMap<::std::string::String, ::std::string::String>,
-    >,
+    pub client_metadata: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
 }
 #[cfg(feature = "op_get_tokens_from_refresh_token")]
 impl GetTokensFromRefreshTokenInput {
@@ -62,11 +60,7 @@ impl GetTokensFromRefreshTokenInput {
     /// <p>Encrypt the <code>ClientMetadata</code> value. Don't send sensitive information in this parameter.</p></li>
     /// </ul>
     /// </note>
-    pub fn client_metadata(
-        &self,
-    ) -> ::std::option::Option<
-        &::std::collections::HashMap<::std::string::String, ::std::string::String>,
-    > {
+    pub fn client_metadata(&self) -> ::std::option::Option<&::std::collections::HashMap<::std::string::String, ::std::string::String>> {
         self.client_metadata.as_ref()
     }
 }
@@ -85,7 +79,7 @@ impl ::std::fmt::Debug for GetTokensFromRefreshTokenInput {
 #[cfg(feature = "op_get_tokens_from_refresh_token")]
 impl GetTokensFromRefreshTokenInput {
     /// Creates a new builder-style object to manufacture [`GetTokensFromRefreshTokenInput`](crate::operation::get_tokens_from_refresh_token::GetTokensFromRefreshTokenInput).
-    pub fn builder() -> crate::operation::get_tokens_from_refresh_token::builders::GetTokensFromRefreshTokenInputBuilder{
+    pub fn builder() -> crate::operation::get_tokens_from_refresh_token::builders::GetTokensFromRefreshTokenInputBuilder {
         crate::operation::get_tokens_from_refresh_token::builders::GetTokensFromRefreshTokenInputBuilder::default()
     }
 }
@@ -99,26 +93,18 @@ pub struct GetTokensFromRefreshTokenInputBuilder {
     pub(crate) client_id: ::std::option::Option<::std::string::String>,
     pub(crate) client_secret: ::std::option::Option<::std::string::String>,
     pub(crate) device_key: ::std::option::Option<::std::string::String>,
-    pub(crate) client_metadata: ::std::option::Option<
-        ::std::collections::HashMap<::std::string::String, ::std::string::String>,
-    >,
+    pub(crate) client_metadata: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
 }
 #[cfg(feature = "op_get_tokens_from_refresh_token")]
 impl GetTokensFromRefreshTokenInputBuilder {
     /// <p>A valid refresh token that can authorize the request for new tokens. When refresh token rotation is active in the requested app client, this token is invalidated after the request is complete and after an optional grace period.</p>
     /// This field is required.
-    pub fn refresh_token(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn refresh_token(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.refresh_token = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>A valid refresh token that can authorize the request for new tokens. When refresh token rotation is active in the requested app client, this token is invalidated after the request is complete and after an optional grace period.</p>
-    pub fn set_refresh_token(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_refresh_token(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.refresh_token = input;
         self
     }
@@ -142,18 +128,12 @@ impl GetTokensFromRefreshTokenInputBuilder {
         &self.client_id
     }
     /// <p>The client secret of the requested app client, if the client has a secret.</p>
-    pub fn client_secret(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn client_secret(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.client_secret = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The client secret of the requested app client, if the client has a secret.</p>
-    pub fn set_client_secret(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_client_secret(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.client_secret = input;
         self
     }
@@ -220,9 +200,7 @@ impl GetTokensFromRefreshTokenInputBuilder {
     /// </note>
     pub fn set_client_metadata(
         mut self,
-        input: ::std::option::Option<
-            ::std::collections::HashMap<::std::string::String, ::std::string::String>,
-        >,
+        input: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
     ) -> Self {
         self.client_metadata = input;
         self
@@ -240,11 +218,7 @@ impl GetTokensFromRefreshTokenInputBuilder {
     /// <p>Encrypt the <code>ClientMetadata</code> value. Don't send sensitive information in this parameter.</p></li>
     /// </ul>
     /// </note>
-    pub fn get_client_metadata(
-        &self,
-    ) -> &::std::option::Option<
-        ::std::collections::HashMap<::std::string::String, ::std::string::String>,
-    > {
+    pub fn get_client_metadata(&self) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>> {
         &self.client_metadata
     }
     /// Consumes the builder and constructs a [`GetTokensFromRefreshTokenInput`](crate::operation::get_tokens_from_refresh_token::GetTokensFromRefreshTokenInput).
@@ -254,15 +228,13 @@ impl GetTokensFromRefreshTokenInputBuilder {
         crate::operation::get_tokens_from_refresh_token::GetTokensFromRefreshTokenInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(
-            crate::operation::get_tokens_from_refresh_token::GetTokensFromRefreshTokenInput {
-                refresh_token: self.refresh_token,
-                client_id: self.client_id,
-                client_secret: self.client_secret,
-                device_key: self.device_key,
-                client_metadata: self.client_metadata,
-            },
-        )
+        ::std::result::Result::Ok(crate::operation::get_tokens_from_refresh_token::GetTokensFromRefreshTokenInput {
+            refresh_token: self.refresh_token,
+            client_id: self.client_id,
+            client_secret: self.client_secret,
+            device_key: self.device_key,
+            client_metadata: self.client_metadata,
+        })
     }
 }
 #[cfg(feature = "op_get_tokens_from_refresh_token")]

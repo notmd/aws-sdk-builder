@@ -24,18 +24,14 @@ impl ::aws_types::request_id::RequestId for GetProvisionedLimitOutput {
 #[cfg(feature = "op_get_provisioned_limit")]
 impl GetProvisionedLimitOutput {
     /// Creates a new builder-style object to manufacture [`GetProvisionedLimitOutput`](crate::operation::get_provisioned_limit::GetProvisionedLimitOutput).
-    pub fn builder(
-    ) -> crate::operation::get_provisioned_limit::builders::GetProvisionedLimitOutputBuilder {
-        crate::operation::get_provisioned_limit::builders::GetProvisionedLimitOutputBuilder::default(
-        )
+    pub fn builder() -> crate::operation::get_provisioned_limit::builders::GetProvisionedLimitOutputBuilder {
+        crate::operation::get_provisioned_limit::builders::GetProvisionedLimitOutputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_get_provisioned_limit")]
 /// A builder for [`GetProvisionedLimitOutput`](crate::operation::get_provisioned_limit::GetProvisionedLimitOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct GetProvisionedLimitOutputBuilder {
     pub(crate) limit: ::std::option::Option<crate::types::LimitType>,

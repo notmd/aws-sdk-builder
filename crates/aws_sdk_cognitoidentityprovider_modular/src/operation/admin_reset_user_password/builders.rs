@@ -43,8 +43,7 @@ impl crate::operation::admin_reset_user_password::builders::AdminResetUserPasswo
 #[derive(::std::clone::Clone, ::std::fmt::Debug)]
 pub struct AdminResetUserPasswordFluentBuilder {
     handle: ::std::sync::Arc<crate::client::Handle>,
-    inner:
-        crate::operation::admin_reset_user_password::builders::AdminResetUserPasswordInputBuilder,
+    inner: crate::operation::admin_reset_user_password::builders::AdminResetUserPasswordInputBuilder,
     config_override: ::std::option::Option<crate::config::Builder>,
 }
 #[cfg(feature = "op_admin_reset_user_password")]
@@ -77,10 +76,7 @@ impl AdminResetUserPasswordFluentBuilder {
         }
     }
     /// Access the AdminResetUserPassword as a reference.
-    pub fn as_input(
-        &self,
-    ) -> &crate::operation::admin_reset_user_password::builders::AdminResetUserPasswordInputBuilder
-    {
+    pub fn as_input(&self) -> &crate::operation::admin_reset_user_password::builders::AdminResetUserPasswordInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -109,11 +105,7 @@ impl AdminResetUserPasswordFluentBuilder {
             &self.handle.conf,
             self.config_override,
         );
-        crate::operation::admin_reset_user_password::AdminResetUserPassword::orchestrate(
-            &runtime_plugins,
-            input,
-        )
-        .await
+        crate::operation::admin_reset_user_password::AdminResetUserPassword::orchestrate(&runtime_plugins, input).await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -126,18 +118,12 @@ impl AdminResetUserPasswordFluentBuilder {
     > {
         crate::client::customize::CustomizableOperation::new(self)
     }
-    pub(crate) fn config_override(
-        mut self,
-        config_override: impl ::std::convert::Into<crate::config::Builder>,
-    ) -> Self {
+    pub(crate) fn config_override(mut self, config_override: impl ::std::convert::Into<crate::config::Builder>) -> Self {
         self.set_config_override(::std::option::Option::Some(config_override.into()));
         self
     }
 
-    pub(crate) fn set_config_override(
-        &mut self,
-        config_override: ::std::option::Option<crate::config::Builder>,
-    ) -> &mut Self {
+    pub(crate) fn set_config_override(&mut self, config_override: ::std::option::Option<crate::config::Builder>) -> &mut Self {
         self.config_override = config_override;
         self
     }
@@ -210,9 +196,7 @@ impl AdminResetUserPasswordFluentBuilder {
     /// </note>
     pub fn set_client_metadata(
         mut self,
-        input: ::std::option::Option<
-            ::std::collections::HashMap<::std::string::String, ::std::string::String>,
-        >,
+        input: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
     ) -> Self {
         self.inner = self.inner.set_client_metadata(input);
         self
@@ -230,11 +214,7 @@ impl AdminResetUserPasswordFluentBuilder {
     /// <p>Encrypt the <code>ClientMetadata</code> value. Don't send sensitive information in this parameter.</p></li>
     /// </ul>
     /// </note>
-    pub fn get_client_metadata(
-        &self,
-    ) -> &::std::option::Option<
-        ::std::collections::HashMap<::std::string::String, ::std::string::String>,
-    > {
+    pub fn get_client_metadata(&self) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>> {
         self.inner.get_client_metadata()
     }
 }

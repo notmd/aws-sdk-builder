@@ -21,9 +21,7 @@ impl S3ConfigurationType {
 }
 
 /// A builder for [`S3ConfigurationType`](crate::types::S3ConfigurationType).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct S3ConfigurationTypeBuilder {
     pub(crate) bucket_arn: ::std::option::Option<::std::string::String>,
@@ -45,8 +43,6 @@ impl S3ConfigurationTypeBuilder {
     }
     /// Consumes the builder and constructs a [`S3ConfigurationType`](crate::types::S3ConfigurationType).
     pub fn build(self) -> crate::types::S3ConfigurationType {
-        crate::types::S3ConfigurationType {
-            bucket_arn: self.bucket_arn,
-        }
+        crate::types::S3ConfigurationType { bucket_arn: self.bucket_arn }
     }
 }

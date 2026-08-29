@@ -23,16 +23,14 @@ impl GetIdentityProviderByIdentifierInput {
 #[cfg(feature = "op_get_identity_provider_by_identifier")]
 impl GetIdentityProviderByIdentifierInput {
     /// Creates a new builder-style object to manufacture [`GetIdentityProviderByIdentifierInput`](crate::operation::get_identity_provider_by_identifier::GetIdentityProviderByIdentifierInput).
-    pub fn builder() -> crate::operation::get_identity_provider_by_identifier::builders::GetIdentityProviderByIdentifierInputBuilder{
+    pub fn builder() -> crate::operation::get_identity_provider_by_identifier::builders::GetIdentityProviderByIdentifierInputBuilder {
         crate::operation::get_identity_provider_by_identifier::builders::GetIdentityProviderByIdentifierInputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_get_identity_provider_by_identifier")]
 /// A builder for [`GetIdentityProviderByIdentifierInput`](crate::operation::get_identity_provider_by_identifier::GetIdentityProviderByIdentifierInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct GetIdentityProviderByIdentifierInputBuilder {
     pub(crate) user_pool_id: ::std::option::Option<::std::string::String>,
@@ -57,18 +55,12 @@ impl GetIdentityProviderByIdentifierInputBuilder {
     }
     /// <p>The identifier that you assigned to your user pool. The identifier is an alternative name for an IdP that is distinct from the IdP name. For example, an IdP with a name of <code>MyIdP</code> might have an identifier of the email domain <code>example.com</code>.</p>
     /// This field is required.
-    pub fn idp_identifier(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn idp_identifier(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.idp_identifier = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The identifier that you assigned to your user pool. The identifier is an alternative name for an IdP that is distinct from the IdP name. For example, an IdP with a name of <code>MyIdP</code> might have an identifier of the email domain <code>example.com</code>.</p>
-    pub fn set_idp_identifier(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_idp_identifier(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.idp_identifier = input;
         self
     }

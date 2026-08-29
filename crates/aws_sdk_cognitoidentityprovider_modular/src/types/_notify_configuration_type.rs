@@ -52,9 +52,7 @@ impl NotifyConfigurationType {
 }
 
 /// A builder for [`NotifyConfigurationType`](crate::types::NotifyConfigurationType).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct NotifyConfigurationTypeBuilder {
     pub(crate) from: ::std::option::Option<::std::string::String>,
@@ -114,10 +112,7 @@ impl NotifyConfigurationTypeBuilder {
         self
     }
     /// <p>The template for the email message that your user pool sends when a detected risk event is blocked.</p>
-    pub fn set_block_email(
-        mut self,
-        input: ::std::option::Option<crate::types::NotifyEmailType>,
-    ) -> Self {
+    pub fn set_block_email(mut self, input: ::std::option::Option<crate::types::NotifyEmailType>) -> Self {
         self.block_email = input;
         self
     }
@@ -131,10 +126,7 @@ impl NotifyConfigurationTypeBuilder {
         self
     }
     /// <p>The template for the email message that your user pool sends when no action is taken in response to a detected risk.</p>
-    pub fn set_no_action_email(
-        mut self,
-        input: ::std::option::Option<crate::types::NotifyEmailType>,
-    ) -> Self {
+    pub fn set_no_action_email(mut self, input: ::std::option::Option<crate::types::NotifyEmailType>) -> Self {
         self.no_action_email = input;
         self
     }
@@ -148,10 +140,7 @@ impl NotifyConfigurationTypeBuilder {
         self
     }
     /// <p>The template for the email message that your user pool sends when MFA is challenged in response to a detected risk.</p>
-    pub fn set_mfa_email(
-        mut self,
-        input: ::std::option::Option<crate::types::NotifyEmailType>,
-    ) -> Self {
+    pub fn set_mfa_email(mut self, input: ::std::option::Option<crate::types::NotifyEmailType>) -> Self {
         self.mfa_email = input;
         self
     }
@@ -162,12 +151,7 @@ impl NotifyConfigurationTypeBuilder {
     /// Consumes the builder and constructs a [`NotifyConfigurationType`](crate::types::NotifyConfigurationType).
     /// This method will fail if any of the following fields are not set:
     /// - [`source_arn`](crate::types::builders::NotifyConfigurationTypeBuilder::source_arn)
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<
-        crate::types::NotifyConfigurationType,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    pub fn build(self) -> ::std::result::Result<crate::types::NotifyConfigurationType, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::NotifyConfigurationType {
             from: self.from,
             reply_to: self.reply_to,

@@ -13,12 +13,7 @@ impl super::Client {
     ///   - [`cloud_front_domain(Option<String>)`](crate::operation::update_user_pool_domain::UpdateUserPoolDomainOutput::cloud_front_domain): <p>The fully-qualified domain name (FQDN) of the Amazon CloudFront distribution that hosts your managed login or classic hosted UI pages. You domain-name authority must have an alias record that points requests for your custom domain to this FQDN. Amazon Cognito returns this value if you set a custom domain with <code>CustomDomainConfig</code>. If you set an Amazon Cognito prefix domain, this operation returns a blank response.</p>
     ///   - [`routing(Option<RoutingType>)`](crate::operation::update_user_pool_domain::UpdateUserPoolDomainOutput::routing): <p>The updated routing configuration for the user pool domain.</p>
     /// - On failure, responds with [`SdkError<UpdateUserPoolDomainError>`](crate::operation::update_user_pool_domain::UpdateUserPoolDomainError)
-    pub fn update_user_pool_domain(
-        &self,
-    ) -> crate::operation::update_user_pool_domain::builders::UpdateUserPoolDomainFluentBuilder
-    {
-        crate::operation::update_user_pool_domain::builders::UpdateUserPoolDomainFluentBuilder::new(
-            self.handle.clone(),
-        )
+    pub fn update_user_pool_domain(&self) -> crate::operation::update_user_pool_domain::builders::UpdateUserPoolDomainFluentBuilder {
+        crate::operation::update_user_pool_domain::builders::UpdateUserPoolDomainFluentBuilder::new(self.handle.clone())
     }
 }

@@ -16,18 +16,14 @@ impl ::aws_types::request_id::RequestId for VerifyUserAttributeOutput {
 #[cfg(feature = "op_verify_user_attribute")]
 impl VerifyUserAttributeOutput {
     /// Creates a new builder-style object to manufacture [`VerifyUserAttributeOutput`](crate::operation::verify_user_attribute::VerifyUserAttributeOutput).
-    pub fn builder(
-    ) -> crate::operation::verify_user_attribute::builders::VerifyUserAttributeOutputBuilder {
-        crate::operation::verify_user_attribute::builders::VerifyUserAttributeOutputBuilder::default(
-        )
+    pub fn builder() -> crate::operation::verify_user_attribute::builders::VerifyUserAttributeOutputBuilder {
+        crate::operation::verify_user_attribute::builders::VerifyUserAttributeOutputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_verify_user_attribute")]
 /// A builder for [`VerifyUserAttributeOutput`](crate::operation::verify_user_attribute::VerifyUserAttributeOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct VerifyUserAttributeOutputBuilder {
     _request_id: Option<String>,

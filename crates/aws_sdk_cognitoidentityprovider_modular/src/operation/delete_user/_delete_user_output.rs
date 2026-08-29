@@ -22,9 +22,7 @@ impl DeleteUserOutput {
 
 #[cfg(feature = "op_delete_user")]
 /// A builder for [`DeleteUserOutput`](crate::operation::delete_user::DeleteUserOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct DeleteUserOutputBuilder {
     _request_id: Option<String>,

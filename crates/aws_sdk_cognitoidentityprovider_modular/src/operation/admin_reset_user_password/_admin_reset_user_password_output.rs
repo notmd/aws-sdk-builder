@@ -16,18 +16,14 @@ impl ::aws_types::request_id::RequestId for AdminResetUserPasswordOutput {
 #[cfg(feature = "op_admin_reset_user_password")]
 impl AdminResetUserPasswordOutput {
     /// Creates a new builder-style object to manufacture [`AdminResetUserPasswordOutput`](crate::operation::admin_reset_user_password::AdminResetUserPasswordOutput).
-    pub fn builder(
-    ) -> crate::operation::admin_reset_user_password::builders::AdminResetUserPasswordOutputBuilder
-    {
+    pub fn builder() -> crate::operation::admin_reset_user_password::builders::AdminResetUserPasswordOutputBuilder {
         crate::operation::admin_reset_user_password::builders::AdminResetUserPasswordOutputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_admin_reset_user_password")]
 /// A builder for [`AdminResetUserPasswordOutput`](crate::operation::admin_reset_user_password::AdminResetUserPasswordOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct AdminResetUserPasswordOutputBuilder {
     _request_id: Option<String>,
@@ -44,9 +40,7 @@ impl AdminResetUserPasswordOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`AdminResetUserPasswordOutput`](crate::operation::admin_reset_user_password::AdminResetUserPasswordOutput).
-    pub fn build(
-        self,
-    ) -> crate::operation::admin_reset_user_password::AdminResetUserPasswordOutput {
+    pub fn build(self) -> crate::operation::admin_reset_user_password::AdminResetUserPasswordOutput {
         crate::operation::admin_reset_user_password::AdminResetUserPasswordOutput {
             _request_id: self._request_id,
         }

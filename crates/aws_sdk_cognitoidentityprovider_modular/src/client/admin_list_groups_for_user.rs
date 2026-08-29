@@ -12,10 +12,7 @@ impl super::Client {
     ///   - [`groups(Option<Vec::<GroupType>>)`](crate::operation::admin_list_groups_for_user::AdminListGroupsForUserOutput::groups): <p>An array of groups and information about them.</p>
     ///   - [`next_token(Option<String>)`](crate::operation::admin_list_groups_for_user::AdminListGroupsForUserOutput::next_token): <p>The identifier that Amazon Cognito returned with the previous request to this operation. When you include a pagination token in your request, Amazon Cognito returns the next set of items in the list. By use of this token, you can paginate through the full list of items.</p>
     /// - On failure, responds with [`SdkError<AdminListGroupsForUserError>`](crate::operation::admin_list_groups_for_user::AdminListGroupsForUserError)
-    pub fn admin_list_groups_for_user(
-        &self,
-    ) -> crate::operation::admin_list_groups_for_user::builders::AdminListGroupsForUserFluentBuilder
-    {
+    pub fn admin_list_groups_for_user(&self) -> crate::operation::admin_list_groups_for_user::builders::AdminListGroupsForUserFluentBuilder {
         crate::operation::admin_list_groups_for_user::builders::AdminListGroupsForUserFluentBuilder::new(self.handle.clone())
     }
 }

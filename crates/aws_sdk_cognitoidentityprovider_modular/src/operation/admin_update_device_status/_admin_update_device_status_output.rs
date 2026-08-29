@@ -16,18 +16,14 @@ impl ::aws_types::request_id::RequestId for AdminUpdateDeviceStatusOutput {
 #[cfg(feature = "op_admin_update_device_status")]
 impl AdminUpdateDeviceStatusOutput {
     /// Creates a new builder-style object to manufacture [`AdminUpdateDeviceStatusOutput`](crate::operation::admin_update_device_status::AdminUpdateDeviceStatusOutput).
-    pub fn builder(
-    ) -> crate::operation::admin_update_device_status::builders::AdminUpdateDeviceStatusOutputBuilder
-    {
+    pub fn builder() -> crate::operation::admin_update_device_status::builders::AdminUpdateDeviceStatusOutputBuilder {
         crate::operation::admin_update_device_status::builders::AdminUpdateDeviceStatusOutputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_admin_update_device_status")]
 /// A builder for [`AdminUpdateDeviceStatusOutput`](crate::operation::admin_update_device_status::AdminUpdateDeviceStatusOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct AdminUpdateDeviceStatusOutputBuilder {
     _request_id: Option<String>,
@@ -44,9 +40,7 @@ impl AdminUpdateDeviceStatusOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`AdminUpdateDeviceStatusOutput`](crate::operation::admin_update_device_status::AdminUpdateDeviceStatusOutput).
-    pub fn build(
-        self,
-    ) -> crate::operation::admin_update_device_status::AdminUpdateDeviceStatusOutput {
+    pub fn build(self) -> crate::operation::admin_update_device_status::AdminUpdateDeviceStatusOutput {
         crate::operation::admin_update_device_status::AdminUpdateDeviceStatusOutput {
             _request_id: self._request_id,
         }

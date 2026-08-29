@@ -46,9 +46,7 @@ impl ::std::fmt::Debug for AdminListGroupsForUserInput {
 #[cfg(feature = "op_admin_list_groups_for_user")]
 impl AdminListGroupsForUserInput {
     /// Creates a new builder-style object to manufacture [`AdminListGroupsForUserInput`](crate::operation::admin_list_groups_for_user::AdminListGroupsForUserInput).
-    pub fn builder(
-    ) -> crate::operation::admin_list_groups_for_user::builders::AdminListGroupsForUserInputBuilder
-    {
+    pub fn builder() -> crate::operation::admin_list_groups_for_user::builders::AdminListGroupsForUserInputBuilder {
         crate::operation::admin_list_groups_for_user::builders::AdminListGroupsForUserInputBuilder::default()
     }
 }
@@ -130,14 +128,12 @@ impl AdminListGroupsForUserInputBuilder {
         crate::operation::admin_list_groups_for_user::AdminListGroupsForUserInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(
-            crate::operation::admin_list_groups_for_user::AdminListGroupsForUserInput {
-                username: self.username,
-                user_pool_id: self.user_pool_id,
-                limit: self.limit,
-                next_token: self.next_token,
-            },
-        )
+        ::std::result::Result::Ok(crate::operation::admin_list_groups_for_user::AdminListGroupsForUserInput {
+            username: self.username,
+            user_pool_id: self.user_pool_id,
+            limit: self.limit,
+            next_token: self.next_token,
+        })
     }
 }
 #[cfg(feature = "op_admin_list_groups_for_user")]

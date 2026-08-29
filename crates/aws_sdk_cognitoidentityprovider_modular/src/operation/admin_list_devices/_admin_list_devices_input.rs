@@ -47,8 +47,7 @@ impl ::std::fmt::Debug for AdminListDevicesInput {
 #[cfg(feature = "op_admin_list_devices")]
 impl AdminListDevicesInput {
     /// Creates a new builder-style object to manufacture [`AdminListDevicesInput`](crate::operation::admin_list_devices::AdminListDevicesInput).
-    pub fn builder() -> crate::operation::admin_list_devices::builders::AdminListDevicesInputBuilder
-    {
+    pub fn builder() -> crate::operation::admin_list_devices::builders::AdminListDevicesInputBuilder {
         crate::operation::admin_list_devices::builders::AdminListDevicesInputBuilder::default()
     }
 }
@@ -110,18 +109,12 @@ impl AdminListDevicesInputBuilder {
         &self.limit
     }
     /// <p>This API operation returns a limited number of results. The pagination token is an identifier that you can present in an additional API request with the same parameters. When you include the pagination token, Amazon Cognito returns the next set of items after the current list. Subsequent requests return a new pagination token. By use of this token, you can paginate through the full list of items.</p>
-    pub fn pagination_token(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn pagination_token(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.pagination_token = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>This API operation returns a limited number of results. The pagination token is an identifier that you can present in an additional API request with the same parameters. When you include the pagination token, Amazon Cognito returns the next set of items after the current list. Subsequent requests return a new pagination token. By use of this token, you can paginate through the full list of items.</p>
-    pub fn set_pagination_token(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_pagination_token(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.pagination_token = input;
         self
     }
@@ -132,18 +125,13 @@ impl AdminListDevicesInputBuilder {
     /// Consumes the builder and constructs a [`AdminListDevicesInput`](crate::operation::admin_list_devices::AdminListDevicesInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        crate::operation::admin_list_devices::AdminListDevicesInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
-        ::std::result::Result::Ok(
-            crate::operation::admin_list_devices::AdminListDevicesInput {
-                user_pool_id: self.user_pool_id,
-                username: self.username,
-                limit: self.limit,
-                pagination_token: self.pagination_token,
-            },
-        )
+    ) -> ::std::result::Result<crate::operation::admin_list_devices::AdminListDevicesInput, ::aws_smithy_types::error::operation::BuildError> {
+        ::std::result::Result::Ok(crate::operation::admin_list_devices::AdminListDevicesInput {
+            user_pool_id: self.user_pool_id,
+            username: self.username,
+            limit: self.limit,
+            pagination_token: self.pagination_token,
+        })
     }
 }
 #[cfg(feature = "op_admin_list_devices")]

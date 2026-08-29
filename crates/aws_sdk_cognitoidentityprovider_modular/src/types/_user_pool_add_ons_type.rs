@@ -8,8 +8,7 @@ pub struct UserPoolAddOnsType {
     /// <p>The operating mode of threat protection for standard authentication types in your user pool, including username-password and secure remote password (SRP) authentication.</p>
     pub advanced_security_mode: crate::types::AdvancedSecurityModeType,
     /// <p>Threat protection configuration options for additional authentication types in your user pool, including custom authentication.</p>
-    pub advanced_security_additional_flows:
-        ::std::option::Option<crate::types::AdvancedSecurityAdditionalFlowsType>,
+    pub advanced_security_additional_flows: ::std::option::Option<crate::types::AdvancedSecurityAdditionalFlowsType>,
 }
 impl UserPoolAddOnsType {
     /// <p>The operating mode of threat protection for standard authentication types in your user pool, including username-password and secure remote password (SRP) authentication.</p>
@@ -17,9 +16,7 @@ impl UserPoolAddOnsType {
         &self.advanced_security_mode
     }
     /// <p>Threat protection configuration options for additional authentication types in your user pool, including custom authentication.</p>
-    pub fn advanced_security_additional_flows(
-        &self,
-    ) -> ::std::option::Option<&crate::types::AdvancedSecurityAdditionalFlowsType> {
+    pub fn advanced_security_additional_flows(&self) -> ::std::option::Option<&crate::types::AdvancedSecurityAdditionalFlowsType> {
         self.advanced_security_additional_flows.as_ref()
     }
 }
@@ -31,15 +28,11 @@ impl UserPoolAddOnsType {
 }
 
 /// A builder for [`UserPoolAddOnsType`](crate::types::UserPoolAddOnsType).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct UserPoolAddOnsTypeBuilder {
-    pub(crate) advanced_security_mode:
-        ::std::option::Option<crate::types::AdvancedSecurityModeType>,
-    pub(crate) advanced_security_additional_flows:
-        ::std::option::Option<crate::types::AdvancedSecurityAdditionalFlowsType>,
+    pub(crate) advanced_security_mode: ::std::option::Option<crate::types::AdvancedSecurityModeType>,
+    pub(crate) advanced_security_additional_flows: ::std::option::Option<crate::types::AdvancedSecurityAdditionalFlowsType>,
 }
 impl UserPoolAddOnsTypeBuilder {
     /// <p>The operating mode of threat protection for standard authentication types in your user pool, including username-password and secure remote password (SRP) authentication.</p>
@@ -49,50 +42,32 @@ impl UserPoolAddOnsTypeBuilder {
         self
     }
     /// <p>The operating mode of threat protection for standard authentication types in your user pool, including username-password and secure remote password (SRP) authentication.</p>
-    pub fn set_advanced_security_mode(
-        mut self,
-        input: ::std::option::Option<crate::types::AdvancedSecurityModeType>,
-    ) -> Self {
+    pub fn set_advanced_security_mode(mut self, input: ::std::option::Option<crate::types::AdvancedSecurityModeType>) -> Self {
         self.advanced_security_mode = input;
         self
     }
     /// <p>The operating mode of threat protection for standard authentication types in your user pool, including username-password and secure remote password (SRP) authentication.</p>
-    pub fn get_advanced_security_mode(
-        &self,
-    ) -> &::std::option::Option<crate::types::AdvancedSecurityModeType> {
+    pub fn get_advanced_security_mode(&self) -> &::std::option::Option<crate::types::AdvancedSecurityModeType> {
         &self.advanced_security_mode
     }
     /// <p>Threat protection configuration options for additional authentication types in your user pool, including custom authentication.</p>
-    pub fn advanced_security_additional_flows(
-        mut self,
-        input: crate::types::AdvancedSecurityAdditionalFlowsType,
-    ) -> Self {
+    pub fn advanced_security_additional_flows(mut self, input: crate::types::AdvancedSecurityAdditionalFlowsType) -> Self {
         self.advanced_security_additional_flows = ::std::option::Option::Some(input);
         self
     }
     /// <p>Threat protection configuration options for additional authentication types in your user pool, including custom authentication.</p>
-    pub fn set_advanced_security_additional_flows(
-        mut self,
-        input: ::std::option::Option<crate::types::AdvancedSecurityAdditionalFlowsType>,
-    ) -> Self {
+    pub fn set_advanced_security_additional_flows(mut self, input: ::std::option::Option<crate::types::AdvancedSecurityAdditionalFlowsType>) -> Self {
         self.advanced_security_additional_flows = input;
         self
     }
     /// <p>Threat protection configuration options for additional authentication types in your user pool, including custom authentication.</p>
-    pub fn get_advanced_security_additional_flows(
-        &self,
-    ) -> &::std::option::Option<crate::types::AdvancedSecurityAdditionalFlowsType> {
+    pub fn get_advanced_security_additional_flows(&self) -> &::std::option::Option<crate::types::AdvancedSecurityAdditionalFlowsType> {
         &self.advanced_security_additional_flows
     }
     /// Consumes the builder and constructs a [`UserPoolAddOnsType`](crate::types::UserPoolAddOnsType).
     /// This method will fail if any of the following fields are not set:
     /// - [`advanced_security_mode`](crate::types::builders::UserPoolAddOnsTypeBuilder::advanced_security_mode)
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<
-        crate::types::UserPoolAddOnsType,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    pub fn build(self) -> ::std::result::Result<crate::types::UserPoolAddOnsType, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::UserPoolAddOnsType {
             advanced_security_mode: self.advanced_security_mode.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

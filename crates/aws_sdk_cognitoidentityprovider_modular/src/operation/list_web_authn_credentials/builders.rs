@@ -33,8 +33,7 @@ impl crate::operation::list_web_authn_credentials::builders::ListWebAuthnCredent
 #[derive(::std::clone::Clone, ::std::fmt::Debug)]
 pub struct ListWebAuthnCredentialsFluentBuilder {
     handle: ::std::sync::Arc<crate::client::Handle>,
-    inner:
-        crate::operation::list_web_authn_credentials::builders::ListWebAuthnCredentialsInputBuilder,
+    inner: crate::operation::list_web_authn_credentials::builders::ListWebAuthnCredentialsInputBuilder,
     config_override: ::std::option::Option<crate::config::Builder>,
 }
 #[cfg(feature = "op_list_web_authn_credentials")]
@@ -67,10 +66,7 @@ impl ListWebAuthnCredentialsFluentBuilder {
         }
     }
     /// Access the ListWebAuthnCredentials as a reference.
-    pub fn as_input(
-        &self,
-    ) -> &crate::operation::list_web_authn_credentials::builders::ListWebAuthnCredentialsInputBuilder
-    {
+    pub fn as_input(&self) -> &crate::operation::list_web_authn_credentials::builders::ListWebAuthnCredentialsInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -99,11 +95,7 @@ impl ListWebAuthnCredentialsFluentBuilder {
             &self.handle.conf,
             self.config_override,
         );
-        crate::operation::list_web_authn_credentials::ListWebAuthnCredentials::orchestrate(
-            &runtime_plugins,
-            input,
-        )
-        .await
+        crate::operation::list_web_authn_credentials::ListWebAuthnCredentials::orchestrate(&runtime_plugins, input).await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -116,18 +108,12 @@ impl ListWebAuthnCredentialsFluentBuilder {
     > {
         crate::client::customize::CustomizableOperation::new(self)
     }
-    pub(crate) fn config_override(
-        mut self,
-        config_override: impl ::std::convert::Into<crate::config::Builder>,
-    ) -> Self {
+    pub(crate) fn config_override(mut self, config_override: impl ::std::convert::Into<crate::config::Builder>) -> Self {
         self.set_config_override(::std::option::Option::Some(config_override.into()));
         self
     }
 
-    pub(crate) fn set_config_override(
-        &mut self,
-        config_override: ::std::option::Option<crate::config::Builder>,
-    ) -> &mut Self {
+    pub(crate) fn set_config_override(&mut self, config_override: ::std::option::Option<crate::config::Builder>) -> &mut Self {
         self.config_override = config_override;
         self
     }

@@ -24,18 +24,14 @@ impl DescribeUserImportJobInput {
 #[cfg(feature = "op_describe_user_import_job")]
 impl DescribeUserImportJobInput {
     /// Creates a new builder-style object to manufacture [`DescribeUserImportJobInput`](crate::operation::describe_user_import_job::DescribeUserImportJobInput).
-    pub fn builder(
-    ) -> crate::operation::describe_user_import_job::builders::DescribeUserImportJobInputBuilder
-    {
+    pub fn builder() -> crate::operation::describe_user_import_job::builders::DescribeUserImportJobInputBuilder {
         crate::operation::describe_user_import_job::builders::DescribeUserImportJobInputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_describe_user_import_job")]
 /// A builder for [`DescribeUserImportJobInput`](crate::operation::describe_user_import_job::DescribeUserImportJobInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct DescribeUserImportJobInputBuilder {
     pub(crate) user_pool_id: ::std::option::Option<::std::string::String>,
@@ -76,15 +72,11 @@ impl DescribeUserImportJobInputBuilder {
     /// Consumes the builder and constructs a [`DescribeUserImportJobInput`](crate::operation::describe_user_import_job::DescribeUserImportJobInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        crate::operation::describe_user_import_job::DescribeUserImportJobInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
-        ::std::result::Result::Ok(
-            crate::operation::describe_user_import_job::DescribeUserImportJobInput {
-                user_pool_id: self.user_pool_id,
-                job_id: self.job_id,
-            },
-        )
+    ) -> ::std::result::Result<crate::operation::describe_user_import_job::DescribeUserImportJobInput, ::aws_smithy_types::error::operation::BuildError>
+    {
+        ::std::result::Result::Ok(crate::operation::describe_user_import_job::DescribeUserImportJobInput {
+            user_pool_id: self.user_pool_id,
+            job_id: self.job_id,
+        })
     }
 }

@@ -11,9 +11,7 @@ pub struct DescribeUserPoolDomainOutput {
 #[cfg(feature = "op_describe_user_pool_domain")]
 impl DescribeUserPoolDomainOutput {
     /// <p>The details of the requested user pool domain.</p>
-    pub fn domain_description(
-        &self,
-    ) -> ::std::option::Option<&crate::types::DomainDescriptionType> {
+    pub fn domain_description(&self) -> ::std::option::Option<&crate::types::DomainDescriptionType> {
         self.domain_description.as_ref()
     }
 }
@@ -26,18 +24,14 @@ impl ::aws_types::request_id::RequestId for DescribeUserPoolDomainOutput {
 #[cfg(feature = "op_describe_user_pool_domain")]
 impl DescribeUserPoolDomainOutput {
     /// Creates a new builder-style object to manufacture [`DescribeUserPoolDomainOutput`](crate::operation::describe_user_pool_domain::DescribeUserPoolDomainOutput).
-    pub fn builder(
-    ) -> crate::operation::describe_user_pool_domain::builders::DescribeUserPoolDomainOutputBuilder
-    {
+    pub fn builder() -> crate::operation::describe_user_pool_domain::builders::DescribeUserPoolDomainOutputBuilder {
         crate::operation::describe_user_pool_domain::builders::DescribeUserPoolDomainOutputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_describe_user_pool_domain")]
 /// A builder for [`DescribeUserPoolDomainOutput`](crate::operation::describe_user_pool_domain::DescribeUserPoolDomainOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct DescribeUserPoolDomainOutputBuilder {
     pub(crate) domain_description: ::std::option::Option<crate::types::DomainDescriptionType>,
@@ -51,17 +45,12 @@ impl DescribeUserPoolDomainOutputBuilder {
         self
     }
     /// <p>The details of the requested user pool domain.</p>
-    pub fn set_domain_description(
-        mut self,
-        input: ::std::option::Option<crate::types::DomainDescriptionType>,
-    ) -> Self {
+    pub fn set_domain_description(mut self, input: ::std::option::Option<crate::types::DomainDescriptionType>) -> Self {
         self.domain_description = input;
         self
     }
     /// <p>The details of the requested user pool domain.</p>
-    pub fn get_domain_description(
-        &self,
-    ) -> &::std::option::Option<crate::types::DomainDescriptionType> {
+    pub fn get_domain_description(&self) -> &::std::option::Option<crate::types::DomainDescriptionType> {
         &self.domain_description
     }
     pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
@@ -74,9 +63,7 @@ impl DescribeUserPoolDomainOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`DescribeUserPoolDomainOutput`](crate::operation::describe_user_pool_domain::DescribeUserPoolDomainOutput).
-    pub fn build(
-        self,
-    ) -> crate::operation::describe_user_pool_domain::DescribeUserPoolDomainOutput {
+    pub fn build(self) -> crate::operation::describe_user_pool_domain::DescribeUserPoolDomainOutput {
         crate::operation::describe_user_pool_domain::DescribeUserPoolDomainOutput {
             domain_description: self.domain_description,
             _request_id: self._request_id,

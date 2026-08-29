@@ -12,9 +12,7 @@ pub struct GetUserAttributeVerificationCodeOutput {
 #[cfg(feature = "op_get_user_attribute_verification_code")]
 impl GetUserAttributeVerificationCodeOutput {
     /// <p>Information about the delivery destination of the user attribute verification code.</p>
-    pub fn code_delivery_details(
-        &self,
-    ) -> ::std::option::Option<&crate::types::CodeDeliveryDetailsType> {
+    pub fn code_delivery_details(&self) -> ::std::option::Option<&crate::types::CodeDeliveryDetailsType> {
         self.code_delivery_details.as_ref()
     }
 }
@@ -27,16 +25,14 @@ impl ::aws_types::request_id::RequestId for GetUserAttributeVerificationCodeOutp
 #[cfg(feature = "op_get_user_attribute_verification_code")]
 impl GetUserAttributeVerificationCodeOutput {
     /// Creates a new builder-style object to manufacture [`GetUserAttributeVerificationCodeOutput`](crate::operation::get_user_attribute_verification_code::GetUserAttributeVerificationCodeOutput).
-    pub fn builder() -> crate::operation::get_user_attribute_verification_code::builders::GetUserAttributeVerificationCodeOutputBuilder{
+    pub fn builder() -> crate::operation::get_user_attribute_verification_code::builders::GetUserAttributeVerificationCodeOutputBuilder {
         crate::operation::get_user_attribute_verification_code::builders::GetUserAttributeVerificationCodeOutputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_get_user_attribute_verification_code")]
 /// A builder for [`GetUserAttributeVerificationCodeOutput`](crate::operation::get_user_attribute_verification_code::GetUserAttributeVerificationCodeOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct GetUserAttributeVerificationCodeOutputBuilder {
     pub(crate) code_delivery_details: ::std::option::Option<crate::types::CodeDeliveryDetailsType>,
@@ -50,17 +46,12 @@ impl GetUserAttributeVerificationCodeOutputBuilder {
         self
     }
     /// <p>Information about the delivery destination of the user attribute verification code.</p>
-    pub fn set_code_delivery_details(
-        mut self,
-        input: ::std::option::Option<crate::types::CodeDeliveryDetailsType>,
-    ) -> Self {
+    pub fn set_code_delivery_details(mut self, input: ::std::option::Option<crate::types::CodeDeliveryDetailsType>) -> Self {
         self.code_delivery_details = input;
         self
     }
     /// <p>Information about the delivery destination of the user attribute verification code.</p>
-    pub fn get_code_delivery_details(
-        &self,
-    ) -> &::std::option::Option<crate::types::CodeDeliveryDetailsType> {
+    pub fn get_code_delivery_details(&self) -> &::std::option::Option<crate::types::CodeDeliveryDetailsType> {
         &self.code_delivery_details
     }
     pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
@@ -73,7 +64,7 @@ impl GetUserAttributeVerificationCodeOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`GetUserAttributeVerificationCodeOutput`](crate::operation::get_user_attribute_verification_code::GetUserAttributeVerificationCodeOutput).
-    pub fn build(self) -> crate::operation::get_user_attribute_verification_code::GetUserAttributeVerificationCodeOutput{
+    pub fn build(self) -> crate::operation::get_user_attribute_verification_code::GetUserAttributeVerificationCodeOutput {
         crate::operation::get_user_attribute_verification_code::GetUserAttributeVerificationCodeOutput {
             code_delivery_details: self.code_delivery_details,
             _request_id: self._request_id,

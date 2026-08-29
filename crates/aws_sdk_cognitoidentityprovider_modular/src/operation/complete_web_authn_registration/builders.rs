@@ -64,7 +64,7 @@ impl CompleteWebAuthnRegistrationFluentBuilder {
         }
     }
     /// Access the CompleteWebAuthnRegistration as a reference.
-    pub fn as_input(&self) -> &crate::operation::complete_web_authn_registration::builders::CompleteWebAuthnRegistrationInputBuilder{
+    pub fn as_input(&self) -> &crate::operation::complete_web_authn_registration::builders::CompleteWebAuthnRegistrationInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -106,18 +106,12 @@ impl CompleteWebAuthnRegistrationFluentBuilder {
     > {
         crate::client::customize::CustomizableOperation::new(self)
     }
-    pub(crate) fn config_override(
-        mut self,
-        config_override: impl ::std::convert::Into<crate::config::Builder>,
-    ) -> Self {
+    pub(crate) fn config_override(mut self, config_override: impl ::std::convert::Into<crate::config::Builder>) -> Self {
         self.set_config_override(::std::option::Option::Some(config_override.into()));
         self
     }
 
-    pub(crate) fn set_config_override(
-        &mut self,
-        config_override: ::std::option::Option<crate::config::Builder>,
-    ) -> &mut Self {
+    pub(crate) fn set_config_override(&mut self, config_override: ::std::option::Option<crate::config::Builder>) -> &mut Self {
         self.config_override = config_override;
         self
     }
@@ -141,10 +135,7 @@ impl CompleteWebAuthnRegistrationFluentBuilder {
         self
     }
     /// <p>A <a href="https://www.w3.org/TR/WebAuthn-3/#dictdef-registrationresponsejson">RegistrationResponseJSON</a> public-key credential response from the user's passkey provider.</p>
-    pub fn set_credential(
-        mut self,
-        input: ::std::option::Option<::aws_smithy_types::Document>,
-    ) -> Self {
+    pub fn set_credential(mut self, input: ::std::option::Option<::aws_smithy_types::Document>) -> Self {
         self.inner = self.inner.set_credential(input);
         self
     }

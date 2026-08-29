@@ -9,23 +9,17 @@ pub fn de_admin_get_user_auth_factors_http_error(
     crate::operation::admin_get_user_auth_factors::AdminGetUserAuthFactorsError,
 > {
     #[allow(unused_mut)]
-    let mut generic_builder = crate::protocol_serde::parse_http_error_metadata(
-        _response_status,
-        _response_headers,
-        _response_body,
-    )
-    .map_err(
-        crate::operation::admin_get_user_auth_factors::AdminGetUserAuthFactorsError::unhandled,
-    )?;
+    let mut generic_builder = crate::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
+        .map_err(crate::operation::admin_get_user_auth_factors::AdminGetUserAuthFactorsError::unhandled)?;
     generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
     let generic = generic_builder.build();
     let error_code = match generic.code() {
         Some(code) => code,
-        None => return Err(
-            crate::operation::admin_get_user_auth_factors::AdminGetUserAuthFactorsError::unhandled(
+        None => {
+            return Err(crate::operation::admin_get_user_auth_factors::AdminGetUserAuthFactorsError::unhandled(
                 generic,
-            ),
-        ),
+            ))
+        }
     };
 
     let _error_message = generic.message().map(|msg| msg.to_owned());
@@ -158,9 +152,7 @@ pub fn de_admin_get_user_auth_factors_http_response(
         let mut output = crate::operation::admin_get_user_auth_factors::builders::AdminGetUserAuthFactorsOutputBuilder::default();
         output = crate::protocol_serde::shape_admin_get_user_auth_factors::de_admin_get_user_auth_factors(_response_body, output)
             .map_err(crate::operation::admin_get_user_auth_factors::AdminGetUserAuthFactorsError::unhandled)?;
-        output._set_request_id(
-            ::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string),
-        );
+        output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
         crate::serde_util::admin_get_user_auth_factors_output_output_correct_errors(output)
             .build()
             .map_err(crate::operation::admin_get_user_auth_factors::AdminGetUserAuthFactorsError::unhandled)?
@@ -169,10 +161,7 @@ pub fn de_admin_get_user_auth_factors_http_response(
 
 pub fn ser_admin_get_user_auth_factors_input(
     input: &crate::operation::admin_get_user_auth_factors::AdminGetUserAuthFactorsInput,
-) -> ::std::result::Result<
-    ::aws_smithy_types::body::SdkBody,
-    ::aws_smithy_types::error::operation::SerializationError,
-> {
+) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
     let mut out = String::new();
     let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
     crate::protocol_serde::shape_admin_get_user_auth_factors_input::ser_admin_get_user_auth_factors_input_input(&mut object, input)?;
@@ -187,10 +176,7 @@ pub(crate) fn de_admin_get_user_auth_factors(
     crate::operation::admin_get_user_auth_factors::builders::AdminGetUserAuthFactorsOutputBuilder,
     ::aws_smithy_json::deserialize::error::DeserializeError,
 > {
-    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(
-        crate::protocol_serde::or_empty_doc(_value),
-    )
-    .peekable();
+    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(crate::protocol_serde::or_empty_doc(_value)).peekable();
     let tokens = &mut tokens_owned;
     #[allow(unused_variables)]
     let depth = 0u32;
@@ -198,58 +184,48 @@ pub(crate) fn de_admin_get_user_auth_factors(
     loop {
         match tokens.next().transpose()? {
             Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
-            Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => {
-                match key.to_unescaped()?.as_ref() {
-                    "Username" => {
-                        builder = builder.set_username(
-                            ::aws_smithy_json::deserialize::token::expect_string_or_null(
-                                tokens.next(),
-                            )?
+            Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
+                "Username" => {
+                    builder = builder.set_username(
+                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
                             .map(|s| s.to_unescaped().map(|u| u.into_owned()))
                             .transpose()?,
-                        );
-                    }
-                    "PreferredMfaSetting" => {
-                        builder = builder.set_preferred_mfa_setting(
-                            ::aws_smithy_json::deserialize::token::expect_string_or_null(
-                                tokens.next(),
-                            )?
+                    );
+                }
+                "PreferredMfaSetting" => {
+                    builder = builder.set_preferred_mfa_setting(
+                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
                             .map(|s| s.to_unescaped().map(|u| u.into_owned()))
                             .transpose()?,
-                        );
-                    }
-                    "UserMFASettingList" => {
-                        builder = builder.set_user_mfa_setting_list(
+                    );
+                }
+                "UserMFASettingList" => {
+                    builder = builder.set_user_mfa_setting_list(
                         crate::protocol_serde::shape_user_mfa_setting_list_type::de_user_mfa_setting_list_type(tokens, _value, depth + 1)?,
                     );
-                    }
-                    "ConfiguredUserAuthFactors" => {
-                        builder = builder.set_configured_user_auth_factors(
+                }
+                "ConfiguredUserAuthFactors" => {
+                    builder = builder.set_configured_user_auth_factors(
                         crate::protocol_serde::shape_configured_user_auth_factors_list_type::de_configured_user_auth_factors_list_type(
                             tokens,
                             _value,
                             depth + 1,
                         )?,
                     );
-                    }
-                    _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
                 }
-            }
+                _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
+            },
             other => {
-                return Err(
-                    ::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
-                        "expected object key or end object, found: {other:?}"
-                    )),
-                )
+                return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
+                    "expected object key or end object, found: {other:?}"
+                )))
             }
         }
     }
     if tokens.next().is_some() {
-        return Err(
-            ::aws_smithy_json::deserialize::error::DeserializeError::custom(
-                "found more JSON tokens after completing parsing",
-            ),
-        );
+        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
+            "found more JSON tokens after completing parsing",
+        ));
     }
     Ok(builder)
 }

@@ -39,8 +39,7 @@ impl crate::operation::admin_update_device_status::builders::AdminUpdateDeviceSt
 #[derive(::std::clone::Clone, ::std::fmt::Debug)]
 pub struct AdminUpdateDeviceStatusFluentBuilder {
     handle: ::std::sync::Arc<crate::client::Handle>,
-    inner:
-        crate::operation::admin_update_device_status::builders::AdminUpdateDeviceStatusInputBuilder,
+    inner: crate::operation::admin_update_device_status::builders::AdminUpdateDeviceStatusInputBuilder,
     config_override: ::std::option::Option<crate::config::Builder>,
 }
 #[cfg(feature = "op_admin_update_device_status")]
@@ -73,10 +72,7 @@ impl AdminUpdateDeviceStatusFluentBuilder {
         }
     }
     /// Access the AdminUpdateDeviceStatus as a reference.
-    pub fn as_input(
-        &self,
-    ) -> &crate::operation::admin_update_device_status::builders::AdminUpdateDeviceStatusInputBuilder
-    {
+    pub fn as_input(&self) -> &crate::operation::admin_update_device_status::builders::AdminUpdateDeviceStatusInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -105,11 +101,7 @@ impl AdminUpdateDeviceStatusFluentBuilder {
             &self.handle.conf,
             self.config_override,
         );
-        crate::operation::admin_update_device_status::AdminUpdateDeviceStatus::orchestrate(
-            &runtime_plugins,
-            input,
-        )
-        .await
+        crate::operation::admin_update_device_status::AdminUpdateDeviceStatus::orchestrate(&runtime_plugins, input).await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -122,18 +114,12 @@ impl AdminUpdateDeviceStatusFluentBuilder {
     > {
         crate::client::customize::CustomizableOperation::new(self)
     }
-    pub(crate) fn config_override(
-        mut self,
-        config_override: impl ::std::convert::Into<crate::config::Builder>,
-    ) -> Self {
+    pub(crate) fn config_override(mut self, config_override: impl ::std::convert::Into<crate::config::Builder>) -> Self {
         self.set_config_override(::std::option::Option::Some(config_override.into()));
         self
     }
 
-    pub(crate) fn set_config_override(
-        &mut self,
-        config_override: ::std::option::Option<crate::config::Builder>,
-    ) -> &mut Self {
+    pub(crate) fn set_config_override(&mut self, config_override: ::std::option::Option<crate::config::Builder>) -> &mut Self {
         self.config_override = config_override;
         self
     }
@@ -180,25 +166,17 @@ impl AdminUpdateDeviceStatusFluentBuilder {
         self.inner.get_device_key()
     }
     /// <p>To enable device authentication with the specified device, set to <code>remembered</code>.To disable, set to <code>not_remembered</code>.</p>
-    pub fn device_remembered_status(
-        mut self,
-        input: crate::types::DeviceRememberedStatusType,
-    ) -> Self {
+    pub fn device_remembered_status(mut self, input: crate::types::DeviceRememberedStatusType) -> Self {
         self.inner = self.inner.device_remembered_status(input);
         self
     }
     /// <p>To enable device authentication with the specified device, set to <code>remembered</code>.To disable, set to <code>not_remembered</code>.</p>
-    pub fn set_device_remembered_status(
-        mut self,
-        input: ::std::option::Option<crate::types::DeviceRememberedStatusType>,
-    ) -> Self {
+    pub fn set_device_remembered_status(mut self, input: ::std::option::Option<crate::types::DeviceRememberedStatusType>) -> Self {
         self.inner = self.inner.set_device_remembered_status(input);
         self
     }
     /// <p>To enable device authentication with the specified device, set to <code>remembered</code>.To disable, set to <code>not_remembered</code>.</p>
-    pub fn get_device_remembered_status(
-        &self,
-    ) -> &::std::option::Option<crate::types::DeviceRememberedStatusType> {
+    pub fn get_device_remembered_status(&self) -> &::std::option::Option<crate::types::DeviceRememberedStatusType> {
         self.inner.get_device_remembered_status()
     }
 }

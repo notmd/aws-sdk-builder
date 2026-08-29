@@ -33,9 +33,7 @@ impl EventRiskType {
 }
 
 /// A builder for [`EventRiskType`](crate::types::EventRiskType).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct EventRiskTypeBuilder {
     pub(crate) risk_decision: ::std::option::Option<crate::types::RiskDecisionType>,
@@ -49,10 +47,7 @@ impl EventRiskTypeBuilder {
         self
     }
     /// <p>The action taken by adaptive authentication. If <code>NoRisk</code>, your user pool took no action. If <code>AccountTakeover</code>, your user pool applied the adaptive authentication automated response that you configured. If <code>Block</code>, your user pool prevented the attempt.</p>
-    pub fn set_risk_decision(
-        mut self,
-        input: ::std::option::Option<crate::types::RiskDecisionType>,
-    ) -> Self {
+    pub fn set_risk_decision(mut self, input: ::std::option::Option<crate::types::RiskDecisionType>) -> Self {
         self.risk_decision = input;
         self
     }
@@ -66,10 +61,7 @@ impl EventRiskTypeBuilder {
         self
     }
     /// <p>The risk level that adaptive authentication assessed for the authentication event.</p>
-    pub fn set_risk_level(
-        mut self,
-        input: ::std::option::Option<crate::types::RiskLevelType>,
-    ) -> Self {
+    pub fn set_risk_level(mut self, input: ::std::option::Option<crate::types::RiskLevelType>) -> Self {
         self.risk_level = input;
         self
     }
@@ -83,10 +75,7 @@ impl EventRiskTypeBuilder {
         self
     }
     /// <p>Indicates whether compromised credentials were detected during an authentication event.</p>
-    pub fn set_compromised_credentials_detected(
-        mut self,
-        input: ::std::option::Option<bool>,
-    ) -> Self {
+    pub fn set_compromised_credentials_detected(mut self, input: ::std::option::Option<bool>) -> Self {
         self.compromised_credentials_detected = input;
         self
     }

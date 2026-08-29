@@ -30,40 +30,29 @@ impl CustomEmailLambdaVersionConfigType {
 }
 
 /// A builder for [`CustomEmailLambdaVersionConfigType`](crate::types::CustomEmailLambdaVersionConfigType).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct CustomEmailLambdaVersionConfigTypeBuilder {
-    pub(crate) lambda_version:
-        ::std::option::Option<crate::types::CustomEmailSenderLambdaVersionType>,
+    pub(crate) lambda_version: ::std::option::Option<crate::types::CustomEmailSenderLambdaVersionType>,
     pub(crate) lambda_arn: ::std::option::Option<::std::string::String>,
 }
 impl CustomEmailLambdaVersionConfigTypeBuilder {
     /// <p>The user pool trigger version of the request that Amazon Cognito sends to your Lambda function. Higher-numbered versions add fields that support new features.</p>
     /// <p>You must use a <code>LambdaVersion</code> of <code>V1_0</code> with a custom sender function.</p>
     /// This field is required.
-    pub fn lambda_version(
-        mut self,
-        input: crate::types::CustomEmailSenderLambdaVersionType,
-    ) -> Self {
+    pub fn lambda_version(mut self, input: crate::types::CustomEmailSenderLambdaVersionType) -> Self {
         self.lambda_version = ::std::option::Option::Some(input);
         self
     }
     /// <p>The user pool trigger version of the request that Amazon Cognito sends to your Lambda function. Higher-numbered versions add fields that support new features.</p>
     /// <p>You must use a <code>LambdaVersion</code> of <code>V1_0</code> with a custom sender function.</p>
-    pub fn set_lambda_version(
-        mut self,
-        input: ::std::option::Option<crate::types::CustomEmailSenderLambdaVersionType>,
-    ) -> Self {
+    pub fn set_lambda_version(mut self, input: ::std::option::Option<crate::types::CustomEmailSenderLambdaVersionType>) -> Self {
         self.lambda_version = input;
         self
     }
     /// <p>The user pool trigger version of the request that Amazon Cognito sends to your Lambda function. Higher-numbered versions add fields that support new features.</p>
     /// <p>You must use a <code>LambdaVersion</code> of <code>V1_0</code> with a custom sender function.</p>
-    pub fn get_lambda_version(
-        &self,
-    ) -> &::std::option::Option<crate::types::CustomEmailSenderLambdaVersionType> {
+    pub fn get_lambda_version(&self) -> &::std::option::Option<crate::types::CustomEmailSenderLambdaVersionType> {
         &self.lambda_version
     }
     /// <p>The Amazon Resource Name (ARN) of the function that you want to assign to your Lambda trigger.</p>
@@ -85,12 +74,7 @@ impl CustomEmailLambdaVersionConfigTypeBuilder {
     /// This method will fail if any of the following fields are not set:
     /// - [`lambda_version`](crate::types::builders::CustomEmailLambdaVersionConfigTypeBuilder::lambda_version)
     /// - [`lambda_arn`](crate::types::builders::CustomEmailLambdaVersionConfigTypeBuilder::lambda_arn)
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<
-        crate::types::CustomEmailLambdaVersionConfigType,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    pub fn build(self) -> ::std::result::Result<crate::types::CustomEmailLambdaVersionConfigType, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::CustomEmailLambdaVersionConfigType {
             lambda_version: self.lambda_version.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

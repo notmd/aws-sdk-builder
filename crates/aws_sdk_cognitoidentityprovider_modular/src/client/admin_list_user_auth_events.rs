@@ -12,10 +12,7 @@ impl super::Client {
     ///   - [`auth_events(Option<Vec::<AuthEventType>>)`](crate::operation::admin_list_user_auth_events::AdminListUserAuthEventsOutput::auth_events): <p>The response object. It includes the <code>EventID</code>, <code>EventType</code>, <code>CreationDate</code>, <code>EventRisk</code>, and <code>EventResponse</code>.</p>
     ///   - [`next_token(Option<String>)`](crate::operation::admin_list_user_auth_events::AdminListUserAuthEventsOutput::next_token): <p>The identifier that Amazon Cognito returned with the previous request to this operation. When you include a pagination token in your request, Amazon Cognito returns the next set of items in the list. By use of this token, you can paginate through the full list of items.</p>
     /// - On failure, responds with [`SdkError<AdminListUserAuthEventsError>`](crate::operation::admin_list_user_auth_events::AdminListUserAuthEventsError)
-    pub fn admin_list_user_auth_events(
-        &self,
-    ) -> crate::operation::admin_list_user_auth_events::builders::AdminListUserAuthEventsFluentBuilder
-    {
+    pub fn admin_list_user_auth_events(&self) -> crate::operation::admin_list_user_auth_events::builders::AdminListUserAuthEventsFluentBuilder {
         crate::operation::admin_list_user_auth_events::builders::AdminListUserAuthEventsFluentBuilder::new(self.handle.clone())
     }
 }

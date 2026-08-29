@@ -11,11 +11,7 @@ impl super::Client {
     ///   - [`resource_servers(Vec::<ResourceServerType>)`](crate::operation::list_resource_servers::ListResourceServersOutput::resource_servers): <p>An array of resource servers and the details of their configuration. For each, the response includes names, identifiers, and custom scopes.</p>
     ///   - [`next_token(Option<String>)`](crate::operation::list_resource_servers::ListResourceServersOutput::next_token): <p>The identifier that Amazon Cognito returned with the previous request to this operation. When you include a pagination token in your request, Amazon Cognito returns the next set of items in the list. By use of this token, you can paginate through the full list of items.</p>
     /// - On failure, responds with [`SdkError<ListResourceServersError>`](crate::operation::list_resource_servers::ListResourceServersError)
-    pub fn list_resource_servers(
-        &self,
-    ) -> crate::operation::list_resource_servers::builders::ListResourceServersFluentBuilder {
-        crate::operation::list_resource_servers::builders::ListResourceServersFluentBuilder::new(
-            self.handle.clone(),
-        )
+    pub fn list_resource_servers(&self) -> crate::operation::list_resource_servers::builders::ListResourceServersFluentBuilder {
+        crate::operation::list_resource_servers::builders::ListResourceServersFluentBuilder::new(self.handle.clone())
     }
 }

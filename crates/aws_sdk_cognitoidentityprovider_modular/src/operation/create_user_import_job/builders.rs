@@ -72,9 +72,7 @@ impl CreateUserImportJobFluentBuilder {
         }
     }
     /// Access the CreateUserImportJob as a reference.
-    pub fn as_input(
-        &self,
-    ) -> &crate::operation::create_user_import_job::builders::CreateUserImportJobInputBuilder {
+    pub fn as_input(&self) -> &crate::operation::create_user_import_job::builders::CreateUserImportJobInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -103,11 +101,7 @@ impl CreateUserImportJobFluentBuilder {
             &self.handle.conf,
             self.config_override,
         );
-        crate::operation::create_user_import_job::CreateUserImportJob::orchestrate(
-            &runtime_plugins,
-            input,
-        )
-        .await
+        crate::operation::create_user_import_job::CreateUserImportJob::orchestrate(&runtime_plugins, input).await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -120,18 +114,12 @@ impl CreateUserImportJobFluentBuilder {
     > {
         crate::client::customize::CustomizableOperation::new(self)
     }
-    pub(crate) fn config_override(
-        mut self,
-        config_override: impl ::std::convert::Into<crate::config::Builder>,
-    ) -> Self {
+    pub(crate) fn config_override(mut self, config_override: impl ::std::convert::Into<crate::config::Builder>) -> Self {
         self.set_config_override(::std::option::Option::Some(config_override.into()));
         self
     }
 
-    pub(crate) fn set_config_override(
-        &mut self,
-        config_override: ::std::option::Option<crate::config::Builder>,
-    ) -> &mut Self {
+    pub(crate) fn set_config_override(&mut self, config_override: ::std::option::Option<crate::config::Builder>) -> &mut Self {
         self.config_override = config_override;
         self
     }
@@ -164,18 +152,12 @@ impl CreateUserImportJobFluentBuilder {
         self.inner.get_user_pool_id()
     }
     /// <p>You must specify an IAM role that has permission to log import-job results to Amazon CloudWatch Logs. This parameter is the ARN of that role.</p>
-    pub fn cloud_watch_logs_role_arn(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn cloud_watch_logs_role_arn(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.cloud_watch_logs_role_arn(input.into());
         self
     }
     /// <p>You must specify an IAM role that has permission to log import-job results to Amazon CloudWatch Logs. This parameter is the ARN of that role.</p>
-    pub fn set_cloud_watch_logs_role_arn(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_cloud_watch_logs_role_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_cloud_watch_logs_role_arn(input);
         self
     }
@@ -185,27 +167,19 @@ impl CreateUserImportJobFluentBuilder {
     }
     /// <p>The password hashing algorithm used to generate the hashes in the CSV file for this import job.</p>
     /// <p>Valid values: <code>BCRYPT</code> | <code>SCRYPT</code> | <code>ARGON2ID</code> | <code>PBKDF2_SHA256</code></p>
-    pub fn password_hashing_algorithm(
-        mut self,
-        input: crate::types::PasswordHashingAlgorithmType,
-    ) -> Self {
+    pub fn password_hashing_algorithm(mut self, input: crate::types::PasswordHashingAlgorithmType) -> Self {
         self.inner = self.inner.password_hashing_algorithm(input);
         self
     }
     /// <p>The password hashing algorithm used to generate the hashes in the CSV file for this import job.</p>
     /// <p>Valid values: <code>BCRYPT</code> | <code>SCRYPT</code> | <code>ARGON2ID</code> | <code>PBKDF2_SHA256</code></p>
-    pub fn set_password_hashing_algorithm(
-        mut self,
-        input: ::std::option::Option<crate::types::PasswordHashingAlgorithmType>,
-    ) -> Self {
+    pub fn set_password_hashing_algorithm(mut self, input: ::std::option::Option<crate::types::PasswordHashingAlgorithmType>) -> Self {
         self.inner = self.inner.set_password_hashing_algorithm(input);
         self
     }
     /// <p>The password hashing algorithm used to generate the hashes in the CSV file for this import job.</p>
     /// <p>Valid values: <code>BCRYPT</code> | <code>SCRYPT</code> | <code>ARGON2ID</code> | <code>PBKDF2_SHA256</code></p>
-    pub fn get_password_hashing_algorithm(
-        &self,
-    ) -> &::std::option::Option<crate::types::PasswordHashingAlgorithmType> {
+    pub fn get_password_hashing_algorithm(&self) -> &::std::option::Option<crate::types::PasswordHashingAlgorithmType> {
         self.inner.get_password_hashing_algorithm()
     }
 }

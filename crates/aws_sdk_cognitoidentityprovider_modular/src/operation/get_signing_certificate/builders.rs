@@ -74,10 +74,7 @@ impl GetSigningCertificateFluentBuilder {
         }
     }
     /// Access the GetSigningCertificate as a reference.
-    pub fn as_input(
-        &self,
-    ) -> &crate::operation::get_signing_certificate::builders::GetSigningCertificateInputBuilder
-    {
+    pub fn as_input(&self) -> &crate::operation::get_signing_certificate::builders::GetSigningCertificateInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -106,11 +103,7 @@ impl GetSigningCertificateFluentBuilder {
             &self.handle.conf,
             self.config_override,
         );
-        crate::operation::get_signing_certificate::GetSigningCertificate::orchestrate(
-            &runtime_plugins,
-            input,
-        )
-        .await
+        crate::operation::get_signing_certificate::GetSigningCertificate::orchestrate(&runtime_plugins, input).await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -123,18 +116,12 @@ impl GetSigningCertificateFluentBuilder {
     > {
         crate::client::customize::CustomizableOperation::new(self)
     }
-    pub(crate) fn config_override(
-        mut self,
-        config_override: impl ::std::convert::Into<crate::config::Builder>,
-    ) -> Self {
+    pub(crate) fn config_override(mut self, config_override: impl ::std::convert::Into<crate::config::Builder>) -> Self {
         self.set_config_override(::std::option::Option::Some(config_override.into()));
         self
     }
 
-    pub(crate) fn set_config_override(
-        &mut self,
-        config_override: ::std::option::Option<crate::config::Builder>,
-    ) -> &mut Self {
+    pub(crate) fn set_config_override(&mut self, config_override: ::std::option::Option<crate::config::Builder>) -> &mut Self {
         self.config_override = config_override;
         self
     }

@@ -13,8 +13,7 @@ pub struct CreateUserImportJobInput {
     pub cloud_watch_logs_role_arn: ::std::option::Option<::std::string::String>,
     /// <p>The password hashing algorithm used to generate the hashes in the CSV file for this import job.</p>
     /// <p>Valid values: <code>BCRYPT</code> | <code>SCRYPT</code> | <code>ARGON2ID</code> | <code>PBKDF2_SHA256</code></p>
-    pub password_hashing_algorithm:
-        ::std::option::Option<crate::types::PasswordHashingAlgorithmType>,
+    pub password_hashing_algorithm: ::std::option::Option<crate::types::PasswordHashingAlgorithmType>,
 }
 #[cfg(feature = "op_create_user_import_job")]
 impl CreateUserImportJobInput {
@@ -32,34 +31,27 @@ impl CreateUserImportJobInput {
     }
     /// <p>The password hashing algorithm used to generate the hashes in the CSV file for this import job.</p>
     /// <p>Valid values: <code>BCRYPT</code> | <code>SCRYPT</code> | <code>ARGON2ID</code> | <code>PBKDF2_SHA256</code></p>
-    pub fn password_hashing_algorithm(
-        &self,
-    ) -> ::std::option::Option<&crate::types::PasswordHashingAlgorithmType> {
+    pub fn password_hashing_algorithm(&self) -> ::std::option::Option<&crate::types::PasswordHashingAlgorithmType> {
         self.password_hashing_algorithm.as_ref()
     }
 }
 #[cfg(feature = "op_create_user_import_job")]
 impl CreateUserImportJobInput {
     /// Creates a new builder-style object to manufacture [`CreateUserImportJobInput`](crate::operation::create_user_import_job::CreateUserImportJobInput).
-    pub fn builder(
-    ) -> crate::operation::create_user_import_job::builders::CreateUserImportJobInputBuilder {
-        crate::operation::create_user_import_job::builders::CreateUserImportJobInputBuilder::default(
-        )
+    pub fn builder() -> crate::operation::create_user_import_job::builders::CreateUserImportJobInputBuilder {
+        crate::operation::create_user_import_job::builders::CreateUserImportJobInputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_create_user_import_job")]
 /// A builder for [`CreateUserImportJobInput`](crate::operation::create_user_import_job::CreateUserImportJobInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct CreateUserImportJobInputBuilder {
     pub(crate) job_name: ::std::option::Option<::std::string::String>,
     pub(crate) user_pool_id: ::std::option::Option<::std::string::String>,
     pub(crate) cloud_watch_logs_role_arn: ::std::option::Option<::std::string::String>,
-    pub(crate) password_hashing_algorithm:
-        ::std::option::Option<crate::types::PasswordHashingAlgorithmType>,
+    pub(crate) password_hashing_algorithm: ::std::option::Option<crate::types::PasswordHashingAlgorithmType>,
 }
 #[cfg(feature = "op_create_user_import_job")]
 impl CreateUserImportJobInputBuilder {
@@ -95,18 +87,12 @@ impl CreateUserImportJobInputBuilder {
     }
     /// <p>You must specify an IAM role that has permission to log import-job results to Amazon CloudWatch Logs. This parameter is the ARN of that role.</p>
     /// This field is required.
-    pub fn cloud_watch_logs_role_arn(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn cloud_watch_logs_role_arn(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.cloud_watch_logs_role_arn = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>You must specify an IAM role that has permission to log import-job results to Amazon CloudWatch Logs. This parameter is the ARN of that role.</p>
-    pub fn set_cloud_watch_logs_role_arn(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_cloud_watch_logs_role_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.cloud_watch_logs_role_arn = input;
         self
     }
@@ -116,43 +102,31 @@ impl CreateUserImportJobInputBuilder {
     }
     /// <p>The password hashing algorithm used to generate the hashes in the CSV file for this import job.</p>
     /// <p>Valid values: <code>BCRYPT</code> | <code>SCRYPT</code> | <code>ARGON2ID</code> | <code>PBKDF2_SHA256</code></p>
-    pub fn password_hashing_algorithm(
-        mut self,
-        input: crate::types::PasswordHashingAlgorithmType,
-    ) -> Self {
+    pub fn password_hashing_algorithm(mut self, input: crate::types::PasswordHashingAlgorithmType) -> Self {
         self.password_hashing_algorithm = ::std::option::Option::Some(input);
         self
     }
     /// <p>The password hashing algorithm used to generate the hashes in the CSV file for this import job.</p>
     /// <p>Valid values: <code>BCRYPT</code> | <code>SCRYPT</code> | <code>ARGON2ID</code> | <code>PBKDF2_SHA256</code></p>
-    pub fn set_password_hashing_algorithm(
-        mut self,
-        input: ::std::option::Option<crate::types::PasswordHashingAlgorithmType>,
-    ) -> Self {
+    pub fn set_password_hashing_algorithm(mut self, input: ::std::option::Option<crate::types::PasswordHashingAlgorithmType>) -> Self {
         self.password_hashing_algorithm = input;
         self
     }
     /// <p>The password hashing algorithm used to generate the hashes in the CSV file for this import job.</p>
     /// <p>Valid values: <code>BCRYPT</code> | <code>SCRYPT</code> | <code>ARGON2ID</code> | <code>PBKDF2_SHA256</code></p>
-    pub fn get_password_hashing_algorithm(
-        &self,
-    ) -> &::std::option::Option<crate::types::PasswordHashingAlgorithmType> {
+    pub fn get_password_hashing_algorithm(&self) -> &::std::option::Option<crate::types::PasswordHashingAlgorithmType> {
         &self.password_hashing_algorithm
     }
     /// Consumes the builder and constructs a [`CreateUserImportJobInput`](crate::operation::create_user_import_job::CreateUserImportJobInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        crate::operation::create_user_import_job::CreateUserImportJobInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
-        ::std::result::Result::Ok(
-            crate::operation::create_user_import_job::CreateUserImportJobInput {
-                job_name: self.job_name,
-                user_pool_id: self.user_pool_id,
-                cloud_watch_logs_role_arn: self.cloud_watch_logs_role_arn,
-                password_hashing_algorithm: self.password_hashing_algorithm,
-            },
-        )
+    ) -> ::std::result::Result<crate::operation::create_user_import_job::CreateUserImportJobInput, ::aws_smithy_types::error::operation::BuildError>
+    {
+        ::std::result::Result::Ok(crate::operation::create_user_import_job::CreateUserImportJobInput {
+            job_name: self.job_name,
+            user_pool_id: self.user_pool_id,
+            cloud_watch_logs_role_arn: self.cloud_watch_logs_role_arn,
+            password_hashing_algorithm: self.password_hashing_algorithm,
+        })
     }
 }

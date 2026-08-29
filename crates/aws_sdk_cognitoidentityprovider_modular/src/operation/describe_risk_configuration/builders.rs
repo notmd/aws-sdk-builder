@@ -6,9 +6,7 @@ pub use crate::operation::describe_risk_configuration::_describe_risk_configurat
 pub use crate::operation::describe_risk_configuration::_describe_risk_configuration_output::DescribeRiskConfigurationOutputBuilder;
 
 #[cfg(feature = "op_describe_risk_configuration")]
-impl
-    crate::operation::describe_risk_configuration::builders::DescribeRiskConfigurationInputBuilder
-{
+impl crate::operation::describe_risk_configuration::builders::DescribeRiskConfigurationInputBuilder {
     /// Sends a request with this input using the given client.
     pub async fn send_with(
         self,
@@ -65,7 +63,7 @@ impl DescribeRiskConfigurationFluentBuilder {
         }
     }
     /// Access the DescribeRiskConfiguration as a reference.
-    pub fn as_input(&self) -> &crate::operation::describe_risk_configuration::builders::DescribeRiskConfigurationInputBuilder{
+    pub fn as_input(&self) -> &crate::operation::describe_risk_configuration::builders::DescribeRiskConfigurationInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -94,11 +92,7 @@ impl DescribeRiskConfigurationFluentBuilder {
             &self.handle.conf,
             self.config_override,
         );
-        crate::operation::describe_risk_configuration::DescribeRiskConfiguration::orchestrate(
-            &runtime_plugins,
-            input,
-        )
-        .await
+        crate::operation::describe_risk_configuration::DescribeRiskConfiguration::orchestrate(&runtime_plugins, input).await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -111,18 +105,12 @@ impl DescribeRiskConfigurationFluentBuilder {
     > {
         crate::client::customize::CustomizableOperation::new(self)
     }
-    pub(crate) fn config_override(
-        mut self,
-        config_override: impl ::std::convert::Into<crate::config::Builder>,
-    ) -> Self {
+    pub(crate) fn config_override(mut self, config_override: impl ::std::convert::Into<crate::config::Builder>) -> Self {
         self.set_config_override(::std::option::Option::Some(config_override.into()));
         self
     }
 
-    pub(crate) fn set_config_override(
-        &mut self,
-        config_override: ::std::option::Option<crate::config::Builder>,
-    ) -> &mut Self {
+    pub(crate) fn set_config_override(&mut self, config_override: ::std::option::Option<crate::config::Builder>) -> &mut Self {
         self.config_override = config_override;
         self
     }

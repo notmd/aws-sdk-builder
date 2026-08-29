@@ -75,9 +75,7 @@ impl SetRiskConfigurationFluentBuilder {
         }
     }
     /// Access the SetRiskConfiguration as a reference.
-    pub fn as_input(
-        &self,
-    ) -> &crate::operation::set_risk_configuration::builders::SetRiskConfigurationInputBuilder {
+    pub fn as_input(&self) -> &crate::operation::set_risk_configuration::builders::SetRiskConfigurationInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -106,11 +104,7 @@ impl SetRiskConfigurationFluentBuilder {
             &self.handle.conf,
             self.config_override,
         );
-        crate::operation::set_risk_configuration::SetRiskConfiguration::orchestrate(
-            &runtime_plugins,
-            input,
-        )
-        .await
+        crate::operation::set_risk_configuration::SetRiskConfiguration::orchestrate(&runtime_plugins, input).await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -123,18 +117,12 @@ impl SetRiskConfigurationFluentBuilder {
     > {
         crate::client::customize::CustomizableOperation::new(self)
     }
-    pub(crate) fn config_override(
-        mut self,
-        config_override: impl ::std::convert::Into<crate::config::Builder>,
-    ) -> Self {
+    pub(crate) fn config_override(mut self, config_override: impl ::std::convert::Into<crate::config::Builder>) -> Self {
         self.set_config_override(::std::option::Option::Some(config_override.into()));
         self
     }
 
-    pub(crate) fn set_config_override(
-        &mut self,
-        config_override: ::std::option::Option<crate::config::Builder>,
-    ) -> &mut Self {
+    pub(crate) fn set_config_override(&mut self, config_override: ::std::option::Option<crate::config::Builder>) -> &mut Self {
         self.config_override = config_override;
         self
     }
@@ -170,10 +158,7 @@ impl SetRiskConfigurationFluentBuilder {
         self.inner.get_client_id()
     }
     /// <p>The configuration of automated reactions to detected compromised credentials. Includes settings for blocking future sign-in requests and for the types of password-submission events you want to monitor.</p>
-    pub fn compromised_credentials_risk_configuration(
-        mut self,
-        input: crate::types::CompromisedCredentialsRiskConfigurationType,
-    ) -> Self {
+    pub fn compromised_credentials_risk_configuration(mut self, input: crate::types::CompromisedCredentialsRiskConfigurationType) -> Self {
         self.inner = self.inner.compromised_credentials_risk_configuration(input);
         self
     }
@@ -182,9 +167,7 @@ impl SetRiskConfigurationFluentBuilder {
         mut self,
         input: ::std::option::Option<crate::types::CompromisedCredentialsRiskConfigurationType>,
     ) -> Self {
-        self.inner = self
-            .inner
-            .set_compromised_credentials_risk_configuration(input);
+        self.inner = self.inner.set_compromised_credentials_risk_configuration(input);
         self
     }
     /// <p>The configuration of automated reactions to detected compromised credentials. Includes settings for blocking future sign-in requests and for the types of password-submission events you want to monitor.</p>
@@ -194,10 +177,7 @@ impl SetRiskConfigurationFluentBuilder {
         self.inner.get_compromised_credentials_risk_configuration()
     }
     /// <p>The settings for automated responses and notification templates for adaptive authentication with threat protection.</p>
-    pub fn account_takeover_risk_configuration(
-        mut self,
-        input: crate::types::AccountTakeoverRiskConfigurationType,
-    ) -> Self {
+    pub fn account_takeover_risk_configuration(mut self, input: crate::types::AccountTakeoverRiskConfigurationType) -> Self {
         self.inner = self.inner.account_takeover_risk_configuration(input);
         self
     }
@@ -210,31 +190,21 @@ impl SetRiskConfigurationFluentBuilder {
         self
     }
     /// <p>The settings for automated responses and notification templates for adaptive authentication with threat protection.</p>
-    pub fn get_account_takeover_risk_configuration(
-        &self,
-    ) -> &::std::option::Option<crate::types::AccountTakeoverRiskConfigurationType> {
+    pub fn get_account_takeover_risk_configuration(&self) -> &::std::option::Option<crate::types::AccountTakeoverRiskConfigurationType> {
         self.inner.get_account_takeover_risk_configuration()
     }
     /// <p>A set of IP-address overrides to threat protection. You can set up IP-address always-block and always-allow lists.</p>
-    pub fn risk_exception_configuration(
-        mut self,
-        input: crate::types::RiskExceptionConfigurationType,
-    ) -> Self {
+    pub fn risk_exception_configuration(mut self, input: crate::types::RiskExceptionConfigurationType) -> Self {
         self.inner = self.inner.risk_exception_configuration(input);
         self
     }
     /// <p>A set of IP-address overrides to threat protection. You can set up IP-address always-block and always-allow lists.</p>
-    pub fn set_risk_exception_configuration(
-        mut self,
-        input: ::std::option::Option<crate::types::RiskExceptionConfigurationType>,
-    ) -> Self {
+    pub fn set_risk_exception_configuration(mut self, input: ::std::option::Option<crate::types::RiskExceptionConfigurationType>) -> Self {
         self.inner = self.inner.set_risk_exception_configuration(input);
         self
     }
     /// <p>A set of IP-address overrides to threat protection. You can set up IP-address always-block and always-allow lists.</p>
-    pub fn get_risk_exception_configuration(
-        &self,
-    ) -> &::std::option::Option<crate::types::RiskExceptionConfigurationType> {
+    pub fn get_risk_exception_configuration(&self) -> &::std::option::Option<crate::types::RiskExceptionConfigurationType> {
         self.inner.get_risk_exception_configuration()
     }
 }

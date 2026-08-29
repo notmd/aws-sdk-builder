@@ -61,9 +61,7 @@ impl UserPoolDescriptionType {
 }
 
 /// A builder for [`UserPoolDescriptionType`](crate::types::UserPoolDescriptionType).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct UserPoolDescriptionTypeBuilder {
     pub(crate) id: ::std::option::Option<::std::string::String>,
@@ -109,10 +107,7 @@ impl UserPoolDescriptionTypeBuilder {
         self
     }
     /// <p>A collection of user pool Lambda triggers. Amazon Cognito invokes triggers at several possible stages of user pool operations. Triggers can modify the outcome of the operations that invoked them.</p>
-    pub fn set_lambda_config(
-        mut self,
-        input: ::std::option::Option<crate::types::LambdaConfigType>,
-    ) -> Self {
+    pub fn set_lambda_config(mut self, input: ::std::option::Option<crate::types::LambdaConfigType>) -> Self {
         self.lambda_config = input;
         self
     }
@@ -143,10 +138,7 @@ impl UserPoolDescriptionTypeBuilder {
         self
     }
     /// <p>The date and time when the item was modified. Amazon Cognito returns this timestamp in UNIX epoch time format. Your SDK might render the output in a human-readable format like ISO 8601 or a Java <code>Date</code> object.</p>
-    pub fn set_last_modified_date(
-        mut self,
-        input: ::std::option::Option<::aws_smithy_types::DateTime>,
-    ) -> Self {
+    pub fn set_last_modified_date(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
         self.last_modified_date = input;
         self
     }
@@ -160,10 +152,7 @@ impl UserPoolDescriptionTypeBuilder {
         self
     }
     /// <p>The date and time when the item was created. Amazon Cognito returns this timestamp in UNIX epoch time format. Your SDK might render the output in a human-readable format like ISO 8601 or a Java <code>Date</code> object.</p>
-    pub fn set_creation_date(
-        mut self,
-        input: ::std::option::Option<::aws_smithy_types::DateTime>,
-    ) -> Self {
+    pub fn set_creation_date(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
         self.creation_date = input;
         self
     }
@@ -176,27 +165,19 @@ impl UserPoolDescriptionTypeBuilder {
     /// To override the contents of this collection use [`set_replica_regions`](Self::set_replica_regions).
     ///
     /// <p>A list of Amazon Web Services Regions where replicas of this user pool exist.</p>
-    pub fn replica_regions(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn replica_regions(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         let mut v = self.replica_regions.unwrap_or_default();
         v.push(input.into());
         self.replica_regions = ::std::option::Option::Some(v);
         self
     }
     /// <p>A list of Amazon Web Services Regions where replicas of this user pool exist.</p>
-    pub fn set_replica_regions(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
-    ) -> Self {
+    pub fn set_replica_regions(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
         self.replica_regions = input;
         self
     }
     /// <p>A list of Amazon Web Services Regions where replicas of this user pool exist.</p>
-    pub fn get_replica_regions(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
+    pub fn get_replica_regions(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
         &self.replica_regions
     }
     /// Consumes the builder and constructs a [`UserPoolDescriptionType`](crate::types::UserPoolDescriptionType).

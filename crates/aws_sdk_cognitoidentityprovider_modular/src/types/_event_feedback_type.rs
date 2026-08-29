@@ -34,9 +34,7 @@ impl EventFeedbackType {
 }
 
 /// A builder for [`EventFeedbackType`](crate::types::EventFeedbackType).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct EventFeedbackTypeBuilder {
     pub(crate) feedback_value: ::std::option::Option<crate::types::FeedbackValueType>,
@@ -51,10 +49,7 @@ impl EventFeedbackTypeBuilder {
         self
     }
     /// <p>Your feedback to the authentication event. When you provide a <code>FeedbackValue</code> value of <code>valid</code>, you tell Amazon Cognito that you trust a user session where Amazon Cognito has evaluated some level of risk. When you provide a <code>FeedbackValue</code> value of <code>invalid</code>, you tell Amazon Cognito that you don't trust a user session, or you don't believe that Amazon Cognito evaluated a high-enough risk level.</p>
-    pub fn set_feedback_value(
-        mut self,
-        input: ::std::option::Option<crate::types::FeedbackValueType>,
-    ) -> Self {
+    pub fn set_feedback_value(mut self, input: ::std::option::Option<crate::types::FeedbackValueType>) -> Self {
         self.feedback_value = input;
         self
     }
@@ -83,10 +78,7 @@ impl EventFeedbackTypeBuilder {
         self
     }
     /// <p>The date that you or your user submitted the feedback.</p>
-    pub fn set_feedback_date(
-        mut self,
-        input: ::std::option::Option<::aws_smithy_types::DateTime>,
-    ) -> Self {
+    pub fn set_feedback_date(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
         self.feedback_date = input;
         self
     }
@@ -98,12 +90,7 @@ impl EventFeedbackTypeBuilder {
     /// This method will fail if any of the following fields are not set:
     /// - [`feedback_value`](crate::types::builders::EventFeedbackTypeBuilder::feedback_value)
     /// - [`provider`](crate::types::builders::EventFeedbackTypeBuilder::provider)
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<
-        crate::types::EventFeedbackType,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    pub fn build(self) -> ::std::result::Result<crate::types::EventFeedbackType, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::EventFeedbackType {
             feedback_value: self.feedback_value.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

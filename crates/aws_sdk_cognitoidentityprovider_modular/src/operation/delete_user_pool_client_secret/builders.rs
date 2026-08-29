@@ -63,7 +63,7 @@ impl DeleteUserPoolClientSecretFluentBuilder {
         }
     }
     /// Access the DeleteUserPoolClientSecret as a reference.
-    pub fn as_input(&self) -> &crate::operation::delete_user_pool_client_secret::builders::DeleteUserPoolClientSecretInputBuilder{
+    pub fn as_input(&self) -> &crate::operation::delete_user_pool_client_secret::builders::DeleteUserPoolClientSecretInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -92,11 +92,7 @@ impl DeleteUserPoolClientSecretFluentBuilder {
             &self.handle.conf,
             self.config_override,
         );
-        crate::operation::delete_user_pool_client_secret::DeleteUserPoolClientSecret::orchestrate(
-            &runtime_plugins,
-            input,
-        )
-        .await
+        crate::operation::delete_user_pool_client_secret::DeleteUserPoolClientSecret::orchestrate(&runtime_plugins, input).await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -109,18 +105,12 @@ impl DeleteUserPoolClientSecretFluentBuilder {
     > {
         crate::client::customize::CustomizableOperation::new(self)
     }
-    pub(crate) fn config_override(
-        mut self,
-        config_override: impl ::std::convert::Into<crate::config::Builder>,
-    ) -> Self {
+    pub(crate) fn config_override(mut self, config_override: impl ::std::convert::Into<crate::config::Builder>) -> Self {
         self.set_config_override(::std::option::Option::Some(config_override.into()));
         self
     }
 
-    pub(crate) fn set_config_override(
-        &mut self,
-        config_override: ::std::option::Option<crate::config::Builder>,
-    ) -> &mut Self {
+    pub(crate) fn set_config_override(&mut self, config_override: ::std::option::Option<crate::config::Builder>) -> &mut Self {
         self.config_override = config_override;
         self
     }
@@ -153,18 +143,12 @@ impl DeleteUserPoolClientSecretFluentBuilder {
         self.inner.get_client_id()
     }
     /// <p>The unique identifier of the client secret you want to delete.</p>
-    pub fn client_secret_id(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn client_secret_id(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.client_secret_id(input.into());
         self
     }
     /// <p>The unique identifier of the client secret you want to delete.</p>
-    pub fn set_client_secret_id(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_client_secret_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_client_secret_id(input);
         self
     }

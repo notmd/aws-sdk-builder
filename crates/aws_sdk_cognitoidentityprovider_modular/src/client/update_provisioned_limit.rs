@@ -8,10 +8,7 @@ impl super::Client {
     /// - On success, responds with [`UpdateProvisionedLimitOutput`](crate::operation::update_provisioned_limit::UpdateProvisionedLimitOutput) with field(s):
     ///   - [`limit(Option<LimitType>)`](crate::operation::update_provisioned_limit::UpdateProvisionedLimitOutput::limit): <p>The updated provisioned and default limit values.</p>
     /// - On failure, responds with [`SdkError<UpdateProvisionedLimitError>`](crate::operation::update_provisioned_limit::UpdateProvisionedLimitError)
-    pub fn update_provisioned_limit(
-        &self,
-    ) -> crate::operation::update_provisioned_limit::builders::UpdateProvisionedLimitFluentBuilder
-    {
+    pub fn update_provisioned_limit(&self) -> crate::operation::update_provisioned_limit::builders::UpdateProvisionedLimitFluentBuilder {
         crate::operation::update_provisioned_limit::builders::UpdateProvisionedLimitFluentBuilder::new(self.handle.clone())
     }
 }

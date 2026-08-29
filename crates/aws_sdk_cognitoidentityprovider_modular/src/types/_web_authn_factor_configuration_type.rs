@@ -45,13 +45,7 @@
 /// <code>SINGLE_FACTOR</code>, passkeys are a single authentication factor.</p>
 #[non_exhaustive]
 #[derive(
-    ::std::clone::Clone,
-    ::std::cmp::Eq,
-    ::std::cmp::Ord,
-    ::std::cmp::PartialEq,
-    ::std::cmp::PartialOrd,
-    ::std::fmt::Debug,
-    ::std::hash::Hash,
+    ::std::clone::Clone, ::std::cmp::Eq, ::std::cmp::Ord, ::std::cmp::PartialEq, ::std::cmp::PartialOrd, ::std::fmt::Debug, ::std::hash::Hash,
 )]
 pub enum WebAuthnFactorConfigurationType {
     #[allow(missing_docs)] // documentation missing in model
@@ -59,21 +53,15 @@ pub enum WebAuthnFactorConfigurationType {
     #[allow(missing_docs)] // documentation missing in model
     SingleFactor,
     /// `Unknown` contains new variants that have been added since this code was generated.
-    #[deprecated(
-        note = "Don't directly match on `Unknown`. See the docs on this enum for the correct way to handle unknown variants."
-    )]
+    #[deprecated(note = "Don't directly match on `Unknown`. See the docs on this enum for the correct way to handle unknown variants.")]
     Unknown(crate::primitives::sealed_enum_unknown::UnknownVariantValue),
 }
 impl ::std::convert::From<&str> for WebAuthnFactorConfigurationType {
     fn from(s: &str) -> Self {
         match s {
-            "MULTI_FACTOR_WITH_USER_VERIFICATION" => {
-                WebAuthnFactorConfigurationType::MultiFactorWithUserVerification
-            }
+            "MULTI_FACTOR_WITH_USER_VERIFICATION" => WebAuthnFactorConfigurationType::MultiFactorWithUserVerification,
             "SINGLE_FACTOR" => WebAuthnFactorConfigurationType::SingleFactor,
-            other => WebAuthnFactorConfigurationType::Unknown(
-                crate::primitives::sealed_enum_unknown::UnknownVariantValue(other.to_owned()),
-            ),
+            other => WebAuthnFactorConfigurationType::Unknown(crate::primitives::sealed_enum_unknown::UnknownVariantValue(other.to_owned())),
         }
     }
 }
@@ -88,9 +76,7 @@ impl WebAuthnFactorConfigurationType {
     /// Returns the `&str` value of the enum member.
     pub fn as_str(&self) -> &str {
         match self {
-            WebAuthnFactorConfigurationType::MultiFactorWithUserVerification => {
-                "MULTI_FACTOR_WITH_USER_VERIFICATION"
-            }
+            WebAuthnFactorConfigurationType::MultiFactorWithUserVerification => "MULTI_FACTOR_WITH_USER_VERIFICATION",
             WebAuthnFactorConfigurationType::SingleFactor => "SINGLE_FACTOR",
             WebAuthnFactorConfigurationType::Unknown(value) => value.as_str(),
         }
@@ -109,14 +95,10 @@ impl WebAuthnFactorConfigurationType {
     /// Parses the enum value while disallowing unknown variants.
     ///
     /// Unknown variants will result in an error.
-    pub fn try_parse(
-        value: &str,
-    ) -> ::std::result::Result<Self, crate::error::UnknownVariantError> {
+    pub fn try_parse(value: &str) -> ::std::result::Result<Self, crate::error::UnknownVariantError> {
         match Self::from(value) {
             #[allow(deprecated)]
-            Self::Unknown(_) => {
-                ::std::result::Result::Err(crate::error::UnknownVariantError::new(value))
-            }
+            Self::Unknown(_) => ::std::result::Result::Err(crate::error::UnknownVariantError::new(value)),
             known => Ok(known),
         }
     }
@@ -124,9 +106,7 @@ impl WebAuthnFactorConfigurationType {
 impl ::std::fmt::Display for WebAuthnFactorConfigurationType {
     fn fmt(&self, f: &mut ::std::fmt::Formatter) -> ::std::fmt::Result {
         match self {
-            WebAuthnFactorConfigurationType::MultiFactorWithUserVerification => {
-                write!(f, "MULTI_FACTOR_WITH_USER_VERIFICATION")
-            }
+            WebAuthnFactorConfigurationType::MultiFactorWithUserVerification => write!(f, "MULTI_FACTOR_WITH_USER_VERIFICATION"),
             WebAuthnFactorConfigurationType::SingleFactor => write!(f, "SINGLE_FACTOR"),
             WebAuthnFactorConfigurationType::Unknown(value) => write!(f, "{value}"),
         }

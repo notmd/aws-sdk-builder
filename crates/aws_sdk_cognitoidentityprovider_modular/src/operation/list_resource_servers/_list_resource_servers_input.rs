@@ -29,18 +29,14 @@ impl ListResourceServersInput {
 #[cfg(feature = "op_list_resource_servers")]
 impl ListResourceServersInput {
     /// Creates a new builder-style object to manufacture [`ListResourceServersInput`](crate::operation::list_resource_servers::ListResourceServersInput).
-    pub fn builder(
-    ) -> crate::operation::list_resource_servers::builders::ListResourceServersInputBuilder {
-        crate::operation::list_resource_servers::builders::ListResourceServersInputBuilder::default(
-        )
+    pub fn builder() -> crate::operation::list_resource_servers::builders::ListResourceServersInputBuilder {
+        crate::operation::list_resource_servers::builders::ListResourceServersInputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_list_resource_servers")]
 /// A builder for [`ListResourceServersInput`](crate::operation::list_resource_servers::ListResourceServersInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct ListResourceServersInputBuilder {
     pub(crate) user_pool_id: ::std::option::Option<::std::string::String>,
@@ -95,16 +91,12 @@ impl ListResourceServersInputBuilder {
     /// Consumes the builder and constructs a [`ListResourceServersInput`](crate::operation::list_resource_servers::ListResourceServersInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        crate::operation::list_resource_servers::ListResourceServersInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
-        ::std::result::Result::Ok(
-            crate::operation::list_resource_servers::ListResourceServersInput {
-                user_pool_id: self.user_pool_id,
-                max_results: self.max_results,
-                next_token: self.next_token,
-            },
-        )
+    ) -> ::std::result::Result<crate::operation::list_resource_servers::ListResourceServersInput, ::aws_smithy_types::error::operation::BuildError>
+    {
+        ::std::result::Result::Ok(crate::operation::list_resource_servers::ListResourceServersInput {
+            user_pool_id: self.user_pool_id,
+            max_results: self.max_results,
+            next_token: self.next_token,
+        })
     }
 }

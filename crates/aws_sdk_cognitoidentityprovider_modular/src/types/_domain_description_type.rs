@@ -56,9 +56,7 @@ impl DomainDescriptionType {
         self.status.as_ref()
     }
     /// <p>The configuration for a custom domain that hosts the sign-up and sign-in webpages for your application.</p>
-    pub fn custom_domain_config(
-        &self,
-    ) -> ::std::option::Option<&crate::types::CustomDomainConfigType> {
+    pub fn custom_domain_config(&self) -> ::std::option::Option<&crate::types::CustomDomainConfigType> {
         self.custom_domain_config.as_ref()
     }
     /// <p>The version of managed login branding that you want to apply to your domain. A value of <code>1</code> indicates hosted UI (classic) branding and a version of <code>2</code> indicates managed login branding.</p>
@@ -79,9 +77,7 @@ impl DomainDescriptionType {
 }
 
 /// A builder for [`DomainDescriptionType`](crate::types::DomainDescriptionType).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct DomainDescriptionTypeBuilder {
     pub(crate) user_pool_id: ::std::option::Option<::std::string::String>,
@@ -111,18 +107,12 @@ impl DomainDescriptionTypeBuilder {
         &self.user_pool_id
     }
     /// <p>The Amazon Web Services account that you created the user pool in.</p>
-    pub fn aws_account_id(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn aws_account_id(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.aws_account_id = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The Amazon Web Services account that you created the user pool in.</p>
-    pub fn set_aws_account_id(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_aws_account_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.aws_account_id = input;
         self
     }
@@ -159,18 +149,12 @@ impl DomainDescriptionTypeBuilder {
         &self.s3_bucket
     }
     /// <p>The Amazon CloudFront endpoint that hosts your custom domain.</p>
-    pub fn cloud_front_distribution(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn cloud_front_distribution(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.cloud_front_distribution = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The Amazon CloudFront endpoint that hosts your custom domain.</p>
-    pub fn set_cloud_front_distribution(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_cloud_front_distribution(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.cloud_front_distribution = input;
         self
     }
@@ -198,10 +182,7 @@ impl DomainDescriptionTypeBuilder {
         self
     }
     /// <p>The domain status.</p>
-    pub fn set_status(
-        mut self,
-        input: ::std::option::Option<crate::types::DomainStatusType>,
-    ) -> Self {
+    pub fn set_status(mut self, input: ::std::option::Option<crate::types::DomainStatusType>) -> Self {
         self.status = input;
         self
     }
@@ -215,17 +196,12 @@ impl DomainDescriptionTypeBuilder {
         self
     }
     /// <p>The configuration for a custom domain that hosts the sign-up and sign-in webpages for your application.</p>
-    pub fn set_custom_domain_config(
-        mut self,
-        input: ::std::option::Option<crate::types::CustomDomainConfigType>,
-    ) -> Self {
+    pub fn set_custom_domain_config(mut self, input: ::std::option::Option<crate::types::CustomDomainConfigType>) -> Self {
         self.custom_domain_config = input;
         self
     }
     /// <p>The configuration for a custom domain that hosts the sign-up and sign-in webpages for your application.</p>
-    pub fn get_custom_domain_config(
-        &self,
-    ) -> &::std::option::Option<crate::types::CustomDomainConfigType> {
+    pub fn get_custom_domain_config(&self) -> &::std::option::Option<crate::types::CustomDomainConfigType> {
         &self.custom_domain_config
     }
     /// <p>The version of managed login branding that you want to apply to your domain. A value of <code>1</code> indicates hosted UI (classic) branding and a version of <code>2</code> indicates managed login branding.</p>

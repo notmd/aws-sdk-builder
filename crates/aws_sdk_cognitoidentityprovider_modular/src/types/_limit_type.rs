@@ -33,9 +33,7 @@ impl LimitType {
 }
 
 /// A builder for [`LimitType`](crate::types::LimitType).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct LimitTypeBuilder {
     pub(crate) limit_definition: ::std::option::Option<crate::types::LimitDefinitionType>,
@@ -50,17 +48,12 @@ impl LimitTypeBuilder {
         self
     }
     /// <p>The definition that identifies this limit, including the class and attributes.</p>
-    pub fn set_limit_definition(
-        mut self,
-        input: ::std::option::Option<crate::types::LimitDefinitionType>,
-    ) -> Self {
+    pub fn set_limit_definition(mut self, input: ::std::option::Option<crate::types::LimitDefinitionType>) -> Self {
         self.limit_definition = input;
         self
     }
     /// <p>The definition that identifies this limit, including the class and attributes.</p>
-    pub fn get_limit_definition(
-        &self,
-    ) -> &::std::option::Option<crate::types::LimitDefinitionType> {
+    pub fn get_limit_definition(&self) -> &::std::option::Option<crate::types::LimitDefinitionType> {
         &self.limit_definition
     }
     /// <p>The provisioned limit value, in requests per second (RPS). This is the rate that Amazon Cognito currently enforces for your account.</p>
