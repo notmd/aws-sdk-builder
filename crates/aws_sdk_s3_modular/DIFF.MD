@@ -132,6 +132,7 @@
 - `src/error_meta.rs`
 - `src/event_stream_serde.rs`
 - `src/lens.rs`
+- `src/lib.rs`
 - `src/operation.rs`
 - `src/protocol_serde.rs`
 - `src/s3_express.rs`
