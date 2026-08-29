@@ -739,9 +739,10 @@ fn run_public_probe(
         for operation in operations {
             let source_path = format!("src/bin/{}.rs", operation.module);
             if !stderr.contains(&source_path) {
+                let diagnostic = stderr.chars().take(4_000).collect::<String>();
                 return Err(ConformanceError::Message(format!(
-                    "disabled public API probe for {} did not reject {}",
-                    service.key, operation.module
+                    "disabled public API probe for {} did not reject {}: {diagnostic}",
+                    service.key, operation.module,
                 )));
             }
         }
