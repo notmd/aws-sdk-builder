@@ -69,3 +69,77 @@
 - Operation coverage: before and after, all 15 services had complete model coverage with zero missing and zero ambiguous operations; coverage delta `+0`.
 - Remaining blocker: obsolete builder/conformance infrastructure still prevents workspace-wide checks.
 - Next action: add feature gates for operation-owned types and modeled errors, then regenerate SDK crates in a separate commit.
+
+## Retroactive checkpoints after `503a22672`
+
+The following entries were reconstructed for commits made before the checkpoint
+log was updated. The operation mapping stayed complete throughout this series:
+15 services, zero missing operations, zero ambiguous operations, and coverage
+delta `+0`. Unless noted otherwise, focused modularizer tests and formatting
+passed for transform commits, and conformance was rerun at the milestone commits.
+
+| Date / commit | Objective, generic rule, and files | Verification / coverage | Remaining blocker / next action |
+| --- | --- | --- | --- |
+| 2026-08-29 — `5e906149d` | Record the prior error-conversion checkpoint in `docs/aws-sdk-modularizer-status.md`. | Documentation-only; coverage unchanged. | Continue error ownership work in `transform.rs`. |
+| 2026-08-29 — `34868e854` | Preserve shared service error metadata while refining operation error ownership in `crates/aws-sdk-modularizer/src/transform.rs`. | Modularizer tests and formatting passed; coverage unchanged. | Continue validating shared versus operation-owned errors. |
+| 2026-08-29 — `5bd12e2e2` | Avoid redundant operation-child cfg attributes in `transform.rs`, keeping parent module ownership authoritative. | Focused tests passed; coverage unchanged. | Validate all child-module and protocol cases. |
+| 2026-08-29 — `82f1e90b0` | Keep shared modeled errors available while gating operation-specific error surfaces in `transform.rs`. | Focused tests passed; coverage unchanged. | Check zero-operation compilation. |
+| 2026-08-29 — `fd5822d05` | Gate waiter modules by their owning operations using module-aware ownership in `transform.rs`. | Focused tests passed; coverage unchanged. | Continue feature-matrix validation. |
+| 2026-08-29 — `11f7fc40c` | Prune operation modules outside the selected model before ownership inference in `transform.rs`. | Focused tests passed; coverage unchanged. | Validate stale protocol/module removal. |
+| 2026-08-29 — `963bb7166` | Propagate cfg ownership through generated helper references in `transform.rs`. | Focused tests passed; coverage unchanged. | Identify shared-helper over-gating. |
+| 2026-08-29 — `ebab0380b` | Limit helper cfg propagation to dependencies actually owned by an operation in `transform.rs`. | Focused tests passed; coverage unchanged. | Recheck shared runtime helpers. |
+| 2026-08-29 — `ff4bb91a8` | Recognize operation child filenames structurally in `transform.rs`. | Focused tests passed; coverage unchanged. | Extend the rule to nested descendants. |
+| 2026-08-29 — `b8fa68d1d` | Gate operation-owned helper statements in `transform.rs` using AST references. | Focused tests passed; coverage unchanged. | Validate statement placement and compilation. |
+| 2026-08-29 — `6bf5cb00b` | Keep the top-level service error type unconditional in `transform.rs`. | Focused tests passed; coverage unchanged. | Gate only modeled variants and operation conversions. |
+| 2026-08-29 — `1635b748f` | Exclude shared error helpers from statement cfg ownership in `transform.rs`. | Focused tests passed; coverage unchanged. | Recheck error metadata compilation. |
+| 2026-08-29 — `8e691fe9c` | Wrap cfg-gated statements in stable blocks so statement attributes remain valid Rust. | Focused tests passed; coverage unchanged. | Validate generated protocol helpers. |
+| 2026-08-29 — `08f6e327a` | Avoid introducing statement cfg blocks inside impl bodies in `transform.rs`. | Focused tests passed; coverage unchanged. | Continue method and impl ownership checks. |
+| 2026-08-29 — `a5dcd6bbc` | Ignore external paths when inferring local statement cfg ownership in `transform.rs`. | Focused tests passed; coverage unchanged. | Keep runtime/config code shared. |
+| 2026-08-29 — `07ea0a917` | Track local symbols for statement cfg inference in `transform.rs`. | Focused tests passed; coverage unchanged. | Validate local helper reachability. |
+| 2026-08-29 — `fccb88f7f` | Avoid bare local-name matches when assigning statement ownership in `transform.rs`. | Focused tests passed; coverage unchanged. | Prefer module-qualified references. |
+| 2026-08-29 — `58783a85b` | Refresh `conformance/summary.md` after the ownership changes. | Coverage remained complete with delta `+0`. | Continue generated-output validation. |
+| 2026-08-29 — `59a3880f4` | Regenerate the initial modular SDK snapshots with parent operation gates under `crates/aws_sdk_*_modular/**`. | Generator completed for all 15 services; coverage unchanged. | Remove stale protocol modules and compare outputs. |
+| 2026-08-29 — `bf161e076` | Prune stale protocol operation modules in `crates/aws-sdk-modularizer/src/transform.rs`. | Modularizer tests and formatting passed; coverage unchanged. | Refresh conformance artifacts. |
+| 2026-08-29 — `cd86179a4` | Refresh the conformance summary after protocol pruning. | Coverage remained complete with delta `+0`. | Regenerate the affected SDK output. |
+| 2026-08-29 — `cb640c354` | Remove stale Lambda protocol modules and update its generated diff/source files. | Generated Lambda output updated; coverage unchanged. | Centralize redundant child cfg removal. |
+| 2026-08-29 — `f80f54ed8` | Remove redundant operation-child cfgs with AST spans in `transform.rs`. | 11 modularizer tests and conformance for all 15 services passed; coverage delta `+0`. | Record the checkpoint and extend type/error gating. |
+| 2026-08-29 — `ac2480cd9` | Record the child-gate cleanup checkpoint in `docs/aws-sdk-modularizer-status.md`. | Documentation-only; coverage unchanged. | Gate shared error implementations and regenerate SDKs. |
+| 2026-08-29 — `74210ceeb` | Gate modeled error variants and shared error match arms, including `RequestIdExt`, in `transform.rs`; add its regression test. | 12 modularizer tests, formatting, diff check, and conformance for all 15 services passed; coverage delta `+0`. | Regenerate SDK crates separately. |
+| 2026-08-29 — `36cbca492` | Refresh conformance changed-file counts in `conformance/summary.md` after error gating. | All 15 services passed; coverage delta `+0`. | Commit generated SDK output separately. |
+| 2026-08-29 — `3c1f93af4` | Regenerate `crates/aws_sdk_batch_modular/**` from the pinned upstream source. | Generator output committed; coverage unchanged. | Keep remaining service snapshots separate. |
+| 2026-08-29 — `0c246a63f` | Regenerate `crates/aws_sdk_bedrockruntime_modular/**`. | Generator output committed; coverage unchanged. | Continue per-service SDK commits. |
+| 2026-08-29 — `b0fd9d506` | Regenerate `crates/aws_sdk_cloudwatchlogs_modular/**`. | Generator output committed; coverage unchanged. | Continue per-service SDK commits. |
+| 2026-08-29 — `ecabd08bf` | Regenerate `crates/aws_sdk_codeartifact_modular/**`. | Generator output committed; coverage unchanged. | Continue per-service SDK commits. |
+| 2026-08-29 — `0f693e294` | Regenerate `crates/aws_sdk_cognitoidentityprovider_modular/**`. | Generator output committed; coverage unchanged. | Continue per-service SDK commits. |
+| 2026-08-29 — `b2a6c9159` | Regenerate `crates/aws_sdk_config_modular/**`. | Generator output committed; coverage unchanged. | Continue per-service SDK commits. |
+| 2026-08-29 — `d5586cfa9` | Regenerate `crates/aws_sdk_dynamodb_modular/**`. | Generator output committed; coverage unchanged. | Continue per-service SDK commits. |
+| 2026-08-29 — `52a9ac169` | Regenerate `crates/aws_sdk_iam_modular/**`. | Generator output committed; coverage unchanged. | Continue per-service SDK commits. |
+| 2026-08-29 — `69784a507` | Regenerate `crates/aws_sdk_kms_modular/**`. | Generator output committed; coverage unchanged. | Continue per-service SDK commits. |
+| 2026-08-29 — `2dded226a` | Regenerate `crates/aws_sdk_lambda_modular/**`. | Generator output committed; coverage unchanged. | Continue per-service SDK commits. |
+| 2026-08-29 — `5c3bb94d2` | Regenerate `crates/aws_sdk_s3_modular/**`, including cfg-gated error match arms. | Generator output committed; coverage unchanged. | Continue per-service SDK commits. |
+| 2026-08-29 — `00d8b5f33` | Regenerate `crates/aws_sdk_sesv2_modular/**`. | Generator output committed; coverage unchanged. | Continue per-service SDK commits. |
+| 2026-08-29 — `e7c4be0c5` | Regenerate `crates/aws_sdk_sns_modular/**`. | Generator output committed; coverage unchanged. | Continue per-service SDK commits. |
+| 2026-08-29 — `db40c4d85` | Regenerate `crates/aws_sdk_sqs_modular/**`. | Generator output committed; coverage unchanged. | Continue per-service SDK commits. |
+| 2026-08-29 — `46c0f30c8` | Regenerate `crates/aws_sdk_sts_modular/**`. | Generator output committed; coverage unchanged. | Extend redundant cfg cleanup to nested operation files. |
+| 2026-08-29 — `ce7fc71e7` | Recognize all descendants of an operation/client module when removing redundant cfgs in `transform.rs`. | 12 modularizer tests and conformance for all 15 services passed; coverage delta `+0`. | Regenerate snapshots without formatting churn. |
+| 2026-08-29 — `c1652a09e` | Remove redundant nested cfgs from `crates/aws_sdk_batch_modular/**`. | Generated service cleanup committed; coverage unchanged. | Continue per-service cleanup commits. |
+| 2026-08-29 — `396cb5c9b` | Remove redundant nested cfgs from `crates/aws_sdk_bedrockruntime_modular/**`. | Generated service cleanup committed; coverage unchanged. | Continue per-service cleanup commits. |
+| 2026-08-29 — `87d909b90` | Remove redundant nested cfgs from `crates/aws_sdk_cloudwatchlogs_modular/**`. | Generated service cleanup committed; coverage unchanged. | Continue per-service cleanup commits. |
+| 2026-08-29 — `292445b13` | Remove redundant nested cfgs from `crates/aws_sdk_codeartifact_modular/**`. | Generated service cleanup committed; coverage unchanged. | Continue per-service cleanup commits. |
+| 2026-08-29 — `23a753edd` | Remove redundant nested cfgs from `crates/aws_sdk_cognitoidentityprovider_modular/**`. | Generated service cleanup committed; coverage unchanged. | Continue per-service cleanup commits. |
+| 2026-08-29 — `8bc34dfd1` | Remove redundant nested cfgs from `crates/aws_sdk_config_modular/**`. | Generated service cleanup committed; coverage unchanged. | Continue per-service cleanup commits. |
+| 2026-08-29 — `056a4dcdf` | Remove redundant nested cfgs from `crates/aws_sdk_dynamodb_modular/**`. | Generated service cleanup committed; coverage unchanged. | Continue per-service cleanup commits. |
+| 2026-08-29 — `75a4abb3d` | Remove redundant nested cfgs from `crates/aws_sdk_iam_modular/**`. | Generated service cleanup committed; coverage unchanged. | Continue per-service cleanup commits. |
+| 2026-08-29 — `9e981358d` | Remove redundant nested cfgs from `crates/aws_sdk_kms_modular/**`. | Generated service cleanup committed; coverage unchanged. | Continue per-service cleanup commits. |
+| 2026-08-29 — `83b05ebdd` | Remove redundant nested cfgs from `crates/aws_sdk_lambda_modular/**`. | Generated service cleanup committed; coverage unchanged. | Continue per-service cleanup commits. |
+| 2026-08-29 — `cf2ea7b52` | Remove redundant nested cfgs from `crates/aws_sdk_s3_modular/**`. | Generated service cleanup committed; coverage unchanged. | Continue per-service cleanup commits. |
+| 2026-08-29 — `948fcb600` | Remove redundant nested cfgs from `crates/aws_sdk_sesv2_modular/**`. | Generated service cleanup committed; coverage unchanged. | Continue per-service cleanup commits. |
+| 2026-08-29 — `4563f14ee` | Remove redundant nested cfgs from `crates/aws_sdk_sns_modular/**`. | Generated service cleanup committed; coverage unchanged. | Continue per-service cleanup commits. |
+| 2026-08-29 — `92dbada3f` | Remove redundant nested cfgs from `crates/aws_sdk_sqs_modular/**`. | Generated service cleanup committed; coverage unchanged. | Continue per-service cleanup commits. |
+| 2026-08-29 — `4f83d20a5` | Remove redundant nested cfgs from `crates/aws_sdk_sts_modular/**`. | Generated service cleanup committed; coverage unchanged. | Refresh the conformance summary. |
+| 2026-08-29 — `8c14022ce` | Refresh changed-file counts in `conformance/summary.md` after nested cleanup. | All 15 services had complete coverage; delta `+0`. | Remove obsolete infrastructure. |
+| 2026-08-29 — `5453a9557` | Delete obsolete builder/conformance crates, old examples, old conformance README, and builder/codegen design docs. | `git rm` completed; coverage unchanged. | Remove old reference/generated/patch/snapshot data. |
+| 2026-08-29 — `9ed9ddc90` | Delete obsolete `conformance/reference`, `conformance/generated`, `conformance/patches`, and old summary reports. | Data-only cleanup; coverage unchanged. | Remove deleted packages from workspace metadata. |
+| 2026-08-29 — `aedf8789a` | Remove obsolete example members and the conformance profile from `Cargo.toml`. | `cargo metadata --no-deps` listed only retained packages after empty-dir cleanup. | Refresh `Cargo.lock` and run workspace checks. |
+| 2026-08-29 — `2669eae10` | Remove stale builder/conformance packages from `Cargo.lock`. | `cargo check --workspace` passed; coverage unchanged. | Remove remaining stale branding and finish verification. |
+| 2026-08-29 — `15f558034` | Rename stale builder branding in the retained Floci S3 smoke example. | Example-only change; coverage unchanged. | Run final conformance and workspace verification. |
