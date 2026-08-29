@@ -1,5 +1,14 @@
 # AWS SDK modularizer checkpoint log
 
+## 2026-08-29 — `0c8274550` — disabled probe diagnostics checkpoint
+
+- Objective: expose bounded compiler diagnostics when a disabled public-API probe’s expected source marker is not found.
+- Generic rule: retain per-operation negative probes and report enough Cargo output to refine path matching without weakening the compile-failure assertion.
+- Changed files: `crates/aws-sdk-modularizer/src/conformance.rs`.
+- Commands: `cargo test -p aws-sdk-modularizer` passed (13 tests); conformance reached the diagnostic assertion; coverage unchanged.
+- Remaining blocker: make disabled-probe validation recognize Cargo’s actual diagnostic paths.
+- Next action: rerun conformance and adjust the structural diagnostic check.
+
 ## 2026-08-29 — `c55b92b67` — compile all disabled probes
 
 - Objective: ensure the negative public-API probe compiles every generated bin rather than Cargo’s default target only.
