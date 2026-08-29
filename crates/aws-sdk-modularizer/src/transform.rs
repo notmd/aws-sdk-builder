@@ -85,6 +85,13 @@ struct OperationModuleReferenceVisitor {
     modules: BTreeSet<String>,
 }
 
+struct DocumentationVisitor<'a> {
+    source: &'a str,
+    old_library_name: &'a str,
+    new_library_name: &'a str,
+    edits: Vec<(usize, usize, String)>,
+}
+
 impl<'ast> Visit<'ast> for SuperModuleReferenceVisitor {
     fn visit_path(&mut self, path: &'ast syn::Path) {
         let mut segments = path.segments.iter();
@@ -150,6 +157,28 @@ impl<'ast> Visit<'ast> for OperationModuleReferenceVisitor {
             }
         }
         visit::visit_path(self, path);
+    }
+}
+
+impl<'ast> Visit<'ast> for DocumentationVisitor<'_> {
+    fn visit_attribute(&mut self, attribute: &'ast Attribute) {
+        if attribute.path().is_ident("doc")
+            && let (Ok(start), Ok(end)) = (
+                source_offset(self.source, attribute.span().start()),
+                source_offset(self.source, attribute.span().end()),
+            )
+        {
+            let source_attribute = &self.source[start..end];
+            let replaced = replace_identifier(
+                source_attribute,
+                self.old_library_name,
+                self.new_library_name,
+            );
+            if replaced != source_attribute {
+                self.edits.push((start, end, replaced));
+            }
+        }
+        visit::visit_attribute(self, attribute);
     }
 }
 
@@ -288,6 +317,14 @@ pub fn transform_tree(
     let redundant_cfg_files =
         remove_redundant_operation_child_cfgs(crate_root, &source_files, operations)?;
     changed_files.extend(redundant_cfg_files);
+    if !changed_files.is_empty() {
+        source_files = collect_source_files(&source_root, crate_root)?;
+    }
+
+    let old_library_name = cargo_library_name(&crate_root.join("Cargo.toml"))?;
+    let documentation_files =
+        rewrite_documentation(crate_root, &source_files, &old_library_name, library_name)?;
+    changed_files.extend(documentation_files);
     if !changed_files.is_empty() {
         source_files = collect_source_files(&source_root, crate_root)?;
     }
@@ -2583,6 +2620,133 @@ fn has_matching_cfg(attributes: &[Attribute], owners: &BTreeSet<String>) -> bool
     })
 }
 
+fn rewrite_documentation(
+    crate_root: &Path,
+    source_files: &[SourceFile],
+    old_library_name: &str,
+    new_library_name: &str,
+) -> Result<Vec<String>, TransformError> {
+    if old_library_name == new_library_name {
+        return Ok(Vec::new());
+    }
+
+    let mut changed_files = Vec::new();
+    for source_file in source_files {
+        let mut visitor = DocumentationVisitor {
+            source: &source_file.source,
+            old_library_name,
+            new_library_name,
+            edits: Vec::new(),
+        };
+        visitor.visit_file(&source_file.syntax);
+        if visitor.edits.is_empty() {
+            continue;
+        }
+        let updated = apply_text_edits(&source_file.source, &visitor.edits, &source_file.relative)?;
+        syn::parse_file(&updated).map_err(|error| TransformError::Rust {
+            path: crate_root.join(&source_file.relative),
+            message: error.to_string(),
+        })?;
+        fs::write(crate_root.join(&source_file.relative), updated).map_err(|source| {
+            TransformError::Io {
+                path: crate_root.join(&source_file.relative),
+                source,
+            }
+        })?;
+        changed_files.push(source_file.relative.clone());
+    }
+    Ok(changed_files)
+}
+
+fn replace_identifier(value: &str, old: &str, new: &str) -> String {
+    let mut output = String::with_capacity(value.len());
+    let mut cursor = 0;
+    while let Some(relative_start) = value[cursor..].find(old) {
+        let start = cursor + relative_start;
+        let end = start + old.len();
+        let previous_is_identifier = value[..start]
+            .chars()
+            .next_back()
+            .is_some_and(is_identifier_character);
+        let next_is_identifier = value[end..]
+            .chars()
+            .next()
+            .is_some_and(is_identifier_character);
+        output.push_str(&value[cursor..start]);
+        if previous_is_identifier || next_is_identifier {
+            output.push_str(old);
+        } else {
+            output.push_str(new);
+        }
+        cursor = end;
+    }
+    output.push_str(&value[cursor..]);
+    output
+}
+
+fn is_identifier_character(character: char) -> bool {
+    character.is_ascii_alphanumeric() || character == '_'
+}
+
+fn apply_text_edits(
+    source: &str,
+    edits: &[(usize, usize, String)],
+    relative: &str,
+) -> Result<String, TransformError> {
+    let mut edits = edits.to_owned();
+    edits.sort_by_key(|(start, end, _)| (*start, *end));
+    let mut output = source.to_owned();
+    let mut previous_start = usize::MAX;
+    for (start, end, replacement) in edits.into_iter().rev() {
+        if start > end || end > output.len() {
+            return Err(TransformError::Invalid {
+                path: PathBuf::from(relative),
+                message: "Rust text edit is outside source".to_owned(),
+            });
+        }
+        if end > previous_start {
+            return Err(TransformError::Invalid {
+                path: PathBuf::from(relative),
+                message: "overlapping Rust text edits".to_owned(),
+            });
+        }
+        output.replace_range(start..end, &replacement);
+        previous_start = start;
+    }
+    Ok(output)
+}
+
+fn cargo_library_name(path: &Path) -> Result<String, TransformError> {
+    let source = fs::read_to_string(path).map_err(|source| TransformError::Io {
+        path: path.to_owned(),
+        source,
+    })?;
+    let document = source
+        .parse::<DocumentMut>()
+        .map_err(|error| TransformError::Cargo {
+            path: path.to_owned(),
+            message: error.to_string(),
+        })?;
+    if let Some(name) = document
+        .get("lib")
+        .and_then(TomlItem::as_table)
+        .and_then(|table| table.get("name"))
+        .and_then(TomlItem::as_str)
+    {
+        return Ok(name.to_owned());
+    }
+    document
+        .get("package")
+        .and_then(TomlItem::as_table)
+        .and_then(|table| table.get("name"))
+        .and_then(TomlItem::as_str)
+        .map(|name| name.replace('-', "_"))
+        .ok_or_else(|| TransformError::Cargo {
+            path: path.to_owned(),
+            message: "manifest has no library or package name".to_owned(),
+        })
+}
+
 pub fn rewrite_cargo_named(
     path: &Path,
     package_name: &str,
@@ -2726,6 +2890,54 @@ mod tests {
         );
         let client_source = fs::read_to_string(directory.path().join("src/client.rs")).unwrap();
         assert!(client_source.contains("#[cfg(feature = \"op_get_thing\")]\nmod get_thing;"));
+    }
+
+    #[test]
+    fn rewrites_old_library_names_only_in_documentation() {
+        let directory = tempdir().unwrap();
+        fs::create_dir(directory.path().join("src")).unwrap();
+        fs::create_dir(directory.path().join("src/operation")).unwrap();
+        fs::create_dir(directory.path().join("src/client")).unwrap();
+        fs::write(
+            directory.path().join("src/lib.rs"),
+            r#"//! use old_lib::Client;
+//! old_library stays unchanged.
+//! let _ = "old_lib";
+pub fn marker() { let _ = "old_lib"; }
+pub mod operation;
+pub mod client;
+"#,
+        )
+        .unwrap();
+        fs::write(
+            directory.path().join("src/operation.rs"),
+            "pub mod get_thing;\n",
+        )
+        .unwrap();
+        fs::write(directory.path().join("src/client.rs"), "mod get_thing;\n").unwrap();
+        fs::write(
+            directory.path().join("src/operation/get_thing.rs"),
+            "pub struct GetThing;\n",
+        )
+        .unwrap();
+        fs::write(
+            directory.path().join("src/client/get_thing.rs"),
+            "impl super::Client {}\n",
+        )
+        .unwrap();
+        fs::write(
+            directory.path().join("Cargo.toml"),
+            "[package]\nname = \"old-package\"\nversion = \"0.1.0\"\nedition = \"2024\"\n[lib]\nname = \"old_lib\"\n",
+        )
+        .unwrap();
+
+        transform_tree(directory.path(), "new-package", "new_lib", &operations()).unwrap();
+
+        let source = fs::read_to_string(directory.path().join("src/lib.rs")).unwrap();
+        assert!(source.contains("//! use new_lib::Client;"));
+        assert!(source.contains("//! old_library stays unchanged."));
+        assert!(source.contains("//! let _ = \"new_lib\";"));
+        assert!(source.contains("pub fn marker() { let _ = \"old_lib\"; }"));
     }
 
     #[test]

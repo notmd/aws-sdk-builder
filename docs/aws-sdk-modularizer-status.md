@@ -1,5 +1,14 @@
 # AWS SDK modularizer checkpoint log
 
+## 2026-08-29 — documentation crate-name rewrite checkpoint
+
+- Objective: keep generated doctests valid after renaming each library to its modular crate name.
+- Generic rule: use `syn` to visit Rust `doc` attributes and rewrite only exact old library identifiers at their source spans; leave executable code and runtime strings unchanged.
+- Changed files: `crates/aws-sdk-modularizer/src/transform.rs` and this checkpoint log.
+- Commands: `cargo test -p aws-sdk-modularizer` passed (13 tests); `cargo fmt --all -- --check` and `git diff --check` passed; operation coverage unchanged.
+- Remaining blocker: regenerate the SDK snapshots so the documentation rewrite is present in each service crate.
+- Next action: regenerate and commit each service output separately, then run conformance and workspace tests.
+
 ## 2026-08-29 — formatting checkpoint
 
 - Objective: make the required workspace formatting check pass without reformatting upstream-generated SDK snapshots.
