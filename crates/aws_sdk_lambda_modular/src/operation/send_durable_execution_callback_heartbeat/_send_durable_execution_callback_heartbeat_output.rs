@@ -15,16 +15,14 @@ impl ::aws_types::request_id::RequestId for SendDurableExecutionCallbackHeartbea
 #[cfg(feature = "op_send_durable_execution_callback_heartbeat")]
 impl SendDurableExecutionCallbackHeartbeatOutput {
     /// Creates a new builder-style object to manufacture [`SendDurableExecutionCallbackHeartbeatOutput`](crate::operation::send_durable_execution_callback_heartbeat::SendDurableExecutionCallbackHeartbeatOutput).
-    pub fn builder() -> crate::operation::send_durable_execution_callback_heartbeat::builders::SendDurableExecutionCallbackHeartbeatOutputBuilder{
+    pub fn builder() -> crate::operation::send_durable_execution_callback_heartbeat::builders::SendDurableExecutionCallbackHeartbeatOutputBuilder {
         crate::operation::send_durable_execution_callback_heartbeat::builders::SendDurableExecutionCallbackHeartbeatOutputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_send_durable_execution_callback_heartbeat")]
 /// A builder for [`SendDurableExecutionCallbackHeartbeatOutput`](crate::operation::send_durable_execution_callback_heartbeat::SendDurableExecutionCallbackHeartbeatOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct SendDurableExecutionCallbackHeartbeatOutputBuilder {
     _request_id: Option<String>,
@@ -41,7 +39,7 @@ impl SendDurableExecutionCallbackHeartbeatOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`SendDurableExecutionCallbackHeartbeatOutput`](crate::operation::send_durable_execution_callback_heartbeat::SendDurableExecutionCallbackHeartbeatOutput).
-    pub fn build(self) -> crate::operation::send_durable_execution_callback_heartbeat::SendDurableExecutionCallbackHeartbeatOutput{
+    pub fn build(self) -> crate::operation::send_durable_execution_callback_heartbeat::SendDurableExecutionCallbackHeartbeatOutput {
         crate::operation::send_durable_execution_callback_heartbeat::SendDurableExecutionCallbackHeartbeatOutput {
             _request_id: self._request_id,
         }

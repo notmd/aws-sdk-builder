@@ -68,7 +68,7 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<UpdateFunctionConfigurationError>`](crate::operation::update_function_configuration::UpdateFunctionConfigurationError)
     pub fn update_function_configuration(
         &self,
-    ) -> crate::operation::update_function_configuration::builders::UpdateFunctionConfigurationFluentBuilder{
+    ) -> crate::operation::update_function_configuration::builders::UpdateFunctionConfigurationFluentBuilder {
         crate::operation::update_function_configuration::builders::UpdateFunctionConfigurationFluentBuilder::new(self.handle.clone())
     }
 }

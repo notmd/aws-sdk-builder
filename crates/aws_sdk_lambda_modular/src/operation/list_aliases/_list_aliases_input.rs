@@ -62,9 +62,7 @@ impl ListAliasesInput {
 
 #[cfg(feature = "op_list_aliases")]
 /// A builder for [`ListAliasesInput`](crate::operation::list_aliases::ListAliasesInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct ListAliasesInputBuilder {
     pub(crate) function_name: ::std::option::Option<::std::string::String>,
@@ -86,10 +84,7 @@ impl ListAliasesInputBuilder {
     /// </ul>
     /// <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
     /// This field is required.
-    pub fn function_name(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn function_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.function_name = ::std::option::Option::Some(input.into());
         self
     }
@@ -104,10 +99,7 @@ impl ListAliasesInputBuilder {
     /// <p><b>Partial ARN</b> - <code>123456789012:function:MyFunction</code>.</p></li>
     /// </ul>
     /// <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
-    pub fn set_function_name(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_function_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.function_name = input;
         self
     }
@@ -126,18 +118,12 @@ impl ListAliasesInputBuilder {
         &self.function_name
     }
     /// <p>Specify a function version to only list aliases that invoke that version.</p>
-    pub fn function_version(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn function_version(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.function_version = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>Specify a function version to only list aliases that invoke that version.</p>
-    pub fn set_function_version(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_function_version(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.function_version = input;
         self
     }
@@ -174,12 +160,7 @@ impl ListAliasesInputBuilder {
         &self.max_items
     }
     /// Consumes the builder and constructs a [`ListAliasesInput`](crate::operation::list_aliases::ListAliasesInput).
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<
-        crate::operation::list_aliases::ListAliasesInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    pub fn build(self) -> ::std::result::Result<crate::operation::list_aliases::ListAliasesInput, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::operation::list_aliases::ListAliasesInput {
             function_name: self.function_name,
             function_version: self.function_version,

@@ -23,16 +23,14 @@ impl SendDurableExecutionCallbackFailureInput {
 #[cfg(feature = "op_send_durable_execution_callback_failure")]
 impl SendDurableExecutionCallbackFailureInput {
     /// Creates a new builder-style object to manufacture [`SendDurableExecutionCallbackFailureInput`](crate::operation::send_durable_execution_callback_failure::SendDurableExecutionCallbackFailureInput).
-    pub fn builder() -> crate::operation::send_durable_execution_callback_failure::builders::SendDurableExecutionCallbackFailureInputBuilder{
+    pub fn builder() -> crate::operation::send_durable_execution_callback_failure::builders::SendDurableExecutionCallbackFailureInputBuilder {
         crate::operation::send_durable_execution_callback_failure::builders::SendDurableExecutionCallbackFailureInputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_send_durable_execution_callback_failure")]
 /// A builder for [`SendDurableExecutionCallbackFailureInput`](crate::operation::send_durable_execution_callback_failure::SendDurableExecutionCallbackFailureInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct SendDurableExecutionCallbackFailureInputBuilder {
     pub(crate) callback_id: ::std::option::Option<::std::string::String>,
@@ -75,7 +73,7 @@ impl SendDurableExecutionCallbackFailureInputBuilder {
     ) -> ::std::result::Result<
         crate::operation::send_durable_execution_callback_failure::SendDurableExecutionCallbackFailureInput,
         ::aws_smithy_types::error::operation::BuildError,
-    >{
+    > {
         ::std::result::Result::Ok(
             crate::operation::send_durable_execution_callback_failure::SendDurableExecutionCallbackFailureInput {
                 callback_id: self.callback_id,

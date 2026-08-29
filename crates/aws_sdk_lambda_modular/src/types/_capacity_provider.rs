@@ -15,8 +15,7 @@ pub struct CapacityProvider {
     /// <p>The instance requirements for compute resources managed by the capacity provider.</p>
     pub instance_requirements: ::std::option::Option<crate::types::InstanceRequirements>,
     /// <p>The scaling configuration for the capacity provider.</p>
-    pub capacity_provider_scaling_config:
-        ::std::option::Option<crate::types::CapacityProviderScalingConfig>,
+    pub capacity_provider_scaling_config: ::std::option::Option<crate::types::CapacityProviderScalingConfig>,
     /// <p>The ARN of the KMS key used to encrypt the capacity provider's resources.</p>
     pub kms_key_arn: ::std::option::Option<::std::string::String>,
     /// <p>The date and time when the capacity provider was last modified.</p>
@@ -41,21 +40,15 @@ impl CapacityProvider {
         self.vpc_config.as_ref()
     }
     /// <p>The permissions configuration for the capacity provider.</p>
-    pub fn permissions_config(
-        &self,
-    ) -> ::std::option::Option<&crate::types::CapacityProviderPermissionsConfig> {
+    pub fn permissions_config(&self) -> ::std::option::Option<&crate::types::CapacityProviderPermissionsConfig> {
         self.permissions_config.as_ref()
     }
     /// <p>The instance requirements for compute resources managed by the capacity provider.</p>
-    pub fn instance_requirements(
-        &self,
-    ) -> ::std::option::Option<&crate::types::InstanceRequirements> {
+    pub fn instance_requirements(&self) -> ::std::option::Option<&crate::types::InstanceRequirements> {
         self.instance_requirements.as_ref()
     }
     /// <p>The scaling configuration for the capacity provider.</p>
-    pub fn capacity_provider_scaling_config(
-        &self,
-    ) -> ::std::option::Option<&crate::types::CapacityProviderScalingConfig> {
+    pub fn capacity_provider_scaling_config(&self) -> ::std::option::Option<&crate::types::CapacityProviderScalingConfig> {
         self.capacity_provider_scaling_config.as_ref()
     }
     /// <p>The ARN of the KMS key used to encrypt the capacity provider's resources.</p>
@@ -71,9 +64,7 @@ impl CapacityProvider {
         self.propagate_tags.as_ref()
     }
     /// <p>The telemetry configuration for the capacity provider, including logging settings.</p>
-    pub fn telemetry_config(
-        &self,
-    ) -> ::std::option::Option<&crate::types::CapacityProviderTelemetryConfig> {
+    pub fn telemetry_config(&self) -> ::std::option::Option<&crate::types::CapacityProviderTelemetryConfig> {
         self.telemetry_config.as_ref()
     }
 }
@@ -85,40 +76,29 @@ impl CapacityProvider {
 }
 
 /// A builder for [`CapacityProvider`](crate::types::CapacityProvider).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct CapacityProviderBuilder {
     pub(crate) capacity_provider_arn: ::std::option::Option<::std::string::String>,
     pub(crate) state: ::std::option::Option<crate::types::CapacityProviderState>,
     pub(crate) vpc_config: ::std::option::Option<crate::types::CapacityProviderVpcConfig>,
-    pub(crate) permissions_config:
-        ::std::option::Option<crate::types::CapacityProviderPermissionsConfig>,
+    pub(crate) permissions_config: ::std::option::Option<crate::types::CapacityProviderPermissionsConfig>,
     pub(crate) instance_requirements: ::std::option::Option<crate::types::InstanceRequirements>,
-    pub(crate) capacity_provider_scaling_config:
-        ::std::option::Option<crate::types::CapacityProviderScalingConfig>,
+    pub(crate) capacity_provider_scaling_config: ::std::option::Option<crate::types::CapacityProviderScalingConfig>,
     pub(crate) kms_key_arn: ::std::option::Option<::std::string::String>,
     pub(crate) last_modified: ::std::option::Option<::std::string::String>,
     pub(crate) propagate_tags: ::std::option::Option<crate::types::PropagateTags>,
-    pub(crate) telemetry_config:
-        ::std::option::Option<crate::types::CapacityProviderTelemetryConfig>,
+    pub(crate) telemetry_config: ::std::option::Option<crate::types::CapacityProviderTelemetryConfig>,
 }
 impl CapacityProviderBuilder {
     /// <p>The Amazon Resource Name (ARN) of the capacity provider.</p>
     /// This field is required.
-    pub fn capacity_provider_arn(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn capacity_provider_arn(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.capacity_provider_arn = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The Amazon Resource Name (ARN) of the capacity provider.</p>
-    pub fn set_capacity_provider_arn(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_capacity_provider_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.capacity_provider_arn = input;
         self
     }
@@ -133,10 +113,7 @@ impl CapacityProviderBuilder {
         self
     }
     /// <p>The current state of the capacity provider.</p>
-    pub fn set_state(
-        mut self,
-        input: ::std::option::Option<crate::types::CapacityProviderState>,
-    ) -> Self {
+    pub fn set_state(mut self, input: ::std::option::Option<crate::types::CapacityProviderState>) -> Self {
         self.state = input;
         self
     }
@@ -151,40 +128,27 @@ impl CapacityProviderBuilder {
         self
     }
     /// <p>The VPC configuration for the capacity provider.</p>
-    pub fn set_vpc_config(
-        mut self,
-        input: ::std::option::Option<crate::types::CapacityProviderVpcConfig>,
-    ) -> Self {
+    pub fn set_vpc_config(mut self, input: ::std::option::Option<crate::types::CapacityProviderVpcConfig>) -> Self {
         self.vpc_config = input;
         self
     }
     /// <p>The VPC configuration for the capacity provider.</p>
-    pub fn get_vpc_config(
-        &self,
-    ) -> &::std::option::Option<crate::types::CapacityProviderVpcConfig> {
+    pub fn get_vpc_config(&self) -> &::std::option::Option<crate::types::CapacityProviderVpcConfig> {
         &self.vpc_config
     }
     /// <p>The permissions configuration for the capacity provider.</p>
     /// This field is required.
-    pub fn permissions_config(
-        mut self,
-        input: crate::types::CapacityProviderPermissionsConfig,
-    ) -> Self {
+    pub fn permissions_config(mut self, input: crate::types::CapacityProviderPermissionsConfig) -> Self {
         self.permissions_config = ::std::option::Option::Some(input);
         self
     }
     /// <p>The permissions configuration for the capacity provider.</p>
-    pub fn set_permissions_config(
-        mut self,
-        input: ::std::option::Option<crate::types::CapacityProviderPermissionsConfig>,
-    ) -> Self {
+    pub fn set_permissions_config(mut self, input: ::std::option::Option<crate::types::CapacityProviderPermissionsConfig>) -> Self {
         self.permissions_config = input;
         self
     }
     /// <p>The permissions configuration for the capacity provider.</p>
-    pub fn get_permissions_config(
-        &self,
-    ) -> &::std::option::Option<crate::types::CapacityProviderPermissionsConfig> {
+    pub fn get_permissions_config(&self) -> &::std::option::Option<crate::types::CapacityProviderPermissionsConfig> {
         &self.permissions_config
     }
     /// <p>The instance requirements for compute resources managed by the capacity provider.</p>
@@ -193,39 +157,26 @@ impl CapacityProviderBuilder {
         self
     }
     /// <p>The instance requirements for compute resources managed by the capacity provider.</p>
-    pub fn set_instance_requirements(
-        mut self,
-        input: ::std::option::Option<crate::types::InstanceRequirements>,
-    ) -> Self {
+    pub fn set_instance_requirements(mut self, input: ::std::option::Option<crate::types::InstanceRequirements>) -> Self {
         self.instance_requirements = input;
         self
     }
     /// <p>The instance requirements for compute resources managed by the capacity provider.</p>
-    pub fn get_instance_requirements(
-        &self,
-    ) -> &::std::option::Option<crate::types::InstanceRequirements> {
+    pub fn get_instance_requirements(&self) -> &::std::option::Option<crate::types::InstanceRequirements> {
         &self.instance_requirements
     }
     /// <p>The scaling configuration for the capacity provider.</p>
-    pub fn capacity_provider_scaling_config(
-        mut self,
-        input: crate::types::CapacityProviderScalingConfig,
-    ) -> Self {
+    pub fn capacity_provider_scaling_config(mut self, input: crate::types::CapacityProviderScalingConfig) -> Self {
         self.capacity_provider_scaling_config = ::std::option::Option::Some(input);
         self
     }
     /// <p>The scaling configuration for the capacity provider.</p>
-    pub fn set_capacity_provider_scaling_config(
-        mut self,
-        input: ::std::option::Option<crate::types::CapacityProviderScalingConfig>,
-    ) -> Self {
+    pub fn set_capacity_provider_scaling_config(mut self, input: ::std::option::Option<crate::types::CapacityProviderScalingConfig>) -> Self {
         self.capacity_provider_scaling_config = input;
         self
     }
     /// <p>The scaling configuration for the capacity provider.</p>
-    pub fn get_capacity_provider_scaling_config(
-        &self,
-    ) -> &::std::option::Option<crate::types::CapacityProviderScalingConfig> {
+    pub fn get_capacity_provider_scaling_config(&self) -> &::std::option::Option<crate::types::CapacityProviderScalingConfig> {
         &self.capacity_provider_scaling_config
     }
     /// <p>The ARN of the KMS key used to encrypt the capacity provider's resources.</p>
@@ -243,18 +194,12 @@ impl CapacityProviderBuilder {
         &self.kms_key_arn
     }
     /// <p>The date and time when the capacity provider was last modified.</p>
-    pub fn last_modified(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn last_modified(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.last_modified = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The date and time when the capacity provider was last modified.</p>
-    pub fn set_last_modified(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_last_modified(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.last_modified = input;
         self
     }
@@ -268,10 +213,7 @@ impl CapacityProviderBuilder {
         self
     }
     /// <p>Configuration for tag propagation to managed resources launched by the capacity provider.</p>
-    pub fn set_propagate_tags(
-        mut self,
-        input: ::std::option::Option<crate::types::PropagateTags>,
-    ) -> Self {
+    pub fn set_propagate_tags(mut self, input: ::std::option::Option<crate::types::PropagateTags>) -> Self {
         self.propagate_tags = input;
         self
     }
@@ -280,37 +222,24 @@ impl CapacityProviderBuilder {
         &self.propagate_tags
     }
     /// <p>The telemetry configuration for the capacity provider, including logging settings.</p>
-    pub fn telemetry_config(
-        mut self,
-        input: crate::types::CapacityProviderTelemetryConfig,
-    ) -> Self {
+    pub fn telemetry_config(mut self, input: crate::types::CapacityProviderTelemetryConfig) -> Self {
         self.telemetry_config = ::std::option::Option::Some(input);
         self
     }
     /// <p>The telemetry configuration for the capacity provider, including logging settings.</p>
-    pub fn set_telemetry_config(
-        mut self,
-        input: ::std::option::Option<crate::types::CapacityProviderTelemetryConfig>,
-    ) -> Self {
+    pub fn set_telemetry_config(mut self, input: ::std::option::Option<crate::types::CapacityProviderTelemetryConfig>) -> Self {
         self.telemetry_config = input;
         self
     }
     /// <p>The telemetry configuration for the capacity provider, including logging settings.</p>
-    pub fn get_telemetry_config(
-        &self,
-    ) -> &::std::option::Option<crate::types::CapacityProviderTelemetryConfig> {
+    pub fn get_telemetry_config(&self) -> &::std::option::Option<crate::types::CapacityProviderTelemetryConfig> {
         &self.telemetry_config
     }
     /// Consumes the builder and constructs a [`CapacityProvider`](crate::types::CapacityProvider).
     /// This method will fail if any of the following fields are not set:
     /// - [`capacity_provider_arn`](crate::types::builders::CapacityProviderBuilder::capacity_provider_arn)
     /// - [`state`](crate::types::builders::CapacityProviderBuilder::state)
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<
-        crate::types::CapacityProvider,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    pub fn build(self) -> ::std::result::Result<crate::types::CapacityProvider, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::CapacityProvider {
             capacity_provider_arn: self.capacity_provider_arn.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

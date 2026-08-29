@@ -30,8 +30,7 @@ impl crate::operation::update_code_signing_config::builders::UpdateCodeSigningCo
 #[derive(::std::clone::Clone, ::std::fmt::Debug)]
 pub struct UpdateCodeSigningConfigFluentBuilder {
     handle: ::std::sync::Arc<crate::client::Handle>,
-    inner:
-        crate::operation::update_code_signing_config::builders::UpdateCodeSigningConfigInputBuilder,
+    inner: crate::operation::update_code_signing_config::builders::UpdateCodeSigningConfigInputBuilder,
     config_override: ::std::option::Option<crate::config::Builder>,
 }
 #[cfg(feature = "op_update_code_signing_config")]
@@ -64,10 +63,7 @@ impl UpdateCodeSigningConfigFluentBuilder {
         }
     }
     /// Access the UpdateCodeSigningConfig as a reference.
-    pub fn as_input(
-        &self,
-    ) -> &crate::operation::update_code_signing_config::builders::UpdateCodeSigningConfigInputBuilder
-    {
+    pub fn as_input(&self) -> &crate::operation::update_code_signing_config::builders::UpdateCodeSigningConfigInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -96,11 +92,7 @@ impl UpdateCodeSigningConfigFluentBuilder {
             &self.handle.conf,
             self.config_override,
         );
-        crate::operation::update_code_signing_config::UpdateCodeSigningConfig::orchestrate(
-            &runtime_plugins,
-            input,
-        )
-        .await
+        crate::operation::update_code_signing_config::UpdateCodeSigningConfig::orchestrate(&runtime_plugins, input).await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -113,34 +105,22 @@ impl UpdateCodeSigningConfigFluentBuilder {
     > {
         crate::client::customize::CustomizableOperation::new(self)
     }
-    pub(crate) fn config_override(
-        mut self,
-        config_override: impl ::std::convert::Into<crate::config::Builder>,
-    ) -> Self {
+    pub(crate) fn config_override(mut self, config_override: impl ::std::convert::Into<crate::config::Builder>) -> Self {
         self.set_config_override(::std::option::Option::Some(config_override.into()));
         self
     }
 
-    pub(crate) fn set_config_override(
-        &mut self,
-        config_override: ::std::option::Option<crate::config::Builder>,
-    ) -> &mut Self {
+    pub(crate) fn set_config_override(&mut self, config_override: ::std::option::Option<crate::config::Builder>) -> &mut Self {
         self.config_override = config_override;
         self
     }
     /// <p>The The Amazon Resource Name (ARN) of the code signing configuration.</p>
-    pub fn code_signing_config_arn(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn code_signing_config_arn(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.code_signing_config_arn(input.into());
         self
     }
     /// <p>The The Amazon Resource Name (ARN) of the code signing configuration.</p>
-    pub fn set_code_signing_config_arn(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_code_signing_config_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_code_signing_config_arn(input);
         self
     }
@@ -168,17 +148,12 @@ impl UpdateCodeSigningConfigFluentBuilder {
         self
     }
     /// <p>Signing profiles for this code signing configuration.</p>
-    pub fn set_allowed_publishers(
-        mut self,
-        input: ::std::option::Option<crate::types::AllowedPublishers>,
-    ) -> Self {
+    pub fn set_allowed_publishers(mut self, input: ::std::option::Option<crate::types::AllowedPublishers>) -> Self {
         self.inner = self.inner.set_allowed_publishers(input);
         self
     }
     /// <p>Signing profiles for this code signing configuration.</p>
-    pub fn get_allowed_publishers(
-        &self,
-    ) -> &::std::option::Option<crate::types::AllowedPublishers> {
+    pub fn get_allowed_publishers(&self) -> &::std::option::Option<crate::types::AllowedPublishers> {
         self.inner.get_allowed_publishers()
     }
     /// <p>The code signing policy.</p>
@@ -187,17 +162,12 @@ impl UpdateCodeSigningConfigFluentBuilder {
         self
     }
     /// <p>The code signing policy.</p>
-    pub fn set_code_signing_policies(
-        mut self,
-        input: ::std::option::Option<crate::types::CodeSigningPolicies>,
-    ) -> Self {
+    pub fn set_code_signing_policies(mut self, input: ::std::option::Option<crate::types::CodeSigningPolicies>) -> Self {
         self.inner = self.inner.set_code_signing_policies(input);
         self
     }
     /// <p>The code signing policy.</p>
-    pub fn get_code_signing_policies(
-        &self,
-    ) -> &::std::option::Option<crate::types::CodeSigningPolicies> {
+    pub fn get_code_signing_policies(&self) -> &::std::option::Option<crate::types::CodeSigningPolicies> {
         self.inner.get_code_signing_policies()
     }
 }

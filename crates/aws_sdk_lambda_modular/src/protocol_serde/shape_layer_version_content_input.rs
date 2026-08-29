@@ -16,9 +16,7 @@ pub fn ser_layer_version_content_input(
         object.key("S3ObjectStorageMode").string(var_4.as_str());
     }
     if let Some(var_5) = &input.zip_file {
-        object
-            .key("ZipFile")
-            .string_unchecked(&::aws_smithy_types::base64::encode(var_5));
+        object.key("ZipFile").string_unchecked(&::aws_smithy_types::base64::encode(var_5));
     }
     Ok(())
 }

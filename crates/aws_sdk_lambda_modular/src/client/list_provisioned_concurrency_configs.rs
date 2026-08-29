@@ -13,7 +13,7 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<ListProvisionedConcurrencyConfigsError>`](crate::operation::list_provisioned_concurrency_configs::ListProvisionedConcurrencyConfigsError)
     pub fn list_provisioned_concurrency_configs(
         &self,
-    ) -> crate::operation::list_provisioned_concurrency_configs::builders::ListProvisionedConcurrencyConfigsFluentBuilder{
+    ) -> crate::operation::list_provisioned_concurrency_configs::builders::ListProvisionedConcurrencyConfigsFluentBuilder {
         crate::operation::list_provisioned_concurrency_configs::builders::ListProvisionedConcurrencyConfigsFluentBuilder::new(self.handle.clone())
     }
 }

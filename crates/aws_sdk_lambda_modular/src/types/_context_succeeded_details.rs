@@ -21,9 +21,7 @@ impl ContextSucceededDetails {
 }
 
 /// A builder for [`ContextSucceededDetails`](crate::types::ContextSucceededDetails).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct ContextSucceededDetailsBuilder {
     pub(crate) result: ::std::option::Option<crate::types::EventResult>,
@@ -46,8 +44,6 @@ impl ContextSucceededDetailsBuilder {
     }
     /// Consumes the builder and constructs a [`ContextSucceededDetails`](crate::types::ContextSucceededDetails).
     pub fn build(self) -> crate::types::ContextSucceededDetails {
-        crate::types::ContextSucceededDetails {
-            result: self.result,
-        }
+        crate::types::ContextSucceededDetails { result: self.result }
     }
 }

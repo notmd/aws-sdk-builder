@@ -5,8 +5,7 @@
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
 pub struct ListFunctionEventInvokeConfigsOutput {
     /// <p>A list of configurations.</p>
-    pub function_event_invoke_configs:
-        ::std::option::Option<::std::vec::Vec<crate::types::FunctionEventInvokeConfig>>,
+    pub function_event_invoke_configs: ::std::option::Option<::std::vec::Vec<crate::types::FunctionEventInvokeConfig>>,
     /// <p>The pagination token that's included if more results are available.</p>
     pub next_marker: ::std::option::Option<::std::string::String>,
     _request_id: Option<String>,
@@ -17,9 +16,7 @@ impl ListFunctionEventInvokeConfigsOutput {
     ///
     /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.function_event_invoke_configs.is_none()`.
     pub fn function_event_invoke_configs(&self) -> &[crate::types::FunctionEventInvokeConfig] {
-        self.function_event_invoke_configs
-            .as_deref()
-            .unwrap_or_default()
+        self.function_event_invoke_configs.as_deref().unwrap_or_default()
     }
     /// <p>The pagination token that's included if more results are available.</p>
     pub fn next_marker(&self) -> ::std::option::Option<&str> {
@@ -35,20 +32,17 @@ impl ::aws_types::request_id::RequestId for ListFunctionEventInvokeConfigsOutput
 #[cfg(feature = "op_list_function_event_invoke_configs")]
 impl ListFunctionEventInvokeConfigsOutput {
     /// Creates a new builder-style object to manufacture [`ListFunctionEventInvokeConfigsOutput`](crate::operation::list_function_event_invoke_configs::ListFunctionEventInvokeConfigsOutput).
-    pub fn builder() -> crate::operation::list_function_event_invoke_configs::builders::ListFunctionEventInvokeConfigsOutputBuilder{
+    pub fn builder() -> crate::operation::list_function_event_invoke_configs::builders::ListFunctionEventInvokeConfigsOutputBuilder {
         crate::operation::list_function_event_invoke_configs::builders::ListFunctionEventInvokeConfigsOutputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_list_function_event_invoke_configs")]
 /// A builder for [`ListFunctionEventInvokeConfigsOutput`](crate::operation::list_function_event_invoke_configs::ListFunctionEventInvokeConfigsOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct ListFunctionEventInvokeConfigsOutputBuilder {
-    pub(crate) function_event_invoke_configs:
-        ::std::option::Option<::std::vec::Vec<crate::types::FunctionEventInvokeConfig>>,
+    pub(crate) function_event_invoke_configs: ::std::option::Option<::std::vec::Vec<crate::types::FunctionEventInvokeConfig>>,
     pub(crate) next_marker: ::std::option::Option<::std::string::String>,
     _request_id: Option<String>,
 }
@@ -59,10 +53,7 @@ impl ListFunctionEventInvokeConfigsOutputBuilder {
     /// To override the contents of this collection use [`set_function_event_invoke_configs`](Self::set_function_event_invoke_configs).
     ///
     /// <p>A list of configurations.</p>
-    pub fn function_event_invoke_configs(
-        mut self,
-        input: crate::types::FunctionEventInvokeConfig,
-    ) -> Self {
+    pub fn function_event_invoke_configs(mut self, input: crate::types::FunctionEventInvokeConfig) -> Self {
         let mut v = self.function_event_invoke_configs.unwrap_or_default();
         v.push(input);
         self.function_event_invoke_configs = ::std::option::Option::Some(v);
@@ -77,9 +68,7 @@ impl ListFunctionEventInvokeConfigsOutputBuilder {
         self
     }
     /// <p>A list of configurations.</p>
-    pub fn get_function_event_invoke_configs(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<crate::types::FunctionEventInvokeConfig>> {
+    pub fn get_function_event_invoke_configs(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::FunctionEventInvokeConfig>> {
         &self.function_event_invoke_configs
     }
     /// <p>The pagination token that's included if more results are available.</p>
@@ -106,10 +95,7 @@ impl ListFunctionEventInvokeConfigsOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`ListFunctionEventInvokeConfigsOutput`](crate::operation::list_function_event_invoke_configs::ListFunctionEventInvokeConfigsOutput).
-    pub fn build(
-        self,
-    ) -> crate::operation::list_function_event_invoke_configs::ListFunctionEventInvokeConfigsOutput
-    {
+    pub fn build(self) -> crate::operation::list_function_event_invoke_configs::ListFunctionEventInvokeConfigsOutput {
         crate::operation::list_function_event_invoke_configs::ListFunctionEventInvokeConfigsOutput {
             function_event_invoke_configs: self.function_event_invoke_configs,
             next_marker: self.next_marker,

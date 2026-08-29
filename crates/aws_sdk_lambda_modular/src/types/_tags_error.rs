@@ -29,9 +29,7 @@ impl TagsError {
 }
 
 /// A builder for [`TagsError`](crate::types::TagsError).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct TagsErrorBuilder {
     pub(crate) error_code: ::std::option::Option<::std::string::String>,
@@ -72,12 +70,7 @@ impl TagsErrorBuilder {
     /// This method will fail if any of the following fields are not set:
     /// - [`error_code`](crate::types::builders::TagsErrorBuilder::error_code)
     /// - [`message`](crate::types::builders::TagsErrorBuilder::message)
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<
-        crate::types::TagsError,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    pub fn build(self) -> ::std::result::Result<crate::types::TagsError, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::TagsError {
             error_code: self.error_code.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

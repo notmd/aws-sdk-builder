@@ -24,16 +24,14 @@ impl ::aws_types::request_id::RequestId for PutFunctionScalingConfigOutput {
 #[cfg(feature = "op_put_function_scaling_config")]
 impl PutFunctionScalingConfigOutput {
     /// Creates a new builder-style object to manufacture [`PutFunctionScalingConfigOutput`](crate::operation::put_function_scaling_config::PutFunctionScalingConfigOutput).
-    pub fn builder() -> crate::operation::put_function_scaling_config::builders::PutFunctionScalingConfigOutputBuilder{
+    pub fn builder() -> crate::operation::put_function_scaling_config::builders::PutFunctionScalingConfigOutputBuilder {
         crate::operation::put_function_scaling_config::builders::PutFunctionScalingConfigOutputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_put_function_scaling_config")]
 /// A builder for [`PutFunctionScalingConfigOutput`](crate::operation::put_function_scaling_config::PutFunctionScalingConfigOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct PutFunctionScalingConfigOutputBuilder {
     pub(crate) function_state: ::std::option::Option<crate::types::State>,
@@ -65,9 +63,7 @@ impl PutFunctionScalingConfigOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`PutFunctionScalingConfigOutput`](crate::operation::put_function_scaling_config::PutFunctionScalingConfigOutput).
-    pub fn build(
-        self,
-    ) -> crate::operation::put_function_scaling_config::PutFunctionScalingConfigOutput {
+    pub fn build(self) -> crate::operation::put_function_scaling_config::PutFunctionScalingConfigOutput {
         crate::operation::put_function_scaling_config::PutFunctionScalingConfigOutput {
             function_state: self.function_state,
             _request_id: self._request_id,

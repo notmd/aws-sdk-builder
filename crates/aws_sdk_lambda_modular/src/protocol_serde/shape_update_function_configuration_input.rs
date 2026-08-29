@@ -6,19 +6,13 @@ pub fn ser_update_function_configuration_input_input(
     if let Some(var_1) = &input.capacity_provider_config {
         #[allow(unused_mut)]
         let mut object_2 = object.key("CapacityProviderConfig").start_object();
-        crate::protocol_serde::shape_capacity_provider_config::ser_capacity_provider_config(
-            &mut object_2,
-            var_1,
-        )?;
+        crate::protocol_serde::shape_capacity_provider_config::ser_capacity_provider_config(&mut object_2, var_1)?;
         object_2.finish();
     }
     if let Some(var_3) = &input.dead_letter_config {
         #[allow(unused_mut)]
         let mut object_4 = object.key("DeadLetterConfig").start_object();
-        crate::protocol_serde::shape_dead_letter_config::ser_dead_letter_config(
-            &mut object_4,
-            var_3,
-        )?;
+        crate::protocol_serde::shape_dead_letter_config::ser_dead_letter_config(&mut object_4, var_3)?;
         object_4.finish();
     }
     if let Some(var_5) = &input.description {
@@ -39,10 +33,7 @@ pub fn ser_update_function_configuration_input_input(
     if let Some(var_10) = &input.ephemeral_storage {
         #[allow(unused_mut)]
         let mut object_11 = object.key("EphemeralStorage").start_object();
-        crate::protocol_serde::shape_ephemeral_storage::ser_ephemeral_storage(
-            &mut object_11,
-            var_10,
-        )?;
+        crate::protocol_serde::shape_ephemeral_storage::ser_ephemeral_storage(&mut object_11, var_10)?;
         object_11.finish();
     }
     if let Some(var_12) = &input.file_system_configs {
@@ -51,10 +42,7 @@ pub fn ser_update_function_configuration_input_input(
             {
                 #[allow(unused_mut)]
                 let mut object_15 = array_13.value().start_object();
-                crate::protocol_serde::shape_file_system_config::ser_file_system_config(
-                    &mut object_15,
-                    item_14,
-                )?;
+                crate::protocol_serde::shape_file_system_config::ser_file_system_config(&mut object_15, item_14)?;
                 object_15.finish();
             }
         }

@@ -37,16 +37,14 @@ impl ::aws_types::request_id::RequestId for PutRuntimeManagementConfigOutput {
 #[cfg(feature = "op_put_runtime_management_config")]
 impl PutRuntimeManagementConfigOutput {
     /// Creates a new builder-style object to manufacture [`PutRuntimeManagementConfigOutput`](crate::operation::put_runtime_management_config::PutRuntimeManagementConfigOutput).
-    pub fn builder() -> crate::operation::put_runtime_management_config::builders::PutRuntimeManagementConfigOutputBuilder{
+    pub fn builder() -> crate::operation::put_runtime_management_config::builders::PutRuntimeManagementConfigOutputBuilder {
         crate::operation::put_runtime_management_config::builders::PutRuntimeManagementConfigOutputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_put_runtime_management_config")]
 /// A builder for [`PutRuntimeManagementConfigOutput`](crate::operation::put_runtime_management_config::PutRuntimeManagementConfigOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct PutRuntimeManagementConfigOutputBuilder {
     pub(crate) update_runtime_on: ::std::option::Option<crate::types::UpdateRuntimeOn>,
@@ -63,10 +61,7 @@ impl PutRuntimeManagementConfigOutputBuilder {
         self
     }
     /// <p>The runtime update mode.</p>
-    pub fn set_update_runtime_on(
-        mut self,
-        input: ::std::option::Option<crate::types::UpdateRuntimeOn>,
-    ) -> Self {
+    pub fn set_update_runtime_on(mut self, input: ::std::option::Option<crate::types::UpdateRuntimeOn>) -> Self {
         self.update_runtime_on = input;
         self
     }
@@ -90,18 +85,12 @@ impl PutRuntimeManagementConfigOutputBuilder {
         &self.function_arn
     }
     /// <p>The ARN of the runtime the function is configured to use. If the runtime update mode is <b>manual</b>, the ARN is returned, otherwise <code>null</code> is returned.</p>
-    pub fn runtime_version_arn(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn runtime_version_arn(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.runtime_version_arn = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The ARN of the runtime the function is configured to use. If the runtime update mode is <b>manual</b>, the ARN is returned, otherwise <code>null</code> is returned.</p>
-    pub fn set_runtime_version_arn(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_runtime_version_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.runtime_version_arn = input;
         self
     }

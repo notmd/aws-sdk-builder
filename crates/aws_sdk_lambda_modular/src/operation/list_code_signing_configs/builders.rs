@@ -30,8 +30,7 @@ impl crate::operation::list_code_signing_configs::builders::ListCodeSigningConfi
 #[derive(::std::clone::Clone, ::std::fmt::Debug)]
 pub struct ListCodeSigningConfigsFluentBuilder {
     handle: ::std::sync::Arc<crate::client::Handle>,
-    inner:
-        crate::operation::list_code_signing_configs::builders::ListCodeSigningConfigsInputBuilder,
+    inner: crate::operation::list_code_signing_configs::builders::ListCodeSigningConfigsInputBuilder,
     config_override: ::std::option::Option<crate::config::Builder>,
 }
 #[cfg(feature = "op_list_code_signing_configs")]
@@ -64,10 +63,7 @@ impl ListCodeSigningConfigsFluentBuilder {
         }
     }
     /// Access the ListCodeSigningConfigs as a reference.
-    pub fn as_input(
-        &self,
-    ) -> &crate::operation::list_code_signing_configs::builders::ListCodeSigningConfigsInputBuilder
-    {
+    pub fn as_input(&self) -> &crate::operation::list_code_signing_configs::builders::ListCodeSigningConfigsInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -96,11 +92,7 @@ impl ListCodeSigningConfigsFluentBuilder {
             &self.handle.conf,
             self.config_override,
         );
-        crate::operation::list_code_signing_configs::ListCodeSigningConfigs::orchestrate(
-            &runtime_plugins,
-            input,
-        )
-        .await
+        crate::operation::list_code_signing_configs::ListCodeSigningConfigs::orchestrate(&runtime_plugins, input).await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -113,32 +105,20 @@ impl ListCodeSigningConfigsFluentBuilder {
     > {
         crate::client::customize::CustomizableOperation::new(self)
     }
-    pub(crate) fn config_override(
-        mut self,
-        config_override: impl ::std::convert::Into<crate::config::Builder>,
-    ) -> Self {
+    pub(crate) fn config_override(mut self, config_override: impl ::std::convert::Into<crate::config::Builder>) -> Self {
         self.set_config_override(::std::option::Option::Some(config_override.into()));
         self
     }
 
-    pub(crate) fn set_config_override(
-        &mut self,
-        config_override: ::std::option::Option<crate::config::Builder>,
-    ) -> &mut Self {
+    pub(crate) fn set_config_override(&mut self, config_override: ::std::option::Option<crate::config::Builder>) -> &mut Self {
         self.config_override = config_override;
         self
     }
     /// Create a paginator for this request
     ///
     /// Paginators are used by calling [`send().await`](crate::operation::list_code_signing_configs::paginator::ListCodeSigningConfigsPaginator::send) which returns a [`PaginationStream`](aws_smithy_async::future::pagination_stream::PaginationStream).
-    pub fn into_paginator(
-        self,
-    ) -> crate::operation::list_code_signing_configs::paginator::ListCodeSigningConfigsPaginator
-    {
-        crate::operation::list_code_signing_configs::paginator::ListCodeSigningConfigsPaginator::new(
-            self.handle,
-            self.inner,
-        )
+    pub fn into_paginator(self) -> crate::operation::list_code_signing_configs::paginator::ListCodeSigningConfigsPaginator {
+        crate::operation::list_code_signing_configs::paginator::ListCodeSigningConfigsPaginator::new(self.handle, self.inner)
     }
     /// <p>Specify the pagination token that's returned by a previous request to retrieve the next page of results.</p>
     pub fn marker(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {

@@ -33,9 +33,7 @@ impl InvokeAsyncOutput {
 
 #[cfg(feature = "op_invoke_async")]
 /// A builder for [`InvokeAsyncOutput`](crate::operation::invoke_async::InvokeAsyncOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct InvokeAsyncOutputBuilder {
     pub(crate) status: ::std::option::Option<i32>,

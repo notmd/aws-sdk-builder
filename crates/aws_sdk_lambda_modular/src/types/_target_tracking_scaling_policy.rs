@@ -27,37 +27,26 @@ impl TargetTrackingScalingPolicy {
 }
 
 /// A builder for [`TargetTrackingScalingPolicy`](crate::types::TargetTrackingScalingPolicy).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct TargetTrackingScalingPolicyBuilder {
-    pub(crate) predefined_metric_type:
-        ::std::option::Option<crate::types::CapacityProviderPredefinedMetricType>,
+    pub(crate) predefined_metric_type: ::std::option::Option<crate::types::CapacityProviderPredefinedMetricType>,
     pub(crate) target_value: ::std::option::Option<f64>,
 }
 impl TargetTrackingScalingPolicyBuilder {
     /// <p>The predefined metric type to track for scaling decisions.</p>
     /// This field is required.
-    pub fn predefined_metric_type(
-        mut self,
-        input: crate::types::CapacityProviderPredefinedMetricType,
-    ) -> Self {
+    pub fn predefined_metric_type(mut self, input: crate::types::CapacityProviderPredefinedMetricType) -> Self {
         self.predefined_metric_type = ::std::option::Option::Some(input);
         self
     }
     /// <p>The predefined metric type to track for scaling decisions.</p>
-    pub fn set_predefined_metric_type(
-        mut self,
-        input: ::std::option::Option<crate::types::CapacityProviderPredefinedMetricType>,
-    ) -> Self {
+    pub fn set_predefined_metric_type(mut self, input: ::std::option::Option<crate::types::CapacityProviderPredefinedMetricType>) -> Self {
         self.predefined_metric_type = input;
         self
     }
     /// <p>The predefined metric type to track for scaling decisions.</p>
-    pub fn get_predefined_metric_type(
-        &self,
-    ) -> &::std::option::Option<crate::types::CapacityProviderPredefinedMetricType> {
+    pub fn get_predefined_metric_type(&self) -> &::std::option::Option<crate::types::CapacityProviderPredefinedMetricType> {
         &self.predefined_metric_type
     }
     /// <p>The target value for the metric that the scaling policy attempts to maintain through scaling actions.</p>
@@ -79,12 +68,7 @@ impl TargetTrackingScalingPolicyBuilder {
     /// This method will fail if any of the following fields are not set:
     /// - [`predefined_metric_type`](crate::types::builders::TargetTrackingScalingPolicyBuilder::predefined_metric_type)
     /// - [`target_value`](crate::types::builders::TargetTrackingScalingPolicyBuilder::target_value)
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<
-        crate::types::TargetTrackingScalingPolicy,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    pub fn build(self) -> ::std::result::Result<crate::types::TargetTrackingScalingPolicy, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::TargetTrackingScalingPolicy {
             predefined_metric_type: self.predefined_metric_type.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

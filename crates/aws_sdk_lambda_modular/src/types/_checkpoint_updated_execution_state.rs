@@ -29,9 +29,7 @@ impl CheckpointUpdatedExecutionState {
 }
 
 /// A builder for [`CheckpointUpdatedExecutionState`](crate::types::CheckpointUpdatedExecutionState).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct CheckpointUpdatedExecutionStateBuilder {
     pub(crate) operations: ::std::option::Option<::std::vec::Vec<crate::types::Operation>>,
@@ -50,17 +48,12 @@ impl CheckpointUpdatedExecutionStateBuilder {
         self
     }
     /// <p>A list of operations that have been updated since the last checkpoint.</p>
-    pub fn set_operations(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<crate::types::Operation>>,
-    ) -> Self {
+    pub fn set_operations(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::Operation>>) -> Self {
         self.operations = input;
         self
     }
     /// <p>A list of operations that have been updated since the last checkpoint.</p>
-    pub fn get_operations(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<crate::types::Operation>> {
+    pub fn get_operations(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::Operation>> {
         &self.operations
     }
     /// <p>Indicates that more results are available. Use this value in a subsequent call to retrieve the next page of results.</p>

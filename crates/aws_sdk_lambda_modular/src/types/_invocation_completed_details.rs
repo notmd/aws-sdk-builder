@@ -40,9 +40,7 @@ impl InvocationCompletedDetails {
 }
 
 /// A builder for [`InvocationCompletedDetails`](crate::types::InvocationCompletedDetails).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct InvocationCompletedDetailsBuilder {
     pub(crate) start_timestamp: ::std::option::Option<::aws_smithy_types::DateTime>,
@@ -58,10 +56,7 @@ impl InvocationCompletedDetailsBuilder {
         self
     }
     /// <p>The date and time when the invocation started, in <a href="https://www.w3.org/TR/NOTE-datetime">ISO-8601 format</a> (YYYY-MM-DDThh:mm:ss.sTZD).</p>
-    pub fn set_start_timestamp(
-        mut self,
-        input: ::std::option::Option<::aws_smithy_types::DateTime>,
-    ) -> Self {
+    pub fn set_start_timestamp(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
         self.start_timestamp = input;
         self
     }
@@ -76,10 +71,7 @@ impl InvocationCompletedDetailsBuilder {
         self
     }
     /// <p>The date and time when the invocation ended, in <a href="https://www.w3.org/TR/NOTE-datetime">ISO-8601 format</a> (YYYY-MM-DDThh:mm:ss.sTZD).</p>
-    pub fn set_end_timestamp(
-        mut self,
-        input: ::std::option::Option<::aws_smithy_types::DateTime>,
-    ) -> Self {
+    pub fn set_end_timestamp(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
         self.end_timestamp = input;
         self
     }
@@ -121,12 +113,7 @@ impl InvocationCompletedDetailsBuilder {
     /// - [`start_timestamp`](crate::types::builders::InvocationCompletedDetailsBuilder::start_timestamp)
     /// - [`end_timestamp`](crate::types::builders::InvocationCompletedDetailsBuilder::end_timestamp)
     /// - [`request_id`](crate::types::builders::InvocationCompletedDetailsBuilder::request_id)
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<
-        crate::types::InvocationCompletedDetails,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    pub fn build(self) -> ::std::result::Result<crate::types::InvocationCompletedDetails, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::InvocationCompletedDetails {
             start_timestamp: self.start_timestamp.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

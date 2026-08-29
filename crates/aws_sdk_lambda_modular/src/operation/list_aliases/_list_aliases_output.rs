@@ -39,9 +39,7 @@ impl ListAliasesOutput {
 
 #[cfg(feature = "op_list_aliases")]
 /// A builder for [`ListAliasesOutput`](crate::operation::list_aliases::ListAliasesOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct ListAliasesOutputBuilder {
     pub(crate) next_marker: ::std::option::Option<::std::string::String>,
@@ -76,17 +74,12 @@ impl ListAliasesOutputBuilder {
         self
     }
     /// <p>A list of aliases.</p>
-    pub fn set_aliases(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<crate::types::AliasConfiguration>>,
-    ) -> Self {
+    pub fn set_aliases(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::AliasConfiguration>>) -> Self {
         self.aliases = input;
         self
     }
     /// <p>A list of aliases.</p>
-    pub fn get_aliases(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<crate::types::AliasConfiguration>> {
+    pub fn get_aliases(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::AliasConfiguration>> {
         &self.aliases
     }
     pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {

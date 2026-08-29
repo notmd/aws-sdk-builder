@@ -21,9 +21,7 @@ impl CallbackFailedDetails {
 }
 
 /// A builder for [`CallbackFailedDetails`](crate::types::CallbackFailedDetails).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct CallbackFailedDetailsBuilder {
     pub(crate) error: ::std::option::Option<crate::types::EventError>,

@@ -21,9 +21,7 @@ pub enum InvokeWithResponseStreamResponseEvent {
 impl InvokeWithResponseStreamResponseEvent {
     /// Tries to convert the enum instance into [`InvokeComplete`](crate::types::InvokeWithResponseStreamResponseEvent::InvokeComplete), extracting the inner [`InvokeWithResponseStreamCompleteEvent`](crate::types::InvokeWithResponseStreamCompleteEvent).
     /// Returns `Err(&Self)` if it can't be converted.
-    pub fn as_invoke_complete(
-        &self,
-    ) -> ::std::result::Result<&crate::types::InvokeWithResponseStreamCompleteEvent, &Self> {
+    pub fn as_invoke_complete(&self) -> ::std::result::Result<&crate::types::InvokeWithResponseStreamCompleteEvent, &Self> {
         if let InvokeWithResponseStreamResponseEvent::InvokeComplete(val) = &self {
             ::std::result::Result::Ok(val)
         } else {
@@ -36,9 +34,7 @@ impl InvokeWithResponseStreamResponseEvent {
     }
     /// Tries to convert the enum instance into [`PayloadChunk`](crate::types::InvokeWithResponseStreamResponseEvent::PayloadChunk), extracting the inner [`InvokeResponseStreamUpdate`](crate::types::InvokeResponseStreamUpdate).
     /// Returns `Err(&Self)` if it can't be converted.
-    pub fn as_payload_chunk(
-        &self,
-    ) -> ::std::result::Result<&crate::types::InvokeResponseStreamUpdate, &Self> {
+    pub fn as_payload_chunk(&self) -> ::std::result::Result<&crate::types::InvokeResponseStreamUpdate, &Self> {
         if let InvokeWithResponseStreamResponseEvent::PayloadChunk(val) = &self {
             ::std::result::Result::Ok(val)
         } else {

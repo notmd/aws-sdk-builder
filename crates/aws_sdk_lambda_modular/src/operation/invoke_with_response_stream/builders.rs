@@ -64,7 +64,7 @@ impl InvokeWithResponseStreamFluentBuilder {
         }
     }
     /// Access the InvokeWithResponseStream as a reference.
-    pub fn as_input(&self) -> &crate::operation::invoke_with_response_stream::builders::InvokeWithResponseStreamInputBuilder{
+    pub fn as_input(&self) -> &crate::operation::invoke_with_response_stream::builders::InvokeWithResponseStreamInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -93,11 +93,7 @@ impl InvokeWithResponseStreamFluentBuilder {
             &self.handle.conf,
             self.config_override,
         );
-        crate::operation::invoke_with_response_stream::InvokeWithResponseStream::orchestrate(
-            &runtime_plugins,
-            input,
-        )
-        .await
+        crate::operation::invoke_with_response_stream::InvokeWithResponseStream::orchestrate(&runtime_plugins, input).await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -110,18 +106,12 @@ impl InvokeWithResponseStreamFluentBuilder {
     > {
         crate::client::customize::CustomizableOperation::new(self)
     }
-    pub(crate) fn config_override(
-        mut self,
-        config_override: impl ::std::convert::Into<crate::config::Builder>,
-    ) -> Self {
+    pub(crate) fn config_override(mut self, config_override: impl ::std::convert::Into<crate::config::Builder>) -> Self {
         self.set_config_override(::std::option::Option::Some(config_override.into()));
         self
     }
 
-    pub(crate) fn set_config_override(
-        &mut self,
-        config_override: ::std::option::Option<crate::config::Builder>,
-    ) -> &mut Self {
+    pub(crate) fn set_config_override(&mut self, config_override: ::std::option::Option<crate::config::Builder>) -> &mut Self {
         self.config_override = config_override;
         self
     }
@@ -136,10 +126,7 @@ impl InvokeWithResponseStreamFluentBuilder {
     /// <p><b>Partial ARN</b> – <code>123456789012:function:my-function</code>.</p></li>
     /// </ul>
     /// <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
-    pub fn function_name(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn function_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.function_name(input.into());
         self
     }
@@ -154,10 +141,7 @@ impl InvokeWithResponseStreamFluentBuilder {
     /// <p><b>Partial ARN</b> – <code>123456789012:function:my-function</code>.</p></li>
     /// </ul>
     /// <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
-    pub fn set_function_name(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_function_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_function_name(input);
         self
     }
@@ -190,18 +174,12 @@ impl InvokeWithResponseStreamFluentBuilder {
         self.inner.get_log_type()
     }
     /// <p>Up to 3,583 bytes of base64-encoded data about the invoking client to pass to the function in the context object.</p>
-    pub fn client_context(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn client_context(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.client_context(input.into());
         self
     }
     /// <p>Up to 3,583 bytes of base64-encoded data about the invoking client to pass to the function in the context object.</p>
-    pub fn set_client_context(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_client_context(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_client_context(input);
         self
     }
@@ -272,10 +250,7 @@ impl InvokeWithResponseStreamFluentBuilder {
     /// <li>
     /// <p><code>DryRun</code> – Validate parameter values and verify that the IAM user or role has permission to invoke the function.</p></li>
     /// </ul>
-    pub fn set_invocation_type(
-        mut self,
-        input: ::std::option::Option<crate::types::ResponseStreamingInvocationType>,
-    ) -> Self {
+    pub fn set_invocation_type(mut self, input: ::std::option::Option<crate::types::ResponseStreamingInvocationType>) -> Self {
         self.inner = self.inner.set_invocation_type(input);
         self
     }
@@ -286,9 +261,7 @@ impl InvokeWithResponseStreamFluentBuilder {
     /// <li>
     /// <p><code>DryRun</code> – Validate parameter values and verify that the IAM user or role has permission to invoke the function.</p></li>
     /// </ul>
-    pub fn get_invocation_type(
-        &self,
-    ) -> &::std::option::Option<crate::types::ResponseStreamingInvocationType> {
+    pub fn get_invocation_type(&self) -> &::std::option::Option<crate::types::ResponseStreamingInvocationType> {
         self.inner.get_invocation_type()
     }
 }

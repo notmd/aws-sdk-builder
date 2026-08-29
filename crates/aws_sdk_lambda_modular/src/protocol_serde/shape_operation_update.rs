@@ -51,19 +51,13 @@ pub fn ser_operation_update(
     if let Some(var_13) = &input.callback_options {
         #[allow(unused_mut)]
         let mut object_14 = object.key("CallbackOptions").start_object();
-        crate::protocol_serde::shape_callback_options::ser_callback_options(
-            &mut object_14,
-            var_13,
-        )?;
+        crate::protocol_serde::shape_callback_options::ser_callback_options(&mut object_14, var_13)?;
         object_14.finish();
     }
     if let Some(var_15) = &input.chained_invoke_options {
         #[allow(unused_mut)]
         let mut object_16 = object.key("ChainedInvokeOptions").start_object();
-        crate::protocol_serde::shape_chained_invoke_options::ser_chained_invoke_options(
-            &mut object_16,
-            var_15,
-        )?;
+        crate::protocol_serde::shape_chained_invoke_options::ser_chained_invoke_options(&mut object_16, var_15)?;
         object_16.finish();
     }
     Ok(())

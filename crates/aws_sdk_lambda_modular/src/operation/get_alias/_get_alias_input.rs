@@ -50,9 +50,7 @@ impl GetAliasInput {
 
 #[cfg(feature = "op_get_alias")]
 /// A builder for [`GetAliasInput`](crate::operation::get_alias::GetAliasInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct GetAliasInputBuilder {
     pub(crate) function_name: ::std::option::Option<::std::string::String>,
@@ -72,10 +70,7 @@ impl GetAliasInputBuilder {
     /// </ul>
     /// <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
     /// This field is required.
-    pub fn function_name(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn function_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.function_name = ::std::option::Option::Some(input.into());
         self
     }
@@ -90,10 +85,7 @@ impl GetAliasInputBuilder {
     /// <p><b>Partial ARN</b> - <code>123456789012:function:MyFunction</code>.</p></li>
     /// </ul>
     /// <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
-    pub fn set_function_name(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_function_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.function_name = input;
         self
     }
@@ -127,12 +119,7 @@ impl GetAliasInputBuilder {
         &self.name
     }
     /// Consumes the builder and constructs a [`GetAliasInput`](crate::operation::get_alias::GetAliasInput).
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<
-        crate::operation::get_alias::GetAliasInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    pub fn build(self) -> ::std::result::Result<crate::operation::get_alias::GetAliasInput, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::operation::get_alias::GetAliasInput {
             function_name: self.function_name,
             name: self.name,

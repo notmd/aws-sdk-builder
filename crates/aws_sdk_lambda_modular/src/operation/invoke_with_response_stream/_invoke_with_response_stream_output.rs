@@ -50,7 +50,7 @@ impl ::aws_types::request_id::RequestId for InvokeWithResponseStreamOutput {
 #[cfg(feature = "op_invoke_with_response_stream")]
 impl InvokeWithResponseStreamOutput {
     /// Creates a new builder-style object to manufacture [`InvokeWithResponseStreamOutput`](crate::operation::invoke_with_response_stream::InvokeWithResponseStreamOutput).
-    pub fn builder() -> crate::operation::invoke_with_response_stream::builders::InvokeWithResponseStreamOutputBuilder{
+    pub fn builder() -> crate::operation::invoke_with_response_stream::builders::InvokeWithResponseStreamOutputBuilder {
         crate::operation::invoke_with_response_stream::builders::InvokeWithResponseStreamOutputBuilder::default()
     }
 }
@@ -88,18 +88,12 @@ impl InvokeWithResponseStreamOutputBuilder {
         &self.status_code
     }
     /// <p>The version of the function that executed. When you invoke a function with an alias, this indicates which version the alias resolved to.</p>
-    pub fn executed_version(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn executed_version(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.executed_version = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The version of the function that executed. When you invoke a function with an alias, this indicates which version the alias resolved to.</p>
-    pub fn set_executed_version(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_executed_version(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.executed_version = input;
         self
     }
@@ -143,25 +137,17 @@ impl InvokeWithResponseStreamOutputBuilder {
         &self.event_stream
     }
     /// <p>The type of data the stream is returning.</p>
-    pub fn response_stream_content_type(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn response_stream_content_type(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.response_stream_content_type = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The type of data the stream is returning.</p>
-    pub fn set_response_stream_content_type(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_response_stream_content_type(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.response_stream_content_type = input;
         self
     }
     /// <p>The type of data the stream is returning.</p>
-    pub fn get_response_stream_content_type(
-        &self,
-    ) -> &::std::option::Option<::std::string::String> {
+    pub fn get_response_stream_content_type(&self) -> &::std::option::Option<::std::string::String> {
         &self.response_stream_content_type
     }
     pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {

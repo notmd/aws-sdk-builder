@@ -30,8 +30,7 @@ impl crate::operation::create_function_url_config::builders::CreateFunctionUrlCo
 #[derive(::std::clone::Clone, ::std::fmt::Debug)]
 pub struct CreateFunctionUrlConfigFluentBuilder {
     handle: ::std::sync::Arc<crate::client::Handle>,
-    inner:
-        crate::operation::create_function_url_config::builders::CreateFunctionUrlConfigInputBuilder,
+    inner: crate::operation::create_function_url_config::builders::CreateFunctionUrlConfigInputBuilder,
     config_override: ::std::option::Option<crate::config::Builder>,
 }
 #[cfg(feature = "op_create_function_url_config")]
@@ -64,10 +63,7 @@ impl CreateFunctionUrlConfigFluentBuilder {
         }
     }
     /// Access the CreateFunctionUrlConfig as a reference.
-    pub fn as_input(
-        &self,
-    ) -> &crate::operation::create_function_url_config::builders::CreateFunctionUrlConfigInputBuilder
-    {
+    pub fn as_input(&self) -> &crate::operation::create_function_url_config::builders::CreateFunctionUrlConfigInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -96,11 +92,7 @@ impl CreateFunctionUrlConfigFluentBuilder {
             &self.handle.conf,
             self.config_override,
         );
-        crate::operation::create_function_url_config::CreateFunctionUrlConfig::orchestrate(
-            &runtime_plugins,
-            input,
-        )
-        .await
+        crate::operation::create_function_url_config::CreateFunctionUrlConfig::orchestrate(&runtime_plugins, input).await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -113,18 +105,12 @@ impl CreateFunctionUrlConfigFluentBuilder {
     > {
         crate::client::customize::CustomizableOperation::new(self)
     }
-    pub(crate) fn config_override(
-        mut self,
-        config_override: impl ::std::convert::Into<crate::config::Builder>,
-    ) -> Self {
+    pub(crate) fn config_override(mut self, config_override: impl ::std::convert::Into<crate::config::Builder>) -> Self {
         self.set_config_override(::std::option::Option::Some(config_override.into()));
         self
     }
 
-    pub(crate) fn set_config_override(
-        &mut self,
-        config_override: ::std::option::Option<crate::config::Builder>,
-    ) -> &mut Self {
+    pub(crate) fn set_config_override(&mut self, config_override: ::std::option::Option<crate::config::Builder>) -> &mut Self {
         self.config_override = config_override;
         self
     }
@@ -139,10 +125,7 @@ impl CreateFunctionUrlConfigFluentBuilder {
     /// <p><b>Partial ARN</b> – <code>123456789012:function:my-function</code>.</p></li>
     /// </ul>
     /// <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
-    pub fn function_name(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn function_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.function_name(input.into());
         self
     }
@@ -157,10 +140,7 @@ impl CreateFunctionUrlConfigFluentBuilder {
     /// <p><b>Partial ARN</b> – <code>123456789012:function:my-function</code>.</p></li>
     /// </ul>
     /// <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
-    pub fn set_function_name(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_function_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_function_name(input);
         self
     }
@@ -198,10 +178,7 @@ impl CreateFunctionUrlConfigFluentBuilder {
         self
     }
     /// <p>The type of authentication that your function URL uses. Set to <code>AWS_IAM</code> if you want to restrict access to authenticated users only. Set to <code>NONE</code> if you want to bypass IAM authentication to create a public endpoint. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html">Control access to Lambda function URLs</a>.</p>
-    pub fn set_auth_type(
-        mut self,
-        input: ::std::option::Option<crate::types::FunctionUrlAuthType>,
-    ) -> Self {
+    pub fn set_auth_type(mut self, input: ::std::option::Option<crate::types::FunctionUrlAuthType>) -> Self {
         self.inner = self.inner.set_auth_type(input);
         self
     }
@@ -241,10 +218,7 @@ impl CreateFunctionUrlConfigFluentBuilder {
     /// <li>
     /// <p><code>RESPONSE_STREAM</code> – Your function streams payload results as they become available. Lambda invokes your function using the <code>InvokeWithResponseStream</code> API operation. The maximum response payload size is 200 MB.</p></li>
     /// </ul>
-    pub fn set_invoke_mode(
-        mut self,
-        input: ::std::option::Option<crate::types::InvokeMode>,
-    ) -> Self {
+    pub fn set_invoke_mode(mut self, input: ::std::option::Option<crate::types::InvokeMode>) -> Self {
         self.inner = self.inner.set_invoke_mode(input);
         self
     }

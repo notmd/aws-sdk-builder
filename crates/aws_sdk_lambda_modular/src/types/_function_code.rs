@@ -49,9 +49,7 @@ impl FunctionCode {
     /// <li>
     /// <p><code>REFERENCE</code> – Lambda references the deployment package from the specified Amazon S3 bucket.</p></li>
     /// </ul>
-    pub fn s3_object_storage_mode(
-        &self,
-    ) -> ::std::option::Option<&crate::types::S3ObjectStorageMode> {
+    pub fn s3_object_storage_mode(&self) -> ::std::option::Option<&crate::types::S3ObjectStorageMode> {
         self.s3_object_storage_mode.as_ref()
     }
     /// <p>URI of a <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-images.html">container image</a> in the Amazon ECR registry.</p>
@@ -139,18 +137,12 @@ impl FunctionCodeBuilder {
         &self.s3_key
     }
     /// <p>For versioned objects, the version of the deployment package object to use.</p>
-    pub fn s3_object_version(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn s3_object_version(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.s3_object_version = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>For versioned objects, the version of the deployment package object to use.</p>
-    pub fn set_s3_object_version(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_s3_object_version(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.s3_object_version = input;
         self
     }
@@ -176,10 +168,7 @@ impl FunctionCodeBuilder {
     /// <li>
     /// <p><code>REFERENCE</code> – Lambda references the deployment package from the specified Amazon S3 bucket.</p></li>
     /// </ul>
-    pub fn set_s3_object_storage_mode(
-        mut self,
-        input: ::std::option::Option<crate::types::S3ObjectStorageMode>,
-    ) -> Self {
+    pub fn set_s3_object_storage_mode(mut self, input: ::std::option::Option<crate::types::S3ObjectStorageMode>) -> Self {
         self.s3_object_storage_mode = input;
         self
     }
@@ -190,9 +179,7 @@ impl FunctionCodeBuilder {
     /// <li>
     /// <p><code>REFERENCE</code> – Lambda references the deployment package from the specified Amazon S3 bucket.</p></li>
     /// </ul>
-    pub fn get_s3_object_storage_mode(
-        &self,
-    ) -> &::std::option::Option<crate::types::S3ObjectStorageMode> {
+    pub fn get_s3_object_storage_mode(&self) -> &::std::option::Option<crate::types::S3ObjectStorageMode> {
         &self.s3_object_storage_mode
     }
     /// <p>URI of a <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-images.html">container image</a> in the Amazon ECR registry.</p>
@@ -210,18 +197,12 @@ impl FunctionCodeBuilder {
         &self.image_uri
     }
     /// <p>The ARN of the Key Management Service (KMS) customer managed key that's used to encrypt your function's .zip deployment package. If you don't provide a customer managed key, Lambda uses an <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-owned-cmk">Amazon Web Services owned key</a>.</p>
-    pub fn source_kms_key_arn(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn source_kms_key_arn(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.source_kms_key_arn = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The ARN of the Key Management Service (KMS) customer managed key that's used to encrypt your function's .zip deployment package. If you don't provide a customer managed key, Lambda uses an <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-owned-cmk">Amazon Web Services owned key</a>.</p>
-    pub fn set_source_kms_key_arn(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_source_kms_key_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.source_kms_key_arn = input;
         self
     }

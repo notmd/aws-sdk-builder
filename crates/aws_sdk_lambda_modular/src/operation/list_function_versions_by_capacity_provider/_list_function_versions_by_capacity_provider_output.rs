@@ -7,8 +7,7 @@ pub struct ListFunctionVersionsByCapacityProviderOutput {
     /// <p>The Amazon Resource Name (ARN) of the capacity provider.</p>
     pub capacity_provider_arn: ::std::string::String,
     /// <p>A list of function versions that use the specified capacity provider.</p>
-    pub function_versions:
-        ::std::vec::Vec<crate::types::FunctionVersionsByCapacityProviderListItem>,
+    pub function_versions: ::std::vec::Vec<crate::types::FunctionVersionsByCapacityProviderListItem>,
     /// <p>The pagination token that's included if more results are available.</p>
     pub next_marker: ::std::option::Option<::std::string::String>,
     _request_id: Option<String>,
@@ -39,22 +38,18 @@ impl ::aws_types::request_id::RequestId for ListFunctionVersionsByCapacityProvid
 #[cfg(feature = "op_list_function_versions_by_capacity_provider")]
 impl ListFunctionVersionsByCapacityProviderOutput {
     /// Creates a new builder-style object to manufacture [`ListFunctionVersionsByCapacityProviderOutput`](crate::operation::list_function_versions_by_capacity_provider::ListFunctionVersionsByCapacityProviderOutput).
-    pub fn builder() -> crate::operation::list_function_versions_by_capacity_provider::builders::ListFunctionVersionsByCapacityProviderOutputBuilder{
+    pub fn builder() -> crate::operation::list_function_versions_by_capacity_provider::builders::ListFunctionVersionsByCapacityProviderOutputBuilder {
         crate::operation::list_function_versions_by_capacity_provider::builders::ListFunctionVersionsByCapacityProviderOutputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_list_function_versions_by_capacity_provider")]
 /// A builder for [`ListFunctionVersionsByCapacityProviderOutput`](crate::operation::list_function_versions_by_capacity_provider::ListFunctionVersionsByCapacityProviderOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct ListFunctionVersionsByCapacityProviderOutputBuilder {
     pub(crate) capacity_provider_arn: ::std::option::Option<::std::string::String>,
-    pub(crate) function_versions: ::std::option::Option<
-        ::std::vec::Vec<crate::types::FunctionVersionsByCapacityProviderListItem>,
-    >,
+    pub(crate) function_versions: ::std::option::Option<::std::vec::Vec<crate::types::FunctionVersionsByCapacityProviderListItem>>,
     pub(crate) next_marker: ::std::option::Option<::std::string::String>,
     _request_id: Option<String>,
 }
@@ -62,18 +57,12 @@ pub struct ListFunctionVersionsByCapacityProviderOutputBuilder {
 impl ListFunctionVersionsByCapacityProviderOutputBuilder {
     /// <p>The Amazon Resource Name (ARN) of the capacity provider.</p>
     /// This field is required.
-    pub fn capacity_provider_arn(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn capacity_provider_arn(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.capacity_provider_arn = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The Amazon Resource Name (ARN) of the capacity provider.</p>
-    pub fn set_capacity_provider_arn(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_capacity_provider_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.capacity_provider_arn = input;
         self
     }
@@ -86,10 +75,7 @@ impl ListFunctionVersionsByCapacityProviderOutputBuilder {
     /// To override the contents of this collection use [`set_function_versions`](Self::set_function_versions).
     ///
     /// <p>A list of function versions that use the specified capacity provider.</p>
-    pub fn function_versions(
-        mut self,
-        input: crate::types::FunctionVersionsByCapacityProviderListItem,
-    ) -> Self {
+    pub fn function_versions(mut self, input: crate::types::FunctionVersionsByCapacityProviderListItem) -> Self {
         let mut v = self.function_versions.unwrap_or_default();
         v.push(input);
         self.function_versions = ::std::option::Option::Some(v);
@@ -98,19 +84,13 @@ impl ListFunctionVersionsByCapacityProviderOutputBuilder {
     /// <p>A list of function versions that use the specified capacity provider.</p>
     pub fn set_function_versions(
         mut self,
-        input: ::std::option::Option<
-            ::std::vec::Vec<crate::types::FunctionVersionsByCapacityProviderListItem>,
-        >,
+        input: ::std::option::Option<::std::vec::Vec<crate::types::FunctionVersionsByCapacityProviderListItem>>,
     ) -> Self {
         self.function_versions = input;
         self
     }
     /// <p>A list of function versions that use the specified capacity provider.</p>
-    pub fn get_function_versions(
-        &self,
-    ) -> &::std::option::Option<
-        ::std::vec::Vec<crate::types::FunctionVersionsByCapacityProviderListItem>,
-    > {
+    pub fn get_function_versions(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::FunctionVersionsByCapacityProviderListItem>> {
         &self.function_versions
     }
     /// <p>The pagination token that's included if more results are available.</p>
@@ -145,7 +125,7 @@ impl ListFunctionVersionsByCapacityProviderOutputBuilder {
     ) -> ::std::result::Result<
         crate::operation::list_function_versions_by_capacity_provider::ListFunctionVersionsByCapacityProviderOutput,
         ::aws_smithy_types::error::operation::BuildError,
-    >{
+    > {
         ::std::result::Result::Ok(
             crate::operation::list_function_versions_by_capacity_provider::ListFunctionVersionsByCapacityProviderOutput {
                 capacity_provider_arn: self.capacity_provider_arn.ok_or_else(|| {

@@ -53,16 +53,14 @@ impl AddLayerVersionPermissionInput {
 #[cfg(feature = "op_add_layer_version_permission")]
 impl AddLayerVersionPermissionInput {
     /// Creates a new builder-style object to manufacture [`AddLayerVersionPermissionInput`](crate::operation::add_layer_version_permission::AddLayerVersionPermissionInput).
-    pub fn builder() -> crate::operation::add_layer_version_permission::builders::AddLayerVersionPermissionInputBuilder{
+    pub fn builder() -> crate::operation::add_layer_version_permission::builders::AddLayerVersionPermissionInputBuilder {
         crate::operation::add_layer_version_permission::builders::AddLayerVersionPermissionInputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_add_layer_version_permission")]
 /// A builder for [`AddLayerVersionPermissionInput`](crate::operation::add_layer_version_permission::AddLayerVersionPermissionInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct AddLayerVersionPermissionInputBuilder {
     pub(crate) layer_name: ::std::option::Option<::std::string::String>,
@@ -151,18 +149,12 @@ impl AddLayerVersionPermissionInputBuilder {
         &self.principal
     }
     /// <p>With the principal set to <code>*</code>, grant permission to all accounts in the specified organization.</p>
-    pub fn organization_id(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn organization_id(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.organization_id = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>With the principal set to <code>*</code>, grant permission to all accounts in the specified organization.</p>
-    pub fn set_organization_id(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_organization_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.organization_id = input;
         self
     }
@@ -191,16 +183,14 @@ impl AddLayerVersionPermissionInputBuilder {
         crate::operation::add_layer_version_permission::AddLayerVersionPermissionInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(
-            crate::operation::add_layer_version_permission::AddLayerVersionPermissionInput {
-                layer_name: self.layer_name,
-                version_number: self.version_number,
-                statement_id: self.statement_id,
-                action: self.action,
-                principal: self.principal,
-                organization_id: self.organization_id,
-                revision_id: self.revision_id,
-            },
-        )
+        ::std::result::Result::Ok(crate::operation::add_layer_version_permission::AddLayerVersionPermissionInput {
+            layer_name: self.layer_name,
+            version_number: self.version_number,
+            statement_id: self.statement_id,
+            action: self.action,
+            principal: self.principal,
+            organization_id: self.organization_id,
+            revision_id: self.revision_id,
+        })
     }
 }

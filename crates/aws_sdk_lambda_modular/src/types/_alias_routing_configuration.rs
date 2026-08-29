@@ -5,14 +5,11 @@
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
 pub struct AliasRoutingConfiguration {
     /// <p>The second version, and the percentage of traffic that's routed to it.</p>
-    pub additional_version_weights:
-        ::std::option::Option<::std::collections::HashMap<::std::string::String, f64>>,
+    pub additional_version_weights: ::std::option::Option<::std::collections::HashMap<::std::string::String, f64>>,
 }
 impl AliasRoutingConfiguration {
     /// <p>The second version, and the percentage of traffic that's routed to it.</p>
-    pub fn additional_version_weights(
-        &self,
-    ) -> ::std::option::Option<&::std::collections::HashMap<::std::string::String, f64>> {
+    pub fn additional_version_weights(&self) -> ::std::option::Option<&::std::collections::HashMap<::std::string::String, f64>> {
         self.additional_version_weights.as_ref()
     }
 }
@@ -24,13 +21,10 @@ impl AliasRoutingConfiguration {
 }
 
 /// A builder for [`AliasRoutingConfiguration`](crate::types::AliasRoutingConfiguration).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct AliasRoutingConfigurationBuilder {
-    pub(crate) additional_version_weights:
-        ::std::option::Option<::std::collections::HashMap<::std::string::String, f64>>,
+    pub(crate) additional_version_weights: ::std::option::Option<::std::collections::HashMap<::std::string::String, f64>>,
 }
 impl AliasRoutingConfigurationBuilder {
     /// Adds a key-value pair to `additional_version_weights`.
@@ -38,28 +32,19 @@ impl AliasRoutingConfigurationBuilder {
     /// To override the contents of this collection use [`set_additional_version_weights`](Self::set_additional_version_weights).
     ///
     /// <p>The second version, and the percentage of traffic that's routed to it.</p>
-    pub fn additional_version_weights(
-        mut self,
-        k: impl ::std::convert::Into<::std::string::String>,
-        v: f64,
-    ) -> Self {
+    pub fn additional_version_weights(mut self, k: impl ::std::convert::Into<::std::string::String>, v: f64) -> Self {
         let mut hash_map = self.additional_version_weights.unwrap_or_default();
         hash_map.insert(k.into(), v);
         self.additional_version_weights = ::std::option::Option::Some(hash_map);
         self
     }
     /// <p>The second version, and the percentage of traffic that's routed to it.</p>
-    pub fn set_additional_version_weights(
-        mut self,
-        input: ::std::option::Option<::std::collections::HashMap<::std::string::String, f64>>,
-    ) -> Self {
+    pub fn set_additional_version_weights(mut self, input: ::std::option::Option<::std::collections::HashMap<::std::string::String, f64>>) -> Self {
         self.additional_version_weights = input;
         self
     }
     /// <p>The second version, and the percentage of traffic that's routed to it.</p>
-    pub fn get_additional_version_weights(
-        &self,
-    ) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, f64>> {
+    pub fn get_additional_version_weights(&self) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, f64>> {
         &self.additional_version_weights
     }
     /// Consumes the builder and constructs a [`AliasRoutingConfiguration`](crate::types::AliasRoutingConfiguration).

@@ -25,10 +25,7 @@ impl FunctionUpdatedFluentBuilder {
         }
     }
     /// Access the GetFunctionConfiguration as a reference.
-    pub fn as_input(
-        &self,
-    ) -> &crate::operation::get_function_configuration::builders::GetFunctionConfigurationInputBuilder
-    {
+    pub fn as_input(&self) -> &crate::operation::get_function_configuration::builders::GetFunctionConfigurationInputBuilder {
         &self.inner
     }
     /// Waits for the function's LastUpdateStatus to be Successful. This waiter uses GetFunctionConfiguration API. This should be used after function updates.
@@ -39,9 +36,10 @@ impl FunctionUpdatedFluentBuilder {
         crate::waiters::function_updated::FunctionUpdatedFinalPoll,
         crate::waiters::function_updated::WaitUntilFunctionUpdatedError,
     > {
-        let input = self.inner.build().map_err(
-            ::aws_smithy_runtime_api::client::waiters::error::WaiterError::construction_failure,
-        )?;
+        let input = self
+            .inner
+            .build()
+            .map_err(::aws_smithy_runtime_api::client::waiters::error::WaiterError::construction_failure)?;
         let runtime_plugins = crate::operation::get_function_configuration::GetFunctionConfiguration::operation_runtime_plugins(
             self.handle.runtime_plugins.clone(),
             &self.handle.conf,
@@ -51,34 +49,25 @@ impl FunctionUpdatedFluentBuilder {
         let mut cfg = ::aws_smithy_types::config_bag::ConfigBag::base();
         let runtime_components_builder = runtime_plugins
             .apply_client_configuration(&mut cfg)
-            .map_err(
-                ::aws_smithy_runtime_api::client::waiters::error::WaiterError::construction_failure,
-            )?;
+            .map_err(::aws_smithy_runtime_api::client::waiters::error::WaiterError::construction_failure)?;
         let time_components = runtime_components_builder.into_time_components();
-        let sleep_impl = time_components
-            .sleep_impl()
-            .expect("a sleep impl is required by waiters");
-        let time_source = time_components
-            .time_source()
-            .expect("a time source is required by waiters");
+        let sleep_impl = time_components.sleep_impl().expect("a sleep impl is required by waiters");
+        let time_source = time_components.time_source().expect("a time source is required by waiters");
 
         let acceptor = move |result: ::std::result::Result<
             &crate::operation::get_function_configuration::GetFunctionConfigurationOutput,
             &crate::operation::get_function_configuration::GetFunctionConfigurationError,
         >| {
             // Matches: {"output":{"path":"LastUpdateStatus","expected":"Successful","comparator":"stringEquals"}}
-            if crate::waiters::matchers::match_get_function_configuration_72b8f2e5744091428(result)
-            {
+            if crate::waiters::matchers::match_get_function_configuration_72b8f2e5744091428(result) {
                 return ::aws_smithy_runtime::client::waiters::AcceptorState::Success;
             }
             // Matches: {"output":{"path":"LastUpdateStatus","expected":"Failed","comparator":"stringEquals"}}
-            if crate::waiters::matchers::match_get_function_configuration_4a2442d74e6aa2cc0(result)
-            {
+            if crate::waiters::matchers::match_get_function_configuration_4a2442d74e6aa2cc0(result) {
                 return ::aws_smithy_runtime::client::waiters::AcceptorState::Failure;
             }
             // Matches: {"output":{"path":"LastUpdateStatus","expected":"InProgress","comparator":"stringEquals"}}
-            if crate::waiters::matchers::match_get_function_configuration_ee72e8a7f6fced7db(result)
-            {
+            if crate::waiters::matchers::match_get_function_configuration_ee72e8a7f6fced7db(result) {
                 return ::aws_smithy_runtime::client::waiters::AcceptorState::Retry;
             }
             ::aws_smithy_runtime::client::waiters::AcceptorState::NoAcceptorsMatched
@@ -86,13 +75,7 @@ impl FunctionUpdatedFluentBuilder {
         let operation = move || {
             let input = input.clone();
             let runtime_plugins = runtime_plugins.clone();
-            async move {
-                crate::operation::get_function_configuration::GetFunctionConfiguration::orchestrate(
-                    &runtime_plugins,
-                    input,
-                )
-                .await
-            }
+            async move { crate::operation::get_function_configuration::GetFunctionConfiguration::orchestrate(&runtime_plugins, input).await }
         };
         let orchestrator = ::aws_smithy_runtime::client::waiters::WaiterOrchestrator::builder()
             .min_delay(::std::time::Duration::from_secs(5))
@@ -103,10 +86,7 @@ impl FunctionUpdatedFluentBuilder {
             .acceptor(acceptor)
             .operation(operation)
             .build();
-        ::aws_smithy_runtime::client::waiters::attach_waiter_tracing_span(
-            orchestrator.orchestrate(),
-        )
-        .await
+        ::aws_smithy_runtime::client::waiters::attach_waiter_tracing_span(orchestrator.orchestrate()).await
     }
     /// <p>The name or ARN of the Lambda function, version, or alias.</p>
     /// <p class="title"><b>Name formats</b></p>
@@ -119,10 +99,7 @@ impl FunctionUpdatedFluentBuilder {
     /// <p><b>Partial ARN</b> – <code>123456789012:function:my-function</code>.</p></li>
     /// </ul>
     /// <p>You can append a version number or alias to any of the formats. The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
-    pub fn function_name(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn function_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.function_name(input.into());
         self
     }
@@ -137,10 +114,7 @@ impl FunctionUpdatedFluentBuilder {
     /// <p><b>Partial ARN</b> – <code>123456789012:function:my-function</code>.</p></li>
     /// </ul>
     /// <p>You can append a version number or alias to any of the formats. The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
-    pub fn set_function_name(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_function_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_function_name(input);
         self
     }
@@ -184,8 +158,7 @@ pub type FunctionUpdatedFinalPoll = ::aws_smithy_runtime_api::client::waiters::F
 >;
 
 /// Error type for the `function_updated` waiter.
-pub type WaitUntilFunctionUpdatedError =
-    ::aws_smithy_runtime_api::client::waiters::error::WaiterError<
-        crate::operation::get_function_configuration::GetFunctionConfigurationOutput,
-        crate::operation::get_function_configuration::GetFunctionConfigurationError,
-    >;
+pub type WaitUntilFunctionUpdatedError = ::aws_smithy_runtime_api::client::waiters::error::WaiterError<
+    crate::operation::get_function_configuration::GetFunctionConfigurationOutput,
+    crate::operation::get_function_configuration::GetFunctionConfigurationError,
+>;

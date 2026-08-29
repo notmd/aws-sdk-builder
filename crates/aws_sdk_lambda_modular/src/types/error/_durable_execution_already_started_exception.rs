@@ -34,33 +34,26 @@ impl ::std::fmt::Display for DurableExecutionAlreadyStartedException {
     }
 }
 impl ::std::error::Error for DurableExecutionAlreadyStartedException {}
-impl ::aws_types::request_id::RequestId
-    for crate::types::error::DurableExecutionAlreadyStartedException
-{
+impl ::aws_types::request_id::RequestId for crate::types::error::DurableExecutionAlreadyStartedException {
     fn request_id(&self) -> Option<&str> {
         use ::aws_smithy_types::error::metadata::ProvideErrorMetadata;
         self.meta().request_id()
     }
 }
-impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata
-    for DurableExecutionAlreadyStartedException
-{
+impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata for DurableExecutionAlreadyStartedException {
     fn meta(&self) -> &::aws_smithy_types::error::ErrorMetadata {
         &self.meta
     }
 }
 impl DurableExecutionAlreadyStartedException {
     /// Creates a new builder-style object to manufacture [`DurableExecutionAlreadyStartedException`](crate::types::error::DurableExecutionAlreadyStartedException).
-    pub fn builder() -> crate::types::error::builders::DurableExecutionAlreadyStartedExceptionBuilder
-    {
+    pub fn builder() -> crate::types::error::builders::DurableExecutionAlreadyStartedExceptionBuilder {
         crate::types::error::builders::DurableExecutionAlreadyStartedExceptionBuilder::default()
     }
 }
 
 /// A builder for [`DurableExecutionAlreadyStartedException`](crate::types::error::DurableExecutionAlreadyStartedException).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct DurableExecutionAlreadyStartedExceptionBuilder {
     pub(crate) r#type: ::std::option::Option<::std::string::String>,
@@ -103,10 +96,7 @@ impl DurableExecutionAlreadyStartedExceptionBuilder {
     }
 
     /// Sets error metadata
-    pub fn set_meta(
-        &mut self,
-        meta: std::option::Option<::aws_smithy_types::error::ErrorMetadata>,
-    ) -> &mut Self {
+    pub fn set_meta(&mut self, meta: std::option::Option<::aws_smithy_types::error::ErrorMetadata>) -> &mut Self {
         self.meta = meta;
         self
     }

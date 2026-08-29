@@ -15,9 +15,7 @@ impl SelfManagedKafkaEventSourceConfig {
         self.consumer_group_id.as_deref()
     }
     /// <p>Specific configuration settings for a Kafka schema registry.</p>
-    pub fn schema_registry_config(
-        &self,
-    ) -> ::std::option::Option<&crate::types::KafkaSchemaRegistryConfig> {
+    pub fn schema_registry_config(&self) -> ::std::option::Option<&crate::types::KafkaSchemaRegistryConfig> {
         self.schema_registry_config.as_ref()
     }
 }
@@ -29,29 +27,20 @@ impl SelfManagedKafkaEventSourceConfig {
 }
 
 /// A builder for [`SelfManagedKafkaEventSourceConfig`](crate::types::SelfManagedKafkaEventSourceConfig).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct SelfManagedKafkaEventSourceConfigBuilder {
     pub(crate) consumer_group_id: ::std::option::Option<::std::string::String>,
-    pub(crate) schema_registry_config:
-        ::std::option::Option<crate::types::KafkaSchemaRegistryConfig>,
+    pub(crate) schema_registry_config: ::std::option::Option<crate::types::KafkaSchemaRegistryConfig>,
 }
 impl SelfManagedKafkaEventSourceConfigBuilder {
     /// <p>The identifier for the Kafka consumer group to join. The consumer group ID must be unique among all your Kafka event sources. After creating a Kafka event source mapping with the consumer group ID specified, you cannot update this value. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/with-kafka-process.html#services-smaa-topic-add">Customizable consumer group ID</a>.</p>
-    pub fn consumer_group_id(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn consumer_group_id(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.consumer_group_id = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The identifier for the Kafka consumer group to join. The consumer group ID must be unique among all your Kafka event sources. After creating a Kafka event source mapping with the consumer group ID specified, you cannot update this value. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/with-kafka-process.html#services-smaa-topic-add">Customizable consumer group ID</a>.</p>
-    pub fn set_consumer_group_id(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_consumer_group_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.consumer_group_id = input;
         self
     }
@@ -60,25 +49,17 @@ impl SelfManagedKafkaEventSourceConfigBuilder {
         &self.consumer_group_id
     }
     /// <p>Specific configuration settings for a Kafka schema registry.</p>
-    pub fn schema_registry_config(
-        mut self,
-        input: crate::types::KafkaSchemaRegistryConfig,
-    ) -> Self {
+    pub fn schema_registry_config(mut self, input: crate::types::KafkaSchemaRegistryConfig) -> Self {
         self.schema_registry_config = ::std::option::Option::Some(input);
         self
     }
     /// <p>Specific configuration settings for a Kafka schema registry.</p>
-    pub fn set_schema_registry_config(
-        mut self,
-        input: ::std::option::Option<crate::types::KafkaSchemaRegistryConfig>,
-    ) -> Self {
+    pub fn set_schema_registry_config(mut self, input: ::std::option::Option<crate::types::KafkaSchemaRegistryConfig>) -> Self {
         self.schema_registry_config = input;
         self
     }
     /// <p>Specific configuration settings for a Kafka schema registry.</p>
-    pub fn get_schema_registry_config(
-        &self,
-    ) -> &::std::option::Option<crate::types::KafkaSchemaRegistryConfig> {
+    pub fn get_schema_registry_config(&self) -> &::std::option::Option<crate::types::KafkaSchemaRegistryConfig> {
         &self.schema_registry_config
     }
     /// Consumes the builder and constructs a [`SelfManagedKafkaEventSourceConfig`](crate::types::SelfManagedKafkaEventSourceConfig).

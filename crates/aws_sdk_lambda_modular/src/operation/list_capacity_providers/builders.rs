@@ -63,10 +63,7 @@ impl ListCapacityProvidersFluentBuilder {
         }
     }
     /// Access the ListCapacityProviders as a reference.
-    pub fn as_input(
-        &self,
-    ) -> &crate::operation::list_capacity_providers::builders::ListCapacityProvidersInputBuilder
-    {
+    pub fn as_input(&self) -> &crate::operation::list_capacity_providers::builders::ListCapacityProvidersInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -95,11 +92,7 @@ impl ListCapacityProvidersFluentBuilder {
             &self.handle.conf,
             self.config_override,
         );
-        crate::operation::list_capacity_providers::ListCapacityProviders::orchestrate(
-            &runtime_plugins,
-            input,
-        )
-        .await
+        crate::operation::list_capacity_providers::ListCapacityProviders::orchestrate(&runtime_plugins, input).await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -112,31 +105,20 @@ impl ListCapacityProvidersFluentBuilder {
     > {
         crate::client::customize::CustomizableOperation::new(self)
     }
-    pub(crate) fn config_override(
-        mut self,
-        config_override: impl ::std::convert::Into<crate::config::Builder>,
-    ) -> Self {
+    pub(crate) fn config_override(mut self, config_override: impl ::std::convert::Into<crate::config::Builder>) -> Self {
         self.set_config_override(::std::option::Option::Some(config_override.into()));
         self
     }
 
-    pub(crate) fn set_config_override(
-        &mut self,
-        config_override: ::std::option::Option<crate::config::Builder>,
-    ) -> &mut Self {
+    pub(crate) fn set_config_override(&mut self, config_override: ::std::option::Option<crate::config::Builder>) -> &mut Self {
         self.config_override = config_override;
         self
     }
     /// Create a paginator for this request
     ///
     /// Paginators are used by calling [`send().await`](crate::operation::list_capacity_providers::paginator::ListCapacityProvidersPaginator::send) which returns a [`PaginationStream`](aws_smithy_async::future::pagination_stream::PaginationStream).
-    pub fn into_paginator(
-        self,
-    ) -> crate::operation::list_capacity_providers::paginator::ListCapacityProvidersPaginator {
-        crate::operation::list_capacity_providers::paginator::ListCapacityProvidersPaginator::new(
-            self.handle,
-            self.inner,
-        )
+    pub fn into_paginator(self) -> crate::operation::list_capacity_providers::paginator::ListCapacityProvidersPaginator {
+        crate::operation::list_capacity_providers::paginator::ListCapacityProvidersPaginator::new(self.handle, self.inner)
     }
     /// <p>Filter capacity providers by their current state.</p>
     pub fn state(mut self, input: crate::types::CapacityProviderState) -> Self {
@@ -144,10 +126,7 @@ impl ListCapacityProvidersFluentBuilder {
         self
     }
     /// <p>Filter capacity providers by their current state.</p>
-    pub fn set_state(
-        mut self,
-        input: ::std::option::Option<crate::types::CapacityProviderState>,
-    ) -> Self {
+    pub fn set_state(mut self, input: ::std::option::Option<crate::types::CapacityProviderState>) -> Self {
         self.inner = self.inner.set_state(input);
         self
     }

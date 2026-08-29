@@ -6,9 +6,7 @@ pub use crate::operation::checkpoint_durable_execution::_checkpoint_durable_exec
 pub use crate::operation::checkpoint_durable_execution::_checkpoint_durable_execution_output::CheckpointDurableExecutionOutputBuilder;
 
 #[cfg(feature = "op_checkpoint_durable_execution")]
-impl
-    crate::operation::checkpoint_durable_execution::builders::CheckpointDurableExecutionInputBuilder
-{
+impl crate::operation::checkpoint_durable_execution::builders::CheckpointDurableExecutionInputBuilder {
     /// Sends a request with this input using the given client.
     pub async fn send_with(
         self,
@@ -66,7 +64,7 @@ impl CheckpointDurableExecutionFluentBuilder {
         }
     }
     /// Access the CheckpointDurableExecution as a reference.
-    pub fn as_input(&self) -> &crate::operation::checkpoint_durable_execution::builders::CheckpointDurableExecutionInputBuilder{
+    pub fn as_input(&self) -> &crate::operation::checkpoint_durable_execution::builders::CheckpointDurableExecutionInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -95,11 +93,7 @@ impl CheckpointDurableExecutionFluentBuilder {
             &self.handle.conf,
             self.config_override,
         );
-        crate::operation::checkpoint_durable_execution::CheckpointDurableExecution::orchestrate(
-            &runtime_plugins,
-            input,
-        )
-        .await
+        crate::operation::checkpoint_durable_execution::CheckpointDurableExecution::orchestrate(&runtime_plugins, input).await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -112,34 +106,22 @@ impl CheckpointDurableExecutionFluentBuilder {
     > {
         crate::client::customize::CustomizableOperation::new(self)
     }
-    pub(crate) fn config_override(
-        mut self,
-        config_override: impl ::std::convert::Into<crate::config::Builder>,
-    ) -> Self {
+    pub(crate) fn config_override(mut self, config_override: impl ::std::convert::Into<crate::config::Builder>) -> Self {
         self.set_config_override(::std::option::Option::Some(config_override.into()));
         self
     }
 
-    pub(crate) fn set_config_override(
-        &mut self,
-        config_override: ::std::option::Option<crate::config::Builder>,
-    ) -> &mut Self {
+    pub(crate) fn set_config_override(&mut self, config_override: ::std::option::Option<crate::config::Builder>) -> &mut Self {
         self.config_override = config_override;
         self
     }
     /// <p>The Amazon Resource Name (ARN) of the durable execution.</p>
-    pub fn durable_execution_arn(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn durable_execution_arn(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.durable_execution_arn(input.into());
         self
     }
     /// <p>The Amazon Resource Name (ARN) of the durable execution.</p>
-    pub fn set_durable_execution_arn(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_durable_execution_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_durable_execution_arn(input);
         self
     }
@@ -148,18 +130,12 @@ impl CheckpointDurableExecutionFluentBuilder {
         self.inner.get_durable_execution_arn()
     }
     /// <p>A unique token that identifies the current checkpoint state. This token is provided by the Lambda runtime and must be used to ensure checkpoints are applied in the correct order. Each checkpoint operation consumes this token and returns a new one.</p>
-    pub fn checkpoint_token(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn checkpoint_token(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.checkpoint_token(input.into());
         self
     }
     /// <p>A unique token that identifies the current checkpoint state. This token is provided by the Lambda runtime and must be used to ensure checkpoints are applied in the correct order. Each checkpoint operation consumes this token and returns a new one.</p>
-    pub fn set_checkpoint_token(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_checkpoint_token(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_checkpoint_token(input);
         self
     }
@@ -178,17 +154,12 @@ impl CheckpointDurableExecutionFluentBuilder {
         self
     }
     /// <p>An array of state updates to apply during this checkpoint. Each update represents a change to the execution state, such as completing a step, starting a callback, or scheduling a timer. Updates are applied atomically as part of the checkpoint operation.</p>
-    pub fn set_updates(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<crate::types::OperationUpdate>>,
-    ) -> Self {
+    pub fn set_updates(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::OperationUpdate>>) -> Self {
         self.inner = self.inner.set_updates(input);
         self
     }
     /// <p>An array of state updates to apply during this checkpoint. Each update represents a change to the execution state, such as completing a step, starting a callback, or scheduling a timer. Updates are applied atomically as part of the checkpoint operation.</p>
-    pub fn get_updates(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<crate::types::OperationUpdate>> {
+    pub fn get_updates(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::OperationUpdate>> {
         self.inner.get_updates()
     }
     /// <p>An optional idempotency token to ensure that duplicate checkpoint requests are handled correctly. If provided, Lambda uses this token to detect and handle duplicate requests within a 15-minute window.</p>

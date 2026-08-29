@@ -10,10 +10,7 @@ impl super::Client {
     /// - On success, responds with [`UpdateCapacityProviderOutput`](crate::operation::update_capacity_provider::UpdateCapacityProviderOutput) with field(s):
     ///   - [`capacity_provider(Option<CapacityProvider>)`](crate::operation::update_capacity_provider::UpdateCapacityProviderOutput::capacity_provider): <p>Information about the updated capacity provider.</p>
     /// - On failure, responds with [`SdkError<UpdateCapacityProviderError>`](crate::operation::update_capacity_provider::UpdateCapacityProviderError)
-    pub fn update_capacity_provider(
-        &self,
-    ) -> crate::operation::update_capacity_provider::builders::UpdateCapacityProviderFluentBuilder
-    {
+    pub fn update_capacity_provider(&self) -> crate::operation::update_capacity_provider::builders::UpdateCapacityProviderFluentBuilder {
         crate::operation::update_capacity_provider::builders::UpdateCapacityProviderFluentBuilder::new(self.handle.clone())
     }
 }

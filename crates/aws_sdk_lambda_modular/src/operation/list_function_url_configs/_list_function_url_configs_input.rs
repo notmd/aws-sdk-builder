@@ -49,18 +49,14 @@ impl ListFunctionUrlConfigsInput {
 #[cfg(feature = "op_list_function_url_configs")]
 impl ListFunctionUrlConfigsInput {
     /// Creates a new builder-style object to manufacture [`ListFunctionUrlConfigsInput`](crate::operation::list_function_url_configs::ListFunctionUrlConfigsInput).
-    pub fn builder(
-    ) -> crate::operation::list_function_url_configs::builders::ListFunctionUrlConfigsInputBuilder
-    {
+    pub fn builder() -> crate::operation::list_function_url_configs::builders::ListFunctionUrlConfigsInputBuilder {
         crate::operation::list_function_url_configs::builders::ListFunctionUrlConfigsInputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_list_function_url_configs")]
 /// A builder for [`ListFunctionUrlConfigsInput`](crate::operation::list_function_url_configs::ListFunctionUrlConfigsInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct ListFunctionUrlConfigsInputBuilder {
     pub(crate) function_name: ::std::option::Option<::std::string::String>,
@@ -81,10 +77,7 @@ impl ListFunctionUrlConfigsInputBuilder {
     /// </ul>
     /// <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
     /// This field is required.
-    pub fn function_name(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn function_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.function_name = ::std::option::Option::Some(input.into());
         self
     }
@@ -99,10 +92,7 @@ impl ListFunctionUrlConfigsInputBuilder {
     /// <p><b>Partial ARN</b> – <code>123456789012:function:my-function</code>.</p></li>
     /// </ul>
     /// <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
-    pub fn set_function_name(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_function_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.function_name = input;
         self
     }
@@ -155,12 +145,10 @@ impl ListFunctionUrlConfigsInputBuilder {
         crate::operation::list_function_url_configs::ListFunctionUrlConfigsInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(
-            crate::operation::list_function_url_configs::ListFunctionUrlConfigsInput {
-                function_name: self.function_name,
-                marker: self.marker,
-                max_items: self.max_items,
-            },
-        )
+        ::std::result::Result::Ok(crate::operation::list_function_url_configs::ListFunctionUrlConfigsInput {
+            function_name: self.function_name,
+            marker: self.marker,
+            max_items: self.max_items,
+        })
     }
 }

@@ -11,7 +11,7 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<RemoveLayerVersionPermissionError>`](crate::operation::remove_layer_version_permission::RemoveLayerVersionPermissionError)
     pub fn remove_layer_version_permission(
         &self,
-    ) -> crate::operation::remove_layer_version_permission::builders::RemoveLayerVersionPermissionFluentBuilder{
+    ) -> crate::operation::remove_layer_version_permission::builders::RemoveLayerVersionPermissionFluentBuilder {
         crate::operation::remove_layer_version_permission::builders::RemoveLayerVersionPermissionFluentBuilder::new(self.handle.clone())
     }
 }

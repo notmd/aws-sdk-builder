@@ -398,7 +398,10 @@
 - `src/protocol_serde/shape_publish_version.rs`
 - `src/protocol_serde/shape_publish_version_input.rs`
 - `src/serde_util.rs`
+- `src/types.rs`
+- `src/types/builders.rs`
 - `src/types/error.rs`
+- `src/types/error/builders.rs`
 - `src/waiters.rs`
 - `src/waiters/matchers.rs`
 

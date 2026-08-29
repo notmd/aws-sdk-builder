@@ -73,13 +73,7 @@
 #[allow(missing_docs)] // documentation missing in model
 #[non_exhaustive]
 #[derive(
-    ::std::clone::Clone,
-    ::std::cmp::Eq,
-    ::std::cmp::Ord,
-    ::std::cmp::PartialEq,
-    ::std::cmp::PartialOrd,
-    ::std::fmt::Debug,
-    ::std::hash::Hash,
+    ::std::clone::Clone, ::std::cmp::Eq, ::std::cmp::Ord, ::std::cmp::PartialEq, ::std::cmp::PartialOrd, ::std::fmt::Debug, ::std::hash::Hash,
 )]
 pub enum LastUpdateStatusReasonCode {
     #[allow(missing_docs)] // documentation missing in model
@@ -155,22 +149,16 @@ pub enum LastUpdateStatusReasonCode {
     #[allow(missing_docs)] // documentation missing in model
     VcpuLimitExceeded,
     /// `Unknown` contains new variants that have been added since this code was generated.
-    #[deprecated(
-        note = "Don't directly match on `Unknown`. See the docs on this enum for the correct way to handle unknown variants."
-    )]
+    #[deprecated(note = "Don't directly match on `Unknown`. See the docs on this enum for the correct way to handle unknown variants.")]
     Unknown(crate::primitives::sealed_enum_unknown::UnknownVariantValue),
 }
 impl ::std::convert::From<&str> for LastUpdateStatusReasonCode {
     fn from(s: &str) -> Self {
         match s {
-            "CapacityProviderScalingLimitExceeded" => {
-                LastUpdateStatusReasonCode::CapacityProviderScalingLimitExceeded
-            }
+            "CapacityProviderScalingLimitExceeded" => LastUpdateStatusReasonCode::CapacityProviderScalingLimitExceeded,
             "DependencyError" => LastUpdateStatusReasonCode::DependencyError,
             "DisabledKMSKey" => LastUpdateStatusReasonCode::DisabledKmsKey,
-            "DisallowedByVpcEncryptionControl" => {
-                LastUpdateStatusReasonCode::DisallowedByVpcEncryptionControl
-            }
+            "DisallowedByVpcEncryptionControl" => LastUpdateStatusReasonCode::DisallowedByVpcEncryptionControl,
             "EC2RequestLimitExceeded" => LastUpdateStatusReasonCode::Ec2RequestLimitExceeded,
             "EFSIOError" => LastUpdateStatusReasonCode::EfsioError,
             "EFSMountConnectivityError" => LastUpdateStatusReasonCode::EfsMountConnectivityError,
@@ -178,34 +166,18 @@ impl ::std::convert::From<&str> for LastUpdateStatusReasonCode {
             "EFSMountTimeout" => LastUpdateStatusReasonCode::EfsMountTimeout,
             "EniLimitExceeded" => LastUpdateStatusReasonCode::EniLimitExceeded,
             "FunctionError" => LastUpdateStatusReasonCode::FunctionError,
-            "FunctionError.ExtensionInitError" => {
-                LastUpdateStatusReasonCode::FunctionErrorExtensionInitError
-            }
-            "FunctionError.InitResourceExhausted" => {
-                LastUpdateStatusReasonCode::FunctionErrorInitResourceExhausted
-            }
+            "FunctionError.ExtensionInitError" => LastUpdateStatusReasonCode::FunctionErrorExtensionInitError,
+            "FunctionError.InitResourceExhausted" => LastUpdateStatusReasonCode::FunctionErrorInitResourceExhausted,
             "FunctionError.InitTimeout" => LastUpdateStatusReasonCode::FunctionErrorInitTimeout,
-            "FunctionError.InvalidEntryPoint" => {
-                LastUpdateStatusReasonCode::FunctionErrorInvalidEntryPoint
-            }
-            "FunctionError.InvalidWorkingDirectory" => {
-                LastUpdateStatusReasonCode::FunctionErrorInvalidWorkingDirectory
-            }
-            "FunctionError.PermissionDenied" => {
-                LastUpdateStatusReasonCode::FunctionErrorPermissionDenied
-            }
-            "FunctionError.RuntimeInitError" => {
-                LastUpdateStatusReasonCode::FunctionErrorRuntimeInitError
-            }
-            "FunctionError.TooManyExtensions" => {
-                LastUpdateStatusReasonCode::FunctionErrorTooManyExtensions
-            }
+            "FunctionError.InvalidEntryPoint" => LastUpdateStatusReasonCode::FunctionErrorInvalidEntryPoint,
+            "FunctionError.InvalidWorkingDirectory" => LastUpdateStatusReasonCode::FunctionErrorInvalidWorkingDirectory,
+            "FunctionError.PermissionDenied" => LastUpdateStatusReasonCode::FunctionErrorPermissionDenied,
+            "FunctionError.RuntimeInitError" => LastUpdateStatusReasonCode::FunctionErrorRuntimeInitError,
+            "FunctionError.TooManyExtensions" => LastUpdateStatusReasonCode::FunctionErrorTooManyExtensions,
             "ImageAccessDenied" => LastUpdateStatusReasonCode::ImageAccessDenied,
             "ImageDeleted" => LastUpdateStatusReasonCode::ImageDeleted,
             "InsufficientCapacity" => LastUpdateStatusReasonCode::InsufficientCapacity,
-            "InsufficientRolePermissions" => {
-                LastUpdateStatusReasonCode::InsufficientRolePermissions
-            }
+            "InsufficientRolePermissions" => LastUpdateStatusReasonCode::InsufficientRolePermissions,
             "InternalError" => LastUpdateStatusReasonCode::InternalError,
             "InvalidConfiguration" => LastUpdateStatusReasonCode::InvalidConfiguration,
             "InvalidImage" => LastUpdateStatusReasonCode::InvalidImage,
@@ -216,14 +188,10 @@ impl ::std::convert::From<&str> for LastUpdateStatusReasonCode {
             "InvalidZipFileException" => LastUpdateStatusReasonCode::InvalidZipFileException,
             "KMSKeyAccessDenied" => LastUpdateStatusReasonCode::KmsKeyAccessDenied,
             "KMSKeyNotFound" => LastUpdateStatusReasonCode::KmsKeyNotFound,
-            "ServiceQuotaExceededException" => {
-                LastUpdateStatusReasonCode::ServiceQuotaExceededException
-            }
+            "ServiceQuotaExceededException" => LastUpdateStatusReasonCode::ServiceQuotaExceededException,
             "SubnetOutOfIPAddresses" => LastUpdateStatusReasonCode::SubnetOutOfIpAddresses,
             "VcpuLimitExceeded" => LastUpdateStatusReasonCode::VcpuLimitExceeded,
-            other => LastUpdateStatusReasonCode::Unknown(
-                crate::primitives::sealed_enum_unknown::UnknownVariantValue(other.to_owned()),
-            ),
+            other => LastUpdateStatusReasonCode::Unknown(crate::primitives::sealed_enum_unknown::UnknownVariantValue(other.to_owned())),
         }
     }
 }
@@ -238,14 +206,10 @@ impl LastUpdateStatusReasonCode {
     /// Returns the `&str` value of the enum member.
     pub fn as_str(&self) -> &str {
         match self {
-            LastUpdateStatusReasonCode::CapacityProviderScalingLimitExceeded => {
-                "CapacityProviderScalingLimitExceeded"
-            }
+            LastUpdateStatusReasonCode::CapacityProviderScalingLimitExceeded => "CapacityProviderScalingLimitExceeded",
             LastUpdateStatusReasonCode::DependencyError => "DependencyError",
             LastUpdateStatusReasonCode::DisabledKmsKey => "DisabledKMSKey",
-            LastUpdateStatusReasonCode::DisallowedByVpcEncryptionControl => {
-                "DisallowedByVpcEncryptionControl"
-            }
+            LastUpdateStatusReasonCode::DisallowedByVpcEncryptionControl => "DisallowedByVpcEncryptionControl",
             LastUpdateStatusReasonCode::Ec2RequestLimitExceeded => "EC2RequestLimitExceeded",
             LastUpdateStatusReasonCode::EfsioError => "EFSIOError",
             LastUpdateStatusReasonCode::EfsMountConnectivityError => "EFSMountConnectivityError",
@@ -253,34 +217,18 @@ impl LastUpdateStatusReasonCode {
             LastUpdateStatusReasonCode::EfsMountTimeout => "EFSMountTimeout",
             LastUpdateStatusReasonCode::EniLimitExceeded => "EniLimitExceeded",
             LastUpdateStatusReasonCode::FunctionError => "FunctionError",
-            LastUpdateStatusReasonCode::FunctionErrorExtensionInitError => {
-                "FunctionError.ExtensionInitError"
-            }
-            LastUpdateStatusReasonCode::FunctionErrorInitResourceExhausted => {
-                "FunctionError.InitResourceExhausted"
-            }
+            LastUpdateStatusReasonCode::FunctionErrorExtensionInitError => "FunctionError.ExtensionInitError",
+            LastUpdateStatusReasonCode::FunctionErrorInitResourceExhausted => "FunctionError.InitResourceExhausted",
             LastUpdateStatusReasonCode::FunctionErrorInitTimeout => "FunctionError.InitTimeout",
-            LastUpdateStatusReasonCode::FunctionErrorInvalidEntryPoint => {
-                "FunctionError.InvalidEntryPoint"
-            }
-            LastUpdateStatusReasonCode::FunctionErrorInvalidWorkingDirectory => {
-                "FunctionError.InvalidWorkingDirectory"
-            }
-            LastUpdateStatusReasonCode::FunctionErrorPermissionDenied => {
-                "FunctionError.PermissionDenied"
-            }
-            LastUpdateStatusReasonCode::FunctionErrorRuntimeInitError => {
-                "FunctionError.RuntimeInitError"
-            }
-            LastUpdateStatusReasonCode::FunctionErrorTooManyExtensions => {
-                "FunctionError.TooManyExtensions"
-            }
+            LastUpdateStatusReasonCode::FunctionErrorInvalidEntryPoint => "FunctionError.InvalidEntryPoint",
+            LastUpdateStatusReasonCode::FunctionErrorInvalidWorkingDirectory => "FunctionError.InvalidWorkingDirectory",
+            LastUpdateStatusReasonCode::FunctionErrorPermissionDenied => "FunctionError.PermissionDenied",
+            LastUpdateStatusReasonCode::FunctionErrorRuntimeInitError => "FunctionError.RuntimeInitError",
+            LastUpdateStatusReasonCode::FunctionErrorTooManyExtensions => "FunctionError.TooManyExtensions",
             LastUpdateStatusReasonCode::ImageAccessDenied => "ImageAccessDenied",
             LastUpdateStatusReasonCode::ImageDeleted => "ImageDeleted",
             LastUpdateStatusReasonCode::InsufficientCapacity => "InsufficientCapacity",
-            LastUpdateStatusReasonCode::InsufficientRolePermissions => {
-                "InsufficientRolePermissions"
-            }
+            LastUpdateStatusReasonCode::InsufficientRolePermissions => "InsufficientRolePermissions",
             LastUpdateStatusReasonCode::InternalError => "InternalError",
             LastUpdateStatusReasonCode::InvalidConfiguration => "InvalidConfiguration",
             LastUpdateStatusReasonCode::InvalidImage => "InvalidImage",
@@ -291,9 +239,7 @@ impl LastUpdateStatusReasonCode {
             LastUpdateStatusReasonCode::InvalidZipFileException => "InvalidZipFileException",
             LastUpdateStatusReasonCode::KmsKeyAccessDenied => "KMSKeyAccessDenied",
             LastUpdateStatusReasonCode::KmsKeyNotFound => "KMSKeyNotFound",
-            LastUpdateStatusReasonCode::ServiceQuotaExceededException => {
-                "ServiceQuotaExceededException"
-            }
+            LastUpdateStatusReasonCode::ServiceQuotaExceededException => "ServiceQuotaExceededException",
             LastUpdateStatusReasonCode::SubnetOutOfIpAddresses => "SubnetOutOfIPAddresses",
             LastUpdateStatusReasonCode::VcpuLimitExceeded => "VcpuLimitExceeded",
             LastUpdateStatusReasonCode::Unknown(value) => value.as_str(),
@@ -350,14 +296,10 @@ impl LastUpdateStatusReasonCode {
     /// Parses the enum value while disallowing unknown variants.
     ///
     /// Unknown variants will result in an error.
-    pub fn try_parse(
-        value: &str,
-    ) -> ::std::result::Result<Self, crate::error::UnknownVariantError> {
+    pub fn try_parse(value: &str) -> ::std::result::Result<Self, crate::error::UnknownVariantError> {
         match Self::from(value) {
             #[allow(deprecated)]
-            Self::Unknown(_) => {
-                ::std::result::Result::Err(crate::error::UnknownVariantError::new(value))
-            }
+            Self::Unknown(_) => ::std::result::Result::Err(crate::error::UnknownVariantError::new(value)),
             known => Ok(known),
         }
     }
@@ -365,55 +307,29 @@ impl LastUpdateStatusReasonCode {
 impl ::std::fmt::Display for LastUpdateStatusReasonCode {
     fn fmt(&self, f: &mut ::std::fmt::Formatter) -> ::std::fmt::Result {
         match self {
-            LastUpdateStatusReasonCode::CapacityProviderScalingLimitExceeded => {
-                write!(f, "CapacityProviderScalingLimitExceeded")
-            }
+            LastUpdateStatusReasonCode::CapacityProviderScalingLimitExceeded => write!(f, "CapacityProviderScalingLimitExceeded"),
             LastUpdateStatusReasonCode::DependencyError => write!(f, "DependencyError"),
             LastUpdateStatusReasonCode::DisabledKmsKey => write!(f, "DisabledKMSKey"),
-            LastUpdateStatusReasonCode::DisallowedByVpcEncryptionControl => {
-                write!(f, "DisallowedByVpcEncryptionControl")
-            }
-            LastUpdateStatusReasonCode::Ec2RequestLimitExceeded => {
-                write!(f, "EC2RequestLimitExceeded")
-            }
+            LastUpdateStatusReasonCode::DisallowedByVpcEncryptionControl => write!(f, "DisallowedByVpcEncryptionControl"),
+            LastUpdateStatusReasonCode::Ec2RequestLimitExceeded => write!(f, "EC2RequestLimitExceeded"),
             LastUpdateStatusReasonCode::EfsioError => write!(f, "EFSIOError"),
-            LastUpdateStatusReasonCode::EfsMountConnectivityError => {
-                write!(f, "EFSMountConnectivityError")
-            }
+            LastUpdateStatusReasonCode::EfsMountConnectivityError => write!(f, "EFSMountConnectivityError"),
             LastUpdateStatusReasonCode::EfsMountFailure => write!(f, "EFSMountFailure"),
             LastUpdateStatusReasonCode::EfsMountTimeout => write!(f, "EFSMountTimeout"),
             LastUpdateStatusReasonCode::EniLimitExceeded => write!(f, "EniLimitExceeded"),
             LastUpdateStatusReasonCode::FunctionError => write!(f, "FunctionError"),
-            LastUpdateStatusReasonCode::FunctionErrorExtensionInitError => {
-                write!(f, "FunctionError.ExtensionInitError")
-            }
-            LastUpdateStatusReasonCode::FunctionErrorInitResourceExhausted => {
-                write!(f, "FunctionError.InitResourceExhausted")
-            }
-            LastUpdateStatusReasonCode::FunctionErrorInitTimeout => {
-                write!(f, "FunctionError.InitTimeout")
-            }
-            LastUpdateStatusReasonCode::FunctionErrorInvalidEntryPoint => {
-                write!(f, "FunctionError.InvalidEntryPoint")
-            }
-            LastUpdateStatusReasonCode::FunctionErrorInvalidWorkingDirectory => {
-                write!(f, "FunctionError.InvalidWorkingDirectory")
-            }
-            LastUpdateStatusReasonCode::FunctionErrorPermissionDenied => {
-                write!(f, "FunctionError.PermissionDenied")
-            }
-            LastUpdateStatusReasonCode::FunctionErrorRuntimeInitError => {
-                write!(f, "FunctionError.RuntimeInitError")
-            }
-            LastUpdateStatusReasonCode::FunctionErrorTooManyExtensions => {
-                write!(f, "FunctionError.TooManyExtensions")
-            }
+            LastUpdateStatusReasonCode::FunctionErrorExtensionInitError => write!(f, "FunctionError.ExtensionInitError"),
+            LastUpdateStatusReasonCode::FunctionErrorInitResourceExhausted => write!(f, "FunctionError.InitResourceExhausted"),
+            LastUpdateStatusReasonCode::FunctionErrorInitTimeout => write!(f, "FunctionError.InitTimeout"),
+            LastUpdateStatusReasonCode::FunctionErrorInvalidEntryPoint => write!(f, "FunctionError.InvalidEntryPoint"),
+            LastUpdateStatusReasonCode::FunctionErrorInvalidWorkingDirectory => write!(f, "FunctionError.InvalidWorkingDirectory"),
+            LastUpdateStatusReasonCode::FunctionErrorPermissionDenied => write!(f, "FunctionError.PermissionDenied"),
+            LastUpdateStatusReasonCode::FunctionErrorRuntimeInitError => write!(f, "FunctionError.RuntimeInitError"),
+            LastUpdateStatusReasonCode::FunctionErrorTooManyExtensions => write!(f, "FunctionError.TooManyExtensions"),
             LastUpdateStatusReasonCode::ImageAccessDenied => write!(f, "ImageAccessDenied"),
             LastUpdateStatusReasonCode::ImageDeleted => write!(f, "ImageDeleted"),
             LastUpdateStatusReasonCode::InsufficientCapacity => write!(f, "InsufficientCapacity"),
-            LastUpdateStatusReasonCode::InsufficientRolePermissions => {
-                write!(f, "InsufficientRolePermissions")
-            }
+            LastUpdateStatusReasonCode::InsufficientRolePermissions => write!(f, "InsufficientRolePermissions"),
             LastUpdateStatusReasonCode::InternalError => write!(f, "InternalError"),
             LastUpdateStatusReasonCode::InvalidConfiguration => write!(f, "InvalidConfiguration"),
             LastUpdateStatusReasonCode::InvalidImage => write!(f, "InvalidImage"),
@@ -421,17 +337,11 @@ impl ::std::fmt::Display for LastUpdateStatusReasonCode {
             LastUpdateStatusReasonCode::InvalidSecurityGroup => write!(f, "InvalidSecurityGroup"),
             LastUpdateStatusReasonCode::InvalidStateKmsKey => write!(f, "InvalidStateKMSKey"),
             LastUpdateStatusReasonCode::InvalidSubnet => write!(f, "InvalidSubnet"),
-            LastUpdateStatusReasonCode::InvalidZipFileException => {
-                write!(f, "InvalidZipFileException")
-            }
+            LastUpdateStatusReasonCode::InvalidZipFileException => write!(f, "InvalidZipFileException"),
             LastUpdateStatusReasonCode::KmsKeyAccessDenied => write!(f, "KMSKeyAccessDenied"),
             LastUpdateStatusReasonCode::KmsKeyNotFound => write!(f, "KMSKeyNotFound"),
-            LastUpdateStatusReasonCode::ServiceQuotaExceededException => {
-                write!(f, "ServiceQuotaExceededException")
-            }
-            LastUpdateStatusReasonCode::SubnetOutOfIpAddresses => {
-                write!(f, "SubnetOutOfIPAddresses")
-            }
+            LastUpdateStatusReasonCode::ServiceQuotaExceededException => write!(f, "ServiceQuotaExceededException"),
+            LastUpdateStatusReasonCode::SubnetOutOfIpAddresses => write!(f, "SubnetOutOfIPAddresses"),
             LastUpdateStatusReasonCode::VcpuLimitExceeded => write!(f, "VcpuLimitExceeded"),
             LastUpdateStatusReasonCode::Unknown(value) => write!(f, "{value}"),
         }

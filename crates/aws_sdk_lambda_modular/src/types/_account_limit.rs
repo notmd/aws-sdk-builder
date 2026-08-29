@@ -45,9 +45,7 @@ impl AccountLimit {
 }
 
 /// A builder for [`AccountLimit`](crate::types::AccountLimit).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct AccountLimitBuilder {
     pub(crate) total_code_size: ::std::option::Option<i64>,
@@ -119,10 +117,7 @@ impl AccountLimitBuilder {
         self
     }
     /// <p>The maximum number of simultaneous function executions, minus the capacity that's reserved for individual functions with <code>PutFunctionConcurrency</code>.</p>
-    pub fn set_unreserved_concurrent_executions(
-        mut self,
-        input: ::std::option::Option<i32>,
-    ) -> Self {
+    pub fn set_unreserved_concurrent_executions(mut self, input: ::std::option::Option<i32>) -> Self {
         self.unreserved_concurrent_executions = input;
         self
     }

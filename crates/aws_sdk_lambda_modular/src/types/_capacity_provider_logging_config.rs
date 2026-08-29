@@ -27,9 +27,7 @@ impl CapacityProviderLoggingConfig {
 }
 
 /// A builder for [`CapacityProviderLoggingConfig`](crate::types::CapacityProviderLoggingConfig).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct CapacityProviderLoggingConfigBuilder {
     pub(crate) system_log_level: ::std::option::Option<crate::types::SystemLogLevel>,
@@ -42,10 +40,7 @@ impl CapacityProviderLoggingConfigBuilder {
         self
     }
     /// <p>Set this property to filter the system logs for your capacity provider that Lambda sends to CloudWatch. Lambda only sends system logs at the selected level of detail and lower, where <code>DEBUG</code> is the highest level and <code>WARN</code> is the lowest.</p>
-    pub fn set_system_log_level(
-        mut self,
-        input: ::std::option::Option<crate::types::SystemLogLevel>,
-    ) -> Self {
+    pub fn set_system_log_level(mut self, input: ::std::option::Option<crate::types::SystemLogLevel>) -> Self {
         self.system_log_level = input;
         self
     }

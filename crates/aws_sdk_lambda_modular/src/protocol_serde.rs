@@ -3,21 +3,15 @@ pub(crate) fn type_erase_result<O, E>(
     result: ::std::result::Result<O, E>,
 ) -> ::std::result::Result<
     ::aws_smithy_runtime_api::client::interceptors::context::Output,
-    ::aws_smithy_runtime_api::client::orchestrator::OrchestratorError<
-        ::aws_smithy_runtime_api::client::interceptors::context::Error,
-    >,
+    ::aws_smithy_runtime_api::client::orchestrator::OrchestratorError<::aws_smithy_runtime_api::client::interceptors::context::Error>,
 >
 where
     O: ::std::fmt::Debug + ::std::marker::Send + ::std::marker::Sync + 'static,
     E: ::std::error::Error + std::fmt::Debug + ::std::marker::Send + ::std::marker::Sync + 'static,
 {
     result
-        .map(|output| {
-            ::aws_smithy_runtime_api::client::interceptors::context::Output::erase(output)
-        })
-        .map_err(|error| {
-            ::aws_smithy_runtime_api::client::interceptors::context::Error::erase(error)
-        })
+        .map(|output| ::aws_smithy_runtime_api::client::interceptors::context::Output::erase(output))
+        .map_err(|error| ::aws_smithy_runtime_api::client::interceptors::context::Error::erase(error))
         .map_err(::std::convert::Into::into)
 }
 
@@ -25,10 +19,7 @@ pub fn parse_http_error_metadata(
     _response_status: u16,
     response_headers: &::aws_smithy_runtime_api::http::Headers,
     response_body: &[u8],
-) -> ::std::result::Result<
-    ::aws_smithy_types::error::metadata::Builder,
-    ::aws_smithy_json::deserialize::error::DeserializeError,
-> {
+) -> ::std::result::Result<::aws_smithy_types::error::metadata::Builder, ::aws_smithy_json::deserialize::error::DeserializeError> {
     crate::json_errors::parse_error_metadata(response_body, response_headers)
 }
 
@@ -46,6 +37,8 @@ pub(crate) mod shape_create_alias;
 
 #[cfg(feature = "op_create_capacity_provider")]
 pub(crate) mod shape_create_capacity_provider;
+
+
 
 #[cfg(feature = "op_create_function")]
 pub(crate) mod shape_create_function;
@@ -224,6 +217,7 @@ pub(crate) mod shape_list_versions_by_function;
 #[cfg(feature = "op_publish_layer_version")]
 pub(crate) mod shape_publish_layer_version;
 
+
 #[cfg(feature = "op_put_function_code_signing_config")]
 pub(crate) mod shape_put_function_code_signing_config;
 
@@ -261,7 +255,7 @@ pub fn rest_json_unset_struct_payload() -> ::std::vec::Vec<u8> {
     b"{}"[..].into()
 }
 
-#[cfg(feature = "op_send_durable_execution_callback_failure")]
+#[cfg(any(feature = "op_checkpoint_durable_execution", feature = "op_get_durable_execution", feature = "op_get_durable_execution_history", feature = "op_get_durable_execution_state", feature = "op_send_durable_execution_callback_failure", feature = "op_stop_durable_execution"))]
 pub(crate) mod shape_send_durable_execution_callback_failure_input;
 
 #[cfg(feature = "op_send_durable_execution_callback_heartbeat")]
@@ -276,7 +270,7 @@ pub(crate) mod shape_send_durable_execution_callback_success_input;
 #[cfg(feature = "op_stop_durable_execution")]
 pub(crate) mod shape_stop_durable_execution;
 
-#[cfg(feature = "op_stop_durable_execution")]
+#[cfg(any(feature = "op_checkpoint_durable_execution", feature = "op_get_durable_execution", feature = "op_get_durable_execution_history", feature = "op_get_durable_execution_state", feature = "op_send_durable_execution_callback_failure", feature = "op_stop_durable_execution"))]
 pub(crate) mod shape_stop_durable_execution_input;
 
 #[cfg(feature = "op_tag_resource")]
@@ -326,11 +320,7 @@ pub(crate) mod shape_add_permission_input;
 #[cfg(feature = "op_create_alias")]
 pub(crate) mod shape_alias_limit_exceeded_exception;
 
-#[cfg(any(
-    feature = "op_send_durable_execution_callback_failure",
-    feature = "op_send_durable_execution_callback_heartbeat",
-    feature = "op_send_durable_execution_callback_success"
-))]
+#[cfg(any(feature = "op_send_durable_execution_callback_failure", feature = "op_send_durable_execution_callback_heartbeat", feature = "op_send_durable_execution_callback_success"))]
 pub(crate) mod shape_callback_timeout_exception;
 
 #[cfg(feature = "op_create_capacity_provider")]
@@ -348,28 +338,13 @@ pub(crate) mod shape_code_artifact_user_failed_exception;
 #[cfg(feature = "op_invoke")]
 pub(crate) mod shape_code_artifact_user_pending_exception;
 
-#[cfg(any(
-    feature = "op_create_function",
-    feature = "op_delete_function_code_signing_config",
-    feature = "op_get_function_code_signing_config",
-    feature = "op_put_function_code_signing_config",
-    feature = "op_update_function_code",
-    feature = "op_update_function_configuration"
-))]
+#[cfg(any(feature = "op_create_function", feature = "op_delete_function_code_signing_config", feature = "op_get_function_code_signing_config", feature = "op_put_function_code_signing_config", feature = "op_update_function_code", feature = "op_update_function_configuration"))]
 pub(crate) mod shape_code_signing_config_not_found_exception;
 
-#[cfg(any(
-    feature = "op_create_function",
-    feature = "op_publish_layer_version",
-    feature = "op_update_function_code"
-))]
+#[cfg(any(feature = "op_create_function", feature = "op_publish_layer_version", feature = "op_update_function_code"))]
 pub(crate) mod shape_code_storage_exceeded_exception;
 
-#[cfg(any(
-    feature = "op_create_function",
-    feature = "op_update_function_code",
-    feature = "op_update_function_configuration"
-))]
+#[cfg(any(feature = "op_create_function", feature = "op_update_function_code", feature = "op_update_function_configuration"))]
 pub(crate) mod shape_code_verification_failed_exception;
 
 #[cfg(feature = "op_create_alias")]
@@ -377,6 +352,8 @@ pub(crate) mod shape_create_alias_input;
 
 #[cfg(feature = "op_create_capacity_provider")]
 pub(crate) mod shape_create_capacity_provider_input;
+
+
 
 #[cfg(feature = "op_create_function")]
 pub(crate) mod shape_create_function_input;
@@ -387,60 +364,28 @@ pub(crate) mod shape_create_function_url_config_input;
 #[cfg(feature = "op_invoke")]
 pub(crate) mod shape_durable_execution_already_started_exception;
 
-#[cfg(any(
-    feature = "op_invoke",
-    feature = "op_invoke_async",
-    feature = "op_invoke_with_response_stream"
-))]
+#[cfg(any(feature = "op_invoke", feature = "op_invoke_async", feature = "op_invoke_with_response_stream"))]
 pub(crate) mod shape_ec2_access_denied_exception;
 
-#[cfg(any(
-    feature = "op_invoke",
-    feature = "op_invoke_async",
-    feature = "op_invoke_with_response_stream"
-))]
+#[cfg(any(feature = "op_invoke", feature = "op_invoke_async", feature = "op_invoke_with_response_stream"))]
 pub(crate) mod shape_ec2_throttled_exception;
 
-#[cfg(any(
-    feature = "op_invoke",
-    feature = "op_invoke_async",
-    feature = "op_invoke_with_response_stream"
-))]
+#[cfg(any(feature = "op_invoke", feature = "op_invoke_async", feature = "op_invoke_with_response_stream"))]
 pub(crate) mod shape_ec2_unexpected_exception;
 
-#[cfg(any(
-    feature = "op_invoke",
-    feature = "op_invoke_async",
-    feature = "op_invoke_with_response_stream"
-))]
+#[cfg(any(feature = "op_invoke", feature = "op_invoke_async", feature = "op_invoke_with_response_stream"))]
 pub(crate) mod shape_efs_mount_connectivity_exception;
 
-#[cfg(any(
-    feature = "op_invoke",
-    feature = "op_invoke_async",
-    feature = "op_invoke_with_response_stream"
-))]
+#[cfg(any(feature = "op_invoke", feature = "op_invoke_async", feature = "op_invoke_with_response_stream"))]
 pub(crate) mod shape_efs_mount_failure_exception;
 
-#[cfg(any(
-    feature = "op_invoke",
-    feature = "op_invoke_async",
-    feature = "op_invoke_with_response_stream"
-))]
+#[cfg(any(feature = "op_invoke", feature = "op_invoke_async", feature = "op_invoke_with_response_stream"))]
 pub(crate) mod shape_efs_mount_timeout_exception;
 
-#[cfg(any(
-    feature = "op_invoke",
-    feature = "op_invoke_async",
-    feature = "op_invoke_with_response_stream"
-))]
+#[cfg(any(feature = "op_invoke", feature = "op_invoke_async", feature = "op_invoke_with_response_stream"))]
 pub(crate) mod shape_efsio_exception;
 
-#[cfg(any(
-    feature = "op_invoke",
-    feature = "op_invoke_async",
-    feature = "op_invoke_with_response_stream"
-))]
+#[cfg(any(feature = "op_invoke", feature = "op_invoke_async", feature = "op_invoke_with_response_stream"))]
 pub(crate) mod shape_eni_limit_reached_exception;
 
 #[cfg(feature = "op_invoke")]
@@ -449,126 +394,22 @@ pub(crate) mod shape_eni_not_ready_exception;
 #[cfg(feature = "op_create_function")]
 pub(crate) mod shape_function_versions_per_capacity_provider_limit_exceeded_exception;
 
-#[cfg(any(
-    feature = "op_create_function",
-    feature = "op_update_function_code",
-    feature = "op_update_function_configuration"
-))]
+#[cfg(any(feature = "op_create_function", feature = "op_update_function_code", feature = "op_update_function_configuration"))]
 pub(crate) mod shape_invalid_code_signature_exception;
 
-#[cfg(any(
-    feature = "op_add_layer_version_permission",
-    feature = "op_add_permission",
-    feature = "op_checkpoint_durable_execution",
-    feature = "op_create_alias",
-    feature = "op_create_capacity_provider",
-    feature = "op_create_function",
-    feature = "op_create_function_url_config",
-    feature = "op_delete_alias",
-    feature = "op_delete_capacity_provider",
-    feature = "op_delete_code_signing_config",
-    feature = "op_delete_event_source_mapping",
-    feature = "op_delete_function",
-    feature = "op_delete_function_code_signing_config",
-    feature = "op_delete_function_concurrency",
-    feature = "op_delete_function_event_invoke_config",
-    feature = "op_delete_function_url_config",
-    feature = "op_delete_layer_version",
-    feature = "op_delete_provisioned_concurrency_config",
-    feature = "op_delete_resource_policy",
-    feature = "op_get_alias",
-    feature = "op_get_capacity_provider",
-    feature = "op_get_code_signing_config",
-    feature = "op_get_durable_execution",
-    feature = "op_get_durable_execution_history",
-    feature = "op_get_durable_execution_state",
-    feature = "op_get_event_source_mapping",
-    feature = "op_get_function",
-    feature = "op_get_function_code_signing_config",
-    feature = "op_get_function_concurrency",
-    feature = "op_get_function_configuration",
-    feature = "op_get_function_event_invoke_config",
-    feature = "op_get_function_recursion_config",
-    feature = "op_get_function_scaling_config",
-    feature = "op_get_function_url_config",
-    feature = "op_get_layer_version",
-    feature = "op_get_layer_version_by_arn",
-    feature = "op_get_layer_version_policy",
-    feature = "op_get_policy",
-    feature = "op_get_provisioned_concurrency_config",
-    feature = "op_get_resource_policy",
-    feature = "op_get_runtime_management_config",
-    feature = "op_invoke",
-    feature = "op_invoke_with_response_stream",
-    feature = "op_list_aliases",
-    feature = "op_list_capacity_providers",
-    feature = "op_list_code_signing_configs",
-    feature = "op_list_durable_executions_by_function",
-    feature = "op_list_event_source_mappings",
-    feature = "op_list_function_event_invoke_configs",
-    feature = "op_list_function_url_configs",
-    feature = "op_list_function_versions_by_capacity_provider",
-    feature = "op_list_functions",
-    feature = "op_list_functions_by_code_signing_config",
-    feature = "op_list_layer_versions",
-    feature = "op_list_layers",
-    feature = "op_list_provisioned_concurrency_configs",
-    feature = "op_list_tags",
-    feature = "op_list_versions_by_function",
-    feature = "op_publish_layer_version",
-    feature = "op_put_function_code_signing_config",
-    feature = "op_put_function_concurrency",
-    feature = "op_put_function_event_invoke_config",
-    feature = "op_put_function_recursion_config",
-    feature = "op_put_function_scaling_config",
-    feature = "op_put_provisioned_concurrency_config",
-    feature = "op_put_resource_policy",
-    feature = "op_put_runtime_management_config",
-    feature = "op_remove_layer_version_permission",
-    feature = "op_remove_permission",
-    feature = "op_send_durable_execution_callback_failure",
-    feature = "op_send_durable_execution_callback_heartbeat",
-    feature = "op_send_durable_execution_callback_success",
-    feature = "op_stop_durable_execution",
-    feature = "op_tag_resource",
-    feature = "op_untag_resource",
-    feature = "op_update_alias",
-    feature = "op_update_capacity_provider",
-    feature = "op_update_code_signing_config",
-    feature = "op_update_event_source_mapping",
-    feature = "op_update_function_code",
-    feature = "op_update_function_configuration",
-    feature = "op_update_function_event_invoke_config",
-    feature = "op_update_function_url_config"
-))]
+#[cfg(any(feature = "op_add_layer_version_permission", feature = "op_add_permission", feature = "op_checkpoint_durable_execution", feature = "op_create_alias", feature = "op_create_capacity_provider", feature = "op_create_function", feature = "op_create_function_url_config", feature = "op_delete_alias", feature = "op_delete_capacity_provider", feature = "op_delete_code_signing_config", feature = "op_delete_event_source_mapping", feature = "op_delete_function", feature = "op_delete_function_code_signing_config", feature = "op_delete_function_concurrency", feature = "op_delete_function_event_invoke_config", feature = "op_delete_function_url_config", feature = "op_delete_layer_version", feature = "op_delete_provisioned_concurrency_config", feature = "op_delete_resource_policy", feature = "op_get_alias", feature = "op_get_capacity_provider", feature = "op_get_code_signing_config", feature = "op_get_durable_execution", feature = "op_get_durable_execution_history", feature = "op_get_durable_execution_state", feature = "op_get_event_source_mapping", feature = "op_get_function", feature = "op_get_function_code_signing_config", feature = "op_get_function_concurrency", feature = "op_get_function_configuration", feature = "op_get_function_event_invoke_config", feature = "op_get_function_recursion_config", feature = "op_get_function_scaling_config", feature = "op_get_function_url_config", feature = "op_get_layer_version", feature = "op_get_layer_version_by_arn", feature = "op_get_layer_version_policy", feature = "op_get_policy", feature = "op_get_provisioned_concurrency_config", feature = "op_get_resource_policy", feature = "op_get_runtime_management_config", feature = "op_invoke", feature = "op_invoke_with_response_stream", feature = "op_list_aliases", feature = "op_list_capacity_providers", feature = "op_list_code_signing_configs", feature = "op_list_durable_executions_by_function", feature = "op_list_event_source_mappings", feature = "op_list_function_event_invoke_configs", feature = "op_list_function_url_configs", feature = "op_list_function_versions_by_capacity_provider", feature = "op_list_functions", feature = "op_list_functions_by_code_signing_config", feature = "op_list_layer_versions", feature = "op_list_layers", feature = "op_list_provisioned_concurrency_configs", feature = "op_list_tags", feature = "op_list_versions_by_function", feature = "op_publish_layer_version", feature = "op_put_function_code_signing_config", feature = "op_put_function_concurrency", feature = "op_put_function_event_invoke_config", feature = "op_put_function_recursion_config", feature = "op_put_function_scaling_config", feature = "op_put_provisioned_concurrency_config", feature = "op_put_resource_policy", feature = "op_put_runtime_management_config", feature = "op_remove_layer_version_permission", feature = "op_remove_permission", feature = "op_send_durable_execution_callback_failure", feature = "op_send_durable_execution_callback_heartbeat", feature = "op_send_durable_execution_callback_success", feature = "op_stop_durable_execution", feature = "op_tag_resource", feature = "op_untag_resource", feature = "op_update_alias", feature = "op_update_capacity_provider", feature = "op_update_code_signing_config", feature = "op_update_event_source_mapping", feature = "op_update_function_code", feature = "op_update_function_configuration", feature = "op_update_function_event_invoke_config", feature = "op_update_function_url_config"))]
 pub(crate) mod shape_invalid_parameter_value_exception;
 
-#[cfg(any(
-    feature = "op_invoke",
-    feature = "op_invoke_async",
-    feature = "op_invoke_with_response_stream"
-))]
+#[cfg(any(feature = "op_invoke", feature = "op_invoke_async", feature = "op_invoke_with_response_stream"))]
 pub(crate) mod shape_invalid_request_content_exception;
 
-#[cfg(any(
-    feature = "op_invoke",
-    feature = "op_invoke_async",
-    feature = "op_invoke_with_response_stream"
-))]
+#[cfg(any(feature = "op_invoke", feature = "op_invoke_async", feature = "op_invoke_with_response_stream"))]
 pub(crate) mod shape_invalid_runtime_exception;
 
-#[cfg(any(
-    feature = "op_invoke",
-    feature = "op_invoke_async",
-    feature = "op_invoke_with_response_stream"
-))]
+#[cfg(any(feature = "op_invoke", feature = "op_invoke_async", feature = "op_invoke_with_response_stream"))]
 pub(crate) mod shape_invalid_security_group_id_exception;
 
-#[cfg(any(
-    feature = "op_invoke",
-    feature = "op_invoke_async",
-    feature = "op_invoke_with_response_stream"
-))]
+#[cfg(any(feature = "op_invoke", feature = "op_invoke_async", feature = "op_invoke_with_response_stream"))]
 pub(crate) mod shape_invalid_subnet_id_exception;
 
 #[cfg(any(feature = "op_invoke", feature = "op_invoke_with_response_stream"))]
@@ -580,60 +421,16 @@ pub(crate) mod shape_invoke_output;
 #[cfg(feature = "op_invoke_with_response_stream")]
 pub(crate) mod shape_invoke_with_response_stream_output;
 
-#[cfg(any(
-    feature = "op_checkpoint_durable_execution",
-    feature = "op_get_durable_execution",
-    feature = "op_get_durable_execution_history",
-    feature = "op_get_durable_execution_state",
-    feature = "op_invoke",
-    feature = "op_invoke_async",
-    feature = "op_invoke_with_response_stream",
-    feature = "op_send_durable_execution_callback_failure",
-    feature = "op_send_durable_execution_callback_success",
-    feature = "op_stop_durable_execution"
-))]
+#[cfg(any(feature = "op_checkpoint_durable_execution", feature = "op_get_durable_execution", feature = "op_get_durable_execution_history", feature = "op_get_durable_execution_state", feature = "op_invoke", feature = "op_invoke_async", feature = "op_invoke_with_response_stream", feature = "op_send_durable_execution_callback_failure", feature = "op_send_durable_execution_callback_success", feature = "op_stop_durable_execution"))]
 pub(crate) mod shape_kms_access_denied_exception;
 
-#[cfg(any(
-    feature = "op_checkpoint_durable_execution",
-    feature = "op_get_durable_execution",
-    feature = "op_get_durable_execution_history",
-    feature = "op_get_durable_execution_state",
-    feature = "op_invoke",
-    feature = "op_invoke_async",
-    feature = "op_invoke_with_response_stream",
-    feature = "op_send_durable_execution_callback_failure",
-    feature = "op_send_durable_execution_callback_success",
-    feature = "op_stop_durable_execution"
-))]
+#[cfg(any(feature = "op_checkpoint_durable_execution", feature = "op_get_durable_execution", feature = "op_get_durable_execution_history", feature = "op_get_durable_execution_state", feature = "op_invoke", feature = "op_invoke_async", feature = "op_invoke_with_response_stream", feature = "op_send_durable_execution_callback_failure", feature = "op_send_durable_execution_callback_success", feature = "op_stop_durable_execution"))]
 pub(crate) mod shape_kms_disabled_exception;
 
-#[cfg(any(
-    feature = "op_checkpoint_durable_execution",
-    feature = "op_get_durable_execution",
-    feature = "op_get_durable_execution_history",
-    feature = "op_get_durable_execution_state",
-    feature = "op_invoke",
-    feature = "op_invoke_async",
-    feature = "op_invoke_with_response_stream",
-    feature = "op_send_durable_execution_callback_failure",
-    feature = "op_send_durable_execution_callback_success",
-    feature = "op_stop_durable_execution"
-))]
+#[cfg(any(feature = "op_checkpoint_durable_execution", feature = "op_get_durable_execution", feature = "op_get_durable_execution_history", feature = "op_get_durable_execution_state", feature = "op_invoke", feature = "op_invoke_async", feature = "op_invoke_with_response_stream", feature = "op_send_durable_execution_callback_failure", feature = "op_send_durable_execution_callback_success", feature = "op_stop_durable_execution"))]
 pub(crate) mod shape_kms_invalid_state_exception;
 
-#[cfg(any(
-    feature = "op_checkpoint_durable_execution",
-    feature = "op_get_durable_execution",
-    feature = "op_get_durable_execution_history",
-    feature = "op_get_durable_execution_state",
-    feature = "op_invoke",
-    feature = "op_invoke_async",
-    feature = "op_invoke_with_response_stream",
-    feature = "op_send_durable_execution_callback_failure",
-    feature = "op_send_durable_execution_callback_success",
-    feature = "op_stop_durable_execution"
-))]
+#[cfg(any(feature = "op_checkpoint_durable_execution", feature = "op_get_durable_execution", feature = "op_get_durable_execution_history", feature = "op_get_durable_execution_state", feature = "op_invoke", feature = "op_invoke_async", feature = "op_invoke_with_response_stream", feature = "op_send_durable_execution_callback_failure", feature = "op_send_durable_execution_callback_success", feature = "op_stop_durable_execution"))]
 pub(crate) mod shape_kms_not_found_exception;
 
 #[cfg(any(feature = "op_invoke", feature = "op_invoke_async"))]
@@ -642,38 +439,21 @@ pub(crate) mod shape_mode_not_supported_exception;
 #[cfg(any(feature = "op_invoke", feature = "op_invoke_with_response_stream"))]
 pub(crate) mod shape_no_published_version_exception;
 
-#[cfg(any(
-    feature = "op_add_layer_version_permission",
-    feature = "op_add_permission",
-    feature = "op_put_resource_policy"
-))]
+#[cfg(any(feature = "op_add_layer_version_permission", feature = "op_add_permission", feature = "op_put_resource_policy"))]
 pub(crate) mod shape_policy_length_exceeded_exception;
 
-#[cfg(any(
-    feature = "op_add_layer_version_permission",
-    feature = "op_add_permission",
-    feature = "op_delete_resource_policy",
-    feature = "op_put_resource_policy",
-    feature = "op_remove_layer_version_permission",
-    feature = "op_remove_permission",
-    feature = "op_update_alias",
-    feature = "op_update_function_code",
-    feature = "op_update_function_configuration"
-))]
+#[cfg(any(feature = "op_add_layer_version_permission", feature = "op_add_permission", feature = "op_delete_resource_policy", feature = "op_put_resource_policy", feature = "op_remove_layer_version_permission", feature = "op_remove_permission", feature = "op_update_alias", feature = "op_update_function_code", feature = "op_update_function_configuration"))]
 pub(crate) mod shape_precondition_failed_exception;
 
 #[cfg(feature = "op_get_provisioned_concurrency_config")]
 pub(crate) mod shape_provisioned_concurrency_config_not_found_exception;
 
-#[cfg(any(
-    feature = "op_add_permission",
-    feature = "op_put_resource_policy",
-    feature = "op_remove_permission"
-))]
+#[cfg(any(feature = "op_add_permission", feature = "op_put_resource_policy", feature = "op_remove_permission"))]
 pub(crate) mod shape_public_policy_exception;
 
 #[cfg(feature = "op_publish_layer_version")]
 pub(crate) mod shape_publish_layer_version_input;
+
 
 #[cfg(feature = "op_put_function_code_signing_config")]
 pub(crate) mod shape_put_function_code_signing_config_input;
@@ -705,376 +485,55 @@ pub(crate) mod shape_recursive_invocation_exception;
 #[cfg(any(feature = "op_invoke", feature = "op_invoke_with_response_stream"))]
 pub(crate) mod shape_request_too_large_exception;
 
-#[cfg(any(
-    feature = "op_add_layer_version_permission",
-    feature = "op_add_permission",
-    feature = "op_create_alias",
-    feature = "op_create_capacity_provider",
-    feature = "op_create_function",
-    feature = "op_create_function_url_config",
-    feature = "op_delete_alias",
-    feature = "op_delete_capacity_provider",
-    feature = "op_delete_code_signing_config",
-    feature = "op_delete_event_source_mapping",
-    feature = "op_delete_function",
-    feature = "op_delete_function_code_signing_config",
-    feature = "op_delete_function_concurrency",
-    feature = "op_delete_function_event_invoke_config",
-    feature = "op_delete_function_url_config",
-    feature = "op_delete_provisioned_concurrency_config",
-    feature = "op_delete_resource_policy",
-    feature = "op_invoke",
-    feature = "op_invoke_async",
-    feature = "op_invoke_with_response_stream",
-    feature = "op_put_function_code_signing_config",
-    feature = "op_put_function_concurrency",
-    feature = "op_put_function_event_invoke_config",
-    feature = "op_put_function_recursion_config",
-    feature = "op_put_function_scaling_config",
-    feature = "op_put_provisioned_concurrency_config",
-    feature = "op_put_resource_policy",
-    feature = "op_put_runtime_management_config",
-    feature = "op_tag_resource",
-    feature = "op_untag_resource",
-    feature = "op_update_alias",
-    feature = "op_update_capacity_provider",
-    feature = "op_update_event_source_mapping",
-    feature = "op_update_function_code",
-    feature = "op_update_function_configuration",
-    feature = "op_update_function_event_invoke_config",
-    feature = "op_update_function_url_config"
-))]
+#[cfg(any(feature = "op_add_layer_version_permission", feature = "op_add_permission", feature = "op_create_alias", feature = "op_create_capacity_provider", feature = "op_create_function", feature = "op_create_function_url_config", feature = "op_delete_alias", feature = "op_delete_capacity_provider", feature = "op_delete_code_signing_config", feature = "op_delete_event_source_mapping", feature = "op_delete_function", feature = "op_delete_function_code_signing_config", feature = "op_delete_function_concurrency", feature = "op_delete_function_event_invoke_config", feature = "op_delete_function_url_config", feature = "op_delete_provisioned_concurrency_config", feature = "op_delete_resource_policy", feature = "op_invoke", feature = "op_invoke_async", feature = "op_invoke_with_response_stream", feature = "op_put_function_code_signing_config", feature = "op_put_function_concurrency", feature = "op_put_function_event_invoke_config", feature = "op_put_function_recursion_config", feature = "op_put_function_scaling_config", feature = "op_put_provisioned_concurrency_config", feature = "op_put_resource_policy", feature = "op_put_runtime_management_config", feature = "op_tag_resource", feature = "op_untag_resource", feature = "op_update_alias", feature = "op_update_capacity_provider", feature = "op_update_event_source_mapping", feature = "op_update_function_code", feature = "op_update_function_configuration", feature = "op_update_function_event_invoke_config", feature = "op_update_function_url_config"))]
 pub(crate) mod shape_resource_conflict_exception;
 
-#[cfg(any(
-    feature = "op_delete_event_source_mapping",
-    feature = "op_update_event_source_mapping"
-))]
+#[cfg(any(feature = "op_delete_event_source_mapping", feature = "op_update_event_source_mapping"))]
 pub(crate) mod shape_resource_in_use_exception;
 
-#[cfg(any(
-    feature = "op_add_layer_version_permission",
-    feature = "op_add_permission",
-    feature = "op_create_alias",
-    feature = "op_create_function",
-    feature = "op_create_function_url_config",
-    feature = "op_delete_alias",
-    feature = "op_delete_capacity_provider",
-    feature = "op_delete_code_signing_config",
-    feature = "op_delete_event_source_mapping",
-    feature = "op_delete_function",
-    feature = "op_delete_function_code_signing_config",
-    feature = "op_delete_function_concurrency",
-    feature = "op_delete_function_event_invoke_config",
-    feature = "op_delete_function_url_config",
-    feature = "op_delete_layer_version",
-    feature = "op_delete_provisioned_concurrency_config",
-    feature = "op_delete_resource_policy",
-    feature = "op_get_alias",
-    feature = "op_get_capacity_provider",
-    feature = "op_get_code_signing_config",
-    feature = "op_get_durable_execution",
-    feature = "op_get_durable_execution_history",
-    feature = "op_get_event_source_mapping",
-    feature = "op_get_function",
-    feature = "op_get_function_code_signing_config",
-    feature = "op_get_function_concurrency",
-    feature = "op_get_function_configuration",
-    feature = "op_get_function_event_invoke_config",
-    feature = "op_get_function_recursion_config",
-    feature = "op_get_function_scaling_config",
-    feature = "op_get_function_url_config",
-    feature = "op_get_layer_version",
-    feature = "op_get_layer_version_by_arn",
-    feature = "op_get_layer_version_policy",
-    feature = "op_get_policy",
-    feature = "op_get_provisioned_concurrency_config",
-    feature = "op_get_resource_policy",
-    feature = "op_get_runtime_management_config",
-    feature = "op_invoke",
-    feature = "op_invoke_async",
-    feature = "op_invoke_with_response_stream",
-    feature = "op_list_aliases",
-    feature = "op_list_durable_executions_by_function",
-    feature = "op_list_event_source_mappings",
-    feature = "op_list_function_event_invoke_configs",
-    feature = "op_list_function_url_configs",
-    feature = "op_list_function_versions_by_capacity_provider",
-    feature = "op_list_functions_by_code_signing_config",
-    feature = "op_list_layer_versions",
-    feature = "op_list_provisioned_concurrency_configs",
-    feature = "op_list_tags",
-    feature = "op_list_versions_by_function",
-    feature = "op_publish_layer_version",
-    feature = "op_put_function_code_signing_config",
-    feature = "op_put_function_concurrency",
-    feature = "op_put_function_event_invoke_config",
-    feature = "op_put_function_recursion_config",
-    feature = "op_put_function_scaling_config",
-    feature = "op_put_provisioned_concurrency_config",
-    feature = "op_put_resource_policy",
-    feature = "op_put_runtime_management_config",
-    feature = "op_remove_layer_version_permission",
-    feature = "op_remove_permission",
-    feature = "op_send_durable_execution_callback_failure",
-    feature = "op_send_durable_execution_callback_heartbeat",
-    feature = "op_send_durable_execution_callback_success",
-    feature = "op_stop_durable_execution",
-    feature = "op_tag_resource",
-    feature = "op_untag_resource",
-    feature = "op_update_alias",
-    feature = "op_update_capacity_provider",
-    feature = "op_update_code_signing_config",
-    feature = "op_update_event_source_mapping",
-    feature = "op_update_function_code",
-    feature = "op_update_function_configuration",
-    feature = "op_update_function_event_invoke_config",
-    feature = "op_update_function_url_config"
-))]
+#[cfg(any(feature = "op_add_layer_version_permission", feature = "op_add_permission", feature = "op_create_alias", feature = "op_create_function", feature = "op_create_function_url_config", feature = "op_delete_alias", feature = "op_delete_capacity_provider", feature = "op_delete_code_signing_config", feature = "op_delete_event_source_mapping", feature = "op_delete_function", feature = "op_delete_function_code_signing_config", feature = "op_delete_function_concurrency", feature = "op_delete_function_event_invoke_config", feature = "op_delete_function_url_config", feature = "op_delete_layer_version", feature = "op_delete_provisioned_concurrency_config", feature = "op_delete_resource_policy", feature = "op_get_alias", feature = "op_get_capacity_provider", feature = "op_get_code_signing_config", feature = "op_get_durable_execution", feature = "op_get_durable_execution_history", feature = "op_get_event_source_mapping", feature = "op_get_function", feature = "op_get_function_code_signing_config", feature = "op_get_function_concurrency", feature = "op_get_function_configuration", feature = "op_get_function_event_invoke_config", feature = "op_get_function_recursion_config", feature = "op_get_function_scaling_config", feature = "op_get_function_url_config", feature = "op_get_layer_version", feature = "op_get_layer_version_by_arn", feature = "op_get_layer_version_policy", feature = "op_get_policy", feature = "op_get_provisioned_concurrency_config", feature = "op_get_resource_policy", feature = "op_get_runtime_management_config", feature = "op_invoke", feature = "op_invoke_async", feature = "op_invoke_with_response_stream", feature = "op_list_aliases", feature = "op_list_durable_executions_by_function", feature = "op_list_event_source_mappings", feature = "op_list_function_event_invoke_configs", feature = "op_list_function_url_configs", feature = "op_list_function_versions_by_capacity_provider", feature = "op_list_functions_by_code_signing_config", feature = "op_list_layer_versions", feature = "op_list_provisioned_concurrency_configs", feature = "op_list_tags", feature = "op_list_versions_by_function", feature = "op_publish_layer_version", feature = "op_put_function_code_signing_config", feature = "op_put_function_concurrency", feature = "op_put_function_event_invoke_config", feature = "op_put_function_recursion_config", feature = "op_put_function_scaling_config", feature = "op_put_provisioned_concurrency_config", feature = "op_put_resource_policy", feature = "op_put_runtime_management_config", feature = "op_remove_layer_version_permission", feature = "op_remove_permission", feature = "op_send_durable_execution_callback_failure", feature = "op_send_durable_execution_callback_heartbeat", feature = "op_send_durable_execution_callback_success", feature = "op_stop_durable_execution", feature = "op_tag_resource", feature = "op_untag_resource", feature = "op_update_alias", feature = "op_update_capacity_provider", feature = "op_update_code_signing_config", feature = "op_update_event_source_mapping", feature = "op_update_function_code", feature = "op_update_function_configuration", feature = "op_update_function_event_invoke_config", feature = "op_update_function_url_config"))]
 pub(crate) mod shape_resource_not_found_exception;
 
 #[cfg(any(feature = "op_invoke", feature = "op_invoke_with_response_stream"))]
 pub(crate) mod shape_resource_not_ready_exception;
 
-#[cfg(any(
-    feature = "op_invoke",
-    feature = "op_invoke_async",
-    feature = "op_invoke_with_response_stream"
-))]
+#[cfg(any(feature = "op_invoke", feature = "op_invoke_async", feature = "op_invoke_with_response_stream"))]
 pub(crate) mod shape_s3_files_mount_connectivity_exception;
 
-#[cfg(any(
-    feature = "op_invoke",
-    feature = "op_invoke_async",
-    feature = "op_invoke_with_response_stream"
-))]
+#[cfg(any(feature = "op_invoke", feature = "op_invoke_async", feature = "op_invoke_with_response_stream"))]
 pub(crate) mod shape_s3_files_mount_failure_exception;
 
-#[cfg(any(
-    feature = "op_invoke",
-    feature = "op_invoke_async",
-    feature = "op_invoke_with_response_stream"
-))]
+#[cfg(any(feature = "op_invoke", feature = "op_invoke_async", feature = "op_invoke_with_response_stream"))]
 pub(crate) mod shape_s3_files_mount_timeout_exception;
 
 #[cfg(any(feature = "op_invoke", feature = "op_invoke_with_response_stream"))]
 pub(crate) mod shape_serialized_request_entity_too_large_exception;
 
-#[cfg(any(
-    feature = "op_add_layer_version_permission",
-    feature = "op_add_permission",
-    feature = "op_checkpoint_durable_execution",
-    feature = "op_create_alias",
-    feature = "op_create_capacity_provider",
-    feature = "op_create_function",
-    feature = "op_create_function_url_config",
-    feature = "op_delete_alias",
-    feature = "op_delete_capacity_provider",
-    feature = "op_delete_code_signing_config",
-    feature = "op_delete_event_source_mapping",
-    feature = "op_delete_function",
-    feature = "op_delete_function_code_signing_config",
-    feature = "op_delete_function_concurrency",
-    feature = "op_delete_function_event_invoke_config",
-    feature = "op_delete_function_url_config",
-    feature = "op_delete_layer_version",
-    feature = "op_delete_provisioned_concurrency_config",
-    feature = "op_delete_resource_policy",
-    feature = "op_get_account_settings",
-    feature = "op_get_alias",
-    feature = "op_get_capacity_provider",
-    feature = "op_get_code_signing_config",
-    feature = "op_get_durable_execution",
-    feature = "op_get_durable_execution_history",
-    feature = "op_get_durable_execution_state",
-    feature = "op_get_event_source_mapping",
-    feature = "op_get_function",
-    feature = "op_get_function_code_signing_config",
-    feature = "op_get_function_concurrency",
-    feature = "op_get_function_configuration",
-    feature = "op_get_function_event_invoke_config",
-    feature = "op_get_function_recursion_config",
-    feature = "op_get_function_scaling_config",
-    feature = "op_get_function_url_config",
-    feature = "op_get_layer_version",
-    feature = "op_get_layer_version_by_arn",
-    feature = "op_get_layer_version_policy",
-    feature = "op_get_policy",
-    feature = "op_get_provisioned_concurrency_config",
-    feature = "op_get_resource_policy",
-    feature = "op_get_runtime_management_config",
-    feature = "op_invoke",
-    feature = "op_invoke_async",
-    feature = "op_invoke_with_response_stream",
-    feature = "op_list_aliases",
-    feature = "op_list_capacity_providers",
-    feature = "op_list_code_signing_configs",
-    feature = "op_list_durable_executions_by_function",
-    feature = "op_list_event_source_mappings",
-    feature = "op_list_function_event_invoke_configs",
-    feature = "op_list_function_url_configs",
-    feature = "op_list_function_versions_by_capacity_provider",
-    feature = "op_list_functions",
-    feature = "op_list_functions_by_code_signing_config",
-    feature = "op_list_layer_versions",
-    feature = "op_list_layers",
-    feature = "op_list_provisioned_concurrency_configs",
-    feature = "op_list_tags",
-    feature = "op_list_versions_by_function",
-    feature = "op_publish_layer_version",
-    feature = "op_put_function_code_signing_config",
-    feature = "op_put_function_concurrency",
-    feature = "op_put_function_event_invoke_config",
-    feature = "op_put_function_recursion_config",
-    feature = "op_put_function_scaling_config",
-    feature = "op_put_provisioned_concurrency_config",
-    feature = "op_put_resource_policy",
-    feature = "op_put_runtime_management_config",
-    feature = "op_remove_layer_version_permission",
-    feature = "op_remove_permission",
-    feature = "op_send_durable_execution_callback_failure",
-    feature = "op_send_durable_execution_callback_heartbeat",
-    feature = "op_send_durable_execution_callback_success",
-    feature = "op_stop_durable_execution",
-    feature = "op_tag_resource",
-    feature = "op_untag_resource",
-    feature = "op_update_alias",
-    feature = "op_update_capacity_provider",
-    feature = "op_update_code_signing_config",
-    feature = "op_update_event_source_mapping",
-    feature = "op_update_function_code",
-    feature = "op_update_function_configuration",
-    feature = "op_update_function_event_invoke_config",
-    feature = "op_update_function_url_config"
-))]
+#[cfg(any(feature = "op_add_layer_version_permission", feature = "op_add_permission", feature = "op_checkpoint_durable_execution", feature = "op_create_alias", feature = "op_create_capacity_provider", feature = "op_create_function", feature = "op_create_function_url_config", feature = "op_delete_alias", feature = "op_delete_capacity_provider", feature = "op_delete_code_signing_config", feature = "op_delete_event_source_mapping", feature = "op_delete_function", feature = "op_delete_function_code_signing_config", feature = "op_delete_function_concurrency", feature = "op_delete_function_event_invoke_config", feature = "op_delete_function_url_config", feature = "op_delete_layer_version", feature = "op_delete_provisioned_concurrency_config", feature = "op_delete_resource_policy", feature = "op_get_account_settings", feature = "op_get_alias", feature = "op_get_capacity_provider", feature = "op_get_code_signing_config", feature = "op_get_durable_execution", feature = "op_get_durable_execution_history", feature = "op_get_durable_execution_state", feature = "op_get_event_source_mapping", feature = "op_get_function", feature = "op_get_function_code_signing_config", feature = "op_get_function_concurrency", feature = "op_get_function_configuration", feature = "op_get_function_event_invoke_config", feature = "op_get_function_recursion_config", feature = "op_get_function_scaling_config", feature = "op_get_function_url_config", feature = "op_get_layer_version", feature = "op_get_layer_version_by_arn", feature = "op_get_layer_version_policy", feature = "op_get_policy", feature = "op_get_provisioned_concurrency_config", feature = "op_get_resource_policy", feature = "op_get_runtime_management_config", feature = "op_invoke", feature = "op_invoke_async", feature = "op_invoke_with_response_stream", feature = "op_list_aliases", feature = "op_list_capacity_providers", feature = "op_list_code_signing_configs", feature = "op_list_durable_executions_by_function", feature = "op_list_event_source_mappings", feature = "op_list_function_event_invoke_configs", feature = "op_list_function_url_configs", feature = "op_list_function_versions_by_capacity_provider", feature = "op_list_functions", feature = "op_list_functions_by_code_signing_config", feature = "op_list_layer_versions", feature = "op_list_layers", feature = "op_list_provisioned_concurrency_configs", feature = "op_list_tags", feature = "op_list_versions_by_function", feature = "op_publish_layer_version", feature = "op_put_function_code_signing_config", feature = "op_put_function_concurrency", feature = "op_put_function_event_invoke_config", feature = "op_put_function_recursion_config", feature = "op_put_function_scaling_config", feature = "op_put_provisioned_concurrency_config", feature = "op_put_resource_policy", feature = "op_put_runtime_management_config", feature = "op_remove_layer_version_permission", feature = "op_remove_permission", feature = "op_send_durable_execution_callback_failure", feature = "op_send_durable_execution_callback_heartbeat", feature = "op_send_durable_execution_callback_success", feature = "op_stop_durable_execution", feature = "op_tag_resource", feature = "op_untag_resource", feature = "op_update_alias", feature = "op_update_capacity_provider", feature = "op_update_code_signing_config", feature = "op_update_event_source_mapping", feature = "op_update_function_code", feature = "op_update_function_configuration", feature = "op_update_function_event_invoke_config", feature = "op_update_function_url_config"))]
 pub(crate) mod shape_service_exception;
 
-#[cfg(any(
-    feature = "op_invoke",
-    feature = "op_invoke_async",
-    feature = "op_invoke_with_response_stream"
-))]
+#[cfg(any(feature = "op_invoke", feature = "op_invoke_async", feature = "op_invoke_with_response_stream"))]
 pub(crate) mod shape_service_quota_exceeded_exception;
 
-#[cfg(any(
-    feature = "op_invoke",
-    feature = "op_invoke_async",
-    feature = "op_invoke_with_response_stream"
-))]
+#[cfg(any(feature = "op_invoke", feature = "op_invoke_async", feature = "op_invoke_with_response_stream"))]
 pub(crate) mod shape_snap_start_exception;
 
-#[cfg(any(
-    feature = "op_invoke",
-    feature = "op_invoke_async",
-    feature = "op_invoke_with_response_stream"
-))]
+#[cfg(any(feature = "op_invoke", feature = "op_invoke_async", feature = "op_invoke_with_response_stream"))]
 pub(crate) mod shape_snap_start_not_ready_exception;
 
-#[cfg(any(
-    feature = "op_invoke",
-    feature = "op_invoke_async",
-    feature = "op_invoke_with_response_stream"
-))]
+#[cfg(any(feature = "op_invoke", feature = "op_invoke_async", feature = "op_invoke_with_response_stream"))]
 pub(crate) mod shape_snap_start_regeneration_failure_exception;
 
-#[cfg(any(
-    feature = "op_invoke",
-    feature = "op_invoke_async",
-    feature = "op_invoke_with_response_stream"
-))]
+#[cfg(any(feature = "op_invoke", feature = "op_invoke_async", feature = "op_invoke_with_response_stream"))]
 pub(crate) mod shape_snap_start_timeout_exception;
 
-#[cfg(any(
-    feature = "op_invoke",
-    feature = "op_invoke_async",
-    feature = "op_invoke_with_response_stream"
-))]
+#[cfg(any(feature = "op_invoke", feature = "op_invoke_async", feature = "op_invoke_with_response_stream"))]
 pub(crate) mod shape_subnet_ip_address_limit_reached_exception;
 
 #[cfg(feature = "op_tag_resource")]
 pub(crate) mod shape_tag_resource_input;
 
-#[cfg(any(
-    feature = "op_add_layer_version_permission",
-    feature = "op_add_permission",
-    feature = "op_checkpoint_durable_execution",
-    feature = "op_create_alias",
-    feature = "op_create_capacity_provider",
-    feature = "op_create_function",
-    feature = "op_create_function_url_config",
-    feature = "op_delete_alias",
-    feature = "op_delete_capacity_provider",
-    feature = "op_delete_event_source_mapping",
-    feature = "op_delete_function",
-    feature = "op_delete_function_code_signing_config",
-    feature = "op_delete_function_concurrency",
-    feature = "op_delete_function_event_invoke_config",
-    feature = "op_delete_function_url_config",
-    feature = "op_delete_layer_version",
-    feature = "op_delete_provisioned_concurrency_config",
-    feature = "op_delete_resource_policy",
-    feature = "op_get_account_settings",
-    feature = "op_get_alias",
-    feature = "op_get_capacity_provider",
-    feature = "op_get_durable_execution",
-    feature = "op_get_durable_execution_history",
-    feature = "op_get_durable_execution_state",
-    feature = "op_get_event_source_mapping",
-    feature = "op_get_function",
-    feature = "op_get_function_code_signing_config",
-    feature = "op_get_function_concurrency",
-    feature = "op_get_function_configuration",
-    feature = "op_get_function_event_invoke_config",
-    feature = "op_get_function_recursion_config",
-    feature = "op_get_function_scaling_config",
-    feature = "op_get_function_url_config",
-    feature = "op_get_layer_version",
-    feature = "op_get_layer_version_by_arn",
-    feature = "op_get_layer_version_policy",
-    feature = "op_get_policy",
-    feature = "op_get_provisioned_concurrency_config",
-    feature = "op_get_resource_policy",
-    feature = "op_get_runtime_management_config",
-    feature = "op_invoke",
-    feature = "op_invoke_with_response_stream",
-    feature = "op_list_aliases",
-    feature = "op_list_capacity_providers",
-    feature = "op_list_durable_executions_by_function",
-    feature = "op_list_event_source_mappings",
-    feature = "op_list_function_event_invoke_configs",
-    feature = "op_list_function_url_configs",
-    feature = "op_list_function_versions_by_capacity_provider",
-    feature = "op_list_functions",
-    feature = "op_list_layer_versions",
-    feature = "op_list_layers",
-    feature = "op_list_provisioned_concurrency_configs",
-    feature = "op_list_tags",
-    feature = "op_list_versions_by_function",
-    feature = "op_publish_layer_version",
-    feature = "op_put_function_code_signing_config",
-    feature = "op_put_function_concurrency",
-    feature = "op_put_function_event_invoke_config",
-    feature = "op_put_function_recursion_config",
-    feature = "op_put_function_scaling_config",
-    feature = "op_put_provisioned_concurrency_config",
-    feature = "op_put_resource_policy",
-    feature = "op_put_runtime_management_config",
-    feature = "op_remove_layer_version_permission",
-    feature = "op_remove_permission",
-    feature = "op_send_durable_execution_callback_failure",
-    feature = "op_send_durable_execution_callback_heartbeat",
-    feature = "op_send_durable_execution_callback_success",
-    feature = "op_stop_durable_execution",
-    feature = "op_tag_resource",
-    feature = "op_untag_resource",
-    feature = "op_update_alias",
-    feature = "op_update_capacity_provider",
-    feature = "op_update_event_source_mapping",
-    feature = "op_update_function_code",
-    feature = "op_update_function_configuration",
-    feature = "op_update_function_event_invoke_config",
-    feature = "op_update_function_url_config"
-))]
+#[cfg(any(feature = "op_add_layer_version_permission", feature = "op_add_permission", feature = "op_checkpoint_durable_execution", feature = "op_create_alias", feature = "op_create_capacity_provider", feature = "op_create_function", feature = "op_create_function_url_config", feature = "op_delete_alias", feature = "op_delete_capacity_provider", feature = "op_delete_event_source_mapping", feature = "op_delete_function", feature = "op_delete_function_code_signing_config", feature = "op_delete_function_concurrency", feature = "op_delete_function_event_invoke_config", feature = "op_delete_function_url_config", feature = "op_delete_layer_version", feature = "op_delete_provisioned_concurrency_config", feature = "op_delete_resource_policy", feature = "op_get_account_settings", feature = "op_get_alias", feature = "op_get_capacity_provider", feature = "op_get_durable_execution", feature = "op_get_durable_execution_history", feature = "op_get_durable_execution_state", feature = "op_get_event_source_mapping", feature = "op_get_function", feature = "op_get_function_code_signing_config", feature = "op_get_function_concurrency", feature = "op_get_function_configuration", feature = "op_get_function_event_invoke_config", feature = "op_get_function_recursion_config", feature = "op_get_function_scaling_config", feature = "op_get_function_url_config", feature = "op_get_layer_version", feature = "op_get_layer_version_by_arn", feature = "op_get_layer_version_policy", feature = "op_get_policy", feature = "op_get_provisioned_concurrency_config", feature = "op_get_resource_policy", feature = "op_get_runtime_management_config", feature = "op_invoke", feature = "op_invoke_with_response_stream", feature = "op_list_aliases", feature = "op_list_capacity_providers", feature = "op_list_durable_executions_by_function", feature = "op_list_event_source_mappings", feature = "op_list_function_event_invoke_configs", feature = "op_list_function_url_configs", feature = "op_list_function_versions_by_capacity_provider", feature = "op_list_functions", feature = "op_list_layer_versions", feature = "op_list_layers", feature = "op_list_provisioned_concurrency_configs", feature = "op_list_tags", feature = "op_list_versions_by_function", feature = "op_publish_layer_version", feature = "op_put_function_code_signing_config", feature = "op_put_function_concurrency", feature = "op_put_function_event_invoke_config", feature = "op_put_function_recursion_config", feature = "op_put_function_scaling_config", feature = "op_put_provisioned_concurrency_config", feature = "op_put_resource_policy", feature = "op_put_runtime_management_config", feature = "op_remove_layer_version_permission", feature = "op_remove_permission", feature = "op_send_durable_execution_callback_failure", feature = "op_send_durable_execution_callback_heartbeat", feature = "op_send_durable_execution_callback_success", feature = "op_stop_durable_execution", feature = "op_tag_resource", feature = "op_untag_resource", feature = "op_update_alias", feature = "op_update_capacity_provider", feature = "op_update_event_source_mapping", feature = "op_update_function_code", feature = "op_update_function_configuration", feature = "op_update_function_event_invoke_config", feature = "op_update_function_url_config"))]
 pub(crate) mod shape_too_many_requests_exception;
 
 #[cfg(any(feature = "op_invoke", feature = "op_invoke_with_response_stream"))]
@@ -1106,14 +565,8 @@ pub(crate) mod shape_update_function_url_config_input;
 
 pub fn parse_event_stream_error_metadata(
     payload: &::bytes::Bytes,
-) -> ::std::result::Result<
-    ::aws_smithy_types::error::metadata::Builder,
-    ::aws_smithy_json::deserialize::error::DeserializeError,
-> {
-    crate::json_errors::parse_error_metadata(
-        payload,
-        &::aws_smithy_runtime_api::http::Headers::new(),
-    )
+) -> ::std::result::Result<::aws_smithy_types::error::metadata::Builder, ::aws_smithy_json::deserialize::error::DeserializeError> {
+    crate::json_errors::parse_error_metadata(payload, &::aws_smithy_runtime_api::http::Headers::new())
 }
 
 #[cfg(feature = "op_get_account_settings")]
@@ -1125,99 +578,34 @@ pub(crate) mod shape_account_usage;
 #[cfg(feature = "op_list_aliases")]
 pub(crate) mod shape_alias_list;
 
-#[cfg(any(
-    feature = "op_create_alias",
-    feature = "op_get_alias",
-    feature = "op_list_aliases",
-    feature = "op_update_alias"
-))]
+#[cfg(any(feature = "op_create_alias", feature = "op_get_alias", feature = "op_list_aliases", feature = "op_update_alias"))]
 pub(crate) mod shape_alias_routing_configuration;
 
-#[cfg(any(
-    feature = "op_get_code_signing_config",
-    feature = "op_list_code_signing_configs",
-    feature = "op_update_code_signing_config"
-))]
+#[cfg(any(feature = "op_get_code_signing_config", feature = "op_list_code_signing_configs", feature = "op_update_code_signing_config"))]
 pub(crate) mod shape_allowed_publishers;
 
-#[cfg(any(
-    feature = "op_delete_event_source_mapping",
-    feature = "op_get_event_source_mapping",
-    feature = "op_list_event_source_mappings",
-    feature = "op_update_event_source_mapping"
-))]
+#[cfg(any(feature = "op_delete_event_source_mapping", feature = "op_get_event_source_mapping", feature = "op_list_event_source_mappings", feature = "op_update_event_source_mapping"))]
 pub(crate) mod shape_amazon_managed_kafka_event_source_config;
 
-#[cfg(any(
-    feature = "op_create_capacity_provider",
-    feature = "op_create_function",
-    feature = "op_delete_capacity_provider",
-    feature = "op_get_capacity_provider",
-    feature = "op_get_function",
-    feature = "op_get_function_configuration",
-    feature = "op_list_capacity_providers",
-    feature = "op_list_functions",
-    feature = "op_list_versions_by_function",
-    feature = "op_update_capacity_provider",
-    feature = "op_update_function_code",
-    feature = "op_update_function_configuration"
-))]
+#[cfg(any(feature = "op_create_capacity_provider", feature = "op_create_function", feature = "op_delete_capacity_provider", feature = "op_get_capacity_provider", feature = "op_get_function", feature = "op_get_function_configuration", feature = "op_list_capacity_providers", feature = "op_list_functions", feature = "op_list_versions_by_function", feature = "op_update_capacity_provider", feature = "op_update_function_code", feature = "op_update_function_configuration"))]
 pub(crate) mod shape_architectures_list;
 
-#[cfg(any(
-    feature = "op_create_capacity_provider",
-    feature = "op_delete_capacity_provider",
-    feature = "op_get_capacity_provider",
-    feature = "op_list_capacity_providers",
-    feature = "op_update_capacity_provider"
-))]
+#[cfg(any(feature = "op_create_capacity_provider", feature = "op_delete_capacity_provider", feature = "op_get_capacity_provider", feature = "op_list_capacity_providers", feature = "op_update_capacity_provider"))]
 pub(crate) mod shape_capacity_provider;
 
-#[cfg(any(
-    feature = "op_create_function",
-    feature = "op_get_function",
-    feature = "op_get_function_configuration",
-    feature = "op_list_functions",
-    feature = "op_list_versions_by_function",
-    feature = "op_update_function_code",
-    feature = "op_update_function_configuration"
-))]
+#[cfg(any(feature = "op_create_function", feature = "op_get_function", feature = "op_get_function_configuration", feature = "op_list_functions", feature = "op_list_versions_by_function", feature = "op_update_function_code", feature = "op_update_function_configuration"))]
 pub(crate) mod shape_capacity_provider_config;
 
-#[cfg(any(
-    feature = "op_create_capacity_provider",
-    feature = "op_delete_capacity_provider",
-    feature = "op_get_capacity_provider",
-    feature = "op_list_capacity_providers",
-    feature = "op_update_capacity_provider"
-))]
+#[cfg(any(feature = "op_create_capacity_provider", feature = "op_delete_capacity_provider", feature = "op_get_capacity_provider", feature = "op_list_capacity_providers", feature = "op_update_capacity_provider"))]
 pub(crate) mod shape_capacity_provider_permissions_config;
 
-#[cfg(any(
-    feature = "op_create_capacity_provider",
-    feature = "op_delete_capacity_provider",
-    feature = "op_get_capacity_provider",
-    feature = "op_list_capacity_providers",
-    feature = "op_update_capacity_provider"
-))]
+#[cfg(any(feature = "op_create_capacity_provider", feature = "op_delete_capacity_provider", feature = "op_get_capacity_provider", feature = "op_list_capacity_providers", feature = "op_update_capacity_provider"))]
 pub(crate) mod shape_capacity_provider_scaling_config;
 
-#[cfg(any(
-    feature = "op_create_capacity_provider",
-    feature = "op_delete_capacity_provider",
-    feature = "op_get_capacity_provider",
-    feature = "op_list_capacity_providers",
-    feature = "op_update_capacity_provider"
-))]
+#[cfg(any(feature = "op_create_capacity_provider", feature = "op_delete_capacity_provider", feature = "op_get_capacity_provider", feature = "op_list_capacity_providers", feature = "op_update_capacity_provider"))]
 pub(crate) mod shape_capacity_provider_telemetry_config;
 
-#[cfg(any(
-    feature = "op_create_capacity_provider",
-    feature = "op_delete_capacity_provider",
-    feature = "op_get_capacity_provider",
-    feature = "op_list_capacity_providers",
-    feature = "op_update_capacity_provider"
-))]
+#[cfg(any(feature = "op_create_capacity_provider", feature = "op_delete_capacity_provider", feature = "op_get_capacity_provider", feature = "op_list_capacity_providers", feature = "op_update_capacity_provider"))]
 pub(crate) mod shape_capacity_provider_vpc_config;
 
 #[cfg(feature = "op_list_capacity_providers")]
@@ -1226,229 +614,58 @@ pub(crate) mod shape_capacity_providers_list;
 #[cfg(feature = "op_checkpoint_durable_execution")]
 pub(crate) mod shape_checkpoint_updated_execution_state;
 
-#[cfg(any(
-    feature = "op_get_code_signing_config",
-    feature = "op_list_code_signing_configs",
-    feature = "op_update_code_signing_config"
-))]
+#[cfg(any(feature = "op_get_code_signing_config", feature = "op_list_code_signing_configs", feature = "op_update_code_signing_config"))]
 pub(crate) mod shape_code_signing_config;
 
 #[cfg(feature = "op_list_code_signing_configs")]
 pub(crate) mod shape_code_signing_config_list;
 
-#[cfg(any(
-    feature = "op_get_code_signing_config",
-    feature = "op_list_code_signing_configs",
-    feature = "op_update_code_signing_config"
-))]
+#[cfg(any(feature = "op_get_code_signing_config", feature = "op_list_code_signing_configs", feature = "op_update_code_signing_config"))]
 pub(crate) mod shape_code_signing_policies;
 
-#[cfg(any(
-    feature = "op_get_layer_version",
-    feature = "op_get_layer_version_by_arn",
-    feature = "op_list_layer_versions",
-    feature = "op_list_layers",
-    feature = "op_publish_layer_version"
-))]
+#[cfg(any(feature = "op_get_layer_version", feature = "op_get_layer_version_by_arn", feature = "op_list_layer_versions", feature = "op_list_layers", feature = "op_publish_layer_version"))]
 pub(crate) mod shape_compatible_architectures;
 
-#[cfg(any(
-    feature = "op_get_layer_version",
-    feature = "op_get_layer_version_by_arn",
-    feature = "op_list_layer_versions",
-    feature = "op_list_layers",
-    feature = "op_publish_layer_version"
-))]
+#[cfg(any(feature = "op_get_layer_version", feature = "op_get_layer_version_by_arn", feature = "op_list_layer_versions", feature = "op_list_layers", feature = "op_publish_layer_version"))]
 pub(crate) mod shape_compatible_runtimes;
 
 #[cfg(feature = "op_get_function")]
 pub(crate) mod shape_concurrency;
 
-#[cfg(any(
-    feature = "op_create_function_url_config",
-    feature = "op_get_function_url_config",
-    feature = "op_list_function_url_configs",
-    feature = "op_update_function_url_config"
-))]
+#[cfg(any(feature = "op_create_function_url_config", feature = "op_get_function_url_config", feature = "op_list_function_url_configs", feature = "op_update_function_url_config"))]
 pub(crate) mod shape_cors;
 
-#[cfg(any(
-    feature = "op_create_function",
-    feature = "op_get_function",
-    feature = "op_get_function_configuration",
-    feature = "op_list_functions",
-    feature = "op_list_versions_by_function",
-    feature = "op_update_function_code",
-    feature = "op_update_function_configuration"
-))]
+#[cfg(any(feature = "op_create_function", feature = "op_get_function", feature = "op_get_function_configuration", feature = "op_list_functions", feature = "op_list_versions_by_function", feature = "op_update_function_code", feature = "op_update_function_configuration"))]
 pub(crate) mod shape_dead_letter_config;
 
-#[cfg(any(
-    feature = "op_delete_event_source_mapping",
-    feature = "op_get_event_source_mapping",
-    feature = "op_get_function_event_invoke_config",
-    feature = "op_list_event_source_mappings",
-    feature = "op_list_function_event_invoke_configs",
-    feature = "op_put_function_event_invoke_config",
-    feature = "op_update_event_source_mapping",
-    feature = "op_update_function_event_invoke_config"
-))]
+#[cfg(any(feature = "op_delete_event_source_mapping", feature = "op_get_event_source_mapping", feature = "op_get_function_event_invoke_config", feature = "op_list_event_source_mappings", feature = "op_list_function_event_invoke_configs", feature = "op_put_function_event_invoke_config", feature = "op_update_event_source_mapping", feature = "op_update_function_event_invoke_config"))]
 pub(crate) mod shape_destination_config;
 
-#[cfg(any(
-    feature = "op_delete_event_source_mapping",
-    feature = "op_get_event_source_mapping",
-    feature = "op_list_event_source_mappings",
-    feature = "op_update_event_source_mapping"
-))]
+#[cfg(any(feature = "op_delete_event_source_mapping", feature = "op_get_event_source_mapping", feature = "op_list_event_source_mappings", feature = "op_update_event_source_mapping"))]
 pub(crate) mod shape_document_db_event_source_config;
 
-#[cfg(any(
-    feature = "op_create_function",
-    feature = "op_get_durable_execution",
-    feature = "op_get_function",
-    feature = "op_get_function_configuration",
-    feature = "op_list_functions",
-    feature = "op_list_versions_by_function",
-    feature = "op_update_function_code",
-    feature = "op_update_function_configuration"
-))]
+#[cfg(any(feature = "op_create_function", feature = "op_get_durable_execution", feature = "op_get_function", feature = "op_get_function_configuration", feature = "op_list_functions", feature = "op_list_versions_by_function", feature = "op_update_function_code", feature = "op_update_function_configuration"))]
 pub(crate) mod shape_durable_config;
 
 #[cfg(feature = "op_list_durable_executions_by_function")]
 pub(crate) mod shape_durable_executions;
 
-#[cfg(any(
-    feature = "op_create_function",
-    feature = "op_update_function_configuration"
-))]
+#[cfg(any(feature = "op_create_function", feature = "op_update_function_configuration"))]
 pub(crate) mod shape_environment;
 
-#[cfg(any(
-    feature = "op_create_function",
-    feature = "op_get_function",
-    feature = "op_get_function_configuration",
-    feature = "op_list_functions",
-    feature = "op_list_versions_by_function",
-    feature = "op_update_function_code",
-    feature = "op_update_function_configuration"
-))]
+#[cfg(any(feature = "op_create_function", feature = "op_get_function", feature = "op_get_function_configuration", feature = "op_list_functions", feature = "op_list_versions_by_function", feature = "op_update_function_code", feature = "op_update_function_configuration"))]
 pub(crate) mod shape_environment_response;
 
-#[cfg(any(
-    feature = "op_create_function",
-    feature = "op_get_function",
-    feature = "op_get_function_configuration",
-    feature = "op_list_functions",
-    feature = "op_list_versions_by_function",
-    feature = "op_update_function_code",
-    feature = "op_update_function_configuration"
-))]
+#[cfg(any(feature = "op_create_function", feature = "op_get_function", feature = "op_get_function_configuration", feature = "op_list_functions", feature = "op_list_versions_by_function", feature = "op_update_function_code", feature = "op_update_function_configuration"))]
 pub(crate) mod shape_ephemeral_storage;
 
-#[cfg(any(
-    feature = "op_add_layer_version_permission",
-    feature = "op_add_permission",
-    feature = "op_checkpoint_durable_execution",
-    feature = "op_create_alias",
-    feature = "op_create_capacity_provider",
-    feature = "op_create_function",
-    feature = "op_create_function_url_config",
-    feature = "op_delete_alias",
-    feature = "op_delete_capacity_provider",
-    feature = "op_delete_code_signing_config",
-    feature = "op_delete_event_source_mapping",
-    feature = "op_delete_function",
-    feature = "op_delete_function_code_signing_config",
-    feature = "op_delete_function_concurrency",
-    feature = "op_delete_function_event_invoke_config",
-    feature = "op_delete_function_url_config",
-    feature = "op_delete_layer_version",
-    feature = "op_delete_provisioned_concurrency_config",
-    feature = "op_delete_resource_policy",
-    feature = "op_get_account_settings",
-    feature = "op_get_alias",
-    feature = "op_get_capacity_provider",
-    feature = "op_get_code_signing_config",
-    feature = "op_get_durable_execution",
-    feature = "op_get_durable_execution_history",
-    feature = "op_get_durable_execution_state",
-    feature = "op_get_event_source_mapping",
-    feature = "op_get_function",
-    feature = "op_get_function_code_signing_config",
-    feature = "op_get_function_concurrency",
-    feature = "op_get_function_configuration",
-    feature = "op_get_function_event_invoke_config",
-    feature = "op_get_function_recursion_config",
-    feature = "op_get_function_scaling_config",
-    feature = "op_get_function_url_config",
-    feature = "op_get_layer_version",
-    feature = "op_get_layer_version_by_arn",
-    feature = "op_get_layer_version_policy",
-    feature = "op_get_policy",
-    feature = "op_get_provisioned_concurrency_config",
-    feature = "op_get_resource_policy",
-    feature = "op_get_runtime_management_config",
-    feature = "op_invoke",
-    feature = "op_invoke_async",
-    feature = "op_invoke_with_response_stream",
-    feature = "op_list_aliases",
-    feature = "op_list_capacity_providers",
-    feature = "op_list_code_signing_configs",
-    feature = "op_list_durable_executions_by_function",
-    feature = "op_list_event_source_mappings",
-    feature = "op_list_function_event_invoke_configs",
-    feature = "op_list_function_url_configs",
-    feature = "op_list_function_versions_by_capacity_provider",
-    feature = "op_list_functions",
-    feature = "op_list_functions_by_code_signing_config",
-    feature = "op_list_layer_versions",
-    feature = "op_list_layers",
-    feature = "op_list_provisioned_concurrency_configs",
-    feature = "op_list_tags",
-    feature = "op_list_versions_by_function",
-    feature = "op_publish_layer_version",
-    feature = "op_put_function_code_signing_config",
-    feature = "op_put_function_concurrency",
-    feature = "op_put_function_event_invoke_config",
-    feature = "op_put_function_recursion_config",
-    feature = "op_put_function_scaling_config",
-    feature = "op_put_provisioned_concurrency_config",
-    feature = "op_put_resource_policy",
-    feature = "op_put_runtime_management_config",
-    feature = "op_remove_layer_version_permission",
-    feature = "op_remove_permission",
-    feature = "op_send_durable_execution_callback_failure",
-    feature = "op_send_durable_execution_callback_heartbeat",
-    feature = "op_send_durable_execution_callback_success",
-    feature = "op_stop_durable_execution",
-    feature = "op_tag_resource",
-    feature = "op_untag_resource",
-    feature = "op_update_alias",
-    feature = "op_update_capacity_provider",
-    feature = "op_update_code_signing_config",
-    feature = "op_update_event_source_mapping",
-    feature = "op_update_function_code",
-    feature = "op_update_function_configuration",
-    feature = "op_update_function_event_invoke_config",
-    feature = "op_update_function_url_config"
-))]
+#[cfg(any(feature = "op_checkpoint_durable_execution", feature = "op_get_durable_execution", feature = "op_get_durable_execution_history", feature = "op_get_durable_execution_state", feature = "op_send_durable_execution_callback_failure", feature = "op_stop_durable_execution"))]
 pub(crate) mod shape_error_object;
 
-#[cfg(any(
-    feature = "op_delete_event_source_mapping",
-    feature = "op_get_event_source_mapping",
-    feature = "op_list_event_source_mappings",
-    feature = "op_update_event_source_mapping"
-))]
+#[cfg(any(feature = "op_delete_event_source_mapping", feature = "op_get_event_source_mapping", feature = "op_list_event_source_mappings", feature = "op_update_event_source_mapping"))]
 pub(crate) mod shape_event_source_mapping_logging_config;
 
-#[cfg(any(
-    feature = "op_delete_event_source_mapping",
-    feature = "op_get_event_source_mapping",
-    feature = "op_list_event_source_mappings",
-    feature = "op_update_event_source_mapping"
-))]
+#[cfg(any(feature = "op_delete_event_source_mapping", feature = "op_get_event_source_mapping", feature = "op_list_event_source_mappings", feature = "op_update_event_source_mapping"))]
 pub(crate) mod shape_event_source_mapping_metrics_config;
 
 #[cfg(feature = "op_list_event_source_mappings")]
@@ -1457,42 +674,16 @@ pub(crate) mod shape_event_source_mappings_list;
 #[cfg(feature = "op_get_durable_execution_history")]
 pub(crate) mod shape_events;
 
-#[cfg(any(
-    feature = "op_create_function",
-    feature = "op_get_function",
-    feature = "op_get_function_configuration",
-    feature = "op_list_functions",
-    feature = "op_list_versions_by_function",
-    feature = "op_update_function_code",
-    feature = "op_update_function_configuration"
-))]
+#[cfg(any(feature = "op_create_function", feature = "op_get_function", feature = "op_get_function_configuration", feature = "op_list_functions", feature = "op_list_versions_by_function", feature = "op_update_function_code", feature = "op_update_function_configuration"))]
 pub(crate) mod shape_file_system_config;
 
-#[cfg(any(
-    feature = "op_create_function",
-    feature = "op_get_function",
-    feature = "op_get_function_configuration",
-    feature = "op_list_functions",
-    feature = "op_list_versions_by_function",
-    feature = "op_update_function_code",
-    feature = "op_update_function_configuration"
-))]
+#[cfg(any(feature = "op_create_function", feature = "op_get_function", feature = "op_get_function_configuration", feature = "op_list_functions", feature = "op_list_versions_by_function", feature = "op_update_function_code", feature = "op_update_function_configuration"))]
 pub(crate) mod shape_file_system_config_list;
 
-#[cfg(any(
-    feature = "op_delete_event_source_mapping",
-    feature = "op_get_event_source_mapping",
-    feature = "op_list_event_source_mappings",
-    feature = "op_update_event_source_mapping"
-))]
+#[cfg(any(feature = "op_delete_event_source_mapping", feature = "op_get_event_source_mapping", feature = "op_list_event_source_mappings", feature = "op_update_event_source_mapping"))]
 pub(crate) mod shape_filter_criteria;
 
-#[cfg(any(
-    feature = "op_delete_event_source_mapping",
-    feature = "op_get_event_source_mapping",
-    feature = "op_list_event_source_mappings",
-    feature = "op_update_event_source_mapping"
-))]
+#[cfg(any(feature = "op_delete_event_source_mapping", feature = "op_get_event_source_mapping", feature = "op_list_event_source_mappings", feature = "op_update_event_source_mapping"))]
 pub(crate) mod shape_filter_criteria_error;
 
 #[cfg(feature = "op_list_functions_by_code_signing_config")]
@@ -1504,34 +695,19 @@ pub(crate) mod shape_function_code;
 #[cfg(feature = "op_get_function")]
 pub(crate) mod shape_function_code_location;
 
-#[cfg(any(
-    feature = "op_get_function",
-    feature = "op_list_functions",
-    feature = "op_list_versions_by_function"
-))]
+#[cfg(any(feature = "op_get_function", feature = "op_list_functions", feature = "op_list_versions_by_function"))]
 pub(crate) mod shape_function_configuration;
 
 #[cfg(feature = "op_list_function_event_invoke_configs")]
 pub(crate) mod shape_function_event_invoke_config_list;
 
-#[cfg(any(
-    feature = "op_list_functions",
-    feature = "op_list_versions_by_function"
-))]
+#[cfg(any(feature = "op_list_functions", feature = "op_list_versions_by_function"))]
 pub(crate) mod shape_function_list;
 
-#[cfg(any(
-    feature = "op_delete_event_source_mapping",
-    feature = "op_get_event_source_mapping",
-    feature = "op_list_event_source_mappings",
-    feature = "op_update_event_source_mapping"
-))]
+#[cfg(any(feature = "op_delete_event_source_mapping", feature = "op_get_event_source_mapping", feature = "op_list_event_source_mappings", feature = "op_update_event_source_mapping"))]
 pub(crate) mod shape_function_response_type_list;
 
-#[cfg(any(
-    feature = "op_get_function_scaling_config",
-    feature = "op_put_function_scaling_config"
-))]
+#[cfg(any(feature = "op_get_function_scaling_config", feature = "op_put_function_scaling_config"))]
 pub(crate) mod shape_function_scaling_config;
 
 #[cfg(feature = "op_list_function_url_configs")]
@@ -1540,45 +716,19 @@ pub(crate) mod shape_function_url_config_list;
 #[cfg(feature = "op_list_function_versions_by_capacity_provider")]
 pub(crate) mod shape_function_versions_by_capacity_provider_list;
 
-#[cfg(any(
-    feature = "op_create_function",
-    feature = "op_get_function",
-    feature = "op_get_function_configuration",
-    feature = "op_list_functions",
-    feature = "op_list_versions_by_function",
-    feature = "op_update_function_code",
-    feature = "op_update_function_configuration"
-))]
+#[cfg(any(feature = "op_create_function", feature = "op_get_function", feature = "op_get_function_configuration", feature = "op_list_functions", feature = "op_list_versions_by_function", feature = "op_update_function_code", feature = "op_update_function_configuration"))]
 pub(crate) mod shape_image_config;
 
-#[cfg(any(
-    feature = "op_create_function",
-    feature = "op_get_function",
-    feature = "op_get_function_configuration",
-    feature = "op_list_functions",
-    feature = "op_list_versions_by_function",
-    feature = "op_update_function_code",
-    feature = "op_update_function_configuration"
-))]
+#[cfg(any(feature = "op_create_function", feature = "op_get_function", feature = "op_get_function_configuration", feature = "op_list_functions", feature = "op_list_versions_by_function", feature = "op_update_function_code", feature = "op_update_function_configuration"))]
 pub(crate) mod shape_image_config_response;
 
-#[cfg(any(
-    feature = "op_create_capacity_provider",
-    feature = "op_delete_capacity_provider",
-    feature = "op_get_capacity_provider",
-    feature = "op_list_capacity_providers",
-    feature = "op_update_capacity_provider"
-))]
+#[cfg(any(feature = "op_create_capacity_provider", feature = "op_delete_capacity_provider", feature = "op_get_capacity_provider", feature = "op_list_capacity_providers", feature = "op_update_capacity_provider"))]
 pub(crate) mod shape_instance_requirements;
 
 #[cfg(feature = "op_publish_layer_version")]
 pub(crate) mod shape_layer_version_content_input;
 
-#[cfg(any(
-    feature = "op_get_layer_version",
-    feature = "op_get_layer_version_by_arn",
-    feature = "op_publish_layer_version"
-))]
+#[cfg(any(feature = "op_get_layer_version", feature = "op_get_layer_version_by_arn", feature = "op_publish_layer_version"))]
 pub(crate) mod shape_layer_version_content_output;
 
 #[cfg(feature = "op_list_layer_versions")]
@@ -1587,240 +737,97 @@ pub(crate) mod shape_layer_versions_list;
 #[cfg(feature = "op_list_layers")]
 pub(crate) mod shape_layers_list;
 
-#[cfg(any(
-    feature = "op_create_function",
-    feature = "op_get_function",
-    feature = "op_get_function_configuration",
-    feature = "op_list_functions",
-    feature = "op_list_versions_by_function",
-    feature = "op_update_function_code",
-    feature = "op_update_function_configuration"
-))]
+#[cfg(any(feature = "op_create_function", feature = "op_get_function", feature = "op_get_function_configuration", feature = "op_list_functions", feature = "op_list_versions_by_function", feature = "op_update_function_code", feature = "op_update_function_configuration"))]
 pub(crate) mod shape_layers_reference_list;
 
-#[cfg(any(
-    feature = "op_create_function",
-    feature = "op_get_function",
-    feature = "op_get_function_configuration",
-    feature = "op_list_functions",
-    feature = "op_list_versions_by_function",
-    feature = "op_update_function_code",
-    feature = "op_update_function_configuration"
-))]
+#[cfg(any(feature = "op_create_function", feature = "op_get_function", feature = "op_get_function_configuration", feature = "op_list_functions", feature = "op_list_versions_by_function", feature = "op_update_function_code", feature = "op_update_function_configuration"))]
 pub(crate) mod shape_logging_config;
 
 #[cfg(feature = "op_checkpoint_durable_execution")]
 pub(crate) mod shape_operation_update;
 
-#[cfg(any(
-    feature = "op_checkpoint_durable_execution",
-    feature = "op_get_durable_execution_state"
-))]
+#[cfg(any(feature = "op_checkpoint_durable_execution", feature = "op_get_durable_execution_state"))]
 pub(crate) mod shape_operations;
 
-#[cfg(any(
-    feature = "op_create_capacity_provider",
-    feature = "op_delete_capacity_provider",
-    feature = "op_get_capacity_provider",
-    feature = "op_list_capacity_providers",
-    feature = "op_update_capacity_provider"
-))]
+#[cfg(any(feature = "op_create_capacity_provider", feature = "op_delete_capacity_provider", feature = "op_get_capacity_provider", feature = "op_list_capacity_providers", feature = "op_update_capacity_provider"))]
 pub(crate) mod shape_propagate_tags;
 
 #[cfg(feature = "op_list_provisioned_concurrency_configs")]
 pub(crate) mod shape_provisioned_concurrency_config_list;
 
-#[cfg(any(
-    feature = "op_delete_event_source_mapping",
-    feature = "op_get_event_source_mapping",
-    feature = "op_list_event_source_mappings",
-    feature = "op_update_event_source_mapping"
-))]
+#[cfg(any(feature = "op_delete_event_source_mapping", feature = "op_get_event_source_mapping", feature = "op_list_event_source_mappings", feature = "op_update_event_source_mapping"))]
 pub(crate) mod shape_provisioned_poller_config;
 
-#[cfg(any(
-    feature = "op_delete_event_source_mapping",
-    feature = "op_get_event_source_mapping",
-    feature = "op_list_event_source_mappings",
-    feature = "op_update_event_source_mapping"
-))]
+#[cfg(any(feature = "op_delete_event_source_mapping", feature = "op_get_event_source_mapping", feature = "op_list_event_source_mappings", feature = "op_update_event_source_mapping"))]
 pub(crate) mod shape_queues;
 
-#[cfg(any(
-    feature = "op_create_function",
-    feature = "op_get_function",
-    feature = "op_get_function_configuration",
-    feature = "op_list_functions",
-    feature = "op_list_versions_by_function",
-    feature = "op_update_function_code",
-    feature = "op_update_function_configuration"
-))]
+#[cfg(any(feature = "op_create_function", feature = "op_get_function", feature = "op_get_function_configuration", feature = "op_list_functions", feature = "op_list_versions_by_function", feature = "op_update_function_code", feature = "op_update_function_configuration"))]
 pub(crate) mod shape_runtime_version_config;
 
-#[cfg(any(
-    feature = "op_delete_event_source_mapping",
-    feature = "op_get_event_source_mapping",
-    feature = "op_list_event_source_mappings",
-    feature = "op_update_event_source_mapping"
-))]
+#[cfg(any(feature = "op_delete_event_source_mapping", feature = "op_get_event_source_mapping", feature = "op_list_event_source_mappings", feature = "op_update_event_source_mapping"))]
 pub(crate) mod shape_scaling_config;
 
-#[cfg(any(
-    feature = "op_delete_event_source_mapping",
-    feature = "op_get_event_source_mapping",
-    feature = "op_list_event_source_mappings",
-    feature = "op_update_event_source_mapping"
-))]
+#[cfg(any(feature = "op_delete_event_source_mapping", feature = "op_get_event_source_mapping", feature = "op_list_event_source_mappings", feature = "op_update_event_source_mapping"))]
 pub(crate) mod shape_self_managed_event_source;
 
-#[cfg(any(
-    feature = "op_delete_event_source_mapping",
-    feature = "op_get_event_source_mapping",
-    feature = "op_list_event_source_mappings",
-    feature = "op_update_event_source_mapping"
-))]
+#[cfg(any(feature = "op_delete_event_source_mapping", feature = "op_get_event_source_mapping", feature = "op_list_event_source_mappings", feature = "op_update_event_source_mapping"))]
 pub(crate) mod shape_self_managed_kafka_event_source_config;
 
-#[cfg(any(
-    feature = "op_create_function",
-    feature = "op_update_function_configuration"
-))]
+#[cfg(any(feature = "op_create_function", feature = "op_update_function_configuration"))]
 pub(crate) mod shape_snap_start;
 
-#[cfg(any(
-    feature = "op_create_function",
-    feature = "op_get_function",
-    feature = "op_get_function_configuration",
-    feature = "op_list_functions",
-    feature = "op_list_versions_by_function",
-    feature = "op_update_function_code",
-    feature = "op_update_function_configuration"
-))]
+#[cfg(any(feature = "op_create_function", feature = "op_get_function", feature = "op_get_function_configuration", feature = "op_list_functions", feature = "op_list_versions_by_function", feature = "op_update_function_code", feature = "op_update_function_configuration"))]
 pub(crate) mod shape_snap_start_response;
 
-#[cfg(any(
-    feature = "op_delete_event_source_mapping",
-    feature = "op_get_event_source_mapping",
-    feature = "op_list_event_source_mappings",
-    feature = "op_update_event_source_mapping"
-))]
+#[cfg(any(feature = "op_delete_event_source_mapping", feature = "op_get_event_source_mapping", feature = "op_list_event_source_mappings", feature = "op_update_event_source_mapping"))]
 pub(crate) mod shape_source_access_configuration;
 
-#[cfg(any(
-    feature = "op_delete_event_source_mapping",
-    feature = "op_get_event_source_mapping",
-    feature = "op_list_event_source_mappings",
-    feature = "op_update_event_source_mapping"
-))]
+#[cfg(any(feature = "op_delete_event_source_mapping", feature = "op_get_event_source_mapping", feature = "op_list_event_source_mappings", feature = "op_update_event_source_mapping"))]
 pub(crate) mod shape_source_access_configurations;
 
-#[cfg(any(
-    feature = "op_create_capacity_provider",
-    feature = "op_delete_capacity_provider",
-    feature = "op_get_capacity_provider",
-    feature = "op_get_function",
-    feature = "op_list_capacity_providers",
-    feature = "op_list_tags",
-    feature = "op_update_capacity_provider"
-))]
+#[cfg(any(feature = "op_create_capacity_provider", feature = "op_delete_capacity_provider", feature = "op_get_capacity_provider", feature = "op_get_function", feature = "op_list_capacity_providers", feature = "op_list_tags", feature = "op_update_capacity_provider"))]
 pub(crate) mod shape_tags;
 
 #[cfg(feature = "op_get_function")]
 pub(crate) mod shape_tags_error;
 
-#[cfg(any(
-    feature = "op_create_function",
-    feature = "op_get_function",
-    feature = "op_get_function_configuration",
-    feature = "op_list_functions",
-    feature = "op_list_versions_by_function",
-    feature = "op_update_function_code",
-    feature = "op_update_function_configuration"
-))]
+#[cfg(any(feature = "op_create_function", feature = "op_get_function", feature = "op_get_function_configuration", feature = "op_list_functions", feature = "op_list_versions_by_function", feature = "op_update_function_code", feature = "op_update_function_configuration"))]
 pub(crate) mod shape_tenancy_config;
 
-#[cfg(any(
-    feature = "op_delete_event_source_mapping",
-    feature = "op_get_event_source_mapping",
-    feature = "op_list_event_source_mappings",
-    feature = "op_update_event_source_mapping"
-))]
+#[cfg(any(feature = "op_delete_event_source_mapping", feature = "op_get_event_source_mapping", feature = "op_list_event_source_mappings", feature = "op_update_event_source_mapping"))]
 pub(crate) mod shape_topics;
 
 #[cfg(feature = "op_get_durable_execution")]
 pub(crate) mod shape_trace_header;
 
-#[cfg(any(
-    feature = "op_create_function",
-    feature = "op_update_function_configuration"
-))]
+#[cfg(any(feature = "op_create_function", feature = "op_update_function_configuration"))]
 pub(crate) mod shape_tracing_config;
 
-#[cfg(any(
-    feature = "op_create_function",
-    feature = "op_get_function",
-    feature = "op_get_function_configuration",
-    feature = "op_list_functions",
-    feature = "op_list_versions_by_function",
-    feature = "op_update_function_code",
-    feature = "op_update_function_configuration"
-))]
+#[cfg(any(feature = "op_create_function", feature = "op_get_function", feature = "op_get_function_configuration", feature = "op_list_functions", feature = "op_list_versions_by_function", feature = "op_update_function_code", feature = "op_update_function_configuration"))]
 pub(crate) mod shape_tracing_config_response;
 
-#[cfg(any(
-    feature = "op_create_function",
-    feature = "op_update_function_configuration"
-))]
+#[cfg(any(feature = "op_create_function", feature = "op_update_function_configuration"))]
 pub(crate) mod shape_vpc_config;
 
-#[cfg(any(
-    feature = "op_create_function",
-    feature = "op_get_function",
-    feature = "op_get_function_configuration",
-    feature = "op_list_functions",
-    feature = "op_list_versions_by_function",
-    feature = "op_update_function_code",
-    feature = "op_update_function_configuration"
-))]
+#[cfg(any(feature = "op_create_function", feature = "op_get_function", feature = "op_get_function_configuration", feature = "op_list_functions", feature = "op_list_versions_by_function", feature = "op_update_function_code", feature = "op_update_function_configuration"))]
 pub(crate) mod shape_vpc_config_response;
 
-#[cfg(any(
-    feature = "op_create_alias",
-    feature = "op_get_alias",
-    feature = "op_list_aliases",
-    feature = "op_update_alias"
-))]
+#[cfg(any(feature = "op_create_alias", feature = "op_get_alias", feature = "op_list_aliases", feature = "op_update_alias"))]
 pub(crate) mod shape_additional_version_weights;
 
 #[cfg(feature = "op_list_aliases")]
 pub(crate) mod shape_alias_configuration;
 
-#[cfg(any(
-    feature = "op_create_function_url_config",
-    feature = "op_get_function_url_config",
-    feature = "op_list_function_url_configs",
-    feature = "op_update_function_url_config"
-))]
+#[cfg(any(feature = "op_create_function_url_config", feature = "op_get_function_url_config", feature = "op_list_function_url_configs", feature = "op_update_function_url_config"))]
 pub(crate) mod shape_allow_methods_list;
 
-#[cfg(any(
-    feature = "op_create_function_url_config",
-    feature = "op_get_function_url_config",
-    feature = "op_list_function_url_configs",
-    feature = "op_update_function_url_config"
-))]
+#[cfg(any(feature = "op_create_function_url_config", feature = "op_get_function_url_config", feature = "op_list_function_url_configs", feature = "op_update_function_url_config"))]
 pub(crate) mod shape_allow_origins_list;
 
 #[cfg(feature = "op_checkpoint_durable_execution")]
 pub(crate) mod shape_callback_options;
 
-#[cfg(any(
-    feature = "op_create_capacity_provider",
-    feature = "op_delete_capacity_provider",
-    feature = "op_get_capacity_provider",
-    feature = "op_list_capacity_providers",
-    feature = "op_update_capacity_provider"
-))]
+#[cfg(any(feature = "op_create_capacity_provider", feature = "op_delete_capacity_provider", feature = "op_get_capacity_provider", feature = "op_list_capacity_providers", feature = "op_update_capacity_provider"))]
 pub(crate) mod shape_capacity_provider_logging_config;
 
 #[cfg(feature = "op_checkpoint_durable_execution")]
@@ -1829,34 +836,13 @@ pub(crate) mod shape_chained_invoke_options;
 #[cfg(feature = "op_checkpoint_durable_execution")]
 pub(crate) mod shape_context_options;
 
-#[cfg(any(
-    feature = "op_delete_event_source_mapping",
-    feature = "op_get_event_source_mapping",
-    feature = "op_list_event_source_mappings",
-    feature = "op_update_event_source_mapping"
-))]
+#[cfg(any(feature = "op_delete_event_source_mapping", feature = "op_get_event_source_mapping", feature = "op_list_event_source_mappings", feature = "op_update_event_source_mapping"))]
 pub(crate) mod shape_endpoints;
 
-#[cfg(any(
-    feature = "op_create_function",
-    feature = "op_get_function",
-    feature = "op_get_function_configuration",
-    feature = "op_list_functions",
-    feature = "op_list_versions_by_function",
-    feature = "op_update_function_code",
-    feature = "op_update_function_configuration"
-))]
+#[cfg(any(feature = "op_create_function", feature = "op_get_function", feature = "op_get_function_configuration", feature = "op_list_functions", feature = "op_list_versions_by_function", feature = "op_update_function_code", feature = "op_update_function_configuration"))]
 pub(crate) mod shape_environment_error;
 
-#[cfg(any(
-    feature = "op_create_function",
-    feature = "op_get_function",
-    feature = "op_get_function_configuration",
-    feature = "op_list_functions",
-    feature = "op_list_versions_by_function",
-    feature = "op_update_function_code",
-    feature = "op_update_function_configuration"
-))]
+#[cfg(any(feature = "op_create_function", feature = "op_get_function", feature = "op_get_function_configuration", feature = "op_list_functions", feature = "op_list_versions_by_function", feature = "op_update_function_code", feature = "op_update_function_configuration"))]
 pub(crate) mod shape_environment_variables;
 
 #[cfg(feature = "op_get_durable_execution_history")]
@@ -1865,112 +851,16 @@ pub(crate) mod shape_event;
 #[cfg(feature = "op_list_event_source_mappings")]
 pub(crate) mod shape_event_source_mapping_configuration;
 
-#[cfg(any(
-    feature = "op_delete_event_source_mapping",
-    feature = "op_get_event_source_mapping",
-    feature = "op_list_event_source_mappings",
-    feature = "op_update_event_source_mapping"
-))]
+#[cfg(any(feature = "op_delete_event_source_mapping", feature = "op_get_event_source_mapping", feature = "op_list_event_source_mappings", feature = "op_update_event_source_mapping"))]
 pub(crate) mod shape_event_source_mapping_metric_list;
 
 #[cfg(feature = "op_list_durable_executions_by_function")]
 pub(crate) mod shape_execution;
 
-#[cfg(any(
-    feature = "op_add_layer_version_permission",
-    feature = "op_add_permission",
-    feature = "op_checkpoint_durable_execution",
-    feature = "op_create_alias",
-    feature = "op_create_capacity_provider",
-    feature = "op_create_function",
-    feature = "op_create_function_url_config",
-    feature = "op_delete_alias",
-    feature = "op_delete_capacity_provider",
-    feature = "op_delete_code_signing_config",
-    feature = "op_delete_event_source_mapping",
-    feature = "op_delete_function",
-    feature = "op_delete_function_code_signing_config",
-    feature = "op_delete_function_concurrency",
-    feature = "op_delete_function_event_invoke_config",
-    feature = "op_delete_function_url_config",
-    feature = "op_delete_layer_version",
-    feature = "op_delete_provisioned_concurrency_config",
-    feature = "op_delete_resource_policy",
-    feature = "op_get_account_settings",
-    feature = "op_get_alias",
-    feature = "op_get_capacity_provider",
-    feature = "op_get_code_signing_config",
-    feature = "op_get_durable_execution",
-    feature = "op_get_durable_execution_history",
-    feature = "op_get_durable_execution_state",
-    feature = "op_get_event_source_mapping",
-    feature = "op_get_function",
-    feature = "op_get_function_code_signing_config",
-    feature = "op_get_function_concurrency",
-    feature = "op_get_function_configuration",
-    feature = "op_get_function_event_invoke_config",
-    feature = "op_get_function_recursion_config",
-    feature = "op_get_function_scaling_config",
-    feature = "op_get_function_url_config",
-    feature = "op_get_layer_version",
-    feature = "op_get_layer_version_by_arn",
-    feature = "op_get_layer_version_policy",
-    feature = "op_get_policy",
-    feature = "op_get_provisioned_concurrency_config",
-    feature = "op_get_resource_policy",
-    feature = "op_get_runtime_management_config",
-    feature = "op_invoke",
-    feature = "op_invoke_async",
-    feature = "op_invoke_with_response_stream",
-    feature = "op_list_aliases",
-    feature = "op_list_capacity_providers",
-    feature = "op_list_code_signing_configs",
-    feature = "op_list_durable_executions_by_function",
-    feature = "op_list_event_source_mappings",
-    feature = "op_list_function_event_invoke_configs",
-    feature = "op_list_function_url_configs",
-    feature = "op_list_function_versions_by_capacity_provider",
-    feature = "op_list_functions",
-    feature = "op_list_functions_by_code_signing_config",
-    feature = "op_list_layer_versions",
-    feature = "op_list_layers",
-    feature = "op_list_provisioned_concurrency_configs",
-    feature = "op_list_tags",
-    feature = "op_list_versions_by_function",
-    feature = "op_publish_layer_version",
-    feature = "op_put_function_code_signing_config",
-    feature = "op_put_function_concurrency",
-    feature = "op_put_function_event_invoke_config",
-    feature = "op_put_function_recursion_config",
-    feature = "op_put_function_scaling_config",
-    feature = "op_put_provisioned_concurrency_config",
-    feature = "op_put_resource_policy",
-    feature = "op_put_runtime_management_config",
-    feature = "op_remove_layer_version_permission",
-    feature = "op_remove_permission",
-    feature = "op_send_durable_execution_callback_failure",
-    feature = "op_send_durable_execution_callback_heartbeat",
-    feature = "op_send_durable_execution_callback_success",
-    feature = "op_stop_durable_execution",
-    feature = "op_tag_resource",
-    feature = "op_untag_resource",
-    feature = "op_update_alias",
-    feature = "op_update_capacity_provider",
-    feature = "op_update_code_signing_config",
-    feature = "op_update_event_source_mapping",
-    feature = "op_update_function_code",
-    feature = "op_update_function_configuration",
-    feature = "op_update_function_event_invoke_config",
-    feature = "op_update_function_url_config"
-))]
+#[cfg(any(feature = "op_delete_event_source_mapping", feature = "op_get_event_source_mapping", feature = "op_list_event_source_mappings", feature = "op_update_event_source_mapping"))]
 pub(crate) mod shape_filter;
 
-#[cfg(any(
-    feature = "op_delete_event_source_mapping",
-    feature = "op_get_event_source_mapping",
-    feature = "op_list_event_source_mappings",
-    feature = "op_update_event_source_mapping"
-))]
+#[cfg(any(feature = "op_delete_event_source_mapping", feature = "op_get_event_source_mapping", feature = "op_list_event_source_mappings", feature = "op_update_event_source_mapping"))]
 pub(crate) mod shape_filter_list;
 
 #[cfg(feature = "op_get_function")]
@@ -1985,56 +875,22 @@ pub(crate) mod shape_function_url_config;
 #[cfg(feature = "op_list_function_versions_by_capacity_provider")]
 pub(crate) mod shape_function_versions_by_capacity_provider_list_item;
 
-#[cfg(any(
-    feature = "op_create_function_url_config",
-    feature = "op_get_function_url_config",
-    feature = "op_list_function_url_configs",
-    feature = "op_update_function_url_config"
-))]
+#[cfg(any(feature = "op_create_function_url_config", feature = "op_get_function_url_config", feature = "op_list_function_url_configs", feature = "op_update_function_url_config"))]
 pub(crate) mod shape_headers_list;
 
-#[cfg(any(
-    feature = "op_create_function",
-    feature = "op_get_function",
-    feature = "op_get_function_configuration",
-    feature = "op_list_functions",
-    feature = "op_list_versions_by_function",
-    feature = "op_update_function_code",
-    feature = "op_update_function_configuration"
-))]
+#[cfg(any(feature = "op_create_function", feature = "op_get_function", feature = "op_get_function_configuration", feature = "op_list_functions", feature = "op_list_versions_by_function", feature = "op_update_function_code", feature = "op_update_function_configuration"))]
 pub(crate) mod shape_image_config_error;
 
 #[cfg(feature = "op_invoke_with_response_stream")]
 pub(crate) mod shape_invoke_with_response_stream_complete_event;
 
-#[cfg(any(
-    feature = "op_delete_event_source_mapping",
-    feature = "op_get_event_source_mapping",
-    feature = "op_list_event_source_mappings",
-    feature = "op_update_event_source_mapping"
-))]
+#[cfg(any(feature = "op_delete_event_source_mapping", feature = "op_get_event_source_mapping", feature = "op_list_event_source_mappings", feature = "op_update_event_source_mapping"))]
 pub(crate) mod shape_kafka_schema_registry_config;
 
-#[cfg(any(
-    feature = "op_create_function",
-    feature = "op_get_function",
-    feature = "op_get_function_configuration",
-    feature = "op_list_functions",
-    feature = "op_list_versions_by_function",
-    feature = "op_update_function_code",
-    feature = "op_update_function_configuration"
-))]
+#[cfg(any(feature = "op_create_function", feature = "op_get_function", feature = "op_get_function_configuration", feature = "op_list_functions", feature = "op_list_versions_by_function", feature = "op_update_function_code", feature = "op_update_function_configuration"))]
 pub(crate) mod shape_lambda_managed_instances_capacity_provider_config;
 
-#[cfg(any(
-    feature = "op_create_function",
-    feature = "op_get_function",
-    feature = "op_get_function_configuration",
-    feature = "op_list_functions",
-    feature = "op_list_versions_by_function",
-    feature = "op_update_function_code",
-    feature = "op_update_function_configuration"
-))]
+#[cfg(any(feature = "op_create_function", feature = "op_get_function", feature = "op_get_function_configuration", feature = "op_list_functions", feature = "op_list_versions_by_function", feature = "op_update_function_code", feature = "op_update_function_configuration"))]
 pub(crate) mod shape_layer;
 
 #[cfg(any(feature = "op_list_layer_versions", feature = "op_list_layers"))]
@@ -2043,268 +899,43 @@ pub(crate) mod shape_layer_versions_list_item;
 #[cfg(feature = "op_list_layers")]
 pub(crate) mod shape_layers_list_item;
 
-#[cfg(any(
-    feature = "op_delete_event_source_mapping",
-    feature = "op_get_event_source_mapping",
-    feature = "op_get_function_event_invoke_config",
-    feature = "op_list_event_source_mappings",
-    feature = "op_list_function_event_invoke_configs",
-    feature = "op_put_function_event_invoke_config",
-    feature = "op_update_event_source_mapping",
-    feature = "op_update_function_event_invoke_config"
-))]
+#[cfg(any(feature = "op_delete_event_source_mapping", feature = "op_get_event_source_mapping", feature = "op_get_function_event_invoke_config", feature = "op_list_event_source_mappings", feature = "op_list_function_event_invoke_configs", feature = "op_put_function_event_invoke_config", feature = "op_update_event_source_mapping", feature = "op_update_function_event_invoke_config"))]
 pub(crate) mod shape_on_failure;
 
-#[cfg(any(
-    feature = "op_delete_event_source_mapping",
-    feature = "op_get_event_source_mapping",
-    feature = "op_get_function_event_invoke_config",
-    feature = "op_list_event_source_mappings",
-    feature = "op_list_function_event_invoke_configs",
-    feature = "op_put_function_event_invoke_config",
-    feature = "op_update_event_source_mapping",
-    feature = "op_update_function_event_invoke_config"
-))]
+#[cfg(any(feature = "op_delete_event_source_mapping", feature = "op_get_event_source_mapping", feature = "op_get_function_event_invoke_config", feature = "op_list_event_source_mappings", feature = "op_list_function_event_invoke_configs", feature = "op_put_function_event_invoke_config", feature = "op_update_event_source_mapping", feature = "op_update_function_event_invoke_config"))]
 pub(crate) mod shape_on_success;
 
-#[cfg(any(
-    feature = "op_checkpoint_durable_execution",
-    feature = "op_get_durable_execution_state"
-))]
+#[cfg(any(feature = "op_checkpoint_durable_execution", feature = "op_get_durable_execution_state"))]
 pub(crate) mod shape_operation;
 
 #[cfg(feature = "op_list_provisioned_concurrency_configs")]
 pub(crate) mod shape_provisioned_concurrency_config_list_item;
 
-#[cfg(any(
-    feature = "op_get_function",
-    feature = "op_get_layer_version",
-    feature = "op_get_layer_version_by_arn",
-    feature = "op_publish_layer_version"
-))]
+#[cfg(any(feature = "op_get_function", feature = "op_get_layer_version", feature = "op_get_layer_version_by_arn", feature = "op_publish_layer_version"))]
 pub(crate) mod shape_resolved_s3_object;
 
-#[cfg(any(
-    feature = "op_create_function",
-    feature = "op_get_function",
-    feature = "op_get_function_configuration",
-    feature = "op_list_functions",
-    feature = "op_list_versions_by_function",
-    feature = "op_update_function_code",
-    feature = "op_update_function_configuration"
-))]
+#[cfg(any(feature = "op_create_function", feature = "op_get_function", feature = "op_get_function_configuration", feature = "op_list_functions", feature = "op_list_versions_by_function", feature = "op_update_function_code", feature = "op_update_function_configuration"))]
 pub(crate) mod shape_runtime_version_error;
 
-#[cfg(any(
-    feature = "op_create_function",
-    feature = "op_get_function",
-    feature = "op_get_function_configuration",
-    feature = "op_list_functions",
-    feature = "op_list_versions_by_function",
-    feature = "op_update_function_code",
-    feature = "op_update_function_configuration"
-))]
+#[cfg(any(feature = "op_create_function", feature = "op_get_function", feature = "op_get_function_configuration", feature = "op_list_functions", feature = "op_list_versions_by_function", feature = "op_update_function_code", feature = "op_update_function_configuration"))]
 pub(crate) mod shape_security_group_ids;
 
-#[cfg(any(
-    feature = "op_add_layer_version_permission",
-    feature = "op_add_permission",
-    feature = "op_checkpoint_durable_execution",
-    feature = "op_create_alias",
-    feature = "op_create_capacity_provider",
-    feature = "op_create_function",
-    feature = "op_create_function_url_config",
-    feature = "op_delete_alias",
-    feature = "op_delete_capacity_provider",
-    feature = "op_delete_code_signing_config",
-    feature = "op_delete_event_source_mapping",
-    feature = "op_delete_function",
-    feature = "op_delete_function_code_signing_config",
-    feature = "op_delete_function_concurrency",
-    feature = "op_delete_function_event_invoke_config",
-    feature = "op_delete_function_url_config",
-    feature = "op_delete_layer_version",
-    feature = "op_delete_provisioned_concurrency_config",
-    feature = "op_delete_resource_policy",
-    feature = "op_get_account_settings",
-    feature = "op_get_alias",
-    feature = "op_get_capacity_provider",
-    feature = "op_get_code_signing_config",
-    feature = "op_get_durable_execution",
-    feature = "op_get_durable_execution_history",
-    feature = "op_get_durable_execution_state",
-    feature = "op_get_event_source_mapping",
-    feature = "op_get_function",
-    feature = "op_get_function_code_signing_config",
-    feature = "op_get_function_concurrency",
-    feature = "op_get_function_configuration",
-    feature = "op_get_function_event_invoke_config",
-    feature = "op_get_function_recursion_config",
-    feature = "op_get_function_scaling_config",
-    feature = "op_get_function_url_config",
-    feature = "op_get_layer_version",
-    feature = "op_get_layer_version_by_arn",
-    feature = "op_get_layer_version_policy",
-    feature = "op_get_policy",
-    feature = "op_get_provisioned_concurrency_config",
-    feature = "op_get_resource_policy",
-    feature = "op_get_runtime_management_config",
-    feature = "op_invoke",
-    feature = "op_invoke_async",
-    feature = "op_invoke_with_response_stream",
-    feature = "op_list_aliases",
-    feature = "op_list_capacity_providers",
-    feature = "op_list_code_signing_configs",
-    feature = "op_list_durable_executions_by_function",
-    feature = "op_list_event_source_mappings",
-    feature = "op_list_function_event_invoke_configs",
-    feature = "op_list_function_url_configs",
-    feature = "op_list_function_versions_by_capacity_provider",
-    feature = "op_list_functions",
-    feature = "op_list_functions_by_code_signing_config",
-    feature = "op_list_layer_versions",
-    feature = "op_list_layers",
-    feature = "op_list_provisioned_concurrency_configs",
-    feature = "op_list_tags",
-    feature = "op_list_versions_by_function",
-    feature = "op_publish_layer_version",
-    feature = "op_put_function_code_signing_config",
-    feature = "op_put_function_concurrency",
-    feature = "op_put_function_event_invoke_config",
-    feature = "op_put_function_recursion_config",
-    feature = "op_put_function_scaling_config",
-    feature = "op_put_provisioned_concurrency_config",
-    feature = "op_put_resource_policy",
-    feature = "op_put_runtime_management_config",
-    feature = "op_remove_layer_version_permission",
-    feature = "op_remove_permission",
-    feature = "op_send_durable_execution_callback_failure",
-    feature = "op_send_durable_execution_callback_heartbeat",
-    feature = "op_send_durable_execution_callback_success",
-    feature = "op_stop_durable_execution",
-    feature = "op_tag_resource",
-    feature = "op_untag_resource",
-    feature = "op_update_alias",
-    feature = "op_update_capacity_provider",
-    feature = "op_update_code_signing_config",
-    feature = "op_update_event_source_mapping",
-    feature = "op_update_function_code",
-    feature = "op_update_function_configuration",
-    feature = "op_update_function_event_invoke_config",
-    feature = "op_update_function_url_config"
-))]
+#[cfg(any(feature = "op_checkpoint_durable_execution", feature = "op_get_durable_execution", feature = "op_get_durable_execution_history", feature = "op_get_durable_execution_state", feature = "op_send_durable_execution_callback_failure", feature = "op_stop_durable_execution"))]
 pub(crate) mod shape_stack_trace_entries;
 
 #[cfg(feature = "op_checkpoint_durable_execution")]
 pub(crate) mod shape_step_options;
 
-#[cfg(any(
-    feature = "op_create_function",
-    feature = "op_get_function",
-    feature = "op_get_function_configuration",
-    feature = "op_list_functions",
-    feature = "op_list_versions_by_function",
-    feature = "op_update_function_code",
-    feature = "op_update_function_configuration"
-))]
+#[cfg(any(feature = "op_create_function", feature = "op_get_function", feature = "op_get_function_configuration", feature = "op_list_functions", feature = "op_list_versions_by_function", feature = "op_update_function_code", feature = "op_update_function_configuration"))]
 pub(crate) mod shape_subnet_ids;
 
-#[cfg(any(
-    feature = "op_add_layer_version_permission",
-    feature = "op_add_permission",
-    feature = "op_checkpoint_durable_execution",
-    feature = "op_create_alias",
-    feature = "op_create_capacity_provider",
-    feature = "op_create_function",
-    feature = "op_create_function_url_config",
-    feature = "op_delete_alias",
-    feature = "op_delete_capacity_provider",
-    feature = "op_delete_code_signing_config",
-    feature = "op_delete_event_source_mapping",
-    feature = "op_delete_function",
-    feature = "op_delete_function_code_signing_config",
-    feature = "op_delete_function_concurrency",
-    feature = "op_delete_function_event_invoke_config",
-    feature = "op_delete_function_url_config",
-    feature = "op_delete_layer_version",
-    feature = "op_delete_provisioned_concurrency_config",
-    feature = "op_delete_resource_policy",
-    feature = "op_get_account_settings",
-    feature = "op_get_alias",
-    feature = "op_get_capacity_provider",
-    feature = "op_get_code_signing_config",
-    feature = "op_get_durable_execution",
-    feature = "op_get_durable_execution_history",
-    feature = "op_get_durable_execution_state",
-    feature = "op_get_event_source_mapping",
-    feature = "op_get_function",
-    feature = "op_get_function_code_signing_config",
-    feature = "op_get_function_concurrency",
-    feature = "op_get_function_configuration",
-    feature = "op_get_function_event_invoke_config",
-    feature = "op_get_function_recursion_config",
-    feature = "op_get_function_scaling_config",
-    feature = "op_get_function_url_config",
-    feature = "op_get_layer_version",
-    feature = "op_get_layer_version_by_arn",
-    feature = "op_get_layer_version_policy",
-    feature = "op_get_policy",
-    feature = "op_get_provisioned_concurrency_config",
-    feature = "op_get_resource_policy",
-    feature = "op_get_runtime_management_config",
-    feature = "op_invoke",
-    feature = "op_invoke_async",
-    feature = "op_invoke_with_response_stream",
-    feature = "op_list_aliases",
-    feature = "op_list_capacity_providers",
-    feature = "op_list_code_signing_configs",
-    feature = "op_list_durable_executions_by_function",
-    feature = "op_list_event_source_mappings",
-    feature = "op_list_function_event_invoke_configs",
-    feature = "op_list_function_url_configs",
-    feature = "op_list_function_versions_by_capacity_provider",
-    feature = "op_list_functions",
-    feature = "op_list_functions_by_code_signing_config",
-    feature = "op_list_layer_versions",
-    feature = "op_list_layers",
-    feature = "op_list_provisioned_concurrency_configs",
-    feature = "op_list_tags",
-    feature = "op_list_versions_by_function",
-    feature = "op_publish_layer_version",
-    feature = "op_put_function_code_signing_config",
-    feature = "op_put_function_concurrency",
-    feature = "op_put_function_event_invoke_config",
-    feature = "op_put_function_recursion_config",
-    feature = "op_put_function_scaling_config",
-    feature = "op_put_provisioned_concurrency_config",
-    feature = "op_put_resource_policy",
-    feature = "op_put_runtime_management_config",
-    feature = "op_remove_layer_version_permission",
-    feature = "op_remove_permission",
-    feature = "op_send_durable_execution_callback_failure",
-    feature = "op_send_durable_execution_callback_heartbeat",
-    feature = "op_send_durable_execution_callback_success",
-    feature = "op_stop_durable_execution",
-    feature = "op_tag_resource",
-    feature = "op_untag_resource",
-    feature = "op_update_alias",
-    feature = "op_update_capacity_provider",
-    feature = "op_update_code_signing_config",
-    feature = "op_update_event_source_mapping",
-    feature = "op_update_function_code",
-    feature = "op_update_function_configuration",
-    feature = "op_update_function_event_invoke_config",
-    feature = "op_update_function_url_config"
-))]
+#[cfg(any(feature = "op_create_capacity_provider", feature = "op_delete_capacity_provider", feature = "op_get_capacity_provider", feature = "op_list_capacity_providers", feature = "op_update_capacity_provider"))]
 pub(crate) mod shape_target_tracking_scaling_policy;
 
 #[cfg(feature = "op_checkpoint_durable_execution")]
 pub(crate) mod shape_wait_options;
 
-#[cfg(any(
-    feature = "op_checkpoint_durable_execution",
-    feature = "op_get_durable_execution_state"
-))]
+#[cfg(any(feature = "op_checkpoint_durable_execution", feature = "op_get_durable_execution_state"))]
 pub(crate) mod shape_callback_details;
 
 #[cfg(feature = "op_get_durable_execution_history")]
@@ -2319,37 +950,16 @@ pub(crate) mod shape_callback_succeeded_details;
 #[cfg(feature = "op_get_durable_execution_history")]
 pub(crate) mod shape_callback_timed_out_details;
 
-#[cfg(any(
-    feature = "op_create_capacity_provider",
-    feature = "op_delete_capacity_provider",
-    feature = "op_get_capacity_provider",
-    feature = "op_list_capacity_providers",
-    feature = "op_update_capacity_provider"
-))]
+#[cfg(any(feature = "op_create_capacity_provider", feature = "op_delete_capacity_provider", feature = "op_get_capacity_provider", feature = "op_list_capacity_providers", feature = "op_update_capacity_provider"))]
 pub(crate) mod shape_capacity_provider_scaling_policies_list;
 
-#[cfg(any(
-    feature = "op_create_capacity_provider",
-    feature = "op_delete_capacity_provider",
-    feature = "op_get_capacity_provider",
-    feature = "op_list_capacity_providers",
-    feature = "op_update_capacity_provider"
-))]
+#[cfg(any(feature = "op_create_capacity_provider", feature = "op_delete_capacity_provider", feature = "op_get_capacity_provider", feature = "op_list_capacity_providers", feature = "op_update_capacity_provider"))]
 pub(crate) mod shape_capacity_provider_security_group_ids;
 
-#[cfg(any(
-    feature = "op_create_capacity_provider",
-    feature = "op_delete_capacity_provider",
-    feature = "op_get_capacity_provider",
-    feature = "op_list_capacity_providers",
-    feature = "op_update_capacity_provider"
-))]
+#[cfg(any(feature = "op_create_capacity_provider", feature = "op_delete_capacity_provider", feature = "op_get_capacity_provider", feature = "op_list_capacity_providers", feature = "op_update_capacity_provider"))]
 pub(crate) mod shape_capacity_provider_subnet_ids;
 
-#[cfg(any(
-    feature = "op_checkpoint_durable_execution",
-    feature = "op_get_durable_execution_state"
-))]
+#[cfg(any(feature = "op_checkpoint_durable_execution", feature = "op_get_durable_execution_state"))]
 pub(crate) mod shape_chained_invoke_details;
 
 #[cfg(feature = "op_get_durable_execution_history")]
@@ -2367,10 +977,7 @@ pub(crate) mod shape_chained_invoke_succeeded_details;
 #[cfg(feature = "op_get_durable_execution_history")]
 pub(crate) mod shape_chained_invoke_timed_out_details;
 
-#[cfg(any(
-    feature = "op_checkpoint_durable_execution",
-    feature = "op_get_durable_execution_state"
-))]
+#[cfg(any(feature = "op_checkpoint_durable_execution", feature = "op_get_durable_execution_state"))]
 pub(crate) mod shape_context_details;
 
 #[cfg(feature = "op_get_durable_execution_history")]
@@ -2382,99 +989,10 @@ pub(crate) mod shape_context_started_details;
 #[cfg(feature = "op_get_durable_execution_history")]
 pub(crate) mod shape_context_succeeded_details;
 
-#[cfg(any(
-    feature = "op_add_layer_version_permission",
-    feature = "op_add_permission",
-    feature = "op_checkpoint_durable_execution",
-    feature = "op_create_alias",
-    feature = "op_create_capacity_provider",
-    feature = "op_create_function",
-    feature = "op_create_function_url_config",
-    feature = "op_delete_alias",
-    feature = "op_delete_capacity_provider",
-    feature = "op_delete_code_signing_config",
-    feature = "op_delete_event_source_mapping",
-    feature = "op_delete_function",
-    feature = "op_delete_function_code_signing_config",
-    feature = "op_delete_function_concurrency",
-    feature = "op_delete_function_event_invoke_config",
-    feature = "op_delete_function_url_config",
-    feature = "op_delete_layer_version",
-    feature = "op_delete_provisioned_concurrency_config",
-    feature = "op_delete_resource_policy",
-    feature = "op_get_account_settings",
-    feature = "op_get_alias",
-    feature = "op_get_capacity_provider",
-    feature = "op_get_code_signing_config",
-    feature = "op_get_durable_execution",
-    feature = "op_get_durable_execution_history",
-    feature = "op_get_durable_execution_state",
-    feature = "op_get_event_source_mapping",
-    feature = "op_get_function",
-    feature = "op_get_function_code_signing_config",
-    feature = "op_get_function_concurrency",
-    feature = "op_get_function_configuration",
-    feature = "op_get_function_event_invoke_config",
-    feature = "op_get_function_recursion_config",
-    feature = "op_get_function_scaling_config",
-    feature = "op_get_function_url_config",
-    feature = "op_get_layer_version",
-    feature = "op_get_layer_version_by_arn",
-    feature = "op_get_layer_version_policy",
-    feature = "op_get_policy",
-    feature = "op_get_provisioned_concurrency_config",
-    feature = "op_get_resource_policy",
-    feature = "op_get_runtime_management_config",
-    feature = "op_invoke",
-    feature = "op_invoke_async",
-    feature = "op_invoke_with_response_stream",
-    feature = "op_list_aliases",
-    feature = "op_list_capacity_providers",
-    feature = "op_list_code_signing_configs",
-    feature = "op_list_durable_executions_by_function",
-    feature = "op_list_event_source_mappings",
-    feature = "op_list_function_event_invoke_configs",
-    feature = "op_list_function_url_configs",
-    feature = "op_list_function_versions_by_capacity_provider",
-    feature = "op_list_functions",
-    feature = "op_list_functions_by_code_signing_config",
-    feature = "op_list_layer_versions",
-    feature = "op_list_layers",
-    feature = "op_list_provisioned_concurrency_configs",
-    feature = "op_list_tags",
-    feature = "op_list_versions_by_function",
-    feature = "op_publish_layer_version",
-    feature = "op_put_function_code_signing_config",
-    feature = "op_put_function_concurrency",
-    feature = "op_put_function_event_invoke_config",
-    feature = "op_put_function_recursion_config",
-    feature = "op_put_function_scaling_config",
-    feature = "op_put_provisioned_concurrency_config",
-    feature = "op_put_resource_policy",
-    feature = "op_put_runtime_management_config",
-    feature = "op_remove_layer_version_permission",
-    feature = "op_remove_permission",
-    feature = "op_send_durable_execution_callback_failure",
-    feature = "op_send_durable_execution_callback_heartbeat",
-    feature = "op_send_durable_execution_callback_success",
-    feature = "op_stop_durable_execution",
-    feature = "op_tag_resource",
-    feature = "op_untag_resource",
-    feature = "op_update_alias",
-    feature = "op_update_capacity_provider",
-    feature = "op_update_code_signing_config",
-    feature = "op_update_event_source_mapping",
-    feature = "op_update_function_code",
-    feature = "op_update_function_configuration",
-    feature = "op_update_function_event_invoke_config",
-    feature = "op_update_function_url_config"
-))]
+#[cfg(any(feature = "op_delete_event_source_mapping", feature = "op_get_event_source_mapping", feature = "op_list_event_source_mappings", feature = "op_update_event_source_mapping"))]
 pub(crate) mod shape_endpoint_lists;
 
-#[cfg(any(
-    feature = "op_checkpoint_durable_execution",
-    feature = "op_get_durable_execution_state"
-))]
+#[cfg(any(feature = "op_checkpoint_durable_execution", feature = "op_get_durable_execution_state"))]
 pub(crate) mod shape_execution_details;
 
 #[cfg(feature = "op_get_durable_execution_history")]
@@ -2492,385 +1010,28 @@ pub(crate) mod shape_execution_succeeded_details;
 #[cfg(feature = "op_get_durable_execution_history")]
 pub(crate) mod shape_execution_timed_out_details;
 
-#[cfg(any(
-    feature = "op_create_capacity_provider",
-    feature = "op_delete_capacity_provider",
-    feature = "op_get_capacity_provider",
-    feature = "op_list_capacity_providers",
-    feature = "op_update_capacity_provider"
-))]
+#[cfg(any(feature = "op_create_capacity_provider", feature = "op_delete_capacity_provider", feature = "op_get_capacity_provider", feature = "op_list_capacity_providers", feature = "op_update_capacity_provider"))]
 pub(crate) mod shape_instance_type_set;
 
 #[cfg(feature = "op_get_durable_execution_history")]
 pub(crate) mod shape_invocation_completed_details;
 
-#[cfg(any(
-    feature = "op_add_layer_version_permission",
-    feature = "op_add_permission",
-    feature = "op_checkpoint_durable_execution",
-    feature = "op_create_alias",
-    feature = "op_create_capacity_provider",
-    feature = "op_create_function",
-    feature = "op_create_function_url_config",
-    feature = "op_delete_alias",
-    feature = "op_delete_capacity_provider",
-    feature = "op_delete_code_signing_config",
-    feature = "op_delete_event_source_mapping",
-    feature = "op_delete_function",
-    feature = "op_delete_function_code_signing_config",
-    feature = "op_delete_function_concurrency",
-    feature = "op_delete_function_event_invoke_config",
-    feature = "op_delete_function_url_config",
-    feature = "op_delete_layer_version",
-    feature = "op_delete_provisioned_concurrency_config",
-    feature = "op_delete_resource_policy",
-    feature = "op_get_account_settings",
-    feature = "op_get_alias",
-    feature = "op_get_capacity_provider",
-    feature = "op_get_code_signing_config",
-    feature = "op_get_durable_execution",
-    feature = "op_get_durable_execution_history",
-    feature = "op_get_durable_execution_state",
-    feature = "op_get_event_source_mapping",
-    feature = "op_get_function",
-    feature = "op_get_function_code_signing_config",
-    feature = "op_get_function_concurrency",
-    feature = "op_get_function_configuration",
-    feature = "op_get_function_event_invoke_config",
-    feature = "op_get_function_recursion_config",
-    feature = "op_get_function_scaling_config",
-    feature = "op_get_function_url_config",
-    feature = "op_get_layer_version",
-    feature = "op_get_layer_version_by_arn",
-    feature = "op_get_layer_version_policy",
-    feature = "op_get_policy",
-    feature = "op_get_provisioned_concurrency_config",
-    feature = "op_get_resource_policy",
-    feature = "op_get_runtime_management_config",
-    feature = "op_invoke",
-    feature = "op_invoke_async",
-    feature = "op_invoke_with_response_stream",
-    feature = "op_list_aliases",
-    feature = "op_list_capacity_providers",
-    feature = "op_list_code_signing_configs",
-    feature = "op_list_durable_executions_by_function",
-    feature = "op_list_event_source_mappings",
-    feature = "op_list_function_event_invoke_configs",
-    feature = "op_list_function_url_configs",
-    feature = "op_list_function_versions_by_capacity_provider",
-    feature = "op_list_functions",
-    feature = "op_list_functions_by_code_signing_config",
-    feature = "op_list_layer_versions",
-    feature = "op_list_layers",
-    feature = "op_list_provisioned_concurrency_configs",
-    feature = "op_list_tags",
-    feature = "op_list_versions_by_function",
-    feature = "op_publish_layer_version",
-    feature = "op_put_function_code_signing_config",
-    feature = "op_put_function_concurrency",
-    feature = "op_put_function_event_invoke_config",
-    feature = "op_put_function_recursion_config",
-    feature = "op_put_function_scaling_config",
-    feature = "op_put_provisioned_concurrency_config",
-    feature = "op_put_resource_policy",
-    feature = "op_put_runtime_management_config",
-    feature = "op_remove_layer_version_permission",
-    feature = "op_remove_permission",
-    feature = "op_send_durable_execution_callback_failure",
-    feature = "op_send_durable_execution_callback_heartbeat",
-    feature = "op_send_durable_execution_callback_success",
-    feature = "op_stop_durable_execution",
-    feature = "op_tag_resource",
-    feature = "op_untag_resource",
-    feature = "op_update_alias",
-    feature = "op_update_capacity_provider",
-    feature = "op_update_code_signing_config",
-    feature = "op_update_event_source_mapping",
-    feature = "op_update_function_code",
-    feature = "op_update_function_configuration",
-    feature = "op_update_function_event_invoke_config",
-    feature = "op_update_function_url_config"
-))]
+#[cfg(any(feature = "op_delete_event_source_mapping", feature = "op_get_event_source_mapping", feature = "op_list_event_source_mappings", feature = "op_update_event_source_mapping"))]
 pub(crate) mod shape_kafka_schema_registry_access_config;
 
-#[cfg(any(
-    feature = "op_add_layer_version_permission",
-    feature = "op_add_permission",
-    feature = "op_checkpoint_durable_execution",
-    feature = "op_create_alias",
-    feature = "op_create_capacity_provider",
-    feature = "op_create_function",
-    feature = "op_create_function_url_config",
-    feature = "op_delete_alias",
-    feature = "op_delete_capacity_provider",
-    feature = "op_delete_code_signing_config",
-    feature = "op_delete_event_source_mapping",
-    feature = "op_delete_function",
-    feature = "op_delete_function_code_signing_config",
-    feature = "op_delete_function_concurrency",
-    feature = "op_delete_function_event_invoke_config",
-    feature = "op_delete_function_url_config",
-    feature = "op_delete_layer_version",
-    feature = "op_delete_provisioned_concurrency_config",
-    feature = "op_delete_resource_policy",
-    feature = "op_get_account_settings",
-    feature = "op_get_alias",
-    feature = "op_get_capacity_provider",
-    feature = "op_get_code_signing_config",
-    feature = "op_get_durable_execution",
-    feature = "op_get_durable_execution_history",
-    feature = "op_get_durable_execution_state",
-    feature = "op_get_event_source_mapping",
-    feature = "op_get_function",
-    feature = "op_get_function_code_signing_config",
-    feature = "op_get_function_concurrency",
-    feature = "op_get_function_configuration",
-    feature = "op_get_function_event_invoke_config",
-    feature = "op_get_function_recursion_config",
-    feature = "op_get_function_scaling_config",
-    feature = "op_get_function_url_config",
-    feature = "op_get_layer_version",
-    feature = "op_get_layer_version_by_arn",
-    feature = "op_get_layer_version_policy",
-    feature = "op_get_policy",
-    feature = "op_get_provisioned_concurrency_config",
-    feature = "op_get_resource_policy",
-    feature = "op_get_runtime_management_config",
-    feature = "op_invoke",
-    feature = "op_invoke_async",
-    feature = "op_invoke_with_response_stream",
-    feature = "op_list_aliases",
-    feature = "op_list_capacity_providers",
-    feature = "op_list_code_signing_configs",
-    feature = "op_list_durable_executions_by_function",
-    feature = "op_list_event_source_mappings",
-    feature = "op_list_function_event_invoke_configs",
-    feature = "op_list_function_url_configs",
-    feature = "op_list_function_versions_by_capacity_provider",
-    feature = "op_list_functions",
-    feature = "op_list_functions_by_code_signing_config",
-    feature = "op_list_layer_versions",
-    feature = "op_list_layers",
-    feature = "op_list_provisioned_concurrency_configs",
-    feature = "op_list_tags",
-    feature = "op_list_versions_by_function",
-    feature = "op_publish_layer_version",
-    feature = "op_put_function_code_signing_config",
-    feature = "op_put_function_concurrency",
-    feature = "op_put_function_event_invoke_config",
-    feature = "op_put_function_recursion_config",
-    feature = "op_put_function_scaling_config",
-    feature = "op_put_provisioned_concurrency_config",
-    feature = "op_put_resource_policy",
-    feature = "op_put_runtime_management_config",
-    feature = "op_remove_layer_version_permission",
-    feature = "op_remove_permission",
-    feature = "op_send_durable_execution_callback_failure",
-    feature = "op_send_durable_execution_callback_heartbeat",
-    feature = "op_send_durable_execution_callback_success",
-    feature = "op_stop_durable_execution",
-    feature = "op_tag_resource",
-    feature = "op_untag_resource",
-    feature = "op_update_alias",
-    feature = "op_update_capacity_provider",
-    feature = "op_update_code_signing_config",
-    feature = "op_update_event_source_mapping",
-    feature = "op_update_function_code",
-    feature = "op_update_function_configuration",
-    feature = "op_update_function_event_invoke_config",
-    feature = "op_update_function_url_config"
-))]
+#[cfg(any(feature = "op_delete_event_source_mapping", feature = "op_get_event_source_mapping", feature = "op_list_event_source_mappings", feature = "op_update_event_source_mapping"))]
 pub(crate) mod shape_kafka_schema_registry_access_config_list;
 
-#[cfg(any(
-    feature = "op_add_layer_version_permission",
-    feature = "op_add_permission",
-    feature = "op_checkpoint_durable_execution",
-    feature = "op_create_alias",
-    feature = "op_create_capacity_provider",
-    feature = "op_create_function",
-    feature = "op_create_function_url_config",
-    feature = "op_delete_alias",
-    feature = "op_delete_capacity_provider",
-    feature = "op_delete_code_signing_config",
-    feature = "op_delete_event_source_mapping",
-    feature = "op_delete_function",
-    feature = "op_delete_function_code_signing_config",
-    feature = "op_delete_function_concurrency",
-    feature = "op_delete_function_event_invoke_config",
-    feature = "op_delete_function_url_config",
-    feature = "op_delete_layer_version",
-    feature = "op_delete_provisioned_concurrency_config",
-    feature = "op_delete_resource_policy",
-    feature = "op_get_account_settings",
-    feature = "op_get_alias",
-    feature = "op_get_capacity_provider",
-    feature = "op_get_code_signing_config",
-    feature = "op_get_durable_execution",
-    feature = "op_get_durable_execution_history",
-    feature = "op_get_durable_execution_state",
-    feature = "op_get_event_source_mapping",
-    feature = "op_get_function",
-    feature = "op_get_function_code_signing_config",
-    feature = "op_get_function_concurrency",
-    feature = "op_get_function_configuration",
-    feature = "op_get_function_event_invoke_config",
-    feature = "op_get_function_recursion_config",
-    feature = "op_get_function_scaling_config",
-    feature = "op_get_function_url_config",
-    feature = "op_get_layer_version",
-    feature = "op_get_layer_version_by_arn",
-    feature = "op_get_layer_version_policy",
-    feature = "op_get_policy",
-    feature = "op_get_provisioned_concurrency_config",
-    feature = "op_get_resource_policy",
-    feature = "op_get_runtime_management_config",
-    feature = "op_invoke",
-    feature = "op_invoke_async",
-    feature = "op_invoke_with_response_stream",
-    feature = "op_list_aliases",
-    feature = "op_list_capacity_providers",
-    feature = "op_list_code_signing_configs",
-    feature = "op_list_durable_executions_by_function",
-    feature = "op_list_event_source_mappings",
-    feature = "op_list_function_event_invoke_configs",
-    feature = "op_list_function_url_configs",
-    feature = "op_list_function_versions_by_capacity_provider",
-    feature = "op_list_functions",
-    feature = "op_list_functions_by_code_signing_config",
-    feature = "op_list_layer_versions",
-    feature = "op_list_layers",
-    feature = "op_list_provisioned_concurrency_configs",
-    feature = "op_list_tags",
-    feature = "op_list_versions_by_function",
-    feature = "op_publish_layer_version",
-    feature = "op_put_function_code_signing_config",
-    feature = "op_put_function_concurrency",
-    feature = "op_put_function_event_invoke_config",
-    feature = "op_put_function_recursion_config",
-    feature = "op_put_function_scaling_config",
-    feature = "op_put_provisioned_concurrency_config",
-    feature = "op_put_resource_policy",
-    feature = "op_put_runtime_management_config",
-    feature = "op_remove_layer_version_permission",
-    feature = "op_remove_permission",
-    feature = "op_send_durable_execution_callback_failure",
-    feature = "op_send_durable_execution_callback_heartbeat",
-    feature = "op_send_durable_execution_callback_success",
-    feature = "op_stop_durable_execution",
-    feature = "op_tag_resource",
-    feature = "op_untag_resource",
-    feature = "op_update_alias",
-    feature = "op_update_capacity_provider",
-    feature = "op_update_code_signing_config",
-    feature = "op_update_event_source_mapping",
-    feature = "op_update_function_code",
-    feature = "op_update_function_configuration",
-    feature = "op_update_function_event_invoke_config",
-    feature = "op_update_function_url_config"
-))]
+#[cfg(any(feature = "op_delete_event_source_mapping", feature = "op_get_event_source_mapping", feature = "op_list_event_source_mappings", feature = "op_update_event_source_mapping"))]
 pub(crate) mod shape_kafka_schema_validation_config;
 
-#[cfg(any(
-    feature = "op_add_layer_version_permission",
-    feature = "op_add_permission",
-    feature = "op_checkpoint_durable_execution",
-    feature = "op_create_alias",
-    feature = "op_create_capacity_provider",
-    feature = "op_create_function",
-    feature = "op_create_function_url_config",
-    feature = "op_delete_alias",
-    feature = "op_delete_capacity_provider",
-    feature = "op_delete_code_signing_config",
-    feature = "op_delete_event_source_mapping",
-    feature = "op_delete_function",
-    feature = "op_delete_function_code_signing_config",
-    feature = "op_delete_function_concurrency",
-    feature = "op_delete_function_event_invoke_config",
-    feature = "op_delete_function_url_config",
-    feature = "op_delete_layer_version",
-    feature = "op_delete_provisioned_concurrency_config",
-    feature = "op_delete_resource_policy",
-    feature = "op_get_account_settings",
-    feature = "op_get_alias",
-    feature = "op_get_capacity_provider",
-    feature = "op_get_code_signing_config",
-    feature = "op_get_durable_execution",
-    feature = "op_get_durable_execution_history",
-    feature = "op_get_durable_execution_state",
-    feature = "op_get_event_source_mapping",
-    feature = "op_get_function",
-    feature = "op_get_function_code_signing_config",
-    feature = "op_get_function_concurrency",
-    feature = "op_get_function_configuration",
-    feature = "op_get_function_event_invoke_config",
-    feature = "op_get_function_recursion_config",
-    feature = "op_get_function_scaling_config",
-    feature = "op_get_function_url_config",
-    feature = "op_get_layer_version",
-    feature = "op_get_layer_version_by_arn",
-    feature = "op_get_layer_version_policy",
-    feature = "op_get_policy",
-    feature = "op_get_provisioned_concurrency_config",
-    feature = "op_get_resource_policy",
-    feature = "op_get_runtime_management_config",
-    feature = "op_invoke",
-    feature = "op_invoke_async",
-    feature = "op_invoke_with_response_stream",
-    feature = "op_list_aliases",
-    feature = "op_list_capacity_providers",
-    feature = "op_list_code_signing_configs",
-    feature = "op_list_durable_executions_by_function",
-    feature = "op_list_event_source_mappings",
-    feature = "op_list_function_event_invoke_configs",
-    feature = "op_list_function_url_configs",
-    feature = "op_list_function_versions_by_capacity_provider",
-    feature = "op_list_functions",
-    feature = "op_list_functions_by_code_signing_config",
-    feature = "op_list_layer_versions",
-    feature = "op_list_layers",
-    feature = "op_list_provisioned_concurrency_configs",
-    feature = "op_list_tags",
-    feature = "op_list_versions_by_function",
-    feature = "op_publish_layer_version",
-    feature = "op_put_function_code_signing_config",
-    feature = "op_put_function_concurrency",
-    feature = "op_put_function_event_invoke_config",
-    feature = "op_put_function_recursion_config",
-    feature = "op_put_function_scaling_config",
-    feature = "op_put_provisioned_concurrency_config",
-    feature = "op_put_resource_policy",
-    feature = "op_put_runtime_management_config",
-    feature = "op_remove_layer_version_permission",
-    feature = "op_remove_permission",
-    feature = "op_send_durable_execution_callback_failure",
-    feature = "op_send_durable_execution_callback_heartbeat",
-    feature = "op_send_durable_execution_callback_success",
-    feature = "op_stop_durable_execution",
-    feature = "op_tag_resource",
-    feature = "op_untag_resource",
-    feature = "op_update_alias",
-    feature = "op_update_capacity_provider",
-    feature = "op_update_code_signing_config",
-    feature = "op_update_event_source_mapping",
-    feature = "op_update_function_code",
-    feature = "op_update_function_configuration",
-    feature = "op_update_function_event_invoke_config",
-    feature = "op_update_function_url_config"
-))]
+#[cfg(any(feature = "op_delete_event_source_mapping", feature = "op_get_event_source_mapping", feature = "op_list_event_source_mappings", feature = "op_update_event_source_mapping"))]
 pub(crate) mod shape_kafka_schema_validation_config_list;
 
-#[cfg(any(
-    feature = "op_get_code_signing_config",
-    feature = "op_list_code_signing_configs",
-    feature = "op_update_code_signing_config"
-))]
+#[cfg(any(feature = "op_get_code_signing_config", feature = "op_list_code_signing_configs", feature = "op_update_code_signing_config"))]
 pub(crate) mod shape_signing_profile_version_arns;
 
-#[cfg(any(
-    feature = "op_checkpoint_durable_execution",
-    feature = "op_get_durable_execution_state"
-))]
+#[cfg(any(feature = "op_checkpoint_durable_execution", feature = "op_get_durable_execution_state"))]
 pub(crate) mod shape_step_details;
 
 #[cfg(feature = "op_get_durable_execution_history")]
@@ -2882,24 +1043,13 @@ pub(crate) mod shape_step_started_details;
 #[cfg(feature = "op_get_durable_execution_history")]
 pub(crate) mod shape_step_succeeded_details;
 
-#[cfg(any(
-    feature = "op_create_function",
-    feature = "op_get_function",
-    feature = "op_get_function_configuration",
-    feature = "op_list_functions",
-    feature = "op_list_versions_by_function",
-    feature = "op_update_function_code",
-    feature = "op_update_function_configuration"
-))]
+#[cfg(any(feature = "op_create_function", feature = "op_get_function", feature = "op_get_function_configuration", feature = "op_list_functions", feature = "op_list_versions_by_function", feature = "op_update_function_code", feature = "op_update_function_configuration"))]
 pub(crate) mod shape_string_list;
 
 #[cfg(feature = "op_get_durable_execution_history")]
 pub(crate) mod shape_wait_cancelled_details;
 
-#[cfg(any(
-    feature = "op_checkpoint_durable_execution",
-    feature = "op_get_durable_execution_state"
-))]
+#[cfg(any(feature = "op_checkpoint_durable_execution", feature = "op_get_durable_execution_state"))]
 pub(crate) mod shape_wait_details;
 
 #[cfg(feature = "op_get_durable_execution_history")]
@@ -2908,358 +1058,14 @@ pub(crate) mod shape_wait_started_details;
 #[cfg(feature = "op_get_durable_execution_history")]
 pub(crate) mod shape_wait_succeeded_details;
 
-#[cfg(any(
-    feature = "op_add_layer_version_permission",
-    feature = "op_add_permission",
-    feature = "op_checkpoint_durable_execution",
-    feature = "op_create_alias",
-    feature = "op_create_capacity_provider",
-    feature = "op_create_function",
-    feature = "op_create_function_url_config",
-    feature = "op_delete_alias",
-    feature = "op_delete_capacity_provider",
-    feature = "op_delete_code_signing_config",
-    feature = "op_delete_event_source_mapping",
-    feature = "op_delete_function",
-    feature = "op_delete_function_code_signing_config",
-    feature = "op_delete_function_concurrency",
-    feature = "op_delete_function_event_invoke_config",
-    feature = "op_delete_function_url_config",
-    feature = "op_delete_layer_version",
-    feature = "op_delete_provisioned_concurrency_config",
-    feature = "op_delete_resource_policy",
-    feature = "op_get_account_settings",
-    feature = "op_get_alias",
-    feature = "op_get_capacity_provider",
-    feature = "op_get_code_signing_config",
-    feature = "op_get_durable_execution",
-    feature = "op_get_durable_execution_history",
-    feature = "op_get_durable_execution_state",
-    feature = "op_get_event_source_mapping",
-    feature = "op_get_function",
-    feature = "op_get_function_code_signing_config",
-    feature = "op_get_function_concurrency",
-    feature = "op_get_function_configuration",
-    feature = "op_get_function_event_invoke_config",
-    feature = "op_get_function_recursion_config",
-    feature = "op_get_function_scaling_config",
-    feature = "op_get_function_url_config",
-    feature = "op_get_layer_version",
-    feature = "op_get_layer_version_by_arn",
-    feature = "op_get_layer_version_policy",
-    feature = "op_get_policy",
-    feature = "op_get_provisioned_concurrency_config",
-    feature = "op_get_resource_policy",
-    feature = "op_get_runtime_management_config",
-    feature = "op_invoke",
-    feature = "op_invoke_async",
-    feature = "op_invoke_with_response_stream",
-    feature = "op_list_aliases",
-    feature = "op_list_capacity_providers",
-    feature = "op_list_code_signing_configs",
-    feature = "op_list_durable_executions_by_function",
-    feature = "op_list_event_source_mappings",
-    feature = "op_list_function_event_invoke_configs",
-    feature = "op_list_function_url_configs",
-    feature = "op_list_function_versions_by_capacity_provider",
-    feature = "op_list_functions",
-    feature = "op_list_functions_by_code_signing_config",
-    feature = "op_list_layer_versions",
-    feature = "op_list_layers",
-    feature = "op_list_provisioned_concurrency_configs",
-    feature = "op_list_tags",
-    feature = "op_list_versions_by_function",
-    feature = "op_publish_layer_version",
-    feature = "op_put_function_code_signing_config",
-    feature = "op_put_function_concurrency",
-    feature = "op_put_function_event_invoke_config",
-    feature = "op_put_function_recursion_config",
-    feature = "op_put_function_scaling_config",
-    feature = "op_put_provisioned_concurrency_config",
-    feature = "op_put_resource_policy",
-    feature = "op_put_runtime_management_config",
-    feature = "op_remove_layer_version_permission",
-    feature = "op_remove_permission",
-    feature = "op_send_durable_execution_callback_failure",
-    feature = "op_send_durable_execution_callback_heartbeat",
-    feature = "op_send_durable_execution_callback_success",
-    feature = "op_stop_durable_execution",
-    feature = "op_tag_resource",
-    feature = "op_untag_resource",
-    feature = "op_update_alias",
-    feature = "op_update_capacity_provider",
-    feature = "op_update_code_signing_config",
-    feature = "op_update_event_source_mapping",
-    feature = "op_update_function_code",
-    feature = "op_update_function_configuration",
-    feature = "op_update_function_event_invoke_config",
-    feature = "op_update_function_url_config"
-))]
+#[cfg(feature = "op_get_durable_execution_history")]
 pub(crate) mod shape_event_error;
 
-#[cfg(any(
-    feature = "op_add_layer_version_permission",
-    feature = "op_add_permission",
-    feature = "op_checkpoint_durable_execution",
-    feature = "op_create_alias",
-    feature = "op_create_capacity_provider",
-    feature = "op_create_function",
-    feature = "op_create_function_url_config",
-    feature = "op_delete_alias",
-    feature = "op_delete_capacity_provider",
-    feature = "op_delete_code_signing_config",
-    feature = "op_delete_event_source_mapping",
-    feature = "op_delete_function",
-    feature = "op_delete_function_code_signing_config",
-    feature = "op_delete_function_concurrency",
-    feature = "op_delete_function_event_invoke_config",
-    feature = "op_delete_function_url_config",
-    feature = "op_delete_layer_version",
-    feature = "op_delete_provisioned_concurrency_config",
-    feature = "op_delete_resource_policy",
-    feature = "op_get_account_settings",
-    feature = "op_get_alias",
-    feature = "op_get_capacity_provider",
-    feature = "op_get_code_signing_config",
-    feature = "op_get_durable_execution",
-    feature = "op_get_durable_execution_history",
-    feature = "op_get_durable_execution_state",
-    feature = "op_get_event_source_mapping",
-    feature = "op_get_function",
-    feature = "op_get_function_code_signing_config",
-    feature = "op_get_function_concurrency",
-    feature = "op_get_function_configuration",
-    feature = "op_get_function_event_invoke_config",
-    feature = "op_get_function_recursion_config",
-    feature = "op_get_function_scaling_config",
-    feature = "op_get_function_url_config",
-    feature = "op_get_layer_version",
-    feature = "op_get_layer_version_by_arn",
-    feature = "op_get_layer_version_policy",
-    feature = "op_get_policy",
-    feature = "op_get_provisioned_concurrency_config",
-    feature = "op_get_resource_policy",
-    feature = "op_get_runtime_management_config",
-    feature = "op_invoke",
-    feature = "op_invoke_async",
-    feature = "op_invoke_with_response_stream",
-    feature = "op_list_aliases",
-    feature = "op_list_capacity_providers",
-    feature = "op_list_code_signing_configs",
-    feature = "op_list_durable_executions_by_function",
-    feature = "op_list_event_source_mappings",
-    feature = "op_list_function_event_invoke_configs",
-    feature = "op_list_function_url_configs",
-    feature = "op_list_function_versions_by_capacity_provider",
-    feature = "op_list_functions",
-    feature = "op_list_functions_by_code_signing_config",
-    feature = "op_list_layer_versions",
-    feature = "op_list_layers",
-    feature = "op_list_provisioned_concurrency_configs",
-    feature = "op_list_tags",
-    feature = "op_list_versions_by_function",
-    feature = "op_publish_layer_version",
-    feature = "op_put_function_code_signing_config",
-    feature = "op_put_function_concurrency",
-    feature = "op_put_function_event_invoke_config",
-    feature = "op_put_function_recursion_config",
-    feature = "op_put_function_scaling_config",
-    feature = "op_put_provisioned_concurrency_config",
-    feature = "op_put_resource_policy",
-    feature = "op_put_runtime_management_config",
-    feature = "op_remove_layer_version_permission",
-    feature = "op_remove_permission",
-    feature = "op_send_durable_execution_callback_failure",
-    feature = "op_send_durable_execution_callback_heartbeat",
-    feature = "op_send_durable_execution_callback_success",
-    feature = "op_stop_durable_execution",
-    feature = "op_tag_resource",
-    feature = "op_untag_resource",
-    feature = "op_update_alias",
-    feature = "op_update_capacity_provider",
-    feature = "op_update_code_signing_config",
-    feature = "op_update_event_source_mapping",
-    feature = "op_update_function_code",
-    feature = "op_update_function_configuration",
-    feature = "op_update_function_event_invoke_config",
-    feature = "op_update_function_url_config"
-))]
+#[cfg(feature = "op_get_durable_execution_history")]
 pub(crate) mod shape_event_input;
 
-#[cfg(any(
-    feature = "op_add_layer_version_permission",
-    feature = "op_add_permission",
-    feature = "op_checkpoint_durable_execution",
-    feature = "op_create_alias",
-    feature = "op_create_capacity_provider",
-    feature = "op_create_function",
-    feature = "op_create_function_url_config",
-    feature = "op_delete_alias",
-    feature = "op_delete_capacity_provider",
-    feature = "op_delete_code_signing_config",
-    feature = "op_delete_event_source_mapping",
-    feature = "op_delete_function",
-    feature = "op_delete_function_code_signing_config",
-    feature = "op_delete_function_concurrency",
-    feature = "op_delete_function_event_invoke_config",
-    feature = "op_delete_function_url_config",
-    feature = "op_delete_layer_version",
-    feature = "op_delete_provisioned_concurrency_config",
-    feature = "op_delete_resource_policy",
-    feature = "op_get_account_settings",
-    feature = "op_get_alias",
-    feature = "op_get_capacity_provider",
-    feature = "op_get_code_signing_config",
-    feature = "op_get_durable_execution",
-    feature = "op_get_durable_execution_history",
-    feature = "op_get_durable_execution_state",
-    feature = "op_get_event_source_mapping",
-    feature = "op_get_function",
-    feature = "op_get_function_code_signing_config",
-    feature = "op_get_function_concurrency",
-    feature = "op_get_function_configuration",
-    feature = "op_get_function_event_invoke_config",
-    feature = "op_get_function_recursion_config",
-    feature = "op_get_function_scaling_config",
-    feature = "op_get_function_url_config",
-    feature = "op_get_layer_version",
-    feature = "op_get_layer_version_by_arn",
-    feature = "op_get_layer_version_policy",
-    feature = "op_get_policy",
-    feature = "op_get_provisioned_concurrency_config",
-    feature = "op_get_resource_policy",
-    feature = "op_get_runtime_management_config",
-    feature = "op_invoke",
-    feature = "op_invoke_async",
-    feature = "op_invoke_with_response_stream",
-    feature = "op_list_aliases",
-    feature = "op_list_capacity_providers",
-    feature = "op_list_code_signing_configs",
-    feature = "op_list_durable_executions_by_function",
-    feature = "op_list_event_source_mappings",
-    feature = "op_list_function_event_invoke_configs",
-    feature = "op_list_function_url_configs",
-    feature = "op_list_function_versions_by_capacity_provider",
-    feature = "op_list_functions",
-    feature = "op_list_functions_by_code_signing_config",
-    feature = "op_list_layer_versions",
-    feature = "op_list_layers",
-    feature = "op_list_provisioned_concurrency_configs",
-    feature = "op_list_tags",
-    feature = "op_list_versions_by_function",
-    feature = "op_publish_layer_version",
-    feature = "op_put_function_code_signing_config",
-    feature = "op_put_function_concurrency",
-    feature = "op_put_function_event_invoke_config",
-    feature = "op_put_function_recursion_config",
-    feature = "op_put_function_scaling_config",
-    feature = "op_put_provisioned_concurrency_config",
-    feature = "op_put_resource_policy",
-    feature = "op_put_runtime_management_config",
-    feature = "op_remove_layer_version_permission",
-    feature = "op_remove_permission",
-    feature = "op_send_durable_execution_callback_failure",
-    feature = "op_send_durable_execution_callback_heartbeat",
-    feature = "op_send_durable_execution_callback_success",
-    feature = "op_stop_durable_execution",
-    feature = "op_tag_resource",
-    feature = "op_untag_resource",
-    feature = "op_update_alias",
-    feature = "op_update_capacity_provider",
-    feature = "op_update_code_signing_config",
-    feature = "op_update_event_source_mapping",
-    feature = "op_update_function_code",
-    feature = "op_update_function_configuration",
-    feature = "op_update_function_event_invoke_config",
-    feature = "op_update_function_url_config"
-))]
+#[cfg(feature = "op_get_durable_execution_history")]
 pub(crate) mod shape_event_result;
 
-#[cfg(any(
-    feature = "op_add_layer_version_permission",
-    feature = "op_add_permission",
-    feature = "op_checkpoint_durable_execution",
-    feature = "op_create_alias",
-    feature = "op_create_capacity_provider",
-    feature = "op_create_function",
-    feature = "op_create_function_url_config",
-    feature = "op_delete_alias",
-    feature = "op_delete_capacity_provider",
-    feature = "op_delete_code_signing_config",
-    feature = "op_delete_event_source_mapping",
-    feature = "op_delete_function",
-    feature = "op_delete_function_code_signing_config",
-    feature = "op_delete_function_concurrency",
-    feature = "op_delete_function_event_invoke_config",
-    feature = "op_delete_function_url_config",
-    feature = "op_delete_layer_version",
-    feature = "op_delete_provisioned_concurrency_config",
-    feature = "op_delete_resource_policy",
-    feature = "op_get_account_settings",
-    feature = "op_get_alias",
-    feature = "op_get_capacity_provider",
-    feature = "op_get_code_signing_config",
-    feature = "op_get_durable_execution",
-    feature = "op_get_durable_execution_history",
-    feature = "op_get_durable_execution_state",
-    feature = "op_get_event_source_mapping",
-    feature = "op_get_function",
-    feature = "op_get_function_code_signing_config",
-    feature = "op_get_function_concurrency",
-    feature = "op_get_function_configuration",
-    feature = "op_get_function_event_invoke_config",
-    feature = "op_get_function_recursion_config",
-    feature = "op_get_function_scaling_config",
-    feature = "op_get_function_url_config",
-    feature = "op_get_layer_version",
-    feature = "op_get_layer_version_by_arn",
-    feature = "op_get_layer_version_policy",
-    feature = "op_get_policy",
-    feature = "op_get_provisioned_concurrency_config",
-    feature = "op_get_resource_policy",
-    feature = "op_get_runtime_management_config",
-    feature = "op_invoke",
-    feature = "op_invoke_async",
-    feature = "op_invoke_with_response_stream",
-    feature = "op_list_aliases",
-    feature = "op_list_capacity_providers",
-    feature = "op_list_code_signing_configs",
-    feature = "op_list_durable_executions_by_function",
-    feature = "op_list_event_source_mappings",
-    feature = "op_list_function_event_invoke_configs",
-    feature = "op_list_function_url_configs",
-    feature = "op_list_function_versions_by_capacity_provider",
-    feature = "op_list_functions",
-    feature = "op_list_functions_by_code_signing_config",
-    feature = "op_list_layer_versions",
-    feature = "op_list_layers",
-    feature = "op_list_provisioned_concurrency_configs",
-    feature = "op_list_tags",
-    feature = "op_list_versions_by_function",
-    feature = "op_publish_layer_version",
-    feature = "op_put_function_code_signing_config",
-    feature = "op_put_function_concurrency",
-    feature = "op_put_function_event_invoke_config",
-    feature = "op_put_function_recursion_config",
-    feature = "op_put_function_scaling_config",
-    feature = "op_put_provisioned_concurrency_config",
-    feature = "op_put_resource_policy",
-    feature = "op_put_runtime_management_config",
-    feature = "op_remove_layer_version_permission",
-    feature = "op_remove_permission",
-    feature = "op_send_durable_execution_callback_failure",
-    feature = "op_send_durable_execution_callback_heartbeat",
-    feature = "op_send_durable_execution_callback_success",
-    feature = "op_stop_durable_execution",
-    feature = "op_tag_resource",
-    feature = "op_untag_resource",
-    feature = "op_update_alias",
-    feature = "op_update_capacity_provider",
-    feature = "op_update_code_signing_config",
-    feature = "op_update_event_source_mapping",
-    feature = "op_update_function_code",
-    feature = "op_update_function_configuration",
-    feature = "op_update_function_event_invoke_config",
-    feature = "op_update_function_url_config"
-))]
+#[cfg(feature = "op_get_durable_execution_history")]
 pub(crate) mod shape_retry_details;

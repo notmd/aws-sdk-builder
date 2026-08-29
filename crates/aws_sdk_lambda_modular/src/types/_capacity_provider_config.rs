@@ -5,16 +5,14 @@
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
 pub struct CapacityProviderConfig {
     /// <p>Configuration for Lambda-managed instances used by the capacity provider.</p>
-    pub lambda_managed_instances_capacity_provider_config:
-        ::std::option::Option<crate::types::LambdaManagedInstancesCapacityProviderConfig>,
+    pub lambda_managed_instances_capacity_provider_config: ::std::option::Option<crate::types::LambdaManagedInstancesCapacityProviderConfig>,
 }
 impl CapacityProviderConfig {
     /// <p>Configuration for Lambda-managed instances used by the capacity provider.</p>
     pub fn lambda_managed_instances_capacity_provider_config(
         &self,
     ) -> ::std::option::Option<&crate::types::LambdaManagedInstancesCapacityProviderConfig> {
-        self.lambda_managed_instances_capacity_provider_config
-            .as_ref()
+        self.lambda_managed_instances_capacity_provider_config.as_ref()
     }
 }
 impl CapacityProviderConfig {
@@ -25,21 +23,15 @@ impl CapacityProviderConfig {
 }
 
 /// A builder for [`CapacityProviderConfig`](crate::types::CapacityProviderConfig).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct CapacityProviderConfigBuilder {
-    pub(crate) lambda_managed_instances_capacity_provider_config:
-        ::std::option::Option<crate::types::LambdaManagedInstancesCapacityProviderConfig>,
+    pub(crate) lambda_managed_instances_capacity_provider_config: ::std::option::Option<crate::types::LambdaManagedInstancesCapacityProviderConfig>,
 }
 impl CapacityProviderConfigBuilder {
     /// <p>Configuration for Lambda-managed instances used by the capacity provider.</p>
     /// This field is required.
-    pub fn lambda_managed_instances_capacity_provider_config(
-        mut self,
-        input: crate::types::LambdaManagedInstancesCapacityProviderConfig,
-    ) -> Self {
+    pub fn lambda_managed_instances_capacity_provider_config(mut self, input: crate::types::LambdaManagedInstancesCapacityProviderConfig) -> Self {
         self.lambda_managed_instances_capacity_provider_config = ::std::option::Option::Some(input);
         self
     }
@@ -60,8 +52,7 @@ impl CapacityProviderConfigBuilder {
     /// Consumes the builder and constructs a [`CapacityProviderConfig`](crate::types::CapacityProviderConfig).
     pub fn build(self) -> crate::types::CapacityProviderConfig {
         crate::types::CapacityProviderConfig {
-            lambda_managed_instances_capacity_provider_config: self
-                .lambda_managed_instances_capacity_provider_config,
+            lambda_managed_instances_capacity_provider_config: self.lambda_managed_instances_capacity_provider_config,
         }
     }
 }

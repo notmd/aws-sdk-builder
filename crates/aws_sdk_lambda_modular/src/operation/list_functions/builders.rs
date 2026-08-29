@@ -66,9 +66,7 @@ impl ListFunctionsFluentBuilder {
         }
     }
     /// Access the ListFunctions as a reference.
-    pub fn as_input(
-        &self,
-    ) -> &crate::operation::list_functions::builders::ListFunctionsInputBuilder {
+    pub fn as_input(&self) -> &crate::operation::list_functions::builders::ListFunctionsInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -92,12 +90,11 @@ impl ListFunctionsFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins =
-            crate::operation::list_functions::ListFunctions::operation_runtime_plugins(
-                self.handle.runtime_plugins.clone(),
-                &self.handle.conf,
-                self.config_override,
-            );
+        let runtime_plugins = crate::operation::list_functions::ListFunctions::operation_runtime_plugins(
+            self.handle.runtime_plugins.clone(),
+            &self.handle.conf,
+            self.config_override,
+        );
         crate::operation::list_functions::ListFunctions::orchestrate(&runtime_plugins, input).await
     }
 
@@ -111,45 +108,28 @@ impl ListFunctionsFluentBuilder {
     > {
         crate::client::customize::CustomizableOperation::new(self)
     }
-    pub(crate) fn config_override(
-        mut self,
-        config_override: impl ::std::convert::Into<crate::config::Builder>,
-    ) -> Self {
+    pub(crate) fn config_override(mut self, config_override: impl ::std::convert::Into<crate::config::Builder>) -> Self {
         self.set_config_override(::std::option::Option::Some(config_override.into()));
         self
     }
 
-    pub(crate) fn set_config_override(
-        &mut self,
-        config_override: ::std::option::Option<crate::config::Builder>,
-    ) -> &mut Self {
+    pub(crate) fn set_config_override(&mut self, config_override: ::std::option::Option<crate::config::Builder>) -> &mut Self {
         self.config_override = config_override;
         self
     }
     /// Create a paginator for this request
     ///
     /// Paginators are used by calling [`send().await`](crate::operation::list_functions::paginator::ListFunctionsPaginator::send) which returns a [`PaginationStream`](aws_smithy_async::future::pagination_stream::PaginationStream).
-    pub fn into_paginator(
-        self,
-    ) -> crate::operation::list_functions::paginator::ListFunctionsPaginator {
-        crate::operation::list_functions::paginator::ListFunctionsPaginator::new(
-            self.handle,
-            self.inner,
-        )
+    pub fn into_paginator(self) -> crate::operation::list_functions::paginator::ListFunctionsPaginator {
+        crate::operation::list_functions::paginator::ListFunctionsPaginator::new(self.handle, self.inner)
     }
     /// <p>For Lambda@Edge functions, the Amazon Web Services Region of the master function. For example, <code>us-east-1</code> filters the list of functions to include only Lambda@Edge functions replicated from a master function in US East (N. Virginia). If specified, you must set <code>FunctionVersion</code> to <code>ALL</code>.</p>
-    pub fn master_region(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn master_region(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.master_region(input.into());
         self
     }
     /// <p>For Lambda@Edge functions, the Amazon Web Services Region of the master function. For example, <code>us-east-1</code> filters the list of functions to include only Lambda@Edge functions replicated from a master function in US East (N. Virginia). If specified, you must set <code>FunctionVersion</code> to <code>ALL</code>.</p>
-    pub fn set_master_region(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_master_region(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_master_region(input);
         self
     }
@@ -163,10 +143,7 @@ impl ListFunctionsFluentBuilder {
         self
     }
     /// <p>Set to <code>ALL</code> to include entries for all published versions of each function.</p>
-    pub fn set_function_version(
-        mut self,
-        input: ::std::option::Option<crate::types::FunctionVersion>,
-    ) -> Self {
+    pub fn set_function_version(mut self, input: ::std::option::Option<crate::types::FunctionVersion>) -> Self {
         self.inner = self.inner.set_function_version(input);
         self
     }

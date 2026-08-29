@@ -28,16 +28,13 @@ impl LambdaManagedInstancesCapacityProviderConfig {
 }
 impl LambdaManagedInstancesCapacityProviderConfig {
     /// Creates a new builder-style object to manufacture [`LambdaManagedInstancesCapacityProviderConfig`](crate::types::LambdaManagedInstancesCapacityProviderConfig).
-    pub fn builder() -> crate::types::builders::LambdaManagedInstancesCapacityProviderConfigBuilder
-    {
+    pub fn builder() -> crate::types::builders::LambdaManagedInstancesCapacityProviderConfigBuilder {
         crate::types::builders::LambdaManagedInstancesCapacityProviderConfigBuilder::default()
     }
 }
 
 /// A builder for [`LambdaManagedInstancesCapacityProviderConfig`](crate::types::LambdaManagedInstancesCapacityProviderConfig).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct LambdaManagedInstancesCapacityProviderConfigBuilder {
     pub(crate) capacity_provider_arn: ::std::option::Option<::std::string::String>,
@@ -47,18 +44,12 @@ pub struct LambdaManagedInstancesCapacityProviderConfigBuilder {
 impl LambdaManagedInstancesCapacityProviderConfigBuilder {
     /// <p>The Amazon Resource Name (ARN) of the capacity provider.</p>
     /// This field is required.
-    pub fn capacity_provider_arn(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn capacity_provider_arn(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.capacity_provider_arn = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The Amazon Resource Name (ARN) of the capacity provider.</p>
-    pub fn set_capacity_provider_arn(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_capacity_provider_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.capacity_provider_arn = input;
         self
     }
@@ -72,10 +63,7 @@ impl LambdaManagedInstancesCapacityProviderConfigBuilder {
         self
     }
     /// <p>The maximum number of concurrent execution environments that can run on each compute instance.</p>
-    pub fn set_per_execution_environment_max_concurrency(
-        mut self,
-        input: ::std::option::Option<i32>,
-    ) -> Self {
+    pub fn set_per_execution_environment_max_concurrency(mut self, input: ::std::option::Option<i32>) -> Self {
         self.per_execution_environment_max_concurrency = input;
         self
     }
@@ -89,10 +77,7 @@ impl LambdaManagedInstancesCapacityProviderConfigBuilder {
         self
     }
     /// <p>The amount of memory in GiB allocated per vCPU for execution environments.</p>
-    pub fn set_execution_environment_memory_gib_per_v_cpu(
-        mut self,
-        input: ::std::option::Option<f64>,
-    ) -> Self {
+    pub fn set_execution_environment_memory_gib_per_v_cpu(mut self, input: ::std::option::Option<f64>) -> Self {
         self.execution_environment_memory_gib_per_v_cpu = input;
         self
     }
@@ -105,10 +90,7 @@ impl LambdaManagedInstancesCapacityProviderConfigBuilder {
     /// - [`capacity_provider_arn`](crate::types::builders::LambdaManagedInstancesCapacityProviderConfigBuilder::capacity_provider_arn)
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        crate::types::LambdaManagedInstancesCapacityProviderConfig,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    ) -> ::std::result::Result<crate::types::LambdaManagedInstancesCapacityProviderConfig, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::LambdaManagedInstancesCapacityProviderConfig {
             capacity_provider_arn: self.capacity_provider_arn.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

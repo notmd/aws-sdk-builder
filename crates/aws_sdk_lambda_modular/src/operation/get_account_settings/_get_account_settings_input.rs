@@ -7,17 +7,14 @@ pub struct GetAccountSettingsInput {}
 #[cfg(feature = "op_get_account_settings")]
 impl GetAccountSettingsInput {
     /// Creates a new builder-style object to manufacture [`GetAccountSettingsInput`](crate::operation::get_account_settings::GetAccountSettingsInput).
-    pub fn builder(
-    ) -> crate::operation::get_account_settings::builders::GetAccountSettingsInputBuilder {
+    pub fn builder() -> crate::operation::get_account_settings::builders::GetAccountSettingsInputBuilder {
         crate::operation::get_account_settings::builders::GetAccountSettingsInputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_get_account_settings")]
 /// A builder for [`GetAccountSettingsInput`](crate::operation::get_account_settings::GetAccountSettingsInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct GetAccountSettingsInputBuilder {}
 #[cfg(feature = "op_get_account_settings")]
@@ -25,12 +22,8 @@ impl GetAccountSettingsInputBuilder {
     /// Consumes the builder and constructs a [`GetAccountSettingsInput`](crate::operation::get_account_settings::GetAccountSettingsInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        crate::operation::get_account_settings::GetAccountSettingsInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
-        ::std::result::Result::Ok(
-            crate::operation::get_account_settings::GetAccountSettingsInput {},
-        )
+    ) -> ::std::result::Result<crate::operation::get_account_settings::GetAccountSettingsInput, ::aws_smithy_types::error::operation::BuildError>
+    {
+        ::std::result::Result::Ok(crate::operation::get_account_settings::GetAccountSettingsInput {})
     }
 }

@@ -20,11 +20,7 @@ impl super::Client {
     ///   - [`execution_data_included(Option<bool>)`](crate::operation::get_durable_execution::GetDurableExecutionOutput::execution_data_included): <p>Indicates whether execution data is included in this response. Returns <code>false</code> when <code>IncludeExecutionData</code> is set to <code>false</code> in the request.</p>
     ///   - [`durable_config(Option<DurableConfig>)`](crate::operation::get_durable_execution::GetDurableExecutionOutput::durable_config): <p>Configuration settings for the durable execution, including execution timeout, retention period for execution history, and an optional ARN of the Key Management Service (KMS) customer managed key that is used to encrypt your durable execution's payload data, including input, output, and error payloads.</p>
     /// - On failure, responds with [`SdkError<GetDurableExecutionError>`](crate::operation::get_durable_execution::GetDurableExecutionError)
-    pub fn get_durable_execution(
-        &self,
-    ) -> crate::operation::get_durable_execution::builders::GetDurableExecutionFluentBuilder {
-        crate::operation::get_durable_execution::builders::GetDurableExecutionFluentBuilder::new(
-            self.handle.clone(),
-        )
+    pub fn get_durable_execution(&self) -> crate::operation::get_durable_execution::builders::GetDurableExecutionFluentBuilder {
+        crate::operation::get_durable_execution::builders::GetDurableExecutionFluentBuilder::new(self.handle.clone())
     }
 }

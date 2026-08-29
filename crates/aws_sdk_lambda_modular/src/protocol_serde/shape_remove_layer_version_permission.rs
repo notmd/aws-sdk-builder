@@ -132,9 +132,7 @@ pub fn de_remove_layer_version_permission_http_response(
     Ok({
         #[allow(unused_mut)]
         let mut output = crate::operation::remove_layer_version_permission::builders::RemoveLayerVersionPermissionOutputBuilder::default();
-        output._set_request_id(
-            ::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string),
-        );
+        output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
         output.build()
     })
 }

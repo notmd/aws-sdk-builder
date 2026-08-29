@@ -17,18 +17,14 @@ impl GetEventSourceMappingInput {
 #[cfg(feature = "op_get_event_source_mapping")]
 impl GetEventSourceMappingInput {
     /// Creates a new builder-style object to manufacture [`GetEventSourceMappingInput`](crate::operation::get_event_source_mapping::GetEventSourceMappingInput).
-    pub fn builder(
-    ) -> crate::operation::get_event_source_mapping::builders::GetEventSourceMappingInputBuilder
-    {
+    pub fn builder() -> crate::operation::get_event_source_mapping::builders::GetEventSourceMappingInputBuilder {
         crate::operation::get_event_source_mapping::builders::GetEventSourceMappingInputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_get_event_source_mapping")]
 /// A builder for [`GetEventSourceMappingInput`](crate::operation::get_event_source_mapping::GetEventSourceMappingInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct GetEventSourceMappingInputBuilder {
     pub(crate) uuid: ::std::option::Option<::std::string::String>,
@@ -53,14 +49,8 @@ impl GetEventSourceMappingInputBuilder {
     /// Consumes the builder and constructs a [`GetEventSourceMappingInput`](crate::operation::get_event_source_mapping::GetEventSourceMappingInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        crate::operation::get_event_source_mapping::GetEventSourceMappingInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
-        ::std::result::Result::Ok(
-            crate::operation::get_event_source_mapping::GetEventSourceMappingInput {
-                uuid: self.uuid,
-            },
-        )
+    ) -> ::std::result::Result<crate::operation::get_event_source_mapping::GetEventSourceMappingInput, ::aws_smithy_types::error::operation::BuildError>
+    {
+        ::std::result::Result::Ok(crate::operation::get_event_source_mapping::GetEventSourceMappingInput { uuid: self.uuid })
     }
 }

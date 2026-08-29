@@ -50,9 +50,7 @@ impl GetFunctionInput {
 
 #[cfg(feature = "op_get_function")]
 /// A builder for [`GetFunctionInput`](crate::operation::get_function::GetFunctionInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct GetFunctionInputBuilder {
     pub(crate) function_name: ::std::option::Option<::std::string::String>,
@@ -72,10 +70,7 @@ impl GetFunctionInputBuilder {
     /// </ul>
     /// <p>You can append a version number or alias to any of the formats. The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
     /// This field is required.
-    pub fn function_name(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn function_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.function_name = ::std::option::Option::Some(input.into());
         self
     }
@@ -90,10 +85,7 @@ impl GetFunctionInputBuilder {
     /// <p><b>Partial ARN</b> – <code>123456789012:function:my-function</code>.</p></li>
     /// </ul>
     /// <p>You can append a version number or alias to any of the formats. The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
-    pub fn set_function_name(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_function_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.function_name = input;
         self
     }
@@ -126,12 +118,7 @@ impl GetFunctionInputBuilder {
         &self.qualifier
     }
     /// Consumes the builder and constructs a [`GetFunctionInput`](crate::operation::get_function::GetFunctionInput).
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<
-        crate::operation::get_function::GetFunctionInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    pub fn build(self) -> ::std::result::Result<crate::operation::get_function::GetFunctionInput, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::operation::get_function::GetFunctionInput {
             function_name: self.function_name,
             qualifier: self.qualifier,

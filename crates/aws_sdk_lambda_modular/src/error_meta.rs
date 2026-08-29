@@ -3,81 +3,110 @@
 #[non_exhaustive]
 #[derive(::std::fmt::Debug)]
 pub enum Error {
-    /// <p>Lambda couldn't create the alias because your Amazon Web Services account has exceeded the maximum number of aliases allowed per Lambda function. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-limits.html">Lambda quotas</a>.</p>
+    #[cfg(feature = "op_create_alias")]
+/// <p>Lambda couldn't create the alias because your Amazon Web Services account has exceeded the maximum number of aliases allowed per Lambda function. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-limits.html">Lambda quotas</a>.</p>
     AliasLimitExceededException(crate::types::error::AliasLimitExceededException),
-    /// <p>The callback ID token has either expired or the callback associated with the token has already been closed.</p>
+    #[cfg(any(feature = "op_send_durable_execution_callback_failure", feature = "op_send_durable_execution_callback_heartbeat", feature = "op_send_durable_execution_callback_success"))]
+/// <p>The callback ID token has either expired or the callback associated with the token has already been closed.</p>
     CallbackTimeoutException(crate::types::error::CallbackTimeoutException),
-    /// <p>The maximum number of capacity providers for your account has been exceeded. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-limits.html">Lambda quotas</a></p>
-    CapacityProviderLimitExceededException(
-        crate::types::error::CapacityProviderLimitExceededException,
-    ),
-    /// <p>The Lambda function couldn't be invoked because its code artifact user has been deleted. Wait for Lambda to provision a new code artifact user, or update the function's code package to recreate it.</p>
+    #[cfg(feature = "op_create_capacity_provider")]
+/// <p>The maximum number of capacity providers for your account has been exceeded. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-limits.html">Lambda quotas</a></p>
+    CapacityProviderLimitExceededException(crate::types::error::CapacityProviderLimitExceededException),
+    #[cfg(feature = "op_invoke")]
+/// <p>The Lambda function couldn't be invoked because its code artifact user has been deleted. Wait for Lambda to provision a new code artifact user, or update the function's code package to recreate it.</p>
     CodeArtifactUserDeletedException(crate::types::error::CodeArtifactUserDeletedException),
-    /// <p>The Lambda function couldn't be invoked because provisioning of its code artifact user failed. Update the function's code package or check the Lambda function's <code>State</code> and <code>StateReasonCode</code> for additional context.</p>
+    #[cfg(feature = "op_invoke")]
+/// <p>The Lambda function couldn't be invoked because provisioning of its code artifact user failed. Update the function's code package or check the Lambda function's <code>State</code> and <code>StateReasonCode</code> for additional context.</p>
     CodeArtifactUserFailedException(crate::types::error::CodeArtifactUserFailedException),
-    /// <p>The Lambda function couldn't be invoked because its code artifact user is still being provisioned. Wait for the function's <code>State</code> to become <code>Active</code> and try the request again.</p>
+    #[cfg(feature = "op_invoke")]
+/// <p>The Lambda function couldn't be invoked because its code artifact user is still being provisioned. Wait for the function's <code>State</code> to become <code>Active</code> and try the request again.</p>
     CodeArtifactUserPendingException(crate::types::error::CodeArtifactUserPendingException),
-    /// <p>The specified code signing configuration does not exist.</p>
+    #[cfg(any(feature = "op_create_function", feature = "op_delete_function_code_signing_config", feature = "op_get_function_code_signing_config", feature = "op_put_function_code_signing_config", feature = "op_update_function_code", feature = "op_update_function_configuration"))]
+/// <p>The specified code signing configuration does not exist.</p>
     CodeSigningConfigNotFoundException(crate::types::error::CodeSigningConfigNotFoundException),
-    /// <p>Your Amazon Web Services account has exceeded its maximum total code size. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-limits.html">Lambda quotas</a>.</p>
+    #[cfg(any(feature = "op_create_function", feature = "op_publish_layer_version", feature = "op_update_function_code"))]
+/// <p>Your Amazon Web Services account has exceeded its maximum total code size. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-limits.html">Lambda quotas</a>.</p>
     CodeStorageExceededException(crate::types::error::CodeStorageExceededException),
-    /// <p>The code signature failed one or more of the validation checks for signature mismatch or expiry, and the code signing policy is set to ENFORCE. Lambda blocks the deployment.</p>
+    #[cfg(any(feature = "op_create_function", feature = "op_update_function_code", feature = "op_update_function_configuration"))]
+/// <p>The code signature failed one or more of the validation checks for signature mismatch or expiry, and the code signing policy is set to ENFORCE. Lambda blocks the deployment.</p>
     CodeVerificationFailedException(crate::types::error::CodeVerificationFailedException),
-    /// <p>The durable execution with the specified name has already been started. Each durable execution name must be unique within the function. Use a different name or check the status of the existing execution.</p>
-    DurableExecutionAlreadyStartedException(
-        crate::types::error::DurableExecutionAlreadyStartedException,
-    ),
-    /// <p>Need additional permissions to configure VPC settings.</p>
+    #[cfg(feature = "op_invoke")]
+/// <p>The durable execution with the specified name has already been started. Each durable execution name must be unique within the function. Use a different name or check the status of the existing execution.</p>
+    DurableExecutionAlreadyStartedException(crate::types::error::DurableExecutionAlreadyStartedException),
+    #[cfg(any(feature = "op_invoke", feature = "op_invoke_async", feature = "op_invoke_with_response_stream"))]
+/// <p>Need additional permissions to configure VPC settings.</p>
     Ec2AccessDeniedException(crate::types::error::Ec2AccessDeniedException),
-    /// <p>Amazon EC2 throttled Lambda during Lambda function initialization using the execution role provided for the function.</p>
+    #[cfg(any(feature = "op_invoke", feature = "op_invoke_async", feature = "op_invoke_with_response_stream"))]
+/// <p>Amazon EC2 throttled Lambda during Lambda function initialization using the execution role provided for the function.</p>
     Ec2ThrottledException(crate::types::error::Ec2ThrottledException),
-    /// <p>Lambda received an unexpected Amazon EC2 client exception while setting up for the Lambda function.</p>
+    #[cfg(any(feature = "op_invoke", feature = "op_invoke_async", feature = "op_invoke_with_response_stream"))]
+/// <p>Lambda received an unexpected Amazon EC2 client exception while setting up for the Lambda function.</p>
     Ec2UnexpectedException(crate::types::error::Ec2UnexpectedException),
-    /// <p>An error occurred when reading from or writing to a connected file system.</p>
+    #[cfg(any(feature = "op_invoke", feature = "op_invoke_async", feature = "op_invoke_with_response_stream"))]
+/// <p>An error occurred when reading from or writing to a connected file system.</p>
     EfsioException(crate::types::error::EfsioException),
-    /// <p>The Lambda function couldn't make a network connection to the configured file system.</p>
+    #[cfg(any(feature = "op_invoke", feature = "op_invoke_async", feature = "op_invoke_with_response_stream"))]
+/// <p>The Lambda function couldn't make a network connection to the configured file system.</p>
     EfsMountConnectivityException(crate::types::error::EfsMountConnectivityException),
-    /// <p>The Lambda function couldn't mount the configured file system due to a permission or configuration issue.</p>
+    #[cfg(any(feature = "op_invoke", feature = "op_invoke_async", feature = "op_invoke_with_response_stream"))]
+/// <p>The Lambda function couldn't mount the configured file system due to a permission or configuration issue.</p>
     EfsMountFailureException(crate::types::error::EfsMountFailureException),
-    /// <p>The Lambda function made a network connection to the configured file system, but the mount operation timed out.</p>
+    #[cfg(any(feature = "op_invoke", feature = "op_invoke_async", feature = "op_invoke_with_response_stream"))]
+/// <p>The Lambda function made a network connection to the configured file system, but the mount operation timed out.</p>
     EfsMountTimeoutException(crate::types::error::EfsMountTimeoutException),
-    /// <p>Lambda couldn't create an elastic network interface in the VPC, specified as part of Lambda function configuration, because the limit for network interfaces has been reached. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-limits.html">Lambda quotas</a>.</p>
+    #[cfg(any(feature = "op_invoke", feature = "op_invoke_async", feature = "op_invoke_with_response_stream"))]
+/// <p>Lambda couldn't create an elastic network interface in the VPC, specified as part of Lambda function configuration, because the limit for network interfaces has been reached. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-limits.html">Lambda quotas</a>.</p>
     EniLimitReachedException(crate::types::error::EniLimitReachedException),
-    /// <p>Lambda couldn't invoke the Lambda function because the elastic network interface (ENI) configured for its VPC connection isn't ready yet. Wait a few moments and try the request again. For more information about VPC configuration, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-vpc.html">Configuring a Lambda function to access resources in a VPC</a>.</p>
+    #[cfg(feature = "op_invoke")]
+/// <p>Lambda couldn't invoke the Lambda function because the elastic network interface (ENI) configured for its VPC connection isn't ready yet. Wait a few moments and try the request again. For more information about VPC configuration, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-vpc.html">Configuring a Lambda function to access resources in a VPC</a>.</p>
     EniNotReadyException(crate::types::error::EniNotReadyException),
-    /// <p>The maximum number of function versions that can be associated with a single capacity provider has been exceeded. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-limits.html">Lambda quotas</a>.</p>
-    FunctionVersionsPerCapacityProviderLimitExceededException(
-        crate::types::error::FunctionVersionsPerCapacityProviderLimitExceededException,
-    ),
-    /// <p>The code signature failed the integrity check. If the integrity check fails, then Lambda blocks deployment, even if the code signing policy is set to WARN.</p>
+    #[cfg(feature = "op_create_function")]
+/// <p>The maximum number of function versions that can be associated with a single capacity provider has been exceeded. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-limits.html">Lambda quotas</a>.</p>
+    FunctionVersionsPerCapacityProviderLimitExceededException(crate::types::error::FunctionVersionsPerCapacityProviderLimitExceededException),
+    #[cfg(any(feature = "op_create_function", feature = "op_update_function_code", feature = "op_update_function_configuration"))]
+/// <p>The code signature failed the integrity check. If the integrity check fails, then Lambda blocks deployment, even if the code signing policy is set to WARN.</p>
     InvalidCodeSignatureException(crate::types::error::InvalidCodeSignatureException),
-    /// <p>One of the parameters in the request is not valid.</p>
+    #[cfg(any(feature = "op_add_layer_version_permission", feature = "op_add_permission", feature = "op_checkpoint_durable_execution", feature = "op_create_alias", feature = "op_create_capacity_provider", feature = "op_create_function", feature = "op_create_function_url_config", feature = "op_delete_alias", feature = "op_delete_capacity_provider", feature = "op_delete_code_signing_config", feature = "op_delete_event_source_mapping", feature = "op_delete_function", feature = "op_delete_function_code_signing_config", feature = "op_delete_function_concurrency", feature = "op_delete_function_event_invoke_config", feature = "op_delete_function_url_config", feature = "op_delete_layer_version", feature = "op_delete_provisioned_concurrency_config", feature = "op_delete_resource_policy", feature = "op_get_alias", feature = "op_get_capacity_provider", feature = "op_get_code_signing_config", feature = "op_get_durable_execution", feature = "op_get_durable_execution_history", feature = "op_get_durable_execution_state", feature = "op_get_event_source_mapping", feature = "op_get_function", feature = "op_get_function_code_signing_config", feature = "op_get_function_concurrency", feature = "op_get_function_configuration", feature = "op_get_function_event_invoke_config", feature = "op_get_function_recursion_config", feature = "op_get_function_scaling_config", feature = "op_get_function_url_config", feature = "op_get_layer_version", feature = "op_get_layer_version_by_arn", feature = "op_get_layer_version_policy", feature = "op_get_policy", feature = "op_get_provisioned_concurrency_config", feature = "op_get_resource_policy", feature = "op_get_runtime_management_config", feature = "op_invoke", feature = "op_invoke_with_response_stream", feature = "op_list_aliases", feature = "op_list_capacity_providers", feature = "op_list_code_signing_configs", feature = "op_list_durable_executions_by_function", feature = "op_list_event_source_mappings", feature = "op_list_function_event_invoke_configs", feature = "op_list_function_url_configs", feature = "op_list_function_versions_by_capacity_provider", feature = "op_list_functions", feature = "op_list_functions_by_code_signing_config", feature = "op_list_layer_versions", feature = "op_list_layers", feature = "op_list_provisioned_concurrency_configs", feature = "op_list_tags", feature = "op_list_versions_by_function", feature = "op_publish_layer_version", feature = "op_put_function_code_signing_config", feature = "op_put_function_concurrency", feature = "op_put_function_event_invoke_config", feature = "op_put_function_recursion_config", feature = "op_put_function_scaling_config", feature = "op_put_provisioned_concurrency_config", feature = "op_put_resource_policy", feature = "op_put_runtime_management_config", feature = "op_remove_layer_version_permission", feature = "op_remove_permission", feature = "op_send_durable_execution_callback_failure", feature = "op_send_durable_execution_callback_heartbeat", feature = "op_send_durable_execution_callback_success", feature = "op_stop_durable_execution", feature = "op_tag_resource", feature = "op_untag_resource", feature = "op_update_alias", feature = "op_update_capacity_provider", feature = "op_update_code_signing_config", feature = "op_update_event_source_mapping", feature = "op_update_function_code", feature = "op_update_function_configuration", feature = "op_update_function_event_invoke_config", feature = "op_update_function_url_config"))]
+/// <p>One of the parameters in the request is not valid.</p>
     InvalidParameterValueException(crate::types::error::InvalidParameterValueException),
-    /// <p>The request body could not be parsed as JSON, or a request header is invalid. For example, the 'x-amzn-RequestId' header is not a valid UUID string.</p>
+    #[cfg(any(feature = "op_invoke", feature = "op_invoke_async", feature = "op_invoke_with_response_stream"))]
+/// <p>The request body could not be parsed as JSON, or a request header is invalid. For example, the 'x-amzn-RequestId' header is not a valid UUID string.</p>
     InvalidRequestContentException(crate::types::error::InvalidRequestContentException),
-    /// <p>The runtime or runtime version specified is not supported.</p>
+    #[cfg(any(feature = "op_invoke", feature = "op_invoke_async", feature = "op_invoke_with_response_stream"))]
+/// <p>The runtime or runtime version specified is not supported.</p>
     InvalidRuntimeException(crate::types::error::InvalidRuntimeException),
-    /// <p>The security group ID provided in the Lambda function VPC configuration is not valid.</p>
+    #[cfg(any(feature = "op_invoke", feature = "op_invoke_async", feature = "op_invoke_with_response_stream"))]
+/// <p>The security group ID provided in the Lambda function VPC configuration is not valid.</p>
     InvalidSecurityGroupIdException(crate::types::error::InvalidSecurityGroupIdException),
-    /// <p>The subnet ID provided in the Lambda function VPC configuration is not valid.</p>
+    #[cfg(any(feature = "op_invoke", feature = "op_invoke_async", feature = "op_invoke_with_response_stream"))]
+/// <p>The subnet ID provided in the Lambda function VPC configuration is not valid.</p>
     InvalidSubnetIdException(crate::types::error::InvalidSubnetIdException),
-    /// <p>Lambda could not unzip the deployment package.</p>
+    #[cfg(any(feature = "op_invoke", feature = "op_invoke_with_response_stream"))]
+/// <p>Lambda could not unzip the deployment package.</p>
     InvalidZipFileException(crate::types::error::InvalidZipFileException),
-    /// <p>Lambda couldn't decrypt the environment variables because KMS access was denied. Check the Lambda function's KMS permissions.</p>
+    #[cfg(any(feature = "op_checkpoint_durable_execution", feature = "op_get_durable_execution", feature = "op_get_durable_execution_history", feature = "op_get_durable_execution_state", feature = "op_invoke", feature = "op_invoke_async", feature = "op_invoke_with_response_stream", feature = "op_send_durable_execution_callback_failure", feature = "op_send_durable_execution_callback_success", feature = "op_stop_durable_execution"))]
+/// <p>Lambda couldn't decrypt the environment variables because KMS access was denied. Check the Lambda function's KMS permissions.</p>
     KmsAccessDeniedException(crate::types::error::KmsAccessDeniedException),
-    /// <p>Lambda couldn't decrypt the environment variables because the KMS key used is disabled. Check the Lambda function's KMS key settings.</p>
+    #[cfg(any(feature = "op_checkpoint_durable_execution", feature = "op_get_durable_execution", feature = "op_get_durable_execution_history", feature = "op_get_durable_execution_state", feature = "op_invoke", feature = "op_invoke_async", feature = "op_invoke_with_response_stream", feature = "op_send_durable_execution_callback_failure", feature = "op_send_durable_execution_callback_success", feature = "op_stop_durable_execution"))]
+/// <p>Lambda couldn't decrypt the environment variables because the KMS key used is disabled. Check the Lambda function's KMS key settings.</p>
     KmsDisabledException(crate::types::error::KmsDisabledException),
-    /// <p>Lambda couldn't decrypt the environment variables because the state of the KMS key used is not valid for Decrypt. Check the function's KMS key settings.</p>
+    #[cfg(any(feature = "op_checkpoint_durable_execution", feature = "op_get_durable_execution", feature = "op_get_durable_execution_history", feature = "op_get_durable_execution_state", feature = "op_invoke", feature = "op_invoke_async", feature = "op_invoke_with_response_stream", feature = "op_send_durable_execution_callback_failure", feature = "op_send_durable_execution_callback_success", feature = "op_stop_durable_execution"))]
+/// <p>Lambda couldn't decrypt the environment variables because the state of the KMS key used is not valid for Decrypt. Check the function's KMS key settings.</p>
     KmsInvalidStateException(crate::types::error::KmsInvalidStateException),
-    /// <p>Lambda couldn't decrypt the environment variables because the KMS key was not found. Check the function's KMS key settings.</p>
+    #[cfg(any(feature = "op_checkpoint_durable_execution", feature = "op_get_durable_execution", feature = "op_get_durable_execution_history", feature = "op_get_durable_execution_state", feature = "op_invoke", feature = "op_invoke_async", feature = "op_invoke_with_response_stream", feature = "op_send_durable_execution_callback_failure", feature = "op_send_durable_execution_callback_success", feature = "op_stop_durable_execution"))]
+/// <p>Lambda couldn't decrypt the environment variables because the KMS key was not found. Check the function's KMS key settings.</p>
     KmsNotFoundException(crate::types::error::KmsNotFoundException),
-    /// <p>The Lambda function doesn't support the invocation mode requested. For example, calling <code>Invoke</code> with <code>InvocationType=RequestResponse</code> on a function configured for asynchronous-only invocation, or vice versa. For more information about invocation types, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/invocation-options.html">Invoking Lambda functions</a>.</p>
+    #[cfg(any(feature = "op_invoke", feature = "op_invoke_async"))]
+/// <p>The Lambda function doesn't support the invocation mode requested. For example, calling <code>Invoke</code> with <code>InvocationType=RequestResponse</code> on a function configured for asynchronous-only invocation, or vice versa. For more information about invocation types, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/invocation-options.html">Invoking Lambda functions</a>.</p>
     ModeNotSupportedException(crate::types::error::ModeNotSupportedException),
-    /// <p>The function has no published versions available.</p>
+    #[cfg(any(feature = "op_invoke", feature = "op_invoke_with_response_stream"))]
+/// <p>The function has no published versions available.</p>
     NoPublishedVersionException(crate::types::error::NoPublishedVersionException),
-    /// <p>The permissions policy for the resource is too large. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-limits.html">Lambda quotas</a>.</p>
+    #[cfg(any(feature = "op_add_layer_version_permission", feature = "op_add_permission", feature = "op_put_resource_policy"))]
+/// <p>The permissions policy for the resource is too large. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-limits.html">Lambda quotas</a>.</p>
     PolicyLengthExceededException(crate::types::error::PolicyLengthExceededException),
-    /// <p>The RevisionId provided does not match the latest RevisionId for the Lambda function or alias.</p>
+    #[cfg(any(feature = "op_add_layer_version_permission", feature = "op_add_permission", feature = "op_delete_resource_policy", feature = "op_put_resource_policy", feature = "op_remove_layer_version_permission", feature = "op_remove_permission", feature = "op_update_alias", feature = "op_update_function_code", feature = "op_update_function_configuration"))]
+/// <p>The RevisionId provided does not match the latest RevisionId for the Lambda function or alias.</p>
     /// <ul>
     /// <li>
     /// <p><b>For AddPermission and RemovePermission API operations:</b> Call <code>GetPolicy</code> to retrieve the latest RevisionId for your resource.</p></li>
@@ -85,128 +114,195 @@ pub enum Error {
     /// <p><b>For all other API operations:</b> Call <code>GetFunction</code> or <code>GetAlias</code> to retrieve the latest RevisionId for your resource.</p></li>
     /// </ul>
     PreconditionFailedException(crate::types::error::PreconditionFailedException),
-    /// <p>The specified configuration does not exist.</p>
-    ProvisionedConcurrencyConfigNotFoundException(
-        crate::types::error::ProvisionedConcurrencyConfigNotFoundException,
-    ),
-    /// <p>The resource-based policy you tried to add to the Lambda resource would grant public access to it, which isn't allowed.</p>
+    #[cfg(feature = "op_get_provisioned_concurrency_config")]
+/// <p>The specified configuration does not exist.</p>
+    ProvisionedConcurrencyConfigNotFoundException(crate::types::error::ProvisionedConcurrencyConfigNotFoundException),
+    #[cfg(any(feature = "op_add_permission", feature = "op_put_resource_policy", feature = "op_remove_permission"))]
+/// <p>The resource-based policy you tried to add to the Lambda resource would grant public access to it, which isn't allowed.</p>
     PublicPolicyException(crate::types::error::PublicPolicyException),
-    /// <p>Lambda has detected your function being invoked in a recursive loop with other Amazon Web Services resources and stopped your function's invocation.</p>
+    #[cfg(any(feature = "op_invoke", feature = "op_invoke_with_response_stream"))]
+/// <p>Lambda has detected your function being invoked in a recursive loop with other Amazon Web Services resources and stopped your function's invocation.</p>
     RecursiveInvocationException(crate::types::error::RecursiveInvocationException),
-    /// <p>The request payload exceeded the <code>Invoke</code> request body JSON input quota. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-limits.html">Lambda quotas</a>.</p>
+    #[cfg(any(feature = "op_invoke", feature = "op_invoke_with_response_stream"))]
+/// <p>The request payload exceeded the <code>Invoke</code> request body JSON input quota. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-limits.html">Lambda quotas</a>.</p>
     RequestTooLargeException(crate::types::error::RequestTooLargeException),
-    /// <p>The resource already exists, or another operation is in progress.</p>
+    #[cfg(any(feature = "op_add_layer_version_permission", feature = "op_add_permission", feature = "op_create_alias", feature = "op_create_capacity_provider", feature = "op_create_function", feature = "op_create_function_url_config", feature = "op_delete_alias", feature = "op_delete_capacity_provider", feature = "op_delete_code_signing_config", feature = "op_delete_event_source_mapping", feature = "op_delete_function", feature = "op_delete_function_code_signing_config", feature = "op_delete_function_concurrency", feature = "op_delete_function_event_invoke_config", feature = "op_delete_function_url_config", feature = "op_delete_provisioned_concurrency_config", feature = "op_delete_resource_policy", feature = "op_invoke", feature = "op_invoke_async", feature = "op_invoke_with_response_stream", feature = "op_put_function_code_signing_config", feature = "op_put_function_concurrency", feature = "op_put_function_event_invoke_config", feature = "op_put_function_recursion_config", feature = "op_put_function_scaling_config", feature = "op_put_provisioned_concurrency_config", feature = "op_put_resource_policy", feature = "op_put_runtime_management_config", feature = "op_tag_resource", feature = "op_untag_resource", feature = "op_update_alias", feature = "op_update_capacity_provider", feature = "op_update_event_source_mapping", feature = "op_update_function_code", feature = "op_update_function_configuration", feature = "op_update_function_event_invoke_config", feature = "op_update_function_url_config"))]
+/// <p>The resource already exists, or another operation is in progress.</p>
     ResourceConflictException(crate::types::error::ResourceConflictException),
-    /// <p>The operation conflicts with the resource's availability. For example, you tried to update an event source mapping in the CREATING state, or you tried to delete an event source mapping currently UPDATING.</p>
+    #[cfg(any(feature = "op_delete_event_source_mapping", feature = "op_update_event_source_mapping"))]
+/// <p>The operation conflicts with the resource's availability. For example, you tried to update an event source mapping in the CREATING state, or you tried to delete an event source mapping currently UPDATING.</p>
     ResourceInUseException(crate::types::error::ResourceInUseException),
-    /// <p>The resource specified in the request does not exist.</p>
+    #[cfg(any(feature = "op_add_layer_version_permission", feature = "op_add_permission", feature = "op_create_alias", feature = "op_create_function", feature = "op_create_function_url_config", feature = "op_delete_alias", feature = "op_delete_capacity_provider", feature = "op_delete_code_signing_config", feature = "op_delete_event_source_mapping", feature = "op_delete_function", feature = "op_delete_function_code_signing_config", feature = "op_delete_function_concurrency", feature = "op_delete_function_event_invoke_config", feature = "op_delete_function_url_config", feature = "op_delete_layer_version", feature = "op_delete_provisioned_concurrency_config", feature = "op_delete_resource_policy", feature = "op_get_alias", feature = "op_get_capacity_provider", feature = "op_get_code_signing_config", feature = "op_get_durable_execution", feature = "op_get_durable_execution_history", feature = "op_get_event_source_mapping", feature = "op_get_function", feature = "op_get_function_code_signing_config", feature = "op_get_function_concurrency", feature = "op_get_function_configuration", feature = "op_get_function_event_invoke_config", feature = "op_get_function_recursion_config", feature = "op_get_function_scaling_config", feature = "op_get_function_url_config", feature = "op_get_layer_version", feature = "op_get_layer_version_by_arn", feature = "op_get_layer_version_policy", feature = "op_get_policy", feature = "op_get_provisioned_concurrency_config", feature = "op_get_resource_policy", feature = "op_get_runtime_management_config", feature = "op_invoke", feature = "op_invoke_async", feature = "op_invoke_with_response_stream", feature = "op_list_aliases", feature = "op_list_durable_executions_by_function", feature = "op_list_event_source_mappings", feature = "op_list_function_event_invoke_configs", feature = "op_list_function_url_configs", feature = "op_list_function_versions_by_capacity_provider", feature = "op_list_functions_by_code_signing_config", feature = "op_list_layer_versions", feature = "op_list_provisioned_concurrency_configs", feature = "op_list_tags", feature = "op_list_versions_by_function", feature = "op_publish_layer_version", feature = "op_put_function_code_signing_config", feature = "op_put_function_concurrency", feature = "op_put_function_event_invoke_config", feature = "op_put_function_recursion_config", feature = "op_put_function_scaling_config", feature = "op_put_provisioned_concurrency_config", feature = "op_put_resource_policy", feature = "op_put_runtime_management_config", feature = "op_remove_layer_version_permission", feature = "op_remove_permission", feature = "op_send_durable_execution_callback_failure", feature = "op_send_durable_execution_callback_heartbeat", feature = "op_send_durable_execution_callback_success", feature = "op_stop_durable_execution", feature = "op_tag_resource", feature = "op_untag_resource", feature = "op_update_alias", feature = "op_update_capacity_provider", feature = "op_update_code_signing_config", feature = "op_update_event_source_mapping", feature = "op_update_function_code", feature = "op_update_function_configuration", feature = "op_update_function_event_invoke_config", feature = "op_update_function_url_config"))]
+/// <p>The resource specified in the request does not exist.</p>
     ResourceNotFoundException(crate::types::error::ResourceNotFoundException),
-    /// <p>The function is inactive and its VPC connection is no longer available. Wait for the VPC connection to reestablish and try again.</p>
+    #[cfg(any(feature = "op_invoke", feature = "op_invoke_with_response_stream"))]
+/// <p>The function is inactive and its VPC connection is no longer available. Wait for the VPC connection to reestablish and try again.</p>
     ResourceNotReadyException(crate::types::error::ResourceNotReadyException),
-    /// <p>The Lambda function couldn't make a network connection to the configured S3 Files access point.</p>
+    #[cfg(any(feature = "op_invoke", feature = "op_invoke_async", feature = "op_invoke_with_response_stream"))]
+/// <p>The Lambda function couldn't make a network connection to the configured S3 Files access point.</p>
     S3FilesMountConnectivityException(crate::types::error::S3FilesMountConnectivityException),
-    /// <p>The Lambda function couldn't mount the configured S3 Files access point due to a permission or configuration issue.</p>
+    #[cfg(any(feature = "op_invoke", feature = "op_invoke_async", feature = "op_invoke_with_response_stream"))]
+/// <p>The Lambda function couldn't mount the configured S3 Files access point due to a permission or configuration issue.</p>
     S3FilesMountFailureException(crate::types::error::S3FilesMountFailureException),
-    /// <p>The Lambda function made a network connection to the configured S3 Files access point, but the mount operation timed out.</p>
+    #[cfg(any(feature = "op_invoke", feature = "op_invoke_async", feature = "op_invoke_with_response_stream"))]
+/// <p>The Lambda function made a network connection to the configured S3 Files access point, but the mount operation timed out.</p>
     S3FilesMountTimeoutException(crate::types::error::S3FilesMountTimeoutException),
-    /// <p>The request payload exceeded the maximum allowed size for serialized request entities.</p>
-    SerializedRequestEntityTooLargeException(
-        crate::types::error::SerializedRequestEntityTooLargeException,
-    ),
-    /// <p>The Lambda service encountered an internal error.</p>
+    #[cfg(any(feature = "op_invoke", feature = "op_invoke_with_response_stream"))]
+/// <p>The request payload exceeded the maximum allowed size for serialized request entities.</p>
+    SerializedRequestEntityTooLargeException(crate::types::error::SerializedRequestEntityTooLargeException),
+    #[cfg(any(feature = "op_add_layer_version_permission", feature = "op_add_permission", feature = "op_checkpoint_durable_execution", feature = "op_create_alias", feature = "op_create_capacity_provider", feature = "op_create_function", feature = "op_create_function_url_config", feature = "op_delete_alias", feature = "op_delete_capacity_provider", feature = "op_delete_code_signing_config", feature = "op_delete_event_source_mapping", feature = "op_delete_function", feature = "op_delete_function_code_signing_config", feature = "op_delete_function_concurrency", feature = "op_delete_function_event_invoke_config", feature = "op_delete_function_url_config", feature = "op_delete_layer_version", feature = "op_delete_provisioned_concurrency_config", feature = "op_delete_resource_policy", feature = "op_get_account_settings", feature = "op_get_alias", feature = "op_get_capacity_provider", feature = "op_get_code_signing_config", feature = "op_get_durable_execution", feature = "op_get_durable_execution_history", feature = "op_get_durable_execution_state", feature = "op_get_event_source_mapping", feature = "op_get_function", feature = "op_get_function_code_signing_config", feature = "op_get_function_concurrency", feature = "op_get_function_configuration", feature = "op_get_function_event_invoke_config", feature = "op_get_function_recursion_config", feature = "op_get_function_scaling_config", feature = "op_get_function_url_config", feature = "op_get_layer_version", feature = "op_get_layer_version_by_arn", feature = "op_get_layer_version_policy", feature = "op_get_policy", feature = "op_get_provisioned_concurrency_config", feature = "op_get_resource_policy", feature = "op_get_runtime_management_config", feature = "op_invoke", feature = "op_invoke_async", feature = "op_invoke_with_response_stream", feature = "op_list_aliases", feature = "op_list_capacity_providers", feature = "op_list_code_signing_configs", feature = "op_list_durable_executions_by_function", feature = "op_list_event_source_mappings", feature = "op_list_function_event_invoke_configs", feature = "op_list_function_url_configs", feature = "op_list_function_versions_by_capacity_provider", feature = "op_list_functions", feature = "op_list_functions_by_code_signing_config", feature = "op_list_layer_versions", feature = "op_list_layers", feature = "op_list_provisioned_concurrency_configs", feature = "op_list_tags", feature = "op_list_versions_by_function", feature = "op_publish_layer_version", feature = "op_put_function_code_signing_config", feature = "op_put_function_concurrency", feature = "op_put_function_event_invoke_config", feature = "op_put_function_recursion_config", feature = "op_put_function_scaling_config", feature = "op_put_provisioned_concurrency_config", feature = "op_put_resource_policy", feature = "op_put_runtime_management_config", feature = "op_remove_layer_version_permission", feature = "op_remove_permission", feature = "op_send_durable_execution_callback_failure", feature = "op_send_durable_execution_callback_heartbeat", feature = "op_send_durable_execution_callback_success", feature = "op_stop_durable_execution", feature = "op_tag_resource", feature = "op_untag_resource", feature = "op_update_alias", feature = "op_update_capacity_provider", feature = "op_update_code_signing_config", feature = "op_update_event_source_mapping", feature = "op_update_function_code", feature = "op_update_function_configuration", feature = "op_update_function_event_invoke_config", feature = "op_update_function_url_config"))]
+/// <p>The Lambda service encountered an internal error.</p>
     ServiceException(crate::types::error::ServiceException),
-    /// <p>The request would exceed a service quota. For more information about Lambda service quotas, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-limits.html">Lambda quotas</a>. To request a quota increase, see <a href="https://docs.aws.amazon.com/servicequotas/latest/userguide/request-quota-increase.html">Requesting a quota increase</a> in the <i>Service Quotas User Guide</i>.</p>
+    #[cfg(any(feature = "op_invoke", feature = "op_invoke_async", feature = "op_invoke_with_response_stream"))]
+/// <p>The request would exceed a service quota. For more information about Lambda service quotas, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-limits.html">Lambda quotas</a>. To request a quota increase, see <a href="https://docs.aws.amazon.com/servicequotas/latest/userguide/request-quota-increase.html">Requesting a quota increase</a> in the <i>Service Quotas User Guide</i>.</p>
     ServiceQuotaExceededException(crate::types::error::ServiceQuotaExceededException),
-    /// <p>The <code>afterRestore()</code> <a href="https://docs.aws.amazon.com/lambda/latest/dg/snapstart-runtime-hooks.html">runtime hook</a> encountered an error. For more information, check the Amazon CloudWatch logs.</p>
+    #[cfg(any(feature = "op_invoke", feature = "op_invoke_async", feature = "op_invoke_with_response_stream"))]
+/// <p>The <code>afterRestore()</code> <a href="https://docs.aws.amazon.com/lambda/latest/dg/snapstart-runtime-hooks.html">runtime hook</a> encountered an error. For more information, check the Amazon CloudWatch logs.</p>
     SnapStartException(crate::types::error::SnapStartException),
-    /// <p>Lambda is initializing your function. You can invoke the function when the <a href="https://docs.aws.amazon.com/lambda/latest/dg/functions-states.html">function state</a> becomes <code>Active</code>.</p>
+    #[cfg(any(feature = "op_invoke", feature = "op_invoke_async", feature = "op_invoke_with_response_stream"))]
+/// <p>Lambda is initializing your function. You can invoke the function when the <a href="https://docs.aws.amazon.com/lambda/latest/dg/functions-states.html">function state</a> becomes <code>Active</code>.</p>
     SnapStartNotReadyException(crate::types::error::SnapStartNotReadyException),
-    /// <p>Lambda couldn't regenerate the SnapStart snapshot for the function. SnapStart-enabled functions periodically regenerate snapshots when their underlying runtime or dependencies change; this regeneration failed. Wait for Lambda to retry, or update the function's configuration to trigger a new snapshot. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/snapstart.html">Lambda SnapStart</a>.</p>
-    SnapStartRegenerationFailureException(
-        crate::types::error::SnapStartRegenerationFailureException,
-    ),
-    /// <p>Lambda couldn't restore the snapshot within the timeout limit.</p>
+    #[cfg(any(feature = "op_invoke", feature = "op_invoke_async", feature = "op_invoke_with_response_stream"))]
+/// <p>Lambda couldn't regenerate the SnapStart snapshot for the function. SnapStart-enabled functions periodically regenerate snapshots when their underlying runtime or dependencies change; this regeneration failed. Wait for Lambda to retry, or update the function's configuration to trigger a new snapshot. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/snapstart.html">Lambda SnapStart</a>.</p>
+    SnapStartRegenerationFailureException(crate::types::error::SnapStartRegenerationFailureException),
+    #[cfg(any(feature = "op_invoke", feature = "op_invoke_async", feature = "op_invoke_with_response_stream"))]
+/// <p>Lambda couldn't restore the snapshot within the timeout limit.</p>
     SnapStartTimeoutException(crate::types::error::SnapStartTimeoutException),
-    /// <p>Lambda couldn't set up VPC access for the Lambda function because one or more configured subnets has no available IP addresses.</p>
+    #[cfg(any(feature = "op_invoke", feature = "op_invoke_async", feature = "op_invoke_with_response_stream"))]
+/// <p>Lambda couldn't set up VPC access for the Lambda function because one or more configured subnets has no available IP addresses.</p>
     SubnetIpAddressLimitReachedException(crate::types::error::SubnetIpAddressLimitReachedException),
-    /// <p>The request throughput limit was exceeded. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-limits.html#api-requests">Lambda quotas</a>.</p>
+    #[cfg(any(feature = "op_add_layer_version_permission", feature = "op_add_permission", feature = "op_checkpoint_durable_execution", feature = "op_create_alias", feature = "op_create_capacity_provider", feature = "op_create_function", feature = "op_create_function_url_config", feature = "op_delete_alias", feature = "op_delete_capacity_provider", feature = "op_delete_event_source_mapping", feature = "op_delete_function", feature = "op_delete_function_code_signing_config", feature = "op_delete_function_concurrency", feature = "op_delete_function_event_invoke_config", feature = "op_delete_function_url_config", feature = "op_delete_layer_version", feature = "op_delete_provisioned_concurrency_config", feature = "op_delete_resource_policy", feature = "op_get_account_settings", feature = "op_get_alias", feature = "op_get_capacity_provider", feature = "op_get_durable_execution", feature = "op_get_durable_execution_history", feature = "op_get_durable_execution_state", feature = "op_get_event_source_mapping", feature = "op_get_function", feature = "op_get_function_code_signing_config", feature = "op_get_function_concurrency", feature = "op_get_function_configuration", feature = "op_get_function_event_invoke_config", feature = "op_get_function_recursion_config", feature = "op_get_function_scaling_config", feature = "op_get_function_url_config", feature = "op_get_layer_version", feature = "op_get_layer_version_by_arn", feature = "op_get_layer_version_policy", feature = "op_get_policy", feature = "op_get_provisioned_concurrency_config", feature = "op_get_resource_policy", feature = "op_get_runtime_management_config", feature = "op_invoke", feature = "op_invoke_with_response_stream", feature = "op_list_aliases", feature = "op_list_capacity_providers", feature = "op_list_durable_executions_by_function", feature = "op_list_event_source_mappings", feature = "op_list_function_event_invoke_configs", feature = "op_list_function_url_configs", feature = "op_list_function_versions_by_capacity_provider", feature = "op_list_functions", feature = "op_list_layer_versions", feature = "op_list_layers", feature = "op_list_provisioned_concurrency_configs", feature = "op_list_tags", feature = "op_list_versions_by_function", feature = "op_publish_layer_version", feature = "op_put_function_code_signing_config", feature = "op_put_function_concurrency", feature = "op_put_function_event_invoke_config", feature = "op_put_function_recursion_config", feature = "op_put_function_scaling_config", feature = "op_put_provisioned_concurrency_config", feature = "op_put_resource_policy", feature = "op_put_runtime_management_config", feature = "op_remove_layer_version_permission", feature = "op_remove_permission", feature = "op_send_durable_execution_callback_failure", feature = "op_send_durable_execution_callback_heartbeat", feature = "op_send_durable_execution_callback_success", feature = "op_stop_durable_execution", feature = "op_tag_resource", feature = "op_untag_resource", feature = "op_update_alias", feature = "op_update_capacity_provider", feature = "op_update_event_source_mapping", feature = "op_update_function_code", feature = "op_update_function_configuration", feature = "op_update_function_event_invoke_config", feature = "op_update_function_url_config"))]
+/// <p>The request throughput limit was exceeded. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-limits.html#api-requests">Lambda quotas</a>.</p>
     TooManyRequestsException(crate::types::error::TooManyRequestsException),
-    /// <p>The content type of the <code>Invoke</code> request body is not JSON.</p>
+    #[cfg(any(feature = "op_invoke", feature = "op_invoke_with_response_stream"))]
+/// <p>The content type of the <code>Invoke</code> request body is not JSON.</p>
     UnsupportedMediaTypeException(crate::types::error::UnsupportedMediaTypeException),
     /// An unexpected error occurred (e.g., invalid JSON returned by the service or an unknown error code).
-    #[deprecated(
-        note = "Matching `Unhandled` directly is not forwards compatible. Instead, match using a \
+    #[deprecated(note = "Matching `Unhandled` directly is not forwards compatible. Instead, match using a \
     variable wildcard pattern and check `.code()`:
      \
     &nbsp;&nbsp;&nbsp;`err if err.code() == Some(\"SpecificExceptionCode\") => { /* handle the error */ }`
      \
-    See [`ProvideErrorMetadata`](#impl-ProvideErrorMetadata-for-Error) for what information is available for the error."
-    )]
+    See [`ProvideErrorMetadata`](#impl-ProvideErrorMetadata-for-Error) for what information is available for the error.")]
     Unhandled(crate::error::sealed_unhandled::Unhandled),
 }
 impl ::std::fmt::Display for Error {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         match self {
-            Error::AliasLimitExceededException(inner) => inner.fmt(f),
-            Error::CallbackTimeoutException(inner) => inner.fmt(f),
-            Error::CapacityProviderLimitExceededException(inner) => inner.fmt(f),
-            Error::CodeArtifactUserDeletedException(inner) => inner.fmt(f),
-            Error::CodeArtifactUserFailedException(inner) => inner.fmt(f),
-            Error::CodeArtifactUserPendingException(inner) => inner.fmt(f),
-            Error::CodeSigningConfigNotFoundException(inner) => inner.fmt(f),
-            Error::CodeStorageExceededException(inner) => inner.fmt(f),
-            Error::CodeVerificationFailedException(inner) => inner.fmt(f),
-            Error::DurableExecutionAlreadyStartedException(inner) => inner.fmt(f),
-            Error::Ec2AccessDeniedException(inner) => inner.fmt(f),
-            Error::Ec2ThrottledException(inner) => inner.fmt(f),
-            Error::Ec2UnexpectedException(inner) => inner.fmt(f),
-            Error::EfsioException(inner) => inner.fmt(f),
-            Error::EfsMountConnectivityException(inner) => inner.fmt(f),
-            Error::EfsMountFailureException(inner) => inner.fmt(f),
-            Error::EfsMountTimeoutException(inner) => inner.fmt(f),
-            Error::EniLimitReachedException(inner) => inner.fmt(f),
-            Error::EniNotReadyException(inner) => inner.fmt(f),
-            Error::FunctionVersionsPerCapacityProviderLimitExceededException(inner) => inner.fmt(f),
-            Error::InvalidCodeSignatureException(inner) => inner.fmt(f),
-            Error::InvalidParameterValueException(inner) => inner.fmt(f),
-            Error::InvalidRequestContentException(inner) => inner.fmt(f),
-            Error::InvalidRuntimeException(inner) => inner.fmt(f),
-            Error::InvalidSecurityGroupIdException(inner) => inner.fmt(f),
-            Error::InvalidSubnetIdException(inner) => inner.fmt(f),
-            Error::InvalidZipFileException(inner) => inner.fmt(f),
-            Error::KmsAccessDeniedException(inner) => inner.fmt(f),
-            Error::KmsDisabledException(inner) => inner.fmt(f),
-            Error::KmsInvalidStateException(inner) => inner.fmt(f),
-            Error::KmsNotFoundException(inner) => inner.fmt(f),
-            Error::ModeNotSupportedException(inner) => inner.fmt(f),
-            Error::NoPublishedVersionException(inner) => inner.fmt(f),
-            Error::PolicyLengthExceededException(inner) => inner.fmt(f),
-            Error::PreconditionFailedException(inner) => inner.fmt(f),
-            Error::ProvisionedConcurrencyConfigNotFoundException(inner) => inner.fmt(f),
-            Error::PublicPolicyException(inner) => inner.fmt(f),
-            Error::RecursiveInvocationException(inner) => inner.fmt(f),
-            Error::RequestTooLargeException(inner) => inner.fmt(f),
-            Error::ResourceConflictException(inner) => inner.fmt(f),
-            Error::ResourceInUseException(inner) => inner.fmt(f),
-            Error::ResourceNotFoundException(inner) => inner.fmt(f),
-            Error::ResourceNotReadyException(inner) => inner.fmt(f),
-            Error::S3FilesMountConnectivityException(inner) => inner.fmt(f),
-            Error::S3FilesMountFailureException(inner) => inner.fmt(f),
-            Error::S3FilesMountTimeoutException(inner) => inner.fmt(f),
-            Error::SerializedRequestEntityTooLargeException(inner) => inner.fmt(f),
-            Error::ServiceException(inner) => inner.fmt(f),
-            Error::ServiceQuotaExceededException(inner) => inner.fmt(f),
-            Error::SnapStartException(inner) => inner.fmt(f),
-            Error::SnapStartNotReadyException(inner) => inner.fmt(f),
-            Error::SnapStartRegenerationFailureException(inner) => inner.fmt(f),
-            Error::SnapStartTimeoutException(inner) => inner.fmt(f),
-            Error::SubnetIpAddressLimitReachedException(inner) => inner.fmt(f),
-            Error::TooManyRequestsException(inner) => inner.fmt(f),
-            Error::UnsupportedMediaTypeException(inner) => inner.fmt(f),
+            #[cfg(feature = "op_create_alias")]
+Error::AliasLimitExceededException(inner) => inner.fmt(f),
+            #[cfg(any(feature = "op_send_durable_execution_callback_failure", feature = "op_send_durable_execution_callback_heartbeat", feature = "op_send_durable_execution_callback_success"))]
+Error::CallbackTimeoutException(inner) => inner.fmt(f),
+            #[cfg(feature = "op_create_capacity_provider")]
+Error::CapacityProviderLimitExceededException(inner) => inner.fmt(f),
+            #[cfg(feature = "op_invoke")]
+Error::CodeArtifactUserDeletedException(inner) => inner.fmt(f),
+            #[cfg(feature = "op_invoke")]
+Error::CodeArtifactUserFailedException(inner) => inner.fmt(f),
+            #[cfg(feature = "op_invoke")]
+Error::CodeArtifactUserPendingException(inner) => inner.fmt(f),
+            #[cfg(any(feature = "op_create_function", feature = "op_delete_function_code_signing_config", feature = "op_get_function_code_signing_config", feature = "op_put_function_code_signing_config", feature = "op_update_function_code", feature = "op_update_function_configuration"))]
+Error::CodeSigningConfigNotFoundException(inner) => inner.fmt(f),
+            #[cfg(any(feature = "op_create_function", feature = "op_publish_layer_version", feature = "op_update_function_code"))]
+Error::CodeStorageExceededException(inner) => inner.fmt(f),
+            #[cfg(any(feature = "op_create_function", feature = "op_update_function_code", feature = "op_update_function_configuration"))]
+Error::CodeVerificationFailedException(inner) => inner.fmt(f),
+            #[cfg(feature = "op_invoke")]
+Error::DurableExecutionAlreadyStartedException(inner) => inner.fmt(f),
+            #[cfg(any(feature = "op_invoke", feature = "op_invoke_async", feature = "op_invoke_with_response_stream"))]
+Error::Ec2AccessDeniedException(inner) => inner.fmt(f),
+            #[cfg(any(feature = "op_invoke", feature = "op_invoke_async", feature = "op_invoke_with_response_stream"))]
+Error::Ec2ThrottledException(inner) => inner.fmt(f),
+            #[cfg(any(feature = "op_invoke", feature = "op_invoke_async", feature = "op_invoke_with_response_stream"))]
+Error::Ec2UnexpectedException(inner) => inner.fmt(f),
+            #[cfg(any(feature = "op_invoke", feature = "op_invoke_async", feature = "op_invoke_with_response_stream"))]
+Error::EfsioException(inner) => inner.fmt(f),
+            #[cfg(any(feature = "op_invoke", feature = "op_invoke_async", feature = "op_invoke_with_response_stream"))]
+Error::EfsMountConnectivityException(inner) => inner.fmt(f),
+            #[cfg(any(feature = "op_invoke", feature = "op_invoke_async", feature = "op_invoke_with_response_stream"))]
+Error::EfsMountFailureException(inner) => inner.fmt(f),
+            #[cfg(any(feature = "op_invoke", feature = "op_invoke_async", feature = "op_invoke_with_response_stream"))]
+Error::EfsMountTimeoutException(inner) => inner.fmt(f),
+            #[cfg(any(feature = "op_invoke", feature = "op_invoke_async", feature = "op_invoke_with_response_stream"))]
+Error::EniLimitReachedException(inner) => inner.fmt(f),
+            #[cfg(feature = "op_invoke")]
+Error::EniNotReadyException(inner) => inner.fmt(f),
+            #[cfg(feature = "op_create_function")]
+Error::FunctionVersionsPerCapacityProviderLimitExceededException(inner) => inner.fmt(f),
+            #[cfg(any(feature = "op_create_function", feature = "op_update_function_code", feature = "op_update_function_configuration"))]
+Error::InvalidCodeSignatureException(inner) => inner.fmt(f),
+            #[cfg(any(feature = "op_add_layer_version_permission", feature = "op_add_permission", feature = "op_checkpoint_durable_execution", feature = "op_create_alias", feature = "op_create_capacity_provider", feature = "op_create_function", feature = "op_create_function_url_config", feature = "op_delete_alias", feature = "op_delete_capacity_provider", feature = "op_delete_code_signing_config", feature = "op_delete_event_source_mapping", feature = "op_delete_function", feature = "op_delete_function_code_signing_config", feature = "op_delete_function_concurrency", feature = "op_delete_function_event_invoke_config", feature = "op_delete_function_url_config", feature = "op_delete_layer_version", feature = "op_delete_provisioned_concurrency_config", feature = "op_delete_resource_policy", feature = "op_get_alias", feature = "op_get_capacity_provider", feature = "op_get_code_signing_config", feature = "op_get_durable_execution", feature = "op_get_durable_execution_history", feature = "op_get_durable_execution_state", feature = "op_get_event_source_mapping", feature = "op_get_function", feature = "op_get_function_code_signing_config", feature = "op_get_function_concurrency", feature = "op_get_function_configuration", feature = "op_get_function_event_invoke_config", feature = "op_get_function_recursion_config", feature = "op_get_function_scaling_config", feature = "op_get_function_url_config", feature = "op_get_layer_version", feature = "op_get_layer_version_by_arn", feature = "op_get_layer_version_policy", feature = "op_get_policy", feature = "op_get_provisioned_concurrency_config", feature = "op_get_resource_policy", feature = "op_get_runtime_management_config", feature = "op_invoke", feature = "op_invoke_with_response_stream", feature = "op_list_aliases", feature = "op_list_capacity_providers", feature = "op_list_code_signing_configs", feature = "op_list_durable_executions_by_function", feature = "op_list_event_source_mappings", feature = "op_list_function_event_invoke_configs", feature = "op_list_function_url_configs", feature = "op_list_function_versions_by_capacity_provider", feature = "op_list_functions", feature = "op_list_functions_by_code_signing_config", feature = "op_list_layer_versions", feature = "op_list_layers", feature = "op_list_provisioned_concurrency_configs", feature = "op_list_tags", feature = "op_list_versions_by_function", feature = "op_publish_layer_version", feature = "op_put_function_code_signing_config", feature = "op_put_function_concurrency", feature = "op_put_function_event_invoke_config", feature = "op_put_function_recursion_config", feature = "op_put_function_scaling_config", feature = "op_put_provisioned_concurrency_config", feature = "op_put_resource_policy", feature = "op_put_runtime_management_config", feature = "op_remove_layer_version_permission", feature = "op_remove_permission", feature = "op_send_durable_execution_callback_failure", feature = "op_send_durable_execution_callback_heartbeat", feature = "op_send_durable_execution_callback_success", feature = "op_stop_durable_execution", feature = "op_tag_resource", feature = "op_untag_resource", feature = "op_update_alias", feature = "op_update_capacity_provider", feature = "op_update_code_signing_config", feature = "op_update_event_source_mapping", feature = "op_update_function_code", feature = "op_update_function_configuration", feature = "op_update_function_event_invoke_config", feature = "op_update_function_url_config"))]
+Error::InvalidParameterValueException(inner) => inner.fmt(f),
+            #[cfg(any(feature = "op_invoke", feature = "op_invoke_async", feature = "op_invoke_with_response_stream"))]
+Error::InvalidRequestContentException(inner) => inner.fmt(f),
+            #[cfg(any(feature = "op_invoke", feature = "op_invoke_async", feature = "op_invoke_with_response_stream"))]
+Error::InvalidRuntimeException(inner) => inner.fmt(f),
+            #[cfg(any(feature = "op_invoke", feature = "op_invoke_async", feature = "op_invoke_with_response_stream"))]
+Error::InvalidSecurityGroupIdException(inner) => inner.fmt(f),
+            #[cfg(any(feature = "op_invoke", feature = "op_invoke_async", feature = "op_invoke_with_response_stream"))]
+Error::InvalidSubnetIdException(inner) => inner.fmt(f),
+            #[cfg(any(feature = "op_invoke", feature = "op_invoke_with_response_stream"))]
+Error::InvalidZipFileException(inner) => inner.fmt(f),
+            #[cfg(any(feature = "op_checkpoint_durable_execution", feature = "op_get_durable_execution", feature = "op_get_durable_execution_history", feature = "op_get_durable_execution_state", feature = "op_invoke", feature = "op_invoke_async", feature = "op_invoke_with_response_stream", feature = "op_send_durable_execution_callback_failure", feature = "op_send_durable_execution_callback_success", feature = "op_stop_durable_execution"))]
+Error::KmsAccessDeniedException(inner) => inner.fmt(f),
+            #[cfg(any(feature = "op_checkpoint_durable_execution", feature = "op_get_durable_execution", feature = "op_get_durable_execution_history", feature = "op_get_durable_execution_state", feature = "op_invoke", feature = "op_invoke_async", feature = "op_invoke_with_response_stream", feature = "op_send_durable_execution_callback_failure", feature = "op_send_durable_execution_callback_success", feature = "op_stop_durable_execution"))]
+Error::KmsDisabledException(inner) => inner.fmt(f),
+            #[cfg(any(feature = "op_checkpoint_durable_execution", feature = "op_get_durable_execution", feature = "op_get_durable_execution_history", feature = "op_get_durable_execution_state", feature = "op_invoke", feature = "op_invoke_async", feature = "op_invoke_with_response_stream", feature = "op_send_durable_execution_callback_failure", feature = "op_send_durable_execution_callback_success", feature = "op_stop_durable_execution"))]
+Error::KmsInvalidStateException(inner) => inner.fmt(f),
+            #[cfg(any(feature = "op_checkpoint_durable_execution", feature = "op_get_durable_execution", feature = "op_get_durable_execution_history", feature = "op_get_durable_execution_state", feature = "op_invoke", feature = "op_invoke_async", feature = "op_invoke_with_response_stream", feature = "op_send_durable_execution_callback_failure", feature = "op_send_durable_execution_callback_success", feature = "op_stop_durable_execution"))]
+Error::KmsNotFoundException(inner) => inner.fmt(f),
+            #[cfg(any(feature = "op_invoke", feature = "op_invoke_async"))]
+Error::ModeNotSupportedException(inner) => inner.fmt(f),
+            #[cfg(any(feature = "op_invoke", feature = "op_invoke_with_response_stream"))]
+Error::NoPublishedVersionException(inner) => inner.fmt(f),
+            #[cfg(any(feature = "op_add_layer_version_permission", feature = "op_add_permission", feature = "op_put_resource_policy"))]
+Error::PolicyLengthExceededException(inner) => inner.fmt(f),
+            #[cfg(any(feature = "op_add_layer_version_permission", feature = "op_add_permission", feature = "op_delete_resource_policy", feature = "op_put_resource_policy", feature = "op_remove_layer_version_permission", feature = "op_remove_permission", feature = "op_update_alias", feature = "op_update_function_code", feature = "op_update_function_configuration"))]
+Error::PreconditionFailedException(inner) => inner.fmt(f),
+            #[cfg(feature = "op_get_provisioned_concurrency_config")]
+Error::ProvisionedConcurrencyConfigNotFoundException(inner) => inner.fmt(f),
+            #[cfg(any(feature = "op_add_permission", feature = "op_put_resource_policy", feature = "op_remove_permission"))]
+Error::PublicPolicyException(inner) => inner.fmt(f),
+            #[cfg(any(feature = "op_invoke", feature = "op_invoke_with_response_stream"))]
+Error::RecursiveInvocationException(inner) => inner.fmt(f),
+            #[cfg(any(feature = "op_invoke", feature = "op_invoke_with_response_stream"))]
+Error::RequestTooLargeException(inner) => inner.fmt(f),
+            #[cfg(any(feature = "op_add_layer_version_permission", feature = "op_add_permission", feature = "op_create_alias", feature = "op_create_capacity_provider", feature = "op_create_function", feature = "op_create_function_url_config", feature = "op_delete_alias", feature = "op_delete_capacity_provider", feature = "op_delete_code_signing_config", feature = "op_delete_event_source_mapping", feature = "op_delete_function", feature = "op_delete_function_code_signing_config", feature = "op_delete_function_concurrency", feature = "op_delete_function_event_invoke_config", feature = "op_delete_function_url_config", feature = "op_delete_provisioned_concurrency_config", feature = "op_delete_resource_policy", feature = "op_invoke", feature = "op_invoke_async", feature = "op_invoke_with_response_stream", feature = "op_put_function_code_signing_config", feature = "op_put_function_concurrency", feature = "op_put_function_event_invoke_config", feature = "op_put_function_recursion_config", feature = "op_put_function_scaling_config", feature = "op_put_provisioned_concurrency_config", feature = "op_put_resource_policy", feature = "op_put_runtime_management_config", feature = "op_tag_resource", feature = "op_untag_resource", feature = "op_update_alias", feature = "op_update_capacity_provider", feature = "op_update_event_source_mapping", feature = "op_update_function_code", feature = "op_update_function_configuration", feature = "op_update_function_event_invoke_config", feature = "op_update_function_url_config"))]
+Error::ResourceConflictException(inner) => inner.fmt(f),
+            #[cfg(any(feature = "op_delete_event_source_mapping", feature = "op_update_event_source_mapping"))]
+Error::ResourceInUseException(inner) => inner.fmt(f),
+            #[cfg(any(feature = "op_add_layer_version_permission", feature = "op_add_permission", feature = "op_create_alias", feature = "op_create_function", feature = "op_create_function_url_config", feature = "op_delete_alias", feature = "op_delete_capacity_provider", feature = "op_delete_code_signing_config", feature = "op_delete_event_source_mapping", feature = "op_delete_function", feature = "op_delete_function_code_signing_config", feature = "op_delete_function_concurrency", feature = "op_delete_function_event_invoke_config", feature = "op_delete_function_url_config", feature = "op_delete_layer_version", feature = "op_delete_provisioned_concurrency_config", feature = "op_delete_resource_policy", feature = "op_get_alias", feature = "op_get_capacity_provider", feature = "op_get_code_signing_config", feature = "op_get_durable_execution", feature = "op_get_durable_execution_history", feature = "op_get_event_source_mapping", feature = "op_get_function", feature = "op_get_function_code_signing_config", feature = "op_get_function_concurrency", feature = "op_get_function_configuration", feature = "op_get_function_event_invoke_config", feature = "op_get_function_recursion_config", feature = "op_get_function_scaling_config", feature = "op_get_function_url_config", feature = "op_get_layer_version", feature = "op_get_layer_version_by_arn", feature = "op_get_layer_version_policy", feature = "op_get_policy", feature = "op_get_provisioned_concurrency_config", feature = "op_get_resource_policy", feature = "op_get_runtime_management_config", feature = "op_invoke", feature = "op_invoke_async", feature = "op_invoke_with_response_stream", feature = "op_list_aliases", feature = "op_list_durable_executions_by_function", feature = "op_list_event_source_mappings", feature = "op_list_function_event_invoke_configs", feature = "op_list_function_url_configs", feature = "op_list_function_versions_by_capacity_provider", feature = "op_list_functions_by_code_signing_config", feature = "op_list_layer_versions", feature = "op_list_provisioned_concurrency_configs", feature = "op_list_tags", feature = "op_list_versions_by_function", feature = "op_publish_layer_version", feature = "op_put_function_code_signing_config", feature = "op_put_function_concurrency", feature = "op_put_function_event_invoke_config", feature = "op_put_function_recursion_config", feature = "op_put_function_scaling_config", feature = "op_put_provisioned_concurrency_config", feature = "op_put_resource_policy", feature = "op_put_runtime_management_config", feature = "op_remove_layer_version_permission", feature = "op_remove_permission", feature = "op_send_durable_execution_callback_failure", feature = "op_send_durable_execution_callback_heartbeat", feature = "op_send_durable_execution_callback_success", feature = "op_stop_durable_execution", feature = "op_tag_resource", feature = "op_untag_resource", feature = "op_update_alias", feature = "op_update_capacity_provider", feature = "op_update_code_signing_config", feature = "op_update_event_source_mapping", feature = "op_update_function_code", feature = "op_update_function_configuration", feature = "op_update_function_event_invoke_config", feature = "op_update_function_url_config"))]
+Error::ResourceNotFoundException(inner) => inner.fmt(f),
+            #[cfg(any(feature = "op_invoke", feature = "op_invoke_with_response_stream"))]
+Error::ResourceNotReadyException(inner) => inner.fmt(f),
+            #[cfg(any(feature = "op_invoke", feature = "op_invoke_async", feature = "op_invoke_with_response_stream"))]
+Error::S3FilesMountConnectivityException(inner) => inner.fmt(f),
+            #[cfg(any(feature = "op_invoke", feature = "op_invoke_async", feature = "op_invoke_with_response_stream"))]
+Error::S3FilesMountFailureException(inner) => inner.fmt(f),
+            #[cfg(any(feature = "op_invoke", feature = "op_invoke_async", feature = "op_invoke_with_response_stream"))]
+Error::S3FilesMountTimeoutException(inner) => inner.fmt(f),
+            #[cfg(any(feature = "op_invoke", feature = "op_invoke_with_response_stream"))]
+Error::SerializedRequestEntityTooLargeException(inner) => inner.fmt(f),
+            #[cfg(any(feature = "op_add_layer_version_permission", feature = "op_add_permission", feature = "op_checkpoint_durable_execution", feature = "op_create_alias", feature = "op_create_capacity_provider", feature = "op_create_function", feature = "op_create_function_url_config", feature = "op_delete_alias", feature = "op_delete_capacity_provider", feature = "op_delete_code_signing_config", feature = "op_delete_event_source_mapping", feature = "op_delete_function", feature = "op_delete_function_code_signing_config", feature = "op_delete_function_concurrency", feature = "op_delete_function_event_invoke_config", feature = "op_delete_function_url_config", feature = "op_delete_layer_version", feature = "op_delete_provisioned_concurrency_config", feature = "op_delete_resource_policy", feature = "op_get_account_settings", feature = "op_get_alias", feature = "op_get_capacity_provider", feature = "op_get_code_signing_config", feature = "op_get_durable_execution", feature = "op_get_durable_execution_history", feature = "op_get_durable_execution_state", feature = "op_get_event_source_mapping", feature = "op_get_function", feature = "op_get_function_code_signing_config", feature = "op_get_function_concurrency", feature = "op_get_function_configuration", feature = "op_get_function_event_invoke_config", feature = "op_get_function_recursion_config", feature = "op_get_function_scaling_config", feature = "op_get_function_url_config", feature = "op_get_layer_version", feature = "op_get_layer_version_by_arn", feature = "op_get_layer_version_policy", feature = "op_get_policy", feature = "op_get_provisioned_concurrency_config", feature = "op_get_resource_policy", feature = "op_get_runtime_management_config", feature = "op_invoke", feature = "op_invoke_async", feature = "op_invoke_with_response_stream", feature = "op_list_aliases", feature = "op_list_capacity_providers", feature = "op_list_code_signing_configs", feature = "op_list_durable_executions_by_function", feature = "op_list_event_source_mappings", feature = "op_list_function_event_invoke_configs", feature = "op_list_function_url_configs", feature = "op_list_function_versions_by_capacity_provider", feature = "op_list_functions", feature = "op_list_functions_by_code_signing_config", feature = "op_list_layer_versions", feature = "op_list_layers", feature = "op_list_provisioned_concurrency_configs", feature = "op_list_tags", feature = "op_list_versions_by_function", feature = "op_publish_layer_version", feature = "op_put_function_code_signing_config", feature = "op_put_function_concurrency", feature = "op_put_function_event_invoke_config", feature = "op_put_function_recursion_config", feature = "op_put_function_scaling_config", feature = "op_put_provisioned_concurrency_config", feature = "op_put_resource_policy", feature = "op_put_runtime_management_config", feature = "op_remove_layer_version_permission", feature = "op_remove_permission", feature = "op_send_durable_execution_callback_failure", feature = "op_send_durable_execution_callback_heartbeat", feature = "op_send_durable_execution_callback_success", feature = "op_stop_durable_execution", feature = "op_tag_resource", feature = "op_untag_resource", feature = "op_update_alias", feature = "op_update_capacity_provider", feature = "op_update_code_signing_config", feature = "op_update_event_source_mapping", feature = "op_update_function_code", feature = "op_update_function_configuration", feature = "op_update_function_event_invoke_config", feature = "op_update_function_url_config"))]
+Error::ServiceException(inner) => inner.fmt(f),
+            #[cfg(any(feature = "op_invoke", feature = "op_invoke_async", feature = "op_invoke_with_response_stream"))]
+Error::ServiceQuotaExceededException(inner) => inner.fmt(f),
+            #[cfg(any(feature = "op_invoke", feature = "op_invoke_async", feature = "op_invoke_with_response_stream"))]
+Error::SnapStartException(inner) => inner.fmt(f),
+            #[cfg(any(feature = "op_invoke", feature = "op_invoke_async", feature = "op_invoke_with_response_stream"))]
+Error::SnapStartNotReadyException(inner) => inner.fmt(f),
+            #[cfg(any(feature = "op_invoke", feature = "op_invoke_async", feature = "op_invoke_with_response_stream"))]
+Error::SnapStartRegenerationFailureException(inner) => inner.fmt(f),
+            #[cfg(any(feature = "op_invoke", feature = "op_invoke_async", feature = "op_invoke_with_response_stream"))]
+Error::SnapStartTimeoutException(inner) => inner.fmt(f),
+            #[cfg(any(feature = "op_invoke", feature = "op_invoke_async", feature = "op_invoke_with_response_stream"))]
+Error::SubnetIpAddressLimitReachedException(inner) => inner.fmt(f),
+            #[cfg(any(feature = "op_add_layer_version_permission", feature = "op_add_permission", feature = "op_checkpoint_durable_execution", feature = "op_create_alias", feature = "op_create_capacity_provider", feature = "op_create_function", feature = "op_create_function_url_config", feature = "op_delete_alias", feature = "op_delete_capacity_provider", feature = "op_delete_event_source_mapping", feature = "op_delete_function", feature = "op_delete_function_code_signing_config", feature = "op_delete_function_concurrency", feature = "op_delete_function_event_invoke_config", feature = "op_delete_function_url_config", feature = "op_delete_layer_version", feature = "op_delete_provisioned_concurrency_config", feature = "op_delete_resource_policy", feature = "op_get_account_settings", feature = "op_get_alias", feature = "op_get_capacity_provider", feature = "op_get_durable_execution", feature = "op_get_durable_execution_history", feature = "op_get_durable_execution_state", feature = "op_get_event_source_mapping", feature = "op_get_function", feature = "op_get_function_code_signing_config", feature = "op_get_function_concurrency", feature = "op_get_function_configuration", feature = "op_get_function_event_invoke_config", feature = "op_get_function_recursion_config", feature = "op_get_function_scaling_config", feature = "op_get_function_url_config", feature = "op_get_layer_version", feature = "op_get_layer_version_by_arn", feature = "op_get_layer_version_policy", feature = "op_get_policy", feature = "op_get_provisioned_concurrency_config", feature = "op_get_resource_policy", feature = "op_get_runtime_management_config", feature = "op_invoke", feature = "op_invoke_with_response_stream", feature = "op_list_aliases", feature = "op_list_capacity_providers", feature = "op_list_durable_executions_by_function", feature = "op_list_event_source_mappings", feature = "op_list_function_event_invoke_configs", feature = "op_list_function_url_configs", feature = "op_list_function_versions_by_capacity_provider", feature = "op_list_functions", feature = "op_list_layer_versions", feature = "op_list_layers", feature = "op_list_provisioned_concurrency_configs", feature = "op_list_tags", feature = "op_list_versions_by_function", feature = "op_publish_layer_version", feature = "op_put_function_code_signing_config", feature = "op_put_function_concurrency", feature = "op_put_function_event_invoke_config", feature = "op_put_function_recursion_config", feature = "op_put_function_scaling_config", feature = "op_put_provisioned_concurrency_config", feature = "op_put_resource_policy", feature = "op_put_runtime_management_config", feature = "op_remove_layer_version_permission", feature = "op_remove_permission", feature = "op_send_durable_execution_callback_failure", feature = "op_send_durable_execution_callback_heartbeat", feature = "op_send_durable_execution_callback_success", feature = "op_stop_durable_execution", feature = "op_tag_resource", feature = "op_untag_resource", feature = "op_update_alias", feature = "op_update_capacity_provider", feature = "op_update_event_source_mapping", feature = "op_update_function_code", feature = "op_update_function_configuration", feature = "op_update_function_event_invoke_config", feature = "op_update_function_url_config"))]
+Error::TooManyRequestsException(inner) => inner.fmt(f),
+            #[cfg(any(feature = "op_invoke", feature = "op_invoke_with_response_stream"))]
+Error::UnsupportedMediaTypeException(inner) => inner.fmt(f),
             Error::Unhandled(_) => {
-                if let ::std::option::Option::Some(code) =
-                    ::aws_smithy_types::error::metadata::ProvideErrorMetadata::code(self)
-                {
+                if let ::std::option::Option::Some(code) = ::aws_smithy_types::error::metadata::ProvideErrorMetadata::code(self) {
                     write!(f, "unhandled error ({code})")
                 } else {
                     f.write_str("unhandled error")
@@ -226,87 +322,133 @@ impl From<::aws_smithy_types::error::operation::BuildError> for Error {
 impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata for Error {
     fn meta(&self) -> &::aws_smithy_types::error::metadata::ErrorMetadata {
         match self {
-            Self::AliasLimitExceededException(inner) => inner.meta(),
-            Self::CallbackTimeoutException(inner) => inner.meta(),
-            Self::CapacityProviderLimitExceededException(inner) => inner.meta(),
-            Self::CodeArtifactUserDeletedException(inner) => inner.meta(),
-            Self::CodeArtifactUserFailedException(inner) => inner.meta(),
-            Self::CodeArtifactUserPendingException(inner) => inner.meta(),
-            Self::CodeSigningConfigNotFoundException(inner) => inner.meta(),
-            Self::CodeStorageExceededException(inner) => inner.meta(),
-            Self::CodeVerificationFailedException(inner) => inner.meta(),
-            Self::DurableExecutionAlreadyStartedException(inner) => inner.meta(),
-            Self::Ec2AccessDeniedException(inner) => inner.meta(),
-            Self::Ec2ThrottledException(inner) => inner.meta(),
-            Self::Ec2UnexpectedException(inner) => inner.meta(),
-            Self::EfsioException(inner) => inner.meta(),
-            Self::EfsMountConnectivityException(inner) => inner.meta(),
-            Self::EfsMountFailureException(inner) => inner.meta(),
-            Self::EfsMountTimeoutException(inner) => inner.meta(),
-            Self::EniLimitReachedException(inner) => inner.meta(),
-            Self::EniNotReadyException(inner) => inner.meta(),
-            Self::FunctionVersionsPerCapacityProviderLimitExceededException(inner) => inner.meta(),
-            Self::InvalidCodeSignatureException(inner) => inner.meta(),
-            Self::InvalidParameterValueException(inner) => inner.meta(),
-            Self::InvalidRequestContentException(inner) => inner.meta(),
-            Self::InvalidRuntimeException(inner) => inner.meta(),
-            Self::InvalidSecurityGroupIdException(inner) => inner.meta(),
-            Self::InvalidSubnetIdException(inner) => inner.meta(),
-            Self::InvalidZipFileException(inner) => inner.meta(),
-            Self::KmsAccessDeniedException(inner) => inner.meta(),
-            Self::KmsDisabledException(inner) => inner.meta(),
-            Self::KmsInvalidStateException(inner) => inner.meta(),
-            Self::KmsNotFoundException(inner) => inner.meta(),
-            Self::ModeNotSupportedException(inner) => inner.meta(),
-            Self::NoPublishedVersionException(inner) => inner.meta(),
-            Self::PolicyLengthExceededException(inner) => inner.meta(),
-            Self::PreconditionFailedException(inner) => inner.meta(),
-            Self::ProvisionedConcurrencyConfigNotFoundException(inner) => inner.meta(),
-            Self::PublicPolicyException(inner) => inner.meta(),
-            Self::RecursiveInvocationException(inner) => inner.meta(),
-            Self::RequestTooLargeException(inner) => inner.meta(),
-            Self::ResourceConflictException(inner) => inner.meta(),
-            Self::ResourceInUseException(inner) => inner.meta(),
-            Self::ResourceNotFoundException(inner) => inner.meta(),
-            Self::ResourceNotReadyException(inner) => inner.meta(),
-            Self::S3FilesMountConnectivityException(inner) => inner.meta(),
-            Self::S3FilesMountFailureException(inner) => inner.meta(),
-            Self::S3FilesMountTimeoutException(inner) => inner.meta(),
-            Self::SerializedRequestEntityTooLargeException(inner) => inner.meta(),
-            Self::ServiceException(inner) => inner.meta(),
-            Self::ServiceQuotaExceededException(inner) => inner.meta(),
-            Self::SnapStartException(inner) => inner.meta(),
-            Self::SnapStartNotReadyException(inner) => inner.meta(),
-            Self::SnapStartRegenerationFailureException(inner) => inner.meta(),
-            Self::SnapStartTimeoutException(inner) => inner.meta(),
-            Self::SubnetIpAddressLimitReachedException(inner) => inner.meta(),
-            Self::TooManyRequestsException(inner) => inner.meta(),
-            Self::UnsupportedMediaTypeException(inner) => inner.meta(),
+            #[cfg(feature = "op_create_alias")]
+Self::AliasLimitExceededException(inner) => inner.meta(),
+            #[cfg(any(feature = "op_send_durable_execution_callback_failure", feature = "op_send_durable_execution_callback_heartbeat", feature = "op_send_durable_execution_callback_success"))]
+Self::CallbackTimeoutException(inner) => inner.meta(),
+            #[cfg(feature = "op_create_capacity_provider")]
+Self::CapacityProviderLimitExceededException(inner) => inner.meta(),
+            #[cfg(feature = "op_invoke")]
+Self::CodeArtifactUserDeletedException(inner) => inner.meta(),
+            #[cfg(feature = "op_invoke")]
+Self::CodeArtifactUserFailedException(inner) => inner.meta(),
+            #[cfg(feature = "op_invoke")]
+Self::CodeArtifactUserPendingException(inner) => inner.meta(),
+            #[cfg(any(feature = "op_create_function", feature = "op_delete_function_code_signing_config", feature = "op_get_function_code_signing_config", feature = "op_put_function_code_signing_config", feature = "op_update_function_code", feature = "op_update_function_configuration"))]
+Self::CodeSigningConfigNotFoundException(inner) => inner.meta(),
+            #[cfg(any(feature = "op_create_function", feature = "op_publish_layer_version", feature = "op_update_function_code"))]
+Self::CodeStorageExceededException(inner) => inner.meta(),
+            #[cfg(any(feature = "op_create_function", feature = "op_update_function_code", feature = "op_update_function_configuration"))]
+Self::CodeVerificationFailedException(inner) => inner.meta(),
+            #[cfg(feature = "op_invoke")]
+Self::DurableExecutionAlreadyStartedException(inner) => inner.meta(),
+            #[cfg(any(feature = "op_invoke", feature = "op_invoke_async", feature = "op_invoke_with_response_stream"))]
+Self::Ec2AccessDeniedException(inner) => inner.meta(),
+            #[cfg(any(feature = "op_invoke", feature = "op_invoke_async", feature = "op_invoke_with_response_stream"))]
+Self::Ec2ThrottledException(inner) => inner.meta(),
+            #[cfg(any(feature = "op_invoke", feature = "op_invoke_async", feature = "op_invoke_with_response_stream"))]
+Self::Ec2UnexpectedException(inner) => inner.meta(),
+            #[cfg(any(feature = "op_invoke", feature = "op_invoke_async", feature = "op_invoke_with_response_stream"))]
+Self::EfsioException(inner) => inner.meta(),
+            #[cfg(any(feature = "op_invoke", feature = "op_invoke_async", feature = "op_invoke_with_response_stream"))]
+Self::EfsMountConnectivityException(inner) => inner.meta(),
+            #[cfg(any(feature = "op_invoke", feature = "op_invoke_async", feature = "op_invoke_with_response_stream"))]
+Self::EfsMountFailureException(inner) => inner.meta(),
+            #[cfg(any(feature = "op_invoke", feature = "op_invoke_async", feature = "op_invoke_with_response_stream"))]
+Self::EfsMountTimeoutException(inner) => inner.meta(),
+            #[cfg(any(feature = "op_invoke", feature = "op_invoke_async", feature = "op_invoke_with_response_stream"))]
+Self::EniLimitReachedException(inner) => inner.meta(),
+            #[cfg(feature = "op_invoke")]
+Self::EniNotReadyException(inner) => inner.meta(),
+            #[cfg(feature = "op_create_function")]
+Self::FunctionVersionsPerCapacityProviderLimitExceededException(inner) => inner.meta(),
+            #[cfg(any(feature = "op_create_function", feature = "op_update_function_code", feature = "op_update_function_configuration"))]
+Self::InvalidCodeSignatureException(inner) => inner.meta(),
+            #[cfg(any(feature = "op_add_layer_version_permission", feature = "op_add_permission", feature = "op_checkpoint_durable_execution", feature = "op_create_alias", feature = "op_create_capacity_provider", feature = "op_create_function", feature = "op_create_function_url_config", feature = "op_delete_alias", feature = "op_delete_capacity_provider", feature = "op_delete_code_signing_config", feature = "op_delete_event_source_mapping", feature = "op_delete_function", feature = "op_delete_function_code_signing_config", feature = "op_delete_function_concurrency", feature = "op_delete_function_event_invoke_config", feature = "op_delete_function_url_config", feature = "op_delete_layer_version", feature = "op_delete_provisioned_concurrency_config", feature = "op_delete_resource_policy", feature = "op_get_alias", feature = "op_get_capacity_provider", feature = "op_get_code_signing_config", feature = "op_get_durable_execution", feature = "op_get_durable_execution_history", feature = "op_get_durable_execution_state", feature = "op_get_event_source_mapping", feature = "op_get_function", feature = "op_get_function_code_signing_config", feature = "op_get_function_concurrency", feature = "op_get_function_configuration", feature = "op_get_function_event_invoke_config", feature = "op_get_function_recursion_config", feature = "op_get_function_scaling_config", feature = "op_get_function_url_config", feature = "op_get_layer_version", feature = "op_get_layer_version_by_arn", feature = "op_get_layer_version_policy", feature = "op_get_policy", feature = "op_get_provisioned_concurrency_config", feature = "op_get_resource_policy", feature = "op_get_runtime_management_config", feature = "op_invoke", feature = "op_invoke_with_response_stream", feature = "op_list_aliases", feature = "op_list_capacity_providers", feature = "op_list_code_signing_configs", feature = "op_list_durable_executions_by_function", feature = "op_list_event_source_mappings", feature = "op_list_function_event_invoke_configs", feature = "op_list_function_url_configs", feature = "op_list_function_versions_by_capacity_provider", feature = "op_list_functions", feature = "op_list_functions_by_code_signing_config", feature = "op_list_layer_versions", feature = "op_list_layers", feature = "op_list_provisioned_concurrency_configs", feature = "op_list_tags", feature = "op_list_versions_by_function", feature = "op_publish_layer_version", feature = "op_put_function_code_signing_config", feature = "op_put_function_concurrency", feature = "op_put_function_event_invoke_config", feature = "op_put_function_recursion_config", feature = "op_put_function_scaling_config", feature = "op_put_provisioned_concurrency_config", feature = "op_put_resource_policy", feature = "op_put_runtime_management_config", feature = "op_remove_layer_version_permission", feature = "op_remove_permission", feature = "op_send_durable_execution_callback_failure", feature = "op_send_durable_execution_callback_heartbeat", feature = "op_send_durable_execution_callback_success", feature = "op_stop_durable_execution", feature = "op_tag_resource", feature = "op_untag_resource", feature = "op_update_alias", feature = "op_update_capacity_provider", feature = "op_update_code_signing_config", feature = "op_update_event_source_mapping", feature = "op_update_function_code", feature = "op_update_function_configuration", feature = "op_update_function_event_invoke_config", feature = "op_update_function_url_config"))]
+Self::InvalidParameterValueException(inner) => inner.meta(),
+            #[cfg(any(feature = "op_invoke", feature = "op_invoke_async", feature = "op_invoke_with_response_stream"))]
+Self::InvalidRequestContentException(inner) => inner.meta(),
+            #[cfg(any(feature = "op_invoke", feature = "op_invoke_async", feature = "op_invoke_with_response_stream"))]
+Self::InvalidRuntimeException(inner) => inner.meta(),
+            #[cfg(any(feature = "op_invoke", feature = "op_invoke_async", feature = "op_invoke_with_response_stream"))]
+Self::InvalidSecurityGroupIdException(inner) => inner.meta(),
+            #[cfg(any(feature = "op_invoke", feature = "op_invoke_async", feature = "op_invoke_with_response_stream"))]
+Self::InvalidSubnetIdException(inner) => inner.meta(),
+            #[cfg(any(feature = "op_invoke", feature = "op_invoke_with_response_stream"))]
+Self::InvalidZipFileException(inner) => inner.meta(),
+            #[cfg(any(feature = "op_checkpoint_durable_execution", feature = "op_get_durable_execution", feature = "op_get_durable_execution_history", feature = "op_get_durable_execution_state", feature = "op_invoke", feature = "op_invoke_async", feature = "op_invoke_with_response_stream", feature = "op_send_durable_execution_callback_failure", feature = "op_send_durable_execution_callback_success", feature = "op_stop_durable_execution"))]
+Self::KmsAccessDeniedException(inner) => inner.meta(),
+            #[cfg(any(feature = "op_checkpoint_durable_execution", feature = "op_get_durable_execution", feature = "op_get_durable_execution_history", feature = "op_get_durable_execution_state", feature = "op_invoke", feature = "op_invoke_async", feature = "op_invoke_with_response_stream", feature = "op_send_durable_execution_callback_failure", feature = "op_send_durable_execution_callback_success", feature = "op_stop_durable_execution"))]
+Self::KmsDisabledException(inner) => inner.meta(),
+            #[cfg(any(feature = "op_checkpoint_durable_execution", feature = "op_get_durable_execution", feature = "op_get_durable_execution_history", feature = "op_get_durable_execution_state", feature = "op_invoke", feature = "op_invoke_async", feature = "op_invoke_with_response_stream", feature = "op_send_durable_execution_callback_failure", feature = "op_send_durable_execution_callback_success", feature = "op_stop_durable_execution"))]
+Self::KmsInvalidStateException(inner) => inner.meta(),
+            #[cfg(any(feature = "op_checkpoint_durable_execution", feature = "op_get_durable_execution", feature = "op_get_durable_execution_history", feature = "op_get_durable_execution_state", feature = "op_invoke", feature = "op_invoke_async", feature = "op_invoke_with_response_stream", feature = "op_send_durable_execution_callback_failure", feature = "op_send_durable_execution_callback_success", feature = "op_stop_durable_execution"))]
+Self::KmsNotFoundException(inner) => inner.meta(),
+            #[cfg(any(feature = "op_invoke", feature = "op_invoke_async"))]
+Self::ModeNotSupportedException(inner) => inner.meta(),
+            #[cfg(any(feature = "op_invoke", feature = "op_invoke_with_response_stream"))]
+Self::NoPublishedVersionException(inner) => inner.meta(),
+            #[cfg(any(feature = "op_add_layer_version_permission", feature = "op_add_permission", feature = "op_put_resource_policy"))]
+Self::PolicyLengthExceededException(inner) => inner.meta(),
+            #[cfg(any(feature = "op_add_layer_version_permission", feature = "op_add_permission", feature = "op_delete_resource_policy", feature = "op_put_resource_policy", feature = "op_remove_layer_version_permission", feature = "op_remove_permission", feature = "op_update_alias", feature = "op_update_function_code", feature = "op_update_function_configuration"))]
+Self::PreconditionFailedException(inner) => inner.meta(),
+            #[cfg(feature = "op_get_provisioned_concurrency_config")]
+Self::ProvisionedConcurrencyConfigNotFoundException(inner) => inner.meta(),
+            #[cfg(any(feature = "op_add_permission", feature = "op_put_resource_policy", feature = "op_remove_permission"))]
+Self::PublicPolicyException(inner) => inner.meta(),
+            #[cfg(any(feature = "op_invoke", feature = "op_invoke_with_response_stream"))]
+Self::RecursiveInvocationException(inner) => inner.meta(),
+            #[cfg(any(feature = "op_invoke", feature = "op_invoke_with_response_stream"))]
+Self::RequestTooLargeException(inner) => inner.meta(),
+            #[cfg(any(feature = "op_add_layer_version_permission", feature = "op_add_permission", feature = "op_create_alias", feature = "op_create_capacity_provider", feature = "op_create_function", feature = "op_create_function_url_config", feature = "op_delete_alias", feature = "op_delete_capacity_provider", feature = "op_delete_code_signing_config", feature = "op_delete_event_source_mapping", feature = "op_delete_function", feature = "op_delete_function_code_signing_config", feature = "op_delete_function_concurrency", feature = "op_delete_function_event_invoke_config", feature = "op_delete_function_url_config", feature = "op_delete_provisioned_concurrency_config", feature = "op_delete_resource_policy", feature = "op_invoke", feature = "op_invoke_async", feature = "op_invoke_with_response_stream", feature = "op_put_function_code_signing_config", feature = "op_put_function_concurrency", feature = "op_put_function_event_invoke_config", feature = "op_put_function_recursion_config", feature = "op_put_function_scaling_config", feature = "op_put_provisioned_concurrency_config", feature = "op_put_resource_policy", feature = "op_put_runtime_management_config", feature = "op_tag_resource", feature = "op_untag_resource", feature = "op_update_alias", feature = "op_update_capacity_provider", feature = "op_update_event_source_mapping", feature = "op_update_function_code", feature = "op_update_function_configuration", feature = "op_update_function_event_invoke_config", feature = "op_update_function_url_config"))]
+Self::ResourceConflictException(inner) => inner.meta(),
+            #[cfg(any(feature = "op_delete_event_source_mapping", feature = "op_update_event_source_mapping"))]
+Self::ResourceInUseException(inner) => inner.meta(),
+            #[cfg(any(feature = "op_add_layer_version_permission", feature = "op_add_permission", feature = "op_create_alias", feature = "op_create_function", feature = "op_create_function_url_config", feature = "op_delete_alias", feature = "op_delete_capacity_provider", feature = "op_delete_code_signing_config", feature = "op_delete_event_source_mapping", feature = "op_delete_function", feature = "op_delete_function_code_signing_config", feature = "op_delete_function_concurrency", feature = "op_delete_function_event_invoke_config", feature = "op_delete_function_url_config", feature = "op_delete_layer_version", feature = "op_delete_provisioned_concurrency_config", feature = "op_delete_resource_policy", feature = "op_get_alias", feature = "op_get_capacity_provider", feature = "op_get_code_signing_config", feature = "op_get_durable_execution", feature = "op_get_durable_execution_history", feature = "op_get_event_source_mapping", feature = "op_get_function", feature = "op_get_function_code_signing_config", feature = "op_get_function_concurrency", feature = "op_get_function_configuration", feature = "op_get_function_event_invoke_config", feature = "op_get_function_recursion_config", feature = "op_get_function_scaling_config", feature = "op_get_function_url_config", feature = "op_get_layer_version", feature = "op_get_layer_version_by_arn", feature = "op_get_layer_version_policy", feature = "op_get_policy", feature = "op_get_provisioned_concurrency_config", feature = "op_get_resource_policy", feature = "op_get_runtime_management_config", feature = "op_invoke", feature = "op_invoke_async", feature = "op_invoke_with_response_stream", feature = "op_list_aliases", feature = "op_list_durable_executions_by_function", feature = "op_list_event_source_mappings", feature = "op_list_function_event_invoke_configs", feature = "op_list_function_url_configs", feature = "op_list_function_versions_by_capacity_provider", feature = "op_list_functions_by_code_signing_config", feature = "op_list_layer_versions", feature = "op_list_provisioned_concurrency_configs", feature = "op_list_tags", feature = "op_list_versions_by_function", feature = "op_publish_layer_version", feature = "op_put_function_code_signing_config", feature = "op_put_function_concurrency", feature = "op_put_function_event_invoke_config", feature = "op_put_function_recursion_config", feature = "op_put_function_scaling_config", feature = "op_put_provisioned_concurrency_config", feature = "op_put_resource_policy", feature = "op_put_runtime_management_config", feature = "op_remove_layer_version_permission", feature = "op_remove_permission", feature = "op_send_durable_execution_callback_failure", feature = "op_send_durable_execution_callback_heartbeat", feature = "op_send_durable_execution_callback_success", feature = "op_stop_durable_execution", feature = "op_tag_resource", feature = "op_untag_resource", feature = "op_update_alias", feature = "op_update_capacity_provider", feature = "op_update_code_signing_config", feature = "op_update_event_source_mapping", feature = "op_update_function_code", feature = "op_update_function_configuration", feature = "op_update_function_event_invoke_config", feature = "op_update_function_url_config"))]
+Self::ResourceNotFoundException(inner) => inner.meta(),
+            #[cfg(any(feature = "op_invoke", feature = "op_invoke_with_response_stream"))]
+Self::ResourceNotReadyException(inner) => inner.meta(),
+            #[cfg(any(feature = "op_invoke", feature = "op_invoke_async", feature = "op_invoke_with_response_stream"))]
+Self::S3FilesMountConnectivityException(inner) => inner.meta(),
+            #[cfg(any(feature = "op_invoke", feature = "op_invoke_async", feature = "op_invoke_with_response_stream"))]
+Self::S3FilesMountFailureException(inner) => inner.meta(),
+            #[cfg(any(feature = "op_invoke", feature = "op_invoke_async", feature = "op_invoke_with_response_stream"))]
+Self::S3FilesMountTimeoutException(inner) => inner.meta(),
+            #[cfg(any(feature = "op_invoke", feature = "op_invoke_with_response_stream"))]
+Self::SerializedRequestEntityTooLargeException(inner) => inner.meta(),
+            #[cfg(any(feature = "op_add_layer_version_permission", feature = "op_add_permission", feature = "op_checkpoint_durable_execution", feature = "op_create_alias", feature = "op_create_capacity_provider", feature = "op_create_function", feature = "op_create_function_url_config", feature = "op_delete_alias", feature = "op_delete_capacity_provider", feature = "op_delete_code_signing_config", feature = "op_delete_event_source_mapping", feature = "op_delete_function", feature = "op_delete_function_code_signing_config", feature = "op_delete_function_concurrency", feature = "op_delete_function_event_invoke_config", feature = "op_delete_function_url_config", feature = "op_delete_layer_version", feature = "op_delete_provisioned_concurrency_config", feature = "op_delete_resource_policy", feature = "op_get_account_settings", feature = "op_get_alias", feature = "op_get_capacity_provider", feature = "op_get_code_signing_config", feature = "op_get_durable_execution", feature = "op_get_durable_execution_history", feature = "op_get_durable_execution_state", feature = "op_get_event_source_mapping", feature = "op_get_function", feature = "op_get_function_code_signing_config", feature = "op_get_function_concurrency", feature = "op_get_function_configuration", feature = "op_get_function_event_invoke_config", feature = "op_get_function_recursion_config", feature = "op_get_function_scaling_config", feature = "op_get_function_url_config", feature = "op_get_layer_version", feature = "op_get_layer_version_by_arn", feature = "op_get_layer_version_policy", feature = "op_get_policy", feature = "op_get_provisioned_concurrency_config", feature = "op_get_resource_policy", feature = "op_get_runtime_management_config", feature = "op_invoke", feature = "op_invoke_async", feature = "op_invoke_with_response_stream", feature = "op_list_aliases", feature = "op_list_capacity_providers", feature = "op_list_code_signing_configs", feature = "op_list_durable_executions_by_function", feature = "op_list_event_source_mappings", feature = "op_list_function_event_invoke_configs", feature = "op_list_function_url_configs", feature = "op_list_function_versions_by_capacity_provider", feature = "op_list_functions", feature = "op_list_functions_by_code_signing_config", feature = "op_list_layer_versions", feature = "op_list_layers", feature = "op_list_provisioned_concurrency_configs", feature = "op_list_tags", feature = "op_list_versions_by_function", feature = "op_publish_layer_version", feature = "op_put_function_code_signing_config", feature = "op_put_function_concurrency", feature = "op_put_function_event_invoke_config", feature = "op_put_function_recursion_config", feature = "op_put_function_scaling_config", feature = "op_put_provisioned_concurrency_config", feature = "op_put_resource_policy", feature = "op_put_runtime_management_config", feature = "op_remove_layer_version_permission", feature = "op_remove_permission", feature = "op_send_durable_execution_callback_failure", feature = "op_send_durable_execution_callback_heartbeat", feature = "op_send_durable_execution_callback_success", feature = "op_stop_durable_execution", feature = "op_tag_resource", feature = "op_untag_resource", feature = "op_update_alias", feature = "op_update_capacity_provider", feature = "op_update_code_signing_config", feature = "op_update_event_source_mapping", feature = "op_update_function_code", feature = "op_update_function_configuration", feature = "op_update_function_event_invoke_config", feature = "op_update_function_url_config"))]
+Self::ServiceException(inner) => inner.meta(),
+            #[cfg(any(feature = "op_invoke", feature = "op_invoke_async", feature = "op_invoke_with_response_stream"))]
+Self::ServiceQuotaExceededException(inner) => inner.meta(),
+            #[cfg(any(feature = "op_invoke", feature = "op_invoke_async", feature = "op_invoke_with_response_stream"))]
+Self::SnapStartException(inner) => inner.meta(),
+            #[cfg(any(feature = "op_invoke", feature = "op_invoke_async", feature = "op_invoke_with_response_stream"))]
+Self::SnapStartNotReadyException(inner) => inner.meta(),
+            #[cfg(any(feature = "op_invoke", feature = "op_invoke_async", feature = "op_invoke_with_response_stream"))]
+Self::SnapStartRegenerationFailureException(inner) => inner.meta(),
+            #[cfg(any(feature = "op_invoke", feature = "op_invoke_async", feature = "op_invoke_with_response_stream"))]
+Self::SnapStartTimeoutException(inner) => inner.meta(),
+            #[cfg(any(feature = "op_invoke", feature = "op_invoke_async", feature = "op_invoke_with_response_stream"))]
+Self::SubnetIpAddressLimitReachedException(inner) => inner.meta(),
+            #[cfg(any(feature = "op_add_layer_version_permission", feature = "op_add_permission", feature = "op_checkpoint_durable_execution", feature = "op_create_alias", feature = "op_create_capacity_provider", feature = "op_create_function", feature = "op_create_function_url_config", feature = "op_delete_alias", feature = "op_delete_capacity_provider", feature = "op_delete_event_source_mapping", feature = "op_delete_function", feature = "op_delete_function_code_signing_config", feature = "op_delete_function_concurrency", feature = "op_delete_function_event_invoke_config", feature = "op_delete_function_url_config", feature = "op_delete_layer_version", feature = "op_delete_provisioned_concurrency_config", feature = "op_delete_resource_policy", feature = "op_get_account_settings", feature = "op_get_alias", feature = "op_get_capacity_provider", feature = "op_get_durable_execution", feature = "op_get_durable_execution_history", feature = "op_get_durable_execution_state", feature = "op_get_event_source_mapping", feature = "op_get_function", feature = "op_get_function_code_signing_config", feature = "op_get_function_concurrency", feature = "op_get_function_configuration", feature = "op_get_function_event_invoke_config", feature = "op_get_function_recursion_config", feature = "op_get_function_scaling_config", feature = "op_get_function_url_config", feature = "op_get_layer_version", feature = "op_get_layer_version_by_arn", feature = "op_get_layer_version_policy", feature = "op_get_policy", feature = "op_get_provisioned_concurrency_config", feature = "op_get_resource_policy", feature = "op_get_runtime_management_config", feature = "op_invoke", feature = "op_invoke_with_response_stream", feature = "op_list_aliases", feature = "op_list_capacity_providers", feature = "op_list_durable_executions_by_function", feature = "op_list_event_source_mappings", feature = "op_list_function_event_invoke_configs", feature = "op_list_function_url_configs", feature = "op_list_function_versions_by_capacity_provider", feature = "op_list_functions", feature = "op_list_layer_versions", feature = "op_list_layers", feature = "op_list_provisioned_concurrency_configs", feature = "op_list_tags", feature = "op_list_versions_by_function", feature = "op_publish_layer_version", feature = "op_put_function_code_signing_config", feature = "op_put_function_concurrency", feature = "op_put_function_event_invoke_config", feature = "op_put_function_recursion_config", feature = "op_put_function_scaling_config", feature = "op_put_provisioned_concurrency_config", feature = "op_put_resource_policy", feature = "op_put_runtime_management_config", feature = "op_remove_layer_version_permission", feature = "op_remove_permission", feature = "op_send_durable_execution_callback_failure", feature = "op_send_durable_execution_callback_heartbeat", feature = "op_send_durable_execution_callback_success", feature = "op_stop_durable_execution", feature = "op_tag_resource", feature = "op_untag_resource", feature = "op_update_alias", feature = "op_update_capacity_provider", feature = "op_update_event_source_mapping", feature = "op_update_function_code", feature = "op_update_function_configuration", feature = "op_update_function_event_invoke_config", feature = "op_update_function_url_config"))]
+Self::TooManyRequestsException(inner) => inner.meta(),
+            #[cfg(any(feature = "op_invoke", feature = "op_invoke_with_response_stream"))]
+Self::UnsupportedMediaTypeException(inner) => inner.meta(),
             Self::Unhandled(inner) => &inner.meta,
         }
     }
 }
 #[cfg(feature = "op_add_layer_version_permission")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::add_layer_version_permission::AddLayerVersionPermissionError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::add_layer_version_permission::AddLayerVersionPermissionError, R>>
+    for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
     fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::add_layer_version_permission::AddLayerVersionPermissionError,
-            R,
-        >,
+        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::add_layer_version_permission::AddLayerVersionPermissionError, R>,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -315,12 +457,8 @@ where
     }
 }
 #[cfg(feature = "op_add_layer_version_permission")]
-impl From<crate::operation::add_layer_version_permission::AddLayerVersionPermissionError>
-    for Error
-{
-    fn from(
-        err: crate::operation::add_layer_version_permission::AddLayerVersionPermissionError,
-    ) -> Self {
+impl From<crate::operation::add_layer_version_permission::AddLayerVersionPermissionError> for Error {
+    fn from(err: crate::operation::add_layer_version_permission::AddLayerVersionPermissionError) -> Self {
         match err {
             crate::operation::add_layer_version_permission::AddLayerVersionPermissionError::InvalidParameterValueException(inner) => {
                 Error::InvalidParameterValueException(inner)
@@ -346,26 +484,13 @@ impl From<crate::operation::add_layer_version_permission::AddLayerVersionPermiss
     }
 }
 #[cfg(feature = "op_add_permission")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::add_permission::AddPermissionError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::add_permission::AddPermissionError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::add_permission::AddPermissionError,
-            R,
-        >,
-    ) -> Self {
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::add_permission::AddPermissionError, R>) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -392,26 +517,16 @@ impl From<crate::operation::add_permission::AddPermissionError> for Error {
     }
 }
 #[cfg(feature = "op_checkpoint_durable_execution")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::checkpoint_durable_execution::CheckpointDurableExecutionError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::checkpoint_durable_execution::CheckpointDurableExecutionError, R>>
+    for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
     fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::checkpoint_durable_execution::CheckpointDurableExecutionError,
-            R,
-        >,
+        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::checkpoint_durable_execution::CheckpointDurableExecutionError, R>,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -420,12 +535,8 @@ where
     }
 }
 #[cfg(feature = "op_checkpoint_durable_execution")]
-impl From<crate::operation::checkpoint_durable_execution::CheckpointDurableExecutionError>
-    for Error
-{
-    fn from(
-        err: crate::operation::checkpoint_durable_execution::CheckpointDurableExecutionError,
-    ) -> Self {
+impl From<crate::operation::checkpoint_durable_execution::CheckpointDurableExecutionError> for Error {
+    fn from(err: crate::operation::checkpoint_durable_execution::CheckpointDurableExecutionError) -> Self {
         match err {
             crate::operation::checkpoint_durable_execution::CheckpointDurableExecutionError::InvalidParameterValueException(inner) => {
                 Error::InvalidParameterValueException(inner)
@@ -453,26 +564,13 @@ impl From<crate::operation::checkpoint_durable_execution::CheckpointDurableExecu
     }
 }
 #[cfg(feature = "op_create_alias")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::create_alias::CreateAliasError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::create_alias::CreateAliasError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::create_alias::CreateAliasError,
-            R,
-        >,
-    ) -> Self {
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::create_alias::CreateAliasError, R>) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -484,51 +582,26 @@ where
 impl From<crate::operation::create_alias::CreateAliasError> for Error {
     fn from(err: crate::operation::create_alias::CreateAliasError) -> Self {
         match err {
-            crate::operation::create_alias::CreateAliasError::AliasLimitExceededException(
-                inner,
-            ) => Error::AliasLimitExceededException(inner),
-            crate::operation::create_alias::CreateAliasError::InvalidParameterValueException(
-                inner,
-            ) => Error::InvalidParameterValueException(inner),
-            crate::operation::create_alias::CreateAliasError::ResourceConflictException(inner) => {
-                Error::ResourceConflictException(inner)
-            }
-            crate::operation::create_alias::CreateAliasError::ResourceNotFoundException(inner) => {
-                Error::ResourceNotFoundException(inner)
-            }
-            crate::operation::create_alias::CreateAliasError::ServiceException(inner) => {
-                Error::ServiceException(inner)
-            }
-            crate::operation::create_alias::CreateAliasError::TooManyRequestsException(inner) => {
-                Error::TooManyRequestsException(inner)
-            }
-            crate::operation::create_alias::CreateAliasError::Unhandled(inner) => {
-                Error::Unhandled(inner)
-            }
+            crate::operation::create_alias::CreateAliasError::AliasLimitExceededException(inner) => Error::AliasLimitExceededException(inner),
+            crate::operation::create_alias::CreateAliasError::InvalidParameterValueException(inner) => Error::InvalidParameterValueException(inner),
+            crate::operation::create_alias::CreateAliasError::ResourceConflictException(inner) => Error::ResourceConflictException(inner),
+            crate::operation::create_alias::CreateAliasError::ResourceNotFoundException(inner) => Error::ResourceNotFoundException(inner),
+            crate::operation::create_alias::CreateAliasError::ServiceException(inner) => Error::ServiceException(inner),
+            crate::operation::create_alias::CreateAliasError::TooManyRequestsException(inner) => Error::TooManyRequestsException(inner),
+            crate::operation::create_alias::CreateAliasError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
 #[cfg(feature = "op_create_capacity_provider")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::create_capacity_provider::CreateCapacityProviderError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::create_capacity_provider::CreateCapacityProviderError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
     fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::create_capacity_provider::CreateCapacityProviderError,
-            R,
-        >,
+        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::create_capacity_provider::CreateCapacityProviderError, R>,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -558,26 +631,13 @@ impl From<crate::operation::create_capacity_provider::CreateCapacityProviderErro
     }
 }
 #[cfg(feature = "op_create_function")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::create_function::CreateFunctionError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::create_function::CreateFunctionError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::create_function::CreateFunctionError,
-            R,
-        >,
-    ) -> Self {
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::create_function::CreateFunctionError, R>) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -614,26 +674,16 @@ impl From<crate::operation::create_function::CreateFunctionError> for Error {
     }
 }
 #[cfg(feature = "op_create_function_url_config")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::create_function_url_config::CreateFunctionUrlConfigError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::create_function_url_config::CreateFunctionUrlConfigError, R>>
+    for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
     fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::create_function_url_config::CreateFunctionUrlConfigError,
-            R,
-        >,
+        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::create_function_url_config::CreateFunctionUrlConfigError, R>,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -643,9 +693,7 @@ where
 }
 #[cfg(feature = "op_create_function_url_config")]
 impl From<crate::operation::create_function_url_config::CreateFunctionUrlConfigError> for Error {
-    fn from(
-        err: crate::operation::create_function_url_config::CreateFunctionUrlConfigError,
-    ) -> Self {
+    fn from(err: crate::operation::create_function_url_config::CreateFunctionUrlConfigError) -> Self {
         match err {
             crate::operation::create_function_url_config::CreateFunctionUrlConfigError::InvalidParameterValueException(inner) => {
                 Error::InvalidParameterValueException(inner)
@@ -665,26 +713,13 @@ impl From<crate::operation::create_function_url_config::CreateFunctionUrlConfigE
     }
 }
 #[cfg(feature = "op_delete_alias")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::delete_alias::DeleteAliasError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::delete_alias::DeleteAliasError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::delete_alias::DeleteAliasError,
-            R,
-        >,
-    ) -> Self {
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::delete_alias::DeleteAliasError, R>) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -696,48 +731,25 @@ where
 impl From<crate::operation::delete_alias::DeleteAliasError> for Error {
     fn from(err: crate::operation::delete_alias::DeleteAliasError) -> Self {
         match err {
-            crate::operation::delete_alias::DeleteAliasError::InvalidParameterValueException(
-                inner,
-            ) => Error::InvalidParameterValueException(inner),
-            crate::operation::delete_alias::DeleteAliasError::ResourceConflictException(inner) => {
-                Error::ResourceConflictException(inner)
-            }
-            crate::operation::delete_alias::DeleteAliasError::ResourceNotFoundException(inner) => {
-                Error::ResourceNotFoundException(inner)
-            }
-            crate::operation::delete_alias::DeleteAliasError::ServiceException(inner) => {
-                Error::ServiceException(inner)
-            }
-            crate::operation::delete_alias::DeleteAliasError::TooManyRequestsException(inner) => {
-                Error::TooManyRequestsException(inner)
-            }
-            crate::operation::delete_alias::DeleteAliasError::Unhandled(inner) => {
-                Error::Unhandled(inner)
-            }
+            crate::operation::delete_alias::DeleteAliasError::InvalidParameterValueException(inner) => Error::InvalidParameterValueException(inner),
+            crate::operation::delete_alias::DeleteAliasError::ResourceConflictException(inner) => Error::ResourceConflictException(inner),
+            crate::operation::delete_alias::DeleteAliasError::ResourceNotFoundException(inner) => Error::ResourceNotFoundException(inner),
+            crate::operation::delete_alias::DeleteAliasError::ServiceException(inner) => Error::ServiceException(inner),
+            crate::operation::delete_alias::DeleteAliasError::TooManyRequestsException(inner) => Error::TooManyRequestsException(inner),
+            crate::operation::delete_alias::DeleteAliasError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
 #[cfg(feature = "op_delete_capacity_provider")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::delete_capacity_provider::DeleteCapacityProviderError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::delete_capacity_provider::DeleteCapacityProviderError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
     fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::delete_capacity_provider::DeleteCapacityProviderError,
-            R,
-        >,
+        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::delete_capacity_provider::DeleteCapacityProviderError, R>,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -767,26 +779,16 @@ impl From<crate::operation::delete_capacity_provider::DeleteCapacityProviderErro
     }
 }
 #[cfg(feature = "op_delete_code_signing_config")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::delete_code_signing_config::DeleteCodeSigningConfigError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::delete_code_signing_config::DeleteCodeSigningConfigError, R>>
+    for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
     fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::delete_code_signing_config::DeleteCodeSigningConfigError,
-            R,
-        >,
+        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::delete_code_signing_config::DeleteCodeSigningConfigError, R>,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -796,9 +798,7 @@ where
 }
 #[cfg(feature = "op_delete_code_signing_config")]
 impl From<crate::operation::delete_code_signing_config::DeleteCodeSigningConfigError> for Error {
-    fn from(
-        err: crate::operation::delete_code_signing_config::DeleteCodeSigningConfigError,
-    ) -> Self {
+    fn from(err: crate::operation::delete_code_signing_config::DeleteCodeSigningConfigError) -> Self {
         match err {
             crate::operation::delete_code_signing_config::DeleteCodeSigningConfigError::InvalidParameterValueException(inner) => {
                 Error::InvalidParameterValueException(inner)
@@ -815,26 +815,16 @@ impl From<crate::operation::delete_code_signing_config::DeleteCodeSigningConfigE
     }
 }
 #[cfg(feature = "op_delete_event_source_mapping")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::delete_event_source_mapping::DeleteEventSourceMappingError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::delete_event_source_mapping::DeleteEventSourceMappingError, R>>
+    for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
     fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::delete_event_source_mapping::DeleteEventSourceMappingError,
-            R,
-        >,
+        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::delete_event_source_mapping::DeleteEventSourceMappingError, R>,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -844,9 +834,7 @@ where
 }
 #[cfg(feature = "op_delete_event_source_mapping")]
 impl From<crate::operation::delete_event_source_mapping::DeleteEventSourceMappingError> for Error {
-    fn from(
-        err: crate::operation::delete_event_source_mapping::DeleteEventSourceMappingError,
-    ) -> Self {
+    fn from(err: crate::operation::delete_event_source_mapping::DeleteEventSourceMappingError) -> Self {
         match err {
             crate::operation::delete_event_source_mapping::DeleteEventSourceMappingError::InvalidParameterValueException(inner) => {
                 Error::InvalidParameterValueException(inner)
@@ -869,26 +857,13 @@ impl From<crate::operation::delete_event_source_mapping::DeleteEventSourceMappin
     }
 }
 #[cfg(feature = "op_delete_function")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::delete_function::DeleteFunctionError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::delete_function::DeleteFunctionError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::delete_function::DeleteFunctionError,
-            R,
-        >,
-    ) -> Self {
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::delete_function::DeleteFunctionError, R>) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -938,14 +913,8 @@ where
     }
 }
 #[cfg(feature = "op_delete_function_code_signing_config")]
-impl
-    From<
-        crate::operation::delete_function_code_signing_config::DeleteFunctionCodeSigningConfigError,
-    > for Error
-{
-    fn from(
-        err: crate::operation::delete_function_code_signing_config::DeleteFunctionCodeSigningConfigError,
-    ) -> Self {
+impl From<crate::operation::delete_function_code_signing_config::DeleteFunctionCodeSigningConfigError> for Error {
+    fn from(err: crate::operation::delete_function_code_signing_config::DeleteFunctionCodeSigningConfigError) -> Self {
         match err {
             crate::operation::delete_function_code_signing_config::DeleteFunctionCodeSigningConfigError::CodeSigningConfigNotFoundException(
                 inner,
@@ -970,26 +939,16 @@ impl
     }
 }
 #[cfg(feature = "op_delete_function_concurrency")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::delete_function_concurrency::DeleteFunctionConcurrencyError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::delete_function_concurrency::DeleteFunctionConcurrencyError, R>>
+    for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
     fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::delete_function_concurrency::DeleteFunctionConcurrencyError,
-            R,
-        >,
+        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::delete_function_concurrency::DeleteFunctionConcurrencyError, R>,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -999,9 +958,7 @@ where
 }
 #[cfg(feature = "op_delete_function_concurrency")]
 impl From<crate::operation::delete_function_concurrency::DeleteFunctionConcurrencyError> for Error {
-    fn from(
-        err: crate::operation::delete_function_concurrency::DeleteFunctionConcurrencyError,
-    ) -> Self {
+    fn from(err: crate::operation::delete_function_concurrency::DeleteFunctionConcurrencyError) -> Self {
         match err {
             crate::operation::delete_function_concurrency::DeleteFunctionConcurrencyError::InvalidParameterValueException(inner) => {
                 Error::InvalidParameterValueException(inner)
@@ -1047,14 +1004,8 @@ where
     }
 }
 #[cfg(feature = "op_delete_function_event_invoke_config")]
-impl
-    From<
-        crate::operation::delete_function_event_invoke_config::DeleteFunctionEventInvokeConfigError,
-    > for Error
-{
-    fn from(
-        err: crate::operation::delete_function_event_invoke_config::DeleteFunctionEventInvokeConfigError,
-    ) -> Self {
+impl From<crate::operation::delete_function_event_invoke_config::DeleteFunctionEventInvokeConfigError> for Error {
+    fn from(err: crate::operation::delete_function_event_invoke_config::DeleteFunctionEventInvokeConfigError) -> Self {
         match err {
             crate::operation::delete_function_event_invoke_config::DeleteFunctionEventInvokeConfigError::InvalidParameterValueException(inner) => {
                 Error::InvalidParameterValueException(inner)
@@ -1076,26 +1027,16 @@ impl
     }
 }
 #[cfg(feature = "op_delete_function_url_config")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::delete_function_url_config::DeleteFunctionUrlConfigError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::delete_function_url_config::DeleteFunctionUrlConfigError, R>>
+    for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
     fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::delete_function_url_config::DeleteFunctionUrlConfigError,
-            R,
-        >,
+        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::delete_function_url_config::DeleteFunctionUrlConfigError, R>,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -1105,9 +1046,7 @@ where
 }
 #[cfg(feature = "op_delete_function_url_config")]
 impl From<crate::operation::delete_function_url_config::DeleteFunctionUrlConfigError> for Error {
-    fn from(
-        err: crate::operation::delete_function_url_config::DeleteFunctionUrlConfigError,
-    ) -> Self {
+    fn from(err: crate::operation::delete_function_url_config::DeleteFunctionUrlConfigError) -> Self {
         match err {
             crate::operation::delete_function_url_config::DeleteFunctionUrlConfigError::InvalidParameterValueException(inner) => {
                 Error::InvalidParameterValueException(inner)
@@ -1127,26 +1066,13 @@ impl From<crate::operation::delete_function_url_config::DeleteFunctionUrlConfigE
     }
 }
 #[cfg(feature = "op_delete_layer_version")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::delete_layer_version::DeleteLayerVersionError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::delete_layer_version::DeleteLayerVersionError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::delete_layer_version::DeleteLayerVersionError,
-            R,
-        >,
-    ) -> Self {
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::delete_layer_version::DeleteLayerVersionError, R>) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -1224,26 +1150,13 @@ impl From<crate::operation::delete_provisioned_concurrency_config::DeleteProvisi
     }
 }
 #[cfg(feature = "op_delete_resource_policy")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::delete_resource_policy::DeleteResourcePolicyError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::delete_resource_policy::DeleteResourcePolicyError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::delete_resource_policy::DeleteResourcePolicyError,
-            R,
-        >,
-    ) -> Self {
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::delete_resource_policy::DeleteResourcePolicyError, R>) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -1276,26 +1189,13 @@ impl From<crate::operation::delete_resource_policy::DeleteResourcePolicyError> f
     }
 }
 #[cfg(feature = "op_get_account_settings")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::get_account_settings::GetAccountSettingsError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::get_account_settings::GetAccountSettingsError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::get_account_settings::GetAccountSettingsError,
-            R,
-        >,
-    ) -> Self {
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::get_account_settings::GetAccountSettingsError, R>) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -1316,26 +1216,13 @@ impl From<crate::operation::get_account_settings::GetAccountSettingsError> for E
     }
 }
 #[cfg(feature = "op_get_alias")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::get_alias::GetAliasError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::get_alias::GetAliasError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::get_alias::GetAliasError,
-            R,
-        >,
-    ) -> Self {
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::get_alias::GetAliasError, R>) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -1347,43 +1234,22 @@ where
 impl From<crate::operation::get_alias::GetAliasError> for Error {
     fn from(err: crate::operation::get_alias::GetAliasError) -> Self {
         match err {
-            crate::operation::get_alias::GetAliasError::InvalidParameterValueException(inner) => {
-                Error::InvalidParameterValueException(inner)
-            }
-            crate::operation::get_alias::GetAliasError::ResourceNotFoundException(inner) => {
-                Error::ResourceNotFoundException(inner)
-            }
-            crate::operation::get_alias::GetAliasError::ServiceException(inner) => {
-                Error::ServiceException(inner)
-            }
-            crate::operation::get_alias::GetAliasError::TooManyRequestsException(inner) => {
-                Error::TooManyRequestsException(inner)
-            }
+            crate::operation::get_alias::GetAliasError::InvalidParameterValueException(inner) => Error::InvalidParameterValueException(inner),
+            crate::operation::get_alias::GetAliasError::ResourceNotFoundException(inner) => Error::ResourceNotFoundException(inner),
+            crate::operation::get_alias::GetAliasError::ServiceException(inner) => Error::ServiceException(inner),
+            crate::operation::get_alias::GetAliasError::TooManyRequestsException(inner) => Error::TooManyRequestsException(inner),
             crate::operation::get_alias::GetAliasError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
 #[cfg(feature = "op_get_capacity_provider")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::get_capacity_provider::GetCapacityProviderError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::get_capacity_provider::GetCapacityProviderError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::get_capacity_provider::GetCapacityProviderError,
-            R,
-        >,
-    ) -> Self {
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::get_capacity_provider::GetCapacityProviderError, R>) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -1410,26 +1276,15 @@ impl From<crate::operation::get_capacity_provider::GetCapacityProviderError> for
     }
 }
 #[cfg(feature = "op_get_code_signing_config")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::get_code_signing_config::GetCodeSigningConfigError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::get_code_signing_config::GetCodeSigningConfigError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
     fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::get_code_signing_config::GetCodeSigningConfigError,
-            R,
-        >,
+        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::get_code_signing_config::GetCodeSigningConfigError, R>,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -1453,26 +1308,13 @@ impl From<crate::operation::get_code_signing_config::GetCodeSigningConfigError> 
     }
 }
 #[cfg(feature = "op_get_durable_execution")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::get_durable_execution::GetDurableExecutionError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::get_durable_execution::GetDurableExecutionError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::get_durable_execution::GetDurableExecutionError,
-            R,
-        >,
-    ) -> Self {
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::get_durable_execution::GetDurableExecutionError, R>) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -1507,26 +1349,16 @@ impl From<crate::operation::get_durable_execution::GetDurableExecutionError> for
     }
 }
 #[cfg(feature = "op_get_durable_execution_history")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::get_durable_execution_history::GetDurableExecutionHistoryError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::get_durable_execution_history::GetDurableExecutionHistoryError, R>>
+    for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
     fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::get_durable_execution_history::GetDurableExecutionHistoryError,
-            R,
-        >,
+        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::get_durable_execution_history::GetDurableExecutionHistoryError, R>,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -1535,12 +1367,8 @@ where
     }
 }
 #[cfg(feature = "op_get_durable_execution_history")]
-impl From<crate::operation::get_durable_execution_history::GetDurableExecutionHistoryError>
-    for Error
-{
-    fn from(
-        err: crate::operation::get_durable_execution_history::GetDurableExecutionHistoryError,
-    ) -> Self {
+impl From<crate::operation::get_durable_execution_history::GetDurableExecutionHistoryError> for Error {
+    fn from(err: crate::operation::get_durable_execution_history::GetDurableExecutionHistoryError) -> Self {
         match err {
             crate::operation::get_durable_execution_history::GetDurableExecutionHistoryError::InvalidParameterValueException(inner) => {
                 Error::InvalidParameterValueException(inner)
@@ -1571,26 +1399,16 @@ impl From<crate::operation::get_durable_execution_history::GetDurableExecutionHi
     }
 }
 #[cfg(feature = "op_get_durable_execution_state")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::get_durable_execution_state::GetDurableExecutionStateError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::get_durable_execution_state::GetDurableExecutionStateError, R>>
+    for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
     fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::get_durable_execution_state::GetDurableExecutionStateError,
-            R,
-        >,
+        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::get_durable_execution_state::GetDurableExecutionStateError, R>,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -1600,9 +1418,7 @@ where
 }
 #[cfg(feature = "op_get_durable_execution_state")]
 impl From<crate::operation::get_durable_execution_state::GetDurableExecutionStateError> for Error {
-    fn from(
-        err: crate::operation::get_durable_execution_state::GetDurableExecutionStateError,
-    ) -> Self {
+    fn from(err: crate::operation::get_durable_execution_state::GetDurableExecutionStateError) -> Self {
         match err {
             crate::operation::get_durable_execution_state::GetDurableExecutionStateError::InvalidParameterValueException(inner) => {
                 Error::InvalidParameterValueException(inner)
@@ -1628,26 +1444,15 @@ impl From<crate::operation::get_durable_execution_state::GetDurableExecutionStat
     }
 }
 #[cfg(feature = "op_get_event_source_mapping")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::get_event_source_mapping::GetEventSourceMappingError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::get_event_source_mapping::GetEventSourceMappingError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
     fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::get_event_source_mapping::GetEventSourceMappingError,
-            R,
-        >,
+        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::get_event_source_mapping::GetEventSourceMappingError, R>,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -1674,26 +1479,13 @@ impl From<crate::operation::get_event_source_mapping::GetEventSourceMappingError
     }
 }
 #[cfg(feature = "op_get_function")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::get_function::GetFunctionError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::get_function::GetFunctionError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::get_function::GetFunctionError,
-            R,
-        >,
-    ) -> Self {
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::get_function::GetFunctionError, R>) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -1705,32 +1497,18 @@ where
 impl From<crate::operation::get_function::GetFunctionError> for Error {
     fn from(err: crate::operation::get_function::GetFunctionError) -> Self {
         match err {
-            crate::operation::get_function::GetFunctionError::InvalidParameterValueException(
-                inner,
-            ) => Error::InvalidParameterValueException(inner),
-            crate::operation::get_function::GetFunctionError::ResourceNotFoundException(inner) => {
-                Error::ResourceNotFoundException(inner)
-            }
-            crate::operation::get_function::GetFunctionError::ServiceException(inner) => {
-                Error::ServiceException(inner)
-            }
-            crate::operation::get_function::GetFunctionError::TooManyRequestsException(inner) => {
-                Error::TooManyRequestsException(inner)
-            }
-            crate::operation::get_function::GetFunctionError::Unhandled(inner) => {
-                Error::Unhandled(inner)
-            }
+            crate::operation::get_function::GetFunctionError::InvalidParameterValueException(inner) => Error::InvalidParameterValueException(inner),
+            crate::operation::get_function::GetFunctionError::ResourceNotFoundException(inner) => Error::ResourceNotFoundException(inner),
+            crate::operation::get_function::GetFunctionError::ServiceException(inner) => Error::ServiceException(inner),
+            crate::operation::get_function::GetFunctionError::TooManyRequestsException(inner) => Error::TooManyRequestsException(inner),
+            crate::operation::get_function::GetFunctionError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
 #[cfg(feature = "op_get_function_code_signing_config")]
 impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::get_function_code_signing_config::GetFunctionCodeSigningConfigError,
-            R,
-        >,
-    > for Error
+    From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::get_function_code_signing_config::GetFunctionCodeSigningConfigError, R>>
+    for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
@@ -1741,9 +1519,7 @@ where
         >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -1752,12 +1528,8 @@ where
     }
 }
 #[cfg(feature = "op_get_function_code_signing_config")]
-impl From<crate::operation::get_function_code_signing_config::GetFunctionCodeSigningConfigError>
-    for Error
-{
-    fn from(
-        err: crate::operation::get_function_code_signing_config::GetFunctionCodeSigningConfigError,
-    ) -> Self {
+impl From<crate::operation::get_function_code_signing_config::GetFunctionCodeSigningConfigError> for Error {
+    fn from(err: crate::operation::get_function_code_signing_config::GetFunctionCodeSigningConfigError) -> Self {
         match err {
             crate::operation::get_function_code_signing_config::GetFunctionCodeSigningConfigError::CodeSigningConfigNotFoundException(inner) => {
                 Error::CodeSigningConfigNotFoundException(inner)
@@ -1779,26 +1551,15 @@ impl From<crate::operation::get_function_code_signing_config::GetFunctionCodeSig
     }
 }
 #[cfg(feature = "op_get_function_concurrency")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::get_function_concurrency::GetFunctionConcurrencyError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::get_function_concurrency::GetFunctionConcurrencyError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
     fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::get_function_concurrency::GetFunctionConcurrencyError,
-            R,
-        >,
+        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::get_function_concurrency::GetFunctionConcurrencyError, R>,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -1825,26 +1586,16 @@ impl From<crate::operation::get_function_concurrency::GetFunctionConcurrencyErro
     }
 }
 #[cfg(feature = "op_get_function_configuration")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::get_function_configuration::GetFunctionConfigurationError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::get_function_configuration::GetFunctionConfigurationError, R>>
+    for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
     fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::get_function_configuration::GetFunctionConfigurationError,
-            R,
-        >,
+        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::get_function_configuration::GetFunctionConfigurationError, R>,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -1854,9 +1605,7 @@ where
 }
 #[cfg(feature = "op_get_function_configuration")]
 impl From<crate::operation::get_function_configuration::GetFunctionConfigurationError> for Error {
-    fn from(
-        err: crate::operation::get_function_configuration::GetFunctionConfigurationError,
-    ) -> Self {
+    fn from(err: crate::operation::get_function_configuration::GetFunctionConfigurationError) -> Self {
         match err {
             crate::operation::get_function_configuration::GetFunctionConfigurationError::InvalidParameterValueException(inner) => {
                 Error::InvalidParameterValueException(inner)
@@ -1874,12 +1623,8 @@ impl From<crate::operation::get_function_configuration::GetFunctionConfiguration
 }
 #[cfg(feature = "op_get_function_event_invoke_config")]
 impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::get_function_event_invoke_config::GetFunctionEventInvokeConfigError,
-            R,
-        >,
-    > for Error
+    From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::get_function_event_invoke_config::GetFunctionEventInvokeConfigError, R>>
+    for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
@@ -1890,9 +1635,7 @@ where
         >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -1901,12 +1644,8 @@ where
     }
 }
 #[cfg(feature = "op_get_function_event_invoke_config")]
-impl From<crate::operation::get_function_event_invoke_config::GetFunctionEventInvokeConfigError>
-    for Error
-{
-    fn from(
-        err: crate::operation::get_function_event_invoke_config::GetFunctionEventInvokeConfigError,
-    ) -> Self {
+impl From<crate::operation::get_function_event_invoke_config::GetFunctionEventInvokeConfigError> for Error {
+    fn from(err: crate::operation::get_function_event_invoke_config::GetFunctionEventInvokeConfigError) -> Self {
         match err {
             crate::operation::get_function_event_invoke_config::GetFunctionEventInvokeConfigError::InvalidParameterValueException(inner) => {
                 Error::InvalidParameterValueException(inner)
@@ -1925,26 +1664,16 @@ impl From<crate::operation::get_function_event_invoke_config::GetFunctionEventIn
     }
 }
 #[cfg(feature = "op_get_function_recursion_config")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::get_function_recursion_config::GetFunctionRecursionConfigError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::get_function_recursion_config::GetFunctionRecursionConfigError, R>>
+    for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
     fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::get_function_recursion_config::GetFunctionRecursionConfigError,
-            R,
-        >,
+        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::get_function_recursion_config::GetFunctionRecursionConfigError, R>,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -1953,12 +1682,8 @@ where
     }
 }
 #[cfg(feature = "op_get_function_recursion_config")]
-impl From<crate::operation::get_function_recursion_config::GetFunctionRecursionConfigError>
-    for Error
-{
-    fn from(
-        err: crate::operation::get_function_recursion_config::GetFunctionRecursionConfigError,
-    ) -> Self {
+impl From<crate::operation::get_function_recursion_config::GetFunctionRecursionConfigError> for Error {
+    fn from(err: crate::operation::get_function_recursion_config::GetFunctionRecursionConfigError) -> Self {
         match err {
             crate::operation::get_function_recursion_config::GetFunctionRecursionConfigError::InvalidParameterValueException(inner) => {
                 Error::InvalidParameterValueException(inner)
@@ -1977,26 +1702,16 @@ impl From<crate::operation::get_function_recursion_config::GetFunctionRecursionC
     }
 }
 #[cfg(feature = "op_get_function_scaling_config")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::get_function_scaling_config::GetFunctionScalingConfigError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::get_function_scaling_config::GetFunctionScalingConfigError, R>>
+    for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
     fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::get_function_scaling_config::GetFunctionScalingConfigError,
-            R,
-        >,
+        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::get_function_scaling_config::GetFunctionScalingConfigError, R>,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -2006,9 +1721,7 @@ where
 }
 #[cfg(feature = "op_get_function_scaling_config")]
 impl From<crate::operation::get_function_scaling_config::GetFunctionScalingConfigError> for Error {
-    fn from(
-        err: crate::operation::get_function_scaling_config::GetFunctionScalingConfigError,
-    ) -> Self {
+    fn from(err: crate::operation::get_function_scaling_config::GetFunctionScalingConfigError) -> Self {
         match err {
             crate::operation::get_function_scaling_config::GetFunctionScalingConfigError::InvalidParameterValueException(inner) => {
                 Error::InvalidParameterValueException(inner)
@@ -2025,26 +1738,15 @@ impl From<crate::operation::get_function_scaling_config::GetFunctionScalingConfi
     }
 }
 #[cfg(feature = "op_get_function_url_config")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::get_function_url_config::GetFunctionUrlConfigError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::get_function_url_config::GetFunctionUrlConfigError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
     fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::get_function_url_config::GetFunctionUrlConfigError,
-            R,
-        >,
+        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::get_function_url_config::GetFunctionUrlConfigError, R>,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -2071,26 +1773,13 @@ impl From<crate::operation::get_function_url_config::GetFunctionUrlConfigError> 
     }
 }
 #[cfg(feature = "op_get_layer_version")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::get_layer_version::GetLayerVersionError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::get_layer_version::GetLayerVersionError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::get_layer_version::GetLayerVersionError,
-            R,
-        >,
-    ) -> Self {
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::get_layer_version::GetLayerVersionError, R>) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -2113,26 +1802,15 @@ impl From<crate::operation::get_layer_version::GetLayerVersionError> for Error {
     }
 }
 #[cfg(feature = "op_get_layer_version_by_arn")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::get_layer_version_by_arn::GetLayerVersionByArnError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::get_layer_version_by_arn::GetLayerVersionByArnError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
     fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::get_layer_version_by_arn::GetLayerVersionByArnError,
-            R,
-        >,
+        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::get_layer_version_by_arn::GetLayerVersionByArnError, R>,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -2159,26 +1837,15 @@ impl From<crate::operation::get_layer_version_by_arn::GetLayerVersionByArnError>
     }
 }
 #[cfg(feature = "op_get_layer_version_policy")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::get_layer_version_policy::GetLayerVersionPolicyError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::get_layer_version_policy::GetLayerVersionPolicyError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
     fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::get_layer_version_policy::GetLayerVersionPolicyError,
-            R,
-        >,
+        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::get_layer_version_policy::GetLayerVersionPolicyError, R>,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -2205,26 +1872,13 @@ impl From<crate::operation::get_layer_version_policy::GetLayerVersionPolicyError
     }
 }
 #[cfg(feature = "op_get_policy")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::get_policy::GetPolicyError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::get_policy::GetPolicyError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::get_policy::GetPolicyError,
-            R,
-        >,
-    ) -> Self {
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::get_policy::GetPolicyError, R>) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -2236,21 +1890,11 @@ where
 impl From<crate::operation::get_policy::GetPolicyError> for Error {
     fn from(err: crate::operation::get_policy::GetPolicyError) -> Self {
         match err {
-            crate::operation::get_policy::GetPolicyError::InvalidParameterValueException(inner) => {
-                Error::InvalidParameterValueException(inner)
-            }
-            crate::operation::get_policy::GetPolicyError::ResourceNotFoundException(inner) => {
-                Error::ResourceNotFoundException(inner)
-            }
-            crate::operation::get_policy::GetPolicyError::ServiceException(inner) => {
-                Error::ServiceException(inner)
-            }
-            crate::operation::get_policy::GetPolicyError::TooManyRequestsException(inner) => {
-                Error::TooManyRequestsException(inner)
-            }
-            crate::operation::get_policy::GetPolicyError::Unhandled(inner) => {
-                Error::Unhandled(inner)
-            }
+            crate::operation::get_policy::GetPolicyError::InvalidParameterValueException(inner) => Error::InvalidParameterValueException(inner),
+            crate::operation::get_policy::GetPolicyError::ResourceNotFoundException(inner) => Error::ResourceNotFoundException(inner),
+            crate::operation::get_policy::GetPolicyError::ServiceException(inner) => Error::ServiceException(inner),
+            crate::operation::get_policy::GetPolicyError::TooManyRequestsException(inner) => Error::TooManyRequestsException(inner),
+            crate::operation::get_policy::GetPolicyError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
@@ -2281,13 +1925,8 @@ where
     }
 }
 #[cfg(feature = "op_get_provisioned_concurrency_config")]
-impl
-    From<crate::operation::get_provisioned_concurrency_config::GetProvisionedConcurrencyConfigError>
-    for Error
-{
-    fn from(
-        err: crate::operation::get_provisioned_concurrency_config::GetProvisionedConcurrencyConfigError,
-    ) -> Self {
+impl From<crate::operation::get_provisioned_concurrency_config::GetProvisionedConcurrencyConfigError> for Error {
+    fn from(err: crate::operation::get_provisioned_concurrency_config::GetProvisionedConcurrencyConfigError) -> Self {
         match err {
             crate::operation::get_provisioned_concurrency_config::GetProvisionedConcurrencyConfigError::InvalidParameterValueException(inner) => Error::InvalidParameterValueException(inner),
             crate::operation::get_provisioned_concurrency_config::GetProvisionedConcurrencyConfigError::ProvisionedConcurrencyConfigNotFoundException(inner) => Error::ProvisionedConcurrencyConfigNotFoundException(inner),
@@ -2299,26 +1938,13 @@ impl
     }
 }
 #[cfg(feature = "op_get_resource_policy")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::get_resource_policy::GetResourcePolicyError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::get_resource_policy::GetResourcePolicyError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::get_resource_policy::GetResourcePolicyError,
-            R,
-        >,
-    ) -> Self {
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::get_resource_policy::GetResourcePolicyError, R>) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -2343,26 +1969,16 @@ impl From<crate::operation::get_resource_policy::GetResourcePolicyError> for Err
     }
 }
 #[cfg(feature = "op_get_runtime_management_config")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::get_runtime_management_config::GetRuntimeManagementConfigError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::get_runtime_management_config::GetRuntimeManagementConfigError, R>>
+    for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
     fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::get_runtime_management_config::GetRuntimeManagementConfigError,
-            R,
-        >,
+        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::get_runtime_management_config::GetRuntimeManagementConfigError, R>,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -2371,12 +1987,8 @@ where
     }
 }
 #[cfg(feature = "op_get_runtime_management_config")]
-impl From<crate::operation::get_runtime_management_config::GetRuntimeManagementConfigError>
-    for Error
-{
-    fn from(
-        err: crate::operation::get_runtime_management_config::GetRuntimeManagementConfigError,
-    ) -> Self {
+impl From<crate::operation::get_runtime_management_config::GetRuntimeManagementConfigError> for Error {
+    fn from(err: crate::operation::get_runtime_management_config::GetRuntimeManagementConfigError) -> Self {
         match err {
             crate::operation::get_runtime_management_config::GetRuntimeManagementConfigError::InvalidParameterValueException(inner) => {
                 Error::InvalidParameterValueException(inner)
@@ -2395,26 +2007,13 @@ impl From<crate::operation::get_runtime_management_config::GetRuntimeManagementC
     }
 }
 #[cfg(feature = "op_invoke")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::invoke::InvokeError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::invoke::InvokeError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::invoke::InvokeError,
-            R,
-        >,
-    ) -> Self {
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::invoke::InvokeError, R>) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -2426,160 +2025,67 @@ where
 impl From<crate::operation::invoke::InvokeError> for Error {
     fn from(err: crate::operation::invoke::InvokeError) -> Self {
         match err {
-            crate::operation::invoke::InvokeError::CodeArtifactUserDeletedException(inner) => {
-                Error::CodeArtifactUserDeletedException(inner)
+            crate::operation::invoke::InvokeError::CodeArtifactUserDeletedException(inner) => Error::CodeArtifactUserDeletedException(inner),
+            crate::operation::invoke::InvokeError::CodeArtifactUserFailedException(inner) => Error::CodeArtifactUserFailedException(inner),
+            crate::operation::invoke::InvokeError::CodeArtifactUserPendingException(inner) => Error::CodeArtifactUserPendingException(inner),
+            crate::operation::invoke::InvokeError::DurableExecutionAlreadyStartedException(inner) => {
+                Error::DurableExecutionAlreadyStartedException(inner)
             }
-            crate::operation::invoke::InvokeError::CodeArtifactUserFailedException(inner) => {
-                Error::CodeArtifactUserFailedException(inner)
+            crate::operation::invoke::InvokeError::Ec2AccessDeniedException(inner) => Error::Ec2AccessDeniedException(inner),
+            crate::operation::invoke::InvokeError::Ec2ThrottledException(inner) => Error::Ec2ThrottledException(inner),
+            crate::operation::invoke::InvokeError::Ec2UnexpectedException(inner) => Error::Ec2UnexpectedException(inner),
+            crate::operation::invoke::InvokeError::EfsioException(inner) => Error::EfsioException(inner),
+            crate::operation::invoke::InvokeError::EfsMountConnectivityException(inner) => Error::EfsMountConnectivityException(inner),
+            crate::operation::invoke::InvokeError::EfsMountFailureException(inner) => Error::EfsMountFailureException(inner),
+            crate::operation::invoke::InvokeError::EfsMountTimeoutException(inner) => Error::EfsMountTimeoutException(inner),
+            crate::operation::invoke::InvokeError::EniLimitReachedException(inner) => Error::EniLimitReachedException(inner),
+            crate::operation::invoke::InvokeError::EniNotReadyException(inner) => Error::EniNotReadyException(inner),
+            crate::operation::invoke::InvokeError::InvalidParameterValueException(inner) => Error::InvalidParameterValueException(inner),
+            crate::operation::invoke::InvokeError::InvalidRequestContentException(inner) => Error::InvalidRequestContentException(inner),
+            crate::operation::invoke::InvokeError::InvalidRuntimeException(inner) => Error::InvalidRuntimeException(inner),
+            crate::operation::invoke::InvokeError::InvalidSecurityGroupIdException(inner) => Error::InvalidSecurityGroupIdException(inner),
+            crate::operation::invoke::InvokeError::InvalidSubnetIdException(inner) => Error::InvalidSubnetIdException(inner),
+            crate::operation::invoke::InvokeError::InvalidZipFileException(inner) => Error::InvalidZipFileException(inner),
+            crate::operation::invoke::InvokeError::KmsAccessDeniedException(inner) => Error::KmsAccessDeniedException(inner),
+            crate::operation::invoke::InvokeError::KmsDisabledException(inner) => Error::KmsDisabledException(inner),
+            crate::operation::invoke::InvokeError::KmsInvalidStateException(inner) => Error::KmsInvalidStateException(inner),
+            crate::operation::invoke::InvokeError::KmsNotFoundException(inner) => Error::KmsNotFoundException(inner),
+            crate::operation::invoke::InvokeError::ModeNotSupportedException(inner) => Error::ModeNotSupportedException(inner),
+            crate::operation::invoke::InvokeError::NoPublishedVersionException(inner) => Error::NoPublishedVersionException(inner),
+            crate::operation::invoke::InvokeError::RecursiveInvocationException(inner) => Error::RecursiveInvocationException(inner),
+            crate::operation::invoke::InvokeError::RequestTooLargeException(inner) => Error::RequestTooLargeException(inner),
+            crate::operation::invoke::InvokeError::ResourceConflictException(inner) => Error::ResourceConflictException(inner),
+            crate::operation::invoke::InvokeError::ResourceNotFoundException(inner) => Error::ResourceNotFoundException(inner),
+            crate::operation::invoke::InvokeError::ResourceNotReadyException(inner) => Error::ResourceNotReadyException(inner),
+            crate::operation::invoke::InvokeError::S3FilesMountConnectivityException(inner) => Error::S3FilesMountConnectivityException(inner),
+            crate::operation::invoke::InvokeError::S3FilesMountFailureException(inner) => Error::S3FilesMountFailureException(inner),
+            crate::operation::invoke::InvokeError::S3FilesMountTimeoutException(inner) => Error::S3FilesMountTimeoutException(inner),
+            crate::operation::invoke::InvokeError::SerializedRequestEntityTooLargeException(inner) => {
+                Error::SerializedRequestEntityTooLargeException(inner)
             }
-            crate::operation::invoke::InvokeError::CodeArtifactUserPendingException(inner) => {
-                Error::CodeArtifactUserPendingException(inner)
-            }
-            crate::operation::invoke::InvokeError::DurableExecutionAlreadyStartedException(
-                inner,
-            ) => Error::DurableExecutionAlreadyStartedException(inner),
-            crate::operation::invoke::InvokeError::Ec2AccessDeniedException(inner) => {
-                Error::Ec2AccessDeniedException(inner)
-            }
-            crate::operation::invoke::InvokeError::Ec2ThrottledException(inner) => {
-                Error::Ec2ThrottledException(inner)
-            }
-            crate::operation::invoke::InvokeError::Ec2UnexpectedException(inner) => {
-                Error::Ec2UnexpectedException(inner)
-            }
-            crate::operation::invoke::InvokeError::EfsioException(inner) => {
-                Error::EfsioException(inner)
-            }
-            crate::operation::invoke::InvokeError::EfsMountConnectivityException(inner) => {
-                Error::EfsMountConnectivityException(inner)
-            }
-            crate::operation::invoke::InvokeError::EfsMountFailureException(inner) => {
-                Error::EfsMountFailureException(inner)
-            }
-            crate::operation::invoke::InvokeError::EfsMountTimeoutException(inner) => {
-                Error::EfsMountTimeoutException(inner)
-            }
-            crate::operation::invoke::InvokeError::EniLimitReachedException(inner) => {
-                Error::EniLimitReachedException(inner)
-            }
-            crate::operation::invoke::InvokeError::EniNotReadyException(inner) => {
-                Error::EniNotReadyException(inner)
-            }
-            crate::operation::invoke::InvokeError::InvalidParameterValueException(inner) => {
-                Error::InvalidParameterValueException(inner)
-            }
-            crate::operation::invoke::InvokeError::InvalidRequestContentException(inner) => {
-                Error::InvalidRequestContentException(inner)
-            }
-            crate::operation::invoke::InvokeError::InvalidRuntimeException(inner) => {
-                Error::InvalidRuntimeException(inner)
-            }
-            crate::operation::invoke::InvokeError::InvalidSecurityGroupIdException(inner) => {
-                Error::InvalidSecurityGroupIdException(inner)
-            }
-            crate::operation::invoke::InvokeError::InvalidSubnetIdException(inner) => {
-                Error::InvalidSubnetIdException(inner)
-            }
-            crate::operation::invoke::InvokeError::InvalidZipFileException(inner) => {
-                Error::InvalidZipFileException(inner)
-            }
-            crate::operation::invoke::InvokeError::KmsAccessDeniedException(inner) => {
-                Error::KmsAccessDeniedException(inner)
-            }
-            crate::operation::invoke::InvokeError::KmsDisabledException(inner) => {
-                Error::KmsDisabledException(inner)
-            }
-            crate::operation::invoke::InvokeError::KmsInvalidStateException(inner) => {
-                Error::KmsInvalidStateException(inner)
-            }
-            crate::operation::invoke::InvokeError::KmsNotFoundException(inner) => {
-                Error::KmsNotFoundException(inner)
-            }
-            crate::operation::invoke::InvokeError::ModeNotSupportedException(inner) => {
-                Error::ModeNotSupportedException(inner)
-            }
-            crate::operation::invoke::InvokeError::NoPublishedVersionException(inner) => {
-                Error::NoPublishedVersionException(inner)
-            }
-            crate::operation::invoke::InvokeError::RecursiveInvocationException(inner) => {
-                Error::RecursiveInvocationException(inner)
-            }
-            crate::operation::invoke::InvokeError::RequestTooLargeException(inner) => {
-                Error::RequestTooLargeException(inner)
-            }
-            crate::operation::invoke::InvokeError::ResourceConflictException(inner) => {
-                Error::ResourceConflictException(inner)
-            }
-            crate::operation::invoke::InvokeError::ResourceNotFoundException(inner) => {
-                Error::ResourceNotFoundException(inner)
-            }
-            crate::operation::invoke::InvokeError::ResourceNotReadyException(inner) => {
-                Error::ResourceNotReadyException(inner)
-            }
-            crate::operation::invoke::InvokeError::S3FilesMountConnectivityException(inner) => {
-                Error::S3FilesMountConnectivityException(inner)
-            }
-            crate::operation::invoke::InvokeError::S3FilesMountFailureException(inner) => {
-                Error::S3FilesMountFailureException(inner)
-            }
-            crate::operation::invoke::InvokeError::S3FilesMountTimeoutException(inner) => {
-                Error::S3FilesMountTimeoutException(inner)
-            }
-            crate::operation::invoke::InvokeError::SerializedRequestEntityTooLargeException(
-                inner,
-            ) => Error::SerializedRequestEntityTooLargeException(inner),
-            crate::operation::invoke::InvokeError::ServiceException(inner) => {
-                Error::ServiceException(inner)
-            }
-            crate::operation::invoke::InvokeError::ServiceQuotaExceededException(inner) => {
-                Error::ServiceQuotaExceededException(inner)
-            }
-            crate::operation::invoke::InvokeError::SnapStartException(inner) => {
-                Error::SnapStartException(inner)
-            }
-            crate::operation::invoke::InvokeError::SnapStartNotReadyException(inner) => {
-                Error::SnapStartNotReadyException(inner)
-            }
+            crate::operation::invoke::InvokeError::ServiceException(inner) => Error::ServiceException(inner),
+            crate::operation::invoke::InvokeError::ServiceQuotaExceededException(inner) => Error::ServiceQuotaExceededException(inner),
+            crate::operation::invoke::InvokeError::SnapStartException(inner) => Error::SnapStartException(inner),
+            crate::operation::invoke::InvokeError::SnapStartNotReadyException(inner) => Error::SnapStartNotReadyException(inner),
             crate::operation::invoke::InvokeError::SnapStartRegenerationFailureException(inner) => {
                 Error::SnapStartRegenerationFailureException(inner)
             }
-            crate::operation::invoke::InvokeError::SnapStartTimeoutException(inner) => {
-                Error::SnapStartTimeoutException(inner)
-            }
-            crate::operation::invoke::InvokeError::SubnetIpAddressLimitReachedException(inner) => {
-                Error::SubnetIpAddressLimitReachedException(inner)
-            }
-            crate::operation::invoke::InvokeError::TooManyRequestsException(inner) => {
-                Error::TooManyRequestsException(inner)
-            }
-            crate::operation::invoke::InvokeError::UnsupportedMediaTypeException(inner) => {
-                Error::UnsupportedMediaTypeException(inner)
-            }
+            crate::operation::invoke::InvokeError::SnapStartTimeoutException(inner) => Error::SnapStartTimeoutException(inner),
+            crate::operation::invoke::InvokeError::SubnetIpAddressLimitReachedException(inner) => Error::SubnetIpAddressLimitReachedException(inner),
+            crate::operation::invoke::InvokeError::TooManyRequestsException(inner) => Error::TooManyRequestsException(inner),
+            crate::operation::invoke::InvokeError::UnsupportedMediaTypeException(inner) => Error::UnsupportedMediaTypeException(inner),
             crate::operation::invoke::InvokeError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
 #[cfg(feature = "op_invoke_async")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::invoke_async::InvokeAsyncError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::invoke_async::InvokeAsyncError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::invoke_async::InvokeAsyncError,
-            R,
-        >,
-    ) -> Self {
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::invoke_async::InvokeAsyncError, R>) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -2631,26 +2137,16 @@ impl From<crate::operation::invoke_async::InvokeAsyncError> for Error {
     }
 }
 #[cfg(feature = "op_invoke_with_response_stream")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::invoke_with_response_stream::InvokeWithResponseStreamError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::invoke_with_response_stream::InvokeWithResponseStreamError, R>>
+    for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
     fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::invoke_with_response_stream::InvokeWithResponseStreamError,
-            R,
-        >,
+        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::invoke_with_response_stream::InvokeWithResponseStreamError, R>,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -2660,9 +2156,7 @@ where
 }
 #[cfg(feature = "op_invoke_with_response_stream")]
 impl From<crate::operation::invoke_with_response_stream::InvokeWithResponseStreamError> for Error {
-    fn from(
-        err: crate::operation::invoke_with_response_stream::InvokeWithResponseStreamError,
-    ) -> Self {
+    fn from(err: crate::operation::invoke_with_response_stream::InvokeWithResponseStreamError) -> Self {
         match err {
             crate::operation::invoke_with_response_stream::InvokeWithResponseStreamError::Ec2AccessDeniedException(inner) => {
                 Error::Ec2AccessDeniedException(inner)
@@ -2776,26 +2270,13 @@ impl From<crate::operation::invoke_with_response_stream::InvokeWithResponseStrea
     }
 }
 #[cfg(feature = "op_list_aliases")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::list_aliases::ListAliasesError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_aliases::ListAliasesError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::list_aliases::ListAliasesError,
-            R,
-        >,
-    ) -> Self {
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_aliases::ListAliasesError, R>) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -2807,45 +2288,24 @@ where
 impl From<crate::operation::list_aliases::ListAliasesError> for Error {
     fn from(err: crate::operation::list_aliases::ListAliasesError) -> Self {
         match err {
-            crate::operation::list_aliases::ListAliasesError::InvalidParameterValueException(
-                inner,
-            ) => Error::InvalidParameterValueException(inner),
-            crate::operation::list_aliases::ListAliasesError::ResourceNotFoundException(inner) => {
-                Error::ResourceNotFoundException(inner)
-            }
-            crate::operation::list_aliases::ListAliasesError::ServiceException(inner) => {
-                Error::ServiceException(inner)
-            }
-            crate::operation::list_aliases::ListAliasesError::TooManyRequestsException(inner) => {
-                Error::TooManyRequestsException(inner)
-            }
-            crate::operation::list_aliases::ListAliasesError::Unhandled(inner) => {
-                Error::Unhandled(inner)
-            }
+            crate::operation::list_aliases::ListAliasesError::InvalidParameterValueException(inner) => Error::InvalidParameterValueException(inner),
+            crate::operation::list_aliases::ListAliasesError::ResourceNotFoundException(inner) => Error::ResourceNotFoundException(inner),
+            crate::operation::list_aliases::ListAliasesError::ServiceException(inner) => Error::ServiceException(inner),
+            crate::operation::list_aliases::ListAliasesError::TooManyRequestsException(inner) => Error::TooManyRequestsException(inner),
+            crate::operation::list_aliases::ListAliasesError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
 #[cfg(feature = "op_list_capacity_providers")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::list_capacity_providers::ListCapacityProvidersError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_capacity_providers::ListCapacityProvidersError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
     fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::list_capacity_providers::ListCapacityProvidersError,
-            R,
-        >,
+        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_capacity_providers::ListCapacityProvidersError, R>,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -2869,26 +2329,16 @@ impl From<crate::operation::list_capacity_providers::ListCapacityProvidersError>
     }
 }
 #[cfg(feature = "op_list_code_signing_configs")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::list_code_signing_configs::ListCodeSigningConfigsError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_code_signing_configs::ListCodeSigningConfigsError, R>>
+    for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
     fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::list_code_signing_configs::ListCodeSigningConfigsError,
-            R,
-        >,
+        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_code_signing_configs::ListCodeSigningConfigsError, R>,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -2935,14 +2385,8 @@ where
     }
 }
 #[cfg(feature = "op_list_durable_executions_by_function")]
-impl
-    From<
-        crate::operation::list_durable_executions_by_function::ListDurableExecutionsByFunctionError,
-    > for Error
-{
-    fn from(
-        err: crate::operation::list_durable_executions_by_function::ListDurableExecutionsByFunctionError,
-    ) -> Self {
+impl From<crate::operation::list_durable_executions_by_function::ListDurableExecutionsByFunctionError> for Error {
+    fn from(err: crate::operation::list_durable_executions_by_function::ListDurableExecutionsByFunctionError) -> Self {
         match err {
             crate::operation::list_durable_executions_by_function::ListDurableExecutionsByFunctionError::InvalidParameterValueException(inner) => {
                 Error::InvalidParameterValueException(inner)
@@ -2961,26 +2405,16 @@ impl
     }
 }
 #[cfg(feature = "op_list_event_source_mappings")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::list_event_source_mappings::ListEventSourceMappingsError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_event_source_mappings::ListEventSourceMappingsError, R>>
+    for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
     fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::list_event_source_mappings::ListEventSourceMappingsError,
-            R,
-        >,
+        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_event_source_mappings::ListEventSourceMappingsError, R>,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -2990,9 +2424,7 @@ where
 }
 #[cfg(feature = "op_list_event_source_mappings")]
 impl From<crate::operation::list_event_source_mappings::ListEventSourceMappingsError> for Error {
-    fn from(
-        err: crate::operation::list_event_source_mappings::ListEventSourceMappingsError,
-    ) -> Self {
+    fn from(err: crate::operation::list_event_source_mappings::ListEventSourceMappingsError) -> Self {
         match err {
             crate::operation::list_event_source_mappings::ListEventSourceMappingsError::InvalidParameterValueException(inner) => {
                 Error::InvalidParameterValueException(inner)
@@ -3035,12 +2467,8 @@ where
     }
 }
 #[cfg(feature = "op_list_function_event_invoke_configs")]
-impl From<crate::operation::list_function_event_invoke_configs::ListFunctionEventInvokeConfigsError>
-    for Error
-{
-    fn from(
-        err: crate::operation::list_function_event_invoke_configs::ListFunctionEventInvokeConfigsError,
-    ) -> Self {
+impl From<crate::operation::list_function_event_invoke_configs::ListFunctionEventInvokeConfigsError> for Error {
+    fn from(err: crate::operation::list_function_event_invoke_configs::ListFunctionEventInvokeConfigsError) -> Self {
         match err {
             crate::operation::list_function_event_invoke_configs::ListFunctionEventInvokeConfigsError::InvalidParameterValueException(inner) => {
                 Error::InvalidParameterValueException(inner)
@@ -3059,26 +2487,13 @@ impl From<crate::operation::list_function_event_invoke_configs::ListFunctionEven
     }
 }
 #[cfg(feature = "op_list_functions")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::list_functions::ListFunctionsError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_functions::ListFunctionsError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::list_functions::ListFunctionsError,
-            R,
-        >,
-    ) -> Self {
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_functions::ListFunctionsError, R>) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -3145,26 +2560,16 @@ impl From<crate::operation::list_functions_by_code_signing_config::ListFunctions
     }
 }
 #[cfg(feature = "op_list_function_url_configs")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::list_function_url_configs::ListFunctionUrlConfigsError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_function_url_configs::ListFunctionUrlConfigsError, R>>
+    for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
     fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::list_function_url_configs::ListFunctionUrlConfigsError,
-            R,
-        >,
+        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_function_url_configs::ListFunctionUrlConfigsError, R>,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -3229,26 +2634,13 @@ impl From<crate::operation::list_function_versions_by_capacity_provider::ListFun
     }
 }
 #[cfg(feature = "op_list_layers")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::list_layers::ListLayersError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_layers::ListLayersError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::list_layers::ListLayersError,
-            R,
-        >,
-    ) -> Self {
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_layers::ListLayersError, R>) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -3260,42 +2652,21 @@ where
 impl From<crate::operation::list_layers::ListLayersError> for Error {
     fn from(err: crate::operation::list_layers::ListLayersError) -> Self {
         match err {
-            crate::operation::list_layers::ListLayersError::InvalidParameterValueException(
-                inner,
-            ) => Error::InvalidParameterValueException(inner),
-            crate::operation::list_layers::ListLayersError::ServiceException(inner) => {
-                Error::ServiceException(inner)
-            }
-            crate::operation::list_layers::ListLayersError::TooManyRequestsException(inner) => {
-                Error::TooManyRequestsException(inner)
-            }
-            crate::operation::list_layers::ListLayersError::Unhandled(inner) => {
-                Error::Unhandled(inner)
-            }
+            crate::operation::list_layers::ListLayersError::InvalidParameterValueException(inner) => Error::InvalidParameterValueException(inner),
+            crate::operation::list_layers::ListLayersError::ServiceException(inner) => Error::ServiceException(inner),
+            crate::operation::list_layers::ListLayersError::TooManyRequestsException(inner) => Error::TooManyRequestsException(inner),
+            crate::operation::list_layers::ListLayersError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
 #[cfg(feature = "op_list_layer_versions")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::list_layer_versions::ListLayerVersionsError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_layer_versions::ListLayerVersionsError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::list_layer_versions::ListLayerVersionsError,
-            R,
-        >,
-    ) -> Self {
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_layer_versions::ListLayerVersionsError, R>) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -3368,26 +2739,13 @@ impl From<crate::operation::list_provisioned_concurrency_configs::ListProvisione
     }
 }
 #[cfg(feature = "op_list_tags")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::list_tags::ListTagsError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_tags::ListTagsError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::list_tags::ListTagsError,
-            R,
-        >,
-    ) -> Self {
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_tags::ListTagsError, R>) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -3399,43 +2757,25 @@ where
 impl From<crate::operation::list_tags::ListTagsError> for Error {
     fn from(err: crate::operation::list_tags::ListTagsError) -> Self {
         match err {
-            crate::operation::list_tags::ListTagsError::InvalidParameterValueException(inner) => {
-                Error::InvalidParameterValueException(inner)
-            }
-            crate::operation::list_tags::ListTagsError::ResourceNotFoundException(inner) => {
-                Error::ResourceNotFoundException(inner)
-            }
-            crate::operation::list_tags::ListTagsError::ServiceException(inner) => {
-                Error::ServiceException(inner)
-            }
-            crate::operation::list_tags::ListTagsError::TooManyRequestsException(inner) => {
-                Error::TooManyRequestsException(inner)
-            }
+            crate::operation::list_tags::ListTagsError::InvalidParameterValueException(inner) => Error::InvalidParameterValueException(inner),
+            crate::operation::list_tags::ListTagsError::ResourceNotFoundException(inner) => Error::ResourceNotFoundException(inner),
+            crate::operation::list_tags::ListTagsError::ServiceException(inner) => Error::ServiceException(inner),
+            crate::operation::list_tags::ListTagsError::TooManyRequestsException(inner) => Error::TooManyRequestsException(inner),
             crate::operation::list_tags::ListTagsError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
 #[cfg(feature = "op_list_versions_by_function")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::list_versions_by_function::ListVersionsByFunctionError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_versions_by_function::ListVersionsByFunctionError, R>>
+    for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
     fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::list_versions_by_function::ListVersionsByFunctionError,
-            R,
-        >,
+        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_versions_by_function::ListVersionsByFunctionError, R>,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -3462,26 +2802,13 @@ impl From<crate::operation::list_versions_by_function::ListVersionsByFunctionErr
     }
 }
 #[cfg(feature = "op_publish_layer_version")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::publish_layer_version::PublishLayerVersionError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::publish_layer_version::PublishLayerVersionError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::publish_layer_version::PublishLayerVersionError,
-            R,
-        >,
-    ) -> Self {
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::publish_layer_version::PublishLayerVersionError, R>) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -3512,12 +2839,8 @@ impl From<crate::operation::publish_layer_version::PublishLayerVersionError> for
 }
 #[cfg(feature = "op_put_function_code_signing_config")]
 impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::put_function_code_signing_config::PutFunctionCodeSigningConfigError,
-            R,
-        >,
-    > for Error
+    From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::put_function_code_signing_config::PutFunctionCodeSigningConfigError, R>>
+    for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
@@ -3528,9 +2851,7 @@ where
         >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -3539,12 +2860,8 @@ where
     }
 }
 #[cfg(feature = "op_put_function_code_signing_config")]
-impl From<crate::operation::put_function_code_signing_config::PutFunctionCodeSigningConfigError>
-    for Error
-{
-    fn from(
-        err: crate::operation::put_function_code_signing_config::PutFunctionCodeSigningConfigError,
-    ) -> Self {
+impl From<crate::operation::put_function_code_signing_config::PutFunctionCodeSigningConfigError> for Error {
+    fn from(err: crate::operation::put_function_code_signing_config::PutFunctionCodeSigningConfigError) -> Self {
         match err {
             crate::operation::put_function_code_signing_config::PutFunctionCodeSigningConfigError::CodeSigningConfigNotFoundException(inner) => {
                 Error::CodeSigningConfigNotFoundException(inner)
@@ -3569,26 +2886,15 @@ impl From<crate::operation::put_function_code_signing_config::PutFunctionCodeSig
     }
 }
 #[cfg(feature = "op_put_function_concurrency")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::put_function_concurrency::PutFunctionConcurrencyError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::put_function_concurrency::PutFunctionConcurrencyError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
     fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::put_function_concurrency::PutFunctionConcurrencyError,
-            R,
-        >,
+        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::put_function_concurrency::PutFunctionConcurrencyError, R>,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -3619,12 +2925,8 @@ impl From<crate::operation::put_function_concurrency::PutFunctionConcurrencyErro
 }
 #[cfg(feature = "op_put_function_event_invoke_config")]
 impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::put_function_event_invoke_config::PutFunctionEventInvokeConfigError,
-            R,
-        >,
-    > for Error
+    From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::put_function_event_invoke_config::PutFunctionEventInvokeConfigError, R>>
+    for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
@@ -3635,9 +2937,7 @@ where
         >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -3646,12 +2946,8 @@ where
     }
 }
 #[cfg(feature = "op_put_function_event_invoke_config")]
-impl From<crate::operation::put_function_event_invoke_config::PutFunctionEventInvokeConfigError>
-    for Error
-{
-    fn from(
-        err: crate::operation::put_function_event_invoke_config::PutFunctionEventInvokeConfigError,
-    ) -> Self {
+impl From<crate::operation::put_function_event_invoke_config::PutFunctionEventInvokeConfigError> for Error {
+    fn from(err: crate::operation::put_function_event_invoke_config::PutFunctionEventInvokeConfigError) -> Self {
         match err {
             crate::operation::put_function_event_invoke_config::PutFunctionEventInvokeConfigError::InvalidParameterValueException(inner) => {
                 Error::InvalidParameterValueException(inner)
@@ -3673,26 +2969,16 @@ impl From<crate::operation::put_function_event_invoke_config::PutFunctionEventIn
     }
 }
 #[cfg(feature = "op_put_function_recursion_config")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::put_function_recursion_config::PutFunctionRecursionConfigError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::put_function_recursion_config::PutFunctionRecursionConfigError, R>>
+    for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
     fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::put_function_recursion_config::PutFunctionRecursionConfigError,
-            R,
-        >,
+        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::put_function_recursion_config::PutFunctionRecursionConfigError, R>,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -3701,12 +2987,8 @@ where
     }
 }
 #[cfg(feature = "op_put_function_recursion_config")]
-impl From<crate::operation::put_function_recursion_config::PutFunctionRecursionConfigError>
-    for Error
-{
-    fn from(
-        err: crate::operation::put_function_recursion_config::PutFunctionRecursionConfigError,
-    ) -> Self {
+impl From<crate::operation::put_function_recursion_config::PutFunctionRecursionConfigError> for Error {
+    fn from(err: crate::operation::put_function_recursion_config::PutFunctionRecursionConfigError) -> Self {
         match err {
             crate::operation::put_function_recursion_config::PutFunctionRecursionConfigError::InvalidParameterValueException(inner) => {
                 Error::InvalidParameterValueException(inner)
@@ -3728,26 +3010,16 @@ impl From<crate::operation::put_function_recursion_config::PutFunctionRecursionC
     }
 }
 #[cfg(feature = "op_put_function_scaling_config")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::put_function_scaling_config::PutFunctionScalingConfigError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::put_function_scaling_config::PutFunctionScalingConfigError, R>>
+    for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
     fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::put_function_scaling_config::PutFunctionScalingConfigError,
-            R,
-        >,
+        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::put_function_scaling_config::PutFunctionScalingConfigError, R>,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -3757,9 +3029,7 @@ where
 }
 #[cfg(feature = "op_put_function_scaling_config")]
 impl From<crate::operation::put_function_scaling_config::PutFunctionScalingConfigError> for Error {
-    fn from(
-        err: crate::operation::put_function_scaling_config::PutFunctionScalingConfigError,
-    ) -> Self {
+    fn from(err: crate::operation::put_function_scaling_config::PutFunctionScalingConfigError) -> Self {
         match err {
             crate::operation::put_function_scaling_config::PutFunctionScalingConfigError::InvalidParameterValueException(inner) => {
                 Error::InvalidParameterValueException(inner)
@@ -3805,13 +3075,8 @@ where
     }
 }
 #[cfg(feature = "op_put_provisioned_concurrency_config")]
-impl
-    From<crate::operation::put_provisioned_concurrency_config::PutProvisionedConcurrencyConfigError>
-    for Error
-{
-    fn from(
-        err: crate::operation::put_provisioned_concurrency_config::PutProvisionedConcurrencyConfigError,
-    ) -> Self {
+impl From<crate::operation::put_provisioned_concurrency_config::PutProvisionedConcurrencyConfigError> for Error {
+    fn from(err: crate::operation::put_provisioned_concurrency_config::PutProvisionedConcurrencyConfigError) -> Self {
         match err {
             crate::operation::put_provisioned_concurrency_config::PutProvisionedConcurrencyConfigError::InvalidParameterValueException(inner) => {
                 Error::InvalidParameterValueException(inner)
@@ -3833,26 +3098,13 @@ impl
     }
 }
 #[cfg(feature = "op_put_resource_policy")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::put_resource_policy::PutResourcePolicyError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::put_resource_policy::PutResourcePolicyError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::put_resource_policy::PutResourcePolicyError,
-            R,
-        >,
-    ) -> Self {
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::put_resource_policy::PutResourcePolicyError, R>) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -3887,26 +3139,16 @@ impl From<crate::operation::put_resource_policy::PutResourcePolicyError> for Err
     }
 }
 #[cfg(feature = "op_put_runtime_management_config")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::put_runtime_management_config::PutRuntimeManagementConfigError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::put_runtime_management_config::PutRuntimeManagementConfigError, R>>
+    for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
     fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::put_runtime_management_config::PutRuntimeManagementConfigError,
-            R,
-        >,
+        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::put_runtime_management_config::PutRuntimeManagementConfigError, R>,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -3915,12 +3157,8 @@ where
     }
 }
 #[cfg(feature = "op_put_runtime_management_config")]
-impl From<crate::operation::put_runtime_management_config::PutRuntimeManagementConfigError>
-    for Error
-{
-    fn from(
-        err: crate::operation::put_runtime_management_config::PutRuntimeManagementConfigError,
-    ) -> Self {
+impl From<crate::operation::put_runtime_management_config::PutRuntimeManagementConfigError> for Error {
+    fn from(err: crate::operation::put_runtime_management_config::PutRuntimeManagementConfigError) -> Self {
         match err {
             crate::operation::put_runtime_management_config::PutRuntimeManagementConfigError::InvalidParameterValueException(inner) => {
                 Error::InvalidParameterValueException(inner)
@@ -3943,12 +3181,8 @@ impl From<crate::operation::put_runtime_management_config::PutRuntimeManagementC
 }
 #[cfg(feature = "op_remove_layer_version_permission")]
 impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::remove_layer_version_permission::RemoveLayerVersionPermissionError,
-            R,
-        >,
-    > for Error
+    From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::remove_layer_version_permission::RemoveLayerVersionPermissionError, R>>
+    for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
@@ -3959,9 +3193,7 @@ where
         >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -3970,12 +3202,8 @@ where
     }
 }
 #[cfg(feature = "op_remove_layer_version_permission")]
-impl From<crate::operation::remove_layer_version_permission::RemoveLayerVersionPermissionError>
-    for Error
-{
-    fn from(
-        err: crate::operation::remove_layer_version_permission::RemoveLayerVersionPermissionError,
-    ) -> Self {
+impl From<crate::operation::remove_layer_version_permission::RemoveLayerVersionPermissionError> for Error {
+    fn from(err: crate::operation::remove_layer_version_permission::RemoveLayerVersionPermissionError) -> Self {
         match err {
             crate::operation::remove_layer_version_permission::RemoveLayerVersionPermissionError::InvalidParameterValueException(inner) => {
                 Error::InvalidParameterValueException(inner)
@@ -3997,26 +3225,13 @@ impl From<crate::operation::remove_layer_version_permission::RemoveLayerVersionP
     }
 }
 #[cfg(feature = "op_remove_permission")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::remove_permission::RemovePermissionError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::remove_permission::RemovePermissionError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::remove_permission::RemovePermissionError,
-            R,
-        >,
-    ) -> Self {
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::remove_permission::RemovePermissionError, R>) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -4208,26 +3423,13 @@ impl From<crate::operation::send_durable_execution_callback_success::SendDurable
     }
 }
 #[cfg(feature = "op_stop_durable_execution")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::stop_durable_execution::StopDurableExecutionError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::stop_durable_execution::StopDurableExecutionError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::stop_durable_execution::StopDurableExecutionError,
-            R,
-        >,
-    ) -> Self {
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::stop_durable_execution::StopDurableExecutionError, R>) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -4262,26 +3464,13 @@ impl From<crate::operation::stop_durable_execution::StopDurableExecutionError> f
     }
 }
 #[cfg(feature = "op_tag_resource")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::tag_resource::TagResourceError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::tag_resource::TagResourceError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::tag_resource::TagResourceError,
-            R,
-        >,
-    ) -> Self {
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::tag_resource::TagResourceError, R>) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -4293,48 +3482,23 @@ where
 impl From<crate::operation::tag_resource::TagResourceError> for Error {
     fn from(err: crate::operation::tag_resource::TagResourceError) -> Self {
         match err {
-            crate::operation::tag_resource::TagResourceError::InvalidParameterValueException(
-                inner,
-            ) => Error::InvalidParameterValueException(inner),
-            crate::operation::tag_resource::TagResourceError::ResourceConflictException(inner) => {
-                Error::ResourceConflictException(inner)
-            }
-            crate::operation::tag_resource::TagResourceError::ResourceNotFoundException(inner) => {
-                Error::ResourceNotFoundException(inner)
-            }
-            crate::operation::tag_resource::TagResourceError::ServiceException(inner) => {
-                Error::ServiceException(inner)
-            }
-            crate::operation::tag_resource::TagResourceError::TooManyRequestsException(inner) => {
-                Error::TooManyRequestsException(inner)
-            }
-            crate::operation::tag_resource::TagResourceError::Unhandled(inner) => {
-                Error::Unhandled(inner)
-            }
+            crate::operation::tag_resource::TagResourceError::InvalidParameterValueException(inner) => Error::InvalidParameterValueException(inner),
+            crate::operation::tag_resource::TagResourceError::ResourceConflictException(inner) => Error::ResourceConflictException(inner),
+            crate::operation::tag_resource::TagResourceError::ResourceNotFoundException(inner) => Error::ResourceNotFoundException(inner),
+            crate::operation::tag_resource::TagResourceError::ServiceException(inner) => Error::ServiceException(inner),
+            crate::operation::tag_resource::TagResourceError::TooManyRequestsException(inner) => Error::TooManyRequestsException(inner),
+            crate::operation::tag_resource::TagResourceError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
 #[cfg(feature = "op_untag_resource")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::untag_resource::UntagResourceError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::untag_resource::UntagResourceError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::untag_resource::UntagResourceError,
-            R,
-        >,
-    ) -> Self {
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::untag_resource::UntagResourceError, R>) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -4358,26 +3522,13 @@ impl From<crate::operation::untag_resource::UntagResourceError> for Error {
     }
 }
 #[cfg(feature = "op_update_alias")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::update_alias::UpdateAliasError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::update_alias::UpdateAliasError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::update_alias::UpdateAliasError,
-            R,
-        >,
-    ) -> Self {
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::update_alias::UpdateAliasError, R>) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -4389,51 +3540,26 @@ where
 impl From<crate::operation::update_alias::UpdateAliasError> for Error {
     fn from(err: crate::operation::update_alias::UpdateAliasError) -> Self {
         match err {
-            crate::operation::update_alias::UpdateAliasError::InvalidParameterValueException(
-                inner,
-            ) => Error::InvalidParameterValueException(inner),
-            crate::operation::update_alias::UpdateAliasError::PreconditionFailedException(
-                inner,
-            ) => Error::PreconditionFailedException(inner),
-            crate::operation::update_alias::UpdateAliasError::ResourceConflictException(inner) => {
-                Error::ResourceConflictException(inner)
-            }
-            crate::operation::update_alias::UpdateAliasError::ResourceNotFoundException(inner) => {
-                Error::ResourceNotFoundException(inner)
-            }
-            crate::operation::update_alias::UpdateAliasError::ServiceException(inner) => {
-                Error::ServiceException(inner)
-            }
-            crate::operation::update_alias::UpdateAliasError::TooManyRequestsException(inner) => {
-                Error::TooManyRequestsException(inner)
-            }
-            crate::operation::update_alias::UpdateAliasError::Unhandled(inner) => {
-                Error::Unhandled(inner)
-            }
+            crate::operation::update_alias::UpdateAliasError::InvalidParameterValueException(inner) => Error::InvalidParameterValueException(inner),
+            crate::operation::update_alias::UpdateAliasError::PreconditionFailedException(inner) => Error::PreconditionFailedException(inner),
+            crate::operation::update_alias::UpdateAliasError::ResourceConflictException(inner) => Error::ResourceConflictException(inner),
+            crate::operation::update_alias::UpdateAliasError::ResourceNotFoundException(inner) => Error::ResourceNotFoundException(inner),
+            crate::operation::update_alias::UpdateAliasError::ServiceException(inner) => Error::ServiceException(inner),
+            crate::operation::update_alias::UpdateAliasError::TooManyRequestsException(inner) => Error::TooManyRequestsException(inner),
+            crate::operation::update_alias::UpdateAliasError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
 #[cfg(feature = "op_update_capacity_provider")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::update_capacity_provider::UpdateCapacityProviderError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::update_capacity_provider::UpdateCapacityProviderError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
     fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::update_capacity_provider::UpdateCapacityProviderError,
-            R,
-        >,
+        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::update_capacity_provider::UpdateCapacityProviderError, R>,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -4463,26 +3589,16 @@ impl From<crate::operation::update_capacity_provider::UpdateCapacityProviderErro
     }
 }
 #[cfg(feature = "op_update_code_signing_config")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::update_code_signing_config::UpdateCodeSigningConfigError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::update_code_signing_config::UpdateCodeSigningConfigError, R>>
+    for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
     fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::update_code_signing_config::UpdateCodeSigningConfigError,
-            R,
-        >,
+        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::update_code_signing_config::UpdateCodeSigningConfigError, R>,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -4492,9 +3608,7 @@ where
 }
 #[cfg(feature = "op_update_code_signing_config")]
 impl From<crate::operation::update_code_signing_config::UpdateCodeSigningConfigError> for Error {
-    fn from(
-        err: crate::operation::update_code_signing_config::UpdateCodeSigningConfigError,
-    ) -> Self {
+    fn from(err: crate::operation::update_code_signing_config::UpdateCodeSigningConfigError) -> Self {
         match err {
             crate::operation::update_code_signing_config::UpdateCodeSigningConfigError::InvalidParameterValueException(inner) => {
                 Error::InvalidParameterValueException(inner)
@@ -4508,26 +3622,16 @@ impl From<crate::operation::update_code_signing_config::UpdateCodeSigningConfigE
     }
 }
 #[cfg(feature = "op_update_event_source_mapping")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::update_event_source_mapping::UpdateEventSourceMappingError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::update_event_source_mapping::UpdateEventSourceMappingError, R>>
+    for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
     fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::update_event_source_mapping::UpdateEventSourceMappingError,
-            R,
-        >,
+        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::update_event_source_mapping::UpdateEventSourceMappingError, R>,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -4537,9 +3641,7 @@ where
 }
 #[cfg(feature = "op_update_event_source_mapping")]
 impl From<crate::operation::update_event_source_mapping::UpdateEventSourceMappingError> for Error {
-    fn from(
-        err: crate::operation::update_event_source_mapping::UpdateEventSourceMappingError,
-    ) -> Self {
+    fn from(err: crate::operation::update_event_source_mapping::UpdateEventSourceMappingError) -> Self {
         match err {
             crate::operation::update_event_source_mapping::UpdateEventSourceMappingError::InvalidParameterValueException(inner) => {
                 Error::InvalidParameterValueException(inner)
@@ -4562,26 +3664,13 @@ impl From<crate::operation::update_event_source_mapping::UpdateEventSourceMappin
     }
 }
 #[cfg(feature = "op_update_function_code")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::update_function_code::UpdateFunctionCodeError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::update_function_code::UpdateFunctionCodeError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::update_function_code::UpdateFunctionCodeError,
-            R,
-        >,
-    ) -> Self {
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::update_function_code::UpdateFunctionCodeError, R>) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -4626,26 +3715,16 @@ impl From<crate::operation::update_function_code::UpdateFunctionCodeError> for E
     }
 }
 #[cfg(feature = "op_update_function_configuration")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::update_function_configuration::UpdateFunctionConfigurationError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::update_function_configuration::UpdateFunctionConfigurationError, R>>
+    for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
     fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::update_function_configuration::UpdateFunctionConfigurationError,
-            R,
-        >,
+        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::update_function_configuration::UpdateFunctionConfigurationError, R>,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -4654,12 +3733,8 @@ where
     }
 }
 #[cfg(feature = "op_update_function_configuration")]
-impl From<crate::operation::update_function_configuration::UpdateFunctionConfigurationError>
-    for Error
-{
-    fn from(
-        err: crate::operation::update_function_configuration::UpdateFunctionConfigurationError,
-    ) -> Self {
+impl From<crate::operation::update_function_configuration::UpdateFunctionConfigurationError> for Error {
+    fn from(err: crate::operation::update_function_configuration::UpdateFunctionConfigurationError) -> Self {
         match err {
             crate::operation::update_function_configuration::UpdateFunctionConfigurationError::CodeSigningConfigNotFoundException(inner) => {
                 Error::CodeSigningConfigNotFoundException(inner)
@@ -4719,14 +3794,8 @@ where
     }
 }
 #[cfg(feature = "op_update_function_event_invoke_config")]
-impl
-    From<
-        crate::operation::update_function_event_invoke_config::UpdateFunctionEventInvokeConfigError,
-    > for Error
-{
-    fn from(
-        err: crate::operation::update_function_event_invoke_config::UpdateFunctionEventInvokeConfigError,
-    ) -> Self {
+impl From<crate::operation::update_function_event_invoke_config::UpdateFunctionEventInvokeConfigError> for Error {
+    fn from(err: crate::operation::update_function_event_invoke_config::UpdateFunctionEventInvokeConfigError) -> Self {
         match err {
             crate::operation::update_function_event_invoke_config::UpdateFunctionEventInvokeConfigError::InvalidParameterValueException(inner) => {
                 Error::InvalidParameterValueException(inner)
@@ -4748,26 +3817,16 @@ impl
     }
 }
 #[cfg(feature = "op_update_function_url_config")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::update_function_url_config::UpdateFunctionUrlConfigError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::update_function_url_config::UpdateFunctionUrlConfigError, R>>
+    for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
     fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::update_function_url_config::UpdateFunctionUrlConfigError,
-            R,
-        >,
+        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::update_function_url_config::UpdateFunctionUrlConfigError, R>,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -4777,9 +3836,7 @@ where
 }
 #[cfg(feature = "op_update_function_url_config")]
 impl From<crate::operation::update_function_url_config::UpdateFunctionUrlConfigError> for Error {
-    fn from(
-        err: crate::operation::update_function_url_config::UpdateFunctionUrlConfigError,
-    ) -> Self {
+    fn from(err: crate::operation::update_function_url_config::UpdateFunctionUrlConfigError) -> Self {
         match err {
             crate::operation::update_function_url_config::UpdateFunctionUrlConfigError::InvalidParameterValueException(inner) => {
                 Error::InvalidParameterValueException(inner)
@@ -4798,8 +3855,7 @@ impl From<crate::operation::update_function_url_config::UpdateFunctionUrlConfigE
         }
     }
 }
-impl<O, E> ::std::convert::From<::aws_smithy_runtime_api::client::waiters::error::WaiterError<O, E>>
-    for Error
+impl<O, E> ::std::convert::From<::aws_smithy_runtime_api::client::waiters::error::WaiterError<O, E>> for Error
 where
     O: ::std::fmt::Debug + ::std::marker::Send + ::std::marker::Sync + 'static,
     E: ::std::error::Error + ::std::marker::Send + ::std::marker::Sync + 'static,
@@ -4812,26 +3868,13 @@ where
     }
 }
 #[cfg(feature = "op_invoke_with_response_stream")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::types::error::InvokeWithResponseStreamResponseEventError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::types::error::InvokeWithResponseStreamResponseEventError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::types::error::InvokeWithResponseStreamResponseEventError,
-            R,
-        >,
-    ) -> Self {
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::types::error::InvokeWithResponseStreamResponseEventError, R>) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -4843,73 +3886,125 @@ where
 impl From<crate::types::error::InvokeWithResponseStreamResponseEventError> for Error {
     fn from(err: crate::types::error::InvokeWithResponseStreamResponseEventError) -> Self {
         match err {
-            crate::types::error::InvokeWithResponseStreamResponseEventError::Unhandled(inner) => {
-                Error::Unhandled(inner)
-            }
+            crate::types::error::InvokeWithResponseStreamResponseEventError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
 impl ::std::error::Error for Error {
     fn source(&self) -> std::option::Option<&(dyn ::std::error::Error + 'static)> {
         match self {
-            Error::AliasLimitExceededException(inner) => inner.source(),
-            Error::CallbackTimeoutException(inner) => inner.source(),
-            Error::CapacityProviderLimitExceededException(inner) => inner.source(),
-            Error::CodeArtifactUserDeletedException(inner) => inner.source(),
-            Error::CodeArtifactUserFailedException(inner) => inner.source(),
-            Error::CodeArtifactUserPendingException(inner) => inner.source(),
-            Error::CodeSigningConfigNotFoundException(inner) => inner.source(),
-            Error::CodeStorageExceededException(inner) => inner.source(),
-            Error::CodeVerificationFailedException(inner) => inner.source(),
-            Error::DurableExecutionAlreadyStartedException(inner) => inner.source(),
-            Error::Ec2AccessDeniedException(inner) => inner.source(),
-            Error::Ec2ThrottledException(inner) => inner.source(),
-            Error::Ec2UnexpectedException(inner) => inner.source(),
-            Error::EfsioException(inner) => inner.source(),
-            Error::EfsMountConnectivityException(inner) => inner.source(),
-            Error::EfsMountFailureException(inner) => inner.source(),
-            Error::EfsMountTimeoutException(inner) => inner.source(),
-            Error::EniLimitReachedException(inner) => inner.source(),
-            Error::EniNotReadyException(inner) => inner.source(),
-            Error::FunctionVersionsPerCapacityProviderLimitExceededException(inner) => {
-                inner.source()
-            }
-            Error::InvalidCodeSignatureException(inner) => inner.source(),
-            Error::InvalidParameterValueException(inner) => inner.source(),
-            Error::InvalidRequestContentException(inner) => inner.source(),
-            Error::InvalidRuntimeException(inner) => inner.source(),
-            Error::InvalidSecurityGroupIdException(inner) => inner.source(),
-            Error::InvalidSubnetIdException(inner) => inner.source(),
-            Error::InvalidZipFileException(inner) => inner.source(),
-            Error::KmsAccessDeniedException(inner) => inner.source(),
-            Error::KmsDisabledException(inner) => inner.source(),
-            Error::KmsInvalidStateException(inner) => inner.source(),
-            Error::KmsNotFoundException(inner) => inner.source(),
-            Error::ModeNotSupportedException(inner) => inner.source(),
-            Error::NoPublishedVersionException(inner) => inner.source(),
-            Error::PolicyLengthExceededException(inner) => inner.source(),
-            Error::PreconditionFailedException(inner) => inner.source(),
-            Error::ProvisionedConcurrencyConfigNotFoundException(inner) => inner.source(),
-            Error::PublicPolicyException(inner) => inner.source(),
-            Error::RecursiveInvocationException(inner) => inner.source(),
-            Error::RequestTooLargeException(inner) => inner.source(),
-            Error::ResourceConflictException(inner) => inner.source(),
-            Error::ResourceInUseException(inner) => inner.source(),
-            Error::ResourceNotFoundException(inner) => inner.source(),
-            Error::ResourceNotReadyException(inner) => inner.source(),
-            Error::S3FilesMountConnectivityException(inner) => inner.source(),
-            Error::S3FilesMountFailureException(inner) => inner.source(),
-            Error::S3FilesMountTimeoutException(inner) => inner.source(),
-            Error::SerializedRequestEntityTooLargeException(inner) => inner.source(),
-            Error::ServiceException(inner) => inner.source(),
-            Error::ServiceQuotaExceededException(inner) => inner.source(),
-            Error::SnapStartException(inner) => inner.source(),
-            Error::SnapStartNotReadyException(inner) => inner.source(),
-            Error::SnapStartRegenerationFailureException(inner) => inner.source(),
-            Error::SnapStartTimeoutException(inner) => inner.source(),
-            Error::SubnetIpAddressLimitReachedException(inner) => inner.source(),
-            Error::TooManyRequestsException(inner) => inner.source(),
-            Error::UnsupportedMediaTypeException(inner) => inner.source(),
+            #[cfg(feature = "op_create_alias")]
+Error::AliasLimitExceededException(inner) => inner.source(),
+            #[cfg(any(feature = "op_send_durable_execution_callback_failure", feature = "op_send_durable_execution_callback_heartbeat", feature = "op_send_durable_execution_callback_success"))]
+Error::CallbackTimeoutException(inner) => inner.source(),
+            #[cfg(feature = "op_create_capacity_provider")]
+Error::CapacityProviderLimitExceededException(inner) => inner.source(),
+            #[cfg(feature = "op_invoke")]
+Error::CodeArtifactUserDeletedException(inner) => inner.source(),
+            #[cfg(feature = "op_invoke")]
+Error::CodeArtifactUserFailedException(inner) => inner.source(),
+            #[cfg(feature = "op_invoke")]
+Error::CodeArtifactUserPendingException(inner) => inner.source(),
+            #[cfg(any(feature = "op_create_function", feature = "op_delete_function_code_signing_config", feature = "op_get_function_code_signing_config", feature = "op_put_function_code_signing_config", feature = "op_update_function_code", feature = "op_update_function_configuration"))]
+Error::CodeSigningConfigNotFoundException(inner) => inner.source(),
+            #[cfg(any(feature = "op_create_function", feature = "op_publish_layer_version", feature = "op_update_function_code"))]
+Error::CodeStorageExceededException(inner) => inner.source(),
+            #[cfg(any(feature = "op_create_function", feature = "op_update_function_code", feature = "op_update_function_configuration"))]
+Error::CodeVerificationFailedException(inner) => inner.source(),
+            #[cfg(feature = "op_invoke")]
+Error::DurableExecutionAlreadyStartedException(inner) => inner.source(),
+            #[cfg(any(feature = "op_invoke", feature = "op_invoke_async", feature = "op_invoke_with_response_stream"))]
+Error::Ec2AccessDeniedException(inner) => inner.source(),
+            #[cfg(any(feature = "op_invoke", feature = "op_invoke_async", feature = "op_invoke_with_response_stream"))]
+Error::Ec2ThrottledException(inner) => inner.source(),
+            #[cfg(any(feature = "op_invoke", feature = "op_invoke_async", feature = "op_invoke_with_response_stream"))]
+Error::Ec2UnexpectedException(inner) => inner.source(),
+            #[cfg(any(feature = "op_invoke", feature = "op_invoke_async", feature = "op_invoke_with_response_stream"))]
+Error::EfsioException(inner) => inner.source(),
+            #[cfg(any(feature = "op_invoke", feature = "op_invoke_async", feature = "op_invoke_with_response_stream"))]
+Error::EfsMountConnectivityException(inner) => inner.source(),
+            #[cfg(any(feature = "op_invoke", feature = "op_invoke_async", feature = "op_invoke_with_response_stream"))]
+Error::EfsMountFailureException(inner) => inner.source(),
+            #[cfg(any(feature = "op_invoke", feature = "op_invoke_async", feature = "op_invoke_with_response_stream"))]
+Error::EfsMountTimeoutException(inner) => inner.source(),
+            #[cfg(any(feature = "op_invoke", feature = "op_invoke_async", feature = "op_invoke_with_response_stream"))]
+Error::EniLimitReachedException(inner) => inner.source(),
+            #[cfg(feature = "op_invoke")]
+Error::EniNotReadyException(inner) => inner.source(),
+            #[cfg(feature = "op_create_function")]
+Error::FunctionVersionsPerCapacityProviderLimitExceededException(inner) => inner.source(),
+            #[cfg(any(feature = "op_create_function", feature = "op_update_function_code", feature = "op_update_function_configuration"))]
+Error::InvalidCodeSignatureException(inner) => inner.source(),
+            #[cfg(any(feature = "op_add_layer_version_permission", feature = "op_add_permission", feature = "op_checkpoint_durable_execution", feature = "op_create_alias", feature = "op_create_capacity_provider", feature = "op_create_function", feature = "op_create_function_url_config", feature = "op_delete_alias", feature = "op_delete_capacity_provider", feature = "op_delete_code_signing_config", feature = "op_delete_event_source_mapping", feature = "op_delete_function", feature = "op_delete_function_code_signing_config", feature = "op_delete_function_concurrency", feature = "op_delete_function_event_invoke_config", feature = "op_delete_function_url_config", feature = "op_delete_layer_version", feature = "op_delete_provisioned_concurrency_config", feature = "op_delete_resource_policy", feature = "op_get_alias", feature = "op_get_capacity_provider", feature = "op_get_code_signing_config", feature = "op_get_durable_execution", feature = "op_get_durable_execution_history", feature = "op_get_durable_execution_state", feature = "op_get_event_source_mapping", feature = "op_get_function", feature = "op_get_function_code_signing_config", feature = "op_get_function_concurrency", feature = "op_get_function_configuration", feature = "op_get_function_event_invoke_config", feature = "op_get_function_recursion_config", feature = "op_get_function_scaling_config", feature = "op_get_function_url_config", feature = "op_get_layer_version", feature = "op_get_layer_version_by_arn", feature = "op_get_layer_version_policy", feature = "op_get_policy", feature = "op_get_provisioned_concurrency_config", feature = "op_get_resource_policy", feature = "op_get_runtime_management_config", feature = "op_invoke", feature = "op_invoke_with_response_stream", feature = "op_list_aliases", feature = "op_list_capacity_providers", feature = "op_list_code_signing_configs", feature = "op_list_durable_executions_by_function", feature = "op_list_event_source_mappings", feature = "op_list_function_event_invoke_configs", feature = "op_list_function_url_configs", feature = "op_list_function_versions_by_capacity_provider", feature = "op_list_functions", feature = "op_list_functions_by_code_signing_config", feature = "op_list_layer_versions", feature = "op_list_layers", feature = "op_list_provisioned_concurrency_configs", feature = "op_list_tags", feature = "op_list_versions_by_function", feature = "op_publish_layer_version", feature = "op_put_function_code_signing_config", feature = "op_put_function_concurrency", feature = "op_put_function_event_invoke_config", feature = "op_put_function_recursion_config", feature = "op_put_function_scaling_config", feature = "op_put_provisioned_concurrency_config", feature = "op_put_resource_policy", feature = "op_put_runtime_management_config", feature = "op_remove_layer_version_permission", feature = "op_remove_permission", feature = "op_send_durable_execution_callback_failure", feature = "op_send_durable_execution_callback_heartbeat", feature = "op_send_durable_execution_callback_success", feature = "op_stop_durable_execution", feature = "op_tag_resource", feature = "op_untag_resource", feature = "op_update_alias", feature = "op_update_capacity_provider", feature = "op_update_code_signing_config", feature = "op_update_event_source_mapping", feature = "op_update_function_code", feature = "op_update_function_configuration", feature = "op_update_function_event_invoke_config", feature = "op_update_function_url_config"))]
+Error::InvalidParameterValueException(inner) => inner.source(),
+            #[cfg(any(feature = "op_invoke", feature = "op_invoke_async", feature = "op_invoke_with_response_stream"))]
+Error::InvalidRequestContentException(inner) => inner.source(),
+            #[cfg(any(feature = "op_invoke", feature = "op_invoke_async", feature = "op_invoke_with_response_stream"))]
+Error::InvalidRuntimeException(inner) => inner.source(),
+            #[cfg(any(feature = "op_invoke", feature = "op_invoke_async", feature = "op_invoke_with_response_stream"))]
+Error::InvalidSecurityGroupIdException(inner) => inner.source(),
+            #[cfg(any(feature = "op_invoke", feature = "op_invoke_async", feature = "op_invoke_with_response_stream"))]
+Error::InvalidSubnetIdException(inner) => inner.source(),
+            #[cfg(any(feature = "op_invoke", feature = "op_invoke_with_response_stream"))]
+Error::InvalidZipFileException(inner) => inner.source(),
+            #[cfg(any(feature = "op_checkpoint_durable_execution", feature = "op_get_durable_execution", feature = "op_get_durable_execution_history", feature = "op_get_durable_execution_state", feature = "op_invoke", feature = "op_invoke_async", feature = "op_invoke_with_response_stream", feature = "op_send_durable_execution_callback_failure", feature = "op_send_durable_execution_callback_success", feature = "op_stop_durable_execution"))]
+Error::KmsAccessDeniedException(inner) => inner.source(),
+            #[cfg(any(feature = "op_checkpoint_durable_execution", feature = "op_get_durable_execution", feature = "op_get_durable_execution_history", feature = "op_get_durable_execution_state", feature = "op_invoke", feature = "op_invoke_async", feature = "op_invoke_with_response_stream", feature = "op_send_durable_execution_callback_failure", feature = "op_send_durable_execution_callback_success", feature = "op_stop_durable_execution"))]
+Error::KmsDisabledException(inner) => inner.source(),
+            #[cfg(any(feature = "op_checkpoint_durable_execution", feature = "op_get_durable_execution", feature = "op_get_durable_execution_history", feature = "op_get_durable_execution_state", feature = "op_invoke", feature = "op_invoke_async", feature = "op_invoke_with_response_stream", feature = "op_send_durable_execution_callback_failure", feature = "op_send_durable_execution_callback_success", feature = "op_stop_durable_execution"))]
+Error::KmsInvalidStateException(inner) => inner.source(),
+            #[cfg(any(feature = "op_checkpoint_durable_execution", feature = "op_get_durable_execution", feature = "op_get_durable_execution_history", feature = "op_get_durable_execution_state", feature = "op_invoke", feature = "op_invoke_async", feature = "op_invoke_with_response_stream", feature = "op_send_durable_execution_callback_failure", feature = "op_send_durable_execution_callback_success", feature = "op_stop_durable_execution"))]
+Error::KmsNotFoundException(inner) => inner.source(),
+            #[cfg(any(feature = "op_invoke", feature = "op_invoke_async"))]
+Error::ModeNotSupportedException(inner) => inner.source(),
+            #[cfg(any(feature = "op_invoke", feature = "op_invoke_with_response_stream"))]
+Error::NoPublishedVersionException(inner) => inner.source(),
+            #[cfg(any(feature = "op_add_layer_version_permission", feature = "op_add_permission", feature = "op_put_resource_policy"))]
+Error::PolicyLengthExceededException(inner) => inner.source(),
+            #[cfg(any(feature = "op_add_layer_version_permission", feature = "op_add_permission", feature = "op_delete_resource_policy", feature = "op_put_resource_policy", feature = "op_remove_layer_version_permission", feature = "op_remove_permission", feature = "op_update_alias", feature = "op_update_function_code", feature = "op_update_function_configuration"))]
+Error::PreconditionFailedException(inner) => inner.source(),
+            #[cfg(feature = "op_get_provisioned_concurrency_config")]
+Error::ProvisionedConcurrencyConfigNotFoundException(inner) => inner.source(),
+            #[cfg(any(feature = "op_add_permission", feature = "op_put_resource_policy", feature = "op_remove_permission"))]
+Error::PublicPolicyException(inner) => inner.source(),
+            #[cfg(any(feature = "op_invoke", feature = "op_invoke_with_response_stream"))]
+Error::RecursiveInvocationException(inner) => inner.source(),
+            #[cfg(any(feature = "op_invoke", feature = "op_invoke_with_response_stream"))]
+Error::RequestTooLargeException(inner) => inner.source(),
+            #[cfg(any(feature = "op_add_layer_version_permission", feature = "op_add_permission", feature = "op_create_alias", feature = "op_create_capacity_provider", feature = "op_create_function", feature = "op_create_function_url_config", feature = "op_delete_alias", feature = "op_delete_capacity_provider", feature = "op_delete_code_signing_config", feature = "op_delete_event_source_mapping", feature = "op_delete_function", feature = "op_delete_function_code_signing_config", feature = "op_delete_function_concurrency", feature = "op_delete_function_event_invoke_config", feature = "op_delete_function_url_config", feature = "op_delete_provisioned_concurrency_config", feature = "op_delete_resource_policy", feature = "op_invoke", feature = "op_invoke_async", feature = "op_invoke_with_response_stream", feature = "op_put_function_code_signing_config", feature = "op_put_function_concurrency", feature = "op_put_function_event_invoke_config", feature = "op_put_function_recursion_config", feature = "op_put_function_scaling_config", feature = "op_put_provisioned_concurrency_config", feature = "op_put_resource_policy", feature = "op_put_runtime_management_config", feature = "op_tag_resource", feature = "op_untag_resource", feature = "op_update_alias", feature = "op_update_capacity_provider", feature = "op_update_event_source_mapping", feature = "op_update_function_code", feature = "op_update_function_configuration", feature = "op_update_function_event_invoke_config", feature = "op_update_function_url_config"))]
+Error::ResourceConflictException(inner) => inner.source(),
+            #[cfg(any(feature = "op_delete_event_source_mapping", feature = "op_update_event_source_mapping"))]
+Error::ResourceInUseException(inner) => inner.source(),
+            #[cfg(any(feature = "op_add_layer_version_permission", feature = "op_add_permission", feature = "op_create_alias", feature = "op_create_function", feature = "op_create_function_url_config", feature = "op_delete_alias", feature = "op_delete_capacity_provider", feature = "op_delete_code_signing_config", feature = "op_delete_event_source_mapping", feature = "op_delete_function", feature = "op_delete_function_code_signing_config", feature = "op_delete_function_concurrency", feature = "op_delete_function_event_invoke_config", feature = "op_delete_function_url_config", feature = "op_delete_layer_version", feature = "op_delete_provisioned_concurrency_config", feature = "op_delete_resource_policy", feature = "op_get_alias", feature = "op_get_capacity_provider", feature = "op_get_code_signing_config", feature = "op_get_durable_execution", feature = "op_get_durable_execution_history", feature = "op_get_event_source_mapping", feature = "op_get_function", feature = "op_get_function_code_signing_config", feature = "op_get_function_concurrency", feature = "op_get_function_configuration", feature = "op_get_function_event_invoke_config", feature = "op_get_function_recursion_config", feature = "op_get_function_scaling_config", feature = "op_get_function_url_config", feature = "op_get_layer_version", feature = "op_get_layer_version_by_arn", feature = "op_get_layer_version_policy", feature = "op_get_policy", feature = "op_get_provisioned_concurrency_config", feature = "op_get_resource_policy", feature = "op_get_runtime_management_config", feature = "op_invoke", feature = "op_invoke_async", feature = "op_invoke_with_response_stream", feature = "op_list_aliases", feature = "op_list_durable_executions_by_function", feature = "op_list_event_source_mappings", feature = "op_list_function_event_invoke_configs", feature = "op_list_function_url_configs", feature = "op_list_function_versions_by_capacity_provider", feature = "op_list_functions_by_code_signing_config", feature = "op_list_layer_versions", feature = "op_list_provisioned_concurrency_configs", feature = "op_list_tags", feature = "op_list_versions_by_function", feature = "op_publish_layer_version", feature = "op_put_function_code_signing_config", feature = "op_put_function_concurrency", feature = "op_put_function_event_invoke_config", feature = "op_put_function_recursion_config", feature = "op_put_function_scaling_config", feature = "op_put_provisioned_concurrency_config", feature = "op_put_resource_policy", feature = "op_put_runtime_management_config", feature = "op_remove_layer_version_permission", feature = "op_remove_permission", feature = "op_send_durable_execution_callback_failure", feature = "op_send_durable_execution_callback_heartbeat", feature = "op_send_durable_execution_callback_success", feature = "op_stop_durable_execution", feature = "op_tag_resource", feature = "op_untag_resource", feature = "op_update_alias", feature = "op_update_capacity_provider", feature = "op_update_code_signing_config", feature = "op_update_event_source_mapping", feature = "op_update_function_code", feature = "op_update_function_configuration", feature = "op_update_function_event_invoke_config", feature = "op_update_function_url_config"))]
+Error::ResourceNotFoundException(inner) => inner.source(),
+            #[cfg(any(feature = "op_invoke", feature = "op_invoke_with_response_stream"))]
+Error::ResourceNotReadyException(inner) => inner.source(),
+            #[cfg(any(feature = "op_invoke", feature = "op_invoke_async", feature = "op_invoke_with_response_stream"))]
+Error::S3FilesMountConnectivityException(inner) => inner.source(),
+            #[cfg(any(feature = "op_invoke", feature = "op_invoke_async", feature = "op_invoke_with_response_stream"))]
+Error::S3FilesMountFailureException(inner) => inner.source(),
+            #[cfg(any(feature = "op_invoke", feature = "op_invoke_async", feature = "op_invoke_with_response_stream"))]
+Error::S3FilesMountTimeoutException(inner) => inner.source(),
+            #[cfg(any(feature = "op_invoke", feature = "op_invoke_with_response_stream"))]
+Error::SerializedRequestEntityTooLargeException(inner) => inner.source(),
+            #[cfg(any(feature = "op_add_layer_version_permission", feature = "op_add_permission", feature = "op_checkpoint_durable_execution", feature = "op_create_alias", feature = "op_create_capacity_provider", feature = "op_create_function", feature = "op_create_function_url_config", feature = "op_delete_alias", feature = "op_delete_capacity_provider", feature = "op_delete_code_signing_config", feature = "op_delete_event_source_mapping", feature = "op_delete_function", feature = "op_delete_function_code_signing_config", feature = "op_delete_function_concurrency", feature = "op_delete_function_event_invoke_config", feature = "op_delete_function_url_config", feature = "op_delete_layer_version", feature = "op_delete_provisioned_concurrency_config", feature = "op_delete_resource_policy", feature = "op_get_account_settings", feature = "op_get_alias", feature = "op_get_capacity_provider", feature = "op_get_code_signing_config", feature = "op_get_durable_execution", feature = "op_get_durable_execution_history", feature = "op_get_durable_execution_state", feature = "op_get_event_source_mapping", feature = "op_get_function", feature = "op_get_function_code_signing_config", feature = "op_get_function_concurrency", feature = "op_get_function_configuration", feature = "op_get_function_event_invoke_config", feature = "op_get_function_recursion_config", feature = "op_get_function_scaling_config", feature = "op_get_function_url_config", feature = "op_get_layer_version", feature = "op_get_layer_version_by_arn", feature = "op_get_layer_version_policy", feature = "op_get_policy", feature = "op_get_provisioned_concurrency_config", feature = "op_get_resource_policy", feature = "op_get_runtime_management_config", feature = "op_invoke", feature = "op_invoke_async", feature = "op_invoke_with_response_stream", feature = "op_list_aliases", feature = "op_list_capacity_providers", feature = "op_list_code_signing_configs", feature = "op_list_durable_executions_by_function", feature = "op_list_event_source_mappings", feature = "op_list_function_event_invoke_configs", feature = "op_list_function_url_configs", feature = "op_list_function_versions_by_capacity_provider", feature = "op_list_functions", feature = "op_list_functions_by_code_signing_config", feature = "op_list_layer_versions", feature = "op_list_layers", feature = "op_list_provisioned_concurrency_configs", feature = "op_list_tags", feature = "op_list_versions_by_function", feature = "op_publish_layer_version", feature = "op_put_function_code_signing_config", feature = "op_put_function_concurrency", feature = "op_put_function_event_invoke_config", feature = "op_put_function_recursion_config", feature = "op_put_function_scaling_config", feature = "op_put_provisioned_concurrency_config", feature = "op_put_resource_policy", feature = "op_put_runtime_management_config", feature = "op_remove_layer_version_permission", feature = "op_remove_permission", feature = "op_send_durable_execution_callback_failure", feature = "op_send_durable_execution_callback_heartbeat", feature = "op_send_durable_execution_callback_success", feature = "op_stop_durable_execution", feature = "op_tag_resource", feature = "op_untag_resource", feature = "op_update_alias", feature = "op_update_capacity_provider", feature = "op_update_code_signing_config", feature = "op_update_event_source_mapping", feature = "op_update_function_code", feature = "op_update_function_configuration", feature = "op_update_function_event_invoke_config", feature = "op_update_function_url_config"))]
+Error::ServiceException(inner) => inner.source(),
+            #[cfg(any(feature = "op_invoke", feature = "op_invoke_async", feature = "op_invoke_with_response_stream"))]
+Error::ServiceQuotaExceededException(inner) => inner.source(),
+            #[cfg(any(feature = "op_invoke", feature = "op_invoke_async", feature = "op_invoke_with_response_stream"))]
+Error::SnapStartException(inner) => inner.source(),
+            #[cfg(any(feature = "op_invoke", feature = "op_invoke_async", feature = "op_invoke_with_response_stream"))]
+Error::SnapStartNotReadyException(inner) => inner.source(),
+            #[cfg(any(feature = "op_invoke", feature = "op_invoke_async", feature = "op_invoke_with_response_stream"))]
+Error::SnapStartRegenerationFailureException(inner) => inner.source(),
+            #[cfg(any(feature = "op_invoke", feature = "op_invoke_async", feature = "op_invoke_with_response_stream"))]
+Error::SnapStartTimeoutException(inner) => inner.source(),
+            #[cfg(any(feature = "op_invoke", feature = "op_invoke_async", feature = "op_invoke_with_response_stream"))]
+Error::SubnetIpAddressLimitReachedException(inner) => inner.source(),
+            #[cfg(any(feature = "op_add_layer_version_permission", feature = "op_add_permission", feature = "op_checkpoint_durable_execution", feature = "op_create_alias", feature = "op_create_capacity_provider", feature = "op_create_function", feature = "op_create_function_url_config", feature = "op_delete_alias", feature = "op_delete_capacity_provider", feature = "op_delete_event_source_mapping", feature = "op_delete_function", feature = "op_delete_function_code_signing_config", feature = "op_delete_function_concurrency", feature = "op_delete_function_event_invoke_config", feature = "op_delete_function_url_config", feature = "op_delete_layer_version", feature = "op_delete_provisioned_concurrency_config", feature = "op_delete_resource_policy", feature = "op_get_account_settings", feature = "op_get_alias", feature = "op_get_capacity_provider", feature = "op_get_durable_execution", feature = "op_get_durable_execution_history", feature = "op_get_durable_execution_state", feature = "op_get_event_source_mapping", feature = "op_get_function", feature = "op_get_function_code_signing_config", feature = "op_get_function_concurrency", feature = "op_get_function_configuration", feature = "op_get_function_event_invoke_config", feature = "op_get_function_recursion_config", feature = "op_get_function_scaling_config", feature = "op_get_function_url_config", feature = "op_get_layer_version", feature = "op_get_layer_version_by_arn", feature = "op_get_layer_version_policy", feature = "op_get_policy", feature = "op_get_provisioned_concurrency_config", feature = "op_get_resource_policy", feature = "op_get_runtime_management_config", feature = "op_invoke", feature = "op_invoke_with_response_stream", feature = "op_list_aliases", feature = "op_list_capacity_providers", feature = "op_list_durable_executions_by_function", feature = "op_list_event_source_mappings", feature = "op_list_function_event_invoke_configs", feature = "op_list_function_url_configs", feature = "op_list_function_versions_by_capacity_provider", feature = "op_list_functions", feature = "op_list_layer_versions", feature = "op_list_layers", feature = "op_list_provisioned_concurrency_configs", feature = "op_list_tags", feature = "op_list_versions_by_function", feature = "op_publish_layer_version", feature = "op_put_function_code_signing_config", feature = "op_put_function_concurrency", feature = "op_put_function_event_invoke_config", feature = "op_put_function_recursion_config", feature = "op_put_function_scaling_config", feature = "op_put_provisioned_concurrency_config", feature = "op_put_resource_policy", feature = "op_put_runtime_management_config", feature = "op_remove_layer_version_permission", feature = "op_remove_permission", feature = "op_send_durable_execution_callback_failure", feature = "op_send_durable_execution_callback_heartbeat", feature = "op_send_durable_execution_callback_success", feature = "op_stop_durable_execution", feature = "op_tag_resource", feature = "op_untag_resource", feature = "op_update_alias", feature = "op_update_capacity_provider", feature = "op_update_event_source_mapping", feature = "op_update_function_code", feature = "op_update_function_configuration", feature = "op_update_function_event_invoke_config", feature = "op_update_function_url_config"))]
+Error::TooManyRequestsException(inner) => inner.source(),
+            #[cfg(any(feature = "op_invoke", feature = "op_invoke_with_response_stream"))]
+Error::UnsupportedMediaTypeException(inner) => inner.source(),
             Error::Unhandled(inner) => ::std::option::Option::Some(&*inner.source),
         }
     }
@@ -4917,62 +4012,118 @@ impl ::std::error::Error for Error {
 impl ::aws_types::request_id::RequestId for Error {
     fn request_id(&self) -> Option<&str> {
         match self {
-            Self::AliasLimitExceededException(e) => e.request_id(),
-            Self::CallbackTimeoutException(e) => e.request_id(),
-            Self::CapacityProviderLimitExceededException(e) => e.request_id(),
-            Self::CodeArtifactUserDeletedException(e) => e.request_id(),
-            Self::CodeArtifactUserFailedException(e) => e.request_id(),
-            Self::CodeArtifactUserPendingException(e) => e.request_id(),
-            Self::CodeSigningConfigNotFoundException(e) => e.request_id(),
-            Self::CodeStorageExceededException(e) => e.request_id(),
-            Self::CodeVerificationFailedException(e) => e.request_id(),
-            Self::DurableExecutionAlreadyStartedException(e) => e.request_id(),
-            Self::Ec2AccessDeniedException(e) => e.request_id(),
-            Self::Ec2ThrottledException(e) => e.request_id(),
-            Self::Ec2UnexpectedException(e) => e.request_id(),
-            Self::EfsioException(e) => e.request_id(),
-            Self::EfsMountConnectivityException(e) => e.request_id(),
-            Self::EfsMountFailureException(e) => e.request_id(),
-            Self::EfsMountTimeoutException(e) => e.request_id(),
-            Self::EniLimitReachedException(e) => e.request_id(),
-            Self::EniNotReadyException(e) => e.request_id(),
-            Self::FunctionVersionsPerCapacityProviderLimitExceededException(e) => e.request_id(),
-            Self::InvalidCodeSignatureException(e) => e.request_id(),
-            Self::InvalidParameterValueException(e) => e.request_id(),
-            Self::InvalidRequestContentException(e) => e.request_id(),
-            Self::InvalidRuntimeException(e) => e.request_id(),
-            Self::InvalidSecurityGroupIdException(e) => e.request_id(),
-            Self::InvalidSubnetIdException(e) => e.request_id(),
-            Self::InvalidZipFileException(e) => e.request_id(),
-            Self::KmsAccessDeniedException(e) => e.request_id(),
-            Self::KmsDisabledException(e) => e.request_id(),
-            Self::KmsInvalidStateException(e) => e.request_id(),
-            Self::KmsNotFoundException(e) => e.request_id(),
-            Self::ModeNotSupportedException(e) => e.request_id(),
-            Self::NoPublishedVersionException(e) => e.request_id(),
-            Self::PolicyLengthExceededException(e) => e.request_id(),
-            Self::PreconditionFailedException(e) => e.request_id(),
-            Self::ProvisionedConcurrencyConfigNotFoundException(e) => e.request_id(),
-            Self::PublicPolicyException(e) => e.request_id(),
-            Self::RecursiveInvocationException(e) => e.request_id(),
-            Self::RequestTooLargeException(e) => e.request_id(),
-            Self::ResourceConflictException(e) => e.request_id(),
-            Self::ResourceInUseException(e) => e.request_id(),
-            Self::ResourceNotFoundException(e) => e.request_id(),
-            Self::ResourceNotReadyException(e) => e.request_id(),
-            Self::S3FilesMountConnectivityException(e) => e.request_id(),
-            Self::S3FilesMountFailureException(e) => e.request_id(),
-            Self::S3FilesMountTimeoutException(e) => e.request_id(),
-            Self::SerializedRequestEntityTooLargeException(e) => e.request_id(),
-            Self::ServiceException(e) => e.request_id(),
-            Self::ServiceQuotaExceededException(e) => e.request_id(),
-            Self::SnapStartException(e) => e.request_id(),
-            Self::SnapStartNotReadyException(e) => e.request_id(),
-            Self::SnapStartRegenerationFailureException(e) => e.request_id(),
-            Self::SnapStartTimeoutException(e) => e.request_id(),
-            Self::SubnetIpAddressLimitReachedException(e) => e.request_id(),
-            Self::TooManyRequestsException(e) => e.request_id(),
-            Self::UnsupportedMediaTypeException(e) => e.request_id(),
+            #[cfg(feature = "op_create_alias")]
+Self::AliasLimitExceededException(e) => e.request_id(),
+            #[cfg(any(feature = "op_send_durable_execution_callback_failure", feature = "op_send_durable_execution_callback_heartbeat", feature = "op_send_durable_execution_callback_success"))]
+Self::CallbackTimeoutException(e) => e.request_id(),
+            #[cfg(feature = "op_create_capacity_provider")]
+Self::CapacityProviderLimitExceededException(e) => e.request_id(),
+            #[cfg(feature = "op_invoke")]
+Self::CodeArtifactUserDeletedException(e) => e.request_id(),
+            #[cfg(feature = "op_invoke")]
+Self::CodeArtifactUserFailedException(e) => e.request_id(),
+            #[cfg(feature = "op_invoke")]
+Self::CodeArtifactUserPendingException(e) => e.request_id(),
+            #[cfg(any(feature = "op_create_function", feature = "op_delete_function_code_signing_config", feature = "op_get_function_code_signing_config", feature = "op_put_function_code_signing_config", feature = "op_update_function_code", feature = "op_update_function_configuration"))]
+Self::CodeSigningConfigNotFoundException(e) => e.request_id(),
+            #[cfg(any(feature = "op_create_function", feature = "op_publish_layer_version", feature = "op_update_function_code"))]
+Self::CodeStorageExceededException(e) => e.request_id(),
+            #[cfg(any(feature = "op_create_function", feature = "op_update_function_code", feature = "op_update_function_configuration"))]
+Self::CodeVerificationFailedException(e) => e.request_id(),
+            #[cfg(feature = "op_invoke")]
+Self::DurableExecutionAlreadyStartedException(e) => e.request_id(),
+            #[cfg(any(feature = "op_invoke", feature = "op_invoke_async", feature = "op_invoke_with_response_stream"))]
+Self::Ec2AccessDeniedException(e) => e.request_id(),
+            #[cfg(any(feature = "op_invoke", feature = "op_invoke_async", feature = "op_invoke_with_response_stream"))]
+Self::Ec2ThrottledException(e) => e.request_id(),
+            #[cfg(any(feature = "op_invoke", feature = "op_invoke_async", feature = "op_invoke_with_response_stream"))]
+Self::Ec2UnexpectedException(e) => e.request_id(),
+            #[cfg(any(feature = "op_invoke", feature = "op_invoke_async", feature = "op_invoke_with_response_stream"))]
+Self::EfsioException(e) => e.request_id(),
+            #[cfg(any(feature = "op_invoke", feature = "op_invoke_async", feature = "op_invoke_with_response_stream"))]
+Self::EfsMountConnectivityException(e) => e.request_id(),
+            #[cfg(any(feature = "op_invoke", feature = "op_invoke_async", feature = "op_invoke_with_response_stream"))]
+Self::EfsMountFailureException(e) => e.request_id(),
+            #[cfg(any(feature = "op_invoke", feature = "op_invoke_async", feature = "op_invoke_with_response_stream"))]
+Self::EfsMountTimeoutException(e) => e.request_id(),
+            #[cfg(any(feature = "op_invoke", feature = "op_invoke_async", feature = "op_invoke_with_response_stream"))]
+Self::EniLimitReachedException(e) => e.request_id(),
+            #[cfg(feature = "op_invoke")]
+Self::EniNotReadyException(e) => e.request_id(),
+            #[cfg(feature = "op_create_function")]
+Self::FunctionVersionsPerCapacityProviderLimitExceededException(e) => e.request_id(),
+            #[cfg(any(feature = "op_create_function", feature = "op_update_function_code", feature = "op_update_function_configuration"))]
+Self::InvalidCodeSignatureException(e) => e.request_id(),
+            #[cfg(any(feature = "op_add_layer_version_permission", feature = "op_add_permission", feature = "op_checkpoint_durable_execution", feature = "op_create_alias", feature = "op_create_capacity_provider", feature = "op_create_function", feature = "op_create_function_url_config", feature = "op_delete_alias", feature = "op_delete_capacity_provider", feature = "op_delete_code_signing_config", feature = "op_delete_event_source_mapping", feature = "op_delete_function", feature = "op_delete_function_code_signing_config", feature = "op_delete_function_concurrency", feature = "op_delete_function_event_invoke_config", feature = "op_delete_function_url_config", feature = "op_delete_layer_version", feature = "op_delete_provisioned_concurrency_config", feature = "op_delete_resource_policy", feature = "op_get_alias", feature = "op_get_capacity_provider", feature = "op_get_code_signing_config", feature = "op_get_durable_execution", feature = "op_get_durable_execution_history", feature = "op_get_durable_execution_state", feature = "op_get_event_source_mapping", feature = "op_get_function", feature = "op_get_function_code_signing_config", feature = "op_get_function_concurrency", feature = "op_get_function_configuration", feature = "op_get_function_event_invoke_config", feature = "op_get_function_recursion_config", feature = "op_get_function_scaling_config", feature = "op_get_function_url_config", feature = "op_get_layer_version", feature = "op_get_layer_version_by_arn", feature = "op_get_layer_version_policy", feature = "op_get_policy", feature = "op_get_provisioned_concurrency_config", feature = "op_get_resource_policy", feature = "op_get_runtime_management_config", feature = "op_invoke", feature = "op_invoke_with_response_stream", feature = "op_list_aliases", feature = "op_list_capacity_providers", feature = "op_list_code_signing_configs", feature = "op_list_durable_executions_by_function", feature = "op_list_event_source_mappings", feature = "op_list_function_event_invoke_configs", feature = "op_list_function_url_configs", feature = "op_list_function_versions_by_capacity_provider", feature = "op_list_functions", feature = "op_list_functions_by_code_signing_config", feature = "op_list_layer_versions", feature = "op_list_layers", feature = "op_list_provisioned_concurrency_configs", feature = "op_list_tags", feature = "op_list_versions_by_function", feature = "op_publish_layer_version", feature = "op_put_function_code_signing_config", feature = "op_put_function_concurrency", feature = "op_put_function_event_invoke_config", feature = "op_put_function_recursion_config", feature = "op_put_function_scaling_config", feature = "op_put_provisioned_concurrency_config", feature = "op_put_resource_policy", feature = "op_put_runtime_management_config", feature = "op_remove_layer_version_permission", feature = "op_remove_permission", feature = "op_send_durable_execution_callback_failure", feature = "op_send_durable_execution_callback_heartbeat", feature = "op_send_durable_execution_callback_success", feature = "op_stop_durable_execution", feature = "op_tag_resource", feature = "op_untag_resource", feature = "op_update_alias", feature = "op_update_capacity_provider", feature = "op_update_code_signing_config", feature = "op_update_event_source_mapping", feature = "op_update_function_code", feature = "op_update_function_configuration", feature = "op_update_function_event_invoke_config", feature = "op_update_function_url_config"))]
+Self::InvalidParameterValueException(e) => e.request_id(),
+            #[cfg(any(feature = "op_invoke", feature = "op_invoke_async", feature = "op_invoke_with_response_stream"))]
+Self::InvalidRequestContentException(e) => e.request_id(),
+            #[cfg(any(feature = "op_invoke", feature = "op_invoke_async", feature = "op_invoke_with_response_stream"))]
+Self::InvalidRuntimeException(e) => e.request_id(),
+            #[cfg(any(feature = "op_invoke", feature = "op_invoke_async", feature = "op_invoke_with_response_stream"))]
+Self::InvalidSecurityGroupIdException(e) => e.request_id(),
+            #[cfg(any(feature = "op_invoke", feature = "op_invoke_async", feature = "op_invoke_with_response_stream"))]
+Self::InvalidSubnetIdException(e) => e.request_id(),
+            #[cfg(any(feature = "op_invoke", feature = "op_invoke_with_response_stream"))]
+Self::InvalidZipFileException(e) => e.request_id(),
+            #[cfg(any(feature = "op_checkpoint_durable_execution", feature = "op_get_durable_execution", feature = "op_get_durable_execution_history", feature = "op_get_durable_execution_state", feature = "op_invoke", feature = "op_invoke_async", feature = "op_invoke_with_response_stream", feature = "op_send_durable_execution_callback_failure", feature = "op_send_durable_execution_callback_success", feature = "op_stop_durable_execution"))]
+Self::KmsAccessDeniedException(e) => e.request_id(),
+            #[cfg(any(feature = "op_checkpoint_durable_execution", feature = "op_get_durable_execution", feature = "op_get_durable_execution_history", feature = "op_get_durable_execution_state", feature = "op_invoke", feature = "op_invoke_async", feature = "op_invoke_with_response_stream", feature = "op_send_durable_execution_callback_failure", feature = "op_send_durable_execution_callback_success", feature = "op_stop_durable_execution"))]
+Self::KmsDisabledException(e) => e.request_id(),
+            #[cfg(any(feature = "op_checkpoint_durable_execution", feature = "op_get_durable_execution", feature = "op_get_durable_execution_history", feature = "op_get_durable_execution_state", feature = "op_invoke", feature = "op_invoke_async", feature = "op_invoke_with_response_stream", feature = "op_send_durable_execution_callback_failure", feature = "op_send_durable_execution_callback_success", feature = "op_stop_durable_execution"))]
+Self::KmsInvalidStateException(e) => e.request_id(),
+            #[cfg(any(feature = "op_checkpoint_durable_execution", feature = "op_get_durable_execution", feature = "op_get_durable_execution_history", feature = "op_get_durable_execution_state", feature = "op_invoke", feature = "op_invoke_async", feature = "op_invoke_with_response_stream", feature = "op_send_durable_execution_callback_failure", feature = "op_send_durable_execution_callback_success", feature = "op_stop_durable_execution"))]
+Self::KmsNotFoundException(e) => e.request_id(),
+            #[cfg(any(feature = "op_invoke", feature = "op_invoke_async"))]
+Self::ModeNotSupportedException(e) => e.request_id(),
+            #[cfg(any(feature = "op_invoke", feature = "op_invoke_with_response_stream"))]
+Self::NoPublishedVersionException(e) => e.request_id(),
+            #[cfg(any(feature = "op_add_layer_version_permission", feature = "op_add_permission", feature = "op_put_resource_policy"))]
+Self::PolicyLengthExceededException(e) => e.request_id(),
+            #[cfg(any(feature = "op_add_layer_version_permission", feature = "op_add_permission", feature = "op_delete_resource_policy", feature = "op_put_resource_policy", feature = "op_remove_layer_version_permission", feature = "op_remove_permission", feature = "op_update_alias", feature = "op_update_function_code", feature = "op_update_function_configuration"))]
+Self::PreconditionFailedException(e) => e.request_id(),
+            #[cfg(feature = "op_get_provisioned_concurrency_config")]
+Self::ProvisionedConcurrencyConfigNotFoundException(e) => e.request_id(),
+            #[cfg(any(feature = "op_add_permission", feature = "op_put_resource_policy", feature = "op_remove_permission"))]
+Self::PublicPolicyException(e) => e.request_id(),
+            #[cfg(any(feature = "op_invoke", feature = "op_invoke_with_response_stream"))]
+Self::RecursiveInvocationException(e) => e.request_id(),
+            #[cfg(any(feature = "op_invoke", feature = "op_invoke_with_response_stream"))]
+Self::RequestTooLargeException(e) => e.request_id(),
+            #[cfg(any(feature = "op_add_layer_version_permission", feature = "op_add_permission", feature = "op_create_alias", feature = "op_create_capacity_provider", feature = "op_create_function", feature = "op_create_function_url_config", feature = "op_delete_alias", feature = "op_delete_capacity_provider", feature = "op_delete_code_signing_config", feature = "op_delete_event_source_mapping", feature = "op_delete_function", feature = "op_delete_function_code_signing_config", feature = "op_delete_function_concurrency", feature = "op_delete_function_event_invoke_config", feature = "op_delete_function_url_config", feature = "op_delete_provisioned_concurrency_config", feature = "op_delete_resource_policy", feature = "op_invoke", feature = "op_invoke_async", feature = "op_invoke_with_response_stream", feature = "op_put_function_code_signing_config", feature = "op_put_function_concurrency", feature = "op_put_function_event_invoke_config", feature = "op_put_function_recursion_config", feature = "op_put_function_scaling_config", feature = "op_put_provisioned_concurrency_config", feature = "op_put_resource_policy", feature = "op_put_runtime_management_config", feature = "op_tag_resource", feature = "op_untag_resource", feature = "op_update_alias", feature = "op_update_capacity_provider", feature = "op_update_event_source_mapping", feature = "op_update_function_code", feature = "op_update_function_configuration", feature = "op_update_function_event_invoke_config", feature = "op_update_function_url_config"))]
+Self::ResourceConflictException(e) => e.request_id(),
+            #[cfg(any(feature = "op_delete_event_source_mapping", feature = "op_update_event_source_mapping"))]
+Self::ResourceInUseException(e) => e.request_id(),
+            #[cfg(any(feature = "op_add_layer_version_permission", feature = "op_add_permission", feature = "op_create_alias", feature = "op_create_function", feature = "op_create_function_url_config", feature = "op_delete_alias", feature = "op_delete_capacity_provider", feature = "op_delete_code_signing_config", feature = "op_delete_event_source_mapping", feature = "op_delete_function", feature = "op_delete_function_code_signing_config", feature = "op_delete_function_concurrency", feature = "op_delete_function_event_invoke_config", feature = "op_delete_function_url_config", feature = "op_delete_layer_version", feature = "op_delete_provisioned_concurrency_config", feature = "op_delete_resource_policy", feature = "op_get_alias", feature = "op_get_capacity_provider", feature = "op_get_code_signing_config", feature = "op_get_durable_execution", feature = "op_get_durable_execution_history", feature = "op_get_event_source_mapping", feature = "op_get_function", feature = "op_get_function_code_signing_config", feature = "op_get_function_concurrency", feature = "op_get_function_configuration", feature = "op_get_function_event_invoke_config", feature = "op_get_function_recursion_config", feature = "op_get_function_scaling_config", feature = "op_get_function_url_config", feature = "op_get_layer_version", feature = "op_get_layer_version_by_arn", feature = "op_get_layer_version_policy", feature = "op_get_policy", feature = "op_get_provisioned_concurrency_config", feature = "op_get_resource_policy", feature = "op_get_runtime_management_config", feature = "op_invoke", feature = "op_invoke_async", feature = "op_invoke_with_response_stream", feature = "op_list_aliases", feature = "op_list_durable_executions_by_function", feature = "op_list_event_source_mappings", feature = "op_list_function_event_invoke_configs", feature = "op_list_function_url_configs", feature = "op_list_function_versions_by_capacity_provider", feature = "op_list_functions_by_code_signing_config", feature = "op_list_layer_versions", feature = "op_list_provisioned_concurrency_configs", feature = "op_list_tags", feature = "op_list_versions_by_function", feature = "op_publish_layer_version", feature = "op_put_function_code_signing_config", feature = "op_put_function_concurrency", feature = "op_put_function_event_invoke_config", feature = "op_put_function_recursion_config", feature = "op_put_function_scaling_config", feature = "op_put_provisioned_concurrency_config", feature = "op_put_resource_policy", feature = "op_put_runtime_management_config", feature = "op_remove_layer_version_permission", feature = "op_remove_permission", feature = "op_send_durable_execution_callback_failure", feature = "op_send_durable_execution_callback_heartbeat", feature = "op_send_durable_execution_callback_success", feature = "op_stop_durable_execution", feature = "op_tag_resource", feature = "op_untag_resource", feature = "op_update_alias", feature = "op_update_capacity_provider", feature = "op_update_code_signing_config", feature = "op_update_event_source_mapping", feature = "op_update_function_code", feature = "op_update_function_configuration", feature = "op_update_function_event_invoke_config", feature = "op_update_function_url_config"))]
+Self::ResourceNotFoundException(e) => e.request_id(),
+            #[cfg(any(feature = "op_invoke", feature = "op_invoke_with_response_stream"))]
+Self::ResourceNotReadyException(e) => e.request_id(),
+            #[cfg(any(feature = "op_invoke", feature = "op_invoke_async", feature = "op_invoke_with_response_stream"))]
+Self::S3FilesMountConnectivityException(e) => e.request_id(),
+            #[cfg(any(feature = "op_invoke", feature = "op_invoke_async", feature = "op_invoke_with_response_stream"))]
+Self::S3FilesMountFailureException(e) => e.request_id(),
+            #[cfg(any(feature = "op_invoke", feature = "op_invoke_async", feature = "op_invoke_with_response_stream"))]
+Self::S3FilesMountTimeoutException(e) => e.request_id(),
+            #[cfg(any(feature = "op_invoke", feature = "op_invoke_with_response_stream"))]
+Self::SerializedRequestEntityTooLargeException(e) => e.request_id(),
+            #[cfg(any(feature = "op_add_layer_version_permission", feature = "op_add_permission", feature = "op_checkpoint_durable_execution", feature = "op_create_alias", feature = "op_create_capacity_provider", feature = "op_create_function", feature = "op_create_function_url_config", feature = "op_delete_alias", feature = "op_delete_capacity_provider", feature = "op_delete_code_signing_config", feature = "op_delete_event_source_mapping", feature = "op_delete_function", feature = "op_delete_function_code_signing_config", feature = "op_delete_function_concurrency", feature = "op_delete_function_event_invoke_config", feature = "op_delete_function_url_config", feature = "op_delete_layer_version", feature = "op_delete_provisioned_concurrency_config", feature = "op_delete_resource_policy", feature = "op_get_account_settings", feature = "op_get_alias", feature = "op_get_capacity_provider", feature = "op_get_code_signing_config", feature = "op_get_durable_execution", feature = "op_get_durable_execution_history", feature = "op_get_durable_execution_state", feature = "op_get_event_source_mapping", feature = "op_get_function", feature = "op_get_function_code_signing_config", feature = "op_get_function_concurrency", feature = "op_get_function_configuration", feature = "op_get_function_event_invoke_config", feature = "op_get_function_recursion_config", feature = "op_get_function_scaling_config", feature = "op_get_function_url_config", feature = "op_get_layer_version", feature = "op_get_layer_version_by_arn", feature = "op_get_layer_version_policy", feature = "op_get_policy", feature = "op_get_provisioned_concurrency_config", feature = "op_get_resource_policy", feature = "op_get_runtime_management_config", feature = "op_invoke", feature = "op_invoke_async", feature = "op_invoke_with_response_stream", feature = "op_list_aliases", feature = "op_list_capacity_providers", feature = "op_list_code_signing_configs", feature = "op_list_durable_executions_by_function", feature = "op_list_event_source_mappings", feature = "op_list_function_event_invoke_configs", feature = "op_list_function_url_configs", feature = "op_list_function_versions_by_capacity_provider", feature = "op_list_functions", feature = "op_list_functions_by_code_signing_config", feature = "op_list_layer_versions", feature = "op_list_layers", feature = "op_list_provisioned_concurrency_configs", feature = "op_list_tags", feature = "op_list_versions_by_function", feature = "op_publish_layer_version", feature = "op_put_function_code_signing_config", feature = "op_put_function_concurrency", feature = "op_put_function_event_invoke_config", feature = "op_put_function_recursion_config", feature = "op_put_function_scaling_config", feature = "op_put_provisioned_concurrency_config", feature = "op_put_resource_policy", feature = "op_put_runtime_management_config", feature = "op_remove_layer_version_permission", feature = "op_remove_permission", feature = "op_send_durable_execution_callback_failure", feature = "op_send_durable_execution_callback_heartbeat", feature = "op_send_durable_execution_callback_success", feature = "op_stop_durable_execution", feature = "op_tag_resource", feature = "op_untag_resource", feature = "op_update_alias", feature = "op_update_capacity_provider", feature = "op_update_code_signing_config", feature = "op_update_event_source_mapping", feature = "op_update_function_code", feature = "op_update_function_configuration", feature = "op_update_function_event_invoke_config", feature = "op_update_function_url_config"))]
+Self::ServiceException(e) => e.request_id(),
+            #[cfg(any(feature = "op_invoke", feature = "op_invoke_async", feature = "op_invoke_with_response_stream"))]
+Self::ServiceQuotaExceededException(e) => e.request_id(),
+            #[cfg(any(feature = "op_invoke", feature = "op_invoke_async", feature = "op_invoke_with_response_stream"))]
+Self::SnapStartException(e) => e.request_id(),
+            #[cfg(any(feature = "op_invoke", feature = "op_invoke_async", feature = "op_invoke_with_response_stream"))]
+Self::SnapStartNotReadyException(e) => e.request_id(),
+            #[cfg(any(feature = "op_invoke", feature = "op_invoke_async", feature = "op_invoke_with_response_stream"))]
+Self::SnapStartRegenerationFailureException(e) => e.request_id(),
+            #[cfg(any(feature = "op_invoke", feature = "op_invoke_async", feature = "op_invoke_with_response_stream"))]
+Self::SnapStartTimeoutException(e) => e.request_id(),
+            #[cfg(any(feature = "op_invoke", feature = "op_invoke_async", feature = "op_invoke_with_response_stream"))]
+Self::SubnetIpAddressLimitReachedException(e) => e.request_id(),
+            #[cfg(any(feature = "op_add_layer_version_permission", feature = "op_add_permission", feature = "op_checkpoint_durable_execution", feature = "op_create_alias", feature = "op_create_capacity_provider", feature = "op_create_function", feature = "op_create_function_url_config", feature = "op_delete_alias", feature = "op_delete_capacity_provider", feature = "op_delete_event_source_mapping", feature = "op_delete_function", feature = "op_delete_function_code_signing_config", feature = "op_delete_function_concurrency", feature = "op_delete_function_event_invoke_config", feature = "op_delete_function_url_config", feature = "op_delete_layer_version", feature = "op_delete_provisioned_concurrency_config", feature = "op_delete_resource_policy", feature = "op_get_account_settings", feature = "op_get_alias", feature = "op_get_capacity_provider", feature = "op_get_durable_execution", feature = "op_get_durable_execution_history", feature = "op_get_durable_execution_state", feature = "op_get_event_source_mapping", feature = "op_get_function", feature = "op_get_function_code_signing_config", feature = "op_get_function_concurrency", feature = "op_get_function_configuration", feature = "op_get_function_event_invoke_config", feature = "op_get_function_recursion_config", feature = "op_get_function_scaling_config", feature = "op_get_function_url_config", feature = "op_get_layer_version", feature = "op_get_layer_version_by_arn", feature = "op_get_layer_version_policy", feature = "op_get_policy", feature = "op_get_provisioned_concurrency_config", feature = "op_get_resource_policy", feature = "op_get_runtime_management_config", feature = "op_invoke", feature = "op_invoke_with_response_stream", feature = "op_list_aliases", feature = "op_list_capacity_providers", feature = "op_list_durable_executions_by_function", feature = "op_list_event_source_mappings", feature = "op_list_function_event_invoke_configs", feature = "op_list_function_url_configs", feature = "op_list_function_versions_by_capacity_provider", feature = "op_list_functions", feature = "op_list_layer_versions", feature = "op_list_layers", feature = "op_list_provisioned_concurrency_configs", feature = "op_list_tags", feature = "op_list_versions_by_function", feature = "op_publish_layer_version", feature = "op_put_function_code_signing_config", feature = "op_put_function_concurrency", feature = "op_put_function_event_invoke_config", feature = "op_put_function_recursion_config", feature = "op_put_function_scaling_config", feature = "op_put_provisioned_concurrency_config", feature = "op_put_resource_policy", feature = "op_put_runtime_management_config", feature = "op_remove_layer_version_permission", feature = "op_remove_permission", feature = "op_send_durable_execution_callback_failure", feature = "op_send_durable_execution_callback_heartbeat", feature = "op_send_durable_execution_callback_success", feature = "op_stop_durable_execution", feature = "op_tag_resource", feature = "op_untag_resource", feature = "op_update_alias", feature = "op_update_capacity_provider", feature = "op_update_event_source_mapping", feature = "op_update_function_code", feature = "op_update_function_configuration", feature = "op_update_function_event_invoke_config", feature = "op_update_function_url_config"))]
+Self::TooManyRequestsException(e) => e.request_id(),
+            #[cfg(any(feature = "op_invoke", feature = "op_invoke_with_response_stream"))]
+Self::UnsupportedMediaTypeException(e) => e.request_id(),
             Self::Unhandled(e) => e.meta.request_id(),
         }
     }

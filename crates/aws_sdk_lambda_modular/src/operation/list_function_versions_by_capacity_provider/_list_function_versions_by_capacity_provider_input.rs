@@ -29,16 +29,14 @@ impl ListFunctionVersionsByCapacityProviderInput {
 #[cfg(feature = "op_list_function_versions_by_capacity_provider")]
 impl ListFunctionVersionsByCapacityProviderInput {
     /// Creates a new builder-style object to manufacture [`ListFunctionVersionsByCapacityProviderInput`](crate::operation::list_function_versions_by_capacity_provider::ListFunctionVersionsByCapacityProviderInput).
-    pub fn builder() -> crate::operation::list_function_versions_by_capacity_provider::builders::ListFunctionVersionsByCapacityProviderInputBuilder{
+    pub fn builder() -> crate::operation::list_function_versions_by_capacity_provider::builders::ListFunctionVersionsByCapacityProviderInputBuilder {
         crate::operation::list_function_versions_by_capacity_provider::builders::ListFunctionVersionsByCapacityProviderInputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_list_function_versions_by_capacity_provider")]
 /// A builder for [`ListFunctionVersionsByCapacityProviderInput`](crate::operation::list_function_versions_by_capacity_provider::ListFunctionVersionsByCapacityProviderInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct ListFunctionVersionsByCapacityProviderInputBuilder {
     pub(crate) capacity_provider_name: ::std::option::Option<::std::string::String>,
@@ -49,18 +47,12 @@ pub struct ListFunctionVersionsByCapacityProviderInputBuilder {
 impl ListFunctionVersionsByCapacityProviderInputBuilder {
     /// <p>The name of the capacity provider to list function versions for.</p>
     /// This field is required.
-    pub fn capacity_provider_name(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn capacity_provider_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.capacity_provider_name = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The name of the capacity provider to list function versions for.</p>
-    pub fn set_capacity_provider_name(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_capacity_provider_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.capacity_provider_name = input;
         self
     }
@@ -102,7 +94,7 @@ impl ListFunctionVersionsByCapacityProviderInputBuilder {
     ) -> ::std::result::Result<
         crate::operation::list_function_versions_by_capacity_provider::ListFunctionVersionsByCapacityProviderInput,
         ::aws_smithy_types::error::operation::BuildError,
-    >{
+    > {
         ::std::result::Result::Ok(
             crate::operation::list_function_versions_by_capacity_provider::ListFunctionVersionsByCapacityProviderInput {
                 capacity_provider_name: self.capacity_provider_name,

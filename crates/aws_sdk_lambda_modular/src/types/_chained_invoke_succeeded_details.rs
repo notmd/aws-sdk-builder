@@ -21,9 +21,7 @@ impl ChainedInvokeSucceededDetails {
 }
 
 /// A builder for [`ChainedInvokeSucceededDetails`](crate::types::ChainedInvokeSucceededDetails).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct ChainedInvokeSucceededDetailsBuilder {
     pub(crate) result: ::std::option::Option<crate::types::EventResult>,
@@ -46,8 +44,6 @@ impl ChainedInvokeSucceededDetailsBuilder {
     }
     /// Consumes the builder and constructs a [`ChainedInvokeSucceededDetails`](crate::types::ChainedInvokeSucceededDetails).
     pub fn build(self) -> crate::types::ChainedInvokeSucceededDetails {
-        crate::types::ChainedInvokeSucceededDetails {
-            result: self.result,
-        }
+        crate::types::ChainedInvokeSucceededDetails { result: self.result }
     }
 }

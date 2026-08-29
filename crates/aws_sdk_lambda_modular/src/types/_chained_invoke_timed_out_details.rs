@@ -21,9 +21,7 @@ impl ChainedInvokeTimedOutDetails {
 }
 
 /// A builder for [`ChainedInvokeTimedOutDetails`](crate::types::ChainedInvokeTimedOutDetails).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct ChainedInvokeTimedOutDetailsBuilder {
     pub(crate) error: ::std::option::Option<crate::types::EventError>,

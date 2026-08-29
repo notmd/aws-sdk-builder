@@ -11,12 +11,7 @@ impl super::Client {
     ///   - [`capacity_providers(Vec::<CapacityProvider>)`](crate::operation::list_capacity_providers::ListCapacityProvidersOutput::capacity_providers): <p>A list of capacity providers in your account.</p>
     ///   - [`next_marker(Option<String>)`](crate::operation::list_capacity_providers::ListCapacityProvidersOutput::next_marker): <p>The pagination token that's included if more results are available.</p>
     /// - On failure, responds with [`SdkError<ListCapacityProvidersError>`](crate::operation::list_capacity_providers::ListCapacityProvidersError)
-    pub fn list_capacity_providers(
-        &self,
-    ) -> crate::operation::list_capacity_providers::builders::ListCapacityProvidersFluentBuilder
-    {
-        crate::operation::list_capacity_providers::builders::ListCapacityProvidersFluentBuilder::new(
-            self.handle.clone(),
-        )
+    pub fn list_capacity_providers(&self) -> crate::operation::list_capacity_providers::builders::ListCapacityProvidersFluentBuilder {
+        crate::operation::list_capacity_providers::builders::ListCapacityProvidersFluentBuilder::new(self.handle.clone())
     }
 }

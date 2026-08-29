@@ -24,18 +24,14 @@ impl ::aws_types::request_id::RequestId for PutFunctionConcurrencyOutput {
 #[cfg(feature = "op_put_function_concurrency")]
 impl PutFunctionConcurrencyOutput {
     /// Creates a new builder-style object to manufacture [`PutFunctionConcurrencyOutput`](crate::operation::put_function_concurrency::PutFunctionConcurrencyOutput).
-    pub fn builder(
-    ) -> crate::operation::put_function_concurrency::builders::PutFunctionConcurrencyOutputBuilder
-    {
+    pub fn builder() -> crate::operation::put_function_concurrency::builders::PutFunctionConcurrencyOutputBuilder {
         crate::operation::put_function_concurrency::builders::PutFunctionConcurrencyOutputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_put_function_concurrency")]
 /// A builder for [`PutFunctionConcurrencyOutput`](crate::operation::put_function_concurrency::PutFunctionConcurrencyOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct PutFunctionConcurrencyOutputBuilder {
     pub(crate) reserved_concurrent_executions: ::std::option::Option<i32>,

@@ -14,7 +14,7 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<ListFunctionVersionsByCapacityProviderError>`](crate::operation::list_function_versions_by_capacity_provider::ListFunctionVersionsByCapacityProviderError)
     pub fn list_function_versions_by_capacity_provider(
         &self,
-    ) -> crate::operation::list_function_versions_by_capacity_provider::builders::ListFunctionVersionsByCapacityProviderFluentBuilder{
+    ) -> crate::operation::list_function_versions_by_capacity_provider::builders::ListFunctionVersionsByCapacityProviderFluentBuilder {
         crate::operation::list_function_versions_by_capacity_provider::builders::ListFunctionVersionsByCapacityProviderFluentBuilder::new(
             self.handle.clone(),
         )

@@ -35,18 +35,14 @@ impl GetDurableExecutionStateInput {
 #[cfg(feature = "op_get_durable_execution_state")]
 impl GetDurableExecutionStateInput {
     /// Creates a new builder-style object to manufacture [`GetDurableExecutionStateInput`](crate::operation::get_durable_execution_state::GetDurableExecutionStateInput).
-    pub fn builder(
-    ) -> crate::operation::get_durable_execution_state::builders::GetDurableExecutionStateInputBuilder
-    {
+    pub fn builder() -> crate::operation::get_durable_execution_state::builders::GetDurableExecutionStateInputBuilder {
         crate::operation::get_durable_execution_state::builders::GetDurableExecutionStateInputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_get_durable_execution_state")]
 /// A builder for [`GetDurableExecutionStateInput`](crate::operation::get_durable_execution_state::GetDurableExecutionStateInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct GetDurableExecutionStateInputBuilder {
     pub(crate) durable_execution_arn: ::std::option::Option<::std::string::String>,
@@ -58,18 +54,12 @@ pub struct GetDurableExecutionStateInputBuilder {
 impl GetDurableExecutionStateInputBuilder {
     /// <p>The Amazon Resource Name (ARN) of the durable execution.</p>
     /// This field is required.
-    pub fn durable_execution_arn(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn durable_execution_arn(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.durable_execution_arn = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The Amazon Resource Name (ARN) of the durable execution.</p>
-    pub fn set_durable_execution_arn(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_durable_execution_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.durable_execution_arn = input;
         self
     }
@@ -79,18 +69,12 @@ impl GetDurableExecutionStateInputBuilder {
     }
     /// <p>A checkpoint token that identifies the current state of the execution. This token is provided by the Lambda runtime and ensures that state retrieval is consistent with the current execution context.</p>
     /// This field is required.
-    pub fn checkpoint_token(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn checkpoint_token(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.checkpoint_token = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>A checkpoint token that identifies the current state of the execution. This token is provided by the Lambda runtime and ensures that state retrieval is consistent with the current execution context.</p>
-    pub fn set_checkpoint_token(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_checkpoint_token(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.checkpoint_token = input;
         self
     }
@@ -133,13 +117,11 @@ impl GetDurableExecutionStateInputBuilder {
         crate::operation::get_durable_execution_state::GetDurableExecutionStateInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(
-            crate::operation::get_durable_execution_state::GetDurableExecutionStateInput {
-                durable_execution_arn: self.durable_execution_arn,
-                checkpoint_token: self.checkpoint_token,
-                marker: self.marker,
-                max_items: self.max_items,
-            },
-        )
+        ::std::result::Result::Ok(crate::operation::get_durable_execution_state::GetDurableExecutionStateInput {
+            durable_execution_arn: self.durable_execution_arn,
+            checkpoint_token: self.checkpoint_token,
+            marker: self.marker,
+            max_items: self.max_items,
+        })
     }
 }

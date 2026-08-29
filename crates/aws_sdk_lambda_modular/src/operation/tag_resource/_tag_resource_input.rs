@@ -7,9 +7,7 @@ pub struct TagResourceInput {
     /// <p>The resource's Amazon Resource Name (ARN).</p>
     pub resource: ::std::option::Option<::std::string::String>,
     /// <p>A list of tags to apply to the resource.</p>
-    pub tags: ::std::option::Option<
-        ::std::collections::HashMap<::std::string::String, ::std::string::String>,
-    >,
+    pub tags: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
 }
 #[cfg(feature = "op_tag_resource")]
 impl TagResourceInput {
@@ -18,11 +16,7 @@ impl TagResourceInput {
         self.resource.as_deref()
     }
     /// <p>A list of tags to apply to the resource.</p>
-    pub fn tags(
-        &self,
-    ) -> ::std::option::Option<
-        &::std::collections::HashMap<::std::string::String, ::std::string::String>,
-    > {
+    pub fn tags(&self) -> ::std::option::Option<&::std::collections::HashMap<::std::string::String, ::std::string::String>> {
         self.tags.as_ref()
     }
 }
@@ -36,15 +30,11 @@ impl TagResourceInput {
 
 #[cfg(feature = "op_tag_resource")]
 /// A builder for [`TagResourceInput`](crate::operation::tag_resource::TagResourceInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct TagResourceInputBuilder {
     pub(crate) resource: ::std::option::Option<::std::string::String>,
-    pub(crate) tags: ::std::option::Option<
-        ::std::collections::HashMap<::std::string::String, ::std::string::String>,
-    >,
+    pub(crate) tags: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
 }
 #[cfg(feature = "op_tag_resource")]
 impl TagResourceInputBuilder {
@@ -68,41 +58,23 @@ impl TagResourceInputBuilder {
     /// To override the contents of this collection use [`set_tags`](Self::set_tags).
     ///
     /// <p>A list of tags to apply to the resource.</p>
-    pub fn tags(
-        mut self,
-        k: impl ::std::convert::Into<::std::string::String>,
-        v: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn tags(mut self, k: impl ::std::convert::Into<::std::string::String>, v: impl ::std::convert::Into<::std::string::String>) -> Self {
         let mut hash_map = self.tags.unwrap_or_default();
         hash_map.insert(k.into(), v.into());
         self.tags = ::std::option::Option::Some(hash_map);
         self
     }
     /// <p>A list of tags to apply to the resource.</p>
-    pub fn set_tags(
-        mut self,
-        input: ::std::option::Option<
-            ::std::collections::HashMap<::std::string::String, ::std::string::String>,
-        >,
-    ) -> Self {
+    pub fn set_tags(mut self, input: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>) -> Self {
         self.tags = input;
         self
     }
     /// <p>A list of tags to apply to the resource.</p>
-    pub fn get_tags(
-        &self,
-    ) -> &::std::option::Option<
-        ::std::collections::HashMap<::std::string::String, ::std::string::String>,
-    > {
+    pub fn get_tags(&self) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>> {
         &self.tags
     }
     /// Consumes the builder and constructs a [`TagResourceInput`](crate::operation::tag_resource::TagResourceInput).
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<
-        crate::operation::tag_resource::TagResourceInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    pub fn build(self) -> ::std::result::Result<crate::operation::tag_resource::TagResourceInput, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::operation::tag_resource::TagResourceInput {
             resource: self.resource,
             tags: self.tags,

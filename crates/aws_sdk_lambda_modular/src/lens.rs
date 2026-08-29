@@ -250,8 +250,7 @@ pub(crate) fn lens_list_function_url_configs_output_output_function_url_configs(
 #[cfg(feature = "op_list_function_versions_by_capacity_provider")]
 pub(crate) fn lens_list_function_versions_by_capacity_provider_output_output_function_versions(
     input: crate::operation::list_function_versions_by_capacity_provider::ListFunctionVersionsByCapacityProviderOutput,
-) -> ::std::option::Option<::std::vec::Vec<crate::types::FunctionVersionsByCapacityProviderListItem>>
-{
+) -> ::std::option::Option<::std::vec::Vec<crate::types::FunctionVersionsByCapacityProviderListItem>> {
     let input = input.function_versions;
     ::std::option::Option::Some(input)
 }

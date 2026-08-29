@@ -12,7 +12,7 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<GetRuntimeManagementConfigError>`](crate::operation::get_runtime_management_config::GetRuntimeManagementConfigError)
     pub fn get_runtime_management_config(
         &self,
-    ) -> crate::operation::get_runtime_management_config::builders::GetRuntimeManagementConfigFluentBuilder{
+    ) -> crate::operation::get_runtime_management_config::builders::GetRuntimeManagementConfigFluentBuilder {
         crate::operation::get_runtime_management_config::builders::GetRuntimeManagementConfigFluentBuilder::new(self.handle.clone())
     }
 }

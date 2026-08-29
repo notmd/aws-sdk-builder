@@ -17,7 +17,7 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<PutFunctionEventInvokeConfigError>`](crate::operation::put_function_event_invoke_config::PutFunctionEventInvokeConfigError)
     pub fn put_function_event_invoke_config(
         &self,
-    ) -> crate::operation::put_function_event_invoke_config::builders::PutFunctionEventInvokeConfigFluentBuilder{
+    ) -> crate::operation::put_function_event_invoke_config::builders::PutFunctionEventInvokeConfigFluentBuilder {
         crate::operation::put_function_event_invoke_config::builders::PutFunctionEventInvokeConfigFluentBuilder::new(self.handle.clone())
     }
 }

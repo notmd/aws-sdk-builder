@@ -5,9 +5,7 @@ pub fn ser_update_event_source_mapping_input_input(
 ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
     if let Some(var_1) = &input.amazon_managed_kafka_event_source_config {
         #[allow(unused_mut)]
-        let mut object_2 = object
-            .key("AmazonManagedKafkaEventSourceConfig")
-            .start_object();
+        let mut object_2 = object.key("AmazonManagedKafkaEventSourceConfig").start_object();
         crate::protocol_serde::shape_amazon_managed_kafka_event_source_config::ser_amazon_managed_kafka_event_source_config(&mut object_2, var_1)?;
         object_2.finish();
     }
@@ -23,10 +21,7 @@ pub fn ser_update_event_source_mapping_input_input(
     if let Some(var_5) = &input.destination_config {
         #[allow(unused_mut)]
         let mut object_6 = object.key("DestinationConfig").start_object();
-        crate::protocol_serde::shape_destination_config::ser_destination_config(
-            &mut object_6,
-            var_5,
-        )?;
+        crate::protocol_serde::shape_destination_config::ser_destination_config(&mut object_6, var_5)?;
         object_6.finish();
     }
     if let Some(var_7) = &input.document_db_event_source_config {
@@ -98,10 +93,7 @@ pub fn ser_update_event_source_mapping_input_input(
     if let Some(var_25) = &input.provisioned_poller_config {
         #[allow(unused_mut)]
         let mut object_26 = object.key("ProvisionedPollerConfig").start_object();
-        crate::protocol_serde::shape_provisioned_poller_config::ser_provisioned_poller_config(
-            &mut object_26,
-            var_25,
-        )?;
+        crate::protocol_serde::shape_provisioned_poller_config::ser_provisioned_poller_config(&mut object_26, var_25)?;
         object_26.finish();
     }
     if let Some(var_27) = &input.scaling_config {
@@ -112,9 +104,7 @@ pub fn ser_update_event_source_mapping_input_input(
     }
     if let Some(var_29) = &input.self_managed_kafka_event_source_config {
         #[allow(unused_mut)]
-        let mut object_30 = object
-            .key("SelfManagedKafkaEventSourceConfig")
-            .start_object();
+        let mut object_30 = object.key("SelfManagedKafkaEventSourceConfig").start_object();
         crate::protocol_serde::shape_self_managed_kafka_event_source_config::ser_self_managed_kafka_event_source_config(&mut object_30, var_29)?;
         object_30.finish();
     }

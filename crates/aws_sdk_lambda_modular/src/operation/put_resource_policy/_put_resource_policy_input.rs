@@ -31,17 +31,14 @@ impl PutResourcePolicyInput {
 #[cfg(feature = "op_put_resource_policy")]
 impl PutResourcePolicyInput {
     /// Creates a new builder-style object to manufacture [`PutResourcePolicyInput`](crate::operation::put_resource_policy::PutResourcePolicyInput).
-    pub fn builder(
-    ) -> crate::operation::put_resource_policy::builders::PutResourcePolicyInputBuilder {
+    pub fn builder() -> crate::operation::put_resource_policy::builders::PutResourcePolicyInputBuilder {
         crate::operation::put_resource_policy::builders::PutResourcePolicyInputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_put_resource_policy")]
 /// A builder for [`PutResourcePolicyInput`](crate::operation::put_resource_policy::PutResourcePolicyInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct PutResourcePolicyInputBuilder {
     pub(crate) resource_arn: ::std::option::Option<::std::string::String>,
@@ -100,16 +97,11 @@ impl PutResourcePolicyInputBuilder {
     /// Consumes the builder and constructs a [`PutResourcePolicyInput`](crate::operation::put_resource_policy::PutResourcePolicyInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        crate::operation::put_resource_policy::PutResourcePolicyInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
-        ::std::result::Result::Ok(
-            crate::operation::put_resource_policy::PutResourcePolicyInput {
-                resource_arn: self.resource_arn,
-                policy: self.policy,
-                revision_id: self.revision_id,
-            },
-        )
+    ) -> ::std::result::Result<crate::operation::put_resource_policy::PutResourcePolicyInput, ::aws_smithy_types::error::operation::BuildError> {
+        ::std::result::Result::Ok(crate::operation::put_resource_policy::PutResourcePolicyInput {
+            resource_arn: self.resource_arn,
+            policy: self.policy,
+            revision_id: self.revision_id,
+        })
     }
 }

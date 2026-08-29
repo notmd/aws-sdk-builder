@@ -27,9 +27,7 @@ impl EventError {
 }
 
 /// A builder for [`EventError`](crate::types::EventError).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct EventErrorBuilder {
     pub(crate) payload: ::std::option::Option<crate::types::ErrorObject>,

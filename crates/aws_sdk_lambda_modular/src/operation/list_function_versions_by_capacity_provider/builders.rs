@@ -65,7 +65,7 @@ impl ListFunctionVersionsByCapacityProviderFluentBuilder {
     /// Access the ListFunctionVersionsByCapacityProvider as a reference.
     pub fn as_input(
         &self,
-    ) -> &crate::operation::list_function_versions_by_capacity_provider::builders::ListFunctionVersionsByCapacityProviderInputBuilder{
+    ) -> &crate::operation::list_function_versions_by_capacity_provider::builders::ListFunctionVersionsByCapacityProviderInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -84,7 +84,7 @@ impl ListFunctionVersionsByCapacityProviderFluentBuilder {
             crate::operation::list_function_versions_by_capacity_provider::ListFunctionVersionsByCapacityProviderError,
             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
         >,
-    >{
+    > {
         let input = self
             .inner
             .build()
@@ -106,21 +106,15 @@ impl ListFunctionVersionsByCapacityProviderFluentBuilder {
         crate::operation::list_function_versions_by_capacity_provider::ListFunctionVersionsByCapacityProviderOutput,
         crate::operation::list_function_versions_by_capacity_provider::ListFunctionVersionsByCapacityProviderError,
         Self,
-    >{
+    > {
         crate::client::customize::CustomizableOperation::new(self)
     }
-    pub(crate) fn config_override(
-        mut self,
-        config_override: impl ::std::convert::Into<crate::config::Builder>,
-    ) -> Self {
+    pub(crate) fn config_override(mut self, config_override: impl ::std::convert::Into<crate::config::Builder>) -> Self {
         self.set_config_override(::std::option::Option::Some(config_override.into()));
         self
     }
 
-    pub(crate) fn set_config_override(
-        &mut self,
-        config_override: ::std::option::Option<crate::config::Builder>,
-    ) -> &mut Self {
+    pub(crate) fn set_config_override(&mut self, config_override: ::std::option::Option<crate::config::Builder>) -> &mut Self {
         self.config_override = config_override;
         self
     }
@@ -129,25 +123,19 @@ impl ListFunctionVersionsByCapacityProviderFluentBuilder {
     /// Paginators are used by calling [`send().await`](crate::operation::list_function_versions_by_capacity_provider::paginator::ListFunctionVersionsByCapacityProviderPaginator::send) which returns a [`PaginationStream`](aws_smithy_async::future::pagination_stream::PaginationStream).
     pub fn into_paginator(
         self,
-    ) -> crate::operation::list_function_versions_by_capacity_provider::paginator::ListFunctionVersionsByCapacityProviderPaginator{
+    ) -> crate::operation::list_function_versions_by_capacity_provider::paginator::ListFunctionVersionsByCapacityProviderPaginator {
         crate::operation::list_function_versions_by_capacity_provider::paginator::ListFunctionVersionsByCapacityProviderPaginator::new(
             self.handle,
             self.inner,
         )
     }
     /// <p>The name of the capacity provider to list function versions for.</p>
-    pub fn capacity_provider_name(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn capacity_provider_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.capacity_provider_name(input.into());
         self
     }
     /// <p>The name of the capacity provider to list function versions for.</p>
-    pub fn set_capacity_provider_name(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_capacity_provider_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_capacity_provider_name(input);
         self
     }

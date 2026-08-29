@@ -22,9 +22,7 @@ impl CapacityProviderPermissionsConfig {
 }
 
 /// A builder for [`CapacityProviderPermissionsConfig`](crate::types::CapacityProviderPermissionsConfig).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct CapacityProviderPermissionsConfigBuilder {
     pub(crate) capacity_provider_operator_role_arn: ::std::option::Option<::std::string::String>,
@@ -32,36 +30,23 @@ pub struct CapacityProviderPermissionsConfigBuilder {
 impl CapacityProviderPermissionsConfigBuilder {
     /// <p>The ARN of the IAM role that the capacity provider uses to manage compute instances and other Amazon Web Services resources.</p>
     /// This field is required.
-    pub fn capacity_provider_operator_role_arn(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn capacity_provider_operator_role_arn(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.capacity_provider_operator_role_arn = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The ARN of the IAM role that the capacity provider uses to manage compute instances and other Amazon Web Services resources.</p>
-    pub fn set_capacity_provider_operator_role_arn(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_capacity_provider_operator_role_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.capacity_provider_operator_role_arn = input;
         self
     }
     /// <p>The ARN of the IAM role that the capacity provider uses to manage compute instances and other Amazon Web Services resources.</p>
-    pub fn get_capacity_provider_operator_role_arn(
-        &self,
-    ) -> &::std::option::Option<::std::string::String> {
+    pub fn get_capacity_provider_operator_role_arn(&self) -> &::std::option::Option<::std::string::String> {
         &self.capacity_provider_operator_role_arn
     }
     /// Consumes the builder and constructs a [`CapacityProviderPermissionsConfig`](crate::types::CapacityProviderPermissionsConfig).
     /// This method will fail if any of the following fields are not set:
     /// - [`capacity_provider_operator_role_arn`](crate::types::builders::CapacityProviderPermissionsConfigBuilder::capacity_provider_operator_role_arn)
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<
-        crate::types::CapacityProviderPermissionsConfig,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    pub fn build(self) -> ::std::result::Result<crate::types::CapacityProviderPermissionsConfig, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::CapacityProviderPermissionsConfig {
             capacity_provider_operator_role_arn: self.capacity_provider_operator_role_arn.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

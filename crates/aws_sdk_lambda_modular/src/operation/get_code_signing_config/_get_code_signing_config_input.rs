@@ -17,17 +17,14 @@ impl GetCodeSigningConfigInput {
 #[cfg(feature = "op_get_code_signing_config")]
 impl GetCodeSigningConfigInput {
     /// Creates a new builder-style object to manufacture [`GetCodeSigningConfigInput`](crate::operation::get_code_signing_config::GetCodeSigningConfigInput).
-    pub fn builder(
-    ) -> crate::operation::get_code_signing_config::builders::GetCodeSigningConfigInputBuilder {
+    pub fn builder() -> crate::operation::get_code_signing_config::builders::GetCodeSigningConfigInputBuilder {
         crate::operation::get_code_signing_config::builders::GetCodeSigningConfigInputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_get_code_signing_config")]
 /// A builder for [`GetCodeSigningConfigInput`](crate::operation::get_code_signing_config::GetCodeSigningConfigInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct GetCodeSigningConfigInputBuilder {
     pub(crate) code_signing_config_arn: ::std::option::Option<::std::string::String>,
@@ -36,18 +33,12 @@ pub struct GetCodeSigningConfigInputBuilder {
 impl GetCodeSigningConfigInputBuilder {
     /// <p>The The Amazon Resource Name (ARN) of the code signing configuration.</p>
     /// This field is required.
-    pub fn code_signing_config_arn(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn code_signing_config_arn(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.code_signing_config_arn = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The The Amazon Resource Name (ARN) of the code signing configuration.</p>
-    pub fn set_code_signing_config_arn(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_code_signing_config_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.code_signing_config_arn = input;
         self
     }
@@ -58,14 +49,10 @@ impl GetCodeSigningConfigInputBuilder {
     /// Consumes the builder and constructs a [`GetCodeSigningConfigInput`](crate::operation::get_code_signing_config::GetCodeSigningConfigInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        crate::operation::get_code_signing_config::GetCodeSigningConfigInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
-        ::std::result::Result::Ok(
-            crate::operation::get_code_signing_config::GetCodeSigningConfigInput {
-                code_signing_config_arn: self.code_signing_config_arn,
-            },
-        )
+    ) -> ::std::result::Result<crate::operation::get_code_signing_config::GetCodeSigningConfigInput, ::aws_smithy_types::error::operation::BuildError>
+    {
+        ::std::result::Result::Ok(crate::operation::get_code_signing_config::GetCodeSigningConfigInput {
+            code_signing_config_arn: self.code_signing_config_arn,
+        })
     }
 }

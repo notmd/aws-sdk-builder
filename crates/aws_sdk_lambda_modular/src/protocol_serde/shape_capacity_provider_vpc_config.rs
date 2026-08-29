@@ -28,24 +28,14 @@ pub(crate) fn de_capacity_provider_vpc_config<'a, I>(
     tokens: &mut ::std::iter::Peekable<I>,
     _value: &'a [u8],
     depth: u32,
-) -> ::std::result::Result<
-    Option<crate::types::CapacityProviderVpcConfig>,
-    ::aws_smithy_json::deserialize::error::DeserializeError,
->
+) -> ::std::result::Result<Option<crate::types::CapacityProviderVpcConfig>, ::aws_smithy_json::deserialize::error::DeserializeError>
 where
-    I: Iterator<
-        Item = Result<
-            ::aws_smithy_json::deserialize::Token<'a>,
-            ::aws_smithy_json::deserialize::error::DeserializeError,
-        >,
-    >,
+    I: Iterator<Item = Result<::aws_smithy_json::deserialize::Token<'a>, ::aws_smithy_json::deserialize::error::DeserializeError>>,
 {
     if depth >= 128u32 {
-        return Err(
-            ::aws_smithy_json::deserialize::error::DeserializeError::custom(
-                "maximum nesting depth exceeded",
-            ),
-        );
+        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
+            "maximum nesting depth exceeded",
+        ));
     }
     match tokens.next().transpose()? {
         Some(::aws_smithy_json::deserialize::Token::ValueNull { .. }) => Ok(None),
@@ -55,53 +45,42 @@ where
             loop {
                 match tokens.next().transpose()? {
                     Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
-                    Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => {
-                        match key.to_unescaped()?.as_ref() {
-                            "SubnetIds" => {
-                                builder = builder.set_subnet_ids(
+                    Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
+                        "SubnetIds" => {
+                            builder = builder.set_subnet_ids(
                                 crate::protocol_serde::shape_capacity_provider_subnet_ids::de_capacity_provider_subnet_ids(
                                     tokens,
                                     _value,
                                     depth + 1,
                                 )?,
                             );
-                            }
-                            "SecurityGroupIds" => {
-                                builder = builder.set_security_group_ids(
+                        }
+                        "SecurityGroupIds" => {
+                            builder = builder.set_security_group_ids(
                                 crate::protocol_serde::shape_capacity_provider_security_group_ids::de_capacity_provider_security_group_ids(
                                     tokens,
                                     _value,
                                     depth + 1,
                                 )?,
                             );
-                            }
-                            _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
                         }
-                    }
+                        _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
+                    },
                     other => {
-                        return Err(
-                            ::aws_smithy_json::deserialize::error::DeserializeError::custom(
-                                format!("expected object key or end object, found: {other:?}"),
-                            ),
-                        )
+                        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
+                            "expected object key or end object, found: {other:?}"
+                        )))
                     }
                 }
             }
             Ok(Some(
                 crate::serde_util::capacity_provider_vpc_config_correct_errors(builder)
                     .build()
-                    .map_err(|err| {
-                        ::aws_smithy_json::deserialize::error::DeserializeError::custom_source(
-                            "Response was invalid",
-                            err,
-                        )
-                    })?,
+                    .map_err(|err| ::aws_smithy_json::deserialize::error::DeserializeError::custom_source("Response was invalid", err))?,
             ))
         }
-        _ => Err(
-            ::aws_smithy_json::deserialize::error::DeserializeError::custom(
-                "expected start object or null",
-            ),
-        ),
+        _ => Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
+            "expected start object or null",
+        )),
     }
 }

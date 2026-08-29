@@ -31,22 +31,17 @@ impl ::aws_types::request_id::RequestId for ListCapacityProvidersOutput {
 #[cfg(feature = "op_list_capacity_providers")]
 impl ListCapacityProvidersOutput {
     /// Creates a new builder-style object to manufacture [`ListCapacityProvidersOutput`](crate::operation::list_capacity_providers::ListCapacityProvidersOutput).
-    pub fn builder(
-    ) -> crate::operation::list_capacity_providers::builders::ListCapacityProvidersOutputBuilder
-    {
+    pub fn builder() -> crate::operation::list_capacity_providers::builders::ListCapacityProvidersOutputBuilder {
         crate::operation::list_capacity_providers::builders::ListCapacityProvidersOutputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_list_capacity_providers")]
 /// A builder for [`ListCapacityProvidersOutput`](crate::operation::list_capacity_providers::ListCapacityProvidersOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct ListCapacityProvidersOutputBuilder {
-    pub(crate) capacity_providers:
-        ::std::option::Option<::std::vec::Vec<crate::types::CapacityProvider>>,
+    pub(crate) capacity_providers: ::std::option::Option<::std::vec::Vec<crate::types::CapacityProvider>>,
     pub(crate) next_marker: ::std::option::Option<::std::string::String>,
     _request_id: Option<String>,
 }
@@ -64,17 +59,12 @@ impl ListCapacityProvidersOutputBuilder {
         self
     }
     /// <p>A list of capacity providers in your account.</p>
-    pub fn set_capacity_providers(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<crate::types::CapacityProvider>>,
-    ) -> Self {
+    pub fn set_capacity_providers(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::CapacityProvider>>) -> Self {
         self.capacity_providers = input;
         self
     }
     /// <p>A list of capacity providers in your account.</p>
-    pub fn get_capacity_providers(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<crate::types::CapacityProvider>> {
+    pub fn get_capacity_providers(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::CapacityProvider>> {
         &self.capacity_providers
     }
     /// <p>The pagination token that's included if more results are available.</p>
@@ -105,10 +95,8 @@ impl ListCapacityProvidersOutputBuilder {
     /// - [`capacity_providers`](crate::operation::list_capacity_providers::builders::ListCapacityProvidersOutputBuilder::capacity_providers)
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        crate::operation::list_capacity_providers::ListCapacityProvidersOutput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    ) -> ::std::result::Result<crate::operation::list_capacity_providers::ListCapacityProvidersOutput, ::aws_smithy_types::error::operation::BuildError>
+    {
         ::std::result::Result::Ok(crate::operation::list_capacity_providers::ListCapacityProvidersOutput {
             capacity_providers: self.capacity_providers.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

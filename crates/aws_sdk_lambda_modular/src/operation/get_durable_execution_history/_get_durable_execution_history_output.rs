@@ -32,16 +32,14 @@ impl ::aws_types::request_id::RequestId for GetDurableExecutionHistoryOutput {
 #[cfg(feature = "op_get_durable_execution_history")]
 impl GetDurableExecutionHistoryOutput {
     /// Creates a new builder-style object to manufacture [`GetDurableExecutionHistoryOutput`](crate::operation::get_durable_execution_history::GetDurableExecutionHistoryOutput).
-    pub fn builder() -> crate::operation::get_durable_execution_history::builders::GetDurableExecutionHistoryOutputBuilder{
+    pub fn builder() -> crate::operation::get_durable_execution_history::builders::GetDurableExecutionHistoryOutputBuilder {
         crate::operation::get_durable_execution_history::builders::GetDurableExecutionHistoryOutputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_get_durable_execution_history")]
 /// A builder for [`GetDurableExecutionHistoryOutput`](crate::operation::get_durable_execution_history::GetDurableExecutionHistoryOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct GetDurableExecutionHistoryOutputBuilder {
     pub(crate) events: ::std::option::Option<::std::vec::Vec<crate::types::Event>>,
@@ -62,10 +60,7 @@ impl GetDurableExecutionHistoryOutputBuilder {
         self
     }
     /// <p>An array of execution history events, ordered chronologically unless <code>ReverseOrder</code> is set to <code>true</code>. Each event represents a significant occurrence during the execution, such as step completion or callback resolution.</p>
-    pub fn set_events(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<crate::types::Event>>,
-    ) -> Self {
+    pub fn set_events(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::Event>>) -> Self {
         self.events = input;
         self
     }

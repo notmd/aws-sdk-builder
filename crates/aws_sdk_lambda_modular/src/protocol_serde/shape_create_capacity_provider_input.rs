@@ -15,10 +15,7 @@ pub fn ser_create_capacity_provider_input_input(
     if let Some(var_4) = &input.instance_requirements {
         #[allow(unused_mut)]
         let mut object_5 = object.key("InstanceRequirements").start_object();
-        crate::protocol_serde::shape_instance_requirements::ser_instance_requirements(
-            &mut object_5,
-            var_4,
-        )?;
+        crate::protocol_serde::shape_instance_requirements::ser_instance_requirements(&mut object_5, var_4)?;
         object_5.finish();
     }
     if let Some(var_6) = &input.kms_key_arn {

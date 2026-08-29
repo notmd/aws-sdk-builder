@@ -24,9 +24,7 @@ impl ListTagsInput {
 
 #[cfg(feature = "op_list_tags")]
 /// A builder for [`ListTagsInput`](crate::operation::list_tags::ListTagsInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct ListTagsInputBuilder {
     pub(crate) resource: ::std::option::Option<::std::string::String>,
@@ -49,14 +47,7 @@ impl ListTagsInputBuilder {
         &self.resource
     }
     /// Consumes the builder and constructs a [`ListTagsInput`](crate::operation::list_tags::ListTagsInput).
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<
-        crate::operation::list_tags::ListTagsInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
-        ::std::result::Result::Ok(crate::operation::list_tags::ListTagsInput {
-            resource: self.resource,
-        })
+    pub fn build(self) -> ::std::result::Result<crate::operation::list_tags::ListTagsInput, ::aws_smithy_types::error::operation::BuildError> {
+        ::std::result::Result::Ok(crate::operation::list_tags::ListTagsInput { resource: self.resource })
     }
 }

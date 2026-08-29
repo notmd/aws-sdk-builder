@@ -17,16 +17,14 @@ impl GetFunctionRecursionConfigInput {
 #[cfg(feature = "op_get_function_recursion_config")]
 impl GetFunctionRecursionConfigInput {
     /// Creates a new builder-style object to manufacture [`GetFunctionRecursionConfigInput`](crate::operation::get_function_recursion_config::GetFunctionRecursionConfigInput).
-    pub fn builder() -> crate::operation::get_function_recursion_config::builders::GetFunctionRecursionConfigInputBuilder{
+    pub fn builder() -> crate::operation::get_function_recursion_config::builders::GetFunctionRecursionConfigInputBuilder {
         crate::operation::get_function_recursion_config::builders::GetFunctionRecursionConfigInputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_get_function_recursion_config")]
 /// A builder for [`GetFunctionRecursionConfigInput`](crate::operation::get_function_recursion_config::GetFunctionRecursionConfigInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct GetFunctionRecursionConfigInputBuilder {
     pub(crate) function_name: ::std::option::Option<::std::string::String>,
@@ -35,18 +33,12 @@ pub struct GetFunctionRecursionConfigInputBuilder {
 impl GetFunctionRecursionConfigInputBuilder {
     /// <p>The name of the function.</p>
     /// This field is required.
-    pub fn function_name(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn function_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.function_name = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The name of the function.</p>
-    pub fn set_function_name(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_function_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.function_name = input;
         self
     }
@@ -61,10 +53,8 @@ impl GetFunctionRecursionConfigInputBuilder {
         crate::operation::get_function_recursion_config::GetFunctionRecursionConfigInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(
-            crate::operation::get_function_recursion_config::GetFunctionRecursionConfigInput {
-                function_name: self.function_name,
-            },
-        )
+        ::std::result::Result::Ok(crate::operation::get_function_recursion_config::GetFunctionRecursionConfigInput {
+            function_name: self.function_name,
+        })
     }
 }

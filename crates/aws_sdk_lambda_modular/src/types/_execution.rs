@@ -60,9 +60,7 @@ impl Execution {
 }
 
 /// A builder for [`Execution`](crate::types::Execution).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct ExecutionBuilder {
     pub(crate) durable_execution_arn: ::std::option::Option<::std::string::String>,
@@ -76,18 +74,12 @@ pub struct ExecutionBuilder {
 impl ExecutionBuilder {
     /// <p>The Amazon Resource Name (ARN) of the durable execution, if this execution is a durable execution.</p>
     /// This field is required.
-    pub fn durable_execution_arn(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn durable_execution_arn(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.durable_execution_arn = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The Amazon Resource Name (ARN) of the durable execution, if this execution is a durable execution.</p>
-    pub fn set_durable_execution_arn(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_durable_execution_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.durable_execution_arn = input;
         self
     }
@@ -97,18 +89,12 @@ impl ExecutionBuilder {
     }
     /// <p>The unique name of the durable execution, if one was provided when the execution was started.</p>
     /// This field is required.
-    pub fn durable_execution_name(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn durable_execution_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.durable_execution_name = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The unique name of the durable execution, if one was provided when the execution was started.</p>
-    pub fn set_durable_execution_name(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_durable_execution_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.durable_execution_name = input;
         self
     }
@@ -138,10 +124,7 @@ impl ExecutionBuilder {
         self
     }
     /// <p>The current status of the durable execution.</p>
-    pub fn set_status(
-        mut self,
-        input: ::std::option::Option<crate::types::ExecutionStatus>,
-    ) -> Self {
+    pub fn set_status(mut self, input: ::std::option::Option<crate::types::ExecutionStatus>) -> Self {
         self.status = input;
         self
     }
@@ -156,10 +139,7 @@ impl ExecutionBuilder {
         self
     }
     /// <p>The date and time when the durable execution started, in <a href="https://www.w3.org/TR/NOTE-datetime">ISO-8601 format</a> (YYYY-MM-DDThh:mm:ss.sTZD).</p>
-    pub fn set_start_timestamp(
-        mut self,
-        input: ::std::option::Option<::aws_smithy_types::DateTime>,
-    ) -> Self {
+    pub fn set_start_timestamp(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
         self.start_timestamp = input;
         self
     }
@@ -173,10 +153,7 @@ impl ExecutionBuilder {
         self
     }
     /// <p>The date and time when the durable execution ended, in <a href="https://www.w3.org/TR/NOTE-datetime">ISO-8601 format</a> (YYYY-MM-DDThh:mm:ss.sTZD).</p>
-    pub fn set_end_timestamp(
-        mut self,
-        input: ::std::option::Option<::aws_smithy_types::DateTime>,
-    ) -> Self {
+    pub fn set_end_timestamp(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
         self.end_timestamp = input;
         self
     }
@@ -205,12 +182,7 @@ impl ExecutionBuilder {
     /// - [`function_arn`](crate::types::builders::ExecutionBuilder::function_arn)
     /// - [`status`](crate::types::builders::ExecutionBuilder::status)
     /// - [`start_timestamp`](crate::types::builders::ExecutionBuilder::start_timestamp)
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<
-        crate::types::Execution,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    pub fn build(self) -> ::std::result::Result<crate::types::Execution, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::Execution {
             durable_execution_arn: self.durable_execution_arn.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

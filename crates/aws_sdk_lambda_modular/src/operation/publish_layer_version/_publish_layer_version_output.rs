@@ -17,8 +17,7 @@ pub struct PublishLayerVersionOutput {
     /// <p>The version number.</p>
     pub version: i64,
     /// <p>A list of compatible <a href="https://docs.aws.amazon.com/lambda/latest/dg/foundation-arch.html">instruction set architectures</a>.</p>
-    pub compatible_architectures:
-        ::std::option::Option<::std::vec::Vec<crate::types::Architecture>>,
+    pub compatible_architectures: ::std::option::Option<::std::vec::Vec<crate::types::Architecture>>,
     /// <p>The layer's compatible runtimes.</p>
     /// <p>The following list includes deprecated runtimes. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html#runtime-deprecation-levels">Runtime use after deprecation</a>.</p>
     /// <p>For a list of all currently supported runtimes, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html#runtimes-supported">Supported runtimes</a>.</p>
@@ -81,18 +80,14 @@ impl ::aws_types::request_id::RequestId for PublishLayerVersionOutput {
 #[cfg(feature = "op_publish_layer_version")]
 impl PublishLayerVersionOutput {
     /// Creates a new builder-style object to manufacture [`PublishLayerVersionOutput`](crate::operation::publish_layer_version::PublishLayerVersionOutput).
-    pub fn builder(
-    ) -> crate::operation::publish_layer_version::builders::PublishLayerVersionOutputBuilder {
-        crate::operation::publish_layer_version::builders::PublishLayerVersionOutputBuilder::default(
-        )
+    pub fn builder() -> crate::operation::publish_layer_version::builders::PublishLayerVersionOutputBuilder {
+        crate::operation::publish_layer_version::builders::PublishLayerVersionOutputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_publish_layer_version")]
 /// A builder for [`PublishLayerVersionOutput`](crate::operation::publish_layer_version::PublishLayerVersionOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct PublishLayerVersionOutputBuilder {
     pub(crate) content: ::std::option::Option<crate::types::LayerVersionContentOutput>,
@@ -101,8 +96,7 @@ pub struct PublishLayerVersionOutputBuilder {
     pub(crate) description: ::std::option::Option<::std::string::String>,
     pub(crate) created_date: ::std::option::Option<::std::string::String>,
     pub(crate) version: ::std::option::Option<i64>,
-    pub(crate) compatible_architectures:
-        ::std::option::Option<::std::vec::Vec<crate::types::Architecture>>,
+    pub(crate) compatible_architectures: ::std::option::Option<::std::vec::Vec<crate::types::Architecture>>,
     pub(crate) compatible_runtimes: ::std::option::Option<::std::vec::Vec<crate::types::Runtime>>,
     pub(crate) license_info: ::std::option::Option<::std::string::String>,
     _request_id: Option<String>,
@@ -115,10 +109,7 @@ impl PublishLayerVersionOutputBuilder {
         self
     }
     /// <p>Details about the layer version.</p>
-    pub fn set_content(
-        mut self,
-        input: ::std::option::Option<crate::types::LayerVersionContentOutput>,
-    ) -> Self {
+    pub fn set_content(mut self, input: ::std::option::Option<crate::types::LayerVersionContentOutput>) -> Self {
         self.content = input;
         self
     }
@@ -141,18 +132,12 @@ impl PublishLayerVersionOutputBuilder {
         &self.layer_arn
     }
     /// <p>The ARN of the layer version.</p>
-    pub fn layer_version_arn(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn layer_version_arn(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.layer_version_arn = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The ARN of the layer version.</p>
-    pub fn set_layer_version_arn(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_layer_version_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.layer_version_arn = input;
         self
     }
@@ -214,17 +199,12 @@ impl PublishLayerVersionOutputBuilder {
         self
     }
     /// <p>A list of compatible <a href="https://docs.aws.amazon.com/lambda/latest/dg/foundation-arch.html">instruction set architectures</a>.</p>
-    pub fn set_compatible_architectures(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<crate::types::Architecture>>,
-    ) -> Self {
+    pub fn set_compatible_architectures(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::Architecture>>) -> Self {
         self.compatible_architectures = input;
         self
     }
     /// <p>A list of compatible <a href="https://docs.aws.amazon.com/lambda/latest/dg/foundation-arch.html">instruction set architectures</a>.</p>
-    pub fn get_compatible_architectures(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<crate::types::Architecture>> {
+    pub fn get_compatible_architectures(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::Architecture>> {
         &self.compatible_architectures
     }
     /// Appends an item to `compatible_runtimes`.
@@ -243,19 +223,14 @@ impl PublishLayerVersionOutputBuilder {
     /// <p>The layer's compatible runtimes.</p>
     /// <p>The following list includes deprecated runtimes. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html#runtime-deprecation-levels">Runtime use after deprecation</a>.</p>
     /// <p>For a list of all currently supported runtimes, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html#runtimes-supported">Supported runtimes</a>.</p>
-    pub fn set_compatible_runtimes(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<crate::types::Runtime>>,
-    ) -> Self {
+    pub fn set_compatible_runtimes(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::Runtime>>) -> Self {
         self.compatible_runtimes = input;
         self
     }
     /// <p>The layer's compatible runtimes.</p>
     /// <p>The following list includes deprecated runtimes. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html#runtime-deprecation-levels">Runtime use after deprecation</a>.</p>
     /// <p>For a list of all currently supported runtimes, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html#runtimes-supported">Supported runtimes</a>.</p>
-    pub fn get_compatible_runtimes(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<crate::types::Runtime>> {
+    pub fn get_compatible_runtimes(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::Runtime>> {
         &self.compatible_runtimes
     }
     /// <p>The layer's software license.</p>

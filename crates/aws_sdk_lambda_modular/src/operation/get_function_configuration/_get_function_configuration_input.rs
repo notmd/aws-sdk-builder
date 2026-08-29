@@ -43,18 +43,14 @@ impl GetFunctionConfigurationInput {
 #[cfg(feature = "op_get_function_configuration")]
 impl GetFunctionConfigurationInput {
     /// Creates a new builder-style object to manufacture [`GetFunctionConfigurationInput`](crate::operation::get_function_configuration::GetFunctionConfigurationInput).
-    pub fn builder(
-    ) -> crate::operation::get_function_configuration::builders::GetFunctionConfigurationInputBuilder
-    {
+    pub fn builder() -> crate::operation::get_function_configuration::builders::GetFunctionConfigurationInputBuilder {
         crate::operation::get_function_configuration::builders::GetFunctionConfigurationInputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_get_function_configuration")]
 /// A builder for [`GetFunctionConfigurationInput`](crate::operation::get_function_configuration::GetFunctionConfigurationInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct GetFunctionConfigurationInputBuilder {
     pub(crate) function_name: ::std::option::Option<::std::string::String>,
@@ -74,10 +70,7 @@ impl GetFunctionConfigurationInputBuilder {
     /// </ul>
     /// <p>You can append a version number or alias to any of the formats. The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
     /// This field is required.
-    pub fn function_name(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn function_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.function_name = ::std::option::Option::Some(input.into());
         self
     }
@@ -92,10 +85,7 @@ impl GetFunctionConfigurationInputBuilder {
     /// <p><b>Partial ARN</b> – <code>123456789012:function:my-function</code>.</p></li>
     /// </ul>
     /// <p>You can append a version number or alias to any of the formats. The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
-    pub fn set_function_name(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_function_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.function_name = input;
         self
     }
@@ -134,11 +124,9 @@ impl GetFunctionConfigurationInputBuilder {
         crate::operation::get_function_configuration::GetFunctionConfigurationInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(
-            crate::operation::get_function_configuration::GetFunctionConfigurationInput {
-                function_name: self.function_name,
-                qualifier: self.qualifier,
-            },
-        )
+        ::std::result::Result::Ok(crate::operation::get_function_configuration::GetFunctionConfigurationInput {
+            function_name: self.function_name,
+            qualifier: self.qualifier,
+        })
     }
 }

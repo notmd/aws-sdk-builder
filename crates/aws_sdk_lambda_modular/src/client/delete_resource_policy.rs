@@ -7,11 +7,7 @@ impl super::Client {
     ///   - [`revision_id(impl Into<String>)`](crate::operation::delete_resource_policy::builders::DeleteResourcePolicyFluentBuilder::revision_id) / [`set_revision_id(Option<String>)`](crate::operation::delete_resource_policy::builders::DeleteResourcePolicyFluentBuilder::set_revision_id):<br>required: **false**<br><p>The revision ID that the existing policy must match for the deletion to proceed. If the revision ID doesn't match, the operation fails with a <code>PreconditionFailedException</code> error. To retrieve the current revision ID, use the <code>GetResourcePolicy</code> operation.</p><br>
     /// - On success, responds with [`DeleteResourcePolicyOutput`](crate::operation::delete_resource_policy::DeleteResourcePolicyOutput)
     /// - On failure, responds with [`SdkError<DeleteResourcePolicyError>`](crate::operation::delete_resource_policy::DeleteResourcePolicyError)
-    pub fn delete_resource_policy(
-        &self,
-    ) -> crate::operation::delete_resource_policy::builders::DeleteResourcePolicyFluentBuilder {
-        crate::operation::delete_resource_policy::builders::DeleteResourcePolicyFluentBuilder::new(
-            self.handle.clone(),
-        )
+    pub fn delete_resource_policy(&self) -> crate::operation::delete_resource_policy::builders::DeleteResourcePolicyFluentBuilder {
+        crate::operation::delete_resource_policy::builders::DeleteResourcePolicyFluentBuilder::new(self.handle.clone())
     }
 }
