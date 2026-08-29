@@ -448,15 +448,25 @@ fn verify_service(
         .ok_or_else(|| {
             ConformanceError::Message(format!("{} has no features table", service.key))
         })?;
+    let expected_operation_features = operations
+        .iter()
+        .map(|operation| operation.feature.clone())
+        .collect::<BTreeSet<_>>();
+    if !operation_features_match(features, &expected_operation_features) {
+        return Err(ConformanceError::Message(format!(
+            "{} operation features do not match model: expected {:?}, found {:?}",
+            service.key,
+            expected_operation_features,
+            operation_feature_names(features)
+        )));
+    }
     let default = features.get("default").and_then(toml_edit::Item::as_array);
     for operation in operations {
-        if features.get(&operation.feature).is_none()
-            || default.is_some_and(|default| {
-                default
-                    .iter()
-                    .any(|value| value.as_str() == Some(operation.feature.as_str()))
-            })
-        {
+        if default.is_some_and(|default| {
+            default
+                .iter()
+                .any(|value| value.as_str() == Some(operation.feature.as_str()))
+        }) {
             return Err(ConformanceError::Message(format!(
                 "{} has an invalid {} feature",
                 service.key, operation.feature
@@ -472,6 +482,41 @@ fn verify_service(
         }
     }
     Ok(())
+}
+
+fn operation_feature_names(features: &Table) -> BTreeSet<String> {
+    features
+        .iter()
+        .filter_map(|(name, _)| name.starts_with("op_").then(|| name.to_owned()))
+        .collect()
+}
+
+fn operation_features_match(features: &Table, expected: &BTreeSet<String>) -> bool {
+    operation_feature_names(features) == *expected
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn operation_feature_set_rejects_unknown_features() {
+        let document = r#"
+            [features]
+            op_alpha = []
+            op_unknown = []
+            default = []
+        "#
+        .parse::<DocumentMut>()
+        .expect("valid Cargo manifest");
+        let features = document["features"].as_table().expect("features table");
+        let expected = BTreeSet::from(["op_alpha".to_owned()]);
+        assert!(!operation_features_match(features, &expected));
+        assert_eq!(
+            operation_feature_names(features),
+            BTreeSet::from(["op_alpha".to_owned(), "op_unknown".to_owned()])
+        );
+    }
 }
 
 fn write_diff_artifacts(
