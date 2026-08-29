@@ -591,7 +591,7 @@ fn prune_unselected_operation_surface(
             .intersection(&unselected)
             .cloned()
             .collect::<BTreeSet<_>>();
-        if unselected_references.is_empty() {
+        if unselected_references.is_empty() && file.relative != "src/protocol_serde.rs" {
             continue;
         }
 
@@ -622,7 +622,9 @@ fn prune_unselected_operation_surface(
                         continue;
                     };
                     let child_references = operation_module_references(&child.syntax);
-                    if child_references.is_disjoint(&selected) {
+                    let stale_operation_shape =
+                        is_unselected_protocol_shape(&module.ident.to_string(), &unselected);
+                    if child_references.is_disjoint(&selected) && stale_operation_shape {
                         removed_files.insert(child.relative.clone());
                         add_removal(
                             &mut removals,
@@ -686,6 +688,17 @@ fn prune_unselected_operation_surface(
         })?;
     }
     Ok(changed.into_iter().collect())
+}
+
+fn is_unselected_protocol_shape(module: &str, unselected: &BTreeSet<String>) -> bool {
+    let Some(shape) = module.strip_prefix("shape_") else {
+        return false;
+    };
+    unselected.iter().any(|operation| {
+        shape == operation
+            || shape == format!("{operation}_input")
+            || shape == format!("{operation}_output")
+    })
 }
 
 fn module_names(files: &[SourceFile], relative: &str) -> BTreeSet<String> {
@@ -2276,6 +2289,87 @@ mod tests {
         )
         .unwrap();
         assert!(!child_source.contains("#[cfg"));
+    }
+
+    #[test]
+    fn removes_protocol_modules_for_unselected_operations() {
+        let directory = tempdir().unwrap();
+        fs::create_dir(directory.path().join("src")).unwrap();
+        fs::create_dir(directory.path().join("src/operation")).unwrap();
+        fs::create_dir(directory.path().join("src/client")).unwrap();
+        fs::create_dir(directory.path().join("src/protocol_serde")).unwrap();
+        fs::write(
+            directory.path().join("src/lib.rs"),
+            "pub mod operation;\npub mod client;\npub(crate) mod protocol_serde;\n",
+        )
+        .unwrap();
+        fs::write(
+            directory.path().join("src/operation.rs"),
+            "pub mod get_thing;\npub mod old_thing;\n",
+        )
+        .unwrap();
+        fs::write(
+            directory.path().join("src/client.rs"),
+            "mod get_thing;\nmod old_thing;\n",
+        )
+        .unwrap();
+        fs::write(
+            directory.path().join("src/operation/get_thing.rs"),
+            "pub struct GetThing;\n",
+        )
+        .unwrap();
+        fs::write(
+            directory.path().join("src/operation/old_thing.rs"),
+            "pub struct OldThing;\n",
+        )
+        .unwrap();
+        fs::write(
+            directory.path().join("src/client/get_thing.rs"),
+            "impl super::Client {}\n",
+        )
+        .unwrap();
+        fs::write(
+            directory.path().join("src/client/old_thing.rs"),
+            "impl super::Client {}\n",
+        )
+        .unwrap();
+        fs::write(
+            directory.path().join("src/protocol_serde.rs"),
+            "pub(crate) mod shape_get_thing;\npub(crate) mod shape_old_thing;\n",
+        )
+        .unwrap();
+        fs::write(
+            directory
+                .path()
+                .join("src/protocol_serde/shape_get_thing.rs"),
+            "pub(crate) fn serialize() {}\n",
+        )
+        .unwrap();
+        fs::write(
+            directory
+                .path()
+                .join("src/protocol_serde/shape_old_thing.rs"),
+            "// stale operation serializer\n",
+        )
+        .unwrap();
+        fs::write(
+            directory.path().join("Cargo.toml"),
+            "[package]\nname = \"old\"\nversion = \"0.1.0\"\nedition = \"2024\"\n",
+        )
+        .unwrap();
+
+        transform_tree(directory.path(), "new", "new", &operations()).unwrap();
+
+        let protocol_source =
+            fs::read_to_string(directory.path().join("src/protocol_serde.rs")).unwrap();
+        assert!(protocol_source.contains("shape_get_thing;"));
+        assert!(!protocol_source.contains("shape_old_thing;"));
+        assert!(
+            !directory
+                .path()
+                .join("src/protocol_serde/shape_old_thing.rs")
+                .exists()
+        );
     }
 
     #[test]
