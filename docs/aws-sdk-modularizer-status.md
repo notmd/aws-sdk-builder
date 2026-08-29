@@ -1,5 +1,14 @@
 # AWS SDK modularizer checkpoint log
 
+## 2026-08-29 — `c55b92b67` — compile all disabled probes
+
+- Objective: ensure the negative public-API probe compiles every generated bin rather than Cargo’s default target only.
+- Generic rule: pass `--bins` for the no-operation probe, so each model-derived operation bin must produce the expected compile failure.
+- Changed files: `crates/aws-sdk-modularizer/src/conformance.rs`.
+- Commands: `cargo test -p aws-sdk-modularizer` passed (13 tests); conformance reached and identified the target-selection defect; coverage unchanged.
+- Remaining blocker: rerun conformance and confirm all enabled and disabled operation probes.
+- Next action: run `just conformance`, then all workspace verification commands.
+
 ## 2026-08-29 — `7b722c889` — public probe alias fix
 
 - Objective: correct the temporary external probe to reference its declared dependency alias.
