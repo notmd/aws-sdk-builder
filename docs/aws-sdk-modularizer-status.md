@@ -1,5 +1,25 @@
 # AWS SDK modularizer checkpoint log
 
+## 2026-08-29 — `405a97571` — feature matrix coverage report
+
+- Objective: record the exact model-derived feature selections exercised by conformance.
+- Generic rule: retain the empty, every singleton, the full operation set, and every shared-shape operation group as structured report data; render selections deterministically.
+- Changed files: `conformance/summary.md`.
+- Commands: `AWS_SDK_MODULARIZER_ARCHIVE=/tmp/aws-sdk-rust.tar.gz RUSTFLAGS='-Awarnings' just conformance` passed for all 15 services; coverage unchanged.
+- Operation coverage: 1,130/1,130 operations, zero missing, zero ambiguous, coverage delta `+0`.
+- Remaining blocker: complete the final workspace checks against the reporting change.
+- Next action: run `cargo check --workspace`, `cargo test --workspace`, `cargo fmt --all -- --check`, and `git diff --check`.
+
+## 2026-08-29 — `37fc5ed0d` — feature matrix reporting
+
+- Objective: make conformance coverage reports include the exact feature selections they validate.
+- Generic rule: carry model-derived singleton, full-set, and shared-operation selections from the isolated Cargo checks into the deterministic summary renderer.
+- Changed files: `crates/aws-sdk-modularizer/src/conformance.rs`.
+- Commands: `cargo fmt --package aws-sdk-modularizer` and `cargo test -p aws-sdk-modularizer` (15 tests) passed; full conformance passed for all 15 services.
+- Operation coverage: 1,130/1,130 operations, zero missing, zero ambiguous, coverage delta `+0`.
+- Remaining blocker: complete the final workspace checks against the reporting change.
+- Next action: commit the regenerated summary, then run the required workspace checks.
+
 ## 2026-08-29 — `1e53eea12` — exact operation-feature verification
 
 - Objective: reject generated Cargo manifests whose `op_*` feature set contains an operation not present in the Smithy model.
