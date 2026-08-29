@@ -15,16 +15,14 @@ impl ::aws_types::request_id::RequestId for UpdateOpenIdConnectProviderThumbprin
 #[cfg(feature = "op_update_open_id_connect_provider_thumbprint")]
 impl UpdateOpenIdConnectProviderThumbprintOutput {
     /// Creates a new builder-style object to manufacture [`UpdateOpenIdConnectProviderThumbprintOutput`](crate::operation::update_open_id_connect_provider_thumbprint::UpdateOpenIdConnectProviderThumbprintOutput).
-    pub fn builder() -> crate::operation::update_open_id_connect_provider_thumbprint::builders::UpdateOpenIdConnectProviderThumbprintOutputBuilder{
+    pub fn builder() -> crate::operation::update_open_id_connect_provider_thumbprint::builders::UpdateOpenIdConnectProviderThumbprintOutputBuilder {
         crate::operation::update_open_id_connect_provider_thumbprint::builders::UpdateOpenIdConnectProviderThumbprintOutputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_update_open_id_connect_provider_thumbprint")]
 /// A builder for [`UpdateOpenIdConnectProviderThumbprintOutput`](crate::operation::update_open_id_connect_provider_thumbprint::UpdateOpenIdConnectProviderThumbprintOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct UpdateOpenIdConnectProviderThumbprintOutputBuilder {
     _request_id: Option<String>,
@@ -41,7 +39,7 @@ impl UpdateOpenIdConnectProviderThumbprintOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`UpdateOpenIdConnectProviderThumbprintOutput`](crate::operation::update_open_id_connect_provider_thumbprint::UpdateOpenIdConnectProviderThumbprintOutput).
-    pub fn build(self) -> crate::operation::update_open_id_connect_provider_thumbprint::UpdateOpenIdConnectProviderThumbprintOutput{
+    pub fn build(self) -> crate::operation::update_open_id_connect_provider_thumbprint::UpdateOpenIdConnectProviderThumbprintOutput {
         crate::operation::update_open_id_connect_provider_thumbprint::UpdateOpenIdConnectProviderThumbprintOutput {
             _request_id: self._request_id,
         }

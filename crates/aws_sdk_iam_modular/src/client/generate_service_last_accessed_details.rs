@@ -10,7 +10,7 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<GenerateServiceLastAccessedDetailsError>`](crate::operation::generate_service_last_accessed_details::GenerateServiceLastAccessedDetailsError)
     pub fn generate_service_last_accessed_details(
         &self,
-    ) -> crate::operation::generate_service_last_accessed_details::builders::GenerateServiceLastAccessedDetailsFluentBuilder{
+    ) -> crate::operation::generate_service_last_accessed_details::builders::GenerateServiceLastAccessedDetailsFluentBuilder {
         crate::operation::generate_service_last_accessed_details::builders::GenerateServiceLastAccessedDetailsFluentBuilder::new(self.handle.clone())
     }
 }

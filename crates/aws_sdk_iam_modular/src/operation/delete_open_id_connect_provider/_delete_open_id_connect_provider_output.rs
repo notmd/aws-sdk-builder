@@ -15,16 +15,14 @@ impl ::aws_types::request_id::RequestId for DeleteOpenIdConnectProviderOutput {
 #[cfg(feature = "op_delete_open_id_connect_provider")]
 impl DeleteOpenIdConnectProviderOutput {
     /// Creates a new builder-style object to manufacture [`DeleteOpenIdConnectProviderOutput`](crate::operation::delete_open_id_connect_provider::DeleteOpenIdConnectProviderOutput).
-    pub fn builder() -> crate::operation::delete_open_id_connect_provider::builders::DeleteOpenIdConnectProviderOutputBuilder{
+    pub fn builder() -> crate::operation::delete_open_id_connect_provider::builders::DeleteOpenIdConnectProviderOutputBuilder {
         crate::operation::delete_open_id_connect_provider::builders::DeleteOpenIdConnectProviderOutputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_delete_open_id_connect_provider")]
 /// A builder for [`DeleteOpenIdConnectProviderOutput`](crate::operation::delete_open_id_connect_provider::DeleteOpenIdConnectProviderOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct DeleteOpenIdConnectProviderOutputBuilder {
     _request_id: Option<String>,
@@ -41,9 +39,7 @@ impl DeleteOpenIdConnectProviderOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`DeleteOpenIdConnectProviderOutput`](crate::operation::delete_open_id_connect_provider::DeleteOpenIdConnectProviderOutput).
-    pub fn build(
-        self,
-    ) -> crate::operation::delete_open_id_connect_provider::DeleteOpenIdConnectProviderOutput {
+    pub fn build(self) -> crate::operation::delete_open_id_connect_provider::DeleteOpenIdConnectProviderOutput {
         crate::operation::delete_open_id_connect_provider::DeleteOpenIdConnectProviderOutput {
             _request_id: self._request_id,
         }

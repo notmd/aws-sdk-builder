@@ -15,17 +15,14 @@ impl ::aws_types::request_id::RequestId for ResyncMfaDeviceOutput {
 #[cfg(feature = "op_resync_mfa_device")]
 impl ResyncMfaDeviceOutput {
     /// Creates a new builder-style object to manufacture [`ResyncMfaDeviceOutput`](crate::operation::resync_mfa_device::ResyncMfaDeviceOutput).
-    pub fn builder() -> crate::operation::resync_mfa_device::builders::ResyncMfaDeviceOutputBuilder
-    {
+    pub fn builder() -> crate::operation::resync_mfa_device::builders::ResyncMfaDeviceOutputBuilder {
         crate::operation::resync_mfa_device::builders::ResyncMfaDeviceOutputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_resync_mfa_device")]
 /// A builder for [`ResyncMfaDeviceOutput`](crate::operation::resync_mfa_device::ResyncMfaDeviceOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct ResyncMfaDeviceOutputBuilder {
     _request_id: Option<String>,

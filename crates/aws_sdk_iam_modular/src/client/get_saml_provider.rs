@@ -13,11 +13,7 @@ impl super::Client {
     ///   - [`assertion_encryption_mode(Option<AssertionEncryptionModeType>)`](crate::operation::get_saml_provider::GetSamlProviderOutput::assertion_encryption_mode): <p>Specifies the encryption setting for the SAML provider.</p>
     ///   - [`private_key_list(Option<Vec::<SamlPrivateKey>>)`](crate::operation::get_saml_provider::GetSamlProviderOutput::private_key_list): <p>The private key metadata for the SAML provider.</p>
     /// - On failure, responds with [`SdkError<GetSAMLProviderError>`](crate::operation::get_saml_provider::GetSAMLProviderError)
-    pub fn get_saml_provider(
-        &self,
-    ) -> crate::operation::get_saml_provider::builders::GetSAMLProviderFluentBuilder {
-        crate::operation::get_saml_provider::builders::GetSAMLProviderFluentBuilder::new(
-            self.handle.clone(),
-        )
+    pub fn get_saml_provider(&self) -> crate::operation::get_saml_provider::builders::GetSAMLProviderFluentBuilder {
+        crate::operation::get_saml_provider::builders::GetSAMLProviderFluentBuilder::new(self.handle.clone())
     }
 }

@@ -19,8 +19,7 @@ pub struct GroupDetail {
     /// <p>A list of the inline policies embedded in the group.</p>
     pub group_policy_list: ::std::option::Option<::std::vec::Vec<crate::types::PolicyDetail>>,
     /// <p>A list of the managed policies attached to the group.</p>
-    pub attached_managed_policies:
-        ::std::option::Option<::std::vec::Vec<crate::types::AttachedPolicy>>,
+    pub attached_managed_policies: ::std::option::Option<::std::vec::Vec<crate::types::AttachedPolicy>>,
 }
 impl GroupDetail {
     /// <p>The path to the group. For more information about paths, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html">IAM identifiers</a> in the <i>IAM User Guide</i>.</p>
@@ -54,9 +53,7 @@ impl GroupDetail {
     ///
     /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.attached_managed_policies.is_none()`.
     pub fn attached_managed_policies(&self) -> &[crate::types::AttachedPolicy] {
-        self.attached_managed_policies
-            .as_deref()
-            .unwrap_or_default()
+        self.attached_managed_policies.as_deref().unwrap_or_default()
     }
 }
 impl GroupDetail {
@@ -67,9 +64,7 @@ impl GroupDetail {
 }
 
 /// A builder for [`GroupDetail`](crate::types::GroupDetail).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct GroupDetailBuilder {
     pub(crate) path: ::std::option::Option<::std::string::String>,
@@ -77,10 +72,8 @@ pub struct GroupDetailBuilder {
     pub(crate) group_id: ::std::option::Option<::std::string::String>,
     pub(crate) arn: ::std::option::Option<::std::string::String>,
     pub(crate) create_date: ::std::option::Option<::aws_smithy_types::DateTime>,
-    pub(crate) group_policy_list:
-        ::std::option::Option<::std::vec::Vec<crate::types::PolicyDetail>>,
-    pub(crate) attached_managed_policies:
-        ::std::option::Option<::std::vec::Vec<crate::types::AttachedPolicy>>,
+    pub(crate) group_policy_list: ::std::option::Option<::std::vec::Vec<crate::types::PolicyDetail>>,
+    pub(crate) attached_managed_policies: ::std::option::Option<::std::vec::Vec<crate::types::AttachedPolicy>>,
 }
 impl GroupDetailBuilder {
     /// <p>The path to the group. For more information about paths, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html">IAM identifiers</a> in the <i>IAM User Guide</i>.</p>
@@ -148,10 +141,7 @@ impl GroupDetailBuilder {
         self
     }
     /// <p>The date and time, in <a href="http://www.iso.org/iso/iso8601">ISO 8601 date-time format</a>, when the group was created.</p>
-    pub fn set_create_date(
-        mut self,
-        input: ::std::option::Option<::aws_smithy_types::DateTime>,
-    ) -> Self {
+    pub fn set_create_date(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
         self.create_date = input;
         self
     }
@@ -171,17 +161,12 @@ impl GroupDetailBuilder {
         self
     }
     /// <p>A list of the inline policies embedded in the group.</p>
-    pub fn set_group_policy_list(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<crate::types::PolicyDetail>>,
-    ) -> Self {
+    pub fn set_group_policy_list(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::PolicyDetail>>) -> Self {
         self.group_policy_list = input;
         self
     }
     /// <p>A list of the inline policies embedded in the group.</p>
-    pub fn get_group_policy_list(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<crate::types::PolicyDetail>> {
+    pub fn get_group_policy_list(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::PolicyDetail>> {
         &self.group_policy_list
     }
     /// Appends an item to `attached_managed_policies`.
@@ -196,17 +181,12 @@ impl GroupDetailBuilder {
         self
     }
     /// <p>A list of the managed policies attached to the group.</p>
-    pub fn set_attached_managed_policies(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<crate::types::AttachedPolicy>>,
-    ) -> Self {
+    pub fn set_attached_managed_policies(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::AttachedPolicy>>) -> Self {
         self.attached_managed_policies = input;
         self
     }
     /// <p>A list of the managed policies attached to the group.</p>
-    pub fn get_attached_managed_policies(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<crate::types::AttachedPolicy>> {
+    pub fn get_attached_managed_policies(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::AttachedPolicy>> {
         &self.attached_managed_policies
     }
     /// Consumes the builder and constructs a [`GroupDetail`](crate::types::GroupDetail).

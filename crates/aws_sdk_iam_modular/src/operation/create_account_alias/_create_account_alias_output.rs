@@ -15,17 +15,14 @@ impl ::aws_types::request_id::RequestId for CreateAccountAliasOutput {
 #[cfg(feature = "op_create_account_alias")]
 impl CreateAccountAliasOutput {
     /// Creates a new builder-style object to manufacture [`CreateAccountAliasOutput`](crate::operation::create_account_alias::CreateAccountAliasOutput).
-    pub fn builder(
-    ) -> crate::operation::create_account_alias::builders::CreateAccountAliasOutputBuilder {
+    pub fn builder() -> crate::operation::create_account_alias::builders::CreateAccountAliasOutputBuilder {
         crate::operation::create_account_alias::builders::CreateAccountAliasOutputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_create_account_alias")]
 /// A builder for [`CreateAccountAliasOutput`](crate::operation::create_account_alias::CreateAccountAliasOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct CreateAccountAliasOutputBuilder {
     _request_id: Option<String>,

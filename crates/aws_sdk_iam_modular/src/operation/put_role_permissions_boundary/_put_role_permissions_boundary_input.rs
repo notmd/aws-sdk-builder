@@ -27,16 +27,14 @@ impl PutRolePermissionsBoundaryInput {
 #[cfg(feature = "op_put_role_permissions_boundary")]
 impl PutRolePermissionsBoundaryInput {
     /// Creates a new builder-style object to manufacture [`PutRolePermissionsBoundaryInput`](crate::operation::put_role_permissions_boundary::PutRolePermissionsBoundaryInput).
-    pub fn builder() -> crate::operation::put_role_permissions_boundary::builders::PutRolePermissionsBoundaryInputBuilder{
+    pub fn builder() -> crate::operation::put_role_permissions_boundary::builders::PutRolePermissionsBoundaryInputBuilder {
         crate::operation::put_role_permissions_boundary::builders::PutRolePermissionsBoundaryInputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_put_role_permissions_boundary")]
 /// A builder for [`PutRolePermissionsBoundaryInput`](crate::operation::put_role_permissions_boundary::PutRolePermissionsBoundaryInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct PutRolePermissionsBoundaryInputBuilder {
     pub(crate) role_name: ::std::option::Option<::std::string::String>,
@@ -63,20 +61,14 @@ impl PutRolePermissionsBoundaryInputBuilder {
     /// <p>A permissions boundary policy defines the maximum permissions that identity-based policies can grant to an entity, but does not grant permissions. Permissions boundaries do not define the maximum permissions that a resource-based policy can grant to an entity. To learn more, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html">Permissions boundaries for IAM entities</a> in the <i>IAM User Guide</i>.</p>
     /// <p>For more information about policy types, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#access_policy-types">Policy types </a> in the <i>IAM User Guide</i>.</p>
     /// This field is required.
-    pub fn permissions_boundary(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn permissions_boundary(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.permissions_boundary = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The ARN of the managed policy that is used to set the permissions boundary for the role.</p>
     /// <p>A permissions boundary policy defines the maximum permissions that identity-based policies can grant to an entity, but does not grant permissions. Permissions boundaries do not define the maximum permissions that a resource-based policy can grant to an entity. To learn more, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html">Permissions boundaries for IAM entities</a> in the <i>IAM User Guide</i>.</p>
     /// <p>For more information about policy types, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#access_policy-types">Policy types </a> in the <i>IAM User Guide</i>.</p>
-    pub fn set_permissions_boundary(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_permissions_boundary(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.permissions_boundary = input;
         self
     }
@@ -93,11 +85,9 @@ impl PutRolePermissionsBoundaryInputBuilder {
         crate::operation::put_role_permissions_boundary::PutRolePermissionsBoundaryInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(
-            crate::operation::put_role_permissions_boundary::PutRolePermissionsBoundaryInput {
-                role_name: self.role_name,
-                permissions_boundary: self.permissions_boundary,
-            },
-        )
+        ::std::result::Result::Ok(crate::operation::put_role_permissions_boundary::PutRolePermissionsBoundaryInput {
+            role_name: self.role_name,
+            permissions_boundary: self.permissions_boundary,
+        })
     }
 }

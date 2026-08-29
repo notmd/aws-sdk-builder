@@ -9,23 +9,17 @@ pub fn de_create_delegation_request_http_error(
     crate::operation::create_delegation_request::CreateDelegationRequestError,
 > {
     #[allow(unused_mut)]
-    let mut generic_builder = crate::protocol_serde::parse_http_error_metadata(
-        _response_status,
-        _response_headers,
-        _response_body,
-    )
-    .map_err(
-        crate::operation::create_delegation_request::CreateDelegationRequestError::unhandled,
-    )?;
+    let mut generic_builder = crate::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
+        .map_err(crate::operation::create_delegation_request::CreateDelegationRequestError::unhandled)?;
     generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
     let generic = generic_builder.build();
     let error_code = match generic.code() {
         Some(code) => code,
-        None => return Err(
-            crate::operation::create_delegation_request::CreateDelegationRequestError::unhandled(
+        None => {
+            return Err(crate::operation::create_delegation_request::CreateDelegationRequestError::unhandled(
                 generic,
-            ),
-        ),
+            ))
+        }
     };
 
     let _error_message = generic.message().map(|msg| msg.to_owned());
@@ -127,9 +121,7 @@ pub fn de_create_delegation_request_http_response(
         let mut output = crate::operation::create_delegation_request::builders::CreateDelegationRequestOutputBuilder::default();
         output = crate::protocol_serde::shape_create_delegation_request::de_create_delegation_request(_response_body, output)
             .map_err(crate::operation::create_delegation_request::CreateDelegationRequestError::unhandled)?;
-        output._set_request_id(
-            ::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string),
-        );
+        output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
         output.build()
     })
 }

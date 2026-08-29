@@ -37,18 +37,14 @@ impl ::aws_types::request_id::RequestId for ListSamlProviderTagsOutput {
 #[cfg(feature = "op_list_saml_provider_tags")]
 impl ListSamlProviderTagsOutput {
     /// Creates a new builder-style object to manufacture [`ListSamlProviderTagsOutput`](crate::operation::list_saml_provider_tags::ListSamlProviderTagsOutput).
-    pub fn builder(
-    ) -> crate::operation::list_saml_provider_tags::builders::ListSamlProviderTagsOutputBuilder
-    {
+    pub fn builder() -> crate::operation::list_saml_provider_tags::builders::ListSamlProviderTagsOutputBuilder {
         crate::operation::list_saml_provider_tags::builders::ListSamlProviderTagsOutputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_list_saml_provider_tags")]
 /// A builder for [`ListSamlProviderTagsOutput`](crate::operation::list_saml_provider_tags::ListSamlProviderTagsOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct ListSamlProviderTagsOutputBuilder {
     pub(crate) tags: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>,
@@ -70,10 +66,7 @@ impl ListSamlProviderTagsOutputBuilder {
         self
     }
     /// <p>The list of tags that are currently attached to the Security Assertion Markup Language (SAML) identity provider. Each tag consists of a key name and an associated value. If no tags are attached to the specified resource, the response contains an empty list.</p>
-    pub fn set_tags(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>,
-    ) -> Self {
+    pub fn set_tags(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>) -> Self {
         self.tags = input;
         self
     }
@@ -123,10 +116,8 @@ impl ListSamlProviderTagsOutputBuilder {
     /// - [`tags`](crate::operation::list_saml_provider_tags::builders::ListSamlProviderTagsOutputBuilder::tags)
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        crate::operation::list_saml_provider_tags::ListSamlProviderTagsOutput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    ) -> ::std::result::Result<crate::operation::list_saml_provider_tags::ListSamlProviderTagsOutput, ::aws_smithy_types::error::operation::BuildError>
+    {
         ::std::result::Result::Ok(crate::operation::list_saml_provider_tags::ListSamlProviderTagsOutput {
             tags: self.tags.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

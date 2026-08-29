@@ -124,9 +124,7 @@ impl Client {
         &self.handle.conf
     }
 
-    fn validate_config(
-        handle: &Handle,
-    ) -> ::std::result::Result<(), ::aws_smithy_runtime_api::box_error::BoxError> {
+    fn validate_config(handle: &Handle) -> ::std::result::Result<(), ::aws_smithy_runtime_api::box_error::BoxError> {
         let mut cfg = ::aws_smithy_types::config_bag::ConfigBag::base();
         handle
             .runtime_plugins
@@ -143,39 +141,33 @@ impl Client {
 ///
 pub trait Waiters {
     #[cfg(feature = "op_get_instance_profile")]
-    /// Wait for `instance_profile_exists`
-    fn wait_until_instance_profile_exists(
-        &self,
-    ) -> crate::waiters::instance_profile_exists::InstanceProfileExistsFluentBuilder;
+/// Wait for `instance_profile_exists`
+    fn wait_until_instance_profile_exists(&self) -> crate::waiters::instance_profile_exists::InstanceProfileExistsFluentBuilder;
     #[cfg(feature = "op_get_policy")]
-    /// Wait for `policy_exists`
+/// Wait for `policy_exists`
     fn wait_until_policy_exists(&self) -> crate::waiters::policy_exists::PolicyExistsFluentBuilder;
     #[cfg(feature = "op_get_role")]
-    /// Wait for `role_exists`
+/// Wait for `role_exists`
     fn wait_until_role_exists(&self) -> crate::waiters::role_exists::RoleExistsFluentBuilder;
     #[cfg(feature = "op_get_user")]
-    /// Wait for `user_exists`
+/// Wait for `user_exists`
     fn wait_until_user_exists(&self) -> crate::waiters::user_exists::UserExistsFluentBuilder;
 }
 impl Waiters for Client {
     #[cfg(feature = "op_get_instance_profile")]
-    fn wait_until_instance_profile_exists(
-        &self,
-    ) -> crate::waiters::instance_profile_exists::InstanceProfileExistsFluentBuilder {
-        crate::waiters::instance_profile_exists::InstanceProfileExistsFluentBuilder::new(
-            self.handle.clone(),
-        )
+fn wait_until_instance_profile_exists(&self) -> crate::waiters::instance_profile_exists::InstanceProfileExistsFluentBuilder {
+        crate::waiters::instance_profile_exists::InstanceProfileExistsFluentBuilder::new(self.handle.clone())
     }
     #[cfg(feature = "op_get_policy")]
-    fn wait_until_policy_exists(&self) -> crate::waiters::policy_exists::PolicyExistsFluentBuilder {
+fn wait_until_policy_exists(&self) -> crate::waiters::policy_exists::PolicyExistsFluentBuilder {
         crate::waiters::policy_exists::PolicyExistsFluentBuilder::new(self.handle.clone())
     }
     #[cfg(feature = "op_get_role")]
-    fn wait_until_role_exists(&self) -> crate::waiters::role_exists::RoleExistsFluentBuilder {
+fn wait_until_role_exists(&self) -> crate::waiters::role_exists::RoleExistsFluentBuilder {
         crate::waiters::role_exists::RoleExistsFluentBuilder::new(self.handle.clone())
     }
     #[cfg(feature = "op_get_user")]
-    fn wait_until_user_exists(&self) -> crate::waiters::user_exists::UserExistsFluentBuilder {
+fn wait_until_user_exists(&self) -> crate::waiters::user_exists::UserExistsFluentBuilder {
         crate::waiters::user_exists::UserExistsFluentBuilder::new(self.handle.clone())
     }
 }

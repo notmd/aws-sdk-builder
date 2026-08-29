@@ -41,18 +41,14 @@ impl ListAttachedUserPoliciesInput {
 #[cfg(feature = "op_list_attached_user_policies")]
 impl ListAttachedUserPoliciesInput {
     /// Creates a new builder-style object to manufacture [`ListAttachedUserPoliciesInput`](crate::operation::list_attached_user_policies::ListAttachedUserPoliciesInput).
-    pub fn builder(
-    ) -> crate::operation::list_attached_user_policies::builders::ListAttachedUserPoliciesInputBuilder
-    {
+    pub fn builder() -> crate::operation::list_attached_user_policies::builders::ListAttachedUserPoliciesInputBuilder {
         crate::operation::list_attached_user_policies::builders::ListAttachedUserPoliciesInputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_list_attached_user_policies")]
 /// A builder for [`ListAttachedUserPoliciesInput`](crate::operation::list_attached_user_policies::ListAttachedUserPoliciesInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct ListAttachedUserPoliciesInputBuilder {
     pub(crate) user_name: ::std::option::Option<::std::string::String>,
@@ -135,13 +131,11 @@ impl ListAttachedUserPoliciesInputBuilder {
         crate::operation::list_attached_user_policies::ListAttachedUserPoliciesInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(
-            crate::operation::list_attached_user_policies::ListAttachedUserPoliciesInput {
-                user_name: self.user_name,
-                path_prefix: self.path_prefix,
-                marker: self.marker,
-                max_items: self.max_items,
-            },
-        )
+        ::std::result::Result::Ok(crate::operation::list_attached_user_policies::ListAttachedUserPoliciesInput {
+            user_name: self.user_name,
+            path_prefix: self.path_prefix,
+            marker: self.marker,
+            max_items: self.max_items,
+        })
     }
 }

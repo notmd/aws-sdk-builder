@@ -15,17 +15,14 @@ impl ::aws_types::request_id::RequestId for DeleteSamlProviderOutput {
 #[cfg(feature = "op_delete_saml_provider")]
 impl DeleteSamlProviderOutput {
     /// Creates a new builder-style object to manufacture [`DeleteSamlProviderOutput`](crate::operation::delete_saml_provider::DeleteSamlProviderOutput).
-    pub fn builder(
-    ) -> crate::operation::delete_saml_provider::builders::DeleteSamlProviderOutputBuilder {
+    pub fn builder() -> crate::operation::delete_saml_provider::builders::DeleteSamlProviderOutputBuilder {
         crate::operation::delete_saml_provider::builders::DeleteSamlProviderOutputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_delete_saml_provider")]
 /// A builder for [`DeleteSamlProviderOutput`](crate::operation::delete_saml_provider::DeleteSamlProviderOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct DeleteSamlProviderOutputBuilder {
     _request_id: Option<String>,

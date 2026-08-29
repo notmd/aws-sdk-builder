@@ -6,9 +6,7 @@ pub use crate::operation::list_attached_group_policies::_list_attached_group_pol
 pub use crate::operation::list_attached_group_policies::_list_attached_group_policies_output::ListAttachedGroupPoliciesOutputBuilder;
 
 #[cfg(feature = "op_list_attached_group_policies")]
-impl
-    crate::operation::list_attached_group_policies::builders::ListAttachedGroupPoliciesInputBuilder
-{
+impl crate::operation::list_attached_group_policies::builders::ListAttachedGroupPoliciesInputBuilder {
     /// Sends a request with this input using the given client.
     pub async fn send_with(
         self,
@@ -67,7 +65,7 @@ impl ListAttachedGroupPoliciesFluentBuilder {
         }
     }
     /// Access the ListAttachedGroupPolicies as a reference.
-    pub fn as_input(&self) -> &crate::operation::list_attached_group_policies::builders::ListAttachedGroupPoliciesInputBuilder{
+    pub fn as_input(&self) -> &crate::operation::list_attached_group_policies::builders::ListAttachedGroupPoliciesInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -96,11 +94,7 @@ impl ListAttachedGroupPoliciesFluentBuilder {
             &self.handle.conf,
             self.config_override,
         );
-        crate::operation::list_attached_group_policies::ListAttachedGroupPolicies::orchestrate(
-            &runtime_plugins,
-            input,
-        )
-        .await
+        crate::operation::list_attached_group_policies::ListAttachedGroupPolicies::orchestrate(&runtime_plugins, input).await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -113,28 +107,19 @@ impl ListAttachedGroupPoliciesFluentBuilder {
     > {
         crate::client::customize::CustomizableOperation::new(self)
     }
-    pub(crate) fn config_override(
-        mut self,
-        config_override: impl ::std::convert::Into<crate::config::Builder>,
-    ) -> Self {
+    pub(crate) fn config_override(mut self, config_override: impl ::std::convert::Into<crate::config::Builder>) -> Self {
         self.set_config_override(::std::option::Option::Some(config_override.into()));
         self
     }
 
-    pub(crate) fn set_config_override(
-        &mut self,
-        config_override: ::std::option::Option<crate::config::Builder>,
-    ) -> &mut Self {
+    pub(crate) fn set_config_override(&mut self, config_override: ::std::option::Option<crate::config::Builder>) -> &mut Self {
         self.config_override = config_override;
         self
     }
     /// Create a paginator for this request
     ///
     /// Paginators are used by calling [`send().await`](crate::operation::list_attached_group_policies::paginator::ListAttachedGroupPoliciesPaginator::send) which returns a [`PaginationStream`](aws_smithy_async::future::pagination_stream::PaginationStream).
-    pub fn into_paginator(
-        self,
-    ) -> crate::operation::list_attached_group_policies::paginator::ListAttachedGroupPoliciesPaginator
-    {
+    pub fn into_paginator(self) -> crate::operation::list_attached_group_policies::paginator::ListAttachedGroupPoliciesPaginator {
         crate::operation::list_attached_group_policies::paginator::ListAttachedGroupPoliciesPaginator::new(self.handle, self.inner)
     }
     /// <p>The name (friendly name, not ARN) of the group to list attached policies for.</p>

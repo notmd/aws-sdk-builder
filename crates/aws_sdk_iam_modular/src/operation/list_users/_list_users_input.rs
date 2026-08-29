@@ -40,9 +40,7 @@ impl ListUsersInput {
 
 #[cfg(feature = "op_list_users")]
 /// A builder for [`ListUsersInput`](crate::operation::list_users::ListUsersInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct ListUsersInputBuilder {
     pub(crate) path_prefix: ::std::option::Option<::std::string::String>,
@@ -100,12 +98,7 @@ impl ListUsersInputBuilder {
         &self.max_items
     }
     /// Consumes the builder and constructs a [`ListUsersInput`](crate::operation::list_users::ListUsersInput).
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<
-        crate::operation::list_users::ListUsersInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    pub fn build(self) -> ::std::result::Result<crate::operation::list_users::ListUsersInput, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::operation::list_users::ListUsersInput {
             path_prefix: self.path_prefix,
             marker: self.marker,

@@ -15,17 +15,14 @@ impl ::aws_types::request_id::RequestId for TagInstanceProfileOutput {
 #[cfg(feature = "op_tag_instance_profile")]
 impl TagInstanceProfileOutput {
     /// Creates a new builder-style object to manufacture [`TagInstanceProfileOutput`](crate::operation::tag_instance_profile::TagInstanceProfileOutput).
-    pub fn builder(
-    ) -> crate::operation::tag_instance_profile::builders::TagInstanceProfileOutputBuilder {
+    pub fn builder() -> crate::operation::tag_instance_profile::builders::TagInstanceProfileOutputBuilder {
         crate::operation::tag_instance_profile::builders::TagInstanceProfileOutputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_tag_instance_profile")]
 /// A builder for [`TagInstanceProfileOutput`](crate::operation::tag_instance_profile::TagInstanceProfileOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct TagInstanceProfileOutputBuilder {
     _request_id: Option<String>,

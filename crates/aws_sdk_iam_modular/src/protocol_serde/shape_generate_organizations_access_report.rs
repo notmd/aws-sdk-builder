@@ -54,9 +54,7 @@ pub fn de_generate_organizations_access_report_http_response(
         let mut output = crate::operation::generate_organizations_access_report::builders::GenerateOrganizationsAccessReportOutputBuilder::default();
         output = crate::protocol_serde::shape_generate_organizations_access_report::de_generate_organizations_access_report(_response_body, output)
             .map_err(crate::operation::generate_organizations_access_report::GenerateOrganizationsAccessReportError::unhandled)?;
-        output._set_request_id(
-            ::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string),
-        );
+        output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
         output.build()
     })
 }
@@ -68,7 +66,7 @@ pub fn de_generate_organizations_access_report(
 ) -> std::result::Result<
     crate::operation::generate_organizations_access_report::builders::GenerateOrganizationsAccessReportOutputBuilder,
     ::aws_smithy_xml::decode::XmlDecodeError,
->{
+> {
     let mut doc = ::aws_smithy_xml::decode::Document::try_from(inp)?;
 
     #[allow(unused_mut)]

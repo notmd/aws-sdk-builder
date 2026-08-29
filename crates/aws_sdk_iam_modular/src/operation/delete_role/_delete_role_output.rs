@@ -22,9 +22,7 @@ impl DeleteRoleOutput {
 
 #[cfg(feature = "op_delete_role")]
 /// A builder for [`DeleteRoleOutput`](crate::operation::delete_role::DeleteRoleOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct DeleteRoleOutputBuilder {
     _request_id: Option<String>,

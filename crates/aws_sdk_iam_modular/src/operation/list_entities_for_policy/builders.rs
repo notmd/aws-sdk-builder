@@ -65,10 +65,7 @@ impl ListEntitiesForPolicyFluentBuilder {
         }
     }
     /// Access the ListEntitiesForPolicy as a reference.
-    pub fn as_input(
-        &self,
-    ) -> &crate::operation::list_entities_for_policy::builders::ListEntitiesForPolicyInputBuilder
-    {
+    pub fn as_input(&self) -> &crate::operation::list_entities_for_policy::builders::ListEntitiesForPolicyInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -97,11 +94,7 @@ impl ListEntitiesForPolicyFluentBuilder {
             &self.handle.conf,
             self.config_override,
         );
-        crate::operation::list_entities_for_policy::ListEntitiesForPolicy::orchestrate(
-            &runtime_plugins,
-            input,
-        )
-        .await
+        crate::operation::list_entities_for_policy::ListEntitiesForPolicy::orchestrate(&runtime_plugins, input).await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -114,31 +107,20 @@ impl ListEntitiesForPolicyFluentBuilder {
     > {
         crate::client::customize::CustomizableOperation::new(self)
     }
-    pub(crate) fn config_override(
-        mut self,
-        config_override: impl ::std::convert::Into<crate::config::Builder>,
-    ) -> Self {
+    pub(crate) fn config_override(mut self, config_override: impl ::std::convert::Into<crate::config::Builder>) -> Self {
         self.set_config_override(::std::option::Option::Some(config_override.into()));
         self
     }
 
-    pub(crate) fn set_config_override(
-        &mut self,
-        config_override: ::std::option::Option<crate::config::Builder>,
-    ) -> &mut Self {
+    pub(crate) fn set_config_override(&mut self, config_override: ::std::option::Option<crate::config::Builder>) -> &mut Self {
         self.config_override = config_override;
         self
     }
     /// Create a paginator for this request
     ///
     /// Paginators are used by calling [`send().await`](crate::operation::list_entities_for_policy::paginator::ListEntitiesForPolicyPaginator::send) which returns a [`PaginationStream`](aws_smithy_async::future::pagination_stream::PaginationStream).
-    pub fn into_paginator(
-        self,
-    ) -> crate::operation::list_entities_for_policy::paginator::ListEntitiesForPolicyPaginator {
-        crate::operation::list_entities_for_policy::paginator::ListEntitiesForPolicyPaginator::new(
-            self.handle,
-            self.inner,
-        )
+    pub fn into_paginator(self) -> crate::operation::list_entities_for_policy::paginator::ListEntitiesForPolicyPaginator {
+        crate::operation::list_entities_for_policy::paginator::ListEntitiesForPolicyPaginator::new(self.handle, self.inner)
     }
     /// <p>The Amazon Resource Name (ARN) of the IAM policy for which you want the versions.</p>
     /// <p>For more information about ARNs, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i>.</p>
@@ -165,10 +147,7 @@ impl ListEntitiesForPolicyFluentBuilder {
     }
     /// <p>The entity type to use for filtering the results.</p>
     /// <p>For example, when <code>EntityFilter</code> is <code>Role</code>, only the roles that are attached to the specified policy are returned. This parameter is optional. If it is not included, all attached entities (users, groups, and roles) are returned. The argument for this parameter must be one of the valid values listed below.</p>
-    pub fn set_entity_filter(
-        mut self,
-        input: ::std::option::Option<crate::types::EntityType>,
-    ) -> Self {
+    pub fn set_entity_filter(mut self, input: ::std::option::Option<crate::types::EntityType>) -> Self {
         self.inner = self.inner.set_entity_filter(input);
         self
     }
@@ -204,10 +183,7 @@ impl ListEntitiesForPolicyFluentBuilder {
     /// <p>The policy usage method to use for filtering the results.</p>
     /// <p>To list only permissions policies, set <code>PolicyUsageFilter</code> to <code>PermissionsPolicy</code>. To list only the policies used to set permissions boundaries, set the value to <code>PermissionsBoundary</code>.</p>
     /// <p>This parameter is optional. If it is not included, all policies are returned.</p>
-    pub fn set_policy_usage_filter(
-        mut self,
-        input: ::std::option::Option<crate::types::PolicyUsageType>,
-    ) -> Self {
+    pub fn set_policy_usage_filter(mut self, input: ::std::option::Option<crate::types::PolicyUsageType>) -> Self {
         self.inner = self.inner.set_policy_usage_filter(input);
         self
     }

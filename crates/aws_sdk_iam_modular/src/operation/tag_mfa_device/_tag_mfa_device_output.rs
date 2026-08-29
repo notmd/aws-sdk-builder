@@ -22,9 +22,7 @@ impl TagMfaDeviceOutput {
 
 #[cfg(feature = "op_tag_mfa_device")]
 /// A builder for [`TagMfaDeviceOutput`](crate::operation::tag_mfa_device::TagMfaDeviceOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct TagMfaDeviceOutputBuilder {
     _request_id: Option<String>,

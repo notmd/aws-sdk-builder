@@ -26,9 +26,7 @@ impl GetPolicyInput {
 
 #[cfg(feature = "op_get_policy")]
 /// A builder for [`GetPolicyInput`](crate::operation::get_policy::GetPolicyInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct GetPolicyInputBuilder {
     pub(crate) policy_arn: ::std::option::Option<::std::string::String>,
@@ -54,14 +52,7 @@ impl GetPolicyInputBuilder {
         &self.policy_arn
     }
     /// Consumes the builder and constructs a [`GetPolicyInput`](crate::operation::get_policy::GetPolicyInput).
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<
-        crate::operation::get_policy::GetPolicyInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
-        ::std::result::Result::Ok(crate::operation::get_policy::GetPolicyInput {
-            policy_arn: self.policy_arn,
-        })
+    pub fn build(self) -> ::std::result::Result<crate::operation::get_policy::GetPolicyInput, ::aws_smithy_types::error::operation::BuildError> {
+        ::std::result::Result::Ok(crate::operation::get_policy::GetPolicyInput { policy_arn: self.policy_arn })
     }
 }

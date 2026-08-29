@@ -51,9 +51,7 @@ impl EntityInfo {
 }
 
 /// A builder for [`EntityInfo`](crate::types::EntityInfo).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct EntityInfoBuilder {
     pub(crate) arn: ::std::option::Option<::std::string::String>,
@@ -103,10 +101,7 @@ impl EntityInfoBuilder {
         self
     }
     /// <p>The type of entity (user or role).</p>
-    pub fn set_type(
-        mut self,
-        input: ::std::option::Option<crate::types::PolicyOwnerEntityType>,
-    ) -> Self {
+    pub fn set_type(mut self, input: ::std::option::Option<crate::types::PolicyOwnerEntityType>) -> Self {
         self.r#type = input;
         self
     }
@@ -149,12 +144,7 @@ impl EntityInfoBuilder {
     /// - [`name`](crate::types::builders::EntityInfoBuilder::name)
     /// - [`r#type`](crate::types::builders::EntityInfoBuilder::type)
     /// - [`id`](crate::types::builders::EntityInfoBuilder::id)
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<
-        crate::types::EntityInfo,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    pub fn build(self) -> ::std::result::Result<crate::types::EntityInfo, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::EntityInfo {
             arn: self.arn.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

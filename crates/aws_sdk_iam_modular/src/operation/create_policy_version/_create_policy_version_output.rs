@@ -25,18 +25,14 @@ impl ::aws_types::request_id::RequestId for CreatePolicyVersionOutput {
 #[cfg(feature = "op_create_policy_version")]
 impl CreatePolicyVersionOutput {
     /// Creates a new builder-style object to manufacture [`CreatePolicyVersionOutput`](crate::operation::create_policy_version::CreatePolicyVersionOutput).
-    pub fn builder(
-    ) -> crate::operation::create_policy_version::builders::CreatePolicyVersionOutputBuilder {
-        crate::operation::create_policy_version::builders::CreatePolicyVersionOutputBuilder::default(
-        )
+    pub fn builder() -> crate::operation::create_policy_version::builders::CreatePolicyVersionOutputBuilder {
+        crate::operation::create_policy_version::builders::CreatePolicyVersionOutputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_create_policy_version")]
 /// A builder for [`CreatePolicyVersionOutput`](crate::operation::create_policy_version::CreatePolicyVersionOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct CreatePolicyVersionOutputBuilder {
     pub(crate) policy_version: ::std::option::Option<crate::types::PolicyVersion>,
@@ -50,10 +46,7 @@ impl CreatePolicyVersionOutputBuilder {
         self
     }
     /// <p>A structure containing details about the new policy version.</p>
-    pub fn set_policy_version(
-        mut self,
-        input: ::std::option::Option<crate::types::PolicyVersion>,
-    ) -> Self {
+    pub fn set_policy_version(mut self, input: ::std::option::Option<crate::types::PolicyVersion>) -> Self {
         self.policy_version = input;
         self
     }

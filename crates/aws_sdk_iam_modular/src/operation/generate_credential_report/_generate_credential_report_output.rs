@@ -31,18 +31,14 @@ impl ::aws_types::request_id::RequestId for GenerateCredentialReportOutput {
 #[cfg(feature = "op_generate_credential_report")]
 impl GenerateCredentialReportOutput {
     /// Creates a new builder-style object to manufacture [`GenerateCredentialReportOutput`](crate::operation::generate_credential_report::GenerateCredentialReportOutput).
-    pub fn builder(
-    ) -> crate::operation::generate_credential_report::builders::GenerateCredentialReportOutputBuilder
-    {
+    pub fn builder() -> crate::operation::generate_credential_report::builders::GenerateCredentialReportOutputBuilder {
         crate::operation::generate_credential_report::builders::GenerateCredentialReportOutputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_generate_credential_report")]
 /// A builder for [`GenerateCredentialReportOutput`](crate::operation::generate_credential_report::GenerateCredentialReportOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct GenerateCredentialReportOutputBuilder {
     pub(crate) state: ::std::option::Option<crate::types::ReportStateType>,
@@ -57,10 +53,7 @@ impl GenerateCredentialReportOutputBuilder {
         self
     }
     /// <p>Information about the state of the credential report.</p>
-    pub fn set_state(
-        mut self,
-        input: ::std::option::Option<crate::types::ReportStateType>,
-    ) -> Self {
+    pub fn set_state(mut self, input: ::std::option::Option<crate::types::ReportStateType>) -> Self {
         self.state = input;
         self
     }
@@ -92,9 +85,7 @@ impl GenerateCredentialReportOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`GenerateCredentialReportOutput`](crate::operation::generate_credential_report::GenerateCredentialReportOutput).
-    pub fn build(
-        self,
-    ) -> crate::operation::generate_credential_report::GenerateCredentialReportOutput {
+    pub fn build(self) -> crate::operation::generate_credential_report::GenerateCredentialReportOutput {
         crate::operation::generate_credential_report::GenerateCredentialReportOutput {
             state: self.state,
             description: self.description,

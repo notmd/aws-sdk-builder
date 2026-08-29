@@ -65,7 +65,7 @@ impl ListAttachedUserPoliciesFluentBuilder {
         }
     }
     /// Access the ListAttachedUserPolicies as a reference.
-    pub fn as_input(&self) -> &crate::operation::list_attached_user_policies::builders::ListAttachedUserPoliciesInputBuilder{
+    pub fn as_input(&self) -> &crate::operation::list_attached_user_policies::builders::ListAttachedUserPoliciesInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -94,11 +94,7 @@ impl ListAttachedUserPoliciesFluentBuilder {
             &self.handle.conf,
             self.config_override,
         );
-        crate::operation::list_attached_user_policies::ListAttachedUserPolicies::orchestrate(
-            &runtime_plugins,
-            input,
-        )
-        .await
+        crate::operation::list_attached_user_policies::ListAttachedUserPolicies::orchestrate(&runtime_plugins, input).await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -111,28 +107,19 @@ impl ListAttachedUserPoliciesFluentBuilder {
     > {
         crate::client::customize::CustomizableOperation::new(self)
     }
-    pub(crate) fn config_override(
-        mut self,
-        config_override: impl ::std::convert::Into<crate::config::Builder>,
-    ) -> Self {
+    pub(crate) fn config_override(mut self, config_override: impl ::std::convert::Into<crate::config::Builder>) -> Self {
         self.set_config_override(::std::option::Option::Some(config_override.into()));
         self
     }
 
-    pub(crate) fn set_config_override(
-        &mut self,
-        config_override: ::std::option::Option<crate::config::Builder>,
-    ) -> &mut Self {
+    pub(crate) fn set_config_override(&mut self, config_override: ::std::option::Option<crate::config::Builder>) -> &mut Self {
         self.config_override = config_override;
         self
     }
     /// Create a paginator for this request
     ///
     /// Paginators are used by calling [`send().await`](crate::operation::list_attached_user_policies::paginator::ListAttachedUserPoliciesPaginator::send) which returns a [`PaginationStream`](aws_smithy_async::future::pagination_stream::PaginationStream).
-    pub fn into_paginator(
-        self,
-    ) -> crate::operation::list_attached_user_policies::paginator::ListAttachedUserPoliciesPaginator
-    {
+    pub fn into_paginator(self) -> crate::operation::list_attached_user_policies::paginator::ListAttachedUserPoliciesPaginator {
         crate::operation::list_attached_user_policies::paginator::ListAttachedUserPoliciesPaginator::new(self.handle, self.inner)
     }
     /// <p>The name (friendly name, not ARN) of the user to list attached policies for.</p>

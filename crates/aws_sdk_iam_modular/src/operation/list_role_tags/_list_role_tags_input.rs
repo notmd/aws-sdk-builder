@@ -40,9 +40,7 @@ impl ListRoleTagsInput {
 
 #[cfg(feature = "op_list_role_tags")]
 /// A builder for [`ListRoleTagsInput`](crate::operation::list_role_tags::ListRoleTagsInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct ListRoleTagsInputBuilder {
     pub(crate) role_name: ::std::option::Option<::std::string::String>,
@@ -103,10 +101,7 @@ impl ListRoleTagsInputBuilder {
     /// Consumes the builder and constructs a [`ListRoleTagsInput`](crate::operation::list_role_tags::ListRoleTagsInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        crate::operation::list_role_tags::ListRoleTagsInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    ) -> ::std::result::Result<crate::operation::list_role_tags::ListRoleTagsInput, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::operation::list_role_tags::ListRoleTagsInput {
             role_name: self.role_name,
             marker: self.marker,

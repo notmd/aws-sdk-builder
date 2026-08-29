@@ -4,48 +4,34 @@ pub fn de_list_roles_http_error(
     _response_status: u16,
     _response_headers: &::aws_smithy_runtime_api::http::Headers,
     _response_body: &[u8],
-) -> std::result::Result<
-    crate::operation::list_roles::ListRolesOutput,
-    crate::operation::list_roles::ListRolesError,
-> {
+) -> std::result::Result<crate::operation::list_roles::ListRolesOutput, crate::operation::list_roles::ListRolesError> {
     #[allow(unused_mut)]
-    let mut generic_builder = crate::protocol_serde::parse_http_error_metadata(
-        _response_status,
-        _response_headers,
-        _response_body,
-    )
-    .map_err(crate::operation::list_roles::ListRolesError::unhandled)?;
+    let mut generic_builder = crate::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
+        .map_err(crate::operation::list_roles::ListRolesError::unhandled)?;
     generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
     let generic = generic_builder.build();
     let error_code = match generic.code() {
         Some(code) => code,
-        None => {
-            return Err(crate::operation::list_roles::ListRolesError::unhandled(
-                generic,
-            ))
-        }
+        None => return Err(crate::operation::list_roles::ListRolesError::unhandled(generic)),
     };
 
     let _error_message = generic.message().map(|msg| msg.to_owned());
     Err(match error_code {
-        "ServiceFailure" => {
-            crate::operation::list_roles::ListRolesError::ServiceFailureException({
+        "ServiceFailure" => crate::operation::list_roles::ListRolesError::ServiceFailureException({
+            #[allow(unused_mut)]
+            let mut tmp = {
                 #[allow(unused_mut)]
-                let mut tmp = {
-                    #[allow(unused_mut)]
-                    let mut output =
-                        crate::types::error::builders::ServiceFailureExceptionBuilder::default();
-                    output = crate::protocol_serde::shape_service_failure_exception::de_service_failure_exception_xml_err(_response_body, output)
+                let mut output = crate::types::error::builders::ServiceFailureExceptionBuilder::default();
+                output = crate::protocol_serde::shape_service_failure_exception::de_service_failure_exception_xml_err(_response_body, output)
                     .map_err(crate::operation::list_roles::ListRolesError::unhandled)?;
-                    let output = output.meta(generic);
-                    output.build()
-                };
-                if tmp.message.is_none() {
-                    tmp.message = _error_message;
-                }
-                tmp
-            })
-        }
+                let output = output.meta(generic);
+                output.build()
+            };
+            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
         _ => crate::operation::list_roles::ListRolesError::generic(generic),
     })
 }
@@ -55,18 +41,13 @@ pub fn de_list_roles_http_response(
     _response_status: u16,
     _response_headers: &::aws_smithy_runtime_api::http::Headers,
     _response_body: &[u8],
-) -> std::result::Result<
-    crate::operation::list_roles::ListRolesOutput,
-    crate::operation::list_roles::ListRolesError,
-> {
+) -> std::result::Result<crate::operation::list_roles::ListRolesOutput, crate::operation::list_roles::ListRolesError> {
     Ok({
         #[allow(unused_mut)]
         let mut output = crate::operation::list_roles::builders::ListRolesOutputBuilder::default();
         output = crate::protocol_serde::shape_list_roles::de_list_roles(_response_body, output)
             .map_err(crate::operation::list_roles::ListRolesError::unhandled)?;
-        output._set_request_id(
-            ::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string),
-        );
+        output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
         crate::serde_util::list_roles_output_output_correct_errors(output)
             .build()
             .map_err(crate::operation::list_roles::ListRolesError::unhandled)?
@@ -77,10 +58,7 @@ pub fn de_list_roles_http_response(
 pub fn de_list_roles(
     inp: &[u8],
     mut builder: crate::operation::list_roles::builders::ListRolesOutputBuilder,
-) -> std::result::Result<
-    crate::operation::list_roles::builders::ListRolesOutputBuilder,
-    ::aws_smithy_xml::decode::XmlDecodeError,
-> {
+) -> std::result::Result<crate::operation::list_roles::builders::ListRolesOutputBuilder, ::aws_smithy_xml::decode::XmlDecodeError> {
     let mut doc = ::aws_smithy_xml::decode::Document::try_from(inp)?;
 
     #[allow(unused_mut)]
@@ -145,9 +123,7 @@ pub fn de_list_roles(
         }
         }
     } else {
-        return Err(::aws_smithy_xml::decode::XmlDecodeError::custom(
-            "expected ListRolesResult tag",
-        ));
+        return Err(::aws_smithy_xml::decode::XmlDecodeError::custom("expected ListRolesResult tag"));
     };
     Ok(builder)
 }

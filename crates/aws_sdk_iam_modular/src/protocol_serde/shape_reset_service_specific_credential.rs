@@ -53,9 +53,7 @@ pub fn de_reset_service_specific_credential_http_response(
         let mut output = crate::operation::reset_service_specific_credential::builders::ResetServiceSpecificCredentialOutputBuilder::default();
         output = crate::protocol_serde::shape_reset_service_specific_credential::de_reset_service_specific_credential(_response_body, output)
             .map_err(crate::operation::reset_service_specific_credential::ResetServiceSpecificCredentialError::unhandled)?;
-        output._set_request_id(
-            ::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string),
-        );
+        output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
         output.build()
     })
 }
@@ -67,7 +65,7 @@ pub fn de_reset_service_specific_credential(
 ) -> std::result::Result<
     crate::operation::reset_service_specific_credential::builders::ResetServiceSpecificCredentialOutputBuilder,
     ::aws_smithy_xml::decode::XmlDecodeError,
->{
+> {
     let mut doc = ::aws_smithy_xml::decode::Document::try_from(inp)?;
 
     #[allow(unused_mut)]

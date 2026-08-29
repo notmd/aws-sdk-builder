@@ -9,7 +9,7 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<DeleteServiceSpecificCredentialError>`](crate::operation::delete_service_specific_credential::DeleteServiceSpecificCredentialError)
     pub fn delete_service_specific_credential(
         &self,
-    ) -> crate::operation::delete_service_specific_credential::builders::DeleteServiceSpecificCredentialFluentBuilder{
+    ) -> crate::operation::delete_service_specific_credential::builders::DeleteServiceSpecificCredentialFluentBuilder {
         crate::operation::delete_service_specific_credential::builders::DeleteServiceSpecificCredentialFluentBuilder::new(self.handle.clone())
     }
 }

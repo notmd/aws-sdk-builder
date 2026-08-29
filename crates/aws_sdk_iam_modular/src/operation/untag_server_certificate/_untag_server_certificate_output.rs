@@ -15,18 +15,14 @@ impl ::aws_types::request_id::RequestId for UntagServerCertificateOutput {
 #[cfg(feature = "op_untag_server_certificate")]
 impl UntagServerCertificateOutput {
     /// Creates a new builder-style object to manufacture [`UntagServerCertificateOutput`](crate::operation::untag_server_certificate::UntagServerCertificateOutput).
-    pub fn builder(
-    ) -> crate::operation::untag_server_certificate::builders::UntagServerCertificateOutputBuilder
-    {
+    pub fn builder() -> crate::operation::untag_server_certificate::builders::UntagServerCertificateOutputBuilder {
         crate::operation::untag_server_certificate::builders::UntagServerCertificateOutputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_untag_server_certificate")]
 /// A builder for [`UntagServerCertificateOutput`](crate::operation::untag_server_certificate::UntagServerCertificateOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct UntagServerCertificateOutputBuilder {
     _request_id: Option<String>,

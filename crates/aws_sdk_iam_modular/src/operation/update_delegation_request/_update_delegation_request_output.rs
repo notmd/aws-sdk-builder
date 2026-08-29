@@ -15,18 +15,14 @@ impl ::aws_types::request_id::RequestId for UpdateDelegationRequestOutput {
 #[cfg(feature = "op_update_delegation_request")]
 impl UpdateDelegationRequestOutput {
     /// Creates a new builder-style object to manufacture [`UpdateDelegationRequestOutput`](crate::operation::update_delegation_request::UpdateDelegationRequestOutput).
-    pub fn builder(
-    ) -> crate::operation::update_delegation_request::builders::UpdateDelegationRequestOutputBuilder
-    {
+    pub fn builder() -> crate::operation::update_delegation_request::builders::UpdateDelegationRequestOutputBuilder {
         crate::operation::update_delegation_request::builders::UpdateDelegationRequestOutputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_update_delegation_request")]
 /// A builder for [`UpdateDelegationRequestOutput`](crate::operation::update_delegation_request::UpdateDelegationRequestOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct UpdateDelegationRequestOutputBuilder {
     _request_id: Option<String>,
@@ -43,9 +39,7 @@ impl UpdateDelegationRequestOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`UpdateDelegationRequestOutput`](crate::operation::update_delegation_request::UpdateDelegationRequestOutput).
-    pub fn build(
-        self,
-    ) -> crate::operation::update_delegation_request::UpdateDelegationRequestOutput {
+    pub fn build(self) -> crate::operation::update_delegation_request::UpdateDelegationRequestOutput {
         crate::operation::update_delegation_request::UpdateDelegationRequestOutput {
             _request_id: self._request_id,
         }

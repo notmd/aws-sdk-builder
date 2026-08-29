@@ -89,18 +89,12 @@ impl AccessKeyBuilder {
     }
     /// <p>The ID for this access key.</p>
     /// This field is required.
-    pub fn access_key_id(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn access_key_id(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.access_key_id = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The ID for this access key.</p>
-    pub fn set_access_key_id(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_access_key_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.access_key_id = input;
         self
     }
@@ -125,18 +119,12 @@ impl AccessKeyBuilder {
     }
     /// <p>The secret key used to sign requests.</p>
     /// This field is required.
-    pub fn secret_access_key(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn secret_access_key(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.secret_access_key = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The secret key used to sign requests.</p>
-    pub fn set_secret_access_key(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_secret_access_key(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.secret_access_key = input;
         self
     }
@@ -150,10 +138,7 @@ impl AccessKeyBuilder {
         self
     }
     /// <p>The date when the access key was created.</p>
-    pub fn set_create_date(
-        mut self,
-        input: ::std::option::Option<::aws_smithy_types::DateTime>,
-    ) -> Self {
+    pub fn set_create_date(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
         self.create_date = input;
         self
     }
@@ -167,12 +152,7 @@ impl AccessKeyBuilder {
     /// - [`access_key_id`](crate::types::builders::AccessKeyBuilder::access_key_id)
     /// - [`status`](crate::types::builders::AccessKeyBuilder::status)
     /// - [`secret_access_key`](crate::types::builders::AccessKeyBuilder::secret_access_key)
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<
-        crate::types::AccessKey,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    pub fn build(self) -> ::std::result::Result<crate::types::AccessKey, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::AccessKey {
             user_name: self.user_name.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

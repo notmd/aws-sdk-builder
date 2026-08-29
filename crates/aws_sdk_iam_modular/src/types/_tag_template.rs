@@ -29,9 +29,7 @@ impl TagTemplate {
 }
 
 /// A builder for [`TagTemplate`](crate::types::TagTemplate).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct TagTemplateBuilder {
     pub(crate) key: ::std::option::Option<::std::string::String>,
@@ -72,12 +70,7 @@ impl TagTemplateBuilder {
     /// This method will fail if any of the following fields are not set:
     /// - [`key`](crate::types::builders::TagTemplateBuilder::key)
     /// - [`value`](crate::types::builders::TagTemplateBuilder::value)
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<
-        crate::types::TagTemplate,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    pub fn build(self) -> ::std::result::Result<crate::types::TagTemplate, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::TagTemplate {
             key: self.key.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

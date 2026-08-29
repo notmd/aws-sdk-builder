@@ -44,9 +44,7 @@ impl ListPolicyTagsOutput {
 
 #[cfg(feature = "op_list_policy_tags")]
 /// A builder for [`ListPolicyTagsOutput`](crate::operation::list_policy_tags::ListPolicyTagsOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct ListPolicyTagsOutputBuilder {
     pub(crate) tags: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>,
@@ -68,10 +66,7 @@ impl ListPolicyTagsOutputBuilder {
         self
     }
     /// <p>The list of tags that are currently attached to the IAM customer managed policy. Each tag consists of a key name and an associated value. If no tags are attached to the specified resource, the response contains an empty list.</p>
-    pub fn set_tags(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>,
-    ) -> Self {
+    pub fn set_tags(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>) -> Self {
         self.tags = input;
         self
     }
@@ -121,10 +116,7 @@ impl ListPolicyTagsOutputBuilder {
     /// - [`tags`](crate::operation::list_policy_tags::builders::ListPolicyTagsOutputBuilder::tags)
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        crate::operation::list_policy_tags::ListPolicyTagsOutput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    ) -> ::std::result::Result<crate::operation::list_policy_tags::ListPolicyTagsOutput, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::operation::list_policy_tags::ListPolicyTagsOutput {
             tags: self.tags.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

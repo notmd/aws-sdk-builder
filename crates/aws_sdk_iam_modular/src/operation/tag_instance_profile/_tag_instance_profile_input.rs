@@ -27,17 +27,14 @@ impl TagInstanceProfileInput {
 #[cfg(feature = "op_tag_instance_profile")]
 impl TagInstanceProfileInput {
     /// Creates a new builder-style object to manufacture [`TagInstanceProfileInput`](crate::operation::tag_instance_profile::TagInstanceProfileInput).
-    pub fn builder(
-    ) -> crate::operation::tag_instance_profile::builders::TagInstanceProfileInputBuilder {
+    pub fn builder() -> crate::operation::tag_instance_profile::builders::TagInstanceProfileInputBuilder {
         crate::operation::tag_instance_profile::builders::TagInstanceProfileInputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_tag_instance_profile")]
 /// A builder for [`TagInstanceProfileInput`](crate::operation::tag_instance_profile::TagInstanceProfileInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct TagInstanceProfileInputBuilder {
     pub(crate) instance_profile_name: ::std::option::Option<::std::string::String>,
@@ -48,19 +45,13 @@ impl TagInstanceProfileInputBuilder {
     /// <p>The name of the IAM instance profile to which you want to add tags.</p>
     /// <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
     /// This field is required.
-    pub fn instance_profile_name(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn instance_profile_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.instance_profile_name = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The name of the IAM instance profile to which you want to add tags.</p>
     /// <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
-    pub fn set_instance_profile_name(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_instance_profile_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.instance_profile_name = input;
         self
     }
@@ -81,10 +72,7 @@ impl TagInstanceProfileInputBuilder {
         self
     }
     /// <p>The list of tags that you want to attach to the IAM instance profile. Each tag consists of a key name and an associated value.</p>
-    pub fn set_tags(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>,
-    ) -> Self {
+    pub fn set_tags(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>) -> Self {
         self.tags = input;
         self
     }
@@ -95,15 +83,11 @@ impl TagInstanceProfileInputBuilder {
     /// Consumes the builder and constructs a [`TagInstanceProfileInput`](crate::operation::tag_instance_profile::TagInstanceProfileInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        crate::operation::tag_instance_profile::TagInstanceProfileInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
-        ::std::result::Result::Ok(
-            crate::operation::tag_instance_profile::TagInstanceProfileInput {
-                instance_profile_name: self.instance_profile_name,
-                tags: self.tags,
-            },
-        )
+    ) -> ::std::result::Result<crate::operation::tag_instance_profile::TagInstanceProfileInput, ::aws_smithy_types::error::operation::BuildError>
+    {
+        ::std::result::Result::Ok(crate::operation::tag_instance_profile::TagInstanceProfileInput {
+            instance_profile_name: self.instance_profile_name,
+            tags: self.tags,
+        })
     }
 }

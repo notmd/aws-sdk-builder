@@ -67,9 +67,7 @@ impl ServiceSpecificCredentialMetadata {
 }
 
 /// A builder for [`ServiceSpecificCredentialMetadata`](crate::types::ServiceSpecificCredentialMetadata).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct ServiceSpecificCredentialMetadataBuilder {
     pub(crate) user_name: ::std::option::Option<::std::string::String>,
@@ -113,18 +111,12 @@ impl ServiceSpecificCredentialMetadataBuilder {
         &self.status
     }
     /// <p>The generated user name for the service-specific credential.</p>
-    pub fn service_user_name(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn service_user_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.service_user_name = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The generated user name for the service-specific credential.</p>
-    pub fn set_service_user_name(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_service_user_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.service_user_name = input;
         self
     }
@@ -133,18 +125,12 @@ impl ServiceSpecificCredentialMetadataBuilder {
         &self.service_user_name
     }
     /// <p>For Bedrock API keys and CloudWatch Logs API keys, this is the public portion of the credential that includes the IAM user name and a suffix containing version and creation information.</p>
-    pub fn service_credential_alias(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn service_credential_alias(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.service_credential_alias = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>For Bedrock API keys and CloudWatch Logs API keys, this is the public portion of the credential that includes the IAM user name and a suffix containing version and creation information.</p>
-    pub fn set_service_credential_alias(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_service_credential_alias(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.service_credential_alias = input;
         self
     }
@@ -159,10 +145,7 @@ impl ServiceSpecificCredentialMetadataBuilder {
         self
     }
     /// <p>The date and time, in <a href="http://www.iso.org/iso/iso8601">ISO 8601 date-time format</a>, when the service-specific credential were created.</p>
-    pub fn set_create_date(
-        mut self,
-        input: ::std::option::Option<::aws_smithy_types::DateTime>,
-    ) -> Self {
+    pub fn set_create_date(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
         self.create_date = input;
         self
     }
@@ -176,10 +159,7 @@ impl ServiceSpecificCredentialMetadataBuilder {
         self
     }
     /// <p>The date and time when the service specific credential expires. This field is only present for Bedrock API keys and CloudWatch Logs API keys that were created with an expiration period.</p>
-    pub fn set_expiration_date(
-        mut self,
-        input: ::std::option::Option<::aws_smithy_types::DateTime>,
-    ) -> Self {
+    pub fn set_expiration_date(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
         self.expiration_date = input;
         self
     }
@@ -189,25 +169,17 @@ impl ServiceSpecificCredentialMetadataBuilder {
     }
     /// <p>The unique identifier for the service-specific credential.</p>
     /// This field is required.
-    pub fn service_specific_credential_id(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn service_specific_credential_id(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.service_specific_credential_id = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The unique identifier for the service-specific credential.</p>
-    pub fn set_service_specific_credential_id(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_service_specific_credential_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.service_specific_credential_id = input;
         self
     }
     /// <p>The unique identifier for the service-specific credential.</p>
-    pub fn get_service_specific_credential_id(
-        &self,
-    ) -> &::std::option::Option<::std::string::String> {
+    pub fn get_service_specific_credential_id(&self) -> &::std::option::Option<::std::string::String> {
         &self.service_specific_credential_id
     }
     /// <p>The name of the service associated with the service-specific credential.</p>
@@ -232,12 +204,7 @@ impl ServiceSpecificCredentialMetadataBuilder {
     /// - [`create_date`](crate::types::builders::ServiceSpecificCredentialMetadataBuilder::create_date)
     /// - [`service_specific_credential_id`](crate::types::builders::ServiceSpecificCredentialMetadataBuilder::service_specific_credential_id)
     /// - [`service_name`](crate::types::builders::ServiceSpecificCredentialMetadataBuilder::service_name)
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<
-        crate::types::ServiceSpecificCredentialMetadata,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    pub fn build(self) -> ::std::result::Result<crate::types::ServiceSpecificCredentialMetadata, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::ServiceSpecificCredentialMetadata {
             user_name: self.user_name.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

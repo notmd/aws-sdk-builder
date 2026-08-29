@@ -33,18 +33,14 @@ impl ListServerCertificatesInput {
 #[cfg(feature = "op_list_server_certificates")]
 impl ListServerCertificatesInput {
     /// Creates a new builder-style object to manufacture [`ListServerCertificatesInput`](crate::operation::list_server_certificates::ListServerCertificatesInput).
-    pub fn builder(
-    ) -> crate::operation::list_server_certificates::builders::ListServerCertificatesInputBuilder
-    {
+    pub fn builder() -> crate::operation::list_server_certificates::builders::ListServerCertificatesInputBuilder {
         crate::operation::list_server_certificates::builders::ListServerCertificatesInputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_list_server_certificates")]
 /// A builder for [`ListServerCertificatesInput`](crate::operation::list_server_certificates::ListServerCertificatesInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct ListServerCertificatesInputBuilder {
     pub(crate) path_prefix: ::std::option::Option<::std::string::String>,
@@ -108,12 +104,10 @@ impl ListServerCertificatesInputBuilder {
         crate::operation::list_server_certificates::ListServerCertificatesInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(
-            crate::operation::list_server_certificates::ListServerCertificatesInput {
-                path_prefix: self.path_prefix,
-                marker: self.marker,
-                max_items: self.max_items,
-            },
-        )
+        ::std::result::Result::Ok(crate::operation::list_server_certificates::ListServerCertificatesInput {
+            path_prefix: self.path_prefix,
+            marker: self.marker,
+            max_items: self.max_items,
+        })
     }
 }

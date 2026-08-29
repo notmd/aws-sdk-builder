@@ -7,18 +7,14 @@ pub struct GetAccountPasswordPolicyInput {}
 #[cfg(feature = "op_get_account_password_policy")]
 impl GetAccountPasswordPolicyInput {
     /// Creates a new builder-style object to manufacture [`GetAccountPasswordPolicyInput`](crate::operation::get_account_password_policy::GetAccountPasswordPolicyInput).
-    pub fn builder(
-    ) -> crate::operation::get_account_password_policy::builders::GetAccountPasswordPolicyInputBuilder
-    {
+    pub fn builder() -> crate::operation::get_account_password_policy::builders::GetAccountPasswordPolicyInputBuilder {
         crate::operation::get_account_password_policy::builders::GetAccountPasswordPolicyInputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_get_account_password_policy")]
 /// A builder for [`GetAccountPasswordPolicyInput`](crate::operation::get_account_password_policy::GetAccountPasswordPolicyInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct GetAccountPasswordPolicyInputBuilder {}
 #[cfg(feature = "op_get_account_password_policy")]
@@ -30,8 +26,6 @@ impl GetAccountPasswordPolicyInputBuilder {
         crate::operation::get_account_password_policy::GetAccountPasswordPolicyInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(
-            crate::operation::get_account_password_policy::GetAccountPasswordPolicyInput {},
-        )
+        ::std::result::Result::Ok(crate::operation::get_account_password_policy::GetAccountPasswordPolicyInput {})
     }
 }

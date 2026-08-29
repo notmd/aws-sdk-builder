@@ -22,9 +22,7 @@ impl DeleteGroupOutput {
 
 #[cfg(feature = "op_delete_group")]
 /// A builder for [`DeleteGroupOutput`](crate::operation::delete_group::DeleteGroupOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct DeleteGroupOutputBuilder {
     _request_id: Option<String>,

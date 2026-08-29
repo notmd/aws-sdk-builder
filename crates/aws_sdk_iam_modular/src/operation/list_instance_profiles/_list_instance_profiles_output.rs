@@ -38,21 +38,17 @@ impl ::aws_types::request_id::RequestId for ListInstanceProfilesOutput {
 #[cfg(feature = "op_list_instance_profiles")]
 impl ListInstanceProfilesOutput {
     /// Creates a new builder-style object to manufacture [`ListInstanceProfilesOutput`](crate::operation::list_instance_profiles::ListInstanceProfilesOutput).
-    pub fn builder(
-    ) -> crate::operation::list_instance_profiles::builders::ListInstanceProfilesOutputBuilder {
+    pub fn builder() -> crate::operation::list_instance_profiles::builders::ListInstanceProfilesOutputBuilder {
         crate::operation::list_instance_profiles::builders::ListInstanceProfilesOutputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_list_instance_profiles")]
 /// A builder for [`ListInstanceProfilesOutput`](crate::operation::list_instance_profiles::ListInstanceProfilesOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct ListInstanceProfilesOutputBuilder {
-    pub(crate) instance_profiles:
-        ::std::option::Option<::std::vec::Vec<crate::types::InstanceProfile>>,
+    pub(crate) instance_profiles: ::std::option::Option<::std::vec::Vec<crate::types::InstanceProfile>>,
     pub(crate) is_truncated: ::std::option::Option<bool>,
     pub(crate) marker: ::std::option::Option<::std::string::String>,
     _request_id: Option<String>,
@@ -71,17 +67,12 @@ impl ListInstanceProfilesOutputBuilder {
         self
     }
     /// <p>A list of instance profiles.</p>
-    pub fn set_instance_profiles(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<crate::types::InstanceProfile>>,
-    ) -> Self {
+    pub fn set_instance_profiles(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::InstanceProfile>>) -> Self {
         self.instance_profiles = input;
         self
     }
     /// <p>A list of instance profiles.</p>
-    pub fn get_instance_profiles(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<crate::types::InstanceProfile>> {
+    pub fn get_instance_profiles(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::InstanceProfile>> {
         &self.instance_profiles
     }
     /// <p>A flag that indicates whether there are more items to return. If your results were truncated, you can make a subsequent pagination request using the <code>Marker</code> request parameter to retrieve more items. Note that IAM might return fewer than the <code>MaxItems</code> number of results even when there are more results available. We recommend that you check <code>IsTruncated</code> after every call to ensure that you receive all your results.</p>
@@ -126,10 +117,8 @@ impl ListInstanceProfilesOutputBuilder {
     /// - [`instance_profiles`](crate::operation::list_instance_profiles::builders::ListInstanceProfilesOutputBuilder::instance_profiles)
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        crate::operation::list_instance_profiles::ListInstanceProfilesOutput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    ) -> ::std::result::Result<crate::operation::list_instance_profiles::ListInstanceProfilesOutput, ::aws_smithy_types::error::operation::BuildError>
+    {
         ::std::result::Result::Ok(crate::operation::list_instance_profiles::ListInstanceProfilesOutput {
             instance_profiles: self.instance_profiles.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

@@ -9,9 +9,7 @@ impl super::Client {
     /// - On success, responds with [`AcquireRoleOutput`](crate::operation::acquire_role::AcquireRoleOutput) with field(s):
     ///   - [`role(Option<Role>)`](crate::operation::acquire_role::AcquireRoleOutput::role): <p>A structure that contains details about the IAM role that was created.</p>
     /// - On failure, responds with [`SdkError<AcquireRoleError>`](crate::operation::acquire_role::AcquireRoleError)
-    pub fn acquire_role(
-        &self,
-    ) -> crate::operation::acquire_role::builders::AcquireRoleFluentBuilder {
+    pub fn acquire_role(&self) -> crate::operation::acquire_role::builders::AcquireRoleFluentBuilder {
         crate::operation::acquire_role::builders::AcquireRoleFluentBuilder::new(self.handle.clone())
     }
 }

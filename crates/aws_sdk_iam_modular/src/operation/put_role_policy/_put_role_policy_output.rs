@@ -22,9 +22,7 @@ impl PutRolePolicyOutput {
 
 #[cfg(feature = "op_put_role_policy")]
 /// A builder for [`PutRolePolicyOutput`](crate::operation::put_role_policy::PutRolePolicyOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct PutRolePolicyOutputBuilder {
     _request_id: Option<String>,

@@ -17,7 +17,7 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<GetAccountAuthorizationDetailsError>`](crate::operation::get_account_authorization_details::GetAccountAuthorizationDetailsError)
     pub fn get_account_authorization_details(
         &self,
-    ) -> crate::operation::get_account_authorization_details::builders::GetAccountAuthorizationDetailsFluentBuilder{
+    ) -> crate::operation::get_account_authorization_details::builders::GetAccountAuthorizationDetailsFluentBuilder {
         crate::operation::get_account_authorization_details::builders::GetAccountAuthorizationDetailsFluentBuilder::new(self.handle.clone())
     }
 }

@@ -33,16 +33,14 @@ impl ::aws_types::request_id::RequestId for EnableOrganizationsRootCredentialsMa
 impl EnableOrganizationsRootCredentialsManagementOutput {
     /// Creates a new builder-style object to manufacture [`EnableOrganizationsRootCredentialsManagementOutput`](crate::operation::enable_organizations_root_credentials_management::EnableOrganizationsRootCredentialsManagementOutput).
     pub fn builder(
-    ) -> crate::operation::enable_organizations_root_credentials_management::builders::EnableOrganizationsRootCredentialsManagementOutputBuilder{
+    ) -> crate::operation::enable_organizations_root_credentials_management::builders::EnableOrganizationsRootCredentialsManagementOutputBuilder {
         crate::operation::enable_organizations_root_credentials_management::builders::EnableOrganizationsRootCredentialsManagementOutputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_enable_organizations_root_credentials_management")]
 /// A builder for [`EnableOrganizationsRootCredentialsManagementOutput`](crate::operation::enable_organizations_root_credentials_management::EnableOrganizationsRootCredentialsManagementOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct EnableOrganizationsRootCredentialsManagementOutputBuilder {
     pub(crate) organization_id: ::std::option::Option<::std::string::String>,
@@ -52,18 +50,12 @@ pub struct EnableOrganizationsRootCredentialsManagementOutputBuilder {
 #[cfg(feature = "op_enable_organizations_root_credentials_management")]
 impl EnableOrganizationsRootCredentialsManagementOutputBuilder {
     /// <p>The unique identifier (ID) of an organization.</p>
-    pub fn organization_id(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn organization_id(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.organization_id = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The unique identifier (ID) of an organization.</p>
-    pub fn set_organization_id(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_organization_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.organization_id = input;
         self
     }
@@ -83,17 +75,12 @@ impl EnableOrganizationsRootCredentialsManagementOutputBuilder {
         self
     }
     /// <p>The features you have enabled for centralized root access.</p>
-    pub fn set_enabled_features(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<crate::types::FeatureType>>,
-    ) -> Self {
+    pub fn set_enabled_features(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::FeatureType>>) -> Self {
         self.enabled_features = input;
         self
     }
     /// <p>The features you have enabled for centralized root access.</p>
-    pub fn get_enabled_features(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<crate::types::FeatureType>> {
+    pub fn get_enabled_features(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::FeatureType>> {
         &self.enabled_features
     }
     pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
@@ -106,7 +93,7 @@ impl EnableOrganizationsRootCredentialsManagementOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`EnableOrganizationsRootCredentialsManagementOutput`](crate::operation::enable_organizations_root_credentials_management::EnableOrganizationsRootCredentialsManagementOutput).
-    pub fn build(self) -> crate::operation::enable_organizations_root_credentials_management::EnableOrganizationsRootCredentialsManagementOutput{
+    pub fn build(self) -> crate::operation::enable_organizations_root_credentials_management::EnableOrganizationsRootCredentialsManagementOutput {
         crate::operation::enable_organizations_root_credentials_management::EnableOrganizationsRootCredentialsManagementOutput {
             organization_id: self.organization_id,
             enabled_features: self.enabled_features,

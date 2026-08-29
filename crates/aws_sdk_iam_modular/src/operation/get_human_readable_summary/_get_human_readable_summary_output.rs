@@ -36,18 +36,14 @@ impl ::aws_types::request_id::RequestId for GetHumanReadableSummaryOutput {
 #[cfg(feature = "op_get_human_readable_summary")]
 impl GetHumanReadableSummaryOutput {
     /// Creates a new builder-style object to manufacture [`GetHumanReadableSummaryOutput`](crate::operation::get_human_readable_summary::GetHumanReadableSummaryOutput).
-    pub fn builder(
-    ) -> crate::operation::get_human_readable_summary::builders::GetHumanReadableSummaryOutputBuilder
-    {
+    pub fn builder() -> crate::operation::get_human_readable_summary::builders::GetHumanReadableSummaryOutputBuilder {
         crate::operation::get_human_readable_summary::builders::GetHumanReadableSummaryOutputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_get_human_readable_summary")]
 /// A builder for [`GetHumanReadableSummaryOutput`](crate::operation::get_human_readable_summary::GetHumanReadableSummaryOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct GetHumanReadableSummaryOutputBuilder {
     pub(crate) summary_content: ::std::option::Option<::std::string::String>,
@@ -58,18 +54,12 @@ pub struct GetHumanReadableSummaryOutputBuilder {
 #[cfg(feature = "op_get_human_readable_summary")]
 impl GetHumanReadableSummaryOutputBuilder {
     /// <p>Summary content in the specified locale. Summary content is non-empty only if the <code>SummaryState</code> is <code>AVAILABLE</code>.</p>
-    pub fn summary_content(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn summary_content(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.summary_content = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>Summary content in the specified locale. Summary content is non-empty only if the <code>SummaryState</code> is <code>AVAILABLE</code>.</p>
-    pub fn set_summary_content(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_summary_content(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.summary_content = input;
         self
     }
@@ -97,10 +87,7 @@ impl GetHumanReadableSummaryOutputBuilder {
         self
     }
     /// <p>State of summary generation. This generation process is asynchronous and this attribute indicates the state of the generation process.</p>
-    pub fn set_summary_state(
-        mut self,
-        input: ::std::option::Option<crate::types::SummaryStateType>,
-    ) -> Self {
+    pub fn set_summary_state(mut self, input: ::std::option::Option<crate::types::SummaryStateType>) -> Self {
         self.summary_state = input;
         self
     }
@@ -118,9 +105,7 @@ impl GetHumanReadableSummaryOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`GetHumanReadableSummaryOutput`](crate::operation::get_human_readable_summary::GetHumanReadableSummaryOutput).
-    pub fn build(
-        self,
-    ) -> crate::operation::get_human_readable_summary::GetHumanReadableSummaryOutput {
+    pub fn build(self) -> crate::operation::get_human_readable_summary::GetHumanReadableSummaryOutput {
         crate::operation::get_human_readable_summary::GetHumanReadableSummaryOutput {
             summary_content: self.summary_content,
             locale: self.locale,

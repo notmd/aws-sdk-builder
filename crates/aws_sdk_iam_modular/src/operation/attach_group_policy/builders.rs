@@ -66,9 +66,7 @@ impl AttachGroupPolicyFluentBuilder {
         }
     }
     /// Access the AttachGroupPolicy as a reference.
-    pub fn as_input(
-        &self,
-    ) -> &crate::operation::attach_group_policy::builders::AttachGroupPolicyInputBuilder {
+    pub fn as_input(&self) -> &crate::operation::attach_group_policy::builders::AttachGroupPolicyInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -92,17 +90,12 @@ impl AttachGroupPolicyFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins =
-            crate::operation::attach_group_policy::AttachGroupPolicy::operation_runtime_plugins(
-                self.handle.runtime_plugins.clone(),
-                &self.handle.conf,
-                self.config_override,
-            );
-        crate::operation::attach_group_policy::AttachGroupPolicy::orchestrate(
-            &runtime_plugins,
-            input,
-        )
-        .await
+        let runtime_plugins = crate::operation::attach_group_policy::AttachGroupPolicy::operation_runtime_plugins(
+            self.handle.runtime_plugins.clone(),
+            &self.handle.conf,
+            self.config_override,
+        );
+        crate::operation::attach_group_policy::AttachGroupPolicy::orchestrate(&runtime_plugins, input).await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -115,18 +108,12 @@ impl AttachGroupPolicyFluentBuilder {
     > {
         crate::client::customize::CustomizableOperation::new(self)
     }
-    pub(crate) fn config_override(
-        mut self,
-        config_override: impl ::std::convert::Into<crate::config::Builder>,
-    ) -> Self {
+    pub(crate) fn config_override(mut self, config_override: impl ::std::convert::Into<crate::config::Builder>) -> Self {
         self.set_config_override(::std::option::Option::Some(config_override.into()));
         self
     }
 
-    pub(crate) fn set_config_override(
-        &mut self,
-        config_override: ::std::option::Option<crate::config::Builder>,
-    ) -> &mut Self {
+    pub(crate) fn set_config_override(&mut self, config_override: ::std::option::Option<crate::config::Builder>) -> &mut Self {
         self.config_override = config_override;
         self
     }

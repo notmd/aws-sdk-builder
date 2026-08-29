@@ -2,14 +2,9 @@
 pub fn de_context_key_names_result_list_type(
     decoder: &mut ::aws_smithy_xml::decode::ScopedDecoder,
     depth: u32,
-) -> ::std::result::Result<
-    ::std::vec::Vec<::std::string::String>,
-    ::aws_smithy_xml::decode::XmlDecodeError,
-> {
+) -> ::std::result::Result<::std::vec::Vec<::std::string::String>, ::aws_smithy_xml::decode::XmlDecodeError> {
     if depth >= 128u32 {
-        return Err(::aws_smithy_xml::decode::XmlDecodeError::custom(
-            "maximum nesting depth exceeded",
-        ));
+        return Err(::aws_smithy_xml::decode::XmlDecodeError::custom("maximum nesting depth exceeded"));
     }
     let mut out = std::vec::Vec::new();
     while let Some(mut tag) = decoder.next_tag() {

@@ -7,17 +7,14 @@ pub struct ListSamlProvidersInput {}
 #[cfg(feature = "op_list_saml_providers")]
 impl ListSamlProvidersInput {
     /// Creates a new builder-style object to manufacture [`ListSamlProvidersInput`](crate::operation::list_saml_providers::ListSamlProvidersInput).
-    pub fn builder(
-    ) -> crate::operation::list_saml_providers::builders::ListSamlProvidersInputBuilder {
+    pub fn builder() -> crate::operation::list_saml_providers::builders::ListSamlProvidersInputBuilder {
         crate::operation::list_saml_providers::builders::ListSamlProvidersInputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_list_saml_providers")]
 /// A builder for [`ListSamlProvidersInput`](crate::operation::list_saml_providers::ListSamlProvidersInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct ListSamlProvidersInputBuilder {}
 #[cfg(feature = "op_list_saml_providers")]
@@ -25,10 +22,7 @@ impl ListSamlProvidersInputBuilder {
     /// Consumes the builder and constructs a [`ListSamlProvidersInput`](crate::operation::list_saml_providers::ListSamlProvidersInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        crate::operation::list_saml_providers::ListSamlProvidersInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    ) -> ::std::result::Result<crate::operation::list_saml_providers::ListSamlProvidersInput, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::operation::list_saml_providers::ListSamlProvidersInput {})
     }
 }

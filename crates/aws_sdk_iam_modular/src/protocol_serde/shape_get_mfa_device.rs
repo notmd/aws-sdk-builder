@@ -4,64 +4,49 @@ pub fn de_get_mfa_device_http_error(
     _response_status: u16,
     _response_headers: &::aws_smithy_runtime_api::http::Headers,
     _response_body: &[u8],
-) -> std::result::Result<
-    crate::operation::get_mfa_device::GetMfaDeviceOutput,
-    crate::operation::get_mfa_device::GetMFADeviceError,
-> {
+) -> std::result::Result<crate::operation::get_mfa_device::GetMfaDeviceOutput, crate::operation::get_mfa_device::GetMFADeviceError> {
     #[allow(unused_mut)]
-    let mut generic_builder = crate::protocol_serde::parse_http_error_metadata(
-        _response_status,
-        _response_headers,
-        _response_body,
-    )
-    .map_err(crate::operation::get_mfa_device::GetMFADeviceError::unhandled)?;
+    let mut generic_builder = crate::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
+        .map_err(crate::operation::get_mfa_device::GetMFADeviceError::unhandled)?;
     generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
     let generic = generic_builder.build();
     let error_code = match generic.code() {
         Some(code) => code,
-        None => {
-            return Err(crate::operation::get_mfa_device::GetMFADeviceError::unhandled(generic))
-        }
+        None => return Err(crate::operation::get_mfa_device::GetMFADeviceError::unhandled(generic)),
     };
 
     let _error_message = generic.message().map(|msg| msg.to_owned());
     Err(match error_code {
-        "NoSuchEntity" => {
-            crate::operation::get_mfa_device::GetMFADeviceError::NoSuchEntityException({
+        "NoSuchEntity" => crate::operation::get_mfa_device::GetMFADeviceError::NoSuchEntityException({
+            #[allow(unused_mut)]
+            let mut tmp = {
                 #[allow(unused_mut)]
-                let mut tmp = {
-                    #[allow(unused_mut)]
-                    let mut output =
-                        crate::types::error::builders::NoSuchEntityExceptionBuilder::default();
-                    output = crate::protocol_serde::shape_no_such_entity_exception::de_no_such_entity_exception_xml_err(_response_body, output)
+                let mut output = crate::types::error::builders::NoSuchEntityExceptionBuilder::default();
+                output = crate::protocol_serde::shape_no_such_entity_exception::de_no_such_entity_exception_xml_err(_response_body, output)
                     .map_err(crate::operation::get_mfa_device::GetMFADeviceError::unhandled)?;
-                    let output = output.meta(generic);
-                    output.build()
-                };
-                if tmp.message.is_none() {
-                    tmp.message = _error_message;
-                }
-                tmp
-            })
-        }
-        "ServiceFailure" => {
-            crate::operation::get_mfa_device::GetMFADeviceError::ServiceFailureException({
+                let output = output.meta(generic);
+                output.build()
+            };
+            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        "ServiceFailure" => crate::operation::get_mfa_device::GetMFADeviceError::ServiceFailureException({
+            #[allow(unused_mut)]
+            let mut tmp = {
                 #[allow(unused_mut)]
-                let mut tmp = {
-                    #[allow(unused_mut)]
-                    let mut output =
-                        crate::types::error::builders::ServiceFailureExceptionBuilder::default();
-                    output = crate::protocol_serde::shape_service_failure_exception::de_service_failure_exception_xml_err(_response_body, output)
+                let mut output = crate::types::error::builders::ServiceFailureExceptionBuilder::default();
+                output = crate::protocol_serde::shape_service_failure_exception::de_service_failure_exception_xml_err(_response_body, output)
                     .map_err(crate::operation::get_mfa_device::GetMFADeviceError::unhandled)?;
-                    let output = output.meta(generic);
-                    output.build()
-                };
-                if tmp.message.is_none() {
-                    tmp.message = _error_message;
-                }
-                tmp
-            })
-        }
+                let output = output.meta(generic);
+                output.build()
+            };
+            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
         _ => crate::operation::get_mfa_device::GetMFADeviceError::generic(generic),
     })
 }
@@ -71,20 +56,13 @@ pub fn de_get_mfa_device_http_response(
     _response_status: u16,
     _response_headers: &::aws_smithy_runtime_api::http::Headers,
     _response_body: &[u8],
-) -> std::result::Result<
-    crate::operation::get_mfa_device::GetMfaDeviceOutput,
-    crate::operation::get_mfa_device::GetMFADeviceError,
-> {
+) -> std::result::Result<crate::operation::get_mfa_device::GetMfaDeviceOutput, crate::operation::get_mfa_device::GetMFADeviceError> {
     Ok({
         #[allow(unused_mut)]
-        let mut output =
-            crate::operation::get_mfa_device::builders::GetMfaDeviceOutputBuilder::default();
-        output =
-            crate::protocol_serde::shape_get_mfa_device::de_get_mfa_device(_response_body, output)
-                .map_err(crate::operation::get_mfa_device::GetMFADeviceError::unhandled)?;
-        output._set_request_id(
-            ::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string),
-        );
+        let mut output = crate::operation::get_mfa_device::builders::GetMfaDeviceOutputBuilder::default();
+        output = crate::protocol_serde::shape_get_mfa_device::de_get_mfa_device(_response_body, output)
+            .map_err(crate::operation::get_mfa_device::GetMFADeviceError::unhandled)?;
+        output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
         crate::serde_util::get_mfa_device_output_output_correct_errors(output)
             .build()
             .map_err(crate::operation::get_mfa_device::GetMFADeviceError::unhandled)?
@@ -95,10 +73,7 @@ pub fn de_get_mfa_device_http_response(
 pub fn de_get_mfa_device(
     inp: &[u8],
     mut builder: crate::operation::get_mfa_device::builders::GetMfaDeviceOutputBuilder,
-) -> std::result::Result<
-    crate::operation::get_mfa_device::builders::GetMfaDeviceOutputBuilder,
-    ::aws_smithy_xml::decode::XmlDecodeError,
-> {
+) -> std::result::Result<crate::operation::get_mfa_device::builders::GetMfaDeviceOutputBuilder, ::aws_smithy_xml::decode::XmlDecodeError> {
     let mut doc = ::aws_smithy_xml::decode::Document::try_from(inp)?;
 
     #[allow(unused_mut)]
@@ -175,9 +150,7 @@ pub fn de_get_mfa_device(
         }
         }
     } else {
-        return Err(::aws_smithy_xml::decode::XmlDecodeError::custom(
-            "expected GetMFADeviceResult tag",
-        ));
+        return Err(::aws_smithy_xml::decode::XmlDecodeError::custom("expected GetMFADeviceResult tag"));
     };
     Ok(builder)
 }

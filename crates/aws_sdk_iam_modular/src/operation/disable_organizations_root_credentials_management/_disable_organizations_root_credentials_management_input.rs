@@ -9,16 +9,14 @@ impl DisableOrganizationsRootCredentialsManagementInput {
     /// Creates a new builder-style object to manufacture [`DisableOrganizationsRootCredentialsManagementInput`](crate::operation::disable_organizations_root_credentials_management::DisableOrganizationsRootCredentialsManagementInput).
     pub fn builder(
     ) -> crate::operation::disable_organizations_root_credentials_management::builders::DisableOrganizationsRootCredentialsManagementInputBuilder
-{
+    {
         crate::operation::disable_organizations_root_credentials_management::builders::DisableOrganizationsRootCredentialsManagementInputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_disable_organizations_root_credentials_management")]
 /// A builder for [`DisableOrganizationsRootCredentialsManagementInput`](crate::operation::disable_organizations_root_credentials_management::DisableOrganizationsRootCredentialsManagementInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct DisableOrganizationsRootCredentialsManagementInputBuilder {}
 #[cfg(feature = "op_disable_organizations_root_credentials_management")]
@@ -29,7 +27,7 @@ impl DisableOrganizationsRootCredentialsManagementInputBuilder {
     ) -> ::std::result::Result<
         crate::operation::disable_organizations_root_credentials_management::DisableOrganizationsRootCredentialsManagementInput,
         ::aws_smithy_types::error::operation::BuildError,
-    >{
+    > {
         ::std::result::Result::Ok(
             crate::operation::disable_organizations_root_credentials_management::DisableOrganizationsRootCredentialsManagementInput {},
         )

@@ -10,7 +10,7 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<GetServiceLinkedRoleDeletionStatusError>`](crate::operation::get_service_linked_role_deletion_status::GetServiceLinkedRoleDeletionStatusError)
     pub fn get_service_linked_role_deletion_status(
         &self,
-    ) -> crate::operation::get_service_linked_role_deletion_status::builders::GetServiceLinkedRoleDeletionStatusFluentBuilder{
+    ) -> crate::operation::get_service_linked_role_deletion_status::builders::GetServiceLinkedRoleDeletionStatusFluentBuilder {
         crate::operation::get_service_linked_role_deletion_status::builders::GetServiceLinkedRoleDeletionStatusFluentBuilder::new(self.handle.clone())
     }
 }

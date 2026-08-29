@@ -65,7 +65,7 @@ impl ListAttachedRolePoliciesFluentBuilder {
         }
     }
     /// Access the ListAttachedRolePolicies as a reference.
-    pub fn as_input(&self) -> &crate::operation::list_attached_role_policies::builders::ListAttachedRolePoliciesInputBuilder{
+    pub fn as_input(&self) -> &crate::operation::list_attached_role_policies::builders::ListAttachedRolePoliciesInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -94,11 +94,7 @@ impl ListAttachedRolePoliciesFluentBuilder {
             &self.handle.conf,
             self.config_override,
         );
-        crate::operation::list_attached_role_policies::ListAttachedRolePolicies::orchestrate(
-            &runtime_plugins,
-            input,
-        )
-        .await
+        crate::operation::list_attached_role_policies::ListAttachedRolePolicies::orchestrate(&runtime_plugins, input).await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -111,28 +107,19 @@ impl ListAttachedRolePoliciesFluentBuilder {
     > {
         crate::client::customize::CustomizableOperation::new(self)
     }
-    pub(crate) fn config_override(
-        mut self,
-        config_override: impl ::std::convert::Into<crate::config::Builder>,
-    ) -> Self {
+    pub(crate) fn config_override(mut self, config_override: impl ::std::convert::Into<crate::config::Builder>) -> Self {
         self.set_config_override(::std::option::Option::Some(config_override.into()));
         self
     }
 
-    pub(crate) fn set_config_override(
-        &mut self,
-        config_override: ::std::option::Option<crate::config::Builder>,
-    ) -> &mut Self {
+    pub(crate) fn set_config_override(&mut self, config_override: ::std::option::Option<crate::config::Builder>) -> &mut Self {
         self.config_override = config_override;
         self
     }
     /// Create a paginator for this request
     ///
     /// Paginators are used by calling [`send().await`](crate::operation::list_attached_role_policies::paginator::ListAttachedRolePoliciesPaginator::send) which returns a [`PaginationStream`](aws_smithy_async::future::pagination_stream::PaginationStream).
-    pub fn into_paginator(
-        self,
-    ) -> crate::operation::list_attached_role_policies::paginator::ListAttachedRolePoliciesPaginator
-    {
+    pub fn into_paginator(self) -> crate::operation::list_attached_role_policies::paginator::ListAttachedRolePoliciesPaginator {
         crate::operation::list_attached_role_policies::paginator::ListAttachedRolePoliciesPaginator::new(self.handle, self.inner)
     }
     /// <p>The name (friendly name, not ARN) of the role to list attached policies for.</p>

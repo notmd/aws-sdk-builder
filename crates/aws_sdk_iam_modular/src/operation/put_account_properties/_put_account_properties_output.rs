@@ -15,17 +15,14 @@ impl ::aws_types::request_id::RequestId for PutAccountPropertiesOutput {
 #[cfg(feature = "op_put_account_properties")]
 impl PutAccountPropertiesOutput {
     /// Creates a new builder-style object to manufacture [`PutAccountPropertiesOutput`](crate::operation::put_account_properties::PutAccountPropertiesOutput).
-    pub fn builder(
-    ) -> crate::operation::put_account_properties::builders::PutAccountPropertiesOutputBuilder {
+    pub fn builder() -> crate::operation::put_account_properties::builders::PutAccountPropertiesOutputBuilder {
         crate::operation::put_account_properties::builders::PutAccountPropertiesOutputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_put_account_properties")]
 /// A builder for [`PutAccountPropertiesOutput`](crate::operation::put_account_properties::PutAccountPropertiesOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct PutAccountPropertiesOutputBuilder {
     _request_id: Option<String>,

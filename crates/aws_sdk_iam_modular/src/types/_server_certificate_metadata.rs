@@ -56,9 +56,7 @@ impl ServerCertificateMetadata {
 }
 
 /// A builder for [`ServerCertificateMetadata`](crate::types::ServerCertificateMetadata).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct ServerCertificateMetadataBuilder {
     pub(crate) path: ::std::option::Option<::std::string::String>,
@@ -86,18 +84,12 @@ impl ServerCertificateMetadataBuilder {
     }
     /// <p>The name that identifies the server certificate.</p>
     /// This field is required.
-    pub fn server_certificate_name(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn server_certificate_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.server_certificate_name = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The name that identifies the server certificate.</p>
-    pub fn set_server_certificate_name(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_server_certificate_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.server_certificate_name = input;
         self
     }
@@ -107,18 +99,12 @@ impl ServerCertificateMetadataBuilder {
     }
     /// <p>The stable and unique string identifying the server certificate. For more information about IDs, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html">IAM identifiers</a> in the <i>IAM User Guide</i>.</p>
     /// This field is required.
-    pub fn server_certificate_id(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn server_certificate_id(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.server_certificate_id = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The stable and unique string identifying the server certificate. For more information about IDs, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html">IAM identifiers</a> in the <i>IAM User Guide</i>.</p>
-    pub fn set_server_certificate_id(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_server_certificate_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.server_certificate_id = input;
         self
     }
@@ -147,10 +133,7 @@ impl ServerCertificateMetadataBuilder {
         self
     }
     /// <p>The date when the server certificate was uploaded.</p>
-    pub fn set_upload_date(
-        mut self,
-        input: ::std::option::Option<::aws_smithy_types::DateTime>,
-    ) -> Self {
+    pub fn set_upload_date(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
         self.upload_date = input;
         self
     }
@@ -164,10 +147,7 @@ impl ServerCertificateMetadataBuilder {
         self
     }
     /// <p>The date on which the certificate is set to expire.</p>
-    pub fn set_expiration(
-        mut self,
-        input: ::std::option::Option<::aws_smithy_types::DateTime>,
-    ) -> Self {
+    pub fn set_expiration(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
         self.expiration = input;
         self
     }
@@ -181,12 +161,7 @@ impl ServerCertificateMetadataBuilder {
     /// - [`server_certificate_name`](crate::types::builders::ServerCertificateMetadataBuilder::server_certificate_name)
     /// - [`server_certificate_id`](crate::types::builders::ServerCertificateMetadataBuilder::server_certificate_id)
     /// - [`arn`](crate::types::builders::ServerCertificateMetadataBuilder::arn)
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<
-        crate::types::ServerCertificateMetadata,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    pub fn build(self) -> ::std::result::Result<crate::types::ServerCertificateMetadata, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::ServerCertificateMetadata {
             path: self.path.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

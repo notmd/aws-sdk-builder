@@ -88,12 +88,11 @@ impl AcquireRoleFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins =
-            crate::operation::acquire_role::AcquireRole::operation_runtime_plugins(
-                self.handle.runtime_plugins.clone(),
-                &self.handle.conf,
-                self.config_override,
-            );
+        let runtime_plugins = crate::operation::acquire_role::AcquireRole::operation_runtime_plugins(
+            self.handle.runtime_plugins.clone(),
+            &self.handle.conf,
+            self.config_override,
+        );
         crate::operation::acquire_role::AcquireRole::orchestrate(&runtime_plugins, input).await
     }
 
@@ -107,18 +106,12 @@ impl AcquireRoleFluentBuilder {
     > {
         crate::client::customize::CustomizableOperation::new(self)
     }
-    pub(crate) fn config_override(
-        mut self,
-        config_override: impl ::std::convert::Into<crate::config::Builder>,
-    ) -> Self {
+    pub(crate) fn config_override(mut self, config_override: impl ::std::convert::Into<crate::config::Builder>) -> Self {
         self.set_config_override(::std::option::Option::Some(config_override.into()));
         self
     }
 
-    pub(crate) fn set_config_override(
-        &mut self,
-        config_override: ::std::option::Option<crate::config::Builder>,
-    ) -> &mut Self {
+    pub(crate) fn set_config_override(&mut self, config_override: ::std::option::Option<crate::config::Builder>) -> &mut Self {
         self.config_override = config_override;
         self
     }
@@ -159,20 +152,14 @@ impl AcquireRoleFluentBuilder {
     /// To override the contents of this collection use [`set_replacement_values`](Self::set_replacement_values).
     ///
     /// <p>A map of values to substitute for the parameters that are defined in the role template version. Each key is a parameter name from the template, and each value is a structure that contains the replacement values for that parameter.</p>
-    pub fn replacement_values(
-        mut self,
-        k: impl ::std::convert::Into<::std::string::String>,
-        v: crate::types::ReplacementValueEntry,
-    ) -> Self {
+    pub fn replacement_values(mut self, k: impl ::std::convert::Into<::std::string::String>, v: crate::types::ReplacementValueEntry) -> Self {
         self.inner = self.inner.replacement_values(k.into(), v);
         self
     }
     /// <p>A map of values to substitute for the parameters that are defined in the role template version. Each key is a parameter name from the template, and each value is a structure that contains the replacement values for that parameter.</p>
     pub fn set_replacement_values(
         mut self,
-        input: ::std::option::Option<
-            ::std::collections::HashMap<::std::string::String, crate::types::ReplacementValueEntry>,
-        >,
+        input: ::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::ReplacementValueEntry>>,
     ) -> Self {
         self.inner = self.inner.set_replacement_values(input);
         self
@@ -180,9 +167,7 @@ impl AcquireRoleFluentBuilder {
     /// <p>A map of values to substitute for the parameters that are defined in the role template version. Each key is a parameter name from the template, and each value is a structure that contains the replacement values for that parameter.</p>
     pub fn get_replacement_values(
         &self,
-    ) -> &::std::option::Option<
-        ::std::collections::HashMap<::std::string::String, crate::types::ReplacementValueEntry>,
-    > {
+    ) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::ReplacementValueEntry>> {
         self.inner.get_replacement_values()
     }
 }

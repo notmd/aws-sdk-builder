@@ -83,9 +83,7 @@ pub fn de_list_open_id_connect_provider_tags_http_response(
         let mut output = crate::operation::list_open_id_connect_provider_tags::builders::ListOpenIdConnectProviderTagsOutputBuilder::default();
         output = crate::protocol_serde::shape_list_open_id_connect_provider_tags::de_list_open_id_connect_provider_tags(_response_body, output)
             .map_err(crate::operation::list_open_id_connect_provider_tags::ListOpenIDConnectProviderTagsError::unhandled)?;
-        output._set_request_id(
-            ::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string),
-        );
+        output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
         crate::serde_util::list_open_id_connect_provider_tags_output_output_correct_errors(output)
             .build()
             .map_err(crate::operation::list_open_id_connect_provider_tags::ListOpenIDConnectProviderTagsError::unhandled)?
@@ -99,7 +97,7 @@ pub fn de_list_open_id_connect_provider_tags(
 ) -> std::result::Result<
     crate::operation::list_open_id_connect_provider_tags::builders::ListOpenIdConnectProviderTagsOutputBuilder,
     ::aws_smithy_xml::decode::XmlDecodeError,
->{
+> {
     let mut doc = ::aws_smithy_xml::decode::Document::try_from(inp)?;
 
     #[allow(unused_mut)]

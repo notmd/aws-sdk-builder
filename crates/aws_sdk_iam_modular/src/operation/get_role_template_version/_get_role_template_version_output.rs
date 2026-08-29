@@ -11,9 +11,7 @@ pub struct GetRoleTemplateVersionOutput {
 #[cfg(feature = "op_get_role_template_version")]
 impl GetRoleTemplateVersionOutput {
     /// <p>A structure that contains details about the requested role template version.</p>
-    pub fn role_template_version(
-        &self,
-    ) -> ::std::option::Option<&crate::types::RoleTemplateVersion> {
+    pub fn role_template_version(&self) -> ::std::option::Option<&crate::types::RoleTemplateVersion> {
         self.role_template_version.as_ref()
     }
 }
@@ -26,18 +24,14 @@ impl ::aws_types::request_id::RequestId for GetRoleTemplateVersionOutput {
 #[cfg(feature = "op_get_role_template_version")]
 impl GetRoleTemplateVersionOutput {
     /// Creates a new builder-style object to manufacture [`GetRoleTemplateVersionOutput`](crate::operation::get_role_template_version::GetRoleTemplateVersionOutput).
-    pub fn builder(
-    ) -> crate::operation::get_role_template_version::builders::GetRoleTemplateVersionOutputBuilder
-    {
+    pub fn builder() -> crate::operation::get_role_template_version::builders::GetRoleTemplateVersionOutputBuilder {
         crate::operation::get_role_template_version::builders::GetRoleTemplateVersionOutputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_get_role_template_version")]
 /// A builder for [`GetRoleTemplateVersionOutput`](crate::operation::get_role_template_version::GetRoleTemplateVersionOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct GetRoleTemplateVersionOutputBuilder {
     pub(crate) role_template_version: ::std::option::Option<crate::types::RoleTemplateVersion>,
@@ -52,17 +46,12 @@ impl GetRoleTemplateVersionOutputBuilder {
         self
     }
     /// <p>A structure that contains details about the requested role template version.</p>
-    pub fn set_role_template_version(
-        mut self,
-        input: ::std::option::Option<crate::types::RoleTemplateVersion>,
-    ) -> Self {
+    pub fn set_role_template_version(mut self, input: ::std::option::Option<crate::types::RoleTemplateVersion>) -> Self {
         self.role_template_version = input;
         self
     }
     /// <p>A structure that contains details about the requested role template version.</p>
-    pub fn get_role_template_version(
-        &self,
-    ) -> &::std::option::Option<crate::types::RoleTemplateVersion> {
+    pub fn get_role_template_version(&self) -> &::std::option::Option<crate::types::RoleTemplateVersion> {
         &self.role_template_version
     }
     pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
@@ -75,9 +64,7 @@ impl GetRoleTemplateVersionOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`GetRoleTemplateVersionOutput`](crate::operation::get_role_template_version::GetRoleTemplateVersionOutput).
-    pub fn build(
-        self,
-    ) -> crate::operation::get_role_template_version::GetRoleTemplateVersionOutput {
+    pub fn build(self) -> crate::operation::get_role_template_version::GetRoleTemplateVersionOutput {
         crate::operation::get_role_template_version::GetRoleTemplateVersionOutput {
             role_template_version: self.role_template_version,
             _request_id: self._request_id,

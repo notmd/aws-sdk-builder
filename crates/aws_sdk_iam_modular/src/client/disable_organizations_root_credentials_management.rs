@@ -10,7 +10,7 @@ impl super::Client {
     pub fn disable_organizations_root_credentials_management(
         &self,
     ) -> crate::operation::disable_organizations_root_credentials_management::builders::DisableOrganizationsRootCredentialsManagementFluentBuilder
-{
+    {
         crate::operation::disable_organizations_root_credentials_management::builders::DisableOrganizationsRootCredentialsManagementFluentBuilder::new(
             self.handle.clone(),
         )

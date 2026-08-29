@@ -26,34 +26,26 @@ impl ::std::fmt::Display for AccountNotManagementOrDelegatedAdministratorExcepti
     }
 }
 impl ::std::error::Error for AccountNotManagementOrDelegatedAdministratorException {}
-impl ::aws_types::request_id::RequestId
-    for crate::types::error::AccountNotManagementOrDelegatedAdministratorException
-{
+impl ::aws_types::request_id::RequestId for crate::types::error::AccountNotManagementOrDelegatedAdministratorException {
     fn request_id(&self) -> Option<&str> {
         use ::aws_smithy_types::error::metadata::ProvideErrorMetadata;
         self.meta().request_id()
     }
 }
-impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata
-    for AccountNotManagementOrDelegatedAdministratorException
-{
+impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata for AccountNotManagementOrDelegatedAdministratorException {
     fn meta(&self) -> &::aws_smithy_types::error::ErrorMetadata {
         &self.meta
     }
 }
 impl AccountNotManagementOrDelegatedAdministratorException {
     /// Creates a new builder-style object to manufacture [`AccountNotManagementOrDelegatedAdministratorException`](crate::types::error::AccountNotManagementOrDelegatedAdministratorException).
-    pub fn builder(
-    ) -> crate::types::error::builders::AccountNotManagementOrDelegatedAdministratorExceptionBuilder
-    {
+    pub fn builder() -> crate::types::error::builders::AccountNotManagementOrDelegatedAdministratorExceptionBuilder {
         crate::types::error::builders::AccountNotManagementOrDelegatedAdministratorExceptionBuilder::default()
     }
 }
 
 /// A builder for [`AccountNotManagementOrDelegatedAdministratorException`](crate::types::error::AccountNotManagementOrDelegatedAdministratorException).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct AccountNotManagementOrDelegatedAdministratorExceptionBuilder {
     pub(crate) message: ::std::option::Option<::std::string::String>,
@@ -81,17 +73,12 @@ impl AccountNotManagementOrDelegatedAdministratorExceptionBuilder {
     }
 
     /// Sets error metadata
-    pub fn set_meta(
-        &mut self,
-        meta: std::option::Option<::aws_smithy_types::error::ErrorMetadata>,
-    ) -> &mut Self {
+    pub fn set_meta(&mut self, meta: std::option::Option<::aws_smithy_types::error::ErrorMetadata>) -> &mut Self {
         self.meta = meta;
         self
     }
     /// Consumes the builder and constructs a [`AccountNotManagementOrDelegatedAdministratorException`](crate::types::error::AccountNotManagementOrDelegatedAdministratorException).
-    pub fn build(
-        self,
-    ) -> crate::types::error::AccountNotManagementOrDelegatedAdministratorException {
+    pub fn build(self) -> crate::types::error::AccountNotManagementOrDelegatedAdministratorException {
         crate::types::error::AccountNotManagementOrDelegatedAdministratorException {
             message: self.message,
             meta: self.meta.unwrap_or_default(),

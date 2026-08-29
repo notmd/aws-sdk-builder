@@ -9,7 +9,7 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<AddClientIDToOpenIDConnectProviderError>`](crate::operation::add_client_id_to_open_id_connect_provider::AddClientIDToOpenIDConnectProviderError)
     pub fn add_client_id_to_open_id_connect_provider(
         &self,
-    ) -> crate::operation::add_client_id_to_open_id_connect_provider::builders::AddClientIDToOpenIDConnectProviderFluentBuilder{
+    ) -> crate::operation::add_client_id_to_open_id_connect_provider::builders::AddClientIDToOpenIDConnectProviderFluentBuilder {
         crate::operation::add_client_id_to_open_id_connect_provider::builders::AddClientIDToOpenIDConnectProviderFluentBuilder::new(
             self.handle.clone(),
         )

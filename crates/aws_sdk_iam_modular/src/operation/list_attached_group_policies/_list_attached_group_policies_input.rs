@@ -41,16 +41,14 @@ impl ListAttachedGroupPoliciesInput {
 #[cfg(feature = "op_list_attached_group_policies")]
 impl ListAttachedGroupPoliciesInput {
     /// Creates a new builder-style object to manufacture [`ListAttachedGroupPoliciesInput`](crate::operation::list_attached_group_policies::ListAttachedGroupPoliciesInput).
-    pub fn builder() -> crate::operation::list_attached_group_policies::builders::ListAttachedGroupPoliciesInputBuilder{
+    pub fn builder() -> crate::operation::list_attached_group_policies::builders::ListAttachedGroupPoliciesInputBuilder {
         crate::operation::list_attached_group_policies::builders::ListAttachedGroupPoliciesInputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_list_attached_group_policies")]
 /// A builder for [`ListAttachedGroupPoliciesInput`](crate::operation::list_attached_group_policies::ListAttachedGroupPoliciesInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct ListAttachedGroupPoliciesInputBuilder {
     pub(crate) group_name: ::std::option::Option<::std::string::String>,
@@ -133,13 +131,11 @@ impl ListAttachedGroupPoliciesInputBuilder {
         crate::operation::list_attached_group_policies::ListAttachedGroupPoliciesInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(
-            crate::operation::list_attached_group_policies::ListAttachedGroupPoliciesInput {
-                group_name: self.group_name,
-                path_prefix: self.path_prefix,
-                marker: self.marker,
-                max_items: self.max_items,
-            },
-        )
+        ::std::result::Result::Ok(crate::operation::list_attached_group_policies::ListAttachedGroupPoliciesInput {
+            group_name: self.group_name,
+            path_prefix: self.path_prefix,
+            marker: self.marker,
+            max_items: self.max_items,
+        })
     }
 }

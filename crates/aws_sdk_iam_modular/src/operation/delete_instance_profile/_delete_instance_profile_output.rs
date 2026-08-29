@@ -15,18 +15,14 @@ impl ::aws_types::request_id::RequestId for DeleteInstanceProfileOutput {
 #[cfg(feature = "op_delete_instance_profile")]
 impl DeleteInstanceProfileOutput {
     /// Creates a new builder-style object to manufacture [`DeleteInstanceProfileOutput`](crate::operation::delete_instance_profile::DeleteInstanceProfileOutput).
-    pub fn builder(
-    ) -> crate::operation::delete_instance_profile::builders::DeleteInstanceProfileOutputBuilder
-    {
+    pub fn builder() -> crate::operation::delete_instance_profile::builders::DeleteInstanceProfileOutputBuilder {
         crate::operation::delete_instance_profile::builders::DeleteInstanceProfileOutputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_delete_instance_profile")]
 /// A builder for [`DeleteInstanceProfileOutput`](crate::operation::delete_instance_profile::DeleteInstanceProfileOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct DeleteInstanceProfileOutputBuilder {
     _request_id: Option<String>,

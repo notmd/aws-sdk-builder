@@ -78,16 +78,14 @@ impl ::aws_types::request_id::RequestId for GetOrganizationsAccessReportOutput {
 #[cfg(feature = "op_get_organizations_access_report")]
 impl GetOrganizationsAccessReportOutput {
     /// Creates a new builder-style object to manufacture [`GetOrganizationsAccessReportOutput`](crate::operation::get_organizations_access_report::GetOrganizationsAccessReportOutput).
-    pub fn builder() -> crate::operation::get_organizations_access_report::builders::GetOrganizationsAccessReportOutputBuilder{
+    pub fn builder() -> crate::operation::get_organizations_access_report::builders::GetOrganizationsAccessReportOutputBuilder {
         crate::operation::get_organizations_access_report::builders::GetOrganizationsAccessReportOutputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_get_organizations_access_report")]
 /// A builder for [`GetOrganizationsAccessReportOutput`](crate::operation::get_organizations_access_report::GetOrganizationsAccessReportOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct GetOrganizationsAccessReportOutputBuilder {
     pub(crate) job_status: ::std::option::Option<crate::types::JobStatusType>,
@@ -110,10 +108,7 @@ impl GetOrganizationsAccessReportOutputBuilder {
         self
     }
     /// <p>The status of the job.</p>
-    pub fn set_job_status(
-        mut self,
-        input: ::std::option::Option<crate::types::JobStatusType>,
-    ) -> Self {
+    pub fn set_job_status(mut self, input: ::std::option::Option<crate::types::JobStatusType>) -> Self {
         self.job_status = input;
         self
     }
@@ -128,10 +123,7 @@ impl GetOrganizationsAccessReportOutputBuilder {
         self
     }
     /// <p>The date and time, in <a href="http://www.iso.org/iso/iso8601">ISO 8601 date-time format</a>, when the report job was created.</p>
-    pub fn set_job_creation_date(
-        mut self,
-        input: ::std::option::Option<::aws_smithy_types::DateTime>,
-    ) -> Self {
+    pub fn set_job_creation_date(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
         self.job_creation_date = input;
         self
     }
@@ -147,10 +139,7 @@ impl GetOrganizationsAccessReportOutputBuilder {
     }
     /// <p>The date and time, in <a href="http://www.iso.org/iso/iso8601">ISO 8601 date-time format</a>, when the generated report job was completed or failed.</p>
     /// <p>This field is null if the job is still in progress, as indicated by a job status value of <code>IN_PROGRESS</code>.</p>
-    pub fn set_job_completion_date(
-        mut self,
-        input: ::std::option::Option<::aws_smithy_types::DateTime>,
-    ) -> Self {
+    pub fn set_job_completion_date(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
         self.job_completion_date = input;
         self
     }
@@ -179,10 +168,7 @@ impl GetOrganizationsAccessReportOutputBuilder {
         self
     }
     /// <p>The number of services that account principals are allowed but did not attempt to access.</p>
-    pub fn set_number_of_services_not_accessed(
-        mut self,
-        input: ::std::option::Option<i32>,
-    ) -> Self {
+    pub fn set_number_of_services_not_accessed(mut self, input: ::std::option::Option<i32>) -> Self {
         self.number_of_services_not_accessed = input;
         self
     }
@@ -202,17 +188,12 @@ impl GetOrganizationsAccessReportOutputBuilder {
         self
     }
     /// <p>An object that contains details about the most recent attempt to access the service.</p>
-    pub fn set_access_details(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<crate::types::AccessDetail>>,
-    ) -> Self {
+    pub fn set_access_details(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::AccessDetail>>) -> Self {
         self.access_details = input;
         self
     }
     /// <p>An object that contains details about the most recent attempt to access the service.</p>
-    pub fn get_access_details(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<crate::types::AccessDetail>> {
+    pub fn get_access_details(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::AccessDetail>> {
         &self.access_details
     }
     /// <p>A flag that indicates whether there are more items to return. If your results were truncated, you can make a subsequent pagination request using the <code>Marker</code> request parameter to retrieve more items. Note that IAM might return fewer than the <code>MaxItems</code> number of results even when there are more results available. We recommend that you check <code>IsTruncated</code> after every call to ensure that you receive all your results.</p>
@@ -251,10 +232,7 @@ impl GetOrganizationsAccessReportOutputBuilder {
     }
     /// <p>Contains information about the reason that the operation failed.</p>
     /// <p>This data type is used as a response element in the <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_GetOrganizationsAccessReport.html">GetOrganizationsAccessReport</a>, <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_GetServiceLastAccessedDetails.html">GetServiceLastAccessedDetails</a>, and <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_GetServiceLastAccessedDetailsWithEntities.html">GetServiceLastAccessedDetailsWithEntities</a> operations.</p>
-    pub fn set_error_details(
-        mut self,
-        input: ::std::option::Option<crate::types::ErrorDetails>,
-    ) -> Self {
+    pub fn set_error_details(mut self, input: ::std::option::Option<crate::types::ErrorDetails>) -> Self {
         self.error_details = input;
         self
     }

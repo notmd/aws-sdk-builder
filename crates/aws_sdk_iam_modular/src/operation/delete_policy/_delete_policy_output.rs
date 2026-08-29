@@ -22,9 +22,7 @@ impl DeletePolicyOutput {
 
 #[cfg(feature = "op_delete_policy")]
 /// A builder for [`DeletePolicyOutput`](crate::operation::delete_policy::DeletePolicyOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct DeletePolicyOutputBuilder {
     _request_id: Option<String>,

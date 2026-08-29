@@ -9,21 +9,13 @@ pub fn de_update_saml_provider_http_error(
     crate::operation::update_saml_provider::UpdateSAMLProviderError,
 > {
     #[allow(unused_mut)]
-    let mut generic_builder = crate::protocol_serde::parse_http_error_metadata(
-        _response_status,
-        _response_headers,
-        _response_body,
-    )
-    .map_err(crate::operation::update_saml_provider::UpdateSAMLProviderError::unhandled)?;
+    let mut generic_builder = crate::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
+        .map_err(crate::operation::update_saml_provider::UpdateSAMLProviderError::unhandled)?;
     generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
     let generic = generic_builder.build();
     let error_code = match generic.code() {
         Some(code) => code,
-        None => {
-            return Err(
-                crate::operation::update_saml_provider::UpdateSAMLProviderError::unhandled(generic),
-            )
-        }
+        None => return Err(crate::operation::update_saml_provider::UpdateSAMLProviderError::unhandled(generic)),
     };
 
     let _error_message = generic.message().map(|msg| msg.to_owned());
@@ -122,14 +114,9 @@ pub fn de_update_saml_provider_http_response(
     Ok({
         #[allow(unused_mut)]
         let mut output = crate::operation::update_saml_provider::builders::UpdateSamlProviderOutputBuilder::default();
-        output = crate::protocol_serde::shape_update_saml_provider::de_update_saml_provider(
-            _response_body,
-            output,
-        )
-        .map_err(crate::operation::update_saml_provider::UpdateSAMLProviderError::unhandled)?;
-        output._set_request_id(
-            ::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string),
-        );
+        output = crate::protocol_serde::shape_update_saml_provider::de_update_saml_provider(_response_body, output)
+            .map_err(crate::operation::update_saml_provider::UpdateSAMLProviderError::unhandled)?;
+        output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
         output.build()
     })
 }
@@ -138,10 +125,8 @@ pub fn de_update_saml_provider_http_response(
 pub fn de_update_saml_provider(
     inp: &[u8],
     mut builder: crate::operation::update_saml_provider::builders::UpdateSamlProviderOutputBuilder,
-) -> std::result::Result<
-    crate::operation::update_saml_provider::builders::UpdateSamlProviderOutputBuilder,
-    ::aws_smithy_xml::decode::XmlDecodeError,
-> {
+) -> std::result::Result<crate::operation::update_saml_provider::builders::UpdateSamlProviderOutputBuilder, ::aws_smithy_xml::decode::XmlDecodeError>
+{
     let mut doc = ::aws_smithy_xml::decode::Document::try_from(inp)?;
 
     #[allow(unused_mut)]
@@ -181,9 +166,7 @@ pub fn de_update_saml_provider(
         }
         }
     } else {
-        return Err(::aws_smithy_xml::decode::XmlDecodeError::custom(
-            "expected UpdateSAMLProviderResult tag",
-        ));
+        return Err(::aws_smithy_xml::decode::XmlDecodeError::custom("expected UpdateSAMLProviderResult tag"));
     };
     Ok(builder)
 }

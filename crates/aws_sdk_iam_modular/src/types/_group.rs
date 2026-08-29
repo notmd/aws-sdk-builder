@@ -58,9 +58,7 @@ impl Group {
 }
 
 /// A builder for [`Group`](crate::types::Group).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct GroupBuilder {
     pub(crate) path: ::std::option::Option<::std::string::String>,
@@ -137,10 +135,7 @@ impl GroupBuilder {
         self
     }
     /// <p>The date and time, in <a href="http://www.iso.org/iso/iso8601">ISO 8601 date-time format</a>, when the group was created.</p>
-    pub fn set_create_date(
-        mut self,
-        input: ::std::option::Option<::aws_smithy_types::DateTime>,
-    ) -> Self {
+    pub fn set_create_date(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
         self.create_date = input;
         self
     }
@@ -155,10 +150,7 @@ impl GroupBuilder {
     /// - [`group_id`](crate::types::builders::GroupBuilder::group_id)
     /// - [`arn`](crate::types::builders::GroupBuilder::arn)
     /// - [`create_date`](crate::types::builders::GroupBuilder::create_date)
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<crate::types::Group, ::aws_smithy_types::error::operation::BuildError>
-    {
+    pub fn build(self) -> ::std::result::Result<crate::types::Group, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::Group {
             path: self.path.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(
@@ -179,10 +171,7 @@ impl GroupBuilder {
                 )
             })?,
             arn: self.arn.ok_or_else(|| {
-                ::aws_smithy_types::error::operation::BuildError::missing_field(
-                    "arn",
-                    "arn was not specified but it is required when building Group",
-                )
+                ::aws_smithy_types::error::operation::BuildError::missing_field("arn", "arn was not specified but it is required when building Group")
             })?,
             create_date: self.create_date.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

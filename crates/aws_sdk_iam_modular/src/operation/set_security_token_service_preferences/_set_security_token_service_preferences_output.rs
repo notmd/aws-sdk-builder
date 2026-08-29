@@ -15,16 +15,14 @@ impl ::aws_types::request_id::RequestId for SetSecurityTokenServicePreferencesOu
 #[cfg(feature = "op_set_security_token_service_preferences")]
 impl SetSecurityTokenServicePreferencesOutput {
     /// Creates a new builder-style object to manufacture [`SetSecurityTokenServicePreferencesOutput`](crate::operation::set_security_token_service_preferences::SetSecurityTokenServicePreferencesOutput).
-    pub fn builder() -> crate::operation::set_security_token_service_preferences::builders::SetSecurityTokenServicePreferencesOutputBuilder{
+    pub fn builder() -> crate::operation::set_security_token_service_preferences::builders::SetSecurityTokenServicePreferencesOutputBuilder {
         crate::operation::set_security_token_service_preferences::builders::SetSecurityTokenServicePreferencesOutputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_set_security_token_service_preferences")]
 /// A builder for [`SetSecurityTokenServicePreferencesOutput`](crate::operation::set_security_token_service_preferences::SetSecurityTokenServicePreferencesOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct SetSecurityTokenServicePreferencesOutputBuilder {
     _request_id: Option<String>,
@@ -41,7 +39,7 @@ impl SetSecurityTokenServicePreferencesOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`SetSecurityTokenServicePreferencesOutput`](crate::operation::set_security_token_service_preferences::SetSecurityTokenServicePreferencesOutput).
-    pub fn build(self) -> crate::operation::set_security_token_service_preferences::SetSecurityTokenServicePreferencesOutput{
+    pub fn build(self) -> crate::operation::set_security_token_service_preferences::SetSecurityTokenServicePreferencesOutput {
         crate::operation::set_security_token_service_preferences::SetSecurityTokenServicePreferencesOutput {
             _request_id: self._request_id,
         }

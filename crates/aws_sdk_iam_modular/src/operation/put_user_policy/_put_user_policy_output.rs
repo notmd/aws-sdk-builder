@@ -22,9 +22,7 @@ impl PutUserPolicyOutput {
 
 #[cfg(feature = "op_put_user_policy")]
 /// A builder for [`PutUserPolicyOutput`](crate::operation::put_user_policy::PutUserPolicyOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct PutUserPolicyOutputBuilder {
     _request_id: Option<String>,

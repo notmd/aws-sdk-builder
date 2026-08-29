@@ -41,17 +41,14 @@ impl ::aws_types::request_id::RequestId for ListPolicyVersionsOutput {
 #[cfg(feature = "op_list_policy_versions")]
 impl ListPolicyVersionsOutput {
     /// Creates a new builder-style object to manufacture [`ListPolicyVersionsOutput`](crate::operation::list_policy_versions::ListPolicyVersionsOutput).
-    pub fn builder(
-    ) -> crate::operation::list_policy_versions::builders::ListPolicyVersionsOutputBuilder {
+    pub fn builder() -> crate::operation::list_policy_versions::builders::ListPolicyVersionsOutputBuilder {
         crate::operation::list_policy_versions::builders::ListPolicyVersionsOutputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_list_policy_versions")]
 /// A builder for [`ListPolicyVersionsOutput`](crate::operation::list_policy_versions::ListPolicyVersionsOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct ListPolicyVersionsOutputBuilder {
     pub(crate) versions: ::std::option::Option<::std::vec::Vec<crate::types::PolicyVersion>>,
@@ -75,18 +72,13 @@ impl ListPolicyVersionsOutputBuilder {
     }
     /// <p>A list of policy versions.</p>
     /// <p>For more information about managed policy versions, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-versions.html">Versioning for managed policies</a> in the <i>IAM User Guide</i>.</p>
-    pub fn set_versions(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<crate::types::PolicyVersion>>,
-    ) -> Self {
+    pub fn set_versions(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::PolicyVersion>>) -> Self {
         self.versions = input;
         self
     }
     /// <p>A list of policy versions.</p>
     /// <p>For more information about managed policy versions, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-versions.html">Versioning for managed policies</a> in the <i>IAM User Guide</i>.</p>
-    pub fn get_versions(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<crate::types::PolicyVersion>> {
+    pub fn get_versions(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::PolicyVersion>> {
         &self.versions
     }
     /// <p>A flag that indicates whether there are more items to return. If your results were truncated, you can make a subsequent pagination request using the <code>Marker</code> request parameter to retrieve more items. Note that IAM might return fewer than the <code>MaxItems</code> number of results even when there are more results available. We recommend that you check <code>IsTruncated</code> after every call to ensure that you receive all your results.</p>

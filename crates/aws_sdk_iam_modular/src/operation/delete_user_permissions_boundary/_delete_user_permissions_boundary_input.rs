@@ -17,16 +17,14 @@ impl DeleteUserPermissionsBoundaryInput {
 #[cfg(feature = "op_delete_user_permissions_boundary")]
 impl DeleteUserPermissionsBoundaryInput {
     /// Creates a new builder-style object to manufacture [`DeleteUserPermissionsBoundaryInput`](crate::operation::delete_user_permissions_boundary::DeleteUserPermissionsBoundaryInput).
-    pub fn builder() -> crate::operation::delete_user_permissions_boundary::builders::DeleteUserPermissionsBoundaryInputBuilder{
+    pub fn builder() -> crate::operation::delete_user_permissions_boundary::builders::DeleteUserPermissionsBoundaryInputBuilder {
         crate::operation::delete_user_permissions_boundary::builders::DeleteUserPermissionsBoundaryInputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_delete_user_permissions_boundary")]
 /// A builder for [`DeleteUserPermissionsBoundaryInput`](crate::operation::delete_user_permissions_boundary::DeleteUserPermissionsBoundaryInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct DeleteUserPermissionsBoundaryInputBuilder {
     pub(crate) user_name: ::std::option::Option<::std::string::String>,

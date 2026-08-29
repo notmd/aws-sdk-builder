@@ -9,7 +9,7 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<RemoveClientIDFromOpenIDConnectProviderError>`](crate::operation::remove_client_id_from_open_id_connect_provider::RemoveClientIDFromOpenIDConnectProviderError)
     pub fn remove_client_id_from_open_id_connect_provider(
         &self,
-    ) -> crate::operation::remove_client_id_from_open_id_connect_provider::builders::RemoveClientIDFromOpenIDConnectProviderFluentBuilder{
+    ) -> crate::operation::remove_client_id_from_open_id_connect_provider::builders::RemoveClientIDFromOpenIDConnectProviderFluentBuilder {
         crate::operation::remove_client_id_from_open_id_connect_provider::builders::RemoveClientIDFromOpenIDConnectProviderFluentBuilder::new(
             self.handle.clone(),
         )

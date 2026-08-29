@@ -83,18 +83,14 @@ impl CreateDelegationRequestInput {
 #[cfg(feature = "op_create_delegation_request")]
 impl CreateDelegationRequestInput {
     /// Creates a new builder-style object to manufacture [`CreateDelegationRequestInput`](crate::operation::create_delegation_request::CreateDelegationRequestInput).
-    pub fn builder(
-    ) -> crate::operation::create_delegation_request::builders::CreateDelegationRequestInputBuilder
-    {
+    pub fn builder() -> crate::operation::create_delegation_request::builders::CreateDelegationRequestInputBuilder {
         crate::operation::create_delegation_request::builders::CreateDelegationRequestInputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_create_delegation_request")]
 /// A builder for [`CreateDelegationRequestInput`](crate::operation::create_delegation_request::CreateDelegationRequestInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct CreateDelegationRequestInputBuilder {
     pub(crate) owner_account_id: ::std::option::Option<::std::string::String>,
@@ -111,19 +107,13 @@ pub struct CreateDelegationRequestInputBuilder {
 impl CreateDelegationRequestInputBuilder {
     /// <p>The Amazon Web Services account ID this delegation request is targeted to.</p>
     /// <p>If the account ID is not known, this parameter can be omitted, resulting in a request that can be associated by any account. If the account ID passed, then the created delegation request can only be associated with an identity of that target account.</p>
-    pub fn owner_account_id(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn owner_account_id(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.owner_account_id = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The Amazon Web Services account ID this delegation request is targeted to.</p>
     /// <p>If the account ID is not known, this parameter can be omitted, resulting in a request that can be associated by any account. If the account ID passed, then the created delegation request can only be associated with an identity of that target account.</p>
-    pub fn set_owner_account_id(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_owner_account_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.owner_account_id = input;
         self
     }
@@ -154,10 +144,7 @@ impl CreateDelegationRequestInputBuilder {
         self
     }
     /// <p>The permissions to be delegated in this delegation request.</p>
-    pub fn set_permissions(
-        mut self,
-        input: ::std::option::Option<crate::types::DelegationPermission>,
-    ) -> Self {
+    pub fn set_permissions(mut self, input: ::std::option::Option<crate::types::DelegationPermission>) -> Self {
         self.permissions = input;
         self
     }
@@ -168,20 +155,14 @@ impl CreateDelegationRequestInputBuilder {
     /// <p>A message explaining the reason for the delegation request.</p>
     /// <p>Requesters can utilize this field to add a custom note to the delegation request. This field is different from the description such that this is to be utilized for a custom messaging on a case-by-case basis.</p>
     /// <p>For example, if the current delegation request is in response to a previous request being rejected, this explanation can be added to the request via this field.</p>
-    pub fn request_message(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn request_message(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.request_message = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>A message explaining the reason for the delegation request.</p>
     /// <p>Requesters can utilize this field to add a custom note to the delegation request. This field is different from the description such that this is to be utilized for a custom messaging on a case-by-case basis.</p>
     /// <p>For example, if the current delegation request is in response to a previous request being rejected, this explanation can be added to the request via this field.</p>
-    pub fn set_request_message(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_request_message(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.request_message = input;
         self
     }
@@ -195,20 +176,14 @@ impl CreateDelegationRequestInputBuilder {
     /// <p>This is the unique identifier on the partner side that can be used to track the progress of the request.</p>
     /// <p>IAM maintains a uniqueness check on this workflow id for each request - if a workflow id for an existing request is passed, this API call will fail.</p>
     /// This field is required.
-    pub fn requestor_workflow_id(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn requestor_workflow_id(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.requestor_workflow_id = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The workflow ID associated with the requestor.</p>
     /// <p>This is the unique identifier on the partner side that can be used to track the progress of the request.</p>
     /// <p>IAM maintains a uniqueness check on this workflow id for each request - if a workflow id for an existing request is passed, this API call will fail.</p>
-    pub fn set_requestor_workflow_id(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_requestor_workflow_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.requestor_workflow_id = input;
         self
     }
@@ -238,19 +213,13 @@ impl CreateDelegationRequestInputBuilder {
     /// <p>The notification channel for updates about the delegation request.</p>
     /// <p>At this time,only SNS topic ARNs are accepted for notification. This topic ARN must have a resource policy granting <code>SNS:Publish</code> permission to the IAM service principal (<code>iam.amazonaws.com</code>). See <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies-temporary-delegation-partner-guide.html">partner onboarding documentation</a> for more details.</p>
     /// This field is required.
-    pub fn notification_channel(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn notification_channel(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.notification_channel = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The notification channel for updates about the delegation request.</p>
     /// <p>At this time,only SNS topic ARNs are accepted for notification. This topic ARN must have a resource policy granting <code>SNS:Publish</code> permission to the IAM service principal (<code>iam.amazonaws.com</code>). See <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies-temporary-delegation-partner-guide.html">partner onboarding documentation</a> for more details.</p>
-    pub fn set_notification_channel(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_notification_channel(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.notification_channel = input;
         self
     }
@@ -301,18 +270,16 @@ impl CreateDelegationRequestInputBuilder {
         crate::operation::create_delegation_request::CreateDelegationRequestInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(
-            crate::operation::create_delegation_request::CreateDelegationRequestInput {
-                owner_account_id: self.owner_account_id,
-                description: self.description,
-                permissions: self.permissions,
-                request_message: self.request_message,
-                requestor_workflow_id: self.requestor_workflow_id,
-                redirect_url: self.redirect_url,
-                notification_channel: self.notification_channel,
-                session_duration: self.session_duration,
-                only_send_by_owner: self.only_send_by_owner,
-            },
-        )
+        ::std::result::Result::Ok(crate::operation::create_delegation_request::CreateDelegationRequestInput {
+            owner_account_id: self.owner_account_id,
+            description: self.description,
+            permissions: self.permissions,
+            request_message: self.request_message,
+            requestor_workflow_id: self.requestor_workflow_id,
+            redirect_url: self.redirect_url,
+            notification_channel: self.notification_channel,
+            session_duration: self.session_duration,
+            only_send_by_owner: self.only_send_by_owner,
+        })
     }
 }

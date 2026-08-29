@@ -3,150 +3,210 @@
 #[non_exhaustive]
 #[derive(::std::fmt::Debug)]
 pub enum Error {
-    /// <p>The request was rejected because the account making the request is not the management account or delegated administrator account for <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_root-user.html#id_root-user-access-management">centralized root access</a>.</p>
-    AccountNotManagementOrDelegatedAdministratorException(
-        crate::types::error::AccountNotManagementOrDelegatedAdministratorException,
-    ),
-    /// <p>The request was rejected because the account making the request is not the management account for the organization.</p>
-    CallerIsNotManagementAccountException(
-        crate::types::error::CallerIsNotManagementAccountException,
-    ),
-    /// <p>The request was rejected because multiple requests to change this object were submitted simultaneously. Wait a few minutes and submit your request again.</p>
+    #[cfg(any(feature = "op_disable_organizations_root_credentials_management", feature = "op_disable_organizations_root_sessions", feature = "op_enable_organizations_root_credentials_management", feature = "op_enable_organizations_root_sessions", feature = "op_list_organizations_features"))]
+/// <p>The request was rejected because the account making the request is not the management account or delegated administrator account for <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_root-user.html#id_root-user-access-management">centralized root access</a>.</p>
+    AccountNotManagementOrDelegatedAdministratorException(crate::types::error::AccountNotManagementOrDelegatedAdministratorException),
+    #[cfg(any(feature = "op_enable_organizations_root_credentials_management", feature = "op_enable_organizations_root_sessions"))]
+/// <p>The request was rejected because the account making the request is not the management account for the organization.</p>
+    CallerIsNotManagementAccountException(crate::types::error::CallerIsNotManagementAccountException),
+    #[cfg(any(feature = "op_accept_delegation_request", feature = "op_acquire_role", feature = "op_add_client_id_to_open_id_connect_provider", feature = "op_associate_delegation_request", feature = "op_create_account_alias", feature = "op_create_delegation_request", feature = "op_create_instance_profile", feature = "op_create_open_id_connect_provider", feature = "op_create_policy", feature = "op_create_role", feature = "op_create_saml_provider", feature = "op_create_user", feature = "op_create_virtual_mfa_device", feature = "op_deactivate_mfa_device", feature = "op_delete_account_alias", feature = "op_delete_role", feature = "op_delete_signing_certificate", feature = "op_delete_user", feature = "op_delete_virtual_mfa_device", feature = "op_enable_mfa_device", feature = "op_put_account_properties", feature = "op_reject_delegation_request", feature = "op_remove_client_id_from_open_id_connect_provider", feature = "op_resync_mfa_device", feature = "op_send_delegation_token", feature = "op_tag_instance_profile", feature = "op_tag_mfa_device", feature = "op_tag_open_id_connect_provider", feature = "op_tag_policy", feature = "op_tag_role", feature = "op_tag_saml_provider", feature = "op_tag_server_certificate", feature = "op_tag_user", feature = "op_untag_instance_profile", feature = "op_untag_mfa_device", feature = "op_untag_open_id_connect_provider", feature = "op_untag_policy", feature = "op_untag_role", feature = "op_untag_saml_provider", feature = "op_untag_server_certificate", feature = "op_untag_user", feature = "op_update_delegation_request", feature = "op_update_open_id_connect_provider_thumbprint", feature = "op_update_saml_provider", feature = "op_update_user", feature = "op_upload_server_certificate", feature = "op_upload_signing_certificate"))]
+/// <p>The request was rejected because multiple requests to change this object were submitted simultaneously. Wait a few minutes and submit your request again.</p>
     ConcurrentModificationException(crate::types::error::ConcurrentModificationException),
-    /// <p>The request was rejected because the most recent credential report has expired. To generate a new credential report, use <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_GenerateCredentialReport.html">GenerateCredentialReport</a>. For more information about credential report expiration, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/credential-reports.html">Getting credential reports</a> in the <i>IAM User Guide</i>.</p>
+    #[cfg(feature = "op_get_credential_report")]
+/// <p>The request was rejected because the most recent credential report has expired. To generate a new credential report, use <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_GenerateCredentialReport.html">GenerateCredentialReport</a>. For more information about credential report expiration, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/credential-reports.html">Getting credential reports</a> in the <i>IAM User Guide</i>.</p>
     CredentialReportExpiredException(crate::types::error::CredentialReportExpiredException),
-    /// <p>The request was rejected because the credential report does not exist. To generate a credential report, use <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_GenerateCredentialReport.html">GenerateCredentialReport</a>.</p>
+    #[cfg(feature = "op_get_credential_report")]
+/// <p>The request was rejected because the credential report does not exist. To generate a credential report, use <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_GenerateCredentialReport.html">GenerateCredentialReport</a>.</p>
     CredentialReportNotPresentException(crate::types::error::CredentialReportNotPresentException),
-    /// <p>The request was rejected because the credential report is still being generated.</p>
+    #[cfg(feature = "op_get_credential_report")]
+/// <p>The request was rejected because the credential report is still being generated.</p>
     CredentialReportNotReadyException(crate::types::error::CredentialReportNotReadyException),
-    /// <p>The request was rejected because it attempted to delete a resource that has attached subordinate entities. The error message describes these entities.</p>
+    #[cfg(any(feature = "op_delete_group", feature = "op_delete_instance_profile", feature = "op_delete_policy", feature = "op_delete_policy_version", feature = "op_delete_role", feature = "op_delete_server_certificate", feature = "op_delete_user", feature = "op_delete_virtual_mfa_device"))]
+/// <p>The request was rejected because it attempted to delete a resource that has attached subordinate entities. The error message describes these entities.</p>
     DeleteConflictException(crate::types::error::DeleteConflictException),
-    /// <p>The request was rejected because the same certificate is associated with an IAM user in the account.</p>
+    #[cfg(feature = "op_upload_signing_certificate")]
+/// <p>The request was rejected because the same certificate is associated with an IAM user in the account.</p>
     DuplicateCertificateException(crate::types::error::DuplicateCertificateException),
-    /// <p>The request was rejected because the SSH public key is already associated with the specified IAM user.</p>
+    #[cfg(feature = "op_upload_ssh_public_key")]
+/// <p>The request was rejected because the SSH public key is already associated with the specified IAM user.</p>
     DuplicateSshPublicKeyException(crate::types::error::DuplicateSshPublicKeyException),
-    /// <p>The request was rejected because it attempted to create a resource that already exists.</p>
+    #[cfg(any(feature = "op_acquire_role", feature = "op_add_role_to_instance_profile", feature = "op_create_account_alias", feature = "op_create_delegation_request", feature = "op_create_group", feature = "op_create_instance_profile", feature = "op_create_login_profile", feature = "op_create_open_id_connect_provider", feature = "op_create_policy", feature = "op_create_role", feature = "op_create_saml_provider", feature = "op_create_user", feature = "op_create_virtual_mfa_device", feature = "op_enable_mfa_device", feature = "op_update_group", feature = "op_update_server_certificate", feature = "op_update_user", feature = "op_upload_server_certificate", feature = "op_upload_signing_certificate"))]
+/// <p>The request was rejected because it attempted to create a resource that already exists.</p>
     EntityAlreadyExistsException(crate::types::error::EntityAlreadyExistsException),
-    /// <p>The request was rejected because it referenced an entity that is temporarily unmodifiable, such as a user name that was deleted and then recreated. The error indicates that the request is likely to succeed if you try again after waiting several minutes. The error message describes the entity.</p>
-    EntityTemporarilyUnmodifiableException(
-        crate::types::error::EntityTemporarilyUnmodifiableException,
-    ),
-    /// <p>The request failed because outbound identity federation is already disabled for your Amazon Web Services account. You cannot disable the feature multiple times</p>
+    #[cfg(any(feature = "op_change_password", feature = "op_deactivate_mfa_device", feature = "op_delete_login_profile", feature = "op_enable_mfa_device", feature = "op_update_login_profile", feature = "op_update_user"))]
+/// <p>The request was rejected because it referenced an entity that is temporarily unmodifiable, such as a user name that was deleted and then recreated. The error indicates that the request is likely to succeed if you try again after waiting several minutes. The error message describes the entity.</p>
+    EntityTemporarilyUnmodifiableException(crate::types::error::EntityTemporarilyUnmodifiableException),
+    #[cfg(any(feature = "op_disable_outbound_web_identity_federation", feature = "op_get_outbound_web_identity_federation_info"))]
+/// <p>The request failed because outbound identity federation is already disabled for your Amazon Web Services account. You cannot disable the feature multiple times</p>
     FeatureDisabledException(crate::types::error::FeatureDisabledException),
-    /// <p>The request failed because outbound identity federation is already enabled for your Amazon Web Services account. You cannot enable the feature multiple times. To fetch the current configuration (including the unique issuer URL), use the <code>GetOutboundWebIdentityFederationInfo</code> operation.</p>
+    #[cfg(feature = "op_enable_outbound_web_identity_federation")]
+/// <p>The request failed because outbound identity federation is already enabled for your Amazon Web Services account. You cannot enable the feature multiple times. To fetch the current configuration (including the unique issuer URL), use the <code>GetOutboundWebIdentityFederationInfo</code> operation.</p>
     FeatureEnabledException(crate::types::error::FeatureEnabledException),
-    /// <p>The request was rejected because the authentication code was not recognized. The error message describes the specific error.</p>
+    #[cfg(any(feature = "op_enable_mfa_device", feature = "op_resync_mfa_device"))]
+/// <p>The request was rejected because the authentication code was not recognized. The error message describes the specific error.</p>
     InvalidAuthenticationCodeException(crate::types::error::InvalidAuthenticationCodeException),
-    /// <p>The request was rejected because the certificate is invalid.</p>
+    #[cfg(feature = "op_upload_signing_certificate")]
+/// <p>The request was rejected because the certificate is invalid.</p>
     InvalidCertificateException(crate::types::error::InvalidCertificateException),
-    /// <p>The request was rejected because an invalid or out-of-range value was supplied for an input parameter.</p>
+    #[cfg(any(feature = "op_acquire_role", feature = "op_add_client_id_to_open_id_connect_provider", feature = "op_associate_delegation_request", feature = "op_attach_group_policy", feature = "op_attach_role_policy", feature = "op_attach_user_policy", feature = "op_create_delegation_request", feature = "op_create_instance_profile", feature = "op_create_open_id_connect_provider", feature = "op_create_policy", feature = "op_create_policy_version", feature = "op_create_role", feature = "op_create_saml_provider", feature = "op_create_service_linked_role", feature = "op_create_user", feature = "op_create_virtual_mfa_device", feature = "op_delete_open_id_connect_provider", feature = "op_delete_policy", feature = "op_delete_policy_version", feature = "op_delete_saml_provider", feature = "op_detach_group_policy", feature = "op_detach_role_policy", feature = "op_detach_user_policy", feature = "op_generate_service_last_accessed_details", feature = "op_get_account_properties", feature = "op_get_context_keys_for_custom_policy", feature = "op_get_context_keys_for_principal_policy", feature = "op_get_human_readable_summary", feature = "op_get_open_id_connect_provider", feature = "op_get_policy", feature = "op_get_policy_version", feature = "op_get_role_template_version", feature = "op_get_saml_provider", feature = "op_get_service_last_accessed_details", feature = "op_get_service_last_accessed_details_with_entities", feature = "op_get_service_linked_role_deletion_status", feature = "op_list_attached_group_policies", feature = "op_list_attached_role_policies", feature = "op_list_attached_user_policies", feature = "op_list_delegation_requests", feature = "op_list_entities_for_policy", feature = "op_list_mfa_device_tags", feature = "op_list_open_id_connect_provider_tags", feature = "op_list_policies_granting_service_access", feature = "op_list_policy_tags", feature = "op_list_policy_versions", feature = "op_list_saml_provider_tags", feature = "op_put_account_properties", feature = "op_put_role_permissions_boundary", feature = "op_put_user_permissions_boundary", feature = "op_reject_delegation_request", feature = "op_remove_client_id_from_open_id_connect_provider", feature = "op_send_delegation_token", feature = "op_set_default_policy_version", feature = "op_simulate_custom_policy", feature = "op_simulate_principal_policy", feature = "op_tag_instance_profile", feature = "op_tag_mfa_device", feature = "op_tag_open_id_connect_provider", feature = "op_tag_policy", feature = "op_tag_role", feature = "op_tag_saml_provider", feature = "op_tag_server_certificate", feature = "op_tag_user", feature = "op_untag_instance_profile", feature = "op_untag_mfa_device", feature = "op_untag_open_id_connect_provider", feature = "op_untag_policy", feature = "op_untag_saml_provider", feature = "op_untag_server_certificate", feature = "op_update_access_key", feature = "op_update_delegation_request", feature = "op_update_open_id_connect_provider_thumbprint", feature = "op_update_saml_provider", feature = "op_update_signing_certificate", feature = "op_update_ssh_public_key", feature = "op_upload_server_certificate"))]
+/// <p>The request was rejected because an invalid or out-of-range value was supplied for an input parameter.</p>
     InvalidInputException(crate::types::error::InvalidInputException),
-    /// <p>The request was rejected because the public key is malformed or otherwise invalid.</p>
+    #[cfg(feature = "op_upload_ssh_public_key")]
+/// <p>The request was rejected because the public key is malformed or otherwise invalid.</p>
     InvalidPublicKeyException(crate::types::error::InvalidPublicKeyException),
-    /// <p>The request was rejected because the type of user for the transaction was incorrect.</p>
+    #[cfg(feature = "op_change_password")]
+/// <p>The request was rejected because the type of user for the transaction was incorrect.</p>
     InvalidUserTypeException(crate::types::error::InvalidUserTypeException),
-    /// <p>The request was rejected because the public key certificate and the private key do not match.</p>
+    #[cfg(feature = "op_upload_server_certificate")]
+/// <p>The request was rejected because the public key certificate and the private key do not match.</p>
     KeyPairMismatchException(crate::types::error::KeyPairMismatchException),
-    /// <p>The request was rejected because it attempted to create resources beyond the current Amazon Web Services account limits. The error message describes the limit exceeded.</p>
+    #[cfg(any(feature = "op_acquire_role", feature = "op_add_client_id_to_open_id_connect_provider", feature = "op_add_role_to_instance_profile", feature = "op_add_user_to_group", feature = "op_attach_group_policy", feature = "op_attach_role_policy", feature = "op_attach_user_policy", feature = "op_change_password", feature = "op_create_access_key", feature = "op_create_account_alias", feature = "op_create_delegation_request", feature = "op_create_group", feature = "op_create_instance_profile", feature = "op_create_login_profile", feature = "op_create_open_id_connect_provider", feature = "op_create_policy", feature = "op_create_policy_version", feature = "op_create_role", feature = "op_create_saml_provider", feature = "op_create_service_linked_role", feature = "op_create_service_specific_credential", feature = "op_create_user", feature = "op_create_virtual_mfa_device", feature = "op_deactivate_mfa_device", feature = "op_delete_access_key", feature = "op_delete_account_alias", feature = "op_delete_account_password_policy", feature = "op_delete_group", feature = "op_delete_group_policy", feature = "op_delete_instance_profile", feature = "op_delete_login_profile", feature = "op_delete_policy", feature = "op_delete_policy_version", feature = "op_delete_role", feature = "op_delete_role_policy", feature = "op_delete_saml_provider", feature = "op_delete_server_certificate", feature = "op_delete_service_linked_role", feature = "op_delete_signing_certificate", feature = "op_delete_user", feature = "op_delete_user_policy", feature = "op_delete_virtual_mfa_device", feature = "op_detach_group_policy", feature = "op_detach_role_policy", feature = "op_detach_user_policy", feature = "op_enable_mfa_device", feature = "op_generate_credential_report", feature = "op_put_group_policy", feature = "op_put_role_policy", feature = "op_put_user_policy", feature = "op_remove_role_from_instance_profile", feature = "op_remove_user_from_group", feature = "op_resync_mfa_device", feature = "op_set_default_policy_version", feature = "op_tag_instance_profile", feature = "op_tag_mfa_device", feature = "op_tag_open_id_connect_provider", feature = "op_tag_policy", feature = "op_tag_role", feature = "op_tag_saml_provider", feature = "op_tag_server_certificate", feature = "op_tag_user", feature = "op_update_access_key", feature = "op_update_account_password_policy", feature = "op_update_assume_role_policy", feature = "op_update_group", feature = "op_update_login_profile", feature = "op_update_saml_provider", feature = "op_update_server_certificate", feature = "op_update_signing_certificate", feature = "op_update_user", feature = "op_upload_server_certificate", feature = "op_upload_signing_certificate", feature = "op_upload_ssh_public_key"))]
+/// <p>The request was rejected because it attempted to create resources beyond the current Amazon Web Services account limits. The error message describes the limit exceeded.</p>
     LimitExceededException(crate::types::error::LimitExceededException),
-    /// <p>The request was rejected because the certificate was malformed or expired. The error message describes the specific error.</p>
+    #[cfg(any(feature = "op_upload_server_certificate", feature = "op_upload_signing_certificate"))]
+/// <p>The request was rejected because the certificate was malformed or expired. The error message describes the specific error.</p>
     MalformedCertificateException(crate::types::error::MalformedCertificateException),
-    /// <p>The request was rejected because the policy document was malformed. The error message describes the specific error.</p>
+    #[cfg(any(feature = "op_acquire_role", feature = "op_create_policy", feature = "op_create_policy_version", feature = "op_create_role", feature = "op_put_group_policy", feature = "op_put_role_policy", feature = "op_put_user_policy", feature = "op_update_account_password_policy", feature = "op_update_assume_role_policy"))]
+/// <p>The request was rejected because the policy document was malformed. The error message describes the specific error.</p>
     MalformedPolicyDocumentException(crate::types::error::MalformedPolicyDocumentException),
-    /// <p>The request was rejected because the resulting role name conflicts with an existing role in the account.</p>
+    #[cfg(feature = "op_acquire_role")]
+/// <p>The request was rejected because the resulting role name conflicts with an existing role in the account.</p>
     NameConflictException(crate::types::error::NameConflictException),
-    /// <p>The request was rejected because it referenced a resource entity that does not exist. The error message describes the resource.</p>
+    #[cfg(any(feature = "op_accept_delegation_request", feature = "op_acquire_role", feature = "op_add_client_id_to_open_id_connect_provider", feature = "op_add_role_to_instance_profile", feature = "op_add_user_to_group", feature = "op_associate_delegation_request", feature = "op_attach_group_policy", feature = "op_attach_role_policy", feature = "op_attach_user_policy", feature = "op_change_password", feature = "op_create_access_key", feature = "op_create_group", feature = "op_create_login_profile", feature = "op_create_policy_version", feature = "op_create_service_linked_role", feature = "op_create_service_specific_credential", feature = "op_create_user", feature = "op_deactivate_mfa_device", feature = "op_delete_access_key", feature = "op_delete_account_alias", feature = "op_delete_account_password_policy", feature = "op_delete_group", feature = "op_delete_group_policy", feature = "op_delete_instance_profile", feature = "op_delete_login_profile", feature = "op_delete_open_id_connect_provider", feature = "op_delete_policy", feature = "op_delete_policy_version", feature = "op_delete_role", feature = "op_delete_role_permissions_boundary", feature = "op_delete_role_policy", feature = "op_delete_saml_provider", feature = "op_delete_server_certificate", feature = "op_delete_service_linked_role", feature = "op_delete_service_specific_credential", feature = "op_delete_signing_certificate", feature = "op_delete_ssh_public_key", feature = "op_delete_user", feature = "op_delete_user_permissions_boundary", feature = "op_delete_user_policy", feature = "op_delete_virtual_mfa_device", feature = "op_detach_group_policy", feature = "op_detach_role_policy", feature = "op_detach_user_policy", feature = "op_enable_mfa_device", feature = "op_generate_service_last_accessed_details", feature = "op_get_account_password_policy", feature = "op_get_context_keys_for_principal_policy", feature = "op_get_delegation_request", feature = "op_get_group", feature = "op_get_group_policy", feature = "op_get_human_readable_summary", feature = "op_get_instance_profile", feature = "op_get_login_profile", feature = "op_get_mfa_device", feature = "op_get_open_id_connect_provider", feature = "op_get_organizations_access_report", feature = "op_get_policy", feature = "op_get_policy_version", feature = "op_get_role", feature = "op_get_role_policy", feature = "op_get_role_template_version", feature = "op_get_saml_provider", feature = "op_get_server_certificate", feature = "op_get_service_last_accessed_details", feature = "op_get_service_last_accessed_details_with_entities", feature = "op_get_service_linked_role_deletion_status", feature = "op_get_ssh_public_key", feature = "op_get_user", feature = "op_get_user_policy", feature = "op_list_access_keys", feature = "op_list_attached_group_policies", feature = "op_list_attached_role_policies", feature = "op_list_attached_user_policies", feature = "op_list_delegation_requests", feature = "op_list_entities_for_policy", feature = "op_list_group_policies", feature = "op_list_groups_for_user", feature = "op_list_instance_profile_tags", feature = "op_list_instance_profiles_for_role", feature = "op_list_mfa_device_tags", feature = "op_list_mfa_devices", feature = "op_list_open_id_connect_provider_tags", feature = "op_list_policies_granting_service_access", feature = "op_list_policy_tags", feature = "op_list_policy_versions", feature = "op_list_role_policies", feature = "op_list_role_tags", feature = "op_list_saml_provider_tags", feature = "op_list_server_certificate_tags", feature = "op_list_service_specific_credentials", feature = "op_list_signing_certificates", feature = "op_list_ssh_public_keys", feature = "op_list_user_policies", feature = "op_list_user_tags", feature = "op_put_group_policy", feature = "op_put_role_permissions_boundary", feature = "op_put_role_policy", feature = "op_put_user_permissions_boundary", feature = "op_put_user_policy", feature = "op_reject_delegation_request", feature = "op_remove_client_id_from_open_id_connect_provider", feature = "op_remove_role_from_instance_profile", feature = "op_remove_user_from_group", feature = "op_reset_service_specific_credential", feature = "op_resync_mfa_device", feature = "op_send_delegation_token", feature = "op_set_default_policy_version", feature = "op_simulate_principal_policy", feature = "op_tag_instance_profile", feature = "op_tag_mfa_device", feature = "op_tag_open_id_connect_provider", feature = "op_tag_policy", feature = "op_tag_role", feature = "op_tag_saml_provider", feature = "op_tag_server_certificate", feature = "op_tag_user", feature = "op_untag_instance_profile", feature = "op_untag_mfa_device", feature = "op_untag_open_id_connect_provider", feature = "op_untag_policy", feature = "op_untag_role", feature = "op_untag_saml_provider", feature = "op_untag_server_certificate", feature = "op_untag_user", feature = "op_update_access_key", feature = "op_update_account_password_policy", feature = "op_update_assume_role_policy", feature = "op_update_delegation_request", feature = "op_update_group", feature = "op_update_login_profile", feature = "op_update_open_id_connect_provider_thumbprint", feature = "op_update_role", feature = "op_update_role_description", feature = "op_update_saml_provider", feature = "op_update_server_certificate", feature = "op_update_service_specific_credential", feature = "op_update_signing_certificate", feature = "op_update_ssh_public_key", feature = "op_update_user", feature = "op_upload_signing_certificate", feature = "op_upload_ssh_public_key"))]
+/// <p>The request was rejected because it referenced a resource entity that does not exist. The error message describes the resource.</p>
     NoSuchEntityException(crate::types::error::NoSuchEntityException),
-    /// <p>The request failed because IAM cannot connect to the OpenID Connect identity provider URL.</p>
+    #[cfg(feature = "op_create_open_id_connect_provider")]
+/// <p>The request failed because IAM cannot connect to the OpenID Connect identity provider URL.</p>
     OpenIdIdpCommunicationErrorException(crate::types::error::OpenIdIdpCommunicationErrorException),
-    /// <p>The request was rejected because no organization is associated with your account.</p>
+    #[cfg(any(feature = "op_disable_organizations_root_credentials_management", feature = "op_disable_organizations_root_sessions", feature = "op_enable_organizations_root_credentials_management", feature = "op_enable_organizations_root_sessions", feature = "op_list_organizations_features"))]
+/// <p>The request was rejected because no organization is associated with your account.</p>
     OrganizationNotFoundException(crate::types::error::OrganizationNotFoundException),
-    /// <p>The request was rejected because your organization does not have All features enabled. For more information, see <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_getting-started_concepts.html#feature-set">Available feature sets</a> in the <i>Organizations User Guide</i>.</p>
-    OrganizationNotInAllFeaturesModeException(
-        crate::types::error::OrganizationNotInAllFeaturesModeException,
-    ),
-    /// <p>The request was rejected because the provided password did not meet the requirements imposed by the account password policy.</p>
+    #[cfg(any(feature = "op_disable_organizations_root_credentials_management", feature = "op_disable_organizations_root_sessions", feature = "op_enable_organizations_root_credentials_management", feature = "op_enable_organizations_root_sessions", feature = "op_list_organizations_features"))]
+/// <p>The request was rejected because your organization does not have All features enabled. For more information, see <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_getting-started_concepts.html#feature-set">Available feature sets</a> in the <i>Organizations User Guide</i>.</p>
+    OrganizationNotInAllFeaturesModeException(crate::types::error::OrganizationNotInAllFeaturesModeException),
+    #[cfg(any(feature = "op_change_password", feature = "op_create_login_profile", feature = "op_update_login_profile"))]
+/// <p>The request was rejected because the provided password did not meet the requirements imposed by the account password policy.</p>
     PasswordPolicyViolationException(crate::types::error::PasswordPolicyViolationException),
-    /// <p>The request failed because a provided policy could not be successfully evaluated. An additional detailed message indicates the source of the failure.</p>
+    #[cfg(any(feature = "op_simulate_custom_policy", feature = "op_simulate_principal_policy"))]
+/// <p>The request failed because a provided policy could not be successfully evaluated. An additional detailed message indicates the source of the failure.</p>
     PolicyEvaluationException(crate::types::error::PolicyEvaluationException),
-    /// <p>The request failed because Amazon Web Services service role policies can only be attached to the service-linked role for that service.</p>
+    #[cfg(any(feature = "op_attach_group_policy", feature = "op_attach_role_policy", feature = "op_attach_user_policy", feature = "op_put_role_permissions_boundary", feature = "op_put_user_permissions_boundary"))]
+/// <p>The request failed because Amazon Web Services service role policies can only be attached to the service-linked role for that service.</p>
     PolicyNotAttachableException(crate::types::error::PolicyNotAttachableException),
-    /// <p>The request failed because the maximum number of concurrent requests for this account are already running.</p>
-    ReportGenerationLimitExceededException(
-        crate::types::error::ReportGenerationLimitExceededException,
-    ),
-    /// <p>The request was rejected because someone modified the role template while the service was creating the role. Wait a few minutes and try the request again.</p>
+    #[cfg(feature = "op_generate_organizations_access_report")]
+/// <p>The request failed because the maximum number of concurrent requests for this account are already running.</p>
+    ReportGenerationLimitExceededException(crate::types::error::ReportGenerationLimitExceededException),
+    #[cfg(feature = "op_acquire_role")]
+/// <p>The request was rejected because someone modified the role template while the service was creating the role. Wait a few minutes and try the request again.</p>
     RoleModifiedException(crate::types::error::RoleModifiedException),
-    /// <p>The request was rejected because the specified role template is disabled. A disabled role template cannot be used to create new roles. Contact your administrator to enable the role template, or use a different role template.</p>
+    #[cfg(feature = "op_acquire_role")]
+/// <p>The request was rejected because the specified role template is disabled. A disabled role template cannot be used to create new roles. Contact your administrator to enable the role template, or use a different role template.</p>
     RoleTemplateDisabledException(crate::types::error::RoleTemplateDisabledException),
-    /// <p>The request was rejected because trusted access is not enabled for IAM in Organizations. For details, see IAM and Organizations in the <i>Organizations User Guide</i>.</p>
+    #[cfg(any(feature = "op_disable_organizations_root_credentials_management", feature = "op_disable_organizations_root_sessions", feature = "op_enable_organizations_root_credentials_management", feature = "op_enable_organizations_root_sessions", feature = "op_list_organizations_features"))]
+/// <p>The request was rejected because trusted access is not enabled for IAM in Organizations. For details, see IAM and Organizations in the <i>Organizations User Guide</i>.</p>
     ServiceAccessNotEnabledException(crate::types::error::ServiceAccessNotEnabledException),
-    /// <p>The request processing has failed because of an unknown error, exception or failure.</p>
+    #[cfg(any(feature = "op_accept_delegation_request", feature = "op_acquire_role", feature = "op_add_client_id_to_open_id_connect_provider", feature = "op_add_role_to_instance_profile", feature = "op_add_user_to_group", feature = "op_associate_delegation_request", feature = "op_attach_group_policy", feature = "op_attach_role_policy", feature = "op_attach_user_policy", feature = "op_change_password", feature = "op_create_access_key", feature = "op_create_account_alias", feature = "op_create_delegation_request", feature = "op_create_group", feature = "op_create_instance_profile", feature = "op_create_login_profile", feature = "op_create_open_id_connect_provider", feature = "op_create_policy", feature = "op_create_policy_version", feature = "op_create_role", feature = "op_create_saml_provider", feature = "op_create_service_linked_role", feature = "op_create_user", feature = "op_create_virtual_mfa_device", feature = "op_deactivate_mfa_device", feature = "op_delete_access_key", feature = "op_delete_account_alias", feature = "op_delete_account_password_policy", feature = "op_delete_group", feature = "op_delete_group_policy", feature = "op_delete_instance_profile", feature = "op_delete_login_profile", feature = "op_delete_open_id_connect_provider", feature = "op_delete_policy", feature = "op_delete_policy_version", feature = "op_delete_role", feature = "op_delete_role_permissions_boundary", feature = "op_delete_role_policy", feature = "op_delete_saml_provider", feature = "op_delete_server_certificate", feature = "op_delete_service_linked_role", feature = "op_delete_signing_certificate", feature = "op_delete_user", feature = "op_delete_user_permissions_boundary", feature = "op_delete_user_policy", feature = "op_delete_virtual_mfa_device", feature = "op_detach_group_policy", feature = "op_detach_role_policy", feature = "op_detach_user_policy", feature = "op_enable_mfa_device", feature = "op_generate_credential_report", feature = "op_get_account_authorization_details", feature = "op_get_account_password_policy", feature = "op_get_account_properties", feature = "op_get_account_summary", feature = "op_get_credential_report", feature = "op_get_delegation_request", feature = "op_get_group", feature = "op_get_group_policy", feature = "op_get_human_readable_summary", feature = "op_get_instance_profile", feature = "op_get_login_profile", feature = "op_get_mfa_device", feature = "op_get_open_id_connect_provider", feature = "op_get_policy", feature = "op_get_policy_version", feature = "op_get_role", feature = "op_get_role_policy", feature = "op_get_role_template_version", feature = "op_get_saml_provider", feature = "op_get_server_certificate", feature = "op_get_service_linked_role_deletion_status", feature = "op_get_user", feature = "op_get_user_policy", feature = "op_list_access_keys", feature = "op_list_account_aliases", feature = "op_list_attached_group_policies", feature = "op_list_attached_role_policies", feature = "op_list_attached_user_policies", feature = "op_list_delegation_requests", feature = "op_list_entities_for_policy", feature = "op_list_group_policies", feature = "op_list_groups", feature = "op_list_groups_for_user", feature = "op_list_instance_profile_tags", feature = "op_list_instance_profiles", feature = "op_list_instance_profiles_for_role", feature = "op_list_mfa_device_tags", feature = "op_list_mfa_devices", feature = "op_list_open_id_connect_provider_tags", feature = "op_list_open_id_connect_providers", feature = "op_list_policies", feature = "op_list_policy_tags", feature = "op_list_policy_versions", feature = "op_list_role_policies", feature = "op_list_role_tags", feature = "op_list_roles", feature = "op_list_saml_provider_tags", feature = "op_list_saml_providers", feature = "op_list_server_certificate_tags", feature = "op_list_server_certificates", feature = "op_list_signing_certificates", feature = "op_list_user_policies", feature = "op_list_user_tags", feature = "op_list_users", feature = "op_put_account_properties", feature = "op_put_group_policy", feature = "op_put_role_permissions_boundary", feature = "op_put_role_policy", feature = "op_put_user_permissions_boundary", feature = "op_put_user_policy", feature = "op_reject_delegation_request", feature = "op_remove_client_id_from_open_id_connect_provider", feature = "op_remove_role_from_instance_profile", feature = "op_remove_user_from_group", feature = "op_resync_mfa_device", feature = "op_send_delegation_token", feature = "op_set_default_policy_version", feature = "op_set_security_token_service_preferences", feature = "op_tag_instance_profile", feature = "op_tag_mfa_device", feature = "op_tag_open_id_connect_provider", feature = "op_tag_policy", feature = "op_tag_role", feature = "op_tag_saml_provider", feature = "op_tag_server_certificate", feature = "op_tag_user", feature = "op_untag_instance_profile", feature = "op_untag_mfa_device", feature = "op_untag_open_id_connect_provider", feature = "op_untag_policy", feature = "op_untag_role", feature = "op_untag_saml_provider", feature = "op_untag_server_certificate", feature = "op_untag_user", feature = "op_update_access_key", feature = "op_update_account_password_policy", feature = "op_update_assume_role_policy", feature = "op_update_delegation_request", feature = "op_update_group", feature = "op_update_login_profile", feature = "op_update_open_id_connect_provider_thumbprint", feature = "op_update_role", feature = "op_update_role_description", feature = "op_update_saml_provider", feature = "op_update_server_certificate", feature = "op_update_signing_certificate", feature = "op_update_user", feature = "op_upload_server_certificate", feature = "op_upload_signing_certificate"))]
+/// <p>The request processing has failed because of an unknown error, exception or failure.</p>
     ServiceFailureException(crate::types::error::ServiceFailureException),
-    /// <p>The specified service does not support service-specific credentials.</p>
+    #[cfg(any(feature = "op_create_service_specific_credential", feature = "op_list_service_specific_credentials"))]
+/// <p>The specified service does not support service-specific credentials.</p>
     ServiceNotSupportedException(crate::types::error::ServiceNotSupportedException),
-    /// <p>The request was rejected because service-linked roles are protected Amazon Web Services resources. Only the service that depends on the service-linked role can modify or delete the role on your behalf. The error message includes the name of the service that depends on this service-linked role. You must request the change through that service.</p>
+    #[cfg(any(feature = "op_add_role_to_instance_profile", feature = "op_attach_role_policy", feature = "op_delete_role", feature = "op_delete_role_permissions_boundary", feature = "op_delete_role_policy", feature = "op_detach_role_policy", feature = "op_put_role_permissions_boundary", feature = "op_put_role_policy", feature = "op_remove_role_from_instance_profile", feature = "op_update_assume_role_policy", feature = "op_update_role", feature = "op_update_role_description"))]
+/// <p>The request was rejected because service-linked roles are protected Amazon Web Services resources. Only the service that depends on the service-linked role can modify or delete the role on your behalf. The error message includes the name of the service that depends on this service-linked role. You must request the change through that service.</p>
     UnmodifiableEntityException(crate::types::error::UnmodifiableEntityException),
-    /// <p>The request was rejected because the public key encoding format is unsupported or unrecognized.</p>
-    UnrecognizedPublicKeyEncodingException(
-        crate::types::error::UnrecognizedPublicKeyEncodingException,
-    ),
+    #[cfg(any(feature = "op_get_ssh_public_key", feature = "op_upload_ssh_public_key"))]
+/// <p>The request was rejected because the public key encoding format is unsupported or unrecognized.</p>
+    UnrecognizedPublicKeyEncodingException(crate::types::error::UnrecognizedPublicKeyEncodingException),
     /// An unexpected error occurred (e.g., invalid JSON returned by the service or an unknown error code).
-    #[deprecated(
-        note = "Matching `Unhandled` directly is not forwards compatible. Instead, match using a \
+    #[deprecated(note = "Matching `Unhandled` directly is not forwards compatible. Instead, match using a \
     variable wildcard pattern and check `.code()`:
      \
     &nbsp;&nbsp;&nbsp;`err if err.code() == Some(\"SpecificExceptionCode\") => { /* handle the error */ }`
      \
-    See [`ProvideErrorMetadata`](#impl-ProvideErrorMetadata-for-Error) for what information is available for the error."
-    )]
+    See [`ProvideErrorMetadata`](#impl-ProvideErrorMetadata-for-Error) for what information is available for the error.")]
     Unhandled(crate::error::sealed_unhandled::Unhandled),
 }
 impl ::std::fmt::Display for Error {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         match self {
-            Error::AccountNotManagementOrDelegatedAdministratorException(inner) => inner.fmt(f),
-            Error::CallerIsNotManagementAccountException(inner) => inner.fmt(f),
-            Error::ConcurrentModificationException(inner) => inner.fmt(f),
-            Error::CredentialReportExpiredException(inner) => inner.fmt(f),
-            Error::CredentialReportNotPresentException(inner) => inner.fmt(f),
-            Error::CredentialReportNotReadyException(inner) => inner.fmt(f),
-            Error::DeleteConflictException(inner) => inner.fmt(f),
-            Error::DuplicateCertificateException(inner) => inner.fmt(f),
-            Error::DuplicateSshPublicKeyException(inner) => inner.fmt(f),
-            Error::EntityAlreadyExistsException(inner) => inner.fmt(f),
-            Error::EntityTemporarilyUnmodifiableException(inner) => inner.fmt(f),
-            Error::FeatureDisabledException(inner) => inner.fmt(f),
-            Error::FeatureEnabledException(inner) => inner.fmt(f),
-            Error::InvalidAuthenticationCodeException(inner) => inner.fmt(f),
-            Error::InvalidCertificateException(inner) => inner.fmt(f),
-            Error::InvalidInputException(inner) => inner.fmt(f),
-            Error::InvalidPublicKeyException(inner) => inner.fmt(f),
-            Error::InvalidUserTypeException(inner) => inner.fmt(f),
-            Error::KeyPairMismatchException(inner) => inner.fmt(f),
-            Error::LimitExceededException(inner) => inner.fmt(f),
-            Error::MalformedCertificateException(inner) => inner.fmt(f),
-            Error::MalformedPolicyDocumentException(inner) => inner.fmt(f),
-            Error::NameConflictException(inner) => inner.fmt(f),
-            Error::NoSuchEntityException(inner) => inner.fmt(f),
-            Error::OpenIdIdpCommunicationErrorException(inner) => inner.fmt(f),
-            Error::OrganizationNotFoundException(inner) => inner.fmt(f),
-            Error::OrganizationNotInAllFeaturesModeException(inner) => inner.fmt(f),
-            Error::PasswordPolicyViolationException(inner) => inner.fmt(f),
-            Error::PolicyEvaluationException(inner) => inner.fmt(f),
-            Error::PolicyNotAttachableException(inner) => inner.fmt(f),
-            Error::ReportGenerationLimitExceededException(inner) => inner.fmt(f),
-            Error::RoleModifiedException(inner) => inner.fmt(f),
-            Error::RoleTemplateDisabledException(inner) => inner.fmt(f),
-            Error::ServiceAccessNotEnabledException(inner) => inner.fmt(f),
-            Error::ServiceFailureException(inner) => inner.fmt(f),
-            Error::ServiceNotSupportedException(inner) => inner.fmt(f),
-            Error::UnmodifiableEntityException(inner) => inner.fmt(f),
-            Error::UnrecognizedPublicKeyEncodingException(inner) => inner.fmt(f),
+            #[cfg(any(feature = "op_disable_organizations_root_credentials_management", feature = "op_disable_organizations_root_sessions", feature = "op_enable_organizations_root_credentials_management", feature = "op_enable_organizations_root_sessions", feature = "op_list_organizations_features"))]
+Error::AccountNotManagementOrDelegatedAdministratorException(inner) => inner.fmt(f),
+            #[cfg(any(feature = "op_enable_organizations_root_credentials_management", feature = "op_enable_organizations_root_sessions"))]
+Error::CallerIsNotManagementAccountException(inner) => inner.fmt(f),
+            #[cfg(any(feature = "op_accept_delegation_request", feature = "op_acquire_role", feature = "op_add_client_id_to_open_id_connect_provider", feature = "op_associate_delegation_request", feature = "op_create_account_alias", feature = "op_create_delegation_request", feature = "op_create_instance_profile", feature = "op_create_open_id_connect_provider", feature = "op_create_policy", feature = "op_create_role", feature = "op_create_saml_provider", feature = "op_create_user", feature = "op_create_virtual_mfa_device", feature = "op_deactivate_mfa_device", feature = "op_delete_account_alias", feature = "op_delete_role", feature = "op_delete_signing_certificate", feature = "op_delete_user", feature = "op_delete_virtual_mfa_device", feature = "op_enable_mfa_device", feature = "op_put_account_properties", feature = "op_reject_delegation_request", feature = "op_remove_client_id_from_open_id_connect_provider", feature = "op_resync_mfa_device", feature = "op_send_delegation_token", feature = "op_tag_instance_profile", feature = "op_tag_mfa_device", feature = "op_tag_open_id_connect_provider", feature = "op_tag_policy", feature = "op_tag_role", feature = "op_tag_saml_provider", feature = "op_tag_server_certificate", feature = "op_tag_user", feature = "op_untag_instance_profile", feature = "op_untag_mfa_device", feature = "op_untag_open_id_connect_provider", feature = "op_untag_policy", feature = "op_untag_role", feature = "op_untag_saml_provider", feature = "op_untag_server_certificate", feature = "op_untag_user", feature = "op_update_delegation_request", feature = "op_update_open_id_connect_provider_thumbprint", feature = "op_update_saml_provider", feature = "op_update_user", feature = "op_upload_server_certificate", feature = "op_upload_signing_certificate"))]
+Error::ConcurrentModificationException(inner) => inner.fmt(f),
+            #[cfg(feature = "op_get_credential_report")]
+Error::CredentialReportExpiredException(inner) => inner.fmt(f),
+            #[cfg(feature = "op_get_credential_report")]
+Error::CredentialReportNotPresentException(inner) => inner.fmt(f),
+            #[cfg(feature = "op_get_credential_report")]
+Error::CredentialReportNotReadyException(inner) => inner.fmt(f),
+            #[cfg(any(feature = "op_delete_group", feature = "op_delete_instance_profile", feature = "op_delete_policy", feature = "op_delete_policy_version", feature = "op_delete_role", feature = "op_delete_server_certificate", feature = "op_delete_user", feature = "op_delete_virtual_mfa_device"))]
+Error::DeleteConflictException(inner) => inner.fmt(f),
+            #[cfg(feature = "op_upload_signing_certificate")]
+Error::DuplicateCertificateException(inner) => inner.fmt(f),
+            #[cfg(feature = "op_upload_ssh_public_key")]
+Error::DuplicateSshPublicKeyException(inner) => inner.fmt(f),
+            #[cfg(any(feature = "op_acquire_role", feature = "op_add_role_to_instance_profile", feature = "op_create_account_alias", feature = "op_create_delegation_request", feature = "op_create_group", feature = "op_create_instance_profile", feature = "op_create_login_profile", feature = "op_create_open_id_connect_provider", feature = "op_create_policy", feature = "op_create_role", feature = "op_create_saml_provider", feature = "op_create_user", feature = "op_create_virtual_mfa_device", feature = "op_enable_mfa_device", feature = "op_update_group", feature = "op_update_server_certificate", feature = "op_update_user", feature = "op_upload_server_certificate", feature = "op_upload_signing_certificate"))]
+Error::EntityAlreadyExistsException(inner) => inner.fmt(f),
+            #[cfg(any(feature = "op_change_password", feature = "op_deactivate_mfa_device", feature = "op_delete_login_profile", feature = "op_enable_mfa_device", feature = "op_update_login_profile", feature = "op_update_user"))]
+Error::EntityTemporarilyUnmodifiableException(inner) => inner.fmt(f),
+            #[cfg(any(feature = "op_disable_outbound_web_identity_federation", feature = "op_get_outbound_web_identity_federation_info"))]
+Error::FeatureDisabledException(inner) => inner.fmt(f),
+            #[cfg(feature = "op_enable_outbound_web_identity_federation")]
+Error::FeatureEnabledException(inner) => inner.fmt(f),
+            #[cfg(any(feature = "op_enable_mfa_device", feature = "op_resync_mfa_device"))]
+Error::InvalidAuthenticationCodeException(inner) => inner.fmt(f),
+            #[cfg(feature = "op_upload_signing_certificate")]
+Error::InvalidCertificateException(inner) => inner.fmt(f),
+            #[cfg(any(feature = "op_acquire_role", feature = "op_add_client_id_to_open_id_connect_provider", feature = "op_associate_delegation_request", feature = "op_attach_group_policy", feature = "op_attach_role_policy", feature = "op_attach_user_policy", feature = "op_create_delegation_request", feature = "op_create_instance_profile", feature = "op_create_open_id_connect_provider", feature = "op_create_policy", feature = "op_create_policy_version", feature = "op_create_role", feature = "op_create_saml_provider", feature = "op_create_service_linked_role", feature = "op_create_user", feature = "op_create_virtual_mfa_device", feature = "op_delete_open_id_connect_provider", feature = "op_delete_policy", feature = "op_delete_policy_version", feature = "op_delete_saml_provider", feature = "op_detach_group_policy", feature = "op_detach_role_policy", feature = "op_detach_user_policy", feature = "op_generate_service_last_accessed_details", feature = "op_get_account_properties", feature = "op_get_context_keys_for_custom_policy", feature = "op_get_context_keys_for_principal_policy", feature = "op_get_human_readable_summary", feature = "op_get_open_id_connect_provider", feature = "op_get_policy", feature = "op_get_policy_version", feature = "op_get_role_template_version", feature = "op_get_saml_provider", feature = "op_get_service_last_accessed_details", feature = "op_get_service_last_accessed_details_with_entities", feature = "op_get_service_linked_role_deletion_status", feature = "op_list_attached_group_policies", feature = "op_list_attached_role_policies", feature = "op_list_attached_user_policies", feature = "op_list_delegation_requests", feature = "op_list_entities_for_policy", feature = "op_list_mfa_device_tags", feature = "op_list_open_id_connect_provider_tags", feature = "op_list_policies_granting_service_access", feature = "op_list_policy_tags", feature = "op_list_policy_versions", feature = "op_list_saml_provider_tags", feature = "op_put_account_properties", feature = "op_put_role_permissions_boundary", feature = "op_put_user_permissions_boundary", feature = "op_reject_delegation_request", feature = "op_remove_client_id_from_open_id_connect_provider", feature = "op_send_delegation_token", feature = "op_set_default_policy_version", feature = "op_simulate_custom_policy", feature = "op_simulate_principal_policy", feature = "op_tag_instance_profile", feature = "op_tag_mfa_device", feature = "op_tag_open_id_connect_provider", feature = "op_tag_policy", feature = "op_tag_role", feature = "op_tag_saml_provider", feature = "op_tag_server_certificate", feature = "op_tag_user", feature = "op_untag_instance_profile", feature = "op_untag_mfa_device", feature = "op_untag_open_id_connect_provider", feature = "op_untag_policy", feature = "op_untag_saml_provider", feature = "op_untag_server_certificate", feature = "op_update_access_key", feature = "op_update_delegation_request", feature = "op_update_open_id_connect_provider_thumbprint", feature = "op_update_saml_provider", feature = "op_update_signing_certificate", feature = "op_update_ssh_public_key", feature = "op_upload_server_certificate"))]
+Error::InvalidInputException(inner) => inner.fmt(f),
+            #[cfg(feature = "op_upload_ssh_public_key")]
+Error::InvalidPublicKeyException(inner) => inner.fmt(f),
+            #[cfg(feature = "op_change_password")]
+Error::InvalidUserTypeException(inner) => inner.fmt(f),
+            #[cfg(feature = "op_upload_server_certificate")]
+Error::KeyPairMismatchException(inner) => inner.fmt(f),
+            #[cfg(any(feature = "op_acquire_role", feature = "op_add_client_id_to_open_id_connect_provider", feature = "op_add_role_to_instance_profile", feature = "op_add_user_to_group", feature = "op_attach_group_policy", feature = "op_attach_role_policy", feature = "op_attach_user_policy", feature = "op_change_password", feature = "op_create_access_key", feature = "op_create_account_alias", feature = "op_create_delegation_request", feature = "op_create_group", feature = "op_create_instance_profile", feature = "op_create_login_profile", feature = "op_create_open_id_connect_provider", feature = "op_create_policy", feature = "op_create_policy_version", feature = "op_create_role", feature = "op_create_saml_provider", feature = "op_create_service_linked_role", feature = "op_create_service_specific_credential", feature = "op_create_user", feature = "op_create_virtual_mfa_device", feature = "op_deactivate_mfa_device", feature = "op_delete_access_key", feature = "op_delete_account_alias", feature = "op_delete_account_password_policy", feature = "op_delete_group", feature = "op_delete_group_policy", feature = "op_delete_instance_profile", feature = "op_delete_login_profile", feature = "op_delete_policy", feature = "op_delete_policy_version", feature = "op_delete_role", feature = "op_delete_role_policy", feature = "op_delete_saml_provider", feature = "op_delete_server_certificate", feature = "op_delete_service_linked_role", feature = "op_delete_signing_certificate", feature = "op_delete_user", feature = "op_delete_user_policy", feature = "op_delete_virtual_mfa_device", feature = "op_detach_group_policy", feature = "op_detach_role_policy", feature = "op_detach_user_policy", feature = "op_enable_mfa_device", feature = "op_generate_credential_report", feature = "op_put_group_policy", feature = "op_put_role_policy", feature = "op_put_user_policy", feature = "op_remove_role_from_instance_profile", feature = "op_remove_user_from_group", feature = "op_resync_mfa_device", feature = "op_set_default_policy_version", feature = "op_tag_instance_profile", feature = "op_tag_mfa_device", feature = "op_tag_open_id_connect_provider", feature = "op_tag_policy", feature = "op_tag_role", feature = "op_tag_saml_provider", feature = "op_tag_server_certificate", feature = "op_tag_user", feature = "op_update_access_key", feature = "op_update_account_password_policy", feature = "op_update_assume_role_policy", feature = "op_update_group", feature = "op_update_login_profile", feature = "op_update_saml_provider", feature = "op_update_server_certificate", feature = "op_update_signing_certificate", feature = "op_update_user", feature = "op_upload_server_certificate", feature = "op_upload_signing_certificate", feature = "op_upload_ssh_public_key"))]
+Error::LimitExceededException(inner) => inner.fmt(f),
+            #[cfg(any(feature = "op_upload_server_certificate", feature = "op_upload_signing_certificate"))]
+Error::MalformedCertificateException(inner) => inner.fmt(f),
+            #[cfg(any(feature = "op_acquire_role", feature = "op_create_policy", feature = "op_create_policy_version", feature = "op_create_role", feature = "op_put_group_policy", feature = "op_put_role_policy", feature = "op_put_user_policy", feature = "op_update_account_password_policy", feature = "op_update_assume_role_policy"))]
+Error::MalformedPolicyDocumentException(inner) => inner.fmt(f),
+            #[cfg(feature = "op_acquire_role")]
+Error::NameConflictException(inner) => inner.fmt(f),
+            #[cfg(any(feature = "op_accept_delegation_request", feature = "op_acquire_role", feature = "op_add_client_id_to_open_id_connect_provider", feature = "op_add_role_to_instance_profile", feature = "op_add_user_to_group", feature = "op_associate_delegation_request", feature = "op_attach_group_policy", feature = "op_attach_role_policy", feature = "op_attach_user_policy", feature = "op_change_password", feature = "op_create_access_key", feature = "op_create_group", feature = "op_create_login_profile", feature = "op_create_policy_version", feature = "op_create_service_linked_role", feature = "op_create_service_specific_credential", feature = "op_create_user", feature = "op_deactivate_mfa_device", feature = "op_delete_access_key", feature = "op_delete_account_alias", feature = "op_delete_account_password_policy", feature = "op_delete_group", feature = "op_delete_group_policy", feature = "op_delete_instance_profile", feature = "op_delete_login_profile", feature = "op_delete_open_id_connect_provider", feature = "op_delete_policy", feature = "op_delete_policy_version", feature = "op_delete_role", feature = "op_delete_role_permissions_boundary", feature = "op_delete_role_policy", feature = "op_delete_saml_provider", feature = "op_delete_server_certificate", feature = "op_delete_service_linked_role", feature = "op_delete_service_specific_credential", feature = "op_delete_signing_certificate", feature = "op_delete_ssh_public_key", feature = "op_delete_user", feature = "op_delete_user_permissions_boundary", feature = "op_delete_user_policy", feature = "op_delete_virtual_mfa_device", feature = "op_detach_group_policy", feature = "op_detach_role_policy", feature = "op_detach_user_policy", feature = "op_enable_mfa_device", feature = "op_generate_service_last_accessed_details", feature = "op_get_account_password_policy", feature = "op_get_context_keys_for_principal_policy", feature = "op_get_delegation_request", feature = "op_get_group", feature = "op_get_group_policy", feature = "op_get_human_readable_summary", feature = "op_get_instance_profile", feature = "op_get_login_profile", feature = "op_get_mfa_device", feature = "op_get_open_id_connect_provider", feature = "op_get_organizations_access_report", feature = "op_get_policy", feature = "op_get_policy_version", feature = "op_get_role", feature = "op_get_role_policy", feature = "op_get_role_template_version", feature = "op_get_saml_provider", feature = "op_get_server_certificate", feature = "op_get_service_last_accessed_details", feature = "op_get_service_last_accessed_details_with_entities", feature = "op_get_service_linked_role_deletion_status", feature = "op_get_ssh_public_key", feature = "op_get_user", feature = "op_get_user_policy", feature = "op_list_access_keys", feature = "op_list_attached_group_policies", feature = "op_list_attached_role_policies", feature = "op_list_attached_user_policies", feature = "op_list_delegation_requests", feature = "op_list_entities_for_policy", feature = "op_list_group_policies", feature = "op_list_groups_for_user", feature = "op_list_instance_profile_tags", feature = "op_list_instance_profiles_for_role", feature = "op_list_mfa_device_tags", feature = "op_list_mfa_devices", feature = "op_list_open_id_connect_provider_tags", feature = "op_list_policies_granting_service_access", feature = "op_list_policy_tags", feature = "op_list_policy_versions", feature = "op_list_role_policies", feature = "op_list_role_tags", feature = "op_list_saml_provider_tags", feature = "op_list_server_certificate_tags", feature = "op_list_service_specific_credentials", feature = "op_list_signing_certificates", feature = "op_list_ssh_public_keys", feature = "op_list_user_policies", feature = "op_list_user_tags", feature = "op_put_group_policy", feature = "op_put_role_permissions_boundary", feature = "op_put_role_policy", feature = "op_put_user_permissions_boundary", feature = "op_put_user_policy", feature = "op_reject_delegation_request", feature = "op_remove_client_id_from_open_id_connect_provider", feature = "op_remove_role_from_instance_profile", feature = "op_remove_user_from_group", feature = "op_reset_service_specific_credential", feature = "op_resync_mfa_device", feature = "op_send_delegation_token", feature = "op_set_default_policy_version", feature = "op_simulate_principal_policy", feature = "op_tag_instance_profile", feature = "op_tag_mfa_device", feature = "op_tag_open_id_connect_provider", feature = "op_tag_policy", feature = "op_tag_role", feature = "op_tag_saml_provider", feature = "op_tag_server_certificate", feature = "op_tag_user", feature = "op_untag_instance_profile", feature = "op_untag_mfa_device", feature = "op_untag_open_id_connect_provider", feature = "op_untag_policy", feature = "op_untag_role", feature = "op_untag_saml_provider", feature = "op_untag_server_certificate", feature = "op_untag_user", feature = "op_update_access_key", feature = "op_update_account_password_policy", feature = "op_update_assume_role_policy", feature = "op_update_delegation_request", feature = "op_update_group", feature = "op_update_login_profile", feature = "op_update_open_id_connect_provider_thumbprint", feature = "op_update_role", feature = "op_update_role_description", feature = "op_update_saml_provider", feature = "op_update_server_certificate", feature = "op_update_service_specific_credential", feature = "op_update_signing_certificate", feature = "op_update_ssh_public_key", feature = "op_update_user", feature = "op_upload_signing_certificate", feature = "op_upload_ssh_public_key"))]
+Error::NoSuchEntityException(inner) => inner.fmt(f),
+            #[cfg(feature = "op_create_open_id_connect_provider")]
+Error::OpenIdIdpCommunicationErrorException(inner) => inner.fmt(f),
+            #[cfg(any(feature = "op_disable_organizations_root_credentials_management", feature = "op_disable_organizations_root_sessions", feature = "op_enable_organizations_root_credentials_management", feature = "op_enable_organizations_root_sessions", feature = "op_list_organizations_features"))]
+Error::OrganizationNotFoundException(inner) => inner.fmt(f),
+            #[cfg(any(feature = "op_disable_organizations_root_credentials_management", feature = "op_disable_organizations_root_sessions", feature = "op_enable_organizations_root_credentials_management", feature = "op_enable_organizations_root_sessions", feature = "op_list_organizations_features"))]
+Error::OrganizationNotInAllFeaturesModeException(inner) => inner.fmt(f),
+            #[cfg(any(feature = "op_change_password", feature = "op_create_login_profile", feature = "op_update_login_profile"))]
+Error::PasswordPolicyViolationException(inner) => inner.fmt(f),
+            #[cfg(any(feature = "op_simulate_custom_policy", feature = "op_simulate_principal_policy"))]
+Error::PolicyEvaluationException(inner) => inner.fmt(f),
+            #[cfg(any(feature = "op_attach_group_policy", feature = "op_attach_role_policy", feature = "op_attach_user_policy", feature = "op_put_role_permissions_boundary", feature = "op_put_user_permissions_boundary"))]
+Error::PolicyNotAttachableException(inner) => inner.fmt(f),
+            #[cfg(feature = "op_generate_organizations_access_report")]
+Error::ReportGenerationLimitExceededException(inner) => inner.fmt(f),
+            #[cfg(feature = "op_acquire_role")]
+Error::RoleModifiedException(inner) => inner.fmt(f),
+            #[cfg(feature = "op_acquire_role")]
+Error::RoleTemplateDisabledException(inner) => inner.fmt(f),
+            #[cfg(any(feature = "op_disable_organizations_root_credentials_management", feature = "op_disable_organizations_root_sessions", feature = "op_enable_organizations_root_credentials_management", feature = "op_enable_organizations_root_sessions", feature = "op_list_organizations_features"))]
+Error::ServiceAccessNotEnabledException(inner) => inner.fmt(f),
+            #[cfg(any(feature = "op_accept_delegation_request", feature = "op_acquire_role", feature = "op_add_client_id_to_open_id_connect_provider", feature = "op_add_role_to_instance_profile", feature = "op_add_user_to_group", feature = "op_associate_delegation_request", feature = "op_attach_group_policy", feature = "op_attach_role_policy", feature = "op_attach_user_policy", feature = "op_change_password", feature = "op_create_access_key", feature = "op_create_account_alias", feature = "op_create_delegation_request", feature = "op_create_group", feature = "op_create_instance_profile", feature = "op_create_login_profile", feature = "op_create_open_id_connect_provider", feature = "op_create_policy", feature = "op_create_policy_version", feature = "op_create_role", feature = "op_create_saml_provider", feature = "op_create_service_linked_role", feature = "op_create_user", feature = "op_create_virtual_mfa_device", feature = "op_deactivate_mfa_device", feature = "op_delete_access_key", feature = "op_delete_account_alias", feature = "op_delete_account_password_policy", feature = "op_delete_group", feature = "op_delete_group_policy", feature = "op_delete_instance_profile", feature = "op_delete_login_profile", feature = "op_delete_open_id_connect_provider", feature = "op_delete_policy", feature = "op_delete_policy_version", feature = "op_delete_role", feature = "op_delete_role_permissions_boundary", feature = "op_delete_role_policy", feature = "op_delete_saml_provider", feature = "op_delete_server_certificate", feature = "op_delete_service_linked_role", feature = "op_delete_signing_certificate", feature = "op_delete_user", feature = "op_delete_user_permissions_boundary", feature = "op_delete_user_policy", feature = "op_delete_virtual_mfa_device", feature = "op_detach_group_policy", feature = "op_detach_role_policy", feature = "op_detach_user_policy", feature = "op_enable_mfa_device", feature = "op_generate_credential_report", feature = "op_get_account_authorization_details", feature = "op_get_account_password_policy", feature = "op_get_account_properties", feature = "op_get_account_summary", feature = "op_get_credential_report", feature = "op_get_delegation_request", feature = "op_get_group", feature = "op_get_group_policy", feature = "op_get_human_readable_summary", feature = "op_get_instance_profile", feature = "op_get_login_profile", feature = "op_get_mfa_device", feature = "op_get_open_id_connect_provider", feature = "op_get_policy", feature = "op_get_policy_version", feature = "op_get_role", feature = "op_get_role_policy", feature = "op_get_role_template_version", feature = "op_get_saml_provider", feature = "op_get_server_certificate", feature = "op_get_service_linked_role_deletion_status", feature = "op_get_user", feature = "op_get_user_policy", feature = "op_list_access_keys", feature = "op_list_account_aliases", feature = "op_list_attached_group_policies", feature = "op_list_attached_role_policies", feature = "op_list_attached_user_policies", feature = "op_list_delegation_requests", feature = "op_list_entities_for_policy", feature = "op_list_group_policies", feature = "op_list_groups", feature = "op_list_groups_for_user", feature = "op_list_instance_profile_tags", feature = "op_list_instance_profiles", feature = "op_list_instance_profiles_for_role", feature = "op_list_mfa_device_tags", feature = "op_list_mfa_devices", feature = "op_list_open_id_connect_provider_tags", feature = "op_list_open_id_connect_providers", feature = "op_list_policies", feature = "op_list_policy_tags", feature = "op_list_policy_versions", feature = "op_list_role_policies", feature = "op_list_role_tags", feature = "op_list_roles", feature = "op_list_saml_provider_tags", feature = "op_list_saml_providers", feature = "op_list_server_certificate_tags", feature = "op_list_server_certificates", feature = "op_list_signing_certificates", feature = "op_list_user_policies", feature = "op_list_user_tags", feature = "op_list_users", feature = "op_put_account_properties", feature = "op_put_group_policy", feature = "op_put_role_permissions_boundary", feature = "op_put_role_policy", feature = "op_put_user_permissions_boundary", feature = "op_put_user_policy", feature = "op_reject_delegation_request", feature = "op_remove_client_id_from_open_id_connect_provider", feature = "op_remove_role_from_instance_profile", feature = "op_remove_user_from_group", feature = "op_resync_mfa_device", feature = "op_send_delegation_token", feature = "op_set_default_policy_version", feature = "op_set_security_token_service_preferences", feature = "op_tag_instance_profile", feature = "op_tag_mfa_device", feature = "op_tag_open_id_connect_provider", feature = "op_tag_policy", feature = "op_tag_role", feature = "op_tag_saml_provider", feature = "op_tag_server_certificate", feature = "op_tag_user", feature = "op_untag_instance_profile", feature = "op_untag_mfa_device", feature = "op_untag_open_id_connect_provider", feature = "op_untag_policy", feature = "op_untag_role", feature = "op_untag_saml_provider", feature = "op_untag_server_certificate", feature = "op_untag_user", feature = "op_update_access_key", feature = "op_update_account_password_policy", feature = "op_update_assume_role_policy", feature = "op_update_delegation_request", feature = "op_update_group", feature = "op_update_login_profile", feature = "op_update_open_id_connect_provider_thumbprint", feature = "op_update_role", feature = "op_update_role_description", feature = "op_update_saml_provider", feature = "op_update_server_certificate", feature = "op_update_signing_certificate", feature = "op_update_user", feature = "op_upload_server_certificate", feature = "op_upload_signing_certificate"))]
+Error::ServiceFailureException(inner) => inner.fmt(f),
+            #[cfg(any(feature = "op_create_service_specific_credential", feature = "op_list_service_specific_credentials"))]
+Error::ServiceNotSupportedException(inner) => inner.fmt(f),
+            #[cfg(any(feature = "op_add_role_to_instance_profile", feature = "op_attach_role_policy", feature = "op_delete_role", feature = "op_delete_role_permissions_boundary", feature = "op_delete_role_policy", feature = "op_detach_role_policy", feature = "op_put_role_permissions_boundary", feature = "op_put_role_policy", feature = "op_remove_role_from_instance_profile", feature = "op_update_assume_role_policy", feature = "op_update_role", feature = "op_update_role_description"))]
+Error::UnmodifiableEntityException(inner) => inner.fmt(f),
+            #[cfg(any(feature = "op_get_ssh_public_key", feature = "op_upload_ssh_public_key"))]
+Error::UnrecognizedPublicKeyEncodingException(inner) => inner.fmt(f),
             Error::Unhandled(_) => {
-                if let ::std::option::Option::Some(code) =
-                    ::aws_smithy_types::error::metadata::ProvideErrorMetadata::code(self)
-                {
+                if let ::std::option::Option::Some(code) = ::aws_smithy_types::error::metadata::ProvideErrorMetadata::code(self) {
                     write!(f, "unhandled error ({code})")
                 } else {
                     f.write_str("unhandled error")
@@ -166,69 +226,97 @@ impl From<::aws_smithy_types::error::operation::BuildError> for Error {
 impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata for Error {
     fn meta(&self) -> &::aws_smithy_types::error::metadata::ErrorMetadata {
         match self {
-            Self::AccountNotManagementOrDelegatedAdministratorException(inner) => inner.meta(),
-            Self::CallerIsNotManagementAccountException(inner) => inner.meta(),
-            Self::ConcurrentModificationException(inner) => inner.meta(),
-            Self::CredentialReportExpiredException(inner) => inner.meta(),
-            Self::CredentialReportNotPresentException(inner) => inner.meta(),
-            Self::CredentialReportNotReadyException(inner) => inner.meta(),
-            Self::DeleteConflictException(inner) => inner.meta(),
-            Self::DuplicateCertificateException(inner) => inner.meta(),
-            Self::DuplicateSshPublicKeyException(inner) => inner.meta(),
-            Self::EntityAlreadyExistsException(inner) => inner.meta(),
-            Self::EntityTemporarilyUnmodifiableException(inner) => inner.meta(),
-            Self::FeatureDisabledException(inner) => inner.meta(),
-            Self::FeatureEnabledException(inner) => inner.meta(),
-            Self::InvalidAuthenticationCodeException(inner) => inner.meta(),
-            Self::InvalidCertificateException(inner) => inner.meta(),
-            Self::InvalidInputException(inner) => inner.meta(),
-            Self::InvalidPublicKeyException(inner) => inner.meta(),
-            Self::InvalidUserTypeException(inner) => inner.meta(),
-            Self::KeyPairMismatchException(inner) => inner.meta(),
-            Self::LimitExceededException(inner) => inner.meta(),
-            Self::MalformedCertificateException(inner) => inner.meta(),
-            Self::MalformedPolicyDocumentException(inner) => inner.meta(),
-            Self::NameConflictException(inner) => inner.meta(),
-            Self::NoSuchEntityException(inner) => inner.meta(),
-            Self::OpenIdIdpCommunicationErrorException(inner) => inner.meta(),
-            Self::OrganizationNotFoundException(inner) => inner.meta(),
-            Self::OrganizationNotInAllFeaturesModeException(inner) => inner.meta(),
-            Self::PasswordPolicyViolationException(inner) => inner.meta(),
-            Self::PolicyEvaluationException(inner) => inner.meta(),
-            Self::PolicyNotAttachableException(inner) => inner.meta(),
-            Self::ReportGenerationLimitExceededException(inner) => inner.meta(),
-            Self::RoleModifiedException(inner) => inner.meta(),
-            Self::RoleTemplateDisabledException(inner) => inner.meta(),
-            Self::ServiceAccessNotEnabledException(inner) => inner.meta(),
-            Self::ServiceFailureException(inner) => inner.meta(),
-            Self::ServiceNotSupportedException(inner) => inner.meta(),
-            Self::UnmodifiableEntityException(inner) => inner.meta(),
-            Self::UnrecognizedPublicKeyEncodingException(inner) => inner.meta(),
+            #[cfg(any(feature = "op_disable_organizations_root_credentials_management", feature = "op_disable_organizations_root_sessions", feature = "op_enable_organizations_root_credentials_management", feature = "op_enable_organizations_root_sessions", feature = "op_list_organizations_features"))]
+Self::AccountNotManagementOrDelegatedAdministratorException(inner) => inner.meta(),
+            #[cfg(any(feature = "op_enable_organizations_root_credentials_management", feature = "op_enable_organizations_root_sessions"))]
+Self::CallerIsNotManagementAccountException(inner) => inner.meta(),
+            #[cfg(any(feature = "op_accept_delegation_request", feature = "op_acquire_role", feature = "op_add_client_id_to_open_id_connect_provider", feature = "op_associate_delegation_request", feature = "op_create_account_alias", feature = "op_create_delegation_request", feature = "op_create_instance_profile", feature = "op_create_open_id_connect_provider", feature = "op_create_policy", feature = "op_create_role", feature = "op_create_saml_provider", feature = "op_create_user", feature = "op_create_virtual_mfa_device", feature = "op_deactivate_mfa_device", feature = "op_delete_account_alias", feature = "op_delete_role", feature = "op_delete_signing_certificate", feature = "op_delete_user", feature = "op_delete_virtual_mfa_device", feature = "op_enable_mfa_device", feature = "op_put_account_properties", feature = "op_reject_delegation_request", feature = "op_remove_client_id_from_open_id_connect_provider", feature = "op_resync_mfa_device", feature = "op_send_delegation_token", feature = "op_tag_instance_profile", feature = "op_tag_mfa_device", feature = "op_tag_open_id_connect_provider", feature = "op_tag_policy", feature = "op_tag_role", feature = "op_tag_saml_provider", feature = "op_tag_server_certificate", feature = "op_tag_user", feature = "op_untag_instance_profile", feature = "op_untag_mfa_device", feature = "op_untag_open_id_connect_provider", feature = "op_untag_policy", feature = "op_untag_role", feature = "op_untag_saml_provider", feature = "op_untag_server_certificate", feature = "op_untag_user", feature = "op_update_delegation_request", feature = "op_update_open_id_connect_provider_thumbprint", feature = "op_update_saml_provider", feature = "op_update_user", feature = "op_upload_server_certificate", feature = "op_upload_signing_certificate"))]
+Self::ConcurrentModificationException(inner) => inner.meta(),
+            #[cfg(feature = "op_get_credential_report")]
+Self::CredentialReportExpiredException(inner) => inner.meta(),
+            #[cfg(feature = "op_get_credential_report")]
+Self::CredentialReportNotPresentException(inner) => inner.meta(),
+            #[cfg(feature = "op_get_credential_report")]
+Self::CredentialReportNotReadyException(inner) => inner.meta(),
+            #[cfg(any(feature = "op_delete_group", feature = "op_delete_instance_profile", feature = "op_delete_policy", feature = "op_delete_policy_version", feature = "op_delete_role", feature = "op_delete_server_certificate", feature = "op_delete_user", feature = "op_delete_virtual_mfa_device"))]
+Self::DeleteConflictException(inner) => inner.meta(),
+            #[cfg(feature = "op_upload_signing_certificate")]
+Self::DuplicateCertificateException(inner) => inner.meta(),
+            #[cfg(feature = "op_upload_ssh_public_key")]
+Self::DuplicateSshPublicKeyException(inner) => inner.meta(),
+            #[cfg(any(feature = "op_acquire_role", feature = "op_add_role_to_instance_profile", feature = "op_create_account_alias", feature = "op_create_delegation_request", feature = "op_create_group", feature = "op_create_instance_profile", feature = "op_create_login_profile", feature = "op_create_open_id_connect_provider", feature = "op_create_policy", feature = "op_create_role", feature = "op_create_saml_provider", feature = "op_create_user", feature = "op_create_virtual_mfa_device", feature = "op_enable_mfa_device", feature = "op_update_group", feature = "op_update_server_certificate", feature = "op_update_user", feature = "op_upload_server_certificate", feature = "op_upload_signing_certificate"))]
+Self::EntityAlreadyExistsException(inner) => inner.meta(),
+            #[cfg(any(feature = "op_change_password", feature = "op_deactivate_mfa_device", feature = "op_delete_login_profile", feature = "op_enable_mfa_device", feature = "op_update_login_profile", feature = "op_update_user"))]
+Self::EntityTemporarilyUnmodifiableException(inner) => inner.meta(),
+            #[cfg(any(feature = "op_disable_outbound_web_identity_federation", feature = "op_get_outbound_web_identity_federation_info"))]
+Self::FeatureDisabledException(inner) => inner.meta(),
+            #[cfg(feature = "op_enable_outbound_web_identity_federation")]
+Self::FeatureEnabledException(inner) => inner.meta(),
+            #[cfg(any(feature = "op_enable_mfa_device", feature = "op_resync_mfa_device"))]
+Self::InvalidAuthenticationCodeException(inner) => inner.meta(),
+            #[cfg(feature = "op_upload_signing_certificate")]
+Self::InvalidCertificateException(inner) => inner.meta(),
+            #[cfg(any(feature = "op_acquire_role", feature = "op_add_client_id_to_open_id_connect_provider", feature = "op_associate_delegation_request", feature = "op_attach_group_policy", feature = "op_attach_role_policy", feature = "op_attach_user_policy", feature = "op_create_delegation_request", feature = "op_create_instance_profile", feature = "op_create_open_id_connect_provider", feature = "op_create_policy", feature = "op_create_policy_version", feature = "op_create_role", feature = "op_create_saml_provider", feature = "op_create_service_linked_role", feature = "op_create_user", feature = "op_create_virtual_mfa_device", feature = "op_delete_open_id_connect_provider", feature = "op_delete_policy", feature = "op_delete_policy_version", feature = "op_delete_saml_provider", feature = "op_detach_group_policy", feature = "op_detach_role_policy", feature = "op_detach_user_policy", feature = "op_generate_service_last_accessed_details", feature = "op_get_account_properties", feature = "op_get_context_keys_for_custom_policy", feature = "op_get_context_keys_for_principal_policy", feature = "op_get_human_readable_summary", feature = "op_get_open_id_connect_provider", feature = "op_get_policy", feature = "op_get_policy_version", feature = "op_get_role_template_version", feature = "op_get_saml_provider", feature = "op_get_service_last_accessed_details", feature = "op_get_service_last_accessed_details_with_entities", feature = "op_get_service_linked_role_deletion_status", feature = "op_list_attached_group_policies", feature = "op_list_attached_role_policies", feature = "op_list_attached_user_policies", feature = "op_list_delegation_requests", feature = "op_list_entities_for_policy", feature = "op_list_mfa_device_tags", feature = "op_list_open_id_connect_provider_tags", feature = "op_list_policies_granting_service_access", feature = "op_list_policy_tags", feature = "op_list_policy_versions", feature = "op_list_saml_provider_tags", feature = "op_put_account_properties", feature = "op_put_role_permissions_boundary", feature = "op_put_user_permissions_boundary", feature = "op_reject_delegation_request", feature = "op_remove_client_id_from_open_id_connect_provider", feature = "op_send_delegation_token", feature = "op_set_default_policy_version", feature = "op_simulate_custom_policy", feature = "op_simulate_principal_policy", feature = "op_tag_instance_profile", feature = "op_tag_mfa_device", feature = "op_tag_open_id_connect_provider", feature = "op_tag_policy", feature = "op_tag_role", feature = "op_tag_saml_provider", feature = "op_tag_server_certificate", feature = "op_tag_user", feature = "op_untag_instance_profile", feature = "op_untag_mfa_device", feature = "op_untag_open_id_connect_provider", feature = "op_untag_policy", feature = "op_untag_saml_provider", feature = "op_untag_server_certificate", feature = "op_update_access_key", feature = "op_update_delegation_request", feature = "op_update_open_id_connect_provider_thumbprint", feature = "op_update_saml_provider", feature = "op_update_signing_certificate", feature = "op_update_ssh_public_key", feature = "op_upload_server_certificate"))]
+Self::InvalidInputException(inner) => inner.meta(),
+            #[cfg(feature = "op_upload_ssh_public_key")]
+Self::InvalidPublicKeyException(inner) => inner.meta(),
+            #[cfg(feature = "op_change_password")]
+Self::InvalidUserTypeException(inner) => inner.meta(),
+            #[cfg(feature = "op_upload_server_certificate")]
+Self::KeyPairMismatchException(inner) => inner.meta(),
+            #[cfg(any(feature = "op_acquire_role", feature = "op_add_client_id_to_open_id_connect_provider", feature = "op_add_role_to_instance_profile", feature = "op_add_user_to_group", feature = "op_attach_group_policy", feature = "op_attach_role_policy", feature = "op_attach_user_policy", feature = "op_change_password", feature = "op_create_access_key", feature = "op_create_account_alias", feature = "op_create_delegation_request", feature = "op_create_group", feature = "op_create_instance_profile", feature = "op_create_login_profile", feature = "op_create_open_id_connect_provider", feature = "op_create_policy", feature = "op_create_policy_version", feature = "op_create_role", feature = "op_create_saml_provider", feature = "op_create_service_linked_role", feature = "op_create_service_specific_credential", feature = "op_create_user", feature = "op_create_virtual_mfa_device", feature = "op_deactivate_mfa_device", feature = "op_delete_access_key", feature = "op_delete_account_alias", feature = "op_delete_account_password_policy", feature = "op_delete_group", feature = "op_delete_group_policy", feature = "op_delete_instance_profile", feature = "op_delete_login_profile", feature = "op_delete_policy", feature = "op_delete_policy_version", feature = "op_delete_role", feature = "op_delete_role_policy", feature = "op_delete_saml_provider", feature = "op_delete_server_certificate", feature = "op_delete_service_linked_role", feature = "op_delete_signing_certificate", feature = "op_delete_user", feature = "op_delete_user_policy", feature = "op_delete_virtual_mfa_device", feature = "op_detach_group_policy", feature = "op_detach_role_policy", feature = "op_detach_user_policy", feature = "op_enable_mfa_device", feature = "op_generate_credential_report", feature = "op_put_group_policy", feature = "op_put_role_policy", feature = "op_put_user_policy", feature = "op_remove_role_from_instance_profile", feature = "op_remove_user_from_group", feature = "op_resync_mfa_device", feature = "op_set_default_policy_version", feature = "op_tag_instance_profile", feature = "op_tag_mfa_device", feature = "op_tag_open_id_connect_provider", feature = "op_tag_policy", feature = "op_tag_role", feature = "op_tag_saml_provider", feature = "op_tag_server_certificate", feature = "op_tag_user", feature = "op_update_access_key", feature = "op_update_account_password_policy", feature = "op_update_assume_role_policy", feature = "op_update_group", feature = "op_update_login_profile", feature = "op_update_saml_provider", feature = "op_update_server_certificate", feature = "op_update_signing_certificate", feature = "op_update_user", feature = "op_upload_server_certificate", feature = "op_upload_signing_certificate", feature = "op_upload_ssh_public_key"))]
+Self::LimitExceededException(inner) => inner.meta(),
+            #[cfg(any(feature = "op_upload_server_certificate", feature = "op_upload_signing_certificate"))]
+Self::MalformedCertificateException(inner) => inner.meta(),
+            #[cfg(any(feature = "op_acquire_role", feature = "op_create_policy", feature = "op_create_policy_version", feature = "op_create_role", feature = "op_put_group_policy", feature = "op_put_role_policy", feature = "op_put_user_policy", feature = "op_update_account_password_policy", feature = "op_update_assume_role_policy"))]
+Self::MalformedPolicyDocumentException(inner) => inner.meta(),
+            #[cfg(feature = "op_acquire_role")]
+Self::NameConflictException(inner) => inner.meta(),
+            #[cfg(any(feature = "op_accept_delegation_request", feature = "op_acquire_role", feature = "op_add_client_id_to_open_id_connect_provider", feature = "op_add_role_to_instance_profile", feature = "op_add_user_to_group", feature = "op_associate_delegation_request", feature = "op_attach_group_policy", feature = "op_attach_role_policy", feature = "op_attach_user_policy", feature = "op_change_password", feature = "op_create_access_key", feature = "op_create_group", feature = "op_create_login_profile", feature = "op_create_policy_version", feature = "op_create_service_linked_role", feature = "op_create_service_specific_credential", feature = "op_create_user", feature = "op_deactivate_mfa_device", feature = "op_delete_access_key", feature = "op_delete_account_alias", feature = "op_delete_account_password_policy", feature = "op_delete_group", feature = "op_delete_group_policy", feature = "op_delete_instance_profile", feature = "op_delete_login_profile", feature = "op_delete_open_id_connect_provider", feature = "op_delete_policy", feature = "op_delete_policy_version", feature = "op_delete_role", feature = "op_delete_role_permissions_boundary", feature = "op_delete_role_policy", feature = "op_delete_saml_provider", feature = "op_delete_server_certificate", feature = "op_delete_service_linked_role", feature = "op_delete_service_specific_credential", feature = "op_delete_signing_certificate", feature = "op_delete_ssh_public_key", feature = "op_delete_user", feature = "op_delete_user_permissions_boundary", feature = "op_delete_user_policy", feature = "op_delete_virtual_mfa_device", feature = "op_detach_group_policy", feature = "op_detach_role_policy", feature = "op_detach_user_policy", feature = "op_enable_mfa_device", feature = "op_generate_service_last_accessed_details", feature = "op_get_account_password_policy", feature = "op_get_context_keys_for_principal_policy", feature = "op_get_delegation_request", feature = "op_get_group", feature = "op_get_group_policy", feature = "op_get_human_readable_summary", feature = "op_get_instance_profile", feature = "op_get_login_profile", feature = "op_get_mfa_device", feature = "op_get_open_id_connect_provider", feature = "op_get_organizations_access_report", feature = "op_get_policy", feature = "op_get_policy_version", feature = "op_get_role", feature = "op_get_role_policy", feature = "op_get_role_template_version", feature = "op_get_saml_provider", feature = "op_get_server_certificate", feature = "op_get_service_last_accessed_details", feature = "op_get_service_last_accessed_details_with_entities", feature = "op_get_service_linked_role_deletion_status", feature = "op_get_ssh_public_key", feature = "op_get_user", feature = "op_get_user_policy", feature = "op_list_access_keys", feature = "op_list_attached_group_policies", feature = "op_list_attached_role_policies", feature = "op_list_attached_user_policies", feature = "op_list_delegation_requests", feature = "op_list_entities_for_policy", feature = "op_list_group_policies", feature = "op_list_groups_for_user", feature = "op_list_instance_profile_tags", feature = "op_list_instance_profiles_for_role", feature = "op_list_mfa_device_tags", feature = "op_list_mfa_devices", feature = "op_list_open_id_connect_provider_tags", feature = "op_list_policies_granting_service_access", feature = "op_list_policy_tags", feature = "op_list_policy_versions", feature = "op_list_role_policies", feature = "op_list_role_tags", feature = "op_list_saml_provider_tags", feature = "op_list_server_certificate_tags", feature = "op_list_service_specific_credentials", feature = "op_list_signing_certificates", feature = "op_list_ssh_public_keys", feature = "op_list_user_policies", feature = "op_list_user_tags", feature = "op_put_group_policy", feature = "op_put_role_permissions_boundary", feature = "op_put_role_policy", feature = "op_put_user_permissions_boundary", feature = "op_put_user_policy", feature = "op_reject_delegation_request", feature = "op_remove_client_id_from_open_id_connect_provider", feature = "op_remove_role_from_instance_profile", feature = "op_remove_user_from_group", feature = "op_reset_service_specific_credential", feature = "op_resync_mfa_device", feature = "op_send_delegation_token", feature = "op_set_default_policy_version", feature = "op_simulate_principal_policy", feature = "op_tag_instance_profile", feature = "op_tag_mfa_device", feature = "op_tag_open_id_connect_provider", feature = "op_tag_policy", feature = "op_tag_role", feature = "op_tag_saml_provider", feature = "op_tag_server_certificate", feature = "op_tag_user", feature = "op_untag_instance_profile", feature = "op_untag_mfa_device", feature = "op_untag_open_id_connect_provider", feature = "op_untag_policy", feature = "op_untag_role", feature = "op_untag_saml_provider", feature = "op_untag_server_certificate", feature = "op_untag_user", feature = "op_update_access_key", feature = "op_update_account_password_policy", feature = "op_update_assume_role_policy", feature = "op_update_delegation_request", feature = "op_update_group", feature = "op_update_login_profile", feature = "op_update_open_id_connect_provider_thumbprint", feature = "op_update_role", feature = "op_update_role_description", feature = "op_update_saml_provider", feature = "op_update_server_certificate", feature = "op_update_service_specific_credential", feature = "op_update_signing_certificate", feature = "op_update_ssh_public_key", feature = "op_update_user", feature = "op_upload_signing_certificate", feature = "op_upload_ssh_public_key"))]
+Self::NoSuchEntityException(inner) => inner.meta(),
+            #[cfg(feature = "op_create_open_id_connect_provider")]
+Self::OpenIdIdpCommunicationErrorException(inner) => inner.meta(),
+            #[cfg(any(feature = "op_disable_organizations_root_credentials_management", feature = "op_disable_organizations_root_sessions", feature = "op_enable_organizations_root_credentials_management", feature = "op_enable_organizations_root_sessions", feature = "op_list_organizations_features"))]
+Self::OrganizationNotFoundException(inner) => inner.meta(),
+            #[cfg(any(feature = "op_disable_organizations_root_credentials_management", feature = "op_disable_organizations_root_sessions", feature = "op_enable_organizations_root_credentials_management", feature = "op_enable_organizations_root_sessions", feature = "op_list_organizations_features"))]
+Self::OrganizationNotInAllFeaturesModeException(inner) => inner.meta(),
+            #[cfg(any(feature = "op_change_password", feature = "op_create_login_profile", feature = "op_update_login_profile"))]
+Self::PasswordPolicyViolationException(inner) => inner.meta(),
+            #[cfg(any(feature = "op_simulate_custom_policy", feature = "op_simulate_principal_policy"))]
+Self::PolicyEvaluationException(inner) => inner.meta(),
+            #[cfg(any(feature = "op_attach_group_policy", feature = "op_attach_role_policy", feature = "op_attach_user_policy", feature = "op_put_role_permissions_boundary", feature = "op_put_user_permissions_boundary"))]
+Self::PolicyNotAttachableException(inner) => inner.meta(),
+            #[cfg(feature = "op_generate_organizations_access_report")]
+Self::ReportGenerationLimitExceededException(inner) => inner.meta(),
+            #[cfg(feature = "op_acquire_role")]
+Self::RoleModifiedException(inner) => inner.meta(),
+            #[cfg(feature = "op_acquire_role")]
+Self::RoleTemplateDisabledException(inner) => inner.meta(),
+            #[cfg(any(feature = "op_disable_organizations_root_credentials_management", feature = "op_disable_organizations_root_sessions", feature = "op_enable_organizations_root_credentials_management", feature = "op_enable_organizations_root_sessions", feature = "op_list_organizations_features"))]
+Self::ServiceAccessNotEnabledException(inner) => inner.meta(),
+            #[cfg(any(feature = "op_accept_delegation_request", feature = "op_acquire_role", feature = "op_add_client_id_to_open_id_connect_provider", feature = "op_add_role_to_instance_profile", feature = "op_add_user_to_group", feature = "op_associate_delegation_request", feature = "op_attach_group_policy", feature = "op_attach_role_policy", feature = "op_attach_user_policy", feature = "op_change_password", feature = "op_create_access_key", feature = "op_create_account_alias", feature = "op_create_delegation_request", feature = "op_create_group", feature = "op_create_instance_profile", feature = "op_create_login_profile", feature = "op_create_open_id_connect_provider", feature = "op_create_policy", feature = "op_create_policy_version", feature = "op_create_role", feature = "op_create_saml_provider", feature = "op_create_service_linked_role", feature = "op_create_user", feature = "op_create_virtual_mfa_device", feature = "op_deactivate_mfa_device", feature = "op_delete_access_key", feature = "op_delete_account_alias", feature = "op_delete_account_password_policy", feature = "op_delete_group", feature = "op_delete_group_policy", feature = "op_delete_instance_profile", feature = "op_delete_login_profile", feature = "op_delete_open_id_connect_provider", feature = "op_delete_policy", feature = "op_delete_policy_version", feature = "op_delete_role", feature = "op_delete_role_permissions_boundary", feature = "op_delete_role_policy", feature = "op_delete_saml_provider", feature = "op_delete_server_certificate", feature = "op_delete_service_linked_role", feature = "op_delete_signing_certificate", feature = "op_delete_user", feature = "op_delete_user_permissions_boundary", feature = "op_delete_user_policy", feature = "op_delete_virtual_mfa_device", feature = "op_detach_group_policy", feature = "op_detach_role_policy", feature = "op_detach_user_policy", feature = "op_enable_mfa_device", feature = "op_generate_credential_report", feature = "op_get_account_authorization_details", feature = "op_get_account_password_policy", feature = "op_get_account_properties", feature = "op_get_account_summary", feature = "op_get_credential_report", feature = "op_get_delegation_request", feature = "op_get_group", feature = "op_get_group_policy", feature = "op_get_human_readable_summary", feature = "op_get_instance_profile", feature = "op_get_login_profile", feature = "op_get_mfa_device", feature = "op_get_open_id_connect_provider", feature = "op_get_policy", feature = "op_get_policy_version", feature = "op_get_role", feature = "op_get_role_policy", feature = "op_get_role_template_version", feature = "op_get_saml_provider", feature = "op_get_server_certificate", feature = "op_get_service_linked_role_deletion_status", feature = "op_get_user", feature = "op_get_user_policy", feature = "op_list_access_keys", feature = "op_list_account_aliases", feature = "op_list_attached_group_policies", feature = "op_list_attached_role_policies", feature = "op_list_attached_user_policies", feature = "op_list_delegation_requests", feature = "op_list_entities_for_policy", feature = "op_list_group_policies", feature = "op_list_groups", feature = "op_list_groups_for_user", feature = "op_list_instance_profile_tags", feature = "op_list_instance_profiles", feature = "op_list_instance_profiles_for_role", feature = "op_list_mfa_device_tags", feature = "op_list_mfa_devices", feature = "op_list_open_id_connect_provider_tags", feature = "op_list_open_id_connect_providers", feature = "op_list_policies", feature = "op_list_policy_tags", feature = "op_list_policy_versions", feature = "op_list_role_policies", feature = "op_list_role_tags", feature = "op_list_roles", feature = "op_list_saml_provider_tags", feature = "op_list_saml_providers", feature = "op_list_server_certificate_tags", feature = "op_list_server_certificates", feature = "op_list_signing_certificates", feature = "op_list_user_policies", feature = "op_list_user_tags", feature = "op_list_users", feature = "op_put_account_properties", feature = "op_put_group_policy", feature = "op_put_role_permissions_boundary", feature = "op_put_role_policy", feature = "op_put_user_permissions_boundary", feature = "op_put_user_policy", feature = "op_reject_delegation_request", feature = "op_remove_client_id_from_open_id_connect_provider", feature = "op_remove_role_from_instance_profile", feature = "op_remove_user_from_group", feature = "op_resync_mfa_device", feature = "op_send_delegation_token", feature = "op_set_default_policy_version", feature = "op_set_security_token_service_preferences", feature = "op_tag_instance_profile", feature = "op_tag_mfa_device", feature = "op_tag_open_id_connect_provider", feature = "op_tag_policy", feature = "op_tag_role", feature = "op_tag_saml_provider", feature = "op_tag_server_certificate", feature = "op_tag_user", feature = "op_untag_instance_profile", feature = "op_untag_mfa_device", feature = "op_untag_open_id_connect_provider", feature = "op_untag_policy", feature = "op_untag_role", feature = "op_untag_saml_provider", feature = "op_untag_server_certificate", feature = "op_untag_user", feature = "op_update_access_key", feature = "op_update_account_password_policy", feature = "op_update_assume_role_policy", feature = "op_update_delegation_request", feature = "op_update_group", feature = "op_update_login_profile", feature = "op_update_open_id_connect_provider_thumbprint", feature = "op_update_role", feature = "op_update_role_description", feature = "op_update_saml_provider", feature = "op_update_server_certificate", feature = "op_update_signing_certificate", feature = "op_update_user", feature = "op_upload_server_certificate", feature = "op_upload_signing_certificate"))]
+Self::ServiceFailureException(inner) => inner.meta(),
+            #[cfg(any(feature = "op_create_service_specific_credential", feature = "op_list_service_specific_credentials"))]
+Self::ServiceNotSupportedException(inner) => inner.meta(),
+            #[cfg(any(feature = "op_add_role_to_instance_profile", feature = "op_attach_role_policy", feature = "op_delete_role", feature = "op_delete_role_permissions_boundary", feature = "op_delete_role_policy", feature = "op_detach_role_policy", feature = "op_put_role_permissions_boundary", feature = "op_put_role_policy", feature = "op_remove_role_from_instance_profile", feature = "op_update_assume_role_policy", feature = "op_update_role", feature = "op_update_role_description"))]
+Self::UnmodifiableEntityException(inner) => inner.meta(),
+            #[cfg(any(feature = "op_get_ssh_public_key", feature = "op_upload_ssh_public_key"))]
+Self::UnrecognizedPublicKeyEncodingException(inner) => inner.meta(),
             Self::Unhandled(inner) => &inner.meta,
         }
     }
 }
 #[cfg(feature = "op_accept_delegation_request")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::accept_delegation_request::AcceptDelegationRequestError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::accept_delegation_request::AcceptDelegationRequestError, R>>
+    for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
     fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::accept_delegation_request::AcceptDelegationRequestError,
-            R,
-        >,
+        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::accept_delegation_request::AcceptDelegationRequestError, R>,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -238,9 +326,7 @@ where
 }
 #[cfg(feature = "op_accept_delegation_request")]
 impl From<crate::operation::accept_delegation_request::AcceptDelegationRequestError> for Error {
-    fn from(
-        err: crate::operation::accept_delegation_request::AcceptDelegationRequestError,
-    ) -> Self {
+    fn from(err: crate::operation::accept_delegation_request::AcceptDelegationRequestError) -> Self {
         match err {
             crate::operation::accept_delegation_request::AcceptDelegationRequestError::ConcurrentModificationException(inner) => {
                 Error::ConcurrentModificationException(inner)
@@ -256,26 +342,13 @@ impl From<crate::operation::accept_delegation_request::AcceptDelegationRequestEr
     }
 }
 #[cfg(feature = "op_acquire_role")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::acquire_role::AcquireRoleError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::acquire_role::AcquireRoleError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::acquire_role::AcquireRoleError,
-            R,
-        >,
-    ) -> Self {
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::acquire_role::AcquireRoleError, R>) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -287,39 +360,19 @@ where
 impl From<crate::operation::acquire_role::AcquireRoleError> for Error {
     fn from(err: crate::operation::acquire_role::AcquireRoleError) -> Self {
         match err {
-            crate::operation::acquire_role::AcquireRoleError::ConcurrentModificationException(
-                inner,
-            ) => Error::ConcurrentModificationException(inner),
-            crate::operation::acquire_role::AcquireRoleError::EntityAlreadyExistsException(
-                inner,
-            ) => Error::EntityAlreadyExistsException(inner),
-            crate::operation::acquire_role::AcquireRoleError::InvalidInputException(inner) => {
-                Error::InvalidInputException(inner)
+            crate::operation::acquire_role::AcquireRoleError::ConcurrentModificationException(inner) => Error::ConcurrentModificationException(inner),
+            crate::operation::acquire_role::AcquireRoleError::EntityAlreadyExistsException(inner) => Error::EntityAlreadyExistsException(inner),
+            crate::operation::acquire_role::AcquireRoleError::InvalidInputException(inner) => Error::InvalidInputException(inner),
+            crate::operation::acquire_role::AcquireRoleError::LimitExceededException(inner) => Error::LimitExceededException(inner),
+            crate::operation::acquire_role::AcquireRoleError::MalformedPolicyDocumentException(inner) => {
+                Error::MalformedPolicyDocumentException(inner)
             }
-            crate::operation::acquire_role::AcquireRoleError::LimitExceededException(inner) => {
-                Error::LimitExceededException(inner)
-            }
-            crate::operation::acquire_role::AcquireRoleError::MalformedPolicyDocumentException(
-                inner,
-            ) => Error::MalformedPolicyDocumentException(inner),
-            crate::operation::acquire_role::AcquireRoleError::NameConflictException(inner) => {
-                Error::NameConflictException(inner)
-            }
-            crate::operation::acquire_role::AcquireRoleError::NoSuchEntityException(inner) => {
-                Error::NoSuchEntityException(inner)
-            }
-            crate::operation::acquire_role::AcquireRoleError::RoleModifiedException(inner) => {
-                Error::RoleModifiedException(inner)
-            }
-            crate::operation::acquire_role::AcquireRoleError::RoleTemplateDisabledException(
-                inner,
-            ) => Error::RoleTemplateDisabledException(inner),
-            crate::operation::acquire_role::AcquireRoleError::ServiceFailureException(inner) => {
-                Error::ServiceFailureException(inner)
-            }
-            crate::operation::acquire_role::AcquireRoleError::Unhandled(inner) => {
-                Error::Unhandled(inner)
-            }
+            crate::operation::acquire_role::AcquireRoleError::NameConflictException(inner) => Error::NameConflictException(inner),
+            crate::operation::acquire_role::AcquireRoleError::NoSuchEntityException(inner) => Error::NoSuchEntityException(inner),
+            crate::operation::acquire_role::AcquireRoleError::RoleModifiedException(inner) => Error::RoleModifiedException(inner),
+            crate::operation::acquire_role::AcquireRoleError::RoleTemplateDisabledException(inner) => Error::RoleTemplateDisabledException(inner),
+            crate::operation::acquire_role::AcquireRoleError::ServiceFailureException(inner) => Error::ServiceFailureException(inner),
+            crate::operation::acquire_role::AcquireRoleError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
@@ -375,26 +428,16 @@ impl From<crate::operation::add_client_id_to_open_id_connect_provider::AddClient
     }
 }
 #[cfg(feature = "op_add_role_to_instance_profile")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::add_role_to_instance_profile::AddRoleToInstanceProfileError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::add_role_to_instance_profile::AddRoleToInstanceProfileError, R>>
+    for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
     fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::add_role_to_instance_profile::AddRoleToInstanceProfileError,
-            R,
-        >,
+        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::add_role_to_instance_profile::AddRoleToInstanceProfileError, R>,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -404,9 +447,7 @@ where
 }
 #[cfg(feature = "op_add_role_to_instance_profile")]
 impl From<crate::operation::add_role_to_instance_profile::AddRoleToInstanceProfileError> for Error {
-    fn from(
-        err: crate::operation::add_role_to_instance_profile::AddRoleToInstanceProfileError,
-    ) -> Self {
+    fn from(err: crate::operation::add_role_to_instance_profile::AddRoleToInstanceProfileError) -> Self {
         match err {
             crate::operation::add_role_to_instance_profile::AddRoleToInstanceProfileError::EntityAlreadyExistsException(inner) => {
                 Error::EntityAlreadyExistsException(inner)
@@ -428,26 +469,13 @@ impl From<crate::operation::add_role_to_instance_profile::AddRoleToInstanceProfi
     }
 }
 #[cfg(feature = "op_add_user_to_group")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::add_user_to_group::AddUserToGroupError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::add_user_to_group::AddUserToGroupError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::add_user_to_group::AddUserToGroupError,
-            R,
-        >,
-    ) -> Self {
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::add_user_to_group::AddUserToGroupError, R>) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -459,42 +487,24 @@ where
 impl From<crate::operation::add_user_to_group::AddUserToGroupError> for Error {
     fn from(err: crate::operation::add_user_to_group::AddUserToGroupError) -> Self {
         match err {
-            crate::operation::add_user_to_group::AddUserToGroupError::LimitExceededException(
-                inner,
-            ) => Error::LimitExceededException(inner),
-            crate::operation::add_user_to_group::AddUserToGroupError::NoSuchEntityException(
-                inner,
-            ) => Error::NoSuchEntityException(inner),
-            crate::operation::add_user_to_group::AddUserToGroupError::ServiceFailureException(
-                inner,
-            ) => Error::ServiceFailureException(inner),
-            crate::operation::add_user_to_group::AddUserToGroupError::Unhandled(inner) => {
-                Error::Unhandled(inner)
-            }
+            crate::operation::add_user_to_group::AddUserToGroupError::LimitExceededException(inner) => Error::LimitExceededException(inner),
+            crate::operation::add_user_to_group::AddUserToGroupError::NoSuchEntityException(inner) => Error::NoSuchEntityException(inner),
+            crate::operation::add_user_to_group::AddUserToGroupError::ServiceFailureException(inner) => Error::ServiceFailureException(inner),
+            crate::operation::add_user_to_group::AddUserToGroupError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
 #[cfg(feature = "op_associate_delegation_request")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::associate_delegation_request::AssociateDelegationRequestError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::associate_delegation_request::AssociateDelegationRequestError, R>>
+    for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
     fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::associate_delegation_request::AssociateDelegationRequestError,
-            R,
-        >,
+        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::associate_delegation_request::AssociateDelegationRequestError, R>,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -503,12 +513,8 @@ where
     }
 }
 #[cfg(feature = "op_associate_delegation_request")]
-impl From<crate::operation::associate_delegation_request::AssociateDelegationRequestError>
-    for Error
-{
-    fn from(
-        err: crate::operation::associate_delegation_request::AssociateDelegationRequestError,
-    ) -> Self {
+impl From<crate::operation::associate_delegation_request::AssociateDelegationRequestError> for Error {
+    fn from(err: crate::operation::associate_delegation_request::AssociateDelegationRequestError) -> Self {
         match err {
             crate::operation::associate_delegation_request::AssociateDelegationRequestError::ConcurrentModificationException(inner) => {
                 Error::ConcurrentModificationException(inner)
@@ -527,26 +533,13 @@ impl From<crate::operation::associate_delegation_request::AssociateDelegationReq
     }
 }
 #[cfg(feature = "op_attach_group_policy")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::attach_group_policy::AttachGroupPolicyError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::attach_group_policy::AttachGroupPolicyError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::attach_group_policy::AttachGroupPolicyError,
-            R,
-        >,
-    ) -> Self {
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::attach_group_policy::AttachGroupPolicyError, R>) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -570,26 +563,13 @@ impl From<crate::operation::attach_group_policy::AttachGroupPolicyError> for Err
     }
 }
 #[cfg(feature = "op_attach_role_policy")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::attach_role_policy::AttachRolePolicyError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::attach_role_policy::AttachRolePolicyError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::attach_role_policy::AttachRolePolicyError,
-            R,
-        >,
-    ) -> Self {
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::attach_role_policy::AttachRolePolicyError, R>) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -616,26 +596,13 @@ impl From<crate::operation::attach_role_policy::AttachRolePolicyError> for Error
     }
 }
 #[cfg(feature = "op_attach_user_policy")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::attach_user_policy::AttachUserPolicyError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::attach_user_policy::AttachUserPolicyError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::attach_user_policy::AttachUserPolicyError,
-            R,
-        >,
-    ) -> Self {
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::attach_user_policy::AttachUserPolicyError, R>) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -659,26 +626,13 @@ impl From<crate::operation::attach_user_policy::AttachUserPolicyError> for Error
     }
 }
 #[cfg(feature = "op_change_password")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::change_password::ChangePasswordError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::change_password::ChangePasswordError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::change_password::ChangePasswordError,
-            R,
-        >,
-    ) -> Self {
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::change_password::ChangePasswordError, R>) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -705,26 +659,13 @@ impl From<crate::operation::change_password::ChangePasswordError> for Error {
     }
 }
 #[cfg(feature = "op_create_access_key")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::create_access_key::CreateAccessKeyError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::create_access_key::CreateAccessKeyError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::create_access_key::CreateAccessKeyError,
-            R,
-        >,
-    ) -> Self {
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::create_access_key::CreateAccessKeyError, R>) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -736,42 +677,21 @@ where
 impl From<crate::operation::create_access_key::CreateAccessKeyError> for Error {
     fn from(err: crate::operation::create_access_key::CreateAccessKeyError) -> Self {
         match err {
-            crate::operation::create_access_key::CreateAccessKeyError::LimitExceededException(
-                inner,
-            ) => Error::LimitExceededException(inner),
-            crate::operation::create_access_key::CreateAccessKeyError::NoSuchEntityException(
-                inner,
-            ) => Error::NoSuchEntityException(inner),
-            crate::operation::create_access_key::CreateAccessKeyError::ServiceFailureException(
-                inner,
-            ) => Error::ServiceFailureException(inner),
-            crate::operation::create_access_key::CreateAccessKeyError::Unhandled(inner) => {
-                Error::Unhandled(inner)
-            }
+            crate::operation::create_access_key::CreateAccessKeyError::LimitExceededException(inner) => Error::LimitExceededException(inner),
+            crate::operation::create_access_key::CreateAccessKeyError::NoSuchEntityException(inner) => Error::NoSuchEntityException(inner),
+            crate::operation::create_access_key::CreateAccessKeyError::ServiceFailureException(inner) => Error::ServiceFailureException(inner),
+            crate::operation::create_access_key::CreateAccessKeyError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
 #[cfg(feature = "op_create_account_alias")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::create_account_alias::CreateAccountAliasError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::create_account_alias::CreateAccountAliasError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::create_account_alias::CreateAccountAliasError,
-            R,
-        >,
-    ) -> Self {
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::create_account_alias::CreateAccountAliasError, R>) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -796,26 +716,16 @@ impl From<crate::operation::create_account_alias::CreateAccountAliasError> for E
     }
 }
 #[cfg(feature = "op_create_delegation_request")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::create_delegation_request::CreateDelegationRequestError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::create_delegation_request::CreateDelegationRequestError, R>>
+    for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
     fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::create_delegation_request::CreateDelegationRequestError,
-            R,
-        >,
+        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::create_delegation_request::CreateDelegationRequestError, R>,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -825,9 +735,7 @@ where
 }
 #[cfg(feature = "op_create_delegation_request")]
 impl From<crate::operation::create_delegation_request::CreateDelegationRequestError> for Error {
-    fn from(
-        err: crate::operation::create_delegation_request::CreateDelegationRequestError,
-    ) -> Self {
+    fn from(err: crate::operation::create_delegation_request::CreateDelegationRequestError) -> Self {
         match err {
             crate::operation::create_delegation_request::CreateDelegationRequestError::ConcurrentModificationException(inner) => {
                 Error::ConcurrentModificationException(inner)
@@ -849,26 +757,13 @@ impl From<crate::operation::create_delegation_request::CreateDelegationRequestEr
     }
 }
 #[cfg(feature = "op_create_group")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::create_group::CreateGroupError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::create_group::CreateGroupError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::create_group::CreateGroupError,
-            R,
-        >,
-    ) -> Self {
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::create_group::CreateGroupError, R>) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -880,45 +775,24 @@ where
 impl From<crate::operation::create_group::CreateGroupError> for Error {
     fn from(err: crate::operation::create_group::CreateGroupError) -> Self {
         match err {
-            crate::operation::create_group::CreateGroupError::EntityAlreadyExistsException(
-                inner,
-            ) => Error::EntityAlreadyExistsException(inner),
-            crate::operation::create_group::CreateGroupError::LimitExceededException(inner) => {
-                Error::LimitExceededException(inner)
-            }
-            crate::operation::create_group::CreateGroupError::NoSuchEntityException(inner) => {
-                Error::NoSuchEntityException(inner)
-            }
-            crate::operation::create_group::CreateGroupError::ServiceFailureException(inner) => {
-                Error::ServiceFailureException(inner)
-            }
-            crate::operation::create_group::CreateGroupError::Unhandled(inner) => {
-                Error::Unhandled(inner)
-            }
+            crate::operation::create_group::CreateGroupError::EntityAlreadyExistsException(inner) => Error::EntityAlreadyExistsException(inner),
+            crate::operation::create_group::CreateGroupError::LimitExceededException(inner) => Error::LimitExceededException(inner),
+            crate::operation::create_group::CreateGroupError::NoSuchEntityException(inner) => Error::NoSuchEntityException(inner),
+            crate::operation::create_group::CreateGroupError::ServiceFailureException(inner) => Error::ServiceFailureException(inner),
+            crate::operation::create_group::CreateGroupError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
 #[cfg(feature = "op_create_instance_profile")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::create_instance_profile::CreateInstanceProfileError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::create_instance_profile::CreateInstanceProfileError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
     fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::create_instance_profile::CreateInstanceProfileError,
-            R,
-        >,
+        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::create_instance_profile::CreateInstanceProfileError, R>,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -950,26 +824,13 @@ impl From<crate::operation::create_instance_profile::CreateInstanceProfileError>
     }
 }
 #[cfg(feature = "op_create_login_profile")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::create_login_profile::CreateLoginProfileError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::create_login_profile::CreateLoginProfileError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::create_login_profile::CreateLoginProfileError,
-            R,
-        >,
-    ) -> Self {
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::create_login_profile::CreateLoginProfileError, R>) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -996,12 +857,8 @@ impl From<crate::operation::create_login_profile::CreateLoginProfileError> for E
 }
 #[cfg(feature = "op_create_open_id_connect_provider")]
 impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::create_open_id_connect_provider::CreateOpenIDConnectProviderError,
-            R,
-        >,
-    > for Error
+    From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::create_open_id_connect_provider::CreateOpenIDConnectProviderError, R>>
+    for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
@@ -1012,9 +869,7 @@ where
         >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -1023,12 +878,8 @@ where
     }
 }
 #[cfg(feature = "op_create_open_id_connect_provider")]
-impl From<crate::operation::create_open_id_connect_provider::CreateOpenIDConnectProviderError>
-    for Error
-{
-    fn from(
-        err: crate::operation::create_open_id_connect_provider::CreateOpenIDConnectProviderError,
-    ) -> Self {
+impl From<crate::operation::create_open_id_connect_provider::CreateOpenIDConnectProviderError> for Error {
+    fn from(err: crate::operation::create_open_id_connect_provider::CreateOpenIDConnectProviderError) -> Self {
         match err {
             crate::operation::create_open_id_connect_provider::CreateOpenIDConnectProviderError::ConcurrentModificationException(inner) => {
                 Error::ConcurrentModificationException(inner)
@@ -1053,26 +904,13 @@ impl From<crate::operation::create_open_id_connect_provider::CreateOpenIDConnect
     }
 }
 #[cfg(feature = "op_create_policy")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::create_policy::CreatePolicyError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::create_policy::CreatePolicyError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::create_policy::CreatePolicyError,
-            R,
-        >,
-    ) -> Self {
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::create_policy::CreatePolicyError, R>) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -1099,26 +937,13 @@ impl From<crate::operation::create_policy::CreatePolicyError> for Error {
     }
 }
 #[cfg(feature = "op_create_policy_version")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::create_policy_version::CreatePolicyVersionError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::create_policy_version::CreatePolicyVersionError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::create_policy_version::CreatePolicyVersionError,
-            R,
-        >,
-    ) -> Self {
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::create_policy_version::CreatePolicyVersionError, R>) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -1144,26 +969,13 @@ impl From<crate::operation::create_policy_version::CreatePolicyVersionError> for
     }
 }
 #[cfg(feature = "op_create_role")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::create_role::CreateRoleError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::create_role::CreateRoleError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::create_role::CreateRoleError,
-            R,
-        >,
-    ) -> Self {
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::create_role::CreateRoleError, R>) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -1175,51 +987,24 @@ where
 impl From<crate::operation::create_role::CreateRoleError> for Error {
     fn from(err: crate::operation::create_role::CreateRoleError) -> Self {
         match err {
-            crate::operation::create_role::CreateRoleError::ConcurrentModificationException(
-                inner,
-            ) => Error::ConcurrentModificationException(inner),
-            crate::operation::create_role::CreateRoleError::EntityAlreadyExistsException(inner) => {
-                Error::EntityAlreadyExistsException(inner)
-            }
-            crate::operation::create_role::CreateRoleError::InvalidInputException(inner) => {
-                Error::InvalidInputException(inner)
-            }
-            crate::operation::create_role::CreateRoleError::LimitExceededException(inner) => {
-                Error::LimitExceededException(inner)
-            }
-            crate::operation::create_role::CreateRoleError::MalformedPolicyDocumentException(
-                inner,
-            ) => Error::MalformedPolicyDocumentException(inner),
-            crate::operation::create_role::CreateRoleError::ServiceFailureException(inner) => {
-                Error::ServiceFailureException(inner)
-            }
-            crate::operation::create_role::CreateRoleError::Unhandled(inner) => {
-                Error::Unhandled(inner)
-            }
+            crate::operation::create_role::CreateRoleError::ConcurrentModificationException(inner) => Error::ConcurrentModificationException(inner),
+            crate::operation::create_role::CreateRoleError::EntityAlreadyExistsException(inner) => Error::EntityAlreadyExistsException(inner),
+            crate::operation::create_role::CreateRoleError::InvalidInputException(inner) => Error::InvalidInputException(inner),
+            crate::operation::create_role::CreateRoleError::LimitExceededException(inner) => Error::LimitExceededException(inner),
+            crate::operation::create_role::CreateRoleError::MalformedPolicyDocumentException(inner) => Error::MalformedPolicyDocumentException(inner),
+            crate::operation::create_role::CreateRoleError::ServiceFailureException(inner) => Error::ServiceFailureException(inner),
+            crate::operation::create_role::CreateRoleError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
 #[cfg(feature = "op_create_saml_provider")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::create_saml_provider::CreateSAMLProviderError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::create_saml_provider::CreateSAMLProviderError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::create_saml_provider::CreateSAMLProviderError,
-            R,
-        >,
-    ) -> Self {
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::create_saml_provider::CreateSAMLProviderError, R>) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -1245,26 +1030,16 @@ impl From<crate::operation::create_saml_provider::CreateSAMLProviderError> for E
     }
 }
 #[cfg(feature = "op_create_service_linked_role")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::create_service_linked_role::CreateServiceLinkedRoleError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::create_service_linked_role::CreateServiceLinkedRoleError, R>>
+    for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
     fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::create_service_linked_role::CreateServiceLinkedRoleError,
-            R,
-        >,
+        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::create_service_linked_role::CreateServiceLinkedRoleError, R>,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -1274,9 +1049,7 @@ where
 }
 #[cfg(feature = "op_create_service_linked_role")]
 impl From<crate::operation::create_service_linked_role::CreateServiceLinkedRoleError> for Error {
-    fn from(
-        err: crate::operation::create_service_linked_role::CreateServiceLinkedRoleError,
-    ) -> Self {
+    fn from(err: crate::operation::create_service_linked_role::CreateServiceLinkedRoleError) -> Self {
         match err {
             crate::operation::create_service_linked_role::CreateServiceLinkedRoleError::InvalidInputException(inner) => {
                 Error::InvalidInputException(inner)
@@ -1321,13 +1094,8 @@ where
     }
 }
 #[cfg(feature = "op_create_service_specific_credential")]
-impl
-    From<crate::operation::create_service_specific_credential::CreateServiceSpecificCredentialError>
-    for Error
-{
-    fn from(
-        err: crate::operation::create_service_specific_credential::CreateServiceSpecificCredentialError,
-    ) -> Self {
+impl From<crate::operation::create_service_specific_credential::CreateServiceSpecificCredentialError> for Error {
+    fn from(err: crate::operation::create_service_specific_credential::CreateServiceSpecificCredentialError) -> Self {
         match err {
             crate::operation::create_service_specific_credential::CreateServiceSpecificCredentialError::LimitExceededException(inner) => {
                 Error::LimitExceededException(inner)
@@ -1343,26 +1111,13 @@ impl
     }
 }
 #[cfg(feature = "op_create_user")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::create_user::CreateUserError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::create_user::CreateUserError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::create_user::CreateUserError,
-            R,
-        >,
-    ) -> Self {
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::create_user::CreateUserError, R>) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -1374,51 +1129,27 @@ where
 impl From<crate::operation::create_user::CreateUserError> for Error {
     fn from(err: crate::operation::create_user::CreateUserError) -> Self {
         match err {
-            crate::operation::create_user::CreateUserError::ConcurrentModificationException(
-                inner,
-            ) => Error::ConcurrentModificationException(inner),
-            crate::operation::create_user::CreateUserError::EntityAlreadyExistsException(inner) => {
-                Error::EntityAlreadyExistsException(inner)
-            }
-            crate::operation::create_user::CreateUserError::InvalidInputException(inner) => {
-                Error::InvalidInputException(inner)
-            }
-            crate::operation::create_user::CreateUserError::LimitExceededException(inner) => {
-                Error::LimitExceededException(inner)
-            }
-            crate::operation::create_user::CreateUserError::NoSuchEntityException(inner) => {
-                Error::NoSuchEntityException(inner)
-            }
-            crate::operation::create_user::CreateUserError::ServiceFailureException(inner) => {
-                Error::ServiceFailureException(inner)
-            }
-            crate::operation::create_user::CreateUserError::Unhandled(inner) => {
-                Error::Unhandled(inner)
-            }
+            crate::operation::create_user::CreateUserError::ConcurrentModificationException(inner) => Error::ConcurrentModificationException(inner),
+            crate::operation::create_user::CreateUserError::EntityAlreadyExistsException(inner) => Error::EntityAlreadyExistsException(inner),
+            crate::operation::create_user::CreateUserError::InvalidInputException(inner) => Error::InvalidInputException(inner),
+            crate::operation::create_user::CreateUserError::LimitExceededException(inner) => Error::LimitExceededException(inner),
+            crate::operation::create_user::CreateUserError::NoSuchEntityException(inner) => Error::NoSuchEntityException(inner),
+            crate::operation::create_user::CreateUserError::ServiceFailureException(inner) => Error::ServiceFailureException(inner),
+            crate::operation::create_user::CreateUserError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
 #[cfg(feature = "op_create_virtual_mfa_device")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::create_virtual_mfa_device::CreateVirtualMFADeviceError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::create_virtual_mfa_device::CreateVirtualMFADeviceError, R>>
+    for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
     fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::create_virtual_mfa_device::CreateVirtualMFADeviceError,
-            R,
-        >,
+        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::create_virtual_mfa_device::CreateVirtualMFADeviceError, R>,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -1450,26 +1181,13 @@ impl From<crate::operation::create_virtual_mfa_device::CreateVirtualMFADeviceErr
     }
 }
 #[cfg(feature = "op_deactivate_mfa_device")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::deactivate_mfa_device::DeactivateMFADeviceError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::deactivate_mfa_device::DeactivateMFADeviceError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::deactivate_mfa_device::DeactivateMFADeviceError,
-            R,
-        >,
-    ) -> Self {
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::deactivate_mfa_device::DeactivateMFADeviceError, R>) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -1497,26 +1215,13 @@ impl From<crate::operation::deactivate_mfa_device::DeactivateMFADeviceError> for
     }
 }
 #[cfg(feature = "op_delete_access_key")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::delete_access_key::DeleteAccessKeyError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::delete_access_key::DeleteAccessKeyError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::delete_access_key::DeleteAccessKeyError,
-            R,
-        >,
-    ) -> Self {
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::delete_access_key::DeleteAccessKeyError, R>) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -1528,42 +1233,21 @@ where
 impl From<crate::operation::delete_access_key::DeleteAccessKeyError> for Error {
     fn from(err: crate::operation::delete_access_key::DeleteAccessKeyError) -> Self {
         match err {
-            crate::operation::delete_access_key::DeleteAccessKeyError::LimitExceededException(
-                inner,
-            ) => Error::LimitExceededException(inner),
-            crate::operation::delete_access_key::DeleteAccessKeyError::NoSuchEntityException(
-                inner,
-            ) => Error::NoSuchEntityException(inner),
-            crate::operation::delete_access_key::DeleteAccessKeyError::ServiceFailureException(
-                inner,
-            ) => Error::ServiceFailureException(inner),
-            crate::operation::delete_access_key::DeleteAccessKeyError::Unhandled(inner) => {
-                Error::Unhandled(inner)
-            }
+            crate::operation::delete_access_key::DeleteAccessKeyError::LimitExceededException(inner) => Error::LimitExceededException(inner),
+            crate::operation::delete_access_key::DeleteAccessKeyError::NoSuchEntityException(inner) => Error::NoSuchEntityException(inner),
+            crate::operation::delete_access_key::DeleteAccessKeyError::ServiceFailureException(inner) => Error::ServiceFailureException(inner),
+            crate::operation::delete_access_key::DeleteAccessKeyError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
 #[cfg(feature = "op_delete_account_alias")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::delete_account_alias::DeleteAccountAliasError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::delete_account_alias::DeleteAccountAliasError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::delete_account_alias::DeleteAccountAliasError,
-            R,
-        >,
-    ) -> Self {
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::delete_account_alias::DeleteAccountAliasError, R>) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -1587,12 +1271,8 @@ impl From<crate::operation::delete_account_alias::DeleteAccountAliasError> for E
 }
 #[cfg(feature = "op_delete_account_password_policy")]
 impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::delete_account_password_policy::DeleteAccountPasswordPolicyError,
-            R,
-        >,
-    > for Error
+    From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::delete_account_password_policy::DeleteAccountPasswordPolicyError, R>>
+    for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
@@ -1603,9 +1283,7 @@ where
         >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -1614,12 +1292,8 @@ where
     }
 }
 #[cfg(feature = "op_delete_account_password_policy")]
-impl From<crate::operation::delete_account_password_policy::DeleteAccountPasswordPolicyError>
-    for Error
-{
-    fn from(
-        err: crate::operation::delete_account_password_policy::DeleteAccountPasswordPolicyError,
-    ) -> Self {
+impl From<crate::operation::delete_account_password_policy::DeleteAccountPasswordPolicyError> for Error {
+    fn from(err: crate::operation::delete_account_password_policy::DeleteAccountPasswordPolicyError) -> Self {
         match err {
             crate::operation::delete_account_password_policy::DeleteAccountPasswordPolicyError::LimitExceededException(inner) => {
                 Error::LimitExceededException(inner)
@@ -1635,26 +1309,13 @@ impl From<crate::operation::delete_account_password_policy::DeleteAccountPasswor
     }
 }
 #[cfg(feature = "op_delete_group")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::delete_group::DeleteGroupError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::delete_group::DeleteGroupError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::delete_group::DeleteGroupError,
-            R,
-        >,
-    ) -> Self {
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::delete_group::DeleteGroupError, R>) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -1666,45 +1327,22 @@ where
 impl From<crate::operation::delete_group::DeleteGroupError> for Error {
     fn from(err: crate::operation::delete_group::DeleteGroupError) -> Self {
         match err {
-            crate::operation::delete_group::DeleteGroupError::DeleteConflictException(inner) => {
-                Error::DeleteConflictException(inner)
-            }
-            crate::operation::delete_group::DeleteGroupError::LimitExceededException(inner) => {
-                Error::LimitExceededException(inner)
-            }
-            crate::operation::delete_group::DeleteGroupError::NoSuchEntityException(inner) => {
-                Error::NoSuchEntityException(inner)
-            }
-            crate::operation::delete_group::DeleteGroupError::ServiceFailureException(inner) => {
-                Error::ServiceFailureException(inner)
-            }
-            crate::operation::delete_group::DeleteGroupError::Unhandled(inner) => {
-                Error::Unhandled(inner)
-            }
+            crate::operation::delete_group::DeleteGroupError::DeleteConflictException(inner) => Error::DeleteConflictException(inner),
+            crate::operation::delete_group::DeleteGroupError::LimitExceededException(inner) => Error::LimitExceededException(inner),
+            crate::operation::delete_group::DeleteGroupError::NoSuchEntityException(inner) => Error::NoSuchEntityException(inner),
+            crate::operation::delete_group::DeleteGroupError::ServiceFailureException(inner) => Error::ServiceFailureException(inner),
+            crate::operation::delete_group::DeleteGroupError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
 #[cfg(feature = "op_delete_group_policy")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::delete_group_policy::DeleteGroupPolicyError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::delete_group_policy::DeleteGroupPolicyError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::delete_group_policy::DeleteGroupPolicyError,
-            R,
-        >,
-    ) -> Self {
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::delete_group_policy::DeleteGroupPolicyError, R>) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -1724,26 +1362,15 @@ impl From<crate::operation::delete_group_policy::DeleteGroupPolicyError> for Err
     }
 }
 #[cfg(feature = "op_delete_instance_profile")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::delete_instance_profile::DeleteInstanceProfileError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::delete_instance_profile::DeleteInstanceProfileError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
     fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::delete_instance_profile::DeleteInstanceProfileError,
-            R,
-        >,
+        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::delete_instance_profile::DeleteInstanceProfileError, R>,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -1772,26 +1399,13 @@ impl From<crate::operation::delete_instance_profile::DeleteInstanceProfileError>
     }
 }
 #[cfg(feature = "op_delete_login_profile")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::delete_login_profile::DeleteLoginProfileError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::delete_login_profile::DeleteLoginProfileError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::delete_login_profile::DeleteLoginProfileError,
-            R,
-        >,
-    ) -> Self {
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::delete_login_profile::DeleteLoginProfileError, R>) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -1815,12 +1429,8 @@ impl From<crate::operation::delete_login_profile::DeleteLoginProfileError> for E
 }
 #[cfg(feature = "op_delete_open_id_connect_provider")]
 impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::delete_open_id_connect_provider::DeleteOpenIDConnectProviderError,
-            R,
-        >,
-    > for Error
+    From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::delete_open_id_connect_provider::DeleteOpenIDConnectProviderError, R>>
+    for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
@@ -1831,9 +1441,7 @@ where
         >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -1842,12 +1450,8 @@ where
     }
 }
 #[cfg(feature = "op_delete_open_id_connect_provider")]
-impl From<crate::operation::delete_open_id_connect_provider::DeleteOpenIDConnectProviderError>
-    for Error
-{
-    fn from(
-        err: crate::operation::delete_open_id_connect_provider::DeleteOpenIDConnectProviderError,
-    ) -> Self {
+impl From<crate::operation::delete_open_id_connect_provider::DeleteOpenIDConnectProviderError> for Error {
+    fn from(err: crate::operation::delete_open_id_connect_provider::DeleteOpenIDConnectProviderError) -> Self {
         match err {
             crate::operation::delete_open_id_connect_provider::DeleteOpenIDConnectProviderError::InvalidInputException(inner) => {
                 Error::InvalidInputException(inner)
@@ -1863,26 +1467,13 @@ impl From<crate::operation::delete_open_id_connect_provider::DeleteOpenIDConnect
     }
 }
 #[cfg(feature = "op_delete_policy")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::delete_policy::DeletePolicyError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::delete_policy::DeletePolicyError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::delete_policy::DeletePolicyError,
-            R,
-        >,
-    ) -> Self {
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::delete_policy::DeletePolicyError, R>) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -1894,48 +1485,23 @@ where
 impl From<crate::operation::delete_policy::DeletePolicyError> for Error {
     fn from(err: crate::operation::delete_policy::DeletePolicyError) -> Self {
         match err {
-            crate::operation::delete_policy::DeletePolicyError::DeleteConflictException(inner) => {
-                Error::DeleteConflictException(inner)
-            }
-            crate::operation::delete_policy::DeletePolicyError::InvalidInputException(inner) => {
-                Error::InvalidInputException(inner)
-            }
-            crate::operation::delete_policy::DeletePolicyError::LimitExceededException(inner) => {
-                Error::LimitExceededException(inner)
-            }
-            crate::operation::delete_policy::DeletePolicyError::NoSuchEntityException(inner) => {
-                Error::NoSuchEntityException(inner)
-            }
-            crate::operation::delete_policy::DeletePolicyError::ServiceFailureException(inner) => {
-                Error::ServiceFailureException(inner)
-            }
-            crate::operation::delete_policy::DeletePolicyError::Unhandled(inner) => {
-                Error::Unhandled(inner)
-            }
+            crate::operation::delete_policy::DeletePolicyError::DeleteConflictException(inner) => Error::DeleteConflictException(inner),
+            crate::operation::delete_policy::DeletePolicyError::InvalidInputException(inner) => Error::InvalidInputException(inner),
+            crate::operation::delete_policy::DeletePolicyError::LimitExceededException(inner) => Error::LimitExceededException(inner),
+            crate::operation::delete_policy::DeletePolicyError::NoSuchEntityException(inner) => Error::NoSuchEntityException(inner),
+            crate::operation::delete_policy::DeletePolicyError::ServiceFailureException(inner) => Error::ServiceFailureException(inner),
+            crate::operation::delete_policy::DeletePolicyError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
 #[cfg(feature = "op_delete_policy_version")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::delete_policy_version::DeletePolicyVersionError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::delete_policy_version::DeletePolicyVersionError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::delete_policy_version::DeletePolicyVersionError,
-            R,
-        >,
-    ) -> Self {
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::delete_policy_version::DeletePolicyVersionError, R>) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -1961,26 +1527,13 @@ impl From<crate::operation::delete_policy_version::DeletePolicyVersionError> for
     }
 }
 #[cfg(feature = "op_delete_role")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::delete_role::DeleteRoleError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::delete_role::DeleteRoleError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::delete_role::DeleteRoleError,
-            R,
-        >,
-    ) -> Self {
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::delete_role::DeleteRoleError, R>) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -1992,37 +1545,20 @@ where
 impl From<crate::operation::delete_role::DeleteRoleError> for Error {
     fn from(err: crate::operation::delete_role::DeleteRoleError) -> Self {
         match err {
-            crate::operation::delete_role::DeleteRoleError::ConcurrentModificationException(
-                inner,
-            ) => Error::ConcurrentModificationException(inner),
-            crate::operation::delete_role::DeleteRoleError::DeleteConflictException(inner) => {
-                Error::DeleteConflictException(inner)
-            }
-            crate::operation::delete_role::DeleteRoleError::LimitExceededException(inner) => {
-                Error::LimitExceededException(inner)
-            }
-            crate::operation::delete_role::DeleteRoleError::NoSuchEntityException(inner) => {
-                Error::NoSuchEntityException(inner)
-            }
-            crate::operation::delete_role::DeleteRoleError::ServiceFailureException(inner) => {
-                Error::ServiceFailureException(inner)
-            }
-            crate::operation::delete_role::DeleteRoleError::UnmodifiableEntityException(inner) => {
-                Error::UnmodifiableEntityException(inner)
-            }
-            crate::operation::delete_role::DeleteRoleError::Unhandled(inner) => {
-                Error::Unhandled(inner)
-            }
+            crate::operation::delete_role::DeleteRoleError::ConcurrentModificationException(inner) => Error::ConcurrentModificationException(inner),
+            crate::operation::delete_role::DeleteRoleError::DeleteConflictException(inner) => Error::DeleteConflictException(inner),
+            crate::operation::delete_role::DeleteRoleError::LimitExceededException(inner) => Error::LimitExceededException(inner),
+            crate::operation::delete_role::DeleteRoleError::NoSuchEntityException(inner) => Error::NoSuchEntityException(inner),
+            crate::operation::delete_role::DeleteRoleError::ServiceFailureException(inner) => Error::ServiceFailureException(inner),
+            crate::operation::delete_role::DeleteRoleError::UnmodifiableEntityException(inner) => Error::UnmodifiableEntityException(inner),
+            crate::operation::delete_role::DeleteRoleError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
 #[cfg(feature = "op_delete_role_permissions_boundary")]
 impl<R>
     From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::delete_role_permissions_boundary::DeleteRolePermissionsBoundaryError,
-            R,
-        >,
+        ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::delete_role_permissions_boundary::DeleteRolePermissionsBoundaryError, R>,
     > for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
@@ -2034,9 +1570,7 @@ where
         >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -2045,12 +1579,8 @@ where
     }
 }
 #[cfg(feature = "op_delete_role_permissions_boundary")]
-impl From<crate::operation::delete_role_permissions_boundary::DeleteRolePermissionsBoundaryError>
-    for Error
-{
-    fn from(
-        err: crate::operation::delete_role_permissions_boundary::DeleteRolePermissionsBoundaryError,
-    ) -> Self {
+impl From<crate::operation::delete_role_permissions_boundary::DeleteRolePermissionsBoundaryError> for Error {
+    fn from(err: crate::operation::delete_role_permissions_boundary::DeleteRolePermissionsBoundaryError) -> Self {
         match err {
             crate::operation::delete_role_permissions_boundary::DeleteRolePermissionsBoundaryError::NoSuchEntityException(inner) => {
                 Error::NoSuchEntityException(inner)
@@ -2066,26 +1596,13 @@ impl From<crate::operation::delete_role_permissions_boundary::DeleteRolePermissi
     }
 }
 #[cfg(feature = "op_delete_role_policy")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::delete_role_policy::DeleteRolePolicyError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::delete_role_policy::DeleteRolePolicyError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::delete_role_policy::DeleteRolePolicyError,
-            R,
-        >,
-    ) -> Self {
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::delete_role_policy::DeleteRolePolicyError, R>) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -2108,26 +1625,13 @@ impl From<crate::operation::delete_role_policy::DeleteRolePolicyError> for Error
     }
 }
 #[cfg(feature = "op_delete_saml_provider")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::delete_saml_provider::DeleteSAMLProviderError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::delete_saml_provider::DeleteSAMLProviderError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::delete_saml_provider::DeleteSAMLProviderError,
-            R,
-        >,
-    ) -> Self {
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::delete_saml_provider::DeleteSAMLProviderError, R>) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -2148,26 +1652,16 @@ impl From<crate::operation::delete_saml_provider::DeleteSAMLProviderError> for E
     }
 }
 #[cfg(feature = "op_delete_server_certificate")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::delete_server_certificate::DeleteServerCertificateError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::delete_server_certificate::DeleteServerCertificateError, R>>
+    for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
     fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::delete_server_certificate::DeleteServerCertificateError,
-            R,
-        >,
+        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::delete_server_certificate::DeleteServerCertificateError, R>,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -2177,9 +1671,7 @@ where
 }
 #[cfg(feature = "op_delete_server_certificate")]
 impl From<crate::operation::delete_server_certificate::DeleteServerCertificateError> for Error {
-    fn from(
-        err: crate::operation::delete_server_certificate::DeleteServerCertificateError,
-    ) -> Self {
+    fn from(err: crate::operation::delete_server_certificate::DeleteServerCertificateError) -> Self {
         match err {
             crate::operation::delete_server_certificate::DeleteServerCertificateError::DeleteConflictException(inner) => {
                 Error::DeleteConflictException(inner)
@@ -2198,26 +1690,16 @@ impl From<crate::operation::delete_server_certificate::DeleteServerCertificateEr
     }
 }
 #[cfg(feature = "op_delete_service_linked_role")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::delete_service_linked_role::DeleteServiceLinkedRoleError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::delete_service_linked_role::DeleteServiceLinkedRoleError, R>>
+    for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
     fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::delete_service_linked_role::DeleteServiceLinkedRoleError,
-            R,
-        >,
+        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::delete_service_linked_role::DeleteServiceLinkedRoleError, R>,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -2227,9 +1709,7 @@ where
 }
 #[cfg(feature = "op_delete_service_linked_role")]
 impl From<crate::operation::delete_service_linked_role::DeleteServiceLinkedRoleError> for Error {
-    fn from(
-        err: crate::operation::delete_service_linked_role::DeleteServiceLinkedRoleError,
-    ) -> Self {
+    fn from(err: crate::operation::delete_service_linked_role::DeleteServiceLinkedRoleError) -> Self {
         match err {
             crate::operation::delete_service_linked_role::DeleteServiceLinkedRoleError::LimitExceededException(inner) => {
                 Error::LimitExceededException(inner)
@@ -2271,13 +1751,8 @@ where
     }
 }
 #[cfg(feature = "op_delete_service_specific_credential")]
-impl
-    From<crate::operation::delete_service_specific_credential::DeleteServiceSpecificCredentialError>
-    for Error
-{
-    fn from(
-        err: crate::operation::delete_service_specific_credential::DeleteServiceSpecificCredentialError,
-    ) -> Self {
+impl From<crate::operation::delete_service_specific_credential::DeleteServiceSpecificCredentialError> for Error {
+    fn from(err: crate::operation::delete_service_specific_credential::DeleteServiceSpecificCredentialError) -> Self {
         match err {
             crate::operation::delete_service_specific_credential::DeleteServiceSpecificCredentialError::NoSuchEntityException(inner) => {
                 Error::NoSuchEntityException(inner)
@@ -2287,26 +1762,16 @@ impl
     }
 }
 #[cfg(feature = "op_delete_signing_certificate")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::delete_signing_certificate::DeleteSigningCertificateError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::delete_signing_certificate::DeleteSigningCertificateError, R>>
+    for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
     fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::delete_signing_certificate::DeleteSigningCertificateError,
-            R,
-        >,
+        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::delete_signing_certificate::DeleteSigningCertificateError, R>,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -2316,9 +1781,7 @@ where
 }
 #[cfg(feature = "op_delete_signing_certificate")]
 impl From<crate::operation::delete_signing_certificate::DeleteSigningCertificateError> for Error {
-    fn from(
-        err: crate::operation::delete_signing_certificate::DeleteSigningCertificateError,
-    ) -> Self {
+    fn from(err: crate::operation::delete_signing_certificate::DeleteSigningCertificateError) -> Self {
         match err {
             crate::operation::delete_signing_certificate::DeleteSigningCertificateError::ConcurrentModificationException(inner) => {
                 Error::ConcurrentModificationException(inner)
@@ -2337,26 +1800,13 @@ impl From<crate::operation::delete_signing_certificate::DeleteSigningCertificate
     }
 }
 #[cfg(feature = "op_delete_ssh_public_key")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::delete_ssh_public_key::DeleteSSHPublicKeyError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::delete_ssh_public_key::DeleteSSHPublicKeyError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::delete_ssh_public_key::DeleteSSHPublicKeyError,
-            R,
-        >,
-    ) -> Self {
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::delete_ssh_public_key::DeleteSSHPublicKeyError, R>) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -2374,26 +1824,13 @@ impl From<crate::operation::delete_ssh_public_key::DeleteSSHPublicKeyError> for 
     }
 }
 #[cfg(feature = "op_delete_user")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::delete_user::DeleteUserError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::delete_user::DeleteUserError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::delete_user::DeleteUserError,
-            R,
-        >,
-    ) -> Self {
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::delete_user::DeleteUserError, R>) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -2405,34 +1842,19 @@ where
 impl From<crate::operation::delete_user::DeleteUserError> for Error {
     fn from(err: crate::operation::delete_user::DeleteUserError) -> Self {
         match err {
-            crate::operation::delete_user::DeleteUserError::ConcurrentModificationException(
-                inner,
-            ) => Error::ConcurrentModificationException(inner),
-            crate::operation::delete_user::DeleteUserError::DeleteConflictException(inner) => {
-                Error::DeleteConflictException(inner)
-            }
-            crate::operation::delete_user::DeleteUserError::LimitExceededException(inner) => {
-                Error::LimitExceededException(inner)
-            }
-            crate::operation::delete_user::DeleteUserError::NoSuchEntityException(inner) => {
-                Error::NoSuchEntityException(inner)
-            }
-            crate::operation::delete_user::DeleteUserError::ServiceFailureException(inner) => {
-                Error::ServiceFailureException(inner)
-            }
-            crate::operation::delete_user::DeleteUserError::Unhandled(inner) => {
-                Error::Unhandled(inner)
-            }
+            crate::operation::delete_user::DeleteUserError::ConcurrentModificationException(inner) => Error::ConcurrentModificationException(inner),
+            crate::operation::delete_user::DeleteUserError::DeleteConflictException(inner) => Error::DeleteConflictException(inner),
+            crate::operation::delete_user::DeleteUserError::LimitExceededException(inner) => Error::LimitExceededException(inner),
+            crate::operation::delete_user::DeleteUserError::NoSuchEntityException(inner) => Error::NoSuchEntityException(inner),
+            crate::operation::delete_user::DeleteUserError::ServiceFailureException(inner) => Error::ServiceFailureException(inner),
+            crate::operation::delete_user::DeleteUserError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
 #[cfg(feature = "op_delete_user_permissions_boundary")]
 impl<R>
     From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::delete_user_permissions_boundary::DeleteUserPermissionsBoundaryError,
-            R,
-        >,
+        ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::delete_user_permissions_boundary::DeleteUserPermissionsBoundaryError, R>,
     > for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
@@ -2444,9 +1866,7 @@ where
         >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -2455,12 +1875,8 @@ where
     }
 }
 #[cfg(feature = "op_delete_user_permissions_boundary")]
-impl From<crate::operation::delete_user_permissions_boundary::DeleteUserPermissionsBoundaryError>
-    for Error
-{
-    fn from(
-        err: crate::operation::delete_user_permissions_boundary::DeleteUserPermissionsBoundaryError,
-    ) -> Self {
+impl From<crate::operation::delete_user_permissions_boundary::DeleteUserPermissionsBoundaryError> for Error {
+    fn from(err: crate::operation::delete_user_permissions_boundary::DeleteUserPermissionsBoundaryError) -> Self {
         match err {
             crate::operation::delete_user_permissions_boundary::DeleteUserPermissionsBoundaryError::NoSuchEntityException(inner) => {
                 Error::NoSuchEntityException(inner)
@@ -2473,26 +1889,13 @@ impl From<crate::operation::delete_user_permissions_boundary::DeleteUserPermissi
     }
 }
 #[cfg(feature = "op_delete_user_policy")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::delete_user_policy::DeleteUserPolicyError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::delete_user_policy::DeleteUserPolicyError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::delete_user_policy::DeleteUserPolicyError,
-            R,
-        >,
-    ) -> Self {
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::delete_user_policy::DeleteUserPolicyError, R>) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -2512,26 +1915,16 @@ impl From<crate::operation::delete_user_policy::DeleteUserPolicyError> for Error
     }
 }
 #[cfg(feature = "op_delete_virtual_mfa_device")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::delete_virtual_mfa_device::DeleteVirtualMFADeviceError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::delete_virtual_mfa_device::DeleteVirtualMFADeviceError, R>>
+    for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
     fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::delete_virtual_mfa_device::DeleteVirtualMFADeviceError,
-            R,
-        >,
+        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::delete_virtual_mfa_device::DeleteVirtualMFADeviceError, R>,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -2563,26 +1956,13 @@ impl From<crate::operation::delete_virtual_mfa_device::DeleteVirtualMFADeviceErr
     }
 }
 #[cfg(feature = "op_detach_group_policy")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::detach_group_policy::DetachGroupPolicyError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::detach_group_policy::DetachGroupPolicyError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::detach_group_policy::DetachGroupPolicyError,
-            R,
-        >,
-    ) -> Self {
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::detach_group_policy::DetachGroupPolicyError, R>) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -2603,26 +1983,13 @@ impl From<crate::operation::detach_group_policy::DetachGroupPolicyError> for Err
     }
 }
 #[cfg(feature = "op_detach_role_policy")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::detach_role_policy::DetachRolePolicyError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::detach_role_policy::DetachRolePolicyError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::detach_role_policy::DetachRolePolicyError,
-            R,
-        >,
-    ) -> Self {
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::detach_role_policy::DetachRolePolicyError, R>) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -2646,26 +2013,13 @@ impl From<crate::operation::detach_role_policy::DetachRolePolicyError> for Error
     }
 }
 #[cfg(feature = "op_detach_user_policy")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::detach_user_policy::DetachUserPolicyError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::detach_user_policy::DetachUserPolicyError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::detach_user_policy::DetachUserPolicyError,
-            R,
-        >,
-    ) -> Self {
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::detach_user_policy::DetachUserPolicyError, R>) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -2801,26 +2155,13 @@ impl From<crate::operation::disable_outbound_web_identity_federation::DisableOut
     }
 }
 #[cfg(feature = "op_enable_mfa_device")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::enable_mfa_device::EnableMFADeviceError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::enable_mfa_device::EnableMFADeviceError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::enable_mfa_device::EnableMFADeviceError,
-            R,
-        >,
-    ) -> Self {
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::enable_mfa_device::EnableMFADeviceError, R>) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -2917,13 +2258,8 @@ where
     }
 }
 #[cfg(feature = "op_enable_organizations_root_sessions")]
-impl
-    From<crate::operation::enable_organizations_root_sessions::EnableOrganizationsRootSessionsError>
-    for Error
-{
-    fn from(
-        err: crate::operation::enable_organizations_root_sessions::EnableOrganizationsRootSessionsError,
-    ) -> Self {
+impl From<crate::operation::enable_organizations_root_sessions::EnableOrganizationsRootSessionsError> for Error {
+    fn from(err: crate::operation::enable_organizations_root_sessions::EnableOrganizationsRootSessionsError) -> Self {
         match err {
             crate::operation::enable_organizations_root_sessions::EnableOrganizationsRootSessionsError::AccountNotManagementOrDelegatedAdministratorException(inner) => Error::AccountNotManagementOrDelegatedAdministratorException(inner),
             crate::operation::enable_organizations_root_sessions::EnableOrganizationsRootSessionsError::CallerIsNotManagementAccountException(inner) => Error::CallerIsNotManagementAccountException(inner),
@@ -2974,26 +2310,16 @@ impl From<crate::operation::enable_outbound_web_identity_federation::EnableOutbo
     }
 }
 #[cfg(feature = "op_generate_credential_report")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::generate_credential_report::GenerateCredentialReportError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::generate_credential_report::GenerateCredentialReportError, R>>
+    for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
     fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::generate_credential_report::GenerateCredentialReportError,
-            R,
-        >,
+        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::generate_credential_report::GenerateCredentialReportError, R>,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -3003,9 +2329,7 @@ where
 }
 #[cfg(feature = "op_generate_credential_report")]
 impl From<crate::operation::generate_credential_report::GenerateCredentialReportError> for Error {
-    fn from(
-        err: crate::operation::generate_credential_report::GenerateCredentialReportError,
-    ) -> Self {
+    fn from(err: crate::operation::generate_credential_report::GenerateCredentialReportError) -> Self {
         match err {
             crate::operation::generate_credential_report::GenerateCredentialReportError::LimitExceededException(inner) => {
                 Error::LimitExceededException(inner)
@@ -3095,26 +2419,15 @@ impl From<crate::operation::generate_service_last_accessed_details::GenerateServ
     }
 }
 #[cfg(feature = "op_get_access_key_last_used")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::get_access_key_last_used::GetAccessKeyLastUsedError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::get_access_key_last_used::GetAccessKeyLastUsedError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
     fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::get_access_key_last_used::GetAccessKeyLastUsedError,
-            R,
-        >,
+        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::get_access_key_last_used::GetAccessKeyLastUsedError, R>,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -3126,9 +2439,7 @@ where
 impl From<crate::operation::get_access_key_last_used::GetAccessKeyLastUsedError> for Error {
     fn from(err: crate::operation::get_access_key_last_used::GetAccessKeyLastUsedError) -> Self {
         match err {
-            crate::operation::get_access_key_last_used::GetAccessKeyLastUsedError::Unhandled(
-                inner,
-            ) => Error::Unhandled(inner),
+            crate::operation::get_access_key_last_used::GetAccessKeyLastUsedError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
@@ -3159,12 +2470,8 @@ where
     }
 }
 #[cfg(feature = "op_get_account_authorization_details")]
-impl From<crate::operation::get_account_authorization_details::GetAccountAuthorizationDetailsError>
-    for Error
-{
-    fn from(
-        err: crate::operation::get_account_authorization_details::GetAccountAuthorizationDetailsError,
-    ) -> Self {
+impl From<crate::operation::get_account_authorization_details::GetAccountAuthorizationDetailsError> for Error {
+    fn from(err: crate::operation::get_account_authorization_details::GetAccountAuthorizationDetailsError) -> Self {
         match err {
             crate::operation::get_account_authorization_details::GetAccountAuthorizationDetailsError::ServiceFailureException(inner) => {
                 Error::ServiceFailureException(inner)
@@ -3174,26 +2481,16 @@ impl From<crate::operation::get_account_authorization_details::GetAccountAuthori
     }
 }
 #[cfg(feature = "op_get_account_password_policy")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::get_account_password_policy::GetAccountPasswordPolicyError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::get_account_password_policy::GetAccountPasswordPolicyError, R>>
+    for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
     fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::get_account_password_policy::GetAccountPasswordPolicyError,
-            R,
-        >,
+        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::get_account_password_policy::GetAccountPasswordPolicyError, R>,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -3203,9 +2500,7 @@ where
 }
 #[cfg(feature = "op_get_account_password_policy")]
 impl From<crate::operation::get_account_password_policy::GetAccountPasswordPolicyError> for Error {
-    fn from(
-        err: crate::operation::get_account_password_policy::GetAccountPasswordPolicyError,
-    ) -> Self {
+    fn from(err: crate::operation::get_account_password_policy::GetAccountPasswordPolicyError) -> Self {
         match err {
             crate::operation::get_account_password_policy::GetAccountPasswordPolicyError::NoSuchEntityException(inner) => {
                 Error::NoSuchEntityException(inner)
@@ -3218,26 +2513,13 @@ impl From<crate::operation::get_account_password_policy::GetAccountPasswordPolic
     }
 }
 #[cfg(feature = "op_get_account_properties")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::get_account_properties::GetAccountPropertiesError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::get_account_properties::GetAccountPropertiesError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::get_account_properties::GetAccountPropertiesError,
-            R,
-        >,
-    ) -> Self {
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::get_account_properties::GetAccountPropertiesError, R>) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -3258,26 +2540,13 @@ impl From<crate::operation::get_account_properties::GetAccountPropertiesError> f
     }
 }
 #[cfg(feature = "op_get_account_summary")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::get_account_summary::GetAccountSummaryError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::get_account_summary::GetAccountSummaryError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::get_account_summary::GetAccountSummaryError,
-            R,
-        >,
-    ) -> Self {
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::get_account_summary::GetAccountSummaryError, R>) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -3321,12 +2590,8 @@ where
     }
 }
 #[cfg(feature = "op_get_context_keys_for_custom_policy")]
-impl From<crate::operation::get_context_keys_for_custom_policy::GetContextKeysForCustomPolicyError>
-    for Error
-{
-    fn from(
-        err: crate::operation::get_context_keys_for_custom_policy::GetContextKeysForCustomPolicyError,
-    ) -> Self {
+impl From<crate::operation::get_context_keys_for_custom_policy::GetContextKeysForCustomPolicyError> for Error {
+    fn from(err: crate::operation::get_context_keys_for_custom_policy::GetContextKeysForCustomPolicyError) -> Self {
         match err {
             crate::operation::get_context_keys_for_custom_policy::GetContextKeysForCustomPolicyError::InvalidInputException(inner) => {
                 Error::InvalidInputException(inner)
@@ -3378,26 +2643,13 @@ impl From<crate::operation::get_context_keys_for_principal_policy::GetContextKey
     }
 }
 #[cfg(feature = "op_get_credential_report")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::get_credential_report::GetCredentialReportError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::get_credential_report::GetCredentialReportError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::get_credential_report::GetCredentialReportError,
-            R,
-        >,
-    ) -> Self {
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::get_credential_report::GetCredentialReportError, R>) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -3426,26 +2678,13 @@ impl From<crate::operation::get_credential_report::GetCredentialReportError> for
     }
 }
 #[cfg(feature = "op_get_delegation_request")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::get_delegation_request::GetDelegationRequestError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::get_delegation_request::GetDelegationRequestError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::get_delegation_request::GetDelegationRequestError,
-            R,
-        >,
-    ) -> Self {
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::get_delegation_request::GetDelegationRequestError, R>) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -3466,26 +2705,13 @@ impl From<crate::operation::get_delegation_request::GetDelegationRequestError> f
     }
 }
 #[cfg(feature = "op_get_group")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::get_group::GetGroupError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::get_group::GetGroupError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::get_group::GetGroupError,
-            R,
-        >,
-    ) -> Self {
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::get_group::GetGroupError, R>) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -3497,37 +2723,20 @@ where
 impl From<crate::operation::get_group::GetGroupError> for Error {
     fn from(err: crate::operation::get_group::GetGroupError) -> Self {
         match err {
-            crate::operation::get_group::GetGroupError::NoSuchEntityException(inner) => {
-                Error::NoSuchEntityException(inner)
-            }
-            crate::operation::get_group::GetGroupError::ServiceFailureException(inner) => {
-                Error::ServiceFailureException(inner)
-            }
+            crate::operation::get_group::GetGroupError::NoSuchEntityException(inner) => Error::NoSuchEntityException(inner),
+            crate::operation::get_group::GetGroupError::ServiceFailureException(inner) => Error::ServiceFailureException(inner),
             crate::operation::get_group::GetGroupError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
 #[cfg(feature = "op_get_group_policy")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::get_group_policy::GetGroupPolicyError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::get_group_policy::GetGroupPolicyError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::get_group_policy::GetGroupPolicyError,
-            R,
-        >,
-    ) -> Self {
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::get_group_policy::GetGroupPolicyError, R>) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -3539,39 +2748,23 @@ where
 impl From<crate::operation::get_group_policy::GetGroupPolicyError> for Error {
     fn from(err: crate::operation::get_group_policy::GetGroupPolicyError) -> Self {
         match err {
-            crate::operation::get_group_policy::GetGroupPolicyError::NoSuchEntityException(
-                inner,
-            ) => Error::NoSuchEntityException(inner),
-            crate::operation::get_group_policy::GetGroupPolicyError::ServiceFailureException(
-                inner,
-            ) => Error::ServiceFailureException(inner),
-            crate::operation::get_group_policy::GetGroupPolicyError::Unhandled(inner) => {
-                Error::Unhandled(inner)
-            }
+            crate::operation::get_group_policy::GetGroupPolicyError::NoSuchEntityException(inner) => Error::NoSuchEntityException(inner),
+            crate::operation::get_group_policy::GetGroupPolicyError::ServiceFailureException(inner) => Error::ServiceFailureException(inner),
+            crate::operation::get_group_policy::GetGroupPolicyError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
 #[cfg(feature = "op_get_human_readable_summary")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::get_human_readable_summary::GetHumanReadableSummaryError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::get_human_readable_summary::GetHumanReadableSummaryError, R>>
+    for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
     fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::get_human_readable_summary::GetHumanReadableSummaryError,
-            R,
-        >,
+        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::get_human_readable_summary::GetHumanReadableSummaryError, R>,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -3581,9 +2774,7 @@ where
 }
 #[cfg(feature = "op_get_human_readable_summary")]
 impl From<crate::operation::get_human_readable_summary::GetHumanReadableSummaryError> for Error {
-    fn from(
-        err: crate::operation::get_human_readable_summary::GetHumanReadableSummaryError,
-    ) -> Self {
+    fn from(err: crate::operation::get_human_readable_summary::GetHumanReadableSummaryError) -> Self {
         match err {
             crate::operation::get_human_readable_summary::GetHumanReadableSummaryError::InvalidInputException(inner) => {
                 Error::InvalidInputException(inner)
@@ -3599,26 +2790,13 @@ impl From<crate::operation::get_human_readable_summary::GetHumanReadableSummaryE
     }
 }
 #[cfg(feature = "op_get_instance_profile")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::get_instance_profile::GetInstanceProfileError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::get_instance_profile::GetInstanceProfileError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::get_instance_profile::GetInstanceProfileError,
-            R,
-        >,
-    ) -> Self {
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::get_instance_profile::GetInstanceProfileError, R>) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -3637,26 +2815,13 @@ impl From<crate::operation::get_instance_profile::GetInstanceProfileError> for E
     }
 }
 #[cfg(feature = "op_get_login_profile")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::get_login_profile::GetLoginProfileError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::get_login_profile::GetLoginProfileError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::get_login_profile::GetLoginProfileError,
-            R,
-        >,
-    ) -> Self {
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::get_login_profile::GetLoginProfileError, R>) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -3668,39 +2833,20 @@ where
 impl From<crate::operation::get_login_profile::GetLoginProfileError> for Error {
     fn from(err: crate::operation::get_login_profile::GetLoginProfileError) -> Self {
         match err {
-            crate::operation::get_login_profile::GetLoginProfileError::NoSuchEntityException(
-                inner,
-            ) => Error::NoSuchEntityException(inner),
-            crate::operation::get_login_profile::GetLoginProfileError::ServiceFailureException(
-                inner,
-            ) => Error::ServiceFailureException(inner),
-            crate::operation::get_login_profile::GetLoginProfileError::Unhandled(inner) => {
-                Error::Unhandled(inner)
-            }
+            crate::operation::get_login_profile::GetLoginProfileError::NoSuchEntityException(inner) => Error::NoSuchEntityException(inner),
+            crate::operation::get_login_profile::GetLoginProfileError::ServiceFailureException(inner) => Error::ServiceFailureException(inner),
+            crate::operation::get_login_profile::GetLoginProfileError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
 #[cfg(feature = "op_get_mfa_device")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::get_mfa_device::GetMFADeviceError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::get_mfa_device::GetMFADeviceError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::get_mfa_device::GetMFADeviceError,
-            R,
-        >,
-    ) -> Self {
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::get_mfa_device::GetMFADeviceError, R>) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -3712,39 +2858,23 @@ where
 impl From<crate::operation::get_mfa_device::GetMFADeviceError> for Error {
     fn from(err: crate::operation::get_mfa_device::GetMFADeviceError) -> Self {
         match err {
-            crate::operation::get_mfa_device::GetMFADeviceError::NoSuchEntityException(inner) => {
-                Error::NoSuchEntityException(inner)
-            }
-            crate::operation::get_mfa_device::GetMFADeviceError::ServiceFailureException(inner) => {
-                Error::ServiceFailureException(inner)
-            }
-            crate::operation::get_mfa_device::GetMFADeviceError::Unhandled(inner) => {
-                Error::Unhandled(inner)
-            }
+            crate::operation::get_mfa_device::GetMFADeviceError::NoSuchEntityException(inner) => Error::NoSuchEntityException(inner),
+            crate::operation::get_mfa_device::GetMFADeviceError::ServiceFailureException(inner) => Error::ServiceFailureException(inner),
+            crate::operation::get_mfa_device::GetMFADeviceError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
 #[cfg(feature = "op_get_open_id_connect_provider")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::get_open_id_connect_provider::GetOpenIDConnectProviderError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::get_open_id_connect_provider::GetOpenIDConnectProviderError, R>>
+    for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
     fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::get_open_id_connect_provider::GetOpenIDConnectProviderError,
-            R,
-        >,
+        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::get_open_id_connect_provider::GetOpenIDConnectProviderError, R>,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -3754,9 +2884,7 @@ where
 }
 #[cfg(feature = "op_get_open_id_connect_provider")]
 impl From<crate::operation::get_open_id_connect_provider::GetOpenIDConnectProviderError> for Error {
-    fn from(
-        err: crate::operation::get_open_id_connect_provider::GetOpenIDConnectProviderError,
-    ) -> Self {
+    fn from(err: crate::operation::get_open_id_connect_provider::GetOpenIDConnectProviderError) -> Self {
         match err {
             crate::operation::get_open_id_connect_provider::GetOpenIDConnectProviderError::InvalidInputException(inner) => {
                 Error::InvalidInputException(inner)
@@ -3773,12 +2901,8 @@ impl From<crate::operation::get_open_id_connect_provider::GetOpenIDConnectProvid
 }
 #[cfg(feature = "op_get_organizations_access_report")]
 impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::get_organizations_access_report::GetOrganizationsAccessReportError,
-            R,
-        >,
-    > for Error
+    From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::get_organizations_access_report::GetOrganizationsAccessReportError, R>>
+    for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
@@ -3789,9 +2913,7 @@ where
         >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -3800,12 +2922,8 @@ where
     }
 }
 #[cfg(feature = "op_get_organizations_access_report")]
-impl From<crate::operation::get_organizations_access_report::GetOrganizationsAccessReportError>
-    for Error
-{
-    fn from(
-        err: crate::operation::get_organizations_access_report::GetOrganizationsAccessReportError,
-    ) -> Self {
+impl From<crate::operation::get_organizations_access_report::GetOrganizationsAccessReportError> for Error {
+    fn from(err: crate::operation::get_organizations_access_report::GetOrganizationsAccessReportError) -> Self {
         match err {
             crate::operation::get_organizations_access_report::GetOrganizationsAccessReportError::NoSuchEntityException(inner) => {
                 Error::NoSuchEntityException(inner)
@@ -3854,26 +2972,13 @@ impl From<crate::operation::get_outbound_web_identity_federation_info::GetOutbou
     }
 }
 #[cfg(feature = "op_get_policy")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::get_policy::GetPolicyError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::get_policy::GetPolicyError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::get_policy::GetPolicyError,
-            R,
-        >,
-    ) -> Self {
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::get_policy::GetPolicyError, R>) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -3885,42 +2990,21 @@ where
 impl From<crate::operation::get_policy::GetPolicyError> for Error {
     fn from(err: crate::operation::get_policy::GetPolicyError) -> Self {
         match err {
-            crate::operation::get_policy::GetPolicyError::InvalidInputException(inner) => {
-                Error::InvalidInputException(inner)
-            }
-            crate::operation::get_policy::GetPolicyError::NoSuchEntityException(inner) => {
-                Error::NoSuchEntityException(inner)
-            }
-            crate::operation::get_policy::GetPolicyError::ServiceFailureException(inner) => {
-                Error::ServiceFailureException(inner)
-            }
-            crate::operation::get_policy::GetPolicyError::Unhandled(inner) => {
-                Error::Unhandled(inner)
-            }
+            crate::operation::get_policy::GetPolicyError::InvalidInputException(inner) => Error::InvalidInputException(inner),
+            crate::operation::get_policy::GetPolicyError::NoSuchEntityException(inner) => Error::NoSuchEntityException(inner),
+            crate::operation::get_policy::GetPolicyError::ServiceFailureException(inner) => Error::ServiceFailureException(inner),
+            crate::operation::get_policy::GetPolicyError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
 #[cfg(feature = "op_get_policy_version")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::get_policy_version::GetPolicyVersionError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::get_policy_version::GetPolicyVersionError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::get_policy_version::GetPolicyVersionError,
-            R,
-        >,
-    ) -> Self {
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::get_policy_version::GetPolicyVersionError, R>) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -3940,26 +3024,13 @@ impl From<crate::operation::get_policy_version::GetPolicyVersionError> for Error
     }
 }
 #[cfg(feature = "op_get_role")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::get_role::GetRoleError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::get_role::GetRoleError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::get_role::GetRoleError,
-            R,
-        >,
-    ) -> Self {
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::get_role::GetRoleError, R>) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -3971,37 +3042,20 @@ where
 impl From<crate::operation::get_role::GetRoleError> for Error {
     fn from(err: crate::operation::get_role::GetRoleError) -> Self {
         match err {
-            crate::operation::get_role::GetRoleError::NoSuchEntityException(inner) => {
-                Error::NoSuchEntityException(inner)
-            }
-            crate::operation::get_role::GetRoleError::ServiceFailureException(inner) => {
-                Error::ServiceFailureException(inner)
-            }
+            crate::operation::get_role::GetRoleError::NoSuchEntityException(inner) => Error::NoSuchEntityException(inner),
+            crate::operation::get_role::GetRoleError::ServiceFailureException(inner) => Error::ServiceFailureException(inner),
             crate::operation::get_role::GetRoleError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
 #[cfg(feature = "op_get_role_policy")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::get_role_policy::GetRolePolicyError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::get_role_policy::GetRolePolicyError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::get_role_policy::GetRolePolicyError,
-            R,
-        >,
-    ) -> Self {
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::get_role_policy::GetRolePolicyError, R>) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -4013,39 +3067,23 @@ where
 impl From<crate::operation::get_role_policy::GetRolePolicyError> for Error {
     fn from(err: crate::operation::get_role_policy::GetRolePolicyError) -> Self {
         match err {
-            crate::operation::get_role_policy::GetRolePolicyError::NoSuchEntityException(inner) => {
-                Error::NoSuchEntityException(inner)
-            }
-            crate::operation::get_role_policy::GetRolePolicyError::ServiceFailureException(
-                inner,
-            ) => Error::ServiceFailureException(inner),
-            crate::operation::get_role_policy::GetRolePolicyError::Unhandled(inner) => {
-                Error::Unhandled(inner)
-            }
+            crate::operation::get_role_policy::GetRolePolicyError::NoSuchEntityException(inner) => Error::NoSuchEntityException(inner),
+            crate::operation::get_role_policy::GetRolePolicyError::ServiceFailureException(inner) => Error::ServiceFailureException(inner),
+            crate::operation::get_role_policy::GetRolePolicyError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
 #[cfg(feature = "op_get_role_template_version")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::get_role_template_version::GetRoleTemplateVersionError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::get_role_template_version::GetRoleTemplateVersionError, R>>
+    for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
     fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::get_role_template_version::GetRoleTemplateVersionError,
-            R,
-        >,
+        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::get_role_template_version::GetRoleTemplateVersionError, R>,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -4071,26 +3109,13 @@ impl From<crate::operation::get_role_template_version::GetRoleTemplateVersionErr
     }
 }
 #[cfg(feature = "op_get_saml_provider")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::get_saml_provider::GetSAMLProviderError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::get_saml_provider::GetSAMLProviderError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::get_saml_provider::GetSAMLProviderError,
-            R,
-        >,
-    ) -> Self {
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::get_saml_provider::GetSAMLProviderError, R>) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -4102,42 +3127,21 @@ where
 impl From<crate::operation::get_saml_provider::GetSAMLProviderError> for Error {
     fn from(err: crate::operation::get_saml_provider::GetSAMLProviderError) -> Self {
         match err {
-            crate::operation::get_saml_provider::GetSAMLProviderError::InvalidInputException(
-                inner,
-            ) => Error::InvalidInputException(inner),
-            crate::operation::get_saml_provider::GetSAMLProviderError::NoSuchEntityException(
-                inner,
-            ) => Error::NoSuchEntityException(inner),
-            crate::operation::get_saml_provider::GetSAMLProviderError::ServiceFailureException(
-                inner,
-            ) => Error::ServiceFailureException(inner),
-            crate::operation::get_saml_provider::GetSAMLProviderError::Unhandled(inner) => {
-                Error::Unhandled(inner)
-            }
+            crate::operation::get_saml_provider::GetSAMLProviderError::InvalidInputException(inner) => Error::InvalidInputException(inner),
+            crate::operation::get_saml_provider::GetSAMLProviderError::NoSuchEntityException(inner) => Error::NoSuchEntityException(inner),
+            crate::operation::get_saml_provider::GetSAMLProviderError::ServiceFailureException(inner) => Error::ServiceFailureException(inner),
+            crate::operation::get_saml_provider::GetSAMLProviderError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
 #[cfg(feature = "op_get_server_certificate")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::get_server_certificate::GetServerCertificateError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::get_server_certificate::GetServerCertificateError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::get_server_certificate::GetServerCertificateError,
-            R,
-        >,
-    ) -> Self {
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::get_server_certificate::GetServerCertificateError, R>) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -4175,9 +3179,7 @@ where
         >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -4186,12 +3188,8 @@ where
     }
 }
 #[cfg(feature = "op_get_service_last_accessed_details")]
-impl From<crate::operation::get_service_last_accessed_details::GetServiceLastAccessedDetailsError>
-    for Error
-{
-    fn from(
-        err: crate::operation::get_service_last_accessed_details::GetServiceLastAccessedDetailsError,
-    ) -> Self {
+impl From<crate::operation::get_service_last_accessed_details::GetServiceLastAccessedDetailsError> for Error {
+    fn from(err: crate::operation::get_service_last_accessed_details::GetServiceLastAccessedDetailsError) -> Self {
         match err {
             crate::operation::get_service_last_accessed_details::GetServiceLastAccessedDetailsError::InvalidInputException(inner) => {
                 Error::InvalidInputException(inner)
@@ -4285,26 +3283,13 @@ impl From<crate::operation::get_service_linked_role_deletion_status::GetServiceL
     }
 }
 #[cfg(feature = "op_get_ssh_public_key")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::get_ssh_public_key::GetSSHPublicKeyError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::get_ssh_public_key::GetSSHPublicKeyError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::get_ssh_public_key::GetSSHPublicKeyError,
-            R,
-        >,
-    ) -> Self {
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::get_ssh_public_key::GetSSHPublicKeyError, R>) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -4325,26 +3310,13 @@ impl From<crate::operation::get_ssh_public_key::GetSSHPublicKeyError> for Error 
     }
 }
 #[cfg(feature = "op_get_user")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::get_user::GetUserError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::get_user::GetUserError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::get_user::GetUserError,
-            R,
-        >,
-    ) -> Self {
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::get_user::GetUserError, R>) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -4356,37 +3328,20 @@ where
 impl From<crate::operation::get_user::GetUserError> for Error {
     fn from(err: crate::operation::get_user::GetUserError) -> Self {
         match err {
-            crate::operation::get_user::GetUserError::NoSuchEntityException(inner) => {
-                Error::NoSuchEntityException(inner)
-            }
-            crate::operation::get_user::GetUserError::ServiceFailureException(inner) => {
-                Error::ServiceFailureException(inner)
-            }
+            crate::operation::get_user::GetUserError::NoSuchEntityException(inner) => Error::NoSuchEntityException(inner),
+            crate::operation::get_user::GetUserError::ServiceFailureException(inner) => Error::ServiceFailureException(inner),
             crate::operation::get_user::GetUserError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
 #[cfg(feature = "op_get_user_policy")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::get_user_policy::GetUserPolicyError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::get_user_policy::GetUserPolicyError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::get_user_policy::GetUserPolicyError,
-            R,
-        >,
-    ) -> Self {
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::get_user_policy::GetUserPolicyError, R>) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -4398,39 +3353,20 @@ where
 impl From<crate::operation::get_user_policy::GetUserPolicyError> for Error {
     fn from(err: crate::operation::get_user_policy::GetUserPolicyError) -> Self {
         match err {
-            crate::operation::get_user_policy::GetUserPolicyError::NoSuchEntityException(inner) => {
-                Error::NoSuchEntityException(inner)
-            }
-            crate::operation::get_user_policy::GetUserPolicyError::ServiceFailureException(
-                inner,
-            ) => Error::ServiceFailureException(inner),
-            crate::operation::get_user_policy::GetUserPolicyError::Unhandled(inner) => {
-                Error::Unhandled(inner)
-            }
+            crate::operation::get_user_policy::GetUserPolicyError::NoSuchEntityException(inner) => Error::NoSuchEntityException(inner),
+            crate::operation::get_user_policy::GetUserPolicyError::ServiceFailureException(inner) => Error::ServiceFailureException(inner),
+            crate::operation::get_user_policy::GetUserPolicyError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
 #[cfg(feature = "op_list_access_keys")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::list_access_keys::ListAccessKeysError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_access_keys::ListAccessKeysError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::list_access_keys::ListAccessKeysError,
-            R,
-        >,
-    ) -> Self {
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_access_keys::ListAccessKeysError, R>) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -4442,39 +3378,20 @@ where
 impl From<crate::operation::list_access_keys::ListAccessKeysError> for Error {
     fn from(err: crate::operation::list_access_keys::ListAccessKeysError) -> Self {
         match err {
-            crate::operation::list_access_keys::ListAccessKeysError::NoSuchEntityException(
-                inner,
-            ) => Error::NoSuchEntityException(inner),
-            crate::operation::list_access_keys::ListAccessKeysError::ServiceFailureException(
-                inner,
-            ) => Error::ServiceFailureException(inner),
-            crate::operation::list_access_keys::ListAccessKeysError::Unhandled(inner) => {
-                Error::Unhandled(inner)
-            }
+            crate::operation::list_access_keys::ListAccessKeysError::NoSuchEntityException(inner) => Error::NoSuchEntityException(inner),
+            crate::operation::list_access_keys::ListAccessKeysError::ServiceFailureException(inner) => Error::ServiceFailureException(inner),
+            crate::operation::list_access_keys::ListAccessKeysError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
 #[cfg(feature = "op_list_account_aliases")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::list_account_aliases::ListAccountAliasesError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_account_aliases::ListAccountAliasesError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::list_account_aliases::ListAccountAliasesError,
-            R,
-        >,
-    ) -> Self {
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_account_aliases::ListAccountAliasesError, R>) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -4492,26 +3409,16 @@ impl From<crate::operation::list_account_aliases::ListAccountAliasesError> for E
     }
 }
 #[cfg(feature = "op_list_attached_group_policies")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::list_attached_group_policies::ListAttachedGroupPoliciesError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_attached_group_policies::ListAttachedGroupPoliciesError, R>>
+    for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
     fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::list_attached_group_policies::ListAttachedGroupPoliciesError,
-            R,
-        >,
+        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_attached_group_policies::ListAttachedGroupPoliciesError, R>,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -4520,12 +3427,8 @@ where
     }
 }
 #[cfg(feature = "op_list_attached_group_policies")]
-impl From<crate::operation::list_attached_group_policies::ListAttachedGroupPoliciesError>
-    for Error
-{
-    fn from(
-        err: crate::operation::list_attached_group_policies::ListAttachedGroupPoliciesError,
-    ) -> Self {
+impl From<crate::operation::list_attached_group_policies::ListAttachedGroupPoliciesError> for Error {
+    fn from(err: crate::operation::list_attached_group_policies::ListAttachedGroupPoliciesError) -> Self {
         match err {
             crate::operation::list_attached_group_policies::ListAttachedGroupPoliciesError::InvalidInputException(inner) => {
                 Error::InvalidInputException(inner)
@@ -4541,26 +3444,16 @@ impl From<crate::operation::list_attached_group_policies::ListAttachedGroupPolic
     }
 }
 #[cfg(feature = "op_list_attached_role_policies")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::list_attached_role_policies::ListAttachedRolePoliciesError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_attached_role_policies::ListAttachedRolePoliciesError, R>>
+    for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
     fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::list_attached_role_policies::ListAttachedRolePoliciesError,
-            R,
-        >,
+        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_attached_role_policies::ListAttachedRolePoliciesError, R>,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -4570,9 +3463,7 @@ where
 }
 #[cfg(feature = "op_list_attached_role_policies")]
 impl From<crate::operation::list_attached_role_policies::ListAttachedRolePoliciesError> for Error {
-    fn from(
-        err: crate::operation::list_attached_role_policies::ListAttachedRolePoliciesError,
-    ) -> Self {
+    fn from(err: crate::operation::list_attached_role_policies::ListAttachedRolePoliciesError) -> Self {
         match err {
             crate::operation::list_attached_role_policies::ListAttachedRolePoliciesError::InvalidInputException(inner) => {
                 Error::InvalidInputException(inner)
@@ -4588,26 +3479,16 @@ impl From<crate::operation::list_attached_role_policies::ListAttachedRolePolicie
     }
 }
 #[cfg(feature = "op_list_attached_user_policies")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::list_attached_user_policies::ListAttachedUserPoliciesError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_attached_user_policies::ListAttachedUserPoliciesError, R>>
+    for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
     fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::list_attached_user_policies::ListAttachedUserPoliciesError,
-            R,
-        >,
+        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_attached_user_policies::ListAttachedUserPoliciesError, R>,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -4617,9 +3498,7 @@ where
 }
 #[cfg(feature = "op_list_attached_user_policies")]
 impl From<crate::operation::list_attached_user_policies::ListAttachedUserPoliciesError> for Error {
-    fn from(
-        err: crate::operation::list_attached_user_policies::ListAttachedUserPoliciesError,
-    ) -> Self {
+    fn from(err: crate::operation::list_attached_user_policies::ListAttachedUserPoliciesError) -> Self {
         match err {
             crate::operation::list_attached_user_policies::ListAttachedUserPoliciesError::InvalidInputException(inner) => {
                 Error::InvalidInputException(inner)
@@ -4635,26 +3514,15 @@ impl From<crate::operation::list_attached_user_policies::ListAttachedUserPolicie
     }
 }
 #[cfg(feature = "op_list_delegation_requests")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::list_delegation_requests::ListDelegationRequestsError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_delegation_requests::ListDelegationRequestsError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
     fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::list_delegation_requests::ListDelegationRequestsError,
-            R,
-        >,
+        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_delegation_requests::ListDelegationRequestsError, R>,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -4680,26 +3548,15 @@ impl From<crate::operation::list_delegation_requests::ListDelegationRequestsErro
     }
 }
 #[cfg(feature = "op_list_entities_for_policy")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::list_entities_for_policy::ListEntitiesForPolicyError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_entities_for_policy::ListEntitiesForPolicyError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
     fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::list_entities_for_policy::ListEntitiesForPolicyError,
-            R,
-        >,
+        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_entities_for_policy::ListEntitiesForPolicyError, R>,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -4725,26 +3582,13 @@ impl From<crate::operation::list_entities_for_policy::ListEntitiesForPolicyError
     }
 }
 #[cfg(feature = "op_list_group_policies")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::list_group_policies::ListGroupPoliciesError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_group_policies::ListGroupPoliciesError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::list_group_policies::ListGroupPoliciesError,
-            R,
-        >,
-    ) -> Self {
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_group_policies::ListGroupPoliciesError, R>) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -4763,26 +3607,13 @@ impl From<crate::operation::list_group_policies::ListGroupPoliciesError> for Err
     }
 }
 #[cfg(feature = "op_list_groups")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::list_groups::ListGroupsError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_groups::ListGroupsError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::list_groups::ListGroupsError,
-            R,
-        >,
-    ) -> Self {
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_groups::ListGroupsError, R>) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -4794,36 +3625,19 @@ where
 impl From<crate::operation::list_groups::ListGroupsError> for Error {
     fn from(err: crate::operation::list_groups::ListGroupsError) -> Self {
         match err {
-            crate::operation::list_groups::ListGroupsError::ServiceFailureException(inner) => {
-                Error::ServiceFailureException(inner)
-            }
-            crate::operation::list_groups::ListGroupsError::Unhandled(inner) => {
-                Error::Unhandled(inner)
-            }
+            crate::operation::list_groups::ListGroupsError::ServiceFailureException(inner) => Error::ServiceFailureException(inner),
+            crate::operation::list_groups::ListGroupsError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
 #[cfg(feature = "op_list_groups_for_user")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::list_groups_for_user::ListGroupsForUserError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_groups_for_user::ListGroupsForUserError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::list_groups_for_user::ListGroupsForUserError,
-            R,
-        >,
-    ) -> Self {
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_groups_for_user::ListGroupsForUserError, R>) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -4842,26 +3656,13 @@ impl From<crate::operation::list_groups_for_user::ListGroupsForUserError> for Er
     }
 }
 #[cfg(feature = "op_list_instance_profiles")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::list_instance_profiles::ListInstanceProfilesError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_instance_profiles::ListInstanceProfilesError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::list_instance_profiles::ListInstanceProfilesError,
-            R,
-        >,
-    ) -> Self {
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_instance_profiles::ListInstanceProfilesError, R>) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -4882,12 +3683,8 @@ impl From<crate::operation::list_instance_profiles::ListInstanceProfilesError> f
 }
 #[cfg(feature = "op_list_instance_profiles_for_role")]
 impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::list_instance_profiles_for_role::ListInstanceProfilesForRoleError,
-            R,
-        >,
-    > for Error
+    From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_instance_profiles_for_role::ListInstanceProfilesForRoleError, R>>
+    for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
@@ -4898,9 +3695,7 @@ where
         >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -4909,12 +3704,8 @@ where
     }
 }
 #[cfg(feature = "op_list_instance_profiles_for_role")]
-impl From<crate::operation::list_instance_profiles_for_role::ListInstanceProfilesForRoleError>
-    for Error
-{
-    fn from(
-        err: crate::operation::list_instance_profiles_for_role::ListInstanceProfilesForRoleError,
-    ) -> Self {
+impl From<crate::operation::list_instance_profiles_for_role::ListInstanceProfilesForRoleError> for Error {
+    fn from(err: crate::operation::list_instance_profiles_for_role::ListInstanceProfilesForRoleError) -> Self {
         match err {
             crate::operation::list_instance_profiles_for_role::ListInstanceProfilesForRoleError::NoSuchEntityException(inner) => {
                 Error::NoSuchEntityException(inner)
@@ -4927,26 +3718,16 @@ impl From<crate::operation::list_instance_profiles_for_role::ListInstanceProfile
     }
 }
 #[cfg(feature = "op_list_instance_profile_tags")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::list_instance_profile_tags::ListInstanceProfileTagsError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_instance_profile_tags::ListInstanceProfileTagsError, R>>
+    for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
     fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::list_instance_profile_tags::ListInstanceProfileTagsError,
-            R,
-        >,
+        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_instance_profile_tags::ListInstanceProfileTagsError, R>,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -4956,9 +3737,7 @@ where
 }
 #[cfg(feature = "op_list_instance_profile_tags")]
 impl From<crate::operation::list_instance_profile_tags::ListInstanceProfileTagsError> for Error {
-    fn from(
-        err: crate::operation::list_instance_profile_tags::ListInstanceProfileTagsError,
-    ) -> Self {
+    fn from(err: crate::operation::list_instance_profile_tags::ListInstanceProfileTagsError) -> Self {
         match err {
             crate::operation::list_instance_profile_tags::ListInstanceProfileTagsError::NoSuchEntityException(inner) => {
                 Error::NoSuchEntityException(inner)
@@ -4971,26 +3750,13 @@ impl From<crate::operation::list_instance_profile_tags::ListInstanceProfileTagsE
     }
 }
 #[cfg(feature = "op_list_mfa_devices")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::list_mfa_devices::ListMFADevicesError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_mfa_devices::ListMFADevicesError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::list_mfa_devices::ListMFADevicesError,
-            R,
-        >,
-    ) -> Self {
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_mfa_devices::ListMFADevicesError, R>) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -5002,39 +3768,20 @@ where
 impl From<crate::operation::list_mfa_devices::ListMFADevicesError> for Error {
     fn from(err: crate::operation::list_mfa_devices::ListMFADevicesError) -> Self {
         match err {
-            crate::operation::list_mfa_devices::ListMFADevicesError::NoSuchEntityException(
-                inner,
-            ) => Error::NoSuchEntityException(inner),
-            crate::operation::list_mfa_devices::ListMFADevicesError::ServiceFailureException(
-                inner,
-            ) => Error::ServiceFailureException(inner),
-            crate::operation::list_mfa_devices::ListMFADevicesError::Unhandled(inner) => {
-                Error::Unhandled(inner)
-            }
+            crate::operation::list_mfa_devices::ListMFADevicesError::NoSuchEntityException(inner) => Error::NoSuchEntityException(inner),
+            crate::operation::list_mfa_devices::ListMFADevicesError::ServiceFailureException(inner) => Error::ServiceFailureException(inner),
+            crate::operation::list_mfa_devices::ListMFADevicesError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
 #[cfg(feature = "op_list_mfa_device_tags")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::list_mfa_device_tags::ListMFADeviceTagsError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_mfa_device_tags::ListMFADeviceTagsError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::list_mfa_device_tags::ListMFADeviceTagsError,
-            R,
-        >,
-    ) -> Self {
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_mfa_device_tags::ListMFADeviceTagsError, R>) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -5054,26 +3801,16 @@ impl From<crate::operation::list_mfa_device_tags::ListMFADeviceTagsError> for Er
     }
 }
 #[cfg(feature = "op_list_open_id_connect_providers")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::list_open_id_connect_providers::ListOpenIDConnectProvidersError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_open_id_connect_providers::ListOpenIDConnectProvidersError, R>>
+    for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
     fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::list_open_id_connect_providers::ListOpenIDConnectProvidersError,
-            R,
-        >,
+        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_open_id_connect_providers::ListOpenIDConnectProvidersError, R>,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -5082,12 +3819,8 @@ where
     }
 }
 #[cfg(feature = "op_list_open_id_connect_providers")]
-impl From<crate::operation::list_open_id_connect_providers::ListOpenIDConnectProvidersError>
-    for Error
-{
-    fn from(
-        err: crate::operation::list_open_id_connect_providers::ListOpenIDConnectProvidersError,
-    ) -> Self {
+impl From<crate::operation::list_open_id_connect_providers::ListOpenIDConnectProvidersError> for Error {
+    fn from(err: crate::operation::list_open_id_connect_providers::ListOpenIDConnectProvidersError) -> Self {
         match err {
             crate::operation::list_open_id_connect_providers::ListOpenIDConnectProvidersError::ServiceFailureException(inner) => {
                 Error::ServiceFailureException(inner)
@@ -5123,12 +3856,8 @@ where
     }
 }
 #[cfg(feature = "op_list_open_id_connect_provider_tags")]
-impl From<crate::operation::list_open_id_connect_provider_tags::ListOpenIDConnectProviderTagsError>
-    for Error
-{
-    fn from(
-        err: crate::operation::list_open_id_connect_provider_tags::ListOpenIDConnectProviderTagsError,
-    ) -> Self {
+impl From<crate::operation::list_open_id_connect_provider_tags::ListOpenIDConnectProviderTagsError> for Error {
+    fn from(err: crate::operation::list_open_id_connect_provider_tags::ListOpenIDConnectProviderTagsError) -> Self {
         match err {
             crate::operation::list_open_id_connect_provider_tags::ListOpenIDConnectProviderTagsError::InvalidInputException(inner) => {
                 Error::InvalidInputException(inner)
@@ -5144,26 +3873,16 @@ impl From<crate::operation::list_open_id_connect_provider_tags::ListOpenIDConnec
     }
 }
 #[cfg(feature = "op_list_organizations_features")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::list_organizations_features::ListOrganizationsFeaturesError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_organizations_features::ListOrganizationsFeaturesError, R>>
+    for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
     fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::list_organizations_features::ListOrganizationsFeaturesError,
-            R,
-        >,
+        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_organizations_features::ListOrganizationsFeaturesError, R>,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -5173,9 +3892,7 @@ where
 }
 #[cfg(feature = "op_list_organizations_features")]
 impl From<crate::operation::list_organizations_features::ListOrganizationsFeaturesError> for Error {
-    fn from(
-        err: crate::operation::list_organizations_features::ListOrganizationsFeaturesError,
-    ) -> Self {
+    fn from(err: crate::operation::list_organizations_features::ListOrganizationsFeaturesError) -> Self {
         match err {
             crate::operation::list_organizations_features::ListOrganizationsFeaturesError::AccountNotManagementOrDelegatedAdministratorException(
                 inner,
@@ -5194,26 +3911,13 @@ impl From<crate::operation::list_organizations_features::ListOrganizationsFeatur
     }
 }
 #[cfg(feature = "op_list_policies")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::list_policies::ListPoliciesError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_policies::ListPoliciesError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::list_policies::ListPoliciesError,
-            R,
-        >,
-    ) -> Self {
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_policies::ListPoliciesError, R>) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -5225,12 +3929,8 @@ where
 impl From<crate::operation::list_policies::ListPoliciesError> for Error {
     fn from(err: crate::operation::list_policies::ListPoliciesError) -> Self {
         match err {
-            crate::operation::list_policies::ListPoliciesError::ServiceFailureException(inner) => {
-                Error::ServiceFailureException(inner)
-            }
-            crate::operation::list_policies::ListPoliciesError::Unhandled(inner) => {
-                Error::Unhandled(inner)
-            }
+            crate::operation::list_policies::ListPoliciesError::ServiceFailureException(inner) => Error::ServiceFailureException(inner),
+            crate::operation::list_policies::ListPoliciesError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
@@ -5277,26 +3977,13 @@ impl From<crate::operation::list_policies_granting_service_access::ListPoliciesG
     }
 }
 #[cfg(feature = "op_list_policy_tags")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::list_policy_tags::ListPolicyTagsError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_policy_tags::ListPolicyTagsError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::list_policy_tags::ListPolicyTagsError,
-            R,
-        >,
-    ) -> Self {
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_policy_tags::ListPolicyTagsError, R>) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -5308,42 +3995,21 @@ where
 impl From<crate::operation::list_policy_tags::ListPolicyTagsError> for Error {
     fn from(err: crate::operation::list_policy_tags::ListPolicyTagsError) -> Self {
         match err {
-            crate::operation::list_policy_tags::ListPolicyTagsError::InvalidInputException(
-                inner,
-            ) => Error::InvalidInputException(inner),
-            crate::operation::list_policy_tags::ListPolicyTagsError::NoSuchEntityException(
-                inner,
-            ) => Error::NoSuchEntityException(inner),
-            crate::operation::list_policy_tags::ListPolicyTagsError::ServiceFailureException(
-                inner,
-            ) => Error::ServiceFailureException(inner),
-            crate::operation::list_policy_tags::ListPolicyTagsError::Unhandled(inner) => {
-                Error::Unhandled(inner)
-            }
+            crate::operation::list_policy_tags::ListPolicyTagsError::InvalidInputException(inner) => Error::InvalidInputException(inner),
+            crate::operation::list_policy_tags::ListPolicyTagsError::NoSuchEntityException(inner) => Error::NoSuchEntityException(inner),
+            crate::operation::list_policy_tags::ListPolicyTagsError::ServiceFailureException(inner) => Error::ServiceFailureException(inner),
+            crate::operation::list_policy_tags::ListPolicyTagsError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
 #[cfg(feature = "op_list_policy_versions")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::list_policy_versions::ListPolicyVersionsError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_policy_versions::ListPolicyVersionsError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::list_policy_versions::ListPolicyVersionsError,
-            R,
-        >,
-    ) -> Self {
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_policy_versions::ListPolicyVersionsError, R>) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -5363,26 +4029,13 @@ impl From<crate::operation::list_policy_versions::ListPolicyVersionsError> for E
     }
 }
 #[cfg(feature = "op_list_role_policies")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::list_role_policies::ListRolePoliciesError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_role_policies::ListRolePoliciesError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::list_role_policies::ListRolePoliciesError,
-            R,
-        >,
-    ) -> Self {
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_role_policies::ListRolePoliciesError, R>) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -5401,26 +4054,13 @@ impl From<crate::operation::list_role_policies::ListRolePoliciesError> for Error
     }
 }
 #[cfg(feature = "op_list_roles")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::list_roles::ListRolesError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_roles::ListRolesError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::list_roles::ListRolesError,
-            R,
-        >,
-    ) -> Self {
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_roles::ListRolesError, R>) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -5432,36 +4072,19 @@ where
 impl From<crate::operation::list_roles::ListRolesError> for Error {
     fn from(err: crate::operation::list_roles::ListRolesError) -> Self {
         match err {
-            crate::operation::list_roles::ListRolesError::ServiceFailureException(inner) => {
-                Error::ServiceFailureException(inner)
-            }
-            crate::operation::list_roles::ListRolesError::Unhandled(inner) => {
-                Error::Unhandled(inner)
-            }
+            crate::operation::list_roles::ListRolesError::ServiceFailureException(inner) => Error::ServiceFailureException(inner),
+            crate::operation::list_roles::ListRolesError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
 #[cfg(feature = "op_list_role_tags")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::list_role_tags::ListRoleTagsError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_role_tags::ListRoleTagsError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::list_role_tags::ListRoleTagsError,
-            R,
-        >,
-    ) -> Self {
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_role_tags::ListRoleTagsError, R>) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -5473,39 +4096,20 @@ where
 impl From<crate::operation::list_role_tags::ListRoleTagsError> for Error {
     fn from(err: crate::operation::list_role_tags::ListRoleTagsError) -> Self {
         match err {
-            crate::operation::list_role_tags::ListRoleTagsError::NoSuchEntityException(inner) => {
-                Error::NoSuchEntityException(inner)
-            }
-            crate::operation::list_role_tags::ListRoleTagsError::ServiceFailureException(inner) => {
-                Error::ServiceFailureException(inner)
-            }
-            crate::operation::list_role_tags::ListRoleTagsError::Unhandled(inner) => {
-                Error::Unhandled(inner)
-            }
+            crate::operation::list_role_tags::ListRoleTagsError::NoSuchEntityException(inner) => Error::NoSuchEntityException(inner),
+            crate::operation::list_role_tags::ListRoleTagsError::ServiceFailureException(inner) => Error::ServiceFailureException(inner),
+            crate::operation::list_role_tags::ListRoleTagsError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
 #[cfg(feature = "op_list_saml_providers")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::list_saml_providers::ListSAMLProvidersError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_saml_providers::ListSAMLProvidersError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::list_saml_providers::ListSAMLProvidersError,
-            R,
-        >,
-    ) -> Self {
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_saml_providers::ListSAMLProvidersError, R>) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -5523,26 +4127,15 @@ impl From<crate::operation::list_saml_providers::ListSAMLProvidersError> for Err
     }
 }
 #[cfg(feature = "op_list_saml_provider_tags")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::list_saml_provider_tags::ListSAMLProviderTagsError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_saml_provider_tags::ListSAMLProviderTagsError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
     fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::list_saml_provider_tags::ListSAMLProviderTagsError,
-            R,
-        >,
+        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_saml_provider_tags::ListSAMLProviderTagsError, R>,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -5564,26 +4157,15 @@ impl From<crate::operation::list_saml_provider_tags::ListSAMLProviderTagsError> 
     }
 }
 #[cfg(feature = "op_list_server_certificates")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::list_server_certificates::ListServerCertificatesError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_server_certificates::ListServerCertificatesError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
     fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::list_server_certificates::ListServerCertificatesError,
-            R,
-        >,
+        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_server_certificates::ListServerCertificatesError, R>,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -5603,26 +4185,16 @@ impl From<crate::operation::list_server_certificates::ListServerCertificatesErro
     }
 }
 #[cfg(feature = "op_list_server_certificate_tags")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::list_server_certificate_tags::ListServerCertificateTagsError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_server_certificate_tags::ListServerCertificateTagsError, R>>
+    for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
     fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::list_server_certificate_tags::ListServerCertificateTagsError,
-            R,
-        >,
+        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_server_certificate_tags::ListServerCertificateTagsError, R>,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -5631,12 +4203,8 @@ where
     }
 }
 #[cfg(feature = "op_list_server_certificate_tags")]
-impl From<crate::operation::list_server_certificate_tags::ListServerCertificateTagsError>
-    for Error
-{
-    fn from(
-        err: crate::operation::list_server_certificate_tags::ListServerCertificateTagsError,
-    ) -> Self {
+impl From<crate::operation::list_server_certificate_tags::ListServerCertificateTagsError> for Error {
+    fn from(err: crate::operation::list_server_certificate_tags::ListServerCertificateTagsError) -> Self {
         match err {
             crate::operation::list_server_certificate_tags::ListServerCertificateTagsError::NoSuchEntityException(inner) => {
                 Error::NoSuchEntityException(inner)
@@ -5675,12 +4243,8 @@ where
     }
 }
 #[cfg(feature = "op_list_service_specific_credentials")]
-impl From<crate::operation::list_service_specific_credentials::ListServiceSpecificCredentialsError>
-    for Error
-{
-    fn from(
-        err: crate::operation::list_service_specific_credentials::ListServiceSpecificCredentialsError,
-    ) -> Self {
+impl From<crate::operation::list_service_specific_credentials::ListServiceSpecificCredentialsError> for Error {
+    fn from(err: crate::operation::list_service_specific_credentials::ListServiceSpecificCredentialsError) -> Self {
         match err {
             crate::operation::list_service_specific_credentials::ListServiceSpecificCredentialsError::NoSuchEntityException(inner) => {
                 Error::NoSuchEntityException(inner)
@@ -5693,26 +4257,16 @@ impl From<crate::operation::list_service_specific_credentials::ListServiceSpecif
     }
 }
 #[cfg(feature = "op_list_signing_certificates")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::list_signing_certificates::ListSigningCertificatesError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_signing_certificates::ListSigningCertificatesError, R>>
+    for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
     fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::list_signing_certificates::ListSigningCertificatesError,
-            R,
-        >,
+        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_signing_certificates::ListSigningCertificatesError, R>,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -5722,9 +4276,7 @@ where
 }
 #[cfg(feature = "op_list_signing_certificates")]
 impl From<crate::operation::list_signing_certificates::ListSigningCertificatesError> for Error {
-    fn from(
-        err: crate::operation::list_signing_certificates::ListSigningCertificatesError,
-    ) -> Self {
+    fn from(err: crate::operation::list_signing_certificates::ListSigningCertificatesError) -> Self {
         match err {
             crate::operation::list_signing_certificates::ListSigningCertificatesError::NoSuchEntityException(inner) => {
                 Error::NoSuchEntityException(inner)
@@ -5737,26 +4289,13 @@ impl From<crate::operation::list_signing_certificates::ListSigningCertificatesEr
     }
 }
 #[cfg(feature = "op_list_ssh_public_keys")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::list_ssh_public_keys::ListSSHPublicKeysError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_ssh_public_keys::ListSSHPublicKeysError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::list_ssh_public_keys::ListSSHPublicKeysError,
-            R,
-        >,
-    ) -> Self {
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_ssh_public_keys::ListSSHPublicKeysError, R>) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -5774,26 +4313,13 @@ impl From<crate::operation::list_ssh_public_keys::ListSSHPublicKeysError> for Er
     }
 }
 #[cfg(feature = "op_list_user_policies")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::list_user_policies::ListUserPoliciesError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_user_policies::ListUserPoliciesError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::list_user_policies::ListUserPoliciesError,
-            R,
-        >,
-    ) -> Self {
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_user_policies::ListUserPoliciesError, R>) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -5812,26 +4338,13 @@ impl From<crate::operation::list_user_policies::ListUserPoliciesError> for Error
     }
 }
 #[cfg(feature = "op_list_users")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::list_users::ListUsersError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_users::ListUsersError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::list_users::ListUsersError,
-            R,
-        >,
-    ) -> Self {
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_users::ListUsersError, R>) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -5843,36 +4356,19 @@ where
 impl From<crate::operation::list_users::ListUsersError> for Error {
     fn from(err: crate::operation::list_users::ListUsersError) -> Self {
         match err {
-            crate::operation::list_users::ListUsersError::ServiceFailureException(inner) => {
-                Error::ServiceFailureException(inner)
-            }
-            crate::operation::list_users::ListUsersError::Unhandled(inner) => {
-                Error::Unhandled(inner)
-            }
+            crate::operation::list_users::ListUsersError::ServiceFailureException(inner) => Error::ServiceFailureException(inner),
+            crate::operation::list_users::ListUsersError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
 #[cfg(feature = "op_list_user_tags")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::list_user_tags::ListUserTagsError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_user_tags::ListUserTagsError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::list_user_tags::ListUserTagsError,
-            R,
-        >,
-    ) -> Self {
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_user_tags::ListUserTagsError, R>) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -5884,39 +4380,22 @@ where
 impl From<crate::operation::list_user_tags::ListUserTagsError> for Error {
     fn from(err: crate::operation::list_user_tags::ListUserTagsError) -> Self {
         match err {
-            crate::operation::list_user_tags::ListUserTagsError::NoSuchEntityException(inner) => {
-                Error::NoSuchEntityException(inner)
-            }
-            crate::operation::list_user_tags::ListUserTagsError::ServiceFailureException(inner) => {
-                Error::ServiceFailureException(inner)
-            }
-            crate::operation::list_user_tags::ListUserTagsError::Unhandled(inner) => {
-                Error::Unhandled(inner)
-            }
+            crate::operation::list_user_tags::ListUserTagsError::NoSuchEntityException(inner) => Error::NoSuchEntityException(inner),
+            crate::operation::list_user_tags::ListUserTagsError::ServiceFailureException(inner) => Error::ServiceFailureException(inner),
+            crate::operation::list_user_tags::ListUserTagsError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
 #[cfg(feature = "op_list_virtual_mfa_devices")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::list_virtual_mfa_devices::ListVirtualMFADevicesError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_virtual_mfa_devices::ListVirtualMFADevicesError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
     fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::list_virtual_mfa_devices::ListVirtualMFADevicesError,
-            R,
-        >,
+        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_virtual_mfa_devices::ListVirtualMFADevicesError, R>,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -5928,33 +4407,18 @@ where
 impl From<crate::operation::list_virtual_mfa_devices::ListVirtualMFADevicesError> for Error {
     fn from(err: crate::operation::list_virtual_mfa_devices::ListVirtualMFADevicesError) -> Self {
         match err {
-            crate::operation::list_virtual_mfa_devices::ListVirtualMFADevicesError::Unhandled(
-                inner,
-            ) => Error::Unhandled(inner),
+            crate::operation::list_virtual_mfa_devices::ListVirtualMFADevicesError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
 #[cfg(feature = "op_put_account_properties")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::put_account_properties::PutAccountPropertiesError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::put_account_properties::PutAccountPropertiesError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::put_account_properties::PutAccountPropertiesError,
-            R,
-        >,
-    ) -> Self {
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::put_account_properties::PutAccountPropertiesError, R>) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -5978,26 +4442,13 @@ impl From<crate::operation::put_account_properties::PutAccountPropertiesError> f
     }
 }
 #[cfg(feature = "op_put_group_policy")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::put_group_policy::PutGroupPolicyError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::put_group_policy::PutGroupPolicyError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::put_group_policy::PutGroupPolicyError,
-            R,
-        >,
-    ) -> Self {
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::put_group_policy::PutGroupPolicyError, R>) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -6020,26 +4471,16 @@ impl From<crate::operation::put_group_policy::PutGroupPolicyError> for Error {
     }
 }
 #[cfg(feature = "op_put_role_permissions_boundary")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::put_role_permissions_boundary::PutRolePermissionsBoundaryError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::put_role_permissions_boundary::PutRolePermissionsBoundaryError, R>>
+    for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
     fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::put_role_permissions_boundary::PutRolePermissionsBoundaryError,
-            R,
-        >,
+        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::put_role_permissions_boundary::PutRolePermissionsBoundaryError, R>,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -6048,12 +4489,8 @@ where
     }
 }
 #[cfg(feature = "op_put_role_permissions_boundary")]
-impl From<crate::operation::put_role_permissions_boundary::PutRolePermissionsBoundaryError>
-    for Error
-{
-    fn from(
-        err: crate::operation::put_role_permissions_boundary::PutRolePermissionsBoundaryError,
-    ) -> Self {
+impl From<crate::operation::put_role_permissions_boundary::PutRolePermissionsBoundaryError> for Error {
+    fn from(err: crate::operation::put_role_permissions_boundary::PutRolePermissionsBoundaryError) -> Self {
         match err {
             crate::operation::put_role_permissions_boundary::PutRolePermissionsBoundaryError::InvalidInputException(inner) => {
                 Error::InvalidInputException(inner)
@@ -6075,26 +4512,13 @@ impl From<crate::operation::put_role_permissions_boundary::PutRolePermissionsBou
     }
 }
 #[cfg(feature = "op_put_role_policy")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::put_role_policy::PutRolePolicyError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::put_role_policy::PutRolePolicyError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::put_role_policy::PutRolePolicyError,
-            R,
-        >,
-    ) -> Self {
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::put_role_policy::PutRolePolicyError, R>) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -6118,26 +4542,16 @@ impl From<crate::operation::put_role_policy::PutRolePolicyError> for Error {
     }
 }
 #[cfg(feature = "op_put_user_permissions_boundary")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::put_user_permissions_boundary::PutUserPermissionsBoundaryError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::put_user_permissions_boundary::PutUserPermissionsBoundaryError, R>>
+    for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
     fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::put_user_permissions_boundary::PutUserPermissionsBoundaryError,
-            R,
-        >,
+        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::put_user_permissions_boundary::PutUserPermissionsBoundaryError, R>,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -6146,12 +4560,8 @@ where
     }
 }
 #[cfg(feature = "op_put_user_permissions_boundary")]
-impl From<crate::operation::put_user_permissions_boundary::PutUserPermissionsBoundaryError>
-    for Error
-{
-    fn from(
-        err: crate::operation::put_user_permissions_boundary::PutUserPermissionsBoundaryError,
-    ) -> Self {
+impl From<crate::operation::put_user_permissions_boundary::PutUserPermissionsBoundaryError> for Error {
+    fn from(err: crate::operation::put_user_permissions_boundary::PutUserPermissionsBoundaryError) -> Self {
         match err {
             crate::operation::put_user_permissions_boundary::PutUserPermissionsBoundaryError::InvalidInputException(inner) => {
                 Error::InvalidInputException(inner)
@@ -6170,26 +4580,13 @@ impl From<crate::operation::put_user_permissions_boundary::PutUserPermissionsBou
     }
 }
 #[cfg(feature = "op_put_user_policy")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::put_user_policy::PutUserPolicyError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::put_user_policy::PutUserPolicyError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::put_user_policy::PutUserPolicyError,
-            R,
-        >,
-    ) -> Self {
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::put_user_policy::PutUserPolicyError, R>) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -6212,26 +4609,16 @@ impl From<crate::operation::put_user_policy::PutUserPolicyError> for Error {
     }
 }
 #[cfg(feature = "op_reject_delegation_request")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::reject_delegation_request::RejectDelegationRequestError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::reject_delegation_request::RejectDelegationRequestError, R>>
+    for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
     fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::reject_delegation_request::RejectDelegationRequestError,
-            R,
-        >,
+        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::reject_delegation_request::RejectDelegationRequestError, R>,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -6241,9 +4628,7 @@ where
 }
 #[cfg(feature = "op_reject_delegation_request")]
 impl From<crate::operation::reject_delegation_request::RejectDelegationRequestError> for Error {
-    fn from(
-        err: crate::operation::reject_delegation_request::RejectDelegationRequestError,
-    ) -> Self {
+    fn from(err: crate::operation::reject_delegation_request::RejectDelegationRequestError) -> Self {
         match err {
             crate::operation::reject_delegation_request::RejectDelegationRequestError::ConcurrentModificationException(inner) => {
                 Error::ConcurrentModificationException(inner)
@@ -6317,9 +4702,7 @@ where
         >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -6328,12 +4711,8 @@ where
     }
 }
 #[cfg(feature = "op_remove_role_from_instance_profile")]
-impl From<crate::operation::remove_role_from_instance_profile::RemoveRoleFromInstanceProfileError>
-    for Error
-{
-    fn from(
-        err: crate::operation::remove_role_from_instance_profile::RemoveRoleFromInstanceProfileError,
-    ) -> Self {
+impl From<crate::operation::remove_role_from_instance_profile::RemoveRoleFromInstanceProfileError> for Error {
+    fn from(err: crate::operation::remove_role_from_instance_profile::RemoveRoleFromInstanceProfileError) -> Self {
         match err {
             crate::operation::remove_role_from_instance_profile::RemoveRoleFromInstanceProfileError::LimitExceededException(inner) => {
                 Error::LimitExceededException(inner)
@@ -6352,26 +4731,13 @@ impl From<crate::operation::remove_role_from_instance_profile::RemoveRoleFromIns
     }
 }
 #[cfg(feature = "op_remove_user_from_group")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::remove_user_from_group::RemoveUserFromGroupError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::remove_user_from_group::RemoveUserFromGroupError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::remove_user_from_group::RemoveUserFromGroupError,
-            R,
-        >,
-    ) -> Self {
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::remove_user_from_group::RemoveUserFromGroupError, R>) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -6419,12 +4785,8 @@ where
     }
 }
 #[cfg(feature = "op_reset_service_specific_credential")]
-impl From<crate::operation::reset_service_specific_credential::ResetServiceSpecificCredentialError>
-    for Error
-{
-    fn from(
-        err: crate::operation::reset_service_specific_credential::ResetServiceSpecificCredentialError,
-    ) -> Self {
+impl From<crate::operation::reset_service_specific_credential::ResetServiceSpecificCredentialError> for Error {
+    fn from(err: crate::operation::reset_service_specific_credential::ResetServiceSpecificCredentialError) -> Self {
         match err {
             crate::operation::reset_service_specific_credential::ResetServiceSpecificCredentialError::NoSuchEntityException(inner) => {
                 Error::NoSuchEntityException(inner)
@@ -6434,26 +4796,13 @@ impl From<crate::operation::reset_service_specific_credential::ResetServiceSpeci
     }
 }
 #[cfg(feature = "op_resync_mfa_device")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::resync_mfa_device::ResyncMFADeviceError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::resync_mfa_device::ResyncMFADeviceError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::resync_mfa_device::ResyncMFADeviceError,
-            R,
-        >,
-    ) -> Self {
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::resync_mfa_device::ResyncMFADeviceError, R>) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -6479,26 +4828,13 @@ impl From<crate::operation::resync_mfa_device::ResyncMFADeviceError> for Error {
     }
 }
 #[cfg(feature = "op_send_delegation_token")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::send_delegation_token::SendDelegationTokenError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::send_delegation_token::SendDelegationTokenError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::send_delegation_token::SendDelegationTokenError,
-            R,
-        >,
-    ) -> Self {
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::send_delegation_token::SendDelegationTokenError, R>) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -6523,26 +4859,16 @@ impl From<crate::operation::send_delegation_token::SendDelegationTokenError> for
     }
 }
 #[cfg(feature = "op_set_default_policy_version")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::set_default_policy_version::SetDefaultPolicyVersionError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::set_default_policy_version::SetDefaultPolicyVersionError, R>>
+    for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
     fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::set_default_policy_version::SetDefaultPolicyVersionError,
-            R,
-        >,
+        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::set_default_policy_version::SetDefaultPolicyVersionError, R>,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -6552,9 +4878,7 @@ where
 }
 #[cfg(feature = "op_set_default_policy_version")]
 impl From<crate::operation::set_default_policy_version::SetDefaultPolicyVersionError> for Error {
-    fn from(
-        err: crate::operation::set_default_policy_version::SetDefaultPolicyVersionError,
-    ) -> Self {
+    fn from(err: crate::operation::set_default_policy_version::SetDefaultPolicyVersionError) -> Self {
         match err {
             crate::operation::set_default_policy_version::SetDefaultPolicyVersionError::InvalidInputException(inner) => {
                 Error::InvalidInputException(inner)
@@ -6612,26 +4936,13 @@ impl From<crate::operation::set_security_token_service_preferences::SetSecurityT
     }
 }
 #[cfg(feature = "op_simulate_custom_policy")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::simulate_custom_policy::SimulateCustomPolicyError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::simulate_custom_policy::SimulateCustomPolicyError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::simulate_custom_policy::SimulateCustomPolicyError,
-            R,
-        >,
-    ) -> Self {
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::simulate_custom_policy::SimulateCustomPolicyError, R>) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -6652,26 +4963,16 @@ impl From<crate::operation::simulate_custom_policy::SimulateCustomPolicyError> f
     }
 }
 #[cfg(feature = "op_simulate_principal_policy")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::simulate_principal_policy::SimulatePrincipalPolicyError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::simulate_principal_policy::SimulatePrincipalPolicyError, R>>
+    for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
     fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::simulate_principal_policy::SimulatePrincipalPolicyError,
-            R,
-        >,
+        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::simulate_principal_policy::SimulatePrincipalPolicyError, R>,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -6681,9 +4982,7 @@ where
 }
 #[cfg(feature = "op_simulate_principal_policy")]
 impl From<crate::operation::simulate_principal_policy::SimulatePrincipalPolicyError> for Error {
-    fn from(
-        err: crate::operation::simulate_principal_policy::SimulatePrincipalPolicyError,
-    ) -> Self {
+    fn from(err: crate::operation::simulate_principal_policy::SimulatePrincipalPolicyError) -> Self {
         match err {
             crate::operation::simulate_principal_policy::SimulatePrincipalPolicyError::InvalidInputException(inner) => {
                 Error::InvalidInputException(inner)
@@ -6699,26 +4998,13 @@ impl From<crate::operation::simulate_principal_policy::SimulatePrincipalPolicyEr
     }
 }
 #[cfg(feature = "op_tag_instance_profile")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::tag_instance_profile::TagInstanceProfileError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::tag_instance_profile::TagInstanceProfileError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::tag_instance_profile::TagInstanceProfileError,
-            R,
-        >,
-    ) -> Self {
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::tag_instance_profile::TagInstanceProfileError, R>) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -6742,26 +5028,13 @@ impl From<crate::operation::tag_instance_profile::TagInstanceProfileError> for E
     }
 }
 #[cfg(feature = "op_tag_mfa_device")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::tag_mfa_device::TagMFADeviceError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::tag_mfa_device::TagMFADeviceError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::tag_mfa_device::TagMFADeviceError,
-            R,
-        >,
-    ) -> Self {
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::tag_mfa_device::TagMFADeviceError, R>) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -6785,26 +5058,16 @@ impl From<crate::operation::tag_mfa_device::TagMFADeviceError> for Error {
     }
 }
 #[cfg(feature = "op_tag_open_id_connect_provider")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::tag_open_id_connect_provider::TagOpenIDConnectProviderError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::tag_open_id_connect_provider::TagOpenIDConnectProviderError, R>>
+    for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
     fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::tag_open_id_connect_provider::TagOpenIDConnectProviderError,
-            R,
-        >,
+        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::tag_open_id_connect_provider::TagOpenIDConnectProviderError, R>,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -6814,9 +5077,7 @@ where
 }
 #[cfg(feature = "op_tag_open_id_connect_provider")]
 impl From<crate::operation::tag_open_id_connect_provider::TagOpenIDConnectProviderError> for Error {
-    fn from(
-        err: crate::operation::tag_open_id_connect_provider::TagOpenIDConnectProviderError,
-    ) -> Self {
+    fn from(err: crate::operation::tag_open_id_connect_provider::TagOpenIDConnectProviderError) -> Self {
         match err {
             crate::operation::tag_open_id_connect_provider::TagOpenIDConnectProviderError::ConcurrentModificationException(inner) => {
                 Error::ConcurrentModificationException(inner)
@@ -6838,26 +5099,13 @@ impl From<crate::operation::tag_open_id_connect_provider::TagOpenIDConnectProvid
     }
 }
 #[cfg(feature = "op_tag_policy")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::tag_policy::TagPolicyError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::tag_policy::TagPolicyError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::tag_policy::TagPolicyError,
-            R,
-        >,
-    ) -> Self {
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::tag_policy::TagPolicyError, R>) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -6869,48 +5117,23 @@ where
 impl From<crate::operation::tag_policy::TagPolicyError> for Error {
     fn from(err: crate::operation::tag_policy::TagPolicyError) -> Self {
         match err {
-            crate::operation::tag_policy::TagPolicyError::ConcurrentModificationException(
-                inner,
-            ) => Error::ConcurrentModificationException(inner),
-            crate::operation::tag_policy::TagPolicyError::InvalidInputException(inner) => {
-                Error::InvalidInputException(inner)
-            }
-            crate::operation::tag_policy::TagPolicyError::LimitExceededException(inner) => {
-                Error::LimitExceededException(inner)
-            }
-            crate::operation::tag_policy::TagPolicyError::NoSuchEntityException(inner) => {
-                Error::NoSuchEntityException(inner)
-            }
-            crate::operation::tag_policy::TagPolicyError::ServiceFailureException(inner) => {
-                Error::ServiceFailureException(inner)
-            }
-            crate::operation::tag_policy::TagPolicyError::Unhandled(inner) => {
-                Error::Unhandled(inner)
-            }
+            crate::operation::tag_policy::TagPolicyError::ConcurrentModificationException(inner) => Error::ConcurrentModificationException(inner),
+            crate::operation::tag_policy::TagPolicyError::InvalidInputException(inner) => Error::InvalidInputException(inner),
+            crate::operation::tag_policy::TagPolicyError::LimitExceededException(inner) => Error::LimitExceededException(inner),
+            crate::operation::tag_policy::TagPolicyError::NoSuchEntityException(inner) => Error::NoSuchEntityException(inner),
+            crate::operation::tag_policy::TagPolicyError::ServiceFailureException(inner) => Error::ServiceFailureException(inner),
+            crate::operation::tag_policy::TagPolicyError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
 #[cfg(feature = "op_tag_role")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::tag_role::TagRoleError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::tag_role::TagRoleError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::tag_role::TagRoleError,
-            R,
-        >,
-    ) -> Self {
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::tag_role::TagRoleError, R>) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -6922,46 +5145,23 @@ where
 impl From<crate::operation::tag_role::TagRoleError> for Error {
     fn from(err: crate::operation::tag_role::TagRoleError) -> Self {
         match err {
-            crate::operation::tag_role::TagRoleError::ConcurrentModificationException(inner) => {
-                Error::ConcurrentModificationException(inner)
-            }
-            crate::operation::tag_role::TagRoleError::InvalidInputException(inner) => {
-                Error::InvalidInputException(inner)
-            }
-            crate::operation::tag_role::TagRoleError::LimitExceededException(inner) => {
-                Error::LimitExceededException(inner)
-            }
-            crate::operation::tag_role::TagRoleError::NoSuchEntityException(inner) => {
-                Error::NoSuchEntityException(inner)
-            }
-            crate::operation::tag_role::TagRoleError::ServiceFailureException(inner) => {
-                Error::ServiceFailureException(inner)
-            }
+            crate::operation::tag_role::TagRoleError::ConcurrentModificationException(inner) => Error::ConcurrentModificationException(inner),
+            crate::operation::tag_role::TagRoleError::InvalidInputException(inner) => Error::InvalidInputException(inner),
+            crate::operation::tag_role::TagRoleError::LimitExceededException(inner) => Error::LimitExceededException(inner),
+            crate::operation::tag_role::TagRoleError::NoSuchEntityException(inner) => Error::NoSuchEntityException(inner),
+            crate::operation::tag_role::TagRoleError::ServiceFailureException(inner) => Error::ServiceFailureException(inner),
             crate::operation::tag_role::TagRoleError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
 #[cfg(feature = "op_tag_saml_provider")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::tag_saml_provider::TagSAMLProviderError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::tag_saml_provider::TagSAMLProviderError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::tag_saml_provider::TagSAMLProviderError,
-            R,
-        >,
-    ) -> Self {
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::tag_saml_provider::TagSAMLProviderError, R>) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -6985,26 +5185,13 @@ impl From<crate::operation::tag_saml_provider::TagSAMLProviderError> for Error {
     }
 }
 #[cfg(feature = "op_tag_server_certificate")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::tag_server_certificate::TagServerCertificateError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::tag_server_certificate::TagServerCertificateError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::tag_server_certificate::TagServerCertificateError,
-            R,
-        >,
-    ) -> Self {
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::tag_server_certificate::TagServerCertificateError, R>) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -7032,26 +5219,13 @@ impl From<crate::operation::tag_server_certificate::TagServerCertificateError> f
     }
 }
 #[cfg(feature = "op_tag_user")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::tag_user::TagUserError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::tag_user::TagUserError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::tag_user::TagUserError,
-            R,
-        >,
-    ) -> Self {
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::tag_user::TagUserError, R>) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -7063,46 +5237,23 @@ where
 impl From<crate::operation::tag_user::TagUserError> for Error {
     fn from(err: crate::operation::tag_user::TagUserError) -> Self {
         match err {
-            crate::operation::tag_user::TagUserError::ConcurrentModificationException(inner) => {
-                Error::ConcurrentModificationException(inner)
-            }
-            crate::operation::tag_user::TagUserError::InvalidInputException(inner) => {
-                Error::InvalidInputException(inner)
-            }
-            crate::operation::tag_user::TagUserError::LimitExceededException(inner) => {
-                Error::LimitExceededException(inner)
-            }
-            crate::operation::tag_user::TagUserError::NoSuchEntityException(inner) => {
-                Error::NoSuchEntityException(inner)
-            }
-            crate::operation::tag_user::TagUserError::ServiceFailureException(inner) => {
-                Error::ServiceFailureException(inner)
-            }
+            crate::operation::tag_user::TagUserError::ConcurrentModificationException(inner) => Error::ConcurrentModificationException(inner),
+            crate::operation::tag_user::TagUserError::InvalidInputException(inner) => Error::InvalidInputException(inner),
+            crate::operation::tag_user::TagUserError::LimitExceededException(inner) => Error::LimitExceededException(inner),
+            crate::operation::tag_user::TagUserError::NoSuchEntityException(inner) => Error::NoSuchEntityException(inner),
+            crate::operation::tag_user::TagUserError::ServiceFailureException(inner) => Error::ServiceFailureException(inner),
             crate::operation::tag_user::TagUserError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
 #[cfg(feature = "op_untag_instance_profile")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::untag_instance_profile::UntagInstanceProfileError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::untag_instance_profile::UntagInstanceProfileError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::untag_instance_profile::UntagInstanceProfileError,
-            R,
-        >,
-    ) -> Self {
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::untag_instance_profile::UntagInstanceProfileError, R>) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -7127,26 +5278,13 @@ impl From<crate::operation::untag_instance_profile::UntagInstanceProfileError> f
     }
 }
 #[cfg(feature = "op_untag_mfa_device")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::untag_mfa_device::UntagMFADeviceError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::untag_mfa_device::UntagMFADeviceError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::untag_mfa_device::UntagMFADeviceError,
-            R,
-        >,
-    ) -> Self {
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::untag_mfa_device::UntagMFADeviceError, R>) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -7169,26 +5307,16 @@ impl From<crate::operation::untag_mfa_device::UntagMFADeviceError> for Error {
     }
 }
 #[cfg(feature = "op_untag_open_id_connect_provider")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::untag_open_id_connect_provider::UntagOpenIDConnectProviderError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::untag_open_id_connect_provider::UntagOpenIDConnectProviderError, R>>
+    for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
     fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::untag_open_id_connect_provider::UntagOpenIDConnectProviderError,
-            R,
-        >,
+        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::untag_open_id_connect_provider::UntagOpenIDConnectProviderError, R>,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -7197,12 +5325,8 @@ where
     }
 }
 #[cfg(feature = "op_untag_open_id_connect_provider")]
-impl From<crate::operation::untag_open_id_connect_provider::UntagOpenIDConnectProviderError>
-    for Error
-{
-    fn from(
-        err: crate::operation::untag_open_id_connect_provider::UntagOpenIDConnectProviderError,
-    ) -> Self {
+impl From<crate::operation::untag_open_id_connect_provider::UntagOpenIDConnectProviderError> for Error {
+    fn from(err: crate::operation::untag_open_id_connect_provider::UntagOpenIDConnectProviderError) -> Self {
         match err {
             crate::operation::untag_open_id_connect_provider::UntagOpenIDConnectProviderError::ConcurrentModificationException(inner) => {
                 Error::ConcurrentModificationException(inner)
@@ -7221,26 +5345,13 @@ impl From<crate::operation::untag_open_id_connect_provider::UntagOpenIDConnectPr
     }
 }
 #[cfg(feature = "op_untag_policy")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::untag_policy::UntagPolicyError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::untag_policy::UntagPolicyError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::untag_policy::UntagPolicyError,
-            R,
-        >,
-    ) -> Self {
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::untag_policy::UntagPolicyError, R>) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -7252,45 +5363,22 @@ where
 impl From<crate::operation::untag_policy::UntagPolicyError> for Error {
     fn from(err: crate::operation::untag_policy::UntagPolicyError) -> Self {
         match err {
-            crate::operation::untag_policy::UntagPolicyError::ConcurrentModificationException(
-                inner,
-            ) => Error::ConcurrentModificationException(inner),
-            crate::operation::untag_policy::UntagPolicyError::InvalidInputException(inner) => {
-                Error::InvalidInputException(inner)
-            }
-            crate::operation::untag_policy::UntagPolicyError::NoSuchEntityException(inner) => {
-                Error::NoSuchEntityException(inner)
-            }
-            crate::operation::untag_policy::UntagPolicyError::ServiceFailureException(inner) => {
-                Error::ServiceFailureException(inner)
-            }
-            crate::operation::untag_policy::UntagPolicyError::Unhandled(inner) => {
-                Error::Unhandled(inner)
-            }
+            crate::operation::untag_policy::UntagPolicyError::ConcurrentModificationException(inner) => Error::ConcurrentModificationException(inner),
+            crate::operation::untag_policy::UntagPolicyError::InvalidInputException(inner) => Error::InvalidInputException(inner),
+            crate::operation::untag_policy::UntagPolicyError::NoSuchEntityException(inner) => Error::NoSuchEntityException(inner),
+            crate::operation::untag_policy::UntagPolicyError::ServiceFailureException(inner) => Error::ServiceFailureException(inner),
+            crate::operation::untag_policy::UntagPolicyError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
 #[cfg(feature = "op_untag_role")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::untag_role::UntagRoleError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::untag_role::UntagRoleError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::untag_role::UntagRoleError,
-            R,
-        >,
-    ) -> Self {
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::untag_role::UntagRoleError, R>) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -7302,42 +5390,21 @@ where
 impl From<crate::operation::untag_role::UntagRoleError> for Error {
     fn from(err: crate::operation::untag_role::UntagRoleError) -> Self {
         match err {
-            crate::operation::untag_role::UntagRoleError::ConcurrentModificationException(
-                inner,
-            ) => Error::ConcurrentModificationException(inner),
-            crate::operation::untag_role::UntagRoleError::NoSuchEntityException(inner) => {
-                Error::NoSuchEntityException(inner)
-            }
-            crate::operation::untag_role::UntagRoleError::ServiceFailureException(inner) => {
-                Error::ServiceFailureException(inner)
-            }
-            crate::operation::untag_role::UntagRoleError::Unhandled(inner) => {
-                Error::Unhandled(inner)
-            }
+            crate::operation::untag_role::UntagRoleError::ConcurrentModificationException(inner) => Error::ConcurrentModificationException(inner),
+            crate::operation::untag_role::UntagRoleError::NoSuchEntityException(inner) => Error::NoSuchEntityException(inner),
+            crate::operation::untag_role::UntagRoleError::ServiceFailureException(inner) => Error::ServiceFailureException(inner),
+            crate::operation::untag_role::UntagRoleError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
 #[cfg(feature = "op_untag_saml_provider")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::untag_saml_provider::UntagSAMLProviderError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::untag_saml_provider::UntagSAMLProviderError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::untag_saml_provider::UntagSAMLProviderError,
-            R,
-        >,
-    ) -> Self {
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::untag_saml_provider::UntagSAMLProviderError, R>) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -7360,26 +5427,15 @@ impl From<crate::operation::untag_saml_provider::UntagSAMLProviderError> for Err
     }
 }
 #[cfg(feature = "op_untag_server_certificate")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::untag_server_certificate::UntagServerCertificateError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::untag_server_certificate::UntagServerCertificateError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
     fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::untag_server_certificate::UntagServerCertificateError,
-            R,
-        >,
+        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::untag_server_certificate::UntagServerCertificateError, R>,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -7408,26 +5464,13 @@ impl From<crate::operation::untag_server_certificate::UntagServerCertificateErro
     }
 }
 #[cfg(feature = "op_untag_user")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::untag_user::UntagUserError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::untag_user::UntagUserError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::untag_user::UntagUserError,
-            R,
-        >,
-    ) -> Self {
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::untag_user::UntagUserError, R>) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -7439,42 +5482,21 @@ where
 impl From<crate::operation::untag_user::UntagUserError> for Error {
     fn from(err: crate::operation::untag_user::UntagUserError) -> Self {
         match err {
-            crate::operation::untag_user::UntagUserError::ConcurrentModificationException(
-                inner,
-            ) => Error::ConcurrentModificationException(inner),
-            crate::operation::untag_user::UntagUserError::NoSuchEntityException(inner) => {
-                Error::NoSuchEntityException(inner)
-            }
-            crate::operation::untag_user::UntagUserError::ServiceFailureException(inner) => {
-                Error::ServiceFailureException(inner)
-            }
-            crate::operation::untag_user::UntagUserError::Unhandled(inner) => {
-                Error::Unhandled(inner)
-            }
+            crate::operation::untag_user::UntagUserError::ConcurrentModificationException(inner) => Error::ConcurrentModificationException(inner),
+            crate::operation::untag_user::UntagUserError::NoSuchEntityException(inner) => Error::NoSuchEntityException(inner),
+            crate::operation::untag_user::UntagUserError::ServiceFailureException(inner) => Error::ServiceFailureException(inner),
+            crate::operation::untag_user::UntagUserError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
 #[cfg(feature = "op_update_access_key")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::update_access_key::UpdateAccessKeyError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::update_access_key::UpdateAccessKeyError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::update_access_key::UpdateAccessKeyError,
-            R,
-        >,
-    ) -> Self {
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::update_access_key::UpdateAccessKeyError, R>) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -7486,32 +5508,18 @@ where
 impl From<crate::operation::update_access_key::UpdateAccessKeyError> for Error {
     fn from(err: crate::operation::update_access_key::UpdateAccessKeyError) -> Self {
         match err {
-            crate::operation::update_access_key::UpdateAccessKeyError::InvalidInputException(
-                inner,
-            ) => Error::InvalidInputException(inner),
-            crate::operation::update_access_key::UpdateAccessKeyError::LimitExceededException(
-                inner,
-            ) => Error::LimitExceededException(inner),
-            crate::operation::update_access_key::UpdateAccessKeyError::NoSuchEntityException(
-                inner,
-            ) => Error::NoSuchEntityException(inner),
-            crate::operation::update_access_key::UpdateAccessKeyError::ServiceFailureException(
-                inner,
-            ) => Error::ServiceFailureException(inner),
-            crate::operation::update_access_key::UpdateAccessKeyError::Unhandled(inner) => {
-                Error::Unhandled(inner)
-            }
+            crate::operation::update_access_key::UpdateAccessKeyError::InvalidInputException(inner) => Error::InvalidInputException(inner),
+            crate::operation::update_access_key::UpdateAccessKeyError::LimitExceededException(inner) => Error::LimitExceededException(inner),
+            crate::operation::update_access_key::UpdateAccessKeyError::NoSuchEntityException(inner) => Error::NoSuchEntityException(inner),
+            crate::operation::update_access_key::UpdateAccessKeyError::ServiceFailureException(inner) => Error::ServiceFailureException(inner),
+            crate::operation::update_access_key::UpdateAccessKeyError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
 #[cfg(feature = "op_update_account_password_policy")]
 impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::update_account_password_policy::UpdateAccountPasswordPolicyError,
-            R,
-        >,
-    > for Error
+    From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::update_account_password_policy::UpdateAccountPasswordPolicyError, R>>
+    for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
@@ -7522,9 +5530,7 @@ where
         >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -7533,12 +5539,8 @@ where
     }
 }
 #[cfg(feature = "op_update_account_password_policy")]
-impl From<crate::operation::update_account_password_policy::UpdateAccountPasswordPolicyError>
-    for Error
-{
-    fn from(
-        err: crate::operation::update_account_password_policy::UpdateAccountPasswordPolicyError,
-    ) -> Self {
+impl From<crate::operation::update_account_password_policy::UpdateAccountPasswordPolicyError> for Error {
+    fn from(err: crate::operation::update_account_password_policy::UpdateAccountPasswordPolicyError) -> Self {
         match err {
             crate::operation::update_account_password_policy::UpdateAccountPasswordPolicyError::LimitExceededException(inner) => {
                 Error::LimitExceededException(inner)
@@ -7557,26 +5559,16 @@ impl From<crate::operation::update_account_password_policy::UpdateAccountPasswor
     }
 }
 #[cfg(feature = "op_update_assume_role_policy")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::update_assume_role_policy::UpdateAssumeRolePolicyError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::update_assume_role_policy::UpdateAssumeRolePolicyError, R>>
+    for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
     fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::update_assume_role_policy::UpdateAssumeRolePolicyError,
-            R,
-        >,
+        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::update_assume_role_policy::UpdateAssumeRolePolicyError, R>,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -7608,26 +5600,16 @@ impl From<crate::operation::update_assume_role_policy::UpdateAssumeRolePolicyErr
     }
 }
 #[cfg(feature = "op_update_delegation_request")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::update_delegation_request::UpdateDelegationRequestError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::update_delegation_request::UpdateDelegationRequestError, R>>
+    for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
     fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::update_delegation_request::UpdateDelegationRequestError,
-            R,
-        >,
+        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::update_delegation_request::UpdateDelegationRequestError, R>,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -7637,9 +5619,7 @@ where
 }
 #[cfg(feature = "op_update_delegation_request")]
 impl From<crate::operation::update_delegation_request::UpdateDelegationRequestError> for Error {
-    fn from(
-        err: crate::operation::update_delegation_request::UpdateDelegationRequestError,
-    ) -> Self {
+    fn from(err: crate::operation::update_delegation_request::UpdateDelegationRequestError) -> Self {
         match err {
             crate::operation::update_delegation_request::UpdateDelegationRequestError::ConcurrentModificationException(inner) => {
                 Error::ConcurrentModificationException(inner)
@@ -7658,26 +5638,13 @@ impl From<crate::operation::update_delegation_request::UpdateDelegationRequestEr
     }
 }
 #[cfg(feature = "op_update_group")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::update_group::UpdateGroupError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::update_group::UpdateGroupError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::update_group::UpdateGroupError,
-            R,
-        >,
-    ) -> Self {
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::update_group::UpdateGroupError, R>) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -7689,45 +5656,22 @@ where
 impl From<crate::operation::update_group::UpdateGroupError> for Error {
     fn from(err: crate::operation::update_group::UpdateGroupError) -> Self {
         match err {
-            crate::operation::update_group::UpdateGroupError::EntityAlreadyExistsException(
-                inner,
-            ) => Error::EntityAlreadyExistsException(inner),
-            crate::operation::update_group::UpdateGroupError::LimitExceededException(inner) => {
-                Error::LimitExceededException(inner)
-            }
-            crate::operation::update_group::UpdateGroupError::NoSuchEntityException(inner) => {
-                Error::NoSuchEntityException(inner)
-            }
-            crate::operation::update_group::UpdateGroupError::ServiceFailureException(inner) => {
-                Error::ServiceFailureException(inner)
-            }
-            crate::operation::update_group::UpdateGroupError::Unhandled(inner) => {
-                Error::Unhandled(inner)
-            }
+            crate::operation::update_group::UpdateGroupError::EntityAlreadyExistsException(inner) => Error::EntityAlreadyExistsException(inner),
+            crate::operation::update_group::UpdateGroupError::LimitExceededException(inner) => Error::LimitExceededException(inner),
+            crate::operation::update_group::UpdateGroupError::NoSuchEntityException(inner) => Error::NoSuchEntityException(inner),
+            crate::operation::update_group::UpdateGroupError::ServiceFailureException(inner) => Error::ServiceFailureException(inner),
+            crate::operation::update_group::UpdateGroupError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
 #[cfg(feature = "op_update_login_profile")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::update_login_profile::UpdateLoginProfileError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::update_login_profile::UpdateLoginProfileError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::update_login_profile::UpdateLoginProfileError,
-            R,
-        >,
-    ) -> Self {
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::update_login_profile::UpdateLoginProfileError, R>) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -7791,26 +5735,13 @@ impl From<crate::operation::update_open_id_connect_provider_thumbprint::UpdateOp
     }
 }
 #[cfg(feature = "op_update_role")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::update_role::UpdateRoleError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::update_role::UpdateRoleError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::update_role::UpdateRoleError,
-            R,
-        >,
-    ) -> Self {
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::update_role::UpdateRoleError, R>) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -7822,42 +5753,23 @@ where
 impl From<crate::operation::update_role::UpdateRoleError> for Error {
     fn from(err: crate::operation::update_role::UpdateRoleError) -> Self {
         match err {
-            crate::operation::update_role::UpdateRoleError::NoSuchEntityException(inner) => {
-                Error::NoSuchEntityException(inner)
-            }
-            crate::operation::update_role::UpdateRoleError::ServiceFailureException(inner) => {
-                Error::ServiceFailureException(inner)
-            }
-            crate::operation::update_role::UpdateRoleError::UnmodifiableEntityException(inner) => {
-                Error::UnmodifiableEntityException(inner)
-            }
-            crate::operation::update_role::UpdateRoleError::Unhandled(inner) => {
-                Error::Unhandled(inner)
-            }
+            crate::operation::update_role::UpdateRoleError::NoSuchEntityException(inner) => Error::NoSuchEntityException(inner),
+            crate::operation::update_role::UpdateRoleError::ServiceFailureException(inner) => Error::ServiceFailureException(inner),
+            crate::operation::update_role::UpdateRoleError::UnmodifiableEntityException(inner) => Error::UnmodifiableEntityException(inner),
+            crate::operation::update_role::UpdateRoleError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
 #[cfg(feature = "op_update_role_description")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::update_role_description::UpdateRoleDescriptionError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::update_role_description::UpdateRoleDescriptionError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
     fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::update_role_description::UpdateRoleDescriptionError,
-            R,
-        >,
+        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::update_role_description::UpdateRoleDescriptionError, R>,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -7883,26 +5795,13 @@ impl From<crate::operation::update_role_description::UpdateRoleDescriptionError>
     }
 }
 #[cfg(feature = "op_update_saml_provider")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::update_saml_provider::UpdateSAMLProviderError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::update_saml_provider::UpdateSAMLProviderError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::update_saml_provider::UpdateSAMLProviderError,
-            R,
-        >,
-    ) -> Self {
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::update_saml_provider::UpdateSAMLProviderError, R>) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -7926,26 +5825,16 @@ impl From<crate::operation::update_saml_provider::UpdateSAMLProviderError> for E
     }
 }
 #[cfg(feature = "op_update_server_certificate")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::update_server_certificate::UpdateServerCertificateError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::update_server_certificate::UpdateServerCertificateError, R>>
+    for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
     fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::update_server_certificate::UpdateServerCertificateError,
-            R,
-        >,
+        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::update_server_certificate::UpdateServerCertificateError, R>,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -7955,9 +5844,7 @@ where
 }
 #[cfg(feature = "op_update_server_certificate")]
 impl From<crate::operation::update_server_certificate::UpdateServerCertificateError> for Error {
-    fn from(
-        err: crate::operation::update_server_certificate::UpdateServerCertificateError,
-    ) -> Self {
+    fn from(err: crate::operation::update_server_certificate::UpdateServerCertificateError) -> Self {
         match err {
             crate::operation::update_server_certificate::UpdateServerCertificateError::EntityAlreadyExistsException(inner) => {
                 Error::EntityAlreadyExistsException(inner)
@@ -8002,13 +5889,8 @@ where
     }
 }
 #[cfg(feature = "op_update_service_specific_credential")]
-impl
-    From<crate::operation::update_service_specific_credential::UpdateServiceSpecificCredentialError>
-    for Error
-{
-    fn from(
-        err: crate::operation::update_service_specific_credential::UpdateServiceSpecificCredentialError,
-    ) -> Self {
+impl From<crate::operation::update_service_specific_credential::UpdateServiceSpecificCredentialError> for Error {
+    fn from(err: crate::operation::update_service_specific_credential::UpdateServiceSpecificCredentialError) -> Self {
         match err {
             crate::operation::update_service_specific_credential::UpdateServiceSpecificCredentialError::NoSuchEntityException(inner) => {
                 Error::NoSuchEntityException(inner)
@@ -8018,26 +5900,16 @@ impl
     }
 }
 #[cfg(feature = "op_update_signing_certificate")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::update_signing_certificate::UpdateSigningCertificateError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::update_signing_certificate::UpdateSigningCertificateError, R>>
+    for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
     fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::update_signing_certificate::UpdateSigningCertificateError,
-            R,
-        >,
+        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::update_signing_certificate::UpdateSigningCertificateError, R>,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -8047,9 +5919,7 @@ where
 }
 #[cfg(feature = "op_update_signing_certificate")]
 impl From<crate::operation::update_signing_certificate::UpdateSigningCertificateError> for Error {
-    fn from(
-        err: crate::operation::update_signing_certificate::UpdateSigningCertificateError,
-    ) -> Self {
+    fn from(err: crate::operation::update_signing_certificate::UpdateSigningCertificateError) -> Self {
         match err {
             crate::operation::update_signing_certificate::UpdateSigningCertificateError::InvalidInputException(inner) => {
                 Error::InvalidInputException(inner)
@@ -8068,26 +5938,13 @@ impl From<crate::operation::update_signing_certificate::UpdateSigningCertificate
     }
 }
 #[cfg(feature = "op_update_ssh_public_key")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::update_ssh_public_key::UpdateSSHPublicKeyError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::update_ssh_public_key::UpdateSSHPublicKeyError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::update_ssh_public_key::UpdateSSHPublicKeyError,
-            R,
-        >,
-    ) -> Self {
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::update_ssh_public_key::UpdateSSHPublicKeyError, R>) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -8106,26 +5963,13 @@ impl From<crate::operation::update_ssh_public_key::UpdateSSHPublicKeyError> for 
     }
 }
 #[cfg(feature = "op_update_user")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::update_user::UpdateUserError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::update_user::UpdateUserError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::update_user::UpdateUserError,
-            R,
-        >,
-    ) -> Self {
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::update_user::UpdateUserError, R>) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -8150,26 +5994,16 @@ impl From<crate::operation::update_user::UpdateUserError> for Error {
     }
 }
 #[cfg(feature = "op_upload_server_certificate")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::upload_server_certificate::UploadServerCertificateError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::upload_server_certificate::UploadServerCertificateError, R>>
+    for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
     fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::upload_server_certificate::UploadServerCertificateError,
-            R,
-        >,
+        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::upload_server_certificate::UploadServerCertificateError, R>,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -8179,9 +6013,7 @@ where
 }
 #[cfg(feature = "op_upload_server_certificate")]
 impl From<crate::operation::upload_server_certificate::UploadServerCertificateError> for Error {
-    fn from(
-        err: crate::operation::upload_server_certificate::UploadServerCertificateError,
-    ) -> Self {
+    fn from(err: crate::operation::upload_server_certificate::UploadServerCertificateError) -> Self {
         match err {
             crate::operation::upload_server_certificate::UploadServerCertificateError::ConcurrentModificationException(inner) => {
                 Error::ConcurrentModificationException(inner)
@@ -8209,26 +6041,16 @@ impl From<crate::operation::upload_server_certificate::UploadServerCertificateEr
     }
 }
 #[cfg(feature = "op_upload_signing_certificate")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::upload_signing_certificate::UploadSigningCertificateError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::upload_signing_certificate::UploadSigningCertificateError, R>>
+    for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
     fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::upload_signing_certificate::UploadSigningCertificateError,
-            R,
-        >,
+        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::upload_signing_certificate::UploadSigningCertificateError, R>,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -8238,9 +6060,7 @@ where
 }
 #[cfg(feature = "op_upload_signing_certificate")]
 impl From<crate::operation::upload_signing_certificate::UploadSigningCertificateError> for Error {
-    fn from(
-        err: crate::operation::upload_signing_certificate::UploadSigningCertificateError,
-    ) -> Self {
+    fn from(err: crate::operation::upload_signing_certificate::UploadSigningCertificateError) -> Self {
         match err {
             crate::operation::upload_signing_certificate::UploadSigningCertificateError::ConcurrentModificationException(inner) => {
                 Error::ConcurrentModificationException(inner)
@@ -8271,26 +6091,13 @@ impl From<crate::operation::upload_signing_certificate::UploadSigningCertificate
     }
 }
 #[cfg(feature = "op_upload_ssh_public_key")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::upload_ssh_public_key::UploadSSHPublicKeyError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::upload_ssh_public_key::UploadSSHPublicKeyError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::upload_ssh_public_key::UploadSSHPublicKeyError,
-            R,
-        >,
-    ) -> Self {
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::upload_ssh_public_key::UploadSSHPublicKeyError, R>) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -8317,8 +6124,7 @@ impl From<crate::operation::upload_ssh_public_key::UploadSSHPublicKeyError> for 
         }
     }
 }
-impl<O, E> ::std::convert::From<::aws_smithy_runtime_api::client::waiters::error::WaiterError<O, E>>
-    for Error
+impl<O, E> ::std::convert::From<::aws_smithy_runtime_api::client::waiters::error::WaiterError<O, E>> for Error
 where
     O: ::std::fmt::Debug + ::std::marker::Send + ::std::marker::Sync + 'static,
     E: ::std::error::Error + ::std::marker::Send + ::std::marker::Sync + 'static,
@@ -8333,44 +6139,82 @@ where
 impl ::std::error::Error for Error {
     fn source(&self) -> std::option::Option<&(dyn ::std::error::Error + 'static)> {
         match self {
-            Error::AccountNotManagementOrDelegatedAdministratorException(inner) => inner.source(),
-            Error::CallerIsNotManagementAccountException(inner) => inner.source(),
-            Error::ConcurrentModificationException(inner) => inner.source(),
-            Error::CredentialReportExpiredException(inner) => inner.source(),
-            Error::CredentialReportNotPresentException(inner) => inner.source(),
-            Error::CredentialReportNotReadyException(inner) => inner.source(),
-            Error::DeleteConflictException(inner) => inner.source(),
-            Error::DuplicateCertificateException(inner) => inner.source(),
-            Error::DuplicateSshPublicKeyException(inner) => inner.source(),
-            Error::EntityAlreadyExistsException(inner) => inner.source(),
-            Error::EntityTemporarilyUnmodifiableException(inner) => inner.source(),
-            Error::FeatureDisabledException(inner) => inner.source(),
-            Error::FeatureEnabledException(inner) => inner.source(),
-            Error::InvalidAuthenticationCodeException(inner) => inner.source(),
-            Error::InvalidCertificateException(inner) => inner.source(),
-            Error::InvalidInputException(inner) => inner.source(),
-            Error::InvalidPublicKeyException(inner) => inner.source(),
-            Error::InvalidUserTypeException(inner) => inner.source(),
-            Error::KeyPairMismatchException(inner) => inner.source(),
-            Error::LimitExceededException(inner) => inner.source(),
-            Error::MalformedCertificateException(inner) => inner.source(),
-            Error::MalformedPolicyDocumentException(inner) => inner.source(),
-            Error::NameConflictException(inner) => inner.source(),
-            Error::NoSuchEntityException(inner) => inner.source(),
-            Error::OpenIdIdpCommunicationErrorException(inner) => inner.source(),
-            Error::OrganizationNotFoundException(inner) => inner.source(),
-            Error::OrganizationNotInAllFeaturesModeException(inner) => inner.source(),
-            Error::PasswordPolicyViolationException(inner) => inner.source(),
-            Error::PolicyEvaluationException(inner) => inner.source(),
-            Error::PolicyNotAttachableException(inner) => inner.source(),
-            Error::ReportGenerationLimitExceededException(inner) => inner.source(),
-            Error::RoleModifiedException(inner) => inner.source(),
-            Error::RoleTemplateDisabledException(inner) => inner.source(),
-            Error::ServiceAccessNotEnabledException(inner) => inner.source(),
-            Error::ServiceFailureException(inner) => inner.source(),
-            Error::ServiceNotSupportedException(inner) => inner.source(),
-            Error::UnmodifiableEntityException(inner) => inner.source(),
-            Error::UnrecognizedPublicKeyEncodingException(inner) => inner.source(),
+            #[cfg(any(feature = "op_disable_organizations_root_credentials_management", feature = "op_disable_organizations_root_sessions", feature = "op_enable_organizations_root_credentials_management", feature = "op_enable_organizations_root_sessions", feature = "op_list_organizations_features"))]
+Error::AccountNotManagementOrDelegatedAdministratorException(inner) => inner.source(),
+            #[cfg(any(feature = "op_enable_organizations_root_credentials_management", feature = "op_enable_organizations_root_sessions"))]
+Error::CallerIsNotManagementAccountException(inner) => inner.source(),
+            #[cfg(any(feature = "op_accept_delegation_request", feature = "op_acquire_role", feature = "op_add_client_id_to_open_id_connect_provider", feature = "op_associate_delegation_request", feature = "op_create_account_alias", feature = "op_create_delegation_request", feature = "op_create_instance_profile", feature = "op_create_open_id_connect_provider", feature = "op_create_policy", feature = "op_create_role", feature = "op_create_saml_provider", feature = "op_create_user", feature = "op_create_virtual_mfa_device", feature = "op_deactivate_mfa_device", feature = "op_delete_account_alias", feature = "op_delete_role", feature = "op_delete_signing_certificate", feature = "op_delete_user", feature = "op_delete_virtual_mfa_device", feature = "op_enable_mfa_device", feature = "op_put_account_properties", feature = "op_reject_delegation_request", feature = "op_remove_client_id_from_open_id_connect_provider", feature = "op_resync_mfa_device", feature = "op_send_delegation_token", feature = "op_tag_instance_profile", feature = "op_tag_mfa_device", feature = "op_tag_open_id_connect_provider", feature = "op_tag_policy", feature = "op_tag_role", feature = "op_tag_saml_provider", feature = "op_tag_server_certificate", feature = "op_tag_user", feature = "op_untag_instance_profile", feature = "op_untag_mfa_device", feature = "op_untag_open_id_connect_provider", feature = "op_untag_policy", feature = "op_untag_role", feature = "op_untag_saml_provider", feature = "op_untag_server_certificate", feature = "op_untag_user", feature = "op_update_delegation_request", feature = "op_update_open_id_connect_provider_thumbprint", feature = "op_update_saml_provider", feature = "op_update_user", feature = "op_upload_server_certificate", feature = "op_upload_signing_certificate"))]
+Error::ConcurrentModificationException(inner) => inner.source(),
+            #[cfg(feature = "op_get_credential_report")]
+Error::CredentialReportExpiredException(inner) => inner.source(),
+            #[cfg(feature = "op_get_credential_report")]
+Error::CredentialReportNotPresentException(inner) => inner.source(),
+            #[cfg(feature = "op_get_credential_report")]
+Error::CredentialReportNotReadyException(inner) => inner.source(),
+            #[cfg(any(feature = "op_delete_group", feature = "op_delete_instance_profile", feature = "op_delete_policy", feature = "op_delete_policy_version", feature = "op_delete_role", feature = "op_delete_server_certificate", feature = "op_delete_user", feature = "op_delete_virtual_mfa_device"))]
+Error::DeleteConflictException(inner) => inner.source(),
+            #[cfg(feature = "op_upload_signing_certificate")]
+Error::DuplicateCertificateException(inner) => inner.source(),
+            #[cfg(feature = "op_upload_ssh_public_key")]
+Error::DuplicateSshPublicKeyException(inner) => inner.source(),
+            #[cfg(any(feature = "op_acquire_role", feature = "op_add_role_to_instance_profile", feature = "op_create_account_alias", feature = "op_create_delegation_request", feature = "op_create_group", feature = "op_create_instance_profile", feature = "op_create_login_profile", feature = "op_create_open_id_connect_provider", feature = "op_create_policy", feature = "op_create_role", feature = "op_create_saml_provider", feature = "op_create_user", feature = "op_create_virtual_mfa_device", feature = "op_enable_mfa_device", feature = "op_update_group", feature = "op_update_server_certificate", feature = "op_update_user", feature = "op_upload_server_certificate", feature = "op_upload_signing_certificate"))]
+Error::EntityAlreadyExistsException(inner) => inner.source(),
+            #[cfg(any(feature = "op_change_password", feature = "op_deactivate_mfa_device", feature = "op_delete_login_profile", feature = "op_enable_mfa_device", feature = "op_update_login_profile", feature = "op_update_user"))]
+Error::EntityTemporarilyUnmodifiableException(inner) => inner.source(),
+            #[cfg(any(feature = "op_disable_outbound_web_identity_federation", feature = "op_get_outbound_web_identity_federation_info"))]
+Error::FeatureDisabledException(inner) => inner.source(),
+            #[cfg(feature = "op_enable_outbound_web_identity_federation")]
+Error::FeatureEnabledException(inner) => inner.source(),
+            #[cfg(any(feature = "op_enable_mfa_device", feature = "op_resync_mfa_device"))]
+Error::InvalidAuthenticationCodeException(inner) => inner.source(),
+            #[cfg(feature = "op_upload_signing_certificate")]
+Error::InvalidCertificateException(inner) => inner.source(),
+            #[cfg(any(feature = "op_acquire_role", feature = "op_add_client_id_to_open_id_connect_provider", feature = "op_associate_delegation_request", feature = "op_attach_group_policy", feature = "op_attach_role_policy", feature = "op_attach_user_policy", feature = "op_create_delegation_request", feature = "op_create_instance_profile", feature = "op_create_open_id_connect_provider", feature = "op_create_policy", feature = "op_create_policy_version", feature = "op_create_role", feature = "op_create_saml_provider", feature = "op_create_service_linked_role", feature = "op_create_user", feature = "op_create_virtual_mfa_device", feature = "op_delete_open_id_connect_provider", feature = "op_delete_policy", feature = "op_delete_policy_version", feature = "op_delete_saml_provider", feature = "op_detach_group_policy", feature = "op_detach_role_policy", feature = "op_detach_user_policy", feature = "op_generate_service_last_accessed_details", feature = "op_get_account_properties", feature = "op_get_context_keys_for_custom_policy", feature = "op_get_context_keys_for_principal_policy", feature = "op_get_human_readable_summary", feature = "op_get_open_id_connect_provider", feature = "op_get_policy", feature = "op_get_policy_version", feature = "op_get_role_template_version", feature = "op_get_saml_provider", feature = "op_get_service_last_accessed_details", feature = "op_get_service_last_accessed_details_with_entities", feature = "op_get_service_linked_role_deletion_status", feature = "op_list_attached_group_policies", feature = "op_list_attached_role_policies", feature = "op_list_attached_user_policies", feature = "op_list_delegation_requests", feature = "op_list_entities_for_policy", feature = "op_list_mfa_device_tags", feature = "op_list_open_id_connect_provider_tags", feature = "op_list_policies_granting_service_access", feature = "op_list_policy_tags", feature = "op_list_policy_versions", feature = "op_list_saml_provider_tags", feature = "op_put_account_properties", feature = "op_put_role_permissions_boundary", feature = "op_put_user_permissions_boundary", feature = "op_reject_delegation_request", feature = "op_remove_client_id_from_open_id_connect_provider", feature = "op_send_delegation_token", feature = "op_set_default_policy_version", feature = "op_simulate_custom_policy", feature = "op_simulate_principal_policy", feature = "op_tag_instance_profile", feature = "op_tag_mfa_device", feature = "op_tag_open_id_connect_provider", feature = "op_tag_policy", feature = "op_tag_role", feature = "op_tag_saml_provider", feature = "op_tag_server_certificate", feature = "op_tag_user", feature = "op_untag_instance_profile", feature = "op_untag_mfa_device", feature = "op_untag_open_id_connect_provider", feature = "op_untag_policy", feature = "op_untag_saml_provider", feature = "op_untag_server_certificate", feature = "op_update_access_key", feature = "op_update_delegation_request", feature = "op_update_open_id_connect_provider_thumbprint", feature = "op_update_saml_provider", feature = "op_update_signing_certificate", feature = "op_update_ssh_public_key", feature = "op_upload_server_certificate"))]
+Error::InvalidInputException(inner) => inner.source(),
+            #[cfg(feature = "op_upload_ssh_public_key")]
+Error::InvalidPublicKeyException(inner) => inner.source(),
+            #[cfg(feature = "op_change_password")]
+Error::InvalidUserTypeException(inner) => inner.source(),
+            #[cfg(feature = "op_upload_server_certificate")]
+Error::KeyPairMismatchException(inner) => inner.source(),
+            #[cfg(any(feature = "op_acquire_role", feature = "op_add_client_id_to_open_id_connect_provider", feature = "op_add_role_to_instance_profile", feature = "op_add_user_to_group", feature = "op_attach_group_policy", feature = "op_attach_role_policy", feature = "op_attach_user_policy", feature = "op_change_password", feature = "op_create_access_key", feature = "op_create_account_alias", feature = "op_create_delegation_request", feature = "op_create_group", feature = "op_create_instance_profile", feature = "op_create_login_profile", feature = "op_create_open_id_connect_provider", feature = "op_create_policy", feature = "op_create_policy_version", feature = "op_create_role", feature = "op_create_saml_provider", feature = "op_create_service_linked_role", feature = "op_create_service_specific_credential", feature = "op_create_user", feature = "op_create_virtual_mfa_device", feature = "op_deactivate_mfa_device", feature = "op_delete_access_key", feature = "op_delete_account_alias", feature = "op_delete_account_password_policy", feature = "op_delete_group", feature = "op_delete_group_policy", feature = "op_delete_instance_profile", feature = "op_delete_login_profile", feature = "op_delete_policy", feature = "op_delete_policy_version", feature = "op_delete_role", feature = "op_delete_role_policy", feature = "op_delete_saml_provider", feature = "op_delete_server_certificate", feature = "op_delete_service_linked_role", feature = "op_delete_signing_certificate", feature = "op_delete_user", feature = "op_delete_user_policy", feature = "op_delete_virtual_mfa_device", feature = "op_detach_group_policy", feature = "op_detach_role_policy", feature = "op_detach_user_policy", feature = "op_enable_mfa_device", feature = "op_generate_credential_report", feature = "op_put_group_policy", feature = "op_put_role_policy", feature = "op_put_user_policy", feature = "op_remove_role_from_instance_profile", feature = "op_remove_user_from_group", feature = "op_resync_mfa_device", feature = "op_set_default_policy_version", feature = "op_tag_instance_profile", feature = "op_tag_mfa_device", feature = "op_tag_open_id_connect_provider", feature = "op_tag_policy", feature = "op_tag_role", feature = "op_tag_saml_provider", feature = "op_tag_server_certificate", feature = "op_tag_user", feature = "op_update_access_key", feature = "op_update_account_password_policy", feature = "op_update_assume_role_policy", feature = "op_update_group", feature = "op_update_login_profile", feature = "op_update_saml_provider", feature = "op_update_server_certificate", feature = "op_update_signing_certificate", feature = "op_update_user", feature = "op_upload_server_certificate", feature = "op_upload_signing_certificate", feature = "op_upload_ssh_public_key"))]
+Error::LimitExceededException(inner) => inner.source(),
+            #[cfg(any(feature = "op_upload_server_certificate", feature = "op_upload_signing_certificate"))]
+Error::MalformedCertificateException(inner) => inner.source(),
+            #[cfg(any(feature = "op_acquire_role", feature = "op_create_policy", feature = "op_create_policy_version", feature = "op_create_role", feature = "op_put_group_policy", feature = "op_put_role_policy", feature = "op_put_user_policy", feature = "op_update_account_password_policy", feature = "op_update_assume_role_policy"))]
+Error::MalformedPolicyDocumentException(inner) => inner.source(),
+            #[cfg(feature = "op_acquire_role")]
+Error::NameConflictException(inner) => inner.source(),
+            #[cfg(any(feature = "op_accept_delegation_request", feature = "op_acquire_role", feature = "op_add_client_id_to_open_id_connect_provider", feature = "op_add_role_to_instance_profile", feature = "op_add_user_to_group", feature = "op_associate_delegation_request", feature = "op_attach_group_policy", feature = "op_attach_role_policy", feature = "op_attach_user_policy", feature = "op_change_password", feature = "op_create_access_key", feature = "op_create_group", feature = "op_create_login_profile", feature = "op_create_policy_version", feature = "op_create_service_linked_role", feature = "op_create_service_specific_credential", feature = "op_create_user", feature = "op_deactivate_mfa_device", feature = "op_delete_access_key", feature = "op_delete_account_alias", feature = "op_delete_account_password_policy", feature = "op_delete_group", feature = "op_delete_group_policy", feature = "op_delete_instance_profile", feature = "op_delete_login_profile", feature = "op_delete_open_id_connect_provider", feature = "op_delete_policy", feature = "op_delete_policy_version", feature = "op_delete_role", feature = "op_delete_role_permissions_boundary", feature = "op_delete_role_policy", feature = "op_delete_saml_provider", feature = "op_delete_server_certificate", feature = "op_delete_service_linked_role", feature = "op_delete_service_specific_credential", feature = "op_delete_signing_certificate", feature = "op_delete_ssh_public_key", feature = "op_delete_user", feature = "op_delete_user_permissions_boundary", feature = "op_delete_user_policy", feature = "op_delete_virtual_mfa_device", feature = "op_detach_group_policy", feature = "op_detach_role_policy", feature = "op_detach_user_policy", feature = "op_enable_mfa_device", feature = "op_generate_service_last_accessed_details", feature = "op_get_account_password_policy", feature = "op_get_context_keys_for_principal_policy", feature = "op_get_delegation_request", feature = "op_get_group", feature = "op_get_group_policy", feature = "op_get_human_readable_summary", feature = "op_get_instance_profile", feature = "op_get_login_profile", feature = "op_get_mfa_device", feature = "op_get_open_id_connect_provider", feature = "op_get_organizations_access_report", feature = "op_get_policy", feature = "op_get_policy_version", feature = "op_get_role", feature = "op_get_role_policy", feature = "op_get_role_template_version", feature = "op_get_saml_provider", feature = "op_get_server_certificate", feature = "op_get_service_last_accessed_details", feature = "op_get_service_last_accessed_details_with_entities", feature = "op_get_service_linked_role_deletion_status", feature = "op_get_ssh_public_key", feature = "op_get_user", feature = "op_get_user_policy", feature = "op_list_access_keys", feature = "op_list_attached_group_policies", feature = "op_list_attached_role_policies", feature = "op_list_attached_user_policies", feature = "op_list_delegation_requests", feature = "op_list_entities_for_policy", feature = "op_list_group_policies", feature = "op_list_groups_for_user", feature = "op_list_instance_profile_tags", feature = "op_list_instance_profiles_for_role", feature = "op_list_mfa_device_tags", feature = "op_list_mfa_devices", feature = "op_list_open_id_connect_provider_tags", feature = "op_list_policies_granting_service_access", feature = "op_list_policy_tags", feature = "op_list_policy_versions", feature = "op_list_role_policies", feature = "op_list_role_tags", feature = "op_list_saml_provider_tags", feature = "op_list_server_certificate_tags", feature = "op_list_service_specific_credentials", feature = "op_list_signing_certificates", feature = "op_list_ssh_public_keys", feature = "op_list_user_policies", feature = "op_list_user_tags", feature = "op_put_group_policy", feature = "op_put_role_permissions_boundary", feature = "op_put_role_policy", feature = "op_put_user_permissions_boundary", feature = "op_put_user_policy", feature = "op_reject_delegation_request", feature = "op_remove_client_id_from_open_id_connect_provider", feature = "op_remove_role_from_instance_profile", feature = "op_remove_user_from_group", feature = "op_reset_service_specific_credential", feature = "op_resync_mfa_device", feature = "op_send_delegation_token", feature = "op_set_default_policy_version", feature = "op_simulate_principal_policy", feature = "op_tag_instance_profile", feature = "op_tag_mfa_device", feature = "op_tag_open_id_connect_provider", feature = "op_tag_policy", feature = "op_tag_role", feature = "op_tag_saml_provider", feature = "op_tag_server_certificate", feature = "op_tag_user", feature = "op_untag_instance_profile", feature = "op_untag_mfa_device", feature = "op_untag_open_id_connect_provider", feature = "op_untag_policy", feature = "op_untag_role", feature = "op_untag_saml_provider", feature = "op_untag_server_certificate", feature = "op_untag_user", feature = "op_update_access_key", feature = "op_update_account_password_policy", feature = "op_update_assume_role_policy", feature = "op_update_delegation_request", feature = "op_update_group", feature = "op_update_login_profile", feature = "op_update_open_id_connect_provider_thumbprint", feature = "op_update_role", feature = "op_update_role_description", feature = "op_update_saml_provider", feature = "op_update_server_certificate", feature = "op_update_service_specific_credential", feature = "op_update_signing_certificate", feature = "op_update_ssh_public_key", feature = "op_update_user", feature = "op_upload_signing_certificate", feature = "op_upload_ssh_public_key"))]
+Error::NoSuchEntityException(inner) => inner.source(),
+            #[cfg(feature = "op_create_open_id_connect_provider")]
+Error::OpenIdIdpCommunicationErrorException(inner) => inner.source(),
+            #[cfg(any(feature = "op_disable_organizations_root_credentials_management", feature = "op_disable_organizations_root_sessions", feature = "op_enable_organizations_root_credentials_management", feature = "op_enable_organizations_root_sessions", feature = "op_list_organizations_features"))]
+Error::OrganizationNotFoundException(inner) => inner.source(),
+            #[cfg(any(feature = "op_disable_organizations_root_credentials_management", feature = "op_disable_organizations_root_sessions", feature = "op_enable_organizations_root_credentials_management", feature = "op_enable_organizations_root_sessions", feature = "op_list_organizations_features"))]
+Error::OrganizationNotInAllFeaturesModeException(inner) => inner.source(),
+            #[cfg(any(feature = "op_change_password", feature = "op_create_login_profile", feature = "op_update_login_profile"))]
+Error::PasswordPolicyViolationException(inner) => inner.source(),
+            #[cfg(any(feature = "op_simulate_custom_policy", feature = "op_simulate_principal_policy"))]
+Error::PolicyEvaluationException(inner) => inner.source(),
+            #[cfg(any(feature = "op_attach_group_policy", feature = "op_attach_role_policy", feature = "op_attach_user_policy", feature = "op_put_role_permissions_boundary", feature = "op_put_user_permissions_boundary"))]
+Error::PolicyNotAttachableException(inner) => inner.source(),
+            #[cfg(feature = "op_generate_organizations_access_report")]
+Error::ReportGenerationLimitExceededException(inner) => inner.source(),
+            #[cfg(feature = "op_acquire_role")]
+Error::RoleModifiedException(inner) => inner.source(),
+            #[cfg(feature = "op_acquire_role")]
+Error::RoleTemplateDisabledException(inner) => inner.source(),
+            #[cfg(any(feature = "op_disable_organizations_root_credentials_management", feature = "op_disable_organizations_root_sessions", feature = "op_enable_organizations_root_credentials_management", feature = "op_enable_organizations_root_sessions", feature = "op_list_organizations_features"))]
+Error::ServiceAccessNotEnabledException(inner) => inner.source(),
+            #[cfg(any(feature = "op_accept_delegation_request", feature = "op_acquire_role", feature = "op_add_client_id_to_open_id_connect_provider", feature = "op_add_role_to_instance_profile", feature = "op_add_user_to_group", feature = "op_associate_delegation_request", feature = "op_attach_group_policy", feature = "op_attach_role_policy", feature = "op_attach_user_policy", feature = "op_change_password", feature = "op_create_access_key", feature = "op_create_account_alias", feature = "op_create_delegation_request", feature = "op_create_group", feature = "op_create_instance_profile", feature = "op_create_login_profile", feature = "op_create_open_id_connect_provider", feature = "op_create_policy", feature = "op_create_policy_version", feature = "op_create_role", feature = "op_create_saml_provider", feature = "op_create_service_linked_role", feature = "op_create_user", feature = "op_create_virtual_mfa_device", feature = "op_deactivate_mfa_device", feature = "op_delete_access_key", feature = "op_delete_account_alias", feature = "op_delete_account_password_policy", feature = "op_delete_group", feature = "op_delete_group_policy", feature = "op_delete_instance_profile", feature = "op_delete_login_profile", feature = "op_delete_open_id_connect_provider", feature = "op_delete_policy", feature = "op_delete_policy_version", feature = "op_delete_role", feature = "op_delete_role_permissions_boundary", feature = "op_delete_role_policy", feature = "op_delete_saml_provider", feature = "op_delete_server_certificate", feature = "op_delete_service_linked_role", feature = "op_delete_signing_certificate", feature = "op_delete_user", feature = "op_delete_user_permissions_boundary", feature = "op_delete_user_policy", feature = "op_delete_virtual_mfa_device", feature = "op_detach_group_policy", feature = "op_detach_role_policy", feature = "op_detach_user_policy", feature = "op_enable_mfa_device", feature = "op_generate_credential_report", feature = "op_get_account_authorization_details", feature = "op_get_account_password_policy", feature = "op_get_account_properties", feature = "op_get_account_summary", feature = "op_get_credential_report", feature = "op_get_delegation_request", feature = "op_get_group", feature = "op_get_group_policy", feature = "op_get_human_readable_summary", feature = "op_get_instance_profile", feature = "op_get_login_profile", feature = "op_get_mfa_device", feature = "op_get_open_id_connect_provider", feature = "op_get_policy", feature = "op_get_policy_version", feature = "op_get_role", feature = "op_get_role_policy", feature = "op_get_role_template_version", feature = "op_get_saml_provider", feature = "op_get_server_certificate", feature = "op_get_service_linked_role_deletion_status", feature = "op_get_user", feature = "op_get_user_policy", feature = "op_list_access_keys", feature = "op_list_account_aliases", feature = "op_list_attached_group_policies", feature = "op_list_attached_role_policies", feature = "op_list_attached_user_policies", feature = "op_list_delegation_requests", feature = "op_list_entities_for_policy", feature = "op_list_group_policies", feature = "op_list_groups", feature = "op_list_groups_for_user", feature = "op_list_instance_profile_tags", feature = "op_list_instance_profiles", feature = "op_list_instance_profiles_for_role", feature = "op_list_mfa_device_tags", feature = "op_list_mfa_devices", feature = "op_list_open_id_connect_provider_tags", feature = "op_list_open_id_connect_providers", feature = "op_list_policies", feature = "op_list_policy_tags", feature = "op_list_policy_versions", feature = "op_list_role_policies", feature = "op_list_role_tags", feature = "op_list_roles", feature = "op_list_saml_provider_tags", feature = "op_list_saml_providers", feature = "op_list_server_certificate_tags", feature = "op_list_server_certificates", feature = "op_list_signing_certificates", feature = "op_list_user_policies", feature = "op_list_user_tags", feature = "op_list_users", feature = "op_put_account_properties", feature = "op_put_group_policy", feature = "op_put_role_permissions_boundary", feature = "op_put_role_policy", feature = "op_put_user_permissions_boundary", feature = "op_put_user_policy", feature = "op_reject_delegation_request", feature = "op_remove_client_id_from_open_id_connect_provider", feature = "op_remove_role_from_instance_profile", feature = "op_remove_user_from_group", feature = "op_resync_mfa_device", feature = "op_send_delegation_token", feature = "op_set_default_policy_version", feature = "op_set_security_token_service_preferences", feature = "op_tag_instance_profile", feature = "op_tag_mfa_device", feature = "op_tag_open_id_connect_provider", feature = "op_tag_policy", feature = "op_tag_role", feature = "op_tag_saml_provider", feature = "op_tag_server_certificate", feature = "op_tag_user", feature = "op_untag_instance_profile", feature = "op_untag_mfa_device", feature = "op_untag_open_id_connect_provider", feature = "op_untag_policy", feature = "op_untag_role", feature = "op_untag_saml_provider", feature = "op_untag_server_certificate", feature = "op_untag_user", feature = "op_update_access_key", feature = "op_update_account_password_policy", feature = "op_update_assume_role_policy", feature = "op_update_delegation_request", feature = "op_update_group", feature = "op_update_login_profile", feature = "op_update_open_id_connect_provider_thumbprint", feature = "op_update_role", feature = "op_update_role_description", feature = "op_update_saml_provider", feature = "op_update_server_certificate", feature = "op_update_signing_certificate", feature = "op_update_user", feature = "op_upload_server_certificate", feature = "op_upload_signing_certificate"))]
+Error::ServiceFailureException(inner) => inner.source(),
+            #[cfg(any(feature = "op_create_service_specific_credential", feature = "op_list_service_specific_credentials"))]
+Error::ServiceNotSupportedException(inner) => inner.source(),
+            #[cfg(any(feature = "op_add_role_to_instance_profile", feature = "op_attach_role_policy", feature = "op_delete_role", feature = "op_delete_role_permissions_boundary", feature = "op_delete_role_policy", feature = "op_detach_role_policy", feature = "op_put_role_permissions_boundary", feature = "op_put_role_policy", feature = "op_remove_role_from_instance_profile", feature = "op_update_assume_role_policy", feature = "op_update_role", feature = "op_update_role_description"))]
+Error::UnmodifiableEntityException(inner) => inner.source(),
+            #[cfg(any(feature = "op_get_ssh_public_key", feature = "op_upload_ssh_public_key"))]
+Error::UnrecognizedPublicKeyEncodingException(inner) => inner.source(),
             Error::Unhandled(inner) => ::std::option::Option::Some(&*inner.source),
         }
     }
@@ -8378,44 +6222,82 @@ impl ::std::error::Error for Error {
 impl ::aws_types::request_id::RequestId for Error {
     fn request_id(&self) -> Option<&str> {
         match self {
-            Self::AccountNotManagementOrDelegatedAdministratorException(e) => e.request_id(),
-            Self::CallerIsNotManagementAccountException(e) => e.request_id(),
-            Self::ConcurrentModificationException(e) => e.request_id(),
-            Self::CredentialReportExpiredException(e) => e.request_id(),
-            Self::CredentialReportNotPresentException(e) => e.request_id(),
-            Self::CredentialReportNotReadyException(e) => e.request_id(),
-            Self::DeleteConflictException(e) => e.request_id(),
-            Self::DuplicateCertificateException(e) => e.request_id(),
-            Self::DuplicateSshPublicKeyException(e) => e.request_id(),
-            Self::EntityAlreadyExistsException(e) => e.request_id(),
-            Self::EntityTemporarilyUnmodifiableException(e) => e.request_id(),
-            Self::FeatureDisabledException(e) => e.request_id(),
-            Self::FeatureEnabledException(e) => e.request_id(),
-            Self::InvalidAuthenticationCodeException(e) => e.request_id(),
-            Self::InvalidCertificateException(e) => e.request_id(),
-            Self::InvalidInputException(e) => e.request_id(),
-            Self::InvalidPublicKeyException(e) => e.request_id(),
-            Self::InvalidUserTypeException(e) => e.request_id(),
-            Self::KeyPairMismatchException(e) => e.request_id(),
-            Self::LimitExceededException(e) => e.request_id(),
-            Self::MalformedCertificateException(e) => e.request_id(),
-            Self::MalformedPolicyDocumentException(e) => e.request_id(),
-            Self::NameConflictException(e) => e.request_id(),
-            Self::NoSuchEntityException(e) => e.request_id(),
-            Self::OpenIdIdpCommunicationErrorException(e) => e.request_id(),
-            Self::OrganizationNotFoundException(e) => e.request_id(),
-            Self::OrganizationNotInAllFeaturesModeException(e) => e.request_id(),
-            Self::PasswordPolicyViolationException(e) => e.request_id(),
-            Self::PolicyEvaluationException(e) => e.request_id(),
-            Self::PolicyNotAttachableException(e) => e.request_id(),
-            Self::ReportGenerationLimitExceededException(e) => e.request_id(),
-            Self::RoleModifiedException(e) => e.request_id(),
-            Self::RoleTemplateDisabledException(e) => e.request_id(),
-            Self::ServiceAccessNotEnabledException(e) => e.request_id(),
-            Self::ServiceFailureException(e) => e.request_id(),
-            Self::ServiceNotSupportedException(e) => e.request_id(),
-            Self::UnmodifiableEntityException(e) => e.request_id(),
-            Self::UnrecognizedPublicKeyEncodingException(e) => e.request_id(),
+            #[cfg(any(feature = "op_disable_organizations_root_credentials_management", feature = "op_disable_organizations_root_sessions", feature = "op_enable_organizations_root_credentials_management", feature = "op_enable_organizations_root_sessions", feature = "op_list_organizations_features"))]
+Self::AccountNotManagementOrDelegatedAdministratorException(e) => e.request_id(),
+            #[cfg(any(feature = "op_enable_organizations_root_credentials_management", feature = "op_enable_organizations_root_sessions"))]
+Self::CallerIsNotManagementAccountException(e) => e.request_id(),
+            #[cfg(any(feature = "op_accept_delegation_request", feature = "op_acquire_role", feature = "op_add_client_id_to_open_id_connect_provider", feature = "op_associate_delegation_request", feature = "op_create_account_alias", feature = "op_create_delegation_request", feature = "op_create_instance_profile", feature = "op_create_open_id_connect_provider", feature = "op_create_policy", feature = "op_create_role", feature = "op_create_saml_provider", feature = "op_create_user", feature = "op_create_virtual_mfa_device", feature = "op_deactivate_mfa_device", feature = "op_delete_account_alias", feature = "op_delete_role", feature = "op_delete_signing_certificate", feature = "op_delete_user", feature = "op_delete_virtual_mfa_device", feature = "op_enable_mfa_device", feature = "op_put_account_properties", feature = "op_reject_delegation_request", feature = "op_remove_client_id_from_open_id_connect_provider", feature = "op_resync_mfa_device", feature = "op_send_delegation_token", feature = "op_tag_instance_profile", feature = "op_tag_mfa_device", feature = "op_tag_open_id_connect_provider", feature = "op_tag_policy", feature = "op_tag_role", feature = "op_tag_saml_provider", feature = "op_tag_server_certificate", feature = "op_tag_user", feature = "op_untag_instance_profile", feature = "op_untag_mfa_device", feature = "op_untag_open_id_connect_provider", feature = "op_untag_policy", feature = "op_untag_role", feature = "op_untag_saml_provider", feature = "op_untag_server_certificate", feature = "op_untag_user", feature = "op_update_delegation_request", feature = "op_update_open_id_connect_provider_thumbprint", feature = "op_update_saml_provider", feature = "op_update_user", feature = "op_upload_server_certificate", feature = "op_upload_signing_certificate"))]
+Self::ConcurrentModificationException(e) => e.request_id(),
+            #[cfg(feature = "op_get_credential_report")]
+Self::CredentialReportExpiredException(e) => e.request_id(),
+            #[cfg(feature = "op_get_credential_report")]
+Self::CredentialReportNotPresentException(e) => e.request_id(),
+            #[cfg(feature = "op_get_credential_report")]
+Self::CredentialReportNotReadyException(e) => e.request_id(),
+            #[cfg(any(feature = "op_delete_group", feature = "op_delete_instance_profile", feature = "op_delete_policy", feature = "op_delete_policy_version", feature = "op_delete_role", feature = "op_delete_server_certificate", feature = "op_delete_user", feature = "op_delete_virtual_mfa_device"))]
+Self::DeleteConflictException(e) => e.request_id(),
+            #[cfg(feature = "op_upload_signing_certificate")]
+Self::DuplicateCertificateException(e) => e.request_id(),
+            #[cfg(feature = "op_upload_ssh_public_key")]
+Self::DuplicateSshPublicKeyException(e) => e.request_id(),
+            #[cfg(any(feature = "op_acquire_role", feature = "op_add_role_to_instance_profile", feature = "op_create_account_alias", feature = "op_create_delegation_request", feature = "op_create_group", feature = "op_create_instance_profile", feature = "op_create_login_profile", feature = "op_create_open_id_connect_provider", feature = "op_create_policy", feature = "op_create_role", feature = "op_create_saml_provider", feature = "op_create_user", feature = "op_create_virtual_mfa_device", feature = "op_enable_mfa_device", feature = "op_update_group", feature = "op_update_server_certificate", feature = "op_update_user", feature = "op_upload_server_certificate", feature = "op_upload_signing_certificate"))]
+Self::EntityAlreadyExistsException(e) => e.request_id(),
+            #[cfg(any(feature = "op_change_password", feature = "op_deactivate_mfa_device", feature = "op_delete_login_profile", feature = "op_enable_mfa_device", feature = "op_update_login_profile", feature = "op_update_user"))]
+Self::EntityTemporarilyUnmodifiableException(e) => e.request_id(),
+            #[cfg(any(feature = "op_disable_outbound_web_identity_federation", feature = "op_get_outbound_web_identity_federation_info"))]
+Self::FeatureDisabledException(e) => e.request_id(),
+            #[cfg(feature = "op_enable_outbound_web_identity_federation")]
+Self::FeatureEnabledException(e) => e.request_id(),
+            #[cfg(any(feature = "op_enable_mfa_device", feature = "op_resync_mfa_device"))]
+Self::InvalidAuthenticationCodeException(e) => e.request_id(),
+            #[cfg(feature = "op_upload_signing_certificate")]
+Self::InvalidCertificateException(e) => e.request_id(),
+            #[cfg(any(feature = "op_acquire_role", feature = "op_add_client_id_to_open_id_connect_provider", feature = "op_associate_delegation_request", feature = "op_attach_group_policy", feature = "op_attach_role_policy", feature = "op_attach_user_policy", feature = "op_create_delegation_request", feature = "op_create_instance_profile", feature = "op_create_open_id_connect_provider", feature = "op_create_policy", feature = "op_create_policy_version", feature = "op_create_role", feature = "op_create_saml_provider", feature = "op_create_service_linked_role", feature = "op_create_user", feature = "op_create_virtual_mfa_device", feature = "op_delete_open_id_connect_provider", feature = "op_delete_policy", feature = "op_delete_policy_version", feature = "op_delete_saml_provider", feature = "op_detach_group_policy", feature = "op_detach_role_policy", feature = "op_detach_user_policy", feature = "op_generate_service_last_accessed_details", feature = "op_get_account_properties", feature = "op_get_context_keys_for_custom_policy", feature = "op_get_context_keys_for_principal_policy", feature = "op_get_human_readable_summary", feature = "op_get_open_id_connect_provider", feature = "op_get_policy", feature = "op_get_policy_version", feature = "op_get_role_template_version", feature = "op_get_saml_provider", feature = "op_get_service_last_accessed_details", feature = "op_get_service_last_accessed_details_with_entities", feature = "op_get_service_linked_role_deletion_status", feature = "op_list_attached_group_policies", feature = "op_list_attached_role_policies", feature = "op_list_attached_user_policies", feature = "op_list_delegation_requests", feature = "op_list_entities_for_policy", feature = "op_list_mfa_device_tags", feature = "op_list_open_id_connect_provider_tags", feature = "op_list_policies_granting_service_access", feature = "op_list_policy_tags", feature = "op_list_policy_versions", feature = "op_list_saml_provider_tags", feature = "op_put_account_properties", feature = "op_put_role_permissions_boundary", feature = "op_put_user_permissions_boundary", feature = "op_reject_delegation_request", feature = "op_remove_client_id_from_open_id_connect_provider", feature = "op_send_delegation_token", feature = "op_set_default_policy_version", feature = "op_simulate_custom_policy", feature = "op_simulate_principal_policy", feature = "op_tag_instance_profile", feature = "op_tag_mfa_device", feature = "op_tag_open_id_connect_provider", feature = "op_tag_policy", feature = "op_tag_role", feature = "op_tag_saml_provider", feature = "op_tag_server_certificate", feature = "op_tag_user", feature = "op_untag_instance_profile", feature = "op_untag_mfa_device", feature = "op_untag_open_id_connect_provider", feature = "op_untag_policy", feature = "op_untag_saml_provider", feature = "op_untag_server_certificate", feature = "op_update_access_key", feature = "op_update_delegation_request", feature = "op_update_open_id_connect_provider_thumbprint", feature = "op_update_saml_provider", feature = "op_update_signing_certificate", feature = "op_update_ssh_public_key", feature = "op_upload_server_certificate"))]
+Self::InvalidInputException(e) => e.request_id(),
+            #[cfg(feature = "op_upload_ssh_public_key")]
+Self::InvalidPublicKeyException(e) => e.request_id(),
+            #[cfg(feature = "op_change_password")]
+Self::InvalidUserTypeException(e) => e.request_id(),
+            #[cfg(feature = "op_upload_server_certificate")]
+Self::KeyPairMismatchException(e) => e.request_id(),
+            #[cfg(any(feature = "op_acquire_role", feature = "op_add_client_id_to_open_id_connect_provider", feature = "op_add_role_to_instance_profile", feature = "op_add_user_to_group", feature = "op_attach_group_policy", feature = "op_attach_role_policy", feature = "op_attach_user_policy", feature = "op_change_password", feature = "op_create_access_key", feature = "op_create_account_alias", feature = "op_create_delegation_request", feature = "op_create_group", feature = "op_create_instance_profile", feature = "op_create_login_profile", feature = "op_create_open_id_connect_provider", feature = "op_create_policy", feature = "op_create_policy_version", feature = "op_create_role", feature = "op_create_saml_provider", feature = "op_create_service_linked_role", feature = "op_create_service_specific_credential", feature = "op_create_user", feature = "op_create_virtual_mfa_device", feature = "op_deactivate_mfa_device", feature = "op_delete_access_key", feature = "op_delete_account_alias", feature = "op_delete_account_password_policy", feature = "op_delete_group", feature = "op_delete_group_policy", feature = "op_delete_instance_profile", feature = "op_delete_login_profile", feature = "op_delete_policy", feature = "op_delete_policy_version", feature = "op_delete_role", feature = "op_delete_role_policy", feature = "op_delete_saml_provider", feature = "op_delete_server_certificate", feature = "op_delete_service_linked_role", feature = "op_delete_signing_certificate", feature = "op_delete_user", feature = "op_delete_user_policy", feature = "op_delete_virtual_mfa_device", feature = "op_detach_group_policy", feature = "op_detach_role_policy", feature = "op_detach_user_policy", feature = "op_enable_mfa_device", feature = "op_generate_credential_report", feature = "op_put_group_policy", feature = "op_put_role_policy", feature = "op_put_user_policy", feature = "op_remove_role_from_instance_profile", feature = "op_remove_user_from_group", feature = "op_resync_mfa_device", feature = "op_set_default_policy_version", feature = "op_tag_instance_profile", feature = "op_tag_mfa_device", feature = "op_tag_open_id_connect_provider", feature = "op_tag_policy", feature = "op_tag_role", feature = "op_tag_saml_provider", feature = "op_tag_server_certificate", feature = "op_tag_user", feature = "op_update_access_key", feature = "op_update_account_password_policy", feature = "op_update_assume_role_policy", feature = "op_update_group", feature = "op_update_login_profile", feature = "op_update_saml_provider", feature = "op_update_server_certificate", feature = "op_update_signing_certificate", feature = "op_update_user", feature = "op_upload_server_certificate", feature = "op_upload_signing_certificate", feature = "op_upload_ssh_public_key"))]
+Self::LimitExceededException(e) => e.request_id(),
+            #[cfg(any(feature = "op_upload_server_certificate", feature = "op_upload_signing_certificate"))]
+Self::MalformedCertificateException(e) => e.request_id(),
+            #[cfg(any(feature = "op_acquire_role", feature = "op_create_policy", feature = "op_create_policy_version", feature = "op_create_role", feature = "op_put_group_policy", feature = "op_put_role_policy", feature = "op_put_user_policy", feature = "op_update_account_password_policy", feature = "op_update_assume_role_policy"))]
+Self::MalformedPolicyDocumentException(e) => e.request_id(),
+            #[cfg(feature = "op_acquire_role")]
+Self::NameConflictException(e) => e.request_id(),
+            #[cfg(any(feature = "op_accept_delegation_request", feature = "op_acquire_role", feature = "op_add_client_id_to_open_id_connect_provider", feature = "op_add_role_to_instance_profile", feature = "op_add_user_to_group", feature = "op_associate_delegation_request", feature = "op_attach_group_policy", feature = "op_attach_role_policy", feature = "op_attach_user_policy", feature = "op_change_password", feature = "op_create_access_key", feature = "op_create_group", feature = "op_create_login_profile", feature = "op_create_policy_version", feature = "op_create_service_linked_role", feature = "op_create_service_specific_credential", feature = "op_create_user", feature = "op_deactivate_mfa_device", feature = "op_delete_access_key", feature = "op_delete_account_alias", feature = "op_delete_account_password_policy", feature = "op_delete_group", feature = "op_delete_group_policy", feature = "op_delete_instance_profile", feature = "op_delete_login_profile", feature = "op_delete_open_id_connect_provider", feature = "op_delete_policy", feature = "op_delete_policy_version", feature = "op_delete_role", feature = "op_delete_role_permissions_boundary", feature = "op_delete_role_policy", feature = "op_delete_saml_provider", feature = "op_delete_server_certificate", feature = "op_delete_service_linked_role", feature = "op_delete_service_specific_credential", feature = "op_delete_signing_certificate", feature = "op_delete_ssh_public_key", feature = "op_delete_user", feature = "op_delete_user_permissions_boundary", feature = "op_delete_user_policy", feature = "op_delete_virtual_mfa_device", feature = "op_detach_group_policy", feature = "op_detach_role_policy", feature = "op_detach_user_policy", feature = "op_enable_mfa_device", feature = "op_generate_service_last_accessed_details", feature = "op_get_account_password_policy", feature = "op_get_context_keys_for_principal_policy", feature = "op_get_delegation_request", feature = "op_get_group", feature = "op_get_group_policy", feature = "op_get_human_readable_summary", feature = "op_get_instance_profile", feature = "op_get_login_profile", feature = "op_get_mfa_device", feature = "op_get_open_id_connect_provider", feature = "op_get_organizations_access_report", feature = "op_get_policy", feature = "op_get_policy_version", feature = "op_get_role", feature = "op_get_role_policy", feature = "op_get_role_template_version", feature = "op_get_saml_provider", feature = "op_get_server_certificate", feature = "op_get_service_last_accessed_details", feature = "op_get_service_last_accessed_details_with_entities", feature = "op_get_service_linked_role_deletion_status", feature = "op_get_ssh_public_key", feature = "op_get_user", feature = "op_get_user_policy", feature = "op_list_access_keys", feature = "op_list_attached_group_policies", feature = "op_list_attached_role_policies", feature = "op_list_attached_user_policies", feature = "op_list_delegation_requests", feature = "op_list_entities_for_policy", feature = "op_list_group_policies", feature = "op_list_groups_for_user", feature = "op_list_instance_profile_tags", feature = "op_list_instance_profiles_for_role", feature = "op_list_mfa_device_tags", feature = "op_list_mfa_devices", feature = "op_list_open_id_connect_provider_tags", feature = "op_list_policies_granting_service_access", feature = "op_list_policy_tags", feature = "op_list_policy_versions", feature = "op_list_role_policies", feature = "op_list_role_tags", feature = "op_list_saml_provider_tags", feature = "op_list_server_certificate_tags", feature = "op_list_service_specific_credentials", feature = "op_list_signing_certificates", feature = "op_list_ssh_public_keys", feature = "op_list_user_policies", feature = "op_list_user_tags", feature = "op_put_group_policy", feature = "op_put_role_permissions_boundary", feature = "op_put_role_policy", feature = "op_put_user_permissions_boundary", feature = "op_put_user_policy", feature = "op_reject_delegation_request", feature = "op_remove_client_id_from_open_id_connect_provider", feature = "op_remove_role_from_instance_profile", feature = "op_remove_user_from_group", feature = "op_reset_service_specific_credential", feature = "op_resync_mfa_device", feature = "op_send_delegation_token", feature = "op_set_default_policy_version", feature = "op_simulate_principal_policy", feature = "op_tag_instance_profile", feature = "op_tag_mfa_device", feature = "op_tag_open_id_connect_provider", feature = "op_tag_policy", feature = "op_tag_role", feature = "op_tag_saml_provider", feature = "op_tag_server_certificate", feature = "op_tag_user", feature = "op_untag_instance_profile", feature = "op_untag_mfa_device", feature = "op_untag_open_id_connect_provider", feature = "op_untag_policy", feature = "op_untag_role", feature = "op_untag_saml_provider", feature = "op_untag_server_certificate", feature = "op_untag_user", feature = "op_update_access_key", feature = "op_update_account_password_policy", feature = "op_update_assume_role_policy", feature = "op_update_delegation_request", feature = "op_update_group", feature = "op_update_login_profile", feature = "op_update_open_id_connect_provider_thumbprint", feature = "op_update_role", feature = "op_update_role_description", feature = "op_update_saml_provider", feature = "op_update_server_certificate", feature = "op_update_service_specific_credential", feature = "op_update_signing_certificate", feature = "op_update_ssh_public_key", feature = "op_update_user", feature = "op_upload_signing_certificate", feature = "op_upload_ssh_public_key"))]
+Self::NoSuchEntityException(e) => e.request_id(),
+            #[cfg(feature = "op_create_open_id_connect_provider")]
+Self::OpenIdIdpCommunicationErrorException(e) => e.request_id(),
+            #[cfg(any(feature = "op_disable_organizations_root_credentials_management", feature = "op_disable_organizations_root_sessions", feature = "op_enable_organizations_root_credentials_management", feature = "op_enable_organizations_root_sessions", feature = "op_list_organizations_features"))]
+Self::OrganizationNotFoundException(e) => e.request_id(),
+            #[cfg(any(feature = "op_disable_organizations_root_credentials_management", feature = "op_disable_organizations_root_sessions", feature = "op_enable_organizations_root_credentials_management", feature = "op_enable_organizations_root_sessions", feature = "op_list_organizations_features"))]
+Self::OrganizationNotInAllFeaturesModeException(e) => e.request_id(),
+            #[cfg(any(feature = "op_change_password", feature = "op_create_login_profile", feature = "op_update_login_profile"))]
+Self::PasswordPolicyViolationException(e) => e.request_id(),
+            #[cfg(any(feature = "op_simulate_custom_policy", feature = "op_simulate_principal_policy"))]
+Self::PolicyEvaluationException(e) => e.request_id(),
+            #[cfg(any(feature = "op_attach_group_policy", feature = "op_attach_role_policy", feature = "op_attach_user_policy", feature = "op_put_role_permissions_boundary", feature = "op_put_user_permissions_boundary"))]
+Self::PolicyNotAttachableException(e) => e.request_id(),
+            #[cfg(feature = "op_generate_organizations_access_report")]
+Self::ReportGenerationLimitExceededException(e) => e.request_id(),
+            #[cfg(feature = "op_acquire_role")]
+Self::RoleModifiedException(e) => e.request_id(),
+            #[cfg(feature = "op_acquire_role")]
+Self::RoleTemplateDisabledException(e) => e.request_id(),
+            #[cfg(any(feature = "op_disable_organizations_root_credentials_management", feature = "op_disable_organizations_root_sessions", feature = "op_enable_organizations_root_credentials_management", feature = "op_enable_organizations_root_sessions", feature = "op_list_organizations_features"))]
+Self::ServiceAccessNotEnabledException(e) => e.request_id(),
+            #[cfg(any(feature = "op_accept_delegation_request", feature = "op_acquire_role", feature = "op_add_client_id_to_open_id_connect_provider", feature = "op_add_role_to_instance_profile", feature = "op_add_user_to_group", feature = "op_associate_delegation_request", feature = "op_attach_group_policy", feature = "op_attach_role_policy", feature = "op_attach_user_policy", feature = "op_change_password", feature = "op_create_access_key", feature = "op_create_account_alias", feature = "op_create_delegation_request", feature = "op_create_group", feature = "op_create_instance_profile", feature = "op_create_login_profile", feature = "op_create_open_id_connect_provider", feature = "op_create_policy", feature = "op_create_policy_version", feature = "op_create_role", feature = "op_create_saml_provider", feature = "op_create_service_linked_role", feature = "op_create_user", feature = "op_create_virtual_mfa_device", feature = "op_deactivate_mfa_device", feature = "op_delete_access_key", feature = "op_delete_account_alias", feature = "op_delete_account_password_policy", feature = "op_delete_group", feature = "op_delete_group_policy", feature = "op_delete_instance_profile", feature = "op_delete_login_profile", feature = "op_delete_open_id_connect_provider", feature = "op_delete_policy", feature = "op_delete_policy_version", feature = "op_delete_role", feature = "op_delete_role_permissions_boundary", feature = "op_delete_role_policy", feature = "op_delete_saml_provider", feature = "op_delete_server_certificate", feature = "op_delete_service_linked_role", feature = "op_delete_signing_certificate", feature = "op_delete_user", feature = "op_delete_user_permissions_boundary", feature = "op_delete_user_policy", feature = "op_delete_virtual_mfa_device", feature = "op_detach_group_policy", feature = "op_detach_role_policy", feature = "op_detach_user_policy", feature = "op_enable_mfa_device", feature = "op_generate_credential_report", feature = "op_get_account_authorization_details", feature = "op_get_account_password_policy", feature = "op_get_account_properties", feature = "op_get_account_summary", feature = "op_get_credential_report", feature = "op_get_delegation_request", feature = "op_get_group", feature = "op_get_group_policy", feature = "op_get_human_readable_summary", feature = "op_get_instance_profile", feature = "op_get_login_profile", feature = "op_get_mfa_device", feature = "op_get_open_id_connect_provider", feature = "op_get_policy", feature = "op_get_policy_version", feature = "op_get_role", feature = "op_get_role_policy", feature = "op_get_role_template_version", feature = "op_get_saml_provider", feature = "op_get_server_certificate", feature = "op_get_service_linked_role_deletion_status", feature = "op_get_user", feature = "op_get_user_policy", feature = "op_list_access_keys", feature = "op_list_account_aliases", feature = "op_list_attached_group_policies", feature = "op_list_attached_role_policies", feature = "op_list_attached_user_policies", feature = "op_list_delegation_requests", feature = "op_list_entities_for_policy", feature = "op_list_group_policies", feature = "op_list_groups", feature = "op_list_groups_for_user", feature = "op_list_instance_profile_tags", feature = "op_list_instance_profiles", feature = "op_list_instance_profiles_for_role", feature = "op_list_mfa_device_tags", feature = "op_list_mfa_devices", feature = "op_list_open_id_connect_provider_tags", feature = "op_list_open_id_connect_providers", feature = "op_list_policies", feature = "op_list_policy_tags", feature = "op_list_policy_versions", feature = "op_list_role_policies", feature = "op_list_role_tags", feature = "op_list_roles", feature = "op_list_saml_provider_tags", feature = "op_list_saml_providers", feature = "op_list_server_certificate_tags", feature = "op_list_server_certificates", feature = "op_list_signing_certificates", feature = "op_list_user_policies", feature = "op_list_user_tags", feature = "op_list_users", feature = "op_put_account_properties", feature = "op_put_group_policy", feature = "op_put_role_permissions_boundary", feature = "op_put_role_policy", feature = "op_put_user_permissions_boundary", feature = "op_put_user_policy", feature = "op_reject_delegation_request", feature = "op_remove_client_id_from_open_id_connect_provider", feature = "op_remove_role_from_instance_profile", feature = "op_remove_user_from_group", feature = "op_resync_mfa_device", feature = "op_send_delegation_token", feature = "op_set_default_policy_version", feature = "op_set_security_token_service_preferences", feature = "op_tag_instance_profile", feature = "op_tag_mfa_device", feature = "op_tag_open_id_connect_provider", feature = "op_tag_policy", feature = "op_tag_role", feature = "op_tag_saml_provider", feature = "op_tag_server_certificate", feature = "op_tag_user", feature = "op_untag_instance_profile", feature = "op_untag_mfa_device", feature = "op_untag_open_id_connect_provider", feature = "op_untag_policy", feature = "op_untag_role", feature = "op_untag_saml_provider", feature = "op_untag_server_certificate", feature = "op_untag_user", feature = "op_update_access_key", feature = "op_update_account_password_policy", feature = "op_update_assume_role_policy", feature = "op_update_delegation_request", feature = "op_update_group", feature = "op_update_login_profile", feature = "op_update_open_id_connect_provider_thumbprint", feature = "op_update_role", feature = "op_update_role_description", feature = "op_update_saml_provider", feature = "op_update_server_certificate", feature = "op_update_signing_certificate", feature = "op_update_user", feature = "op_upload_server_certificate", feature = "op_upload_signing_certificate"))]
+Self::ServiceFailureException(e) => e.request_id(),
+            #[cfg(any(feature = "op_create_service_specific_credential", feature = "op_list_service_specific_credentials"))]
+Self::ServiceNotSupportedException(e) => e.request_id(),
+            #[cfg(any(feature = "op_add_role_to_instance_profile", feature = "op_attach_role_policy", feature = "op_delete_role", feature = "op_delete_role_permissions_boundary", feature = "op_delete_role_policy", feature = "op_detach_role_policy", feature = "op_put_role_permissions_boundary", feature = "op_put_role_policy", feature = "op_remove_role_from_instance_profile", feature = "op_update_assume_role_policy", feature = "op_update_role", feature = "op_update_role_description"))]
+Self::UnmodifiableEntityException(e) => e.request_id(),
+            #[cfg(any(feature = "op_get_ssh_public_key", feature = "op_upload_ssh_public_key"))]
+Self::UnrecognizedPublicKeyEncodingException(e) => e.request_id(),
             Self::Unhandled(e) => e.meta.request_id(),
         }
     }

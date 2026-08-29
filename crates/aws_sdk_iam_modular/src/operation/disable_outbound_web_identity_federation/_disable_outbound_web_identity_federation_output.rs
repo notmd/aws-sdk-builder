@@ -15,16 +15,14 @@ impl ::aws_types::request_id::RequestId for DisableOutboundWebIdentityFederation
 #[cfg(feature = "op_disable_outbound_web_identity_federation")]
 impl DisableOutboundWebIdentityFederationOutput {
     /// Creates a new builder-style object to manufacture [`DisableOutboundWebIdentityFederationOutput`](crate::operation::disable_outbound_web_identity_federation::DisableOutboundWebIdentityFederationOutput).
-    pub fn builder() -> crate::operation::disable_outbound_web_identity_federation::builders::DisableOutboundWebIdentityFederationOutputBuilder{
+    pub fn builder() -> crate::operation::disable_outbound_web_identity_federation::builders::DisableOutboundWebIdentityFederationOutputBuilder {
         crate::operation::disable_outbound_web_identity_federation::builders::DisableOutboundWebIdentityFederationOutputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_disable_outbound_web_identity_federation")]
 /// A builder for [`DisableOutboundWebIdentityFederationOutput`](crate::operation::disable_outbound_web_identity_federation::DisableOutboundWebIdentityFederationOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct DisableOutboundWebIdentityFederationOutputBuilder {
     _request_id: Option<String>,
@@ -41,7 +39,7 @@ impl DisableOutboundWebIdentityFederationOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`DisableOutboundWebIdentityFederationOutput`](crate::operation::disable_outbound_web_identity_federation::DisableOutboundWebIdentityFederationOutput).
-    pub fn build(self) -> crate::operation::disable_outbound_web_identity_federation::DisableOutboundWebIdentityFederationOutput{
+    pub fn build(self) -> crate::operation::disable_outbound_web_identity_federation::DisableOutboundWebIdentityFederationOutput {
         crate::operation::disable_outbound_web_identity_federation::DisableOutboundWebIdentityFederationOutput {
             _request_id: self._request_id,
         }

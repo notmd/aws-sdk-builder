@@ -32,18 +32,14 @@ impl ::aws_types::request_id::RequestId for CreateDelegationRequestOutput {
 #[cfg(feature = "op_create_delegation_request")]
 impl CreateDelegationRequestOutput {
     /// Creates a new builder-style object to manufacture [`CreateDelegationRequestOutput`](crate::operation::create_delegation_request::CreateDelegationRequestOutput).
-    pub fn builder(
-    ) -> crate::operation::create_delegation_request::builders::CreateDelegationRequestOutputBuilder
-    {
+    pub fn builder() -> crate::operation::create_delegation_request::builders::CreateDelegationRequestOutputBuilder {
         crate::operation::create_delegation_request::builders::CreateDelegationRequestOutputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_create_delegation_request")]
 /// A builder for [`CreateDelegationRequestOutput`](crate::operation::create_delegation_request::CreateDelegationRequestOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct CreateDelegationRequestOutputBuilder {
     pub(crate) console_deep_link: ::std::option::Option<::std::string::String>,
@@ -54,19 +50,13 @@ pub struct CreateDelegationRequestOutputBuilder {
 impl CreateDelegationRequestOutputBuilder {
     /// <p>A deep link URL to the Amazon Web Services Management Console for managing the delegation request.</p>
     /// <p>For a console based workflow, partners should redirect the customer to this URL. If the customer is not logged in to any Amazon Web Services account, the Amazon Web Services workflow will automatically direct the customer to log in and then display the delegation request approval page.</p>
-    pub fn console_deep_link(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn console_deep_link(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.console_deep_link = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>A deep link URL to the Amazon Web Services Management Console for managing the delegation request.</p>
     /// <p>For a console based workflow, partners should redirect the customer to this URL. If the customer is not logged in to any Amazon Web Services account, the Amazon Web Services workflow will automatically direct the customer to log in and then display the delegation request approval page.</p>
-    pub fn set_console_deep_link(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_console_deep_link(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.console_deep_link = input;
         self
     }
@@ -76,18 +66,12 @@ impl CreateDelegationRequestOutputBuilder {
         &self.console_deep_link
     }
     /// <p>The unique identifier for the created delegation request.</p>
-    pub fn delegation_request_id(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn delegation_request_id(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.delegation_request_id = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The unique identifier for the created delegation request.</p>
-    pub fn set_delegation_request_id(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_delegation_request_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.delegation_request_id = input;
         self
     }
@@ -105,9 +89,7 @@ impl CreateDelegationRequestOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`CreateDelegationRequestOutput`](crate::operation::create_delegation_request::CreateDelegationRequestOutput).
-    pub fn build(
-        self,
-    ) -> crate::operation::create_delegation_request::CreateDelegationRequestOutput {
+    pub fn build(self) -> crate::operation::create_delegation_request::CreateDelegationRequestOutput {
         crate::operation::create_delegation_request::CreateDelegationRequestOutput {
             console_deep_link: self.console_deep_link,
             delegation_request_id: self.delegation_request_id,

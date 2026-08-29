@@ -15,18 +15,14 @@ impl ::aws_types::request_id::RequestId for UpdateSshPublicKeyOutput {
 #[cfg(feature = "op_update_ssh_public_key")]
 impl UpdateSshPublicKeyOutput {
     /// Creates a new builder-style object to manufacture [`UpdateSshPublicKeyOutput`](crate::operation::update_ssh_public_key::UpdateSshPublicKeyOutput).
-    pub fn builder(
-    ) -> crate::operation::update_ssh_public_key::builders::UpdateSshPublicKeyOutputBuilder {
-        crate::operation::update_ssh_public_key::builders::UpdateSshPublicKeyOutputBuilder::default(
-        )
+    pub fn builder() -> crate::operation::update_ssh_public_key::builders::UpdateSshPublicKeyOutputBuilder {
+        crate::operation::update_ssh_public_key::builders::UpdateSshPublicKeyOutputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_update_ssh_public_key")]
 /// A builder for [`UpdateSshPublicKeyOutput`](crate::operation::update_ssh_public_key::UpdateSshPublicKeyOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct UpdateSshPublicKeyOutputBuilder {
     _request_id: Option<String>,

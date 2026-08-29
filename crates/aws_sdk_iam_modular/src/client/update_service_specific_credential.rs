@@ -10,7 +10,7 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<UpdateServiceSpecificCredentialError>`](crate::operation::update_service_specific_credential::UpdateServiceSpecificCredentialError)
     pub fn update_service_specific_credential(
         &self,
-    ) -> crate::operation::update_service_specific_credential::builders::UpdateServiceSpecificCredentialFluentBuilder{
+    ) -> crate::operation::update_service_specific_credential::builders::UpdateServiceSpecificCredentialFluentBuilder {
         crate::operation::update_service_specific_credential::builders::UpdateServiceSpecificCredentialFluentBuilder::new(self.handle.clone())
     }
 }

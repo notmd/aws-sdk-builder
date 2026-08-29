@@ -4,26 +4,15 @@ pub fn de_tag_saml_provider_http_error(
     _response_status: u16,
     _response_headers: &::aws_smithy_runtime_api::http::Headers,
     _response_body: &[u8],
-) -> std::result::Result<
-    crate::operation::tag_saml_provider::TagSamlProviderOutput,
-    crate::operation::tag_saml_provider::TagSAMLProviderError,
-> {
+) -> std::result::Result<crate::operation::tag_saml_provider::TagSamlProviderOutput, crate::operation::tag_saml_provider::TagSAMLProviderError> {
     #[allow(unused_mut)]
-    let mut generic_builder = crate::protocol_serde::parse_http_error_metadata(
-        _response_status,
-        _response_headers,
-        _response_body,
-    )
-    .map_err(crate::operation::tag_saml_provider::TagSAMLProviderError::unhandled)?;
+    let mut generic_builder = crate::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
+        .map_err(crate::operation::tag_saml_provider::TagSAMLProviderError::unhandled)?;
     generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
     let generic = generic_builder.build();
     let error_code = match generic.code() {
         Some(code) => code,
-        None => {
-            return Err(
-                crate::operation::tag_saml_provider::TagSAMLProviderError::unhandled(generic),
-            )
-        }
+        None => return Err(crate::operation::tag_saml_provider::TagSAMLProviderError::unhandled(generic)),
     };
 
     let _error_message = generic.message().map(|msg| msg.to_owned());
@@ -115,17 +104,11 @@ pub fn de_tag_saml_provider_http_response(
     _response_status: u16,
     _response_headers: &::aws_smithy_runtime_api::http::Headers,
     _response_body: &[u8],
-) -> std::result::Result<
-    crate::operation::tag_saml_provider::TagSamlProviderOutput,
-    crate::operation::tag_saml_provider::TagSAMLProviderError,
-> {
+) -> std::result::Result<crate::operation::tag_saml_provider::TagSamlProviderOutput, crate::operation::tag_saml_provider::TagSAMLProviderError> {
     Ok({
         #[allow(unused_mut)]
-        let mut output =
-            crate::operation::tag_saml_provider::builders::TagSamlProviderOutputBuilder::default();
-        output._set_request_id(
-            ::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string),
-        );
+        let mut output = crate::operation::tag_saml_provider::builders::TagSamlProviderOutputBuilder::default();
+        output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
         output.build()
     })
 }

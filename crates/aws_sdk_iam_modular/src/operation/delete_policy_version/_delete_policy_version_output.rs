@@ -15,18 +15,14 @@ impl ::aws_types::request_id::RequestId for DeletePolicyVersionOutput {
 #[cfg(feature = "op_delete_policy_version")]
 impl DeletePolicyVersionOutput {
     /// Creates a new builder-style object to manufacture [`DeletePolicyVersionOutput`](crate::operation::delete_policy_version::DeletePolicyVersionOutput).
-    pub fn builder(
-    ) -> crate::operation::delete_policy_version::builders::DeletePolicyVersionOutputBuilder {
-        crate::operation::delete_policy_version::builders::DeletePolicyVersionOutputBuilder::default(
-        )
+    pub fn builder() -> crate::operation::delete_policy_version::builders::DeletePolicyVersionOutputBuilder {
+        crate::operation::delete_policy_version::builders::DeletePolicyVersionOutputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_delete_policy_version")]
 /// A builder for [`DeletePolicyVersionOutput`](crate::operation::delete_policy_version::DeletePolicyVersionOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct DeletePolicyVersionOutputBuilder {
     _request_id: Option<String>,

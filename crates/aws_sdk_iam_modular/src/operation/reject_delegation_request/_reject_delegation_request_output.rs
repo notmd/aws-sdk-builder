@@ -15,18 +15,14 @@ impl ::aws_types::request_id::RequestId for RejectDelegationRequestOutput {
 #[cfg(feature = "op_reject_delegation_request")]
 impl RejectDelegationRequestOutput {
     /// Creates a new builder-style object to manufacture [`RejectDelegationRequestOutput`](crate::operation::reject_delegation_request::RejectDelegationRequestOutput).
-    pub fn builder(
-    ) -> crate::operation::reject_delegation_request::builders::RejectDelegationRequestOutputBuilder
-    {
+    pub fn builder() -> crate::operation::reject_delegation_request::builders::RejectDelegationRequestOutputBuilder {
         crate::operation::reject_delegation_request::builders::RejectDelegationRequestOutputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_reject_delegation_request")]
 /// A builder for [`RejectDelegationRequestOutput`](crate::operation::reject_delegation_request::RejectDelegationRequestOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct RejectDelegationRequestOutputBuilder {
     _request_id: Option<String>,
@@ -43,9 +39,7 @@ impl RejectDelegationRequestOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`RejectDelegationRequestOutput`](crate::operation::reject_delegation_request::RejectDelegationRequestOutput).
-    pub fn build(
-        self,
-    ) -> crate::operation::reject_delegation_request::RejectDelegationRequestOutput {
+    pub fn build(self) -> crate::operation::reject_delegation_request::RejectDelegationRequestOutput {
         crate::operation::reject_delegation_request::RejectDelegationRequestOutput {
             _request_id: self._request_id,
         }

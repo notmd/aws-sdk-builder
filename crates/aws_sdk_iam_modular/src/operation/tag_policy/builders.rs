@@ -48,20 +48,14 @@ pub struct TagPolicyFluentBuilder {
     config_override: ::std::option::Option<crate::config::Builder>,
 }
 #[cfg(feature = "op_tag_policy")]
-impl
-    crate::client::customize::internal::CustomizableSend<
-        crate::operation::tag_policy::TagPolicyOutput,
-        crate::operation::tag_policy::TagPolicyError,
-    > for TagPolicyFluentBuilder
+impl crate::client::customize::internal::CustomizableSend<crate::operation::tag_policy::TagPolicyOutput, crate::operation::tag_policy::TagPolicyError>
+    for TagPolicyFluentBuilder
 {
     fn send(
         self,
         config_override: crate::config::Builder,
     ) -> crate::client::customize::internal::BoxFuture<
-        crate::client::customize::internal::SendResult<
-            crate::operation::tag_policy::TagPolicyOutput,
-            crate::operation::tag_policy::TagPolicyError,
-        >,
+        crate::client::customize::internal::SendResult<crate::operation::tag_policy::TagPolicyOutput, crate::operation::tag_policy::TagPolicyError>,
     > {
         ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
     }
@@ -119,18 +113,12 @@ impl TagPolicyFluentBuilder {
     > {
         crate::client::customize::CustomizableOperation::new(self)
     }
-    pub(crate) fn config_override(
-        mut self,
-        config_override: impl ::std::convert::Into<crate::config::Builder>,
-    ) -> Self {
+    pub(crate) fn config_override(mut self, config_override: impl ::std::convert::Into<crate::config::Builder>) -> Self {
         self.set_config_override(::std::option::Option::Some(config_override.into()));
         self
     }
 
-    pub(crate) fn set_config_override(
-        &mut self,
-        config_override: ::std::option::Option<crate::config::Builder>,
-    ) -> &mut Self {
+    pub(crate) fn set_config_override(&mut self, config_override: ::std::option::Option<crate::config::Builder>) -> &mut Self {
         self.config_override = config_override;
         self
     }
@@ -162,10 +150,7 @@ impl TagPolicyFluentBuilder {
         self
     }
     /// <p>The list of tags that you want to attach to the IAM customer managed policy. Each tag consists of a key name and an associated value.</p>
-    pub fn set_tags(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>,
-    ) -> Self {
+    pub fn set_tags(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>) -> Self {
         self.inner = self.inner.set_tags(input);
         self
     }

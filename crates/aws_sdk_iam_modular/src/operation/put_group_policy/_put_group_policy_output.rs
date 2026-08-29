@@ -22,9 +22,7 @@ impl PutGroupPolicyOutput {
 
 #[cfg(feature = "op_put_group_policy")]
 /// A builder for [`PutGroupPolicyOutput`](crate::operation::put_group_policy::PutGroupPolicyOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct PutGroupPolicyOutputBuilder {
     _request_id: Option<String>,

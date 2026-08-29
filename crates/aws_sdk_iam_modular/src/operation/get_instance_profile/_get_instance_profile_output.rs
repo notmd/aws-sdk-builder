@@ -25,17 +25,14 @@ impl ::aws_types::request_id::RequestId for GetInstanceProfileOutput {
 #[cfg(feature = "op_get_instance_profile")]
 impl GetInstanceProfileOutput {
     /// Creates a new builder-style object to manufacture [`GetInstanceProfileOutput`](crate::operation::get_instance_profile::GetInstanceProfileOutput).
-    pub fn builder(
-    ) -> crate::operation::get_instance_profile::builders::GetInstanceProfileOutputBuilder {
+    pub fn builder() -> crate::operation::get_instance_profile::builders::GetInstanceProfileOutputBuilder {
         crate::operation::get_instance_profile::builders::GetInstanceProfileOutputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_get_instance_profile")]
 /// A builder for [`GetInstanceProfileOutput`](crate::operation::get_instance_profile::GetInstanceProfileOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct GetInstanceProfileOutputBuilder {
     pub(crate) instance_profile: ::std::option::Option<crate::types::InstanceProfile>,
@@ -50,10 +47,7 @@ impl GetInstanceProfileOutputBuilder {
         self
     }
     /// <p>A structure containing details about the instance profile.</p>
-    pub fn set_instance_profile(
-        mut self,
-        input: ::std::option::Option<crate::types::InstanceProfile>,
-    ) -> Self {
+    pub fn set_instance_profile(mut self, input: ::std::option::Option<crate::types::InstanceProfile>) -> Self {
         self.instance_profile = input;
         self
     }

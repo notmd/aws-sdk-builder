@@ -31,9 +31,7 @@ impl AcquireRoleOutput {
 
 #[cfg(feature = "op_acquire_role")]
 /// A builder for [`AcquireRoleOutput`](crate::operation::acquire_role::AcquireRoleOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct AcquireRoleOutputBuilder {
     pub(crate) role: ::std::option::Option<crate::types::Role>,

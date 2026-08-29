@@ -37,16 +37,14 @@ impl GetOrganizationsAccessReportInput {
 #[cfg(feature = "op_get_organizations_access_report")]
 impl GetOrganizationsAccessReportInput {
     /// Creates a new builder-style object to manufacture [`GetOrganizationsAccessReportInput`](crate::operation::get_organizations_access_report::GetOrganizationsAccessReportInput).
-    pub fn builder() -> crate::operation::get_organizations_access_report::builders::GetOrganizationsAccessReportInputBuilder{
+    pub fn builder() -> crate::operation::get_organizations_access_report::builders::GetOrganizationsAccessReportInputBuilder {
         crate::operation::get_organizations_access_report::builders::GetOrganizationsAccessReportInputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_get_organizations_access_report")]
 /// A builder for [`GetOrganizationsAccessReportInput`](crate::operation::get_organizations_access_report::GetOrganizationsAccessReportInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct GetOrganizationsAccessReportInputBuilder {
     pub(crate) job_id: ::std::option::Option<::std::string::String>,
@@ -123,13 +121,11 @@ impl GetOrganizationsAccessReportInputBuilder {
         crate::operation::get_organizations_access_report::GetOrganizationsAccessReportInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(
-            crate::operation::get_organizations_access_report::GetOrganizationsAccessReportInput {
-                job_id: self.job_id,
-                max_items: self.max_items,
-                marker: self.marker,
-                sort_key: self.sort_key,
-            },
-        )
+        ::std::result::Result::Ok(crate::operation::get_organizations_access_report::GetOrganizationsAccessReportInput {
+            job_id: self.job_id,
+            max_items: self.max_items,
+            marker: self.marker,
+            sort_key: self.sort_key,
+        })
     }
 }

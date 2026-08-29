@@ -26,9 +26,7 @@ impl GetRoleInput {
 
 #[cfg(feature = "op_get_role")]
 /// A builder for [`GetRoleInput`](crate::operation::get_role::GetRoleInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct GetRoleInputBuilder {
     pub(crate) role_name: ::std::option::Option<::std::string::String>,
@@ -54,14 +52,7 @@ impl GetRoleInputBuilder {
         &self.role_name
     }
     /// Consumes the builder and constructs a [`GetRoleInput`](crate::operation::get_role::GetRoleInput).
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<
-        crate::operation::get_role::GetRoleInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
-        ::std::result::Result::Ok(crate::operation::get_role::GetRoleInput {
-            role_name: self.role_name,
-        })
+    pub fn build(self) -> ::std::result::Result<crate::operation::get_role::GetRoleInput, ::aws_smithy_types::error::operation::BuildError> {
+        ::std::result::Result::Ok(crate::operation::get_role::GetRoleInput { role_name: self.role_name })
     }
 }

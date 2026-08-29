@@ -27,17 +27,14 @@ impl TagServerCertificateInput {
 #[cfg(feature = "op_tag_server_certificate")]
 impl TagServerCertificateInput {
     /// Creates a new builder-style object to manufacture [`TagServerCertificateInput`](crate::operation::tag_server_certificate::TagServerCertificateInput).
-    pub fn builder(
-    ) -> crate::operation::tag_server_certificate::builders::TagServerCertificateInputBuilder {
+    pub fn builder() -> crate::operation::tag_server_certificate::builders::TagServerCertificateInputBuilder {
         crate::operation::tag_server_certificate::builders::TagServerCertificateInputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_tag_server_certificate")]
 /// A builder for [`TagServerCertificateInput`](crate::operation::tag_server_certificate::TagServerCertificateInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct TagServerCertificateInputBuilder {
     pub(crate) server_certificate_name: ::std::option::Option<::std::string::String>,
@@ -48,19 +45,13 @@ impl TagServerCertificateInputBuilder {
     /// <p>The name of the IAM server certificate to which you want to add tags.</p>
     /// <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
     /// This field is required.
-    pub fn server_certificate_name(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn server_certificate_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.server_certificate_name = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The name of the IAM server certificate to which you want to add tags.</p>
     /// <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
-    pub fn set_server_certificate_name(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_server_certificate_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.server_certificate_name = input;
         self
     }
@@ -81,10 +72,7 @@ impl TagServerCertificateInputBuilder {
         self
     }
     /// <p>The list of tags that you want to attach to the IAM server certificate. Each tag consists of a key name and an associated value.</p>
-    pub fn set_tags(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>,
-    ) -> Self {
+    pub fn set_tags(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>) -> Self {
         self.tags = input;
         self
     }
@@ -95,15 +83,11 @@ impl TagServerCertificateInputBuilder {
     /// Consumes the builder and constructs a [`TagServerCertificateInput`](crate::operation::tag_server_certificate::TagServerCertificateInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        crate::operation::tag_server_certificate::TagServerCertificateInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
-        ::std::result::Result::Ok(
-            crate::operation::tag_server_certificate::TagServerCertificateInput {
-                server_certificate_name: self.server_certificate_name,
-                tags: self.tags,
-            },
-        )
+    ) -> ::std::result::Result<crate::operation::tag_server_certificate::TagServerCertificateInput, ::aws_smithy_types::error::operation::BuildError>
+    {
+        ::std::result::Result::Ok(crate::operation::tag_server_certificate::TagServerCertificateInput {
+            server_certificate_name: self.server_certificate_name,
+            tags: self.tags,
+        })
     }
 }

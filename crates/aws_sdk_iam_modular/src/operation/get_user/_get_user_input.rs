@@ -26,9 +26,7 @@ impl GetUserInput {
 
 #[cfg(feature = "op_get_user")]
 /// A builder for [`GetUserInput`](crate::operation::get_user::GetUserInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct GetUserInputBuilder {
     pub(crate) user_name: ::std::option::Option<::std::string::String>,
@@ -53,14 +51,7 @@ impl GetUserInputBuilder {
         &self.user_name
     }
     /// Consumes the builder and constructs a [`GetUserInput`](crate::operation::get_user::GetUserInput).
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<
-        crate::operation::get_user::GetUserInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
-        ::std::result::Result::Ok(crate::operation::get_user::GetUserInput {
-            user_name: self.user_name,
-        })
+    pub fn build(self) -> ::std::result::Result<crate::operation::get_user::GetUserInput, ::aws_smithy_types::error::operation::BuildError> {
+        ::std::result::Result::Ok(crate::operation::get_user::GetUserInput { user_name: self.user_name })
     }
 }

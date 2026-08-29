@@ -7,7 +7,7 @@ pub fn de_enable_organizations_root_credentials_management_http_error(
 ) -> std::result::Result<
     crate::operation::enable_organizations_root_credentials_management::EnableOrganizationsRootCredentialsManagementOutput,
     crate::operation::enable_organizations_root_credentials_management::EnableOrganizationsRootCredentialsManagementError,
->{
+> {
     #[allow(unused_mut)]
     let mut generic_builder = crate::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
         .map_err(crate::operation::enable_organizations_root_credentials_management::EnableOrganizationsRootCredentialsManagementError::unhandled)?;
@@ -118,7 +118,7 @@ pub fn de_enable_organizations_root_credentials_management_http_response(
 ) -> std::result::Result<
     crate::operation::enable_organizations_root_credentials_management::EnableOrganizationsRootCredentialsManagementOutput,
     crate::operation::enable_organizations_root_credentials_management::EnableOrganizationsRootCredentialsManagementError,
->{
+> {
     Ok({
         #[allow(unused_mut)]
         let mut output = crate::operation::enable_organizations_root_credentials_management::builders::EnableOrganizationsRootCredentialsManagementOutputBuilder::default();
@@ -127,9 +127,7 @@ pub fn de_enable_organizations_root_credentials_management_http_response(
             output,
         )
         .map_err(crate::operation::enable_organizations_root_credentials_management::EnableOrganizationsRootCredentialsManagementError::unhandled)?;
-        output._set_request_id(
-            ::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string),
-        );
+        output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
         output.build()
     })
 }
@@ -141,7 +139,7 @@ pub fn de_enable_organizations_root_credentials_management(
 ) -> std::result::Result<
     crate::operation::enable_organizations_root_credentials_management::builders::EnableOrganizationsRootCredentialsManagementOutputBuilder,
     ::aws_smithy_xml::decode::XmlDecodeError,
->{
+> {
     let mut doc = ::aws_smithy_xml::decode::Document::try_from(inp)?;
 
     #[allow(unused_mut)]

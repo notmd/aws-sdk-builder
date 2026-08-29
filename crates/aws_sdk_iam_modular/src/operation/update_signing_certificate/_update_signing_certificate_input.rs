@@ -33,18 +33,14 @@ impl UpdateSigningCertificateInput {
 #[cfg(feature = "op_update_signing_certificate")]
 impl UpdateSigningCertificateInput {
     /// Creates a new builder-style object to manufacture [`UpdateSigningCertificateInput`](crate::operation::update_signing_certificate::UpdateSigningCertificateInput).
-    pub fn builder(
-    ) -> crate::operation::update_signing_certificate::builders::UpdateSigningCertificateInputBuilder
-    {
+    pub fn builder() -> crate::operation::update_signing_certificate::builders::UpdateSigningCertificateInputBuilder {
         crate::operation::update_signing_certificate::builders::UpdateSigningCertificateInputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_update_signing_certificate")]
 /// A builder for [`UpdateSigningCertificateInput`](crate::operation::update_signing_certificate::UpdateSigningCertificateInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct UpdateSigningCertificateInputBuilder {
     pub(crate) user_name: ::std::option::Option<::std::string::String>,
@@ -73,19 +69,13 @@ impl UpdateSigningCertificateInputBuilder {
     /// <p>The ID of the signing certificate you want to update.</p>
     /// <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters that can consist of any upper or lowercased letter or digit.</p>
     /// This field is required.
-    pub fn certificate_id(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn certificate_id(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.certificate_id = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The ID of the signing certificate you want to update.</p>
     /// <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters that can consist of any upper or lowercased letter or digit.</p>
-    pub fn set_certificate_id(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_certificate_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.certificate_id = input;
         self
     }
@@ -116,12 +106,10 @@ impl UpdateSigningCertificateInputBuilder {
         crate::operation::update_signing_certificate::UpdateSigningCertificateInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(
-            crate::operation::update_signing_certificate::UpdateSigningCertificateInput {
-                user_name: self.user_name,
-                certificate_id: self.certificate_id,
-                status: self.status,
-            },
-        )
+        ::std::result::Result::Ok(crate::operation::update_signing_certificate::UpdateSigningCertificateInput {
+            user_name: self.user_name,
+            certificate_id: self.certificate_id,
+            status: self.status,
+        })
     }
 }

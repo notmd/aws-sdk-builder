@@ -78,7 +78,7 @@ impl GenerateServiceLastAccessedDetailsFluentBuilder {
         }
     }
     /// Access the GenerateServiceLastAccessedDetails as a reference.
-    pub fn as_input(&self) -> &crate::operation::generate_service_last_accessed_details::builders::GenerateServiceLastAccessedDetailsInputBuilder{
+    pub fn as_input(&self) -> &crate::operation::generate_service_last_accessed_details::builders::GenerateServiceLastAccessedDetailsInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -97,7 +97,7 @@ impl GenerateServiceLastAccessedDetailsFluentBuilder {
             crate::operation::generate_service_last_accessed_details::GenerateServiceLastAccessedDetailsError,
             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
         >,
-    >{
+    > {
         let input = self
             .inner
             .build()
@@ -117,21 +117,15 @@ impl GenerateServiceLastAccessedDetailsFluentBuilder {
         crate::operation::generate_service_last_accessed_details::GenerateServiceLastAccessedDetailsOutput,
         crate::operation::generate_service_last_accessed_details::GenerateServiceLastAccessedDetailsError,
         Self,
-    >{
+    > {
         crate::client::customize::CustomizableOperation::new(self)
     }
-    pub(crate) fn config_override(
-        mut self,
-        config_override: impl ::std::convert::Into<crate::config::Builder>,
-    ) -> Self {
+    pub(crate) fn config_override(mut self, config_override: impl ::std::convert::Into<crate::config::Builder>) -> Self {
         self.set_config_override(::std::option::Option::Some(config_override.into()));
         self
     }
 
-    pub(crate) fn set_config_override(
-        &mut self,
-        config_override: ::std::option::Option<crate::config::Builder>,
-    ) -> &mut Self {
+    pub(crate) fn set_config_override(&mut self, config_override: ::std::option::Option<crate::config::Builder>) -> &mut Self {
         self.config_override = config_override;
         self
     }
@@ -155,17 +149,12 @@ impl GenerateServiceLastAccessedDetailsFluentBuilder {
         self
     }
     /// <p>The level of detail that you want to generate. You can specify whether you want to generate information about the last attempt to access services or actions. If you specify service-level granularity, this operation generates only service data. If you specify action-level granularity, it generates service and action data. If you don't include this optional parameter, the operation generates service data.</p>
-    pub fn set_granularity(
-        mut self,
-        input: ::std::option::Option<crate::types::AccessAdvisorUsageGranularityType>,
-    ) -> Self {
+    pub fn set_granularity(mut self, input: ::std::option::Option<crate::types::AccessAdvisorUsageGranularityType>) -> Self {
         self.inner = self.inner.set_granularity(input);
         self
     }
     /// <p>The level of detail that you want to generate. You can specify whether you want to generate information about the last attempt to access services or actions. If you specify service-level granularity, this operation generates only service data. If you specify action-level granularity, it generates service and action data. If you don't include this optional parameter, the operation generates service data.</p>
-    pub fn get_granularity(
-        &self,
-    ) -> &::std::option::Option<crate::types::AccessAdvisorUsageGranularityType> {
+    pub fn get_granularity(&self) -> &::std::option::Option<crate::types::AccessAdvisorUsageGranularityType> {
         self.inner.get_granularity()
     }
 }

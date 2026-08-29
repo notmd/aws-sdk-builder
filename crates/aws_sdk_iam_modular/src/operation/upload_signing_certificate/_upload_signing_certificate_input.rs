@@ -43,18 +43,14 @@ impl UploadSigningCertificateInput {
 #[cfg(feature = "op_upload_signing_certificate")]
 impl UploadSigningCertificateInput {
     /// Creates a new builder-style object to manufacture [`UploadSigningCertificateInput`](crate::operation::upload_signing_certificate::UploadSigningCertificateInput).
-    pub fn builder(
-    ) -> crate::operation::upload_signing_certificate::builders::UploadSigningCertificateInputBuilder
-    {
+    pub fn builder() -> crate::operation::upload_signing_certificate::builders::UploadSigningCertificateInputBuilder {
         crate::operation::upload_signing_certificate::builders::UploadSigningCertificateInputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_upload_signing_certificate")]
 /// A builder for [`UploadSigningCertificateInput`](crate::operation::upload_signing_certificate::UploadSigningCertificateInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct UploadSigningCertificateInputBuilder {
     pub(crate) user_name: ::std::option::Option<::std::string::String>,
@@ -90,10 +86,7 @@ impl UploadSigningCertificateInputBuilder {
     /// <p>The special characters tab (<code>\u0009</code>), line feed (<code>\u000A</code>), and carriage return (<code>\u000D</code>)</p></li>
     /// </ul>
     /// This field is required.
-    pub fn certificate_body(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn certificate_body(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.certificate_body = ::std::option::Option::Some(input.into());
         self
     }
@@ -107,10 +100,7 @@ impl UploadSigningCertificateInputBuilder {
     /// <li>
     /// <p>The special characters tab (<code>\u0009</code>), line feed (<code>\u000A</code>), and carriage return (<code>\u000D</code>)</p></li>
     /// </ul>
-    pub fn set_certificate_body(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_certificate_body(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.certificate_body = input;
         self
     }
@@ -134,11 +124,9 @@ impl UploadSigningCertificateInputBuilder {
         crate::operation::upload_signing_certificate::UploadSigningCertificateInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(
-            crate::operation::upload_signing_certificate::UploadSigningCertificateInput {
-                user_name: self.user_name,
-                certificate_body: self.certificate_body,
-            },
-        )
+        ::std::result::Result::Ok(crate::operation::upload_signing_certificate::UploadSigningCertificateInput {
+            user_name: self.user_name,
+            certificate_body: self.certificate_body,
+        })
     }
 }

@@ -35,9 +35,7 @@ impl LoginProfile {
 }
 
 /// A builder for [`LoginProfile`](crate::types::LoginProfile).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct LoginProfileBuilder {
     pub(crate) user_name: ::std::option::Option<::std::string::String>,
@@ -67,10 +65,7 @@ impl LoginProfileBuilder {
         self
     }
     /// <p>The date when the password for the user was created.</p>
-    pub fn set_create_date(
-        mut self,
-        input: ::std::option::Option<::aws_smithy_types::DateTime>,
-    ) -> Self {
+    pub fn set_create_date(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
         self.create_date = input;
         self
     }
@@ -96,12 +91,7 @@ impl LoginProfileBuilder {
     /// This method will fail if any of the following fields are not set:
     /// - [`user_name`](crate::types::builders::LoginProfileBuilder::user_name)
     /// - [`create_date`](crate::types::builders::LoginProfileBuilder::create_date)
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<
-        crate::types::LoginProfile,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    pub fn build(self) -> ::std::result::Result<crate::types::LoginProfile, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::LoginProfile {
             user_name: self.user_name.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

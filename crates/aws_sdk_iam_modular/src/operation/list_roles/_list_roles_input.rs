@@ -40,9 +40,7 @@ impl ListRolesInput {
 
 #[cfg(feature = "op_list_roles")]
 /// A builder for [`ListRolesInput`](crate::operation::list_roles::ListRolesInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct ListRolesInputBuilder {
     pub(crate) path_prefix: ::std::option::Option<::std::string::String>,
@@ -100,12 +98,7 @@ impl ListRolesInputBuilder {
         &self.max_items
     }
     /// Consumes the builder and constructs a [`ListRolesInput`](crate::operation::list_roles::ListRolesInput).
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<
-        crate::operation::list_roles::ListRolesInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    pub fn build(self) -> ::std::result::Result<crate::operation::list_roles::ListRolesInput, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::operation::list_roles::ListRolesInput {
             path_prefix: self.path_prefix,
             marker: self.marker,

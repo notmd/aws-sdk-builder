@@ -43,17 +43,14 @@ impl UploadSshPublicKeyInput {
 #[cfg(feature = "op_upload_ssh_public_key")]
 impl UploadSshPublicKeyInput {
     /// Creates a new builder-style object to manufacture [`UploadSshPublicKeyInput`](crate::operation::upload_ssh_public_key::UploadSshPublicKeyInput).
-    pub fn builder(
-    ) -> crate::operation::upload_ssh_public_key::builders::UploadSshPublicKeyInputBuilder {
+    pub fn builder() -> crate::operation::upload_ssh_public_key::builders::UploadSshPublicKeyInputBuilder {
         crate::operation::upload_ssh_public_key::builders::UploadSshPublicKeyInputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_upload_ssh_public_key")]
 /// A builder for [`UploadSshPublicKeyInput`](crate::operation::upload_ssh_public_key::UploadSshPublicKeyInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct UploadSshPublicKeyInputBuilder {
     pub(crate) user_name: ::std::option::Option<::std::string::String>,
@@ -90,10 +87,7 @@ impl UploadSshPublicKeyInputBuilder {
     /// <p>The special characters tab (<code>\u0009</code>), line feed (<code>\u000A</code>), and carriage return (<code>\u000D</code>)</p></li>
     /// </ul>
     /// This field is required.
-    pub fn ssh_public_key_body(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn ssh_public_key_body(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.ssh_public_key_body = ::std::option::Option::Some(input.into());
         self
     }
@@ -107,10 +101,7 @@ impl UploadSshPublicKeyInputBuilder {
     /// <li>
     /// <p>The special characters tab (<code>\u0009</code>), line feed (<code>\u000A</code>), and carriage return (<code>\u000D</code>)</p></li>
     /// </ul>
-    pub fn set_ssh_public_key_body(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_ssh_public_key_body(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.ssh_public_key_body = input;
         self
     }
@@ -130,15 +121,11 @@ impl UploadSshPublicKeyInputBuilder {
     /// Consumes the builder and constructs a [`UploadSshPublicKeyInput`](crate::operation::upload_ssh_public_key::UploadSshPublicKeyInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        crate::operation::upload_ssh_public_key::UploadSshPublicKeyInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
-        ::std::result::Result::Ok(
-            crate::operation::upload_ssh_public_key::UploadSshPublicKeyInput {
-                user_name: self.user_name,
-                ssh_public_key_body: self.ssh_public_key_body,
-            },
-        )
+    ) -> ::std::result::Result<crate::operation::upload_ssh_public_key::UploadSshPublicKeyInput, ::aws_smithy_types::error::operation::BuildError>
+    {
+        ::std::result::Result::Ok(crate::operation::upload_ssh_public_key::UploadSshPublicKeyInput {
+            user_name: self.user_name,
+            ssh_public_key_body: self.ssh_public_key_body,
+        })
     }
 }

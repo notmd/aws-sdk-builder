@@ -64,10 +64,7 @@ impl UpdateRoleDescriptionFluentBuilder {
         }
     }
     /// Access the UpdateRoleDescription as a reference.
-    pub fn as_input(
-        &self,
-    ) -> &crate::operation::update_role_description::builders::UpdateRoleDescriptionInputBuilder
-    {
+    pub fn as_input(&self) -> &crate::operation::update_role_description::builders::UpdateRoleDescriptionInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -96,11 +93,7 @@ impl UpdateRoleDescriptionFluentBuilder {
             &self.handle.conf,
             self.config_override,
         );
-        crate::operation::update_role_description::UpdateRoleDescription::orchestrate(
-            &runtime_plugins,
-            input,
-        )
-        .await
+        crate::operation::update_role_description::UpdateRoleDescription::orchestrate(&runtime_plugins, input).await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -113,18 +106,12 @@ impl UpdateRoleDescriptionFluentBuilder {
     > {
         crate::client::customize::CustomizableOperation::new(self)
     }
-    pub(crate) fn config_override(
-        mut self,
-        config_override: impl ::std::convert::Into<crate::config::Builder>,
-    ) -> Self {
+    pub(crate) fn config_override(mut self, config_override: impl ::std::convert::Into<crate::config::Builder>) -> Self {
         self.set_config_override(::std::option::Option::Some(config_override.into()));
         self
     }
 
-    pub(crate) fn set_config_override(
-        &mut self,
-        config_override: ::std::option::Option<crate::config::Builder>,
-    ) -> &mut Self {
+    pub(crate) fn set_config_override(&mut self, config_override: ::std::option::Option<crate::config::Builder>) -> &mut Self {
         self.config_override = config_override;
         self
     }

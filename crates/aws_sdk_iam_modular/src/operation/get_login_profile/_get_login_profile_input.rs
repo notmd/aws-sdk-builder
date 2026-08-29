@@ -28,9 +28,7 @@ impl GetLoginProfileInput {
 
 #[cfg(feature = "op_get_login_profile")]
 /// A builder for [`GetLoginProfileInput`](crate::operation::get_login_profile::GetLoginProfileInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct GetLoginProfileInputBuilder {
     pub(crate) user_name: ::std::option::Option<::std::string::String>,
@@ -60,12 +58,7 @@ impl GetLoginProfileInputBuilder {
     /// Consumes the builder and constructs a [`GetLoginProfileInput`](crate::operation::get_login_profile::GetLoginProfileInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        crate::operation::get_login_profile::GetLoginProfileInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
-        ::std::result::Result::Ok(crate::operation::get_login_profile::GetLoginProfileInput {
-            user_name: self.user_name,
-        })
+    ) -> ::std::result::Result<crate::operation::get_login_profile::GetLoginProfileInput, ::aws_smithy_types::error::operation::BuildError> {
+        ::std::result::Result::Ok(crate::operation::get_login_profile::GetLoginProfileInput { user_name: self.user_name })
     }
 }

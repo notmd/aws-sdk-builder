@@ -27,17 +27,14 @@ impl GetDelegationRequestInput {
 #[cfg(feature = "op_get_delegation_request")]
 impl GetDelegationRequestInput {
     /// Creates a new builder-style object to manufacture [`GetDelegationRequestInput`](crate::operation::get_delegation_request::GetDelegationRequestInput).
-    pub fn builder(
-    ) -> crate::operation::get_delegation_request::builders::GetDelegationRequestInputBuilder {
+    pub fn builder() -> crate::operation::get_delegation_request::builders::GetDelegationRequestInputBuilder {
         crate::operation::get_delegation_request::builders::GetDelegationRequestInputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_get_delegation_request")]
 /// A builder for [`GetDelegationRequestInput`](crate::operation::get_delegation_request::GetDelegationRequestInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct GetDelegationRequestInputBuilder {
     pub(crate) delegation_request_id: ::std::option::Option<::std::string::String>,
@@ -47,18 +44,12 @@ pub struct GetDelegationRequestInputBuilder {
 impl GetDelegationRequestInputBuilder {
     /// <p>The unique identifier of the delegation request to retrieve.</p>
     /// This field is required.
-    pub fn delegation_request_id(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn delegation_request_id(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.delegation_request_id = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The unique identifier of the delegation request to retrieve.</p>
-    pub fn set_delegation_request_id(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_delegation_request_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.delegation_request_id = input;
         self
     }
@@ -89,15 +80,11 @@ impl GetDelegationRequestInputBuilder {
     /// Consumes the builder and constructs a [`GetDelegationRequestInput`](crate::operation::get_delegation_request::GetDelegationRequestInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        crate::operation::get_delegation_request::GetDelegationRequestInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
-        ::std::result::Result::Ok(
-            crate::operation::get_delegation_request::GetDelegationRequestInput {
-                delegation_request_id: self.delegation_request_id,
-                delegation_permission_check: self.delegation_permission_check,
-            },
-        )
+    ) -> ::std::result::Result<crate::operation::get_delegation_request::GetDelegationRequestInput, ::aws_smithy_types::error::operation::BuildError>
+    {
+        ::std::result::Result::Ok(crate::operation::get_delegation_request::GetDelegationRequestInput {
+            delegation_request_id: self.delegation_request_id,
+            delegation_permission_check: self.delegation_permission_check,
+        })
     }
 }

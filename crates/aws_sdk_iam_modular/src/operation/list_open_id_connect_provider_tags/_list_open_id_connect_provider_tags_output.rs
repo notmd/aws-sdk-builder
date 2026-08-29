@@ -37,16 +37,14 @@ impl ::aws_types::request_id::RequestId for ListOpenIdConnectProviderTagsOutput 
 #[cfg(feature = "op_list_open_id_connect_provider_tags")]
 impl ListOpenIdConnectProviderTagsOutput {
     /// Creates a new builder-style object to manufacture [`ListOpenIdConnectProviderTagsOutput`](crate::operation::list_open_id_connect_provider_tags::ListOpenIdConnectProviderTagsOutput).
-    pub fn builder() -> crate::operation::list_open_id_connect_provider_tags::builders::ListOpenIdConnectProviderTagsOutputBuilder{
+    pub fn builder() -> crate::operation::list_open_id_connect_provider_tags::builders::ListOpenIdConnectProviderTagsOutputBuilder {
         crate::operation::list_open_id_connect_provider_tags::builders::ListOpenIdConnectProviderTagsOutputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_list_open_id_connect_provider_tags")]
 /// A builder for [`ListOpenIdConnectProviderTagsOutput`](crate::operation::list_open_id_connect_provider_tags::ListOpenIdConnectProviderTagsOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct ListOpenIdConnectProviderTagsOutputBuilder {
     pub(crate) tags: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>,
@@ -68,10 +66,7 @@ impl ListOpenIdConnectProviderTagsOutputBuilder {
         self
     }
     /// <p>The list of tags that are currently attached to the OpenID Connect (OIDC) identity provider. Each tag consists of a key name and an associated value. If no tags are attached to the specified resource, the response contains an empty list.</p>
-    pub fn set_tags(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>,
-    ) -> Self {
+    pub fn set_tags(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>) -> Self {
         self.tags = input;
         self
     }

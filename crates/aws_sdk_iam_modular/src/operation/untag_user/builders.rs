@@ -34,20 +34,14 @@ pub struct UntagUserFluentBuilder {
     config_override: ::std::option::Option<crate::config::Builder>,
 }
 #[cfg(feature = "op_untag_user")]
-impl
-    crate::client::customize::internal::CustomizableSend<
-        crate::operation::untag_user::UntagUserOutput,
-        crate::operation::untag_user::UntagUserError,
-    > for UntagUserFluentBuilder
+impl crate::client::customize::internal::CustomizableSend<crate::operation::untag_user::UntagUserOutput, crate::operation::untag_user::UntagUserError>
+    for UntagUserFluentBuilder
 {
     fn send(
         self,
         config_override: crate::config::Builder,
     ) -> crate::client::customize::internal::BoxFuture<
-        crate::client::customize::internal::SendResult<
-            crate::operation::untag_user::UntagUserOutput,
-            crate::operation::untag_user::UntagUserError,
-        >,
+        crate::client::customize::internal::SendResult<crate::operation::untag_user::UntagUserOutput, crate::operation::untag_user::UntagUserError>,
     > {
         ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
     }
@@ -105,18 +99,12 @@ impl UntagUserFluentBuilder {
     > {
         crate::client::customize::CustomizableOperation::new(self)
     }
-    pub(crate) fn config_override(
-        mut self,
-        config_override: impl ::std::convert::Into<crate::config::Builder>,
-    ) -> Self {
+    pub(crate) fn config_override(mut self, config_override: impl ::std::convert::Into<crate::config::Builder>) -> Self {
         self.set_config_override(::std::option::Option::Some(config_override.into()));
         self
     }
 
-    pub(crate) fn set_config_override(
-        &mut self,
-        config_override: ::std::option::Option<crate::config::Builder>,
-    ) -> &mut Self {
+    pub(crate) fn set_config_override(&mut self, config_override: ::std::option::Option<crate::config::Builder>) -> &mut Self {
         self.config_override = config_override;
         self
     }
@@ -148,10 +136,7 @@ impl UntagUserFluentBuilder {
         self
     }
     /// <p>A list of key names as a simple array of strings. The tags with matching keys are removed from the specified user.</p>
-    pub fn set_tag_keys(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
-    ) -> Self {
+    pub fn set_tag_keys(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
         self.inner = self.inner.set_tag_keys(input);
         self
     }

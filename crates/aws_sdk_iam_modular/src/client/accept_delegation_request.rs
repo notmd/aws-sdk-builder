@@ -6,10 +6,7 @@ impl super::Client {
     ///   - [`delegation_request_id(impl Into<String>)`](crate::operation::accept_delegation_request::builders::AcceptDelegationRequestFluentBuilder::delegation_request_id) / [`set_delegation_request_id(Option<String>)`](crate::operation::accept_delegation_request::builders::AcceptDelegationRequestFluentBuilder::set_delegation_request_id):<br>required: **true**<br><p>The unique identifier of the delegation request to accept.</p><br>
     /// - On success, responds with [`AcceptDelegationRequestOutput`](crate::operation::accept_delegation_request::AcceptDelegationRequestOutput)
     /// - On failure, responds with [`SdkError<AcceptDelegationRequestError>`](crate::operation::accept_delegation_request::AcceptDelegationRequestError)
-    pub fn accept_delegation_request(
-        &self,
-    ) -> crate::operation::accept_delegation_request::builders::AcceptDelegationRequestFluentBuilder
-    {
+    pub fn accept_delegation_request(&self) -> crate::operation::accept_delegation_request::builders::AcceptDelegationRequestFluentBuilder {
         crate::operation::accept_delegation_request::builders::AcceptDelegationRequestFluentBuilder::new(self.handle.clone())
     }
 }

@@ -22,9 +22,7 @@ impl UntagMfaDeviceOutput {
 
 #[cfg(feature = "op_untag_mfa_device")]
 /// A builder for [`UntagMfaDeviceOutput`](crate::operation::untag_mfa_device::UntagMfaDeviceOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct UntagMfaDeviceOutputBuilder {
     _request_id: Option<String>,

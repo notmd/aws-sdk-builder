@@ -15,16 +15,14 @@ impl ::aws_types::request_id::RequestId for PutRolePermissionsBoundaryOutput {
 #[cfg(feature = "op_put_role_permissions_boundary")]
 impl PutRolePermissionsBoundaryOutput {
     /// Creates a new builder-style object to manufacture [`PutRolePermissionsBoundaryOutput`](crate::operation::put_role_permissions_boundary::PutRolePermissionsBoundaryOutput).
-    pub fn builder() -> crate::operation::put_role_permissions_boundary::builders::PutRolePermissionsBoundaryOutputBuilder{
+    pub fn builder() -> crate::operation::put_role_permissions_boundary::builders::PutRolePermissionsBoundaryOutputBuilder {
         crate::operation::put_role_permissions_boundary::builders::PutRolePermissionsBoundaryOutputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_put_role_permissions_boundary")]
 /// A builder for [`PutRolePermissionsBoundaryOutput`](crate::operation::put_role_permissions_boundary::PutRolePermissionsBoundaryOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct PutRolePermissionsBoundaryOutputBuilder {
     _request_id: Option<String>,
@@ -41,9 +39,7 @@ impl PutRolePermissionsBoundaryOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`PutRolePermissionsBoundaryOutput`](crate::operation::put_role_permissions_boundary::PutRolePermissionsBoundaryOutput).
-    pub fn build(
-        self,
-    ) -> crate::operation::put_role_permissions_boundary::PutRolePermissionsBoundaryOutput {
+    pub fn build(self) -> crate::operation::put_role_permissions_boundary::PutRolePermissionsBoundaryOutput {
         crate::operation::put_role_permissions_boundary::PutRolePermissionsBoundaryOutput {
             _request_id: self._request_id,
         }

@@ -24,16 +24,14 @@ impl ::aws_types::request_id::RequestId for GenerateServiceLastAccessedDetailsOu
 #[cfg(feature = "op_generate_service_last_accessed_details")]
 impl GenerateServiceLastAccessedDetailsOutput {
     /// Creates a new builder-style object to manufacture [`GenerateServiceLastAccessedDetailsOutput`](crate::operation::generate_service_last_accessed_details::GenerateServiceLastAccessedDetailsOutput).
-    pub fn builder() -> crate::operation::generate_service_last_accessed_details::builders::GenerateServiceLastAccessedDetailsOutputBuilder{
+    pub fn builder() -> crate::operation::generate_service_last_accessed_details::builders::GenerateServiceLastAccessedDetailsOutputBuilder {
         crate::operation::generate_service_last_accessed_details::builders::GenerateServiceLastAccessedDetailsOutputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_generate_service_last_accessed_details")]
 /// A builder for [`GenerateServiceLastAccessedDetailsOutput`](crate::operation::generate_service_last_accessed_details::GenerateServiceLastAccessedDetailsOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct GenerateServiceLastAccessedDetailsOutputBuilder {
     pub(crate) job_id: ::std::option::Option<::std::string::String>,
@@ -65,7 +63,7 @@ impl GenerateServiceLastAccessedDetailsOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`GenerateServiceLastAccessedDetailsOutput`](crate::operation::generate_service_last_accessed_details::GenerateServiceLastAccessedDetailsOutput).
-    pub fn build(self) -> crate::operation::generate_service_last_accessed_details::GenerateServiceLastAccessedDetailsOutput{
+    pub fn build(self) -> crate::operation::generate_service_last_accessed_details::GenerateServiceLastAccessedDetailsOutput {
         crate::operation::generate_service_last_accessed_details::GenerateServiceLastAccessedDetailsOutput {
             job_id: self.job_id,
             _request_id: self._request_id,

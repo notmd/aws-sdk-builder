@@ -20,9 +20,7 @@ pub(crate) fn match_get_instance_profile_73f4bff11904ca908(
     >,
 ) -> bool {
     if let ::std::result::Result::Err(err) = _result {
-        if let ::std::option::Option::Some(code) =
-            ::aws_smithy_types::error::metadata::ProvideErrorMetadata::code(err)
-        {
+        if let ::std::option::Option::Some(code) = ::aws_smithy_types::error::metadata::ProvideErrorMetadata::code(err) {
             return code == "NoSuchEntityException";
         }
     }
@@ -32,10 +30,7 @@ pub(crate) fn match_get_instance_profile_73f4bff11904ca908(
 #[cfg(feature = "op_get_policy")]
 /// Matcher union: {"success":true}
 pub(crate) fn match_get_policy_c955e57777ec0d736(
-    _result: ::std::result::Result<
-        &crate::operation::get_policy::GetPolicyOutput,
-        &crate::operation::get_policy::GetPolicyError,
-    >,
+    _result: ::std::result::Result<&crate::operation::get_policy::GetPolicyOutput, &crate::operation::get_policy::GetPolicyError>,
 ) -> bool {
     _result.is_ok()
 }
@@ -43,15 +38,10 @@ pub(crate) fn match_get_policy_c955e57777ec0d736(
 #[cfg(feature = "op_get_policy")]
 /// Matcher union: {"errorType":"NoSuchEntity"}
 pub(crate) fn match_get_policy_606386b4be9df73c9(
-    _result: ::std::result::Result<
-        &crate::operation::get_policy::GetPolicyOutput,
-        &crate::operation::get_policy::GetPolicyError,
-    >,
+    _result: ::std::result::Result<&crate::operation::get_policy::GetPolicyOutput, &crate::operation::get_policy::GetPolicyError>,
 ) -> bool {
     if let ::std::result::Result::Err(err) = _result {
-        if let ::std::option::Option::Some(code) =
-            ::aws_smithy_types::error::metadata::ProvideErrorMetadata::code(err)
-        {
+        if let ::std::option::Option::Some(code) = ::aws_smithy_types::error::metadata::ProvideErrorMetadata::code(err) {
             return code == "NoSuchEntity";
         }
     }
@@ -61,10 +51,7 @@ pub(crate) fn match_get_policy_606386b4be9df73c9(
 #[cfg(feature = "op_get_role")]
 /// Matcher union: {"success":true}
 pub(crate) fn match_get_role_c955e57777ec0d736(
-    _result: ::std::result::Result<
-        &crate::operation::get_role::GetRoleOutput,
-        &crate::operation::get_role::GetRoleError,
-    >,
+    _result: ::std::result::Result<&crate::operation::get_role::GetRoleOutput, &crate::operation::get_role::GetRoleError>,
 ) -> bool {
     _result.is_ok()
 }
@@ -72,15 +59,10 @@ pub(crate) fn match_get_role_c955e57777ec0d736(
 #[cfg(feature = "op_get_role")]
 /// Matcher union: {"errorType":"NoSuchEntity"}
 pub(crate) fn match_get_role_606386b4be9df73c9(
-    _result: ::std::result::Result<
-        &crate::operation::get_role::GetRoleOutput,
-        &crate::operation::get_role::GetRoleError,
-    >,
+    _result: ::std::result::Result<&crate::operation::get_role::GetRoleOutput, &crate::operation::get_role::GetRoleError>,
 ) -> bool {
     if let ::std::result::Result::Err(err) = _result {
-        if let ::std::option::Option::Some(code) =
-            ::aws_smithy_types::error::metadata::ProvideErrorMetadata::code(err)
-        {
+        if let ::std::option::Option::Some(code) = ::aws_smithy_types::error::metadata::ProvideErrorMetadata::code(err) {
             return code == "NoSuchEntity";
         }
     }
@@ -90,10 +72,7 @@ pub(crate) fn match_get_role_606386b4be9df73c9(
 #[cfg(feature = "op_get_user")]
 /// Matcher union: {"success":true}
 pub(crate) fn match_get_user_c955e57777ec0d736(
-    _result: ::std::result::Result<
-        &crate::operation::get_user::GetUserOutput,
-        &crate::operation::get_user::GetUserError,
-    >,
+    _result: ::std::result::Result<&crate::operation::get_user::GetUserOutput, &crate::operation::get_user::GetUserError>,
 ) -> bool {
     _result.is_ok()
 }
@@ -101,15 +80,10 @@ pub(crate) fn match_get_user_c955e57777ec0d736(
 #[cfg(feature = "op_get_user")]
 /// Matcher union: {"errorType":"NoSuchEntity"}
 pub(crate) fn match_get_user_606386b4be9df73c9(
-    _result: ::std::result::Result<
-        &crate::operation::get_user::GetUserOutput,
-        &crate::operation::get_user::GetUserError,
-    >,
+    _result: ::std::result::Result<&crate::operation::get_user::GetUserOutput, &crate::operation::get_user::GetUserError>,
 ) -> bool {
     if let ::std::result::Result::Err(err) = _result {
-        if let ::std::option::Option::Some(code) =
-            ::aws_smithy_types::error::metadata::ProvideErrorMetadata::code(err)
-        {
+        if let ::std::option::Option::Some(code) = ::aws_smithy_types::error::metadata::ProvideErrorMetadata::code(err) {
             return code == "NoSuchEntity";
         }
     }

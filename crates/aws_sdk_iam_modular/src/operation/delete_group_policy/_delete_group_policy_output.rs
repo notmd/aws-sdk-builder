@@ -15,17 +15,14 @@ impl ::aws_types::request_id::RequestId for DeleteGroupPolicyOutput {
 #[cfg(feature = "op_delete_group_policy")]
 impl DeleteGroupPolicyOutput {
     /// Creates a new builder-style object to manufacture [`DeleteGroupPolicyOutput`](crate::operation::delete_group_policy::DeleteGroupPolicyOutput).
-    pub fn builder(
-    ) -> crate::operation::delete_group_policy::builders::DeleteGroupPolicyOutputBuilder {
+    pub fn builder() -> crate::operation::delete_group_policy::builders::DeleteGroupPolicyOutputBuilder {
         crate::operation::delete_group_policy::builders::DeleteGroupPolicyOutputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_delete_group_policy")]
 /// A builder for [`DeleteGroupPolicyOutput`](crate::operation::delete_group_policy::DeleteGroupPolicyOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct DeleteGroupPolicyOutputBuilder {
     _request_id: Option<String>,

@@ -15,16 +15,14 @@ impl ::aws_types::request_id::RequestId for DeleteServiceSpecificCredentialOutpu
 #[cfg(feature = "op_delete_service_specific_credential")]
 impl DeleteServiceSpecificCredentialOutput {
     /// Creates a new builder-style object to manufacture [`DeleteServiceSpecificCredentialOutput`](crate::operation::delete_service_specific_credential::DeleteServiceSpecificCredentialOutput).
-    pub fn builder() -> crate::operation::delete_service_specific_credential::builders::DeleteServiceSpecificCredentialOutputBuilder{
+    pub fn builder() -> crate::operation::delete_service_specific_credential::builders::DeleteServiceSpecificCredentialOutputBuilder {
         crate::operation::delete_service_specific_credential::builders::DeleteServiceSpecificCredentialOutputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_delete_service_specific_credential")]
 /// A builder for [`DeleteServiceSpecificCredentialOutput`](crate::operation::delete_service_specific_credential::DeleteServiceSpecificCredentialOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct DeleteServiceSpecificCredentialOutputBuilder {
     _request_id: Option<String>,
@@ -41,10 +39,7 @@ impl DeleteServiceSpecificCredentialOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`DeleteServiceSpecificCredentialOutput`](crate::operation::delete_service_specific_credential::DeleteServiceSpecificCredentialOutput).
-    pub fn build(
-        self,
-    ) -> crate::operation::delete_service_specific_credential::DeleteServiceSpecificCredentialOutput
-    {
+    pub fn build(self) -> crate::operation::delete_service_specific_credential::DeleteServiceSpecificCredentialOutput {
         crate::operation::delete_service_specific_credential::DeleteServiceSpecificCredentialOutput {
             _request_id: self._request_id,
         }

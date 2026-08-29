@@ -31,16 +31,14 @@ impl GetServiceLastAccessedDetailsInput {
 #[cfg(feature = "op_get_service_last_accessed_details")]
 impl GetServiceLastAccessedDetailsInput {
     /// Creates a new builder-style object to manufacture [`GetServiceLastAccessedDetailsInput`](crate::operation::get_service_last_accessed_details::GetServiceLastAccessedDetailsInput).
-    pub fn builder() -> crate::operation::get_service_last_accessed_details::builders::GetServiceLastAccessedDetailsInputBuilder{
+    pub fn builder() -> crate::operation::get_service_last_accessed_details::builders::GetServiceLastAccessedDetailsInputBuilder {
         crate::operation::get_service_last_accessed_details::builders::GetServiceLastAccessedDetailsInputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_get_service_last_accessed_details")]
 /// A builder for [`GetServiceLastAccessedDetailsInput`](crate::operation::get_service_last_accessed_details::GetServiceLastAccessedDetailsInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct GetServiceLastAccessedDetailsInputBuilder {
     pub(crate) job_id: ::std::option::Option<::std::string::String>,

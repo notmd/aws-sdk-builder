@@ -73,9 +73,7 @@ pub fn de_list_service_specific_credentials_http_response(
         let mut output = crate::operation::list_service_specific_credentials::builders::ListServiceSpecificCredentialsOutputBuilder::default();
         output = crate::protocol_serde::shape_list_service_specific_credentials::de_list_service_specific_credentials(_response_body, output)
             .map_err(crate::operation::list_service_specific_credentials::ListServiceSpecificCredentialsError::unhandled)?;
-        output._set_request_id(
-            ::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string),
-        );
+        output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
         output.build()
     })
 }
@@ -87,7 +85,7 @@ pub fn de_list_service_specific_credentials(
 ) -> std::result::Result<
     crate::operation::list_service_specific_credentials::builders::ListServiceSpecificCredentialsOutputBuilder,
     ::aws_smithy_xml::decode::XmlDecodeError,
->{
+> {
     let mut doc = ::aws_smithy_xml::decode::Document::try_from(inp)?;
 
     #[allow(unused_mut)]

@@ -32,9 +32,7 @@ impl GetRoleOutput {
 
 #[cfg(feature = "op_get_role")]
 /// A builder for [`GetRoleOutput`](crate::operation::get_role::GetRoleOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct GetRoleOutputBuilder {
     pub(crate) role: ::std::option::Option<crate::types::Role>,

@@ -33,8 +33,7 @@ impl crate::operation::delete_server_certificate::builders::DeleteServerCertific
 #[derive(::std::clone::Clone, ::std::fmt::Debug)]
 pub struct DeleteServerCertificateFluentBuilder {
     handle: ::std::sync::Arc<crate::client::Handle>,
-    inner:
-        crate::operation::delete_server_certificate::builders::DeleteServerCertificateInputBuilder,
+    inner: crate::operation::delete_server_certificate::builders::DeleteServerCertificateInputBuilder,
     config_override: ::std::option::Option<crate::config::Builder>,
 }
 #[cfg(feature = "op_delete_server_certificate")]
@@ -67,10 +66,7 @@ impl DeleteServerCertificateFluentBuilder {
         }
     }
     /// Access the DeleteServerCertificate as a reference.
-    pub fn as_input(
-        &self,
-    ) -> &crate::operation::delete_server_certificate::builders::DeleteServerCertificateInputBuilder
-    {
+    pub fn as_input(&self) -> &crate::operation::delete_server_certificate::builders::DeleteServerCertificateInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -99,11 +95,7 @@ impl DeleteServerCertificateFluentBuilder {
             &self.handle.conf,
             self.config_override,
         );
-        crate::operation::delete_server_certificate::DeleteServerCertificate::orchestrate(
-            &runtime_plugins,
-            input,
-        )
-        .await
+        crate::operation::delete_server_certificate::DeleteServerCertificate::orchestrate(&runtime_plugins, input).await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -116,36 +108,24 @@ impl DeleteServerCertificateFluentBuilder {
     > {
         crate::client::customize::CustomizableOperation::new(self)
     }
-    pub(crate) fn config_override(
-        mut self,
-        config_override: impl ::std::convert::Into<crate::config::Builder>,
-    ) -> Self {
+    pub(crate) fn config_override(mut self, config_override: impl ::std::convert::Into<crate::config::Builder>) -> Self {
         self.set_config_override(::std::option::Option::Some(config_override.into()));
         self
     }
 
-    pub(crate) fn set_config_override(
-        &mut self,
-        config_override: ::std::option::Option<crate::config::Builder>,
-    ) -> &mut Self {
+    pub(crate) fn set_config_override(&mut self, config_override: ::std::option::Option<crate::config::Builder>) -> &mut Self {
         self.config_override = config_override;
         self
     }
     /// <p>The name of the server certificate you want to delete.</p>
     /// <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
-    pub fn server_certificate_name(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn server_certificate_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.server_certificate_name(input.into());
         self
     }
     /// <p>The name of the server certificate you want to delete.</p>
     /// <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
-    pub fn set_server_certificate_name(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_server_certificate_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_server_certificate_name(input);
         self
     }

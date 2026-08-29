@@ -7,16 +7,14 @@ pub struct DeleteAccountPasswordPolicyInput {}
 #[cfg(feature = "op_delete_account_password_policy")]
 impl DeleteAccountPasswordPolicyInput {
     /// Creates a new builder-style object to manufacture [`DeleteAccountPasswordPolicyInput`](crate::operation::delete_account_password_policy::DeleteAccountPasswordPolicyInput).
-    pub fn builder() -> crate::operation::delete_account_password_policy::builders::DeleteAccountPasswordPolicyInputBuilder{
+    pub fn builder() -> crate::operation::delete_account_password_policy::builders::DeleteAccountPasswordPolicyInputBuilder {
         crate::operation::delete_account_password_policy::builders::DeleteAccountPasswordPolicyInputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_delete_account_password_policy")]
 /// A builder for [`DeleteAccountPasswordPolicyInput`](crate::operation::delete_account_password_policy::DeleteAccountPasswordPolicyInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct DeleteAccountPasswordPolicyInputBuilder {}
 #[cfg(feature = "op_delete_account_password_policy")]
@@ -28,8 +26,6 @@ impl DeleteAccountPasswordPolicyInputBuilder {
         crate::operation::delete_account_password_policy::DeleteAccountPasswordPolicyInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(
-            crate::operation::delete_account_password_policy::DeleteAccountPasswordPolicyInput {},
-        )
+        ::std::result::Result::Ok(crate::operation::delete_account_password_policy::DeleteAccountPasswordPolicyInput {})
     }
 }

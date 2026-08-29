@@ -27,17 +27,14 @@ impl DeleteGroupPolicyInput {
 #[cfg(feature = "op_delete_group_policy")]
 impl DeleteGroupPolicyInput {
     /// Creates a new builder-style object to manufacture [`DeleteGroupPolicyInput`](crate::operation::delete_group_policy::DeleteGroupPolicyInput).
-    pub fn builder(
-    ) -> crate::operation::delete_group_policy::builders::DeleteGroupPolicyInputBuilder {
+    pub fn builder() -> crate::operation::delete_group_policy::builders::DeleteGroupPolicyInputBuilder {
         crate::operation::delete_group_policy::builders::DeleteGroupPolicyInputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_delete_group_policy")]
 /// A builder for [`DeleteGroupPolicyInput`](crate::operation::delete_group_policy::DeleteGroupPolicyInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct DeleteGroupPolicyInputBuilder {
     pub(crate) group_name: ::std::option::Option<::std::string::String>,
@@ -84,15 +81,10 @@ impl DeleteGroupPolicyInputBuilder {
     /// Consumes the builder and constructs a [`DeleteGroupPolicyInput`](crate::operation::delete_group_policy::DeleteGroupPolicyInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        crate::operation::delete_group_policy::DeleteGroupPolicyInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
-        ::std::result::Result::Ok(
-            crate::operation::delete_group_policy::DeleteGroupPolicyInput {
-                group_name: self.group_name,
-                policy_name: self.policy_name,
-            },
-        )
+    ) -> ::std::result::Result<crate::operation::delete_group_policy::DeleteGroupPolicyInput, ::aws_smithy_types::error::operation::BuildError> {
+        ::std::result::Result::Ok(crate::operation::delete_group_policy::DeleteGroupPolicyInput {
+            group_name: self.group_name,
+            policy_name: self.policy_name,
+        })
     }
 }

@@ -66,7 +66,7 @@ impl DisableOrganizationsRootCredentialsManagementFluentBuilder {
     pub fn as_input(
         &self,
     ) -> &crate::operation::disable_organizations_root_credentials_management::builders::DisableOrganizationsRootCredentialsManagementInputBuilder
-{
+    {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -85,7 +85,7 @@ impl DisableOrganizationsRootCredentialsManagementFluentBuilder {
             crate::operation::disable_organizations_root_credentials_management::DisableOrganizationsRootCredentialsManagementError,
             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
         >,
-    >{
+    > {
         let input = self
             .inner
             .build()
@@ -109,21 +109,15 @@ impl DisableOrganizationsRootCredentialsManagementFluentBuilder {
         crate::operation::disable_organizations_root_credentials_management::DisableOrganizationsRootCredentialsManagementOutput,
         crate::operation::disable_organizations_root_credentials_management::DisableOrganizationsRootCredentialsManagementError,
         Self,
-    >{
+    > {
         crate::client::customize::CustomizableOperation::new(self)
     }
-    pub(crate) fn config_override(
-        mut self,
-        config_override: impl ::std::convert::Into<crate::config::Builder>,
-    ) -> Self {
+    pub(crate) fn config_override(mut self, config_override: impl ::std::convert::Into<crate::config::Builder>) -> Self {
         self.set_config_override(::std::option::Option::Some(config_override.into()));
         self
     }
 
-    pub(crate) fn set_config_override(
-        &mut self,
-        config_override: ::std::option::Option<crate::config::Builder>,
-    ) -> &mut Self {
+    pub(crate) fn set_config_override(&mut self, config_override: ::std::option::Option<crate::config::Builder>) -> &mut Self {
         self.config_override = config_override;
         self
     }

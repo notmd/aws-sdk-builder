@@ -17,18 +17,14 @@ impl SendDelegationTokenInput {
 #[cfg(feature = "op_send_delegation_token")]
 impl SendDelegationTokenInput {
     /// Creates a new builder-style object to manufacture [`SendDelegationTokenInput`](crate::operation::send_delegation_token::SendDelegationTokenInput).
-    pub fn builder(
-    ) -> crate::operation::send_delegation_token::builders::SendDelegationTokenInputBuilder {
-        crate::operation::send_delegation_token::builders::SendDelegationTokenInputBuilder::default(
-        )
+    pub fn builder() -> crate::operation::send_delegation_token::builders::SendDelegationTokenInputBuilder {
+        crate::operation::send_delegation_token::builders::SendDelegationTokenInputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_send_delegation_token")]
 /// A builder for [`SendDelegationTokenInput`](crate::operation::send_delegation_token::SendDelegationTokenInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct SendDelegationTokenInputBuilder {
     pub(crate) delegation_request_id: ::std::option::Option<::std::string::String>,
@@ -37,18 +33,12 @@ pub struct SendDelegationTokenInputBuilder {
 impl SendDelegationTokenInputBuilder {
     /// <p>The unique identifier of the delegation request for which to send the token.</p>
     /// This field is required.
-    pub fn delegation_request_id(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn delegation_request_id(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.delegation_request_id = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The unique identifier of the delegation request for which to send the token.</p>
-    pub fn set_delegation_request_id(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_delegation_request_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.delegation_request_id = input;
         self
     }
@@ -59,14 +49,10 @@ impl SendDelegationTokenInputBuilder {
     /// Consumes the builder and constructs a [`SendDelegationTokenInput`](crate::operation::send_delegation_token::SendDelegationTokenInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        crate::operation::send_delegation_token::SendDelegationTokenInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
-        ::std::result::Result::Ok(
-            crate::operation::send_delegation_token::SendDelegationTokenInput {
-                delegation_request_id: self.delegation_request_id,
-            },
-        )
+    ) -> ::std::result::Result<crate::operation::send_delegation_token::SendDelegationTokenInput, ::aws_smithy_types::error::operation::BuildError>
+    {
+        ::std::result::Result::Ok(crate::operation::send_delegation_token::SendDelegationTokenInput {
+            delegation_request_id: self.delegation_request_id,
+        })
     }
 }

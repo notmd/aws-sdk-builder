@@ -22,9 +22,7 @@ impl TagUserOutput {
 
 #[cfg(feature = "op_tag_user")]
 /// A builder for [`TagUserOutput`](crate::operation::tag_user::TagUserOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct TagUserOutputBuilder {
     _request_id: Option<String>,

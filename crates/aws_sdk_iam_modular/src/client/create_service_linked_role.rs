@@ -9,10 +9,7 @@ impl super::Client {
     /// - On success, responds with [`CreateServiceLinkedRoleOutput`](crate::operation::create_service_linked_role::CreateServiceLinkedRoleOutput) with field(s):
     ///   - [`role(Option<Role>)`](crate::operation::create_service_linked_role::CreateServiceLinkedRoleOutput::role): <p>A <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_Role.html">Role</a> object that contains details about the newly created role.</p>
     /// - On failure, responds with [`SdkError<CreateServiceLinkedRoleError>`](crate::operation::create_service_linked_role::CreateServiceLinkedRoleError)
-    pub fn create_service_linked_role(
-        &self,
-    ) -> crate::operation::create_service_linked_role::builders::CreateServiceLinkedRoleFluentBuilder
-    {
+    pub fn create_service_linked_role(&self) -> crate::operation::create_service_linked_role::builders::CreateServiceLinkedRoleFluentBuilder {
         crate::operation::create_service_linked_role::builders::CreateServiceLinkedRoleFluentBuilder::new(self.handle.clone())
     }
 }

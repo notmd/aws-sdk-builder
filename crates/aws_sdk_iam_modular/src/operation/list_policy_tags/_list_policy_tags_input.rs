@@ -40,9 +40,7 @@ impl ListPolicyTagsInput {
 
 #[cfg(feature = "op_list_policy_tags")]
 /// A builder for [`ListPolicyTagsInput`](crate::operation::list_policy_tags::ListPolicyTagsInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct ListPolicyTagsInputBuilder {
     pub(crate) policy_arn: ::std::option::Option<::std::string::String>,
@@ -103,10 +101,7 @@ impl ListPolicyTagsInputBuilder {
     /// Consumes the builder and constructs a [`ListPolicyTagsInput`](crate::operation::list_policy_tags::ListPolicyTagsInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        crate::operation::list_policy_tags::ListPolicyTagsInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    ) -> ::std::result::Result<crate::operation::list_policy_tags::ListPolicyTagsInput, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::operation::list_policy_tags::ListPolicyTagsInput {
             policy_arn: self.policy_arn,
             marker: self.marker,

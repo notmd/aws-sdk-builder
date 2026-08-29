@@ -45,9 +45,7 @@ impl ListRolesOutput {
 
 #[cfg(feature = "op_list_roles")]
 /// A builder for [`ListRolesOutput`](crate::operation::list_roles::ListRolesOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct ListRolesOutputBuilder {
     pub(crate) roles: ::std::option::Option<::std::vec::Vec<crate::types::Role>>,
@@ -69,10 +67,7 @@ impl ListRolesOutputBuilder {
         self
     }
     /// <p>A list of roles.</p>
-    pub fn set_roles(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<crate::types::Role>>,
-    ) -> Self {
+    pub fn set_roles(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::Role>>) -> Self {
         self.roles = input;
         self
     }
@@ -120,12 +115,7 @@ impl ListRolesOutputBuilder {
     /// Consumes the builder and constructs a [`ListRolesOutput`](crate::operation::list_roles::ListRolesOutput).
     /// This method will fail if any of the following fields are not set:
     /// - [`roles`](crate::operation::list_roles::builders::ListRolesOutputBuilder::roles)
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<
-        crate::operation::list_roles::ListRolesOutput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    pub fn build(self) -> ::std::result::Result<crate::operation::list_roles::ListRolesOutput, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::operation::list_roles::ListRolesOutput {
             roles: self.roles.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

@@ -16,25 +16,21 @@ impl GenerateServiceLastAccessedDetailsInput {
         self.arn.as_deref()
     }
     /// <p>The level of detail that you want to generate. You can specify whether you want to generate information about the last attempt to access services or actions. If you specify service-level granularity, this operation generates only service data. If you specify action-level granularity, it generates service and action data. If you don't include this optional parameter, the operation generates service data.</p>
-    pub fn granularity(
-        &self,
-    ) -> ::std::option::Option<&crate::types::AccessAdvisorUsageGranularityType> {
+    pub fn granularity(&self) -> ::std::option::Option<&crate::types::AccessAdvisorUsageGranularityType> {
         self.granularity.as_ref()
     }
 }
 #[cfg(feature = "op_generate_service_last_accessed_details")]
 impl GenerateServiceLastAccessedDetailsInput {
     /// Creates a new builder-style object to manufacture [`GenerateServiceLastAccessedDetailsInput`](crate::operation::generate_service_last_accessed_details::GenerateServiceLastAccessedDetailsInput).
-    pub fn builder() -> crate::operation::generate_service_last_accessed_details::builders::GenerateServiceLastAccessedDetailsInputBuilder{
+    pub fn builder() -> crate::operation::generate_service_last_accessed_details::builders::GenerateServiceLastAccessedDetailsInputBuilder {
         crate::operation::generate_service_last_accessed_details::builders::GenerateServiceLastAccessedDetailsInputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_generate_service_last_accessed_details")]
 /// A builder for [`GenerateServiceLastAccessedDetailsInput`](crate::operation::generate_service_last_accessed_details::GenerateServiceLastAccessedDetailsInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct GenerateServiceLastAccessedDetailsInputBuilder {
     pub(crate) arn: ::std::option::Option<::std::string::String>,
@@ -63,17 +59,12 @@ impl GenerateServiceLastAccessedDetailsInputBuilder {
         self
     }
     /// <p>The level of detail that you want to generate. You can specify whether you want to generate information about the last attempt to access services or actions. If you specify service-level granularity, this operation generates only service data. If you specify action-level granularity, it generates service and action data. If you don't include this optional parameter, the operation generates service data.</p>
-    pub fn set_granularity(
-        mut self,
-        input: ::std::option::Option<crate::types::AccessAdvisorUsageGranularityType>,
-    ) -> Self {
+    pub fn set_granularity(mut self, input: ::std::option::Option<crate::types::AccessAdvisorUsageGranularityType>) -> Self {
         self.granularity = input;
         self
     }
     /// <p>The level of detail that you want to generate. You can specify whether you want to generate information about the last attempt to access services or actions. If you specify service-level granularity, this operation generates only service data. If you specify action-level granularity, it generates service and action data. If you don't include this optional parameter, the operation generates service data.</p>
-    pub fn get_granularity(
-        &self,
-    ) -> &::std::option::Option<crate::types::AccessAdvisorUsageGranularityType> {
+    pub fn get_granularity(&self) -> &::std::option::Option<crate::types::AccessAdvisorUsageGranularityType> {
         &self.granularity
     }
     /// Consumes the builder and constructs a [`GenerateServiceLastAccessedDetailsInput`](crate::operation::generate_service_last_accessed_details::GenerateServiceLastAccessedDetailsInput).
@@ -82,7 +73,7 @@ impl GenerateServiceLastAccessedDetailsInputBuilder {
     ) -> ::std::result::Result<
         crate::operation::generate_service_last_accessed_details::GenerateServiceLastAccessedDetailsInput,
         ::aws_smithy_types::error::operation::BuildError,
-    >{
+    > {
         ::std::result::Result::Ok(
             crate::operation::generate_service_last_accessed_details::GenerateServiceLastAccessedDetailsInput {
                 arn: self.arn,

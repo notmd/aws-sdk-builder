@@ -15,18 +15,14 @@ impl ::aws_types::request_id::RequestId for AcceptDelegationRequestOutput {
 #[cfg(feature = "op_accept_delegation_request")]
 impl AcceptDelegationRequestOutput {
     /// Creates a new builder-style object to manufacture [`AcceptDelegationRequestOutput`](crate::operation::accept_delegation_request::AcceptDelegationRequestOutput).
-    pub fn builder(
-    ) -> crate::operation::accept_delegation_request::builders::AcceptDelegationRequestOutputBuilder
-    {
+    pub fn builder() -> crate::operation::accept_delegation_request::builders::AcceptDelegationRequestOutputBuilder {
         crate::operation::accept_delegation_request::builders::AcceptDelegationRequestOutputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_accept_delegation_request")]
 /// A builder for [`AcceptDelegationRequestOutput`](crate::operation::accept_delegation_request::AcceptDelegationRequestOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct AcceptDelegationRequestOutputBuilder {
     _request_id: Option<String>,
@@ -43,9 +39,7 @@ impl AcceptDelegationRequestOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`AcceptDelegationRequestOutput`](crate::operation::accept_delegation_request::AcceptDelegationRequestOutput).
-    pub fn build(
-        self,
-    ) -> crate::operation::accept_delegation_request::AcceptDelegationRequestOutput {
+    pub fn build(self) -> crate::operation::accept_delegation_request::AcceptDelegationRequestOutput {
         crate::operation::accept_delegation_request::AcceptDelegationRequestOutput {
             _request_id: self._request_id,
         }

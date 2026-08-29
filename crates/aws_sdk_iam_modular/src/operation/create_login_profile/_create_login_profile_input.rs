@@ -47,8 +47,7 @@ impl ::std::fmt::Debug for CreateLoginProfileInput {
 #[cfg(feature = "op_create_login_profile")]
 impl CreateLoginProfileInput {
     /// Creates a new builder-style object to manufacture [`CreateLoginProfileInput`](crate::operation::create_login_profile::CreateLoginProfileInput).
-    pub fn builder(
-    ) -> crate::operation::create_login_profile::builders::CreateLoginProfileInputBuilder {
+    pub fn builder() -> crate::operation::create_login_profile::builders::CreateLoginProfileInputBuilder {
         crate::operation::create_login_profile::builders::CreateLoginProfileInputBuilder::default()
     }
 }
@@ -121,17 +120,13 @@ impl CreateLoginProfileInputBuilder {
     /// Consumes the builder and constructs a [`CreateLoginProfileInput`](crate::operation::create_login_profile::CreateLoginProfileInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        crate::operation::create_login_profile::CreateLoginProfileInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
-        ::std::result::Result::Ok(
-            crate::operation::create_login_profile::CreateLoginProfileInput {
-                user_name: self.user_name,
-                password: self.password,
-                password_reset_required: self.password_reset_required,
-            },
-        )
+    ) -> ::std::result::Result<crate::operation::create_login_profile::CreateLoginProfileInput, ::aws_smithy_types::error::operation::BuildError>
+    {
+        ::std::result::Result::Ok(crate::operation::create_login_profile::CreateLoginProfileInput {
+            user_name: self.user_name,
+            password: self.password,
+            password_reset_required: self.password_reset_required,
+        })
     }
 }
 #[cfg(feature = "op_create_login_profile")]

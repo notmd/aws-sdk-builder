@@ -6,17 +6,13 @@
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
 pub struct GetAccountSummaryOutput {
     /// <p>A set of key–value pairs containing information about IAM entity usage and IAM quotas.</p>
-    pub summary_map:
-        ::std::option::Option<::std::collections::HashMap<crate::types::SummaryKeyType, i32>>,
+    pub summary_map: ::std::option::Option<::std::collections::HashMap<crate::types::SummaryKeyType, i32>>,
     _request_id: Option<String>,
 }
 #[cfg(feature = "op_get_account_summary")]
 impl GetAccountSummaryOutput {
     /// <p>A set of key–value pairs containing information about IAM entity usage and IAM quotas.</p>
-    pub fn summary_map(
-        &self,
-    ) -> ::std::option::Option<&::std::collections::HashMap<crate::types::SummaryKeyType, i32>>
-    {
+    pub fn summary_map(&self) -> ::std::option::Option<&::std::collections::HashMap<crate::types::SummaryKeyType, i32>> {
         self.summary_map.as_ref()
     }
 }
@@ -29,21 +25,17 @@ impl ::aws_types::request_id::RequestId for GetAccountSummaryOutput {
 #[cfg(feature = "op_get_account_summary")]
 impl GetAccountSummaryOutput {
     /// Creates a new builder-style object to manufacture [`GetAccountSummaryOutput`](crate::operation::get_account_summary::GetAccountSummaryOutput).
-    pub fn builder(
-    ) -> crate::operation::get_account_summary::builders::GetAccountSummaryOutputBuilder {
+    pub fn builder() -> crate::operation::get_account_summary::builders::GetAccountSummaryOutputBuilder {
         crate::operation::get_account_summary::builders::GetAccountSummaryOutputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_get_account_summary")]
 /// A builder for [`GetAccountSummaryOutput`](crate::operation::get_account_summary::GetAccountSummaryOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct GetAccountSummaryOutputBuilder {
-    pub(crate) summary_map:
-        ::std::option::Option<::std::collections::HashMap<crate::types::SummaryKeyType, i32>>,
+    pub(crate) summary_map: ::std::option::Option<::std::collections::HashMap<crate::types::SummaryKeyType, i32>>,
     _request_id: Option<String>,
 }
 #[cfg(feature = "op_get_account_summary")]
@@ -60,20 +52,12 @@ impl GetAccountSummaryOutputBuilder {
         self
     }
     /// <p>A set of key–value pairs containing information about IAM entity usage and IAM quotas.</p>
-    pub fn set_summary_map(
-        mut self,
-        input: ::std::option::Option<
-            ::std::collections::HashMap<crate::types::SummaryKeyType, i32>,
-        >,
-    ) -> Self {
+    pub fn set_summary_map(mut self, input: ::std::option::Option<::std::collections::HashMap<crate::types::SummaryKeyType, i32>>) -> Self {
         self.summary_map = input;
         self
     }
     /// <p>A set of key–value pairs containing information about IAM entity usage and IAM quotas.</p>
-    pub fn get_summary_map(
-        &self,
-    ) -> &::std::option::Option<::std::collections::HashMap<crate::types::SummaryKeyType, i32>>
-    {
+    pub fn get_summary_map(&self) -> &::std::option::Option<::std::collections::HashMap<crate::types::SummaryKeyType, i32>> {
         &self.summary_map
     }
     pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {

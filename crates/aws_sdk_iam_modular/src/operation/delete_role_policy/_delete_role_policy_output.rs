@@ -15,17 +15,14 @@ impl ::aws_types::request_id::RequestId for DeleteRolePolicyOutput {
 #[cfg(feature = "op_delete_role_policy")]
 impl DeleteRolePolicyOutput {
     /// Creates a new builder-style object to manufacture [`DeleteRolePolicyOutput`](crate::operation::delete_role_policy::DeleteRolePolicyOutput).
-    pub fn builder() -> crate::operation::delete_role_policy::builders::DeleteRolePolicyOutputBuilder
-    {
+    pub fn builder() -> crate::operation::delete_role_policy::builders::DeleteRolePolicyOutputBuilder {
         crate::operation::delete_role_policy::builders::DeleteRolePolicyOutputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_delete_role_policy")]
 /// A builder for [`DeleteRolePolicyOutput`](crate::operation::delete_role_policy::DeleteRolePolicyOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct DeleteRolePolicyOutputBuilder {
     _request_id: Option<String>,

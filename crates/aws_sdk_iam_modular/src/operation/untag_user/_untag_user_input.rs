@@ -34,9 +34,7 @@ impl UntagUserInput {
 
 #[cfg(feature = "op_untag_user")]
 /// A builder for [`UntagUserInput`](crate::operation::untag_user::UntagUserInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct UntagUserInputBuilder {
     pub(crate) user_name: ::std::option::Option<::std::string::String>,
@@ -74,10 +72,7 @@ impl UntagUserInputBuilder {
         self
     }
     /// <p>A list of key names as a simple array of strings. The tags with matching keys are removed from the specified user.</p>
-    pub fn set_tag_keys(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
-    ) -> Self {
+    pub fn set_tag_keys(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
         self.tag_keys = input;
         self
     }
@@ -86,12 +81,7 @@ impl UntagUserInputBuilder {
         &self.tag_keys
     }
     /// Consumes the builder and constructs a [`UntagUserInput`](crate::operation::untag_user::UntagUserInput).
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<
-        crate::operation::untag_user::UntagUserInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    pub fn build(self) -> ::std::result::Result<crate::operation::untag_user::UntagUserInput, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::operation::untag_user::UntagUserInput {
             user_name: self.user_name,
             tag_keys: self.tag_keys,

@@ -25,18 +25,14 @@ impl ::aws_types::request_id::RequestId for CreateInstanceProfileOutput {
 #[cfg(feature = "op_create_instance_profile")]
 impl CreateInstanceProfileOutput {
     /// Creates a new builder-style object to manufacture [`CreateInstanceProfileOutput`](crate::operation::create_instance_profile::CreateInstanceProfileOutput).
-    pub fn builder(
-    ) -> crate::operation::create_instance_profile::builders::CreateInstanceProfileOutputBuilder
-    {
+    pub fn builder() -> crate::operation::create_instance_profile::builders::CreateInstanceProfileOutputBuilder {
         crate::operation::create_instance_profile::builders::CreateInstanceProfileOutputBuilder::default()
     }
 }
 
 #[cfg(feature = "op_create_instance_profile")]
 /// A builder for [`CreateInstanceProfileOutput`](crate::operation::create_instance_profile::CreateInstanceProfileOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct CreateInstanceProfileOutputBuilder {
     pub(crate) instance_profile: ::std::option::Option<crate::types::InstanceProfile>,
@@ -51,10 +47,7 @@ impl CreateInstanceProfileOutputBuilder {
         self
     }
     /// <p>A structure containing details about the new instance profile.</p>
-    pub fn set_instance_profile(
-        mut self,
-        input: ::std::option::Option<crate::types::InstanceProfile>,
-    ) -> Self {
+    pub fn set_instance_profile(mut self, input: ::std::option::Option<crate::types::InstanceProfile>) -> Self {
         self.instance_profile = input;
         self
     }
