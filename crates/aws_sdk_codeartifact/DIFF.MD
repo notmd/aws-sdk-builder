@@ -144,7 +144,7 @@ diff --git a/Cargo.toml b/Cargo.toml
  features = ["test-util"]
  version = "1.3.0"
 
-@@ -107,3 +94,54 @@
+@@ -107,3 +94,51 @@
  rt-tokio = ["aws-smithy-async/rt-tokio", "aws-smithy-types/http-body-1-x", "aws-smithy-types/rt-tokio"]
  gated-tests = []
  default = ["rustls", "default-https-client", "rt-tokio"]
@@ -196,9 +196,6 @@ diff --git a/Cargo.toml b/Cargo.toml
 +op_update_package_group_origin_configuration = []
 +op_update_package_versions_status = []
 +op_update_repository = []
-+
-+[lib]
-+name = "aws_sdk_codeartifact"
 ```
 
 ### `src/client.rs`
@@ -6313,7 +6310,7 @@ diff --git a/Cargo.toml b/Cargo.toml
  features = ["test-util"]
  version = "1.3.0"
 
-@@ -107,3 +94,54 @@
+@@ -107,3 +94,51 @@
  rt-tokio = ["aws-smithy-async/rt-tokio", "aws-smithy-types/http-body-1-x", "aws-smithy-types/rt-tokio"]
  gated-tests = []
  default = ["rustls", "default-https-client", "rt-tokio"]
@@ -6365,9 +6362,6 @@ diff --git a/Cargo.toml b/Cargo.toml
 +op_update_package_group_origin_configuration = []
 +op_update_package_versions_status = []
 +op_update_repository = []
-+
-+[lib]
-+name = "aws_sdk_codeartifact"
 diff --git a/src/client.rs b/src/client.rs
 --- a/src/client.rs
 +++ b/src/client.rs
@@ -12367,7 +12361,7 @@ diff --git a/src/types/error/builders.rs b/src/types/error/builders.rs
 ## Customizations
 
 - Add one non-default Cargo feature and matching cfg gates for each model operation.
-- Rename the Cargo package/library from manifest data.
+- Derive the Cargo package/library names from the service key.
 - Remove upstream `tests/` from generated output.
 
 ## Reproduction

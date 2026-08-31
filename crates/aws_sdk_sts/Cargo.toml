@@ -148,6 +148,3 @@ op_get_web_identity_token = []
 
 [hints]
 mostly-unused = true
-
-[lib]
-name = "aws_sdk_sts"

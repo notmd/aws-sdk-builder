@@ -187,6 +187,3 @@ op_update_key_description = []
 op_update_primary_region = []
 op_verify = []
 op_verify_mac = []
-
-[lib]
-name = "aws_sdk_kms"

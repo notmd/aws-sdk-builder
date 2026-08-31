@@ -66,10 +66,10 @@ revision. Each service entry must provide:
 - the path to the service crate in the downloaded SDK;
 - the archive-relative Smithy JSON model path;
 - the output directory;
-- the Cargo package name and Rust library crate name.
+- the service key used to derive the Cargo package and Rust library crate names.
 
-Do not infer service support, output paths, package names, or operation lists in
-Rust code. A model operation is discovered from the service shape's operation
+Do not infer service support, output paths, or operation lists in Rust code. The
+Cargo package/library names are derived generically from each service key. A model operation is discovered from the service shape's operation
 targets. Validate that every selected service has exactly one service shape and
 that every operation target can be mapped to the downloaded source.
 
@@ -148,10 +148,11 @@ crates/aws_sdk_s3/
 └── DIFF.diff
 ```
 
-Modify `Cargo.toml` structurally, keeping the filename unchanged. Update its
-package and library names from the manifest and add all model-derived
-operation features. Preserve upstream dependencies and metadata unless a
-manifest-defined rename requires a corresponding update.
+Modify `Cargo.toml` structurally, keeping the filename unchanged. Derive its
+package name as `aws-sdk-{key}` and library name as `aws_sdk_{key}` (converting
+hyphens to underscores), then add all model-derived operation features. Preserve
+upstream dependencies and metadata unless a derived rename requires a
+corresponding update.
 
 Strip the downloaded service crate's entire `tests/` directory from generated
 output. Do not parse, transform, compile, or report those tests. The upstream
@@ -196,7 +197,8 @@ possible.
 
 Conformance validates the codemod transformation and the generated Cargo
 feature configurations. It is not an exact source-parity comparison with the
-upstream crate: `#[cfg]` attributes, operation features, manifest renames, and
+upstream crate: `#[cfg]` attributes, operation features, derived package/library
+names, and
 the removal of `tests/**` are intentional differences. The upstream crate is
 the transformation baseline and source for the per-service diff artifacts,
 but a non-empty `DIFF.MD` or `DIFF.diff` is not itself a conformance failure.

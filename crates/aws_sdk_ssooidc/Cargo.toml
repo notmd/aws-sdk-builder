@@ -95,6 +95,3 @@ op_create_token = []
 op_create_token_with_iam = []
 op_register_client = []
 op_start_device_authorization = []
-
-[lib]
-name = "aws_sdk_ssooidc"

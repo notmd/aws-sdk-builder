@@ -230,6 +230,3 @@ op_delete_provisioned_concurrency_config = []
 
 [hints]
 mostly-unused = true
-
-[lib]
-name = "aws_sdk_lambda"

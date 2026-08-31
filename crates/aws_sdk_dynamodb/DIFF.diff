@@ -104,7 +104,7 @@ diff --git a/Cargo.toml b/Cargo.toml
  version = "0.62.0"
 
  [dev-dependencies.criterion]
-@@ -167,6 +146,67 @@
+@@ -167,6 +146,64 @@
  test-util = ["aws-credential-types/test-util", "aws-smithy-runtime/legacy-test-util", "aws-smithy-runtime/test-util"]
  gated-tests = []
  default = ["rustls", "default-https-client", "rt-tokio"]
@@ -169,9 +169,6 @@ diff --git a/Cargo.toml b/Cargo.toml
 
  [hints]
  mostly-unused = true
-+
-+[lib]
-+name = "aws_sdk_dynamodb"
 diff --git a/src/client.rs b/src/client.rs
 --- a/src/client.rs
 +++ b/src/client.rs

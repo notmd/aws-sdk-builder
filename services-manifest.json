@@ -6,145 +6,109 @@
       "key": "batch",
       "upstream_path": "sdk/batch",
       "model_path": "aws-models/batch.json",
-      "output_dir": "crates/aws_sdk_batch",
-      "package_name": "aws-sdk-batch",
-      "library_name": "aws_sdk_batch"
+      "output_dir": "crates/aws_sdk_batch"
     },
     {
       "key": "bedrockruntime",
       "upstream_path": "sdk/bedrockruntime",
       "model_path": "aws-models/bedrock-runtime.json",
-      "output_dir": "crates/aws_sdk_bedrockruntime",
-      "package_name": "aws-sdk-bedrockruntime",
-      "library_name": "aws_sdk_bedrockruntime"
+      "output_dir": "crates/aws_sdk_bedrockruntime"
     },
     {
       "key": "cloudwatchlogs",
       "upstream_path": "sdk/cloudwatchlogs",
       "model_path": "aws-models/cloudwatch-logs.json",
-      "output_dir": "crates/aws_sdk_cloudwatchlogs",
-      "package_name": "aws-sdk-cloudwatchlogs",
-      "library_name": "aws_sdk_cloudwatchlogs"
+      "output_dir": "crates/aws_sdk_cloudwatchlogs"
     },
     {
       "key": "codeartifact",
       "upstream_path": "sdk/codeartifact",
       "model_path": "aws-models/codeartifact.json",
-      "output_dir": "crates/aws_sdk_codeartifact",
-      "package_name": "aws-sdk-codeartifact",
-      "library_name": "aws_sdk_codeartifact"
+      "output_dir": "crates/aws_sdk_codeartifact"
     },
     {
       "key": "cognitoidentityprovider",
       "upstream_path": "sdk/cognitoidentityprovider",
       "model_path": "aws-models/cognito-identity-provider.json",
-      "output_dir": "crates/aws_sdk_cognitoidentityprovider",
-      "package_name": "aws-sdk-cognitoidentityprovider",
-      "library_name": "aws_sdk_cognitoidentityprovider"
+      "output_dir": "crates/aws_sdk_cognitoidentityprovider"
     },
     {
       "key": "config",
       "upstream_path": "sdk/config",
       "model_path": "aws-models/config-service.json",
-      "output_dir": "crates/aws_sdk_config",
-      "package_name": "aws-sdk-config",
-      "library_name": "aws_sdk_config"
+      "output_dir": "crates/aws_sdk_config"
     },
     {
       "key": "dynamodb",
       "upstream_path": "sdk/dynamodb",
       "model_path": "aws-models/dynamodb.json",
-      "output_dir": "crates/aws_sdk_dynamodb",
-      "package_name": "aws-sdk-dynamodb",
-      "library_name": "aws_sdk_dynamodb"
+      "output_dir": "crates/aws_sdk_dynamodb"
     },
     {
       "key": "iam",
       "upstream_path": "sdk/iam",
       "model_path": "aws-models/iam.json",
-      "output_dir": "crates/aws_sdk_iam",
-      "package_name": "aws-sdk-iam",
-      "library_name": "aws_sdk_iam"
+      "output_dir": "crates/aws_sdk_iam"
     },
     {
       "key": "kms",
       "upstream_path": "sdk/kms",
       "model_path": "aws-models/kms.json",
-      "output_dir": "crates/aws_sdk_kms",
-      "package_name": "aws-sdk-kms",
-      "library_name": "aws_sdk_kms"
+      "output_dir": "crates/aws_sdk_kms"
     },
     {
       "key": "lambda",
       "upstream_path": "sdk/lambda",
       "model_path": "aws-models/lambda.json",
-      "output_dir": "crates/aws_sdk_lambda",
-      "package_name": "aws-sdk-lambda",
-      "library_name": "aws_sdk_lambda"
+      "output_dir": "crates/aws_sdk_lambda"
     },
     {
       "key": "s3",
       "upstream_path": "sdk/s3",
       "model_path": "aws-models/s3.json",
-      "output_dir": "crates/aws_sdk_s3",
-      "package_name": "aws-sdk-s3",
-      "library_name": "aws_sdk_s3"
+      "output_dir": "crates/aws_sdk_s3"
     },
     {
       "key": "sesv2",
       "upstream_path": "sdk/sesv2",
       "model_path": "aws-models/sesv2.json",
-      "output_dir": "crates/aws_sdk_sesv2",
-      "package_name": "aws-sdk-sesv2",
-      "library_name": "aws_sdk_sesv2"
+      "output_dir": "crates/aws_sdk_sesv2"
     },
     {
       "key": "signin",
       "upstream_path": "sdk/signin",
       "model_path": "aws-models/signin.json",
-      "output_dir": "crates/aws_sdk_signin",
-      "package_name": "aws-sdk-signin",
-      "library_name": "aws_sdk_signin"
+      "output_dir": "crates/aws_sdk_signin"
     },
     {
       "key": "sns",
       "upstream_path": "sdk/sns",
       "model_path": "aws-models/sns.json",
-      "output_dir": "crates/aws_sdk_sns",
-      "package_name": "aws-sdk-sns",
-      "library_name": "aws_sdk_sns"
+      "output_dir": "crates/aws_sdk_sns"
     },
     {
       "key": "sqs",
       "upstream_path": "sdk/sqs",
       "model_path": "aws-models/sqs.json",
-      "output_dir": "crates/aws_sdk_sqs",
-      "package_name": "aws-sdk-sqs",
-      "library_name": "aws_sdk_sqs"
+      "output_dir": "crates/aws_sdk_sqs"
     },
     {
       "key": "sso",
       "upstream_path": "sdk/sso",
       "model_path": "aws-models/sso.json",
-      "output_dir": "crates/aws_sdk_sso",
-      "package_name": "aws-sdk-sso",
-      "library_name": "aws_sdk_sso"
+      "output_dir": "crates/aws_sdk_sso"
     },
     {
       "key": "ssooidc",
       "upstream_path": "sdk/ssooidc",
       "model_path": "aws-models/sso-oidc.json",
-      "output_dir": "crates/aws_sdk_ssooidc",
-      "package_name": "aws-sdk-ssooidc",
-      "library_name": "aws_sdk_ssooidc"
+      "output_dir": "crates/aws_sdk_ssooidc"
     },
     {
       "key": "sts",
       "upstream_path": "sdk/sts",
       "model_path": "aws-models/sts.json",
-      "output_dir": "crates/aws_sdk_sts",
-      "package_name": "aws-sdk-sts",
-      "library_name": "aws_sdk_sts"
+      "output_dir": "crates/aws_sdk_sts"
     }
   ]
 }

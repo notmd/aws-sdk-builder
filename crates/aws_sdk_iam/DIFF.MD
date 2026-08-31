@@ -320,7 +320,7 @@ diff --git a/Cargo.toml b/Cargo.toml
  features = ["http-body-1-x", "test-util"]
  version = "1.6.2"
 
-@@ -158,3 +136,186 @@
+@@ -158,3 +136,183 @@
  test-util = ["aws-credential-types/test-util", "aws-smithy-runtime/legacy-test-util", "aws-smithy-runtime/test-util"]
  gated-tests = []
  default = ["rustls", "default-https-client", "rt-tokio"]
@@ -504,9 +504,6 @@ diff --git a/Cargo.toml b/Cargo.toml
 +op_upload_server_certificate = []
 +op_upload_signing_certificate = []
 +op_upload_ssh_public_key = []
-+
-+[lib]
-+name = "aws_sdk_iam"
 ```
 
 ### `src/client.rs`
@@ -15891,7 +15888,7 @@ diff --git a/Cargo.toml b/Cargo.toml
  features = ["http-body-1-x", "test-util"]
  version = "1.6.2"
 
-@@ -158,3 +136,186 @@
+@@ -158,3 +136,183 @@
  test-util = ["aws-credential-types/test-util", "aws-smithy-runtime/legacy-test-util", "aws-smithy-runtime/test-util"]
  gated-tests = []
  default = ["rustls", "default-https-client", "rt-tokio"]
@@ -16075,9 +16072,6 @@ diff --git a/Cargo.toml b/Cargo.toml
 +op_upload_server_certificate = []
 +op_upload_signing_certificate = []
 +op_upload_ssh_public_key = []
-+
-+[lib]
-+name = "aws_sdk_iam"
 diff --git a/src/client.rs b/src/client.rs
 --- a/src/client.rs
 +++ b/src/client.rs
@@ -31295,7 +31289,7 @@ diff --git a/src/waiters/matchers.rs b/src/waiters/matchers.rs
 ## Customizations
 
 - Add one non-default Cargo feature and matching cfg gates for each model operation.
-- Rename the Cargo package/library from manifest data.
+- Derive the Cargo package/library names from the service key.
 - Remove upstream `tests/` from generated output.
 
 ## Reproduction

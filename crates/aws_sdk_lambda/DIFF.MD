@@ -250,7 +250,7 @@ diff --git a/Cargo.toml b/Cargo.toml
  features = ["http-body-1-x", "test-util"]
  version = "1.6.2"
 
-@@ -164,6 +142,94 @@
+@@ -164,6 +142,91 @@
  rt-tokio = ["aws-smithy-async/rt-tokio", "aws-smithy-types/http-body-1-x", "aws-smithy-types/rt-tokio"]
  gated-tests = []
  default = ["rustls", "default-https-client", "rt-tokio"]
@@ -342,9 +342,6 @@ diff --git a/Cargo.toml b/Cargo.toml
 
  [hints]
  mostly-unused = true
-+
-+[lib]
-+name = "aws_sdk_lambda"
 ```
 
 ### `src/client.rs`
@@ -22696,7 +22693,7 @@ diff --git a/Cargo.toml b/Cargo.toml
  features = ["http-body-1-x", "test-util"]
  version = "1.6.2"
 
-@@ -164,6 +142,94 @@
+@@ -164,6 +142,91 @@
  rt-tokio = ["aws-smithy-async/rt-tokio", "aws-smithy-types/http-body-1-x", "aws-smithy-types/rt-tokio"]
  gated-tests = []
  default = ["rustls", "default-https-client", "rt-tokio"]
@@ -22788,9 +22785,6 @@ diff --git a/Cargo.toml b/Cargo.toml
 
  [hints]
  mostly-unused = true
-+
-+[lib]
-+name = "aws_sdk_lambda"
 diff --git a/src/client.rs b/src/client.rs
 --- a/src/client.rs
 +++ b/src/client.rs
@@ -44862,7 +44856,7 @@ diff --git a/src/waiters/matchers.rs b/src/waiters/matchers.rs
 ## Customizations
 
 - Add one non-default Cargo feature and matching cfg gates for each model operation.
-- Rename the Cargo package/library from manifest data.
+- Derive the Cargo package/library names from the service key.
 - Remove upstream `tests/` from generated output.
 
 ## Reproduction

@@ -159,6 +159,3 @@ op_untag_queue = []
 
 [hints]
 mostly-unused = true
-
-[lib]
-name = "aws_sdk_sqs"

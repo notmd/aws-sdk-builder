@@ -149,6 +149,3 @@ op_update_quota_share = []
 op_update_scheduling_policy = []
 op_update_service_environment = []
 op_update_service_job = []
-
-[lib]
-name = "aws_sdk_batch"

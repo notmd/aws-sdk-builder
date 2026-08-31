@@ -103,7 +103,7 @@ diff --git a/Cargo.toml b/Cargo.toml
  features = ["test-util"]
  version = "1.3.0"
 
-@@ -103,3 +91,17 @@
+@@ -103,3 +91,14 @@
  test-util = ["aws-credential-types/test-util", "aws-smithy-runtime/legacy-test-util", "aws-smithy-runtime/test-util"]
  gated-tests = []
  default = ["rustls", "default-https-client", "rt-tokio"]
@@ -118,9 +118,6 @@ diff --git a/Cargo.toml b/Cargo.toml
 +op_put_console_authorization_configuration = []
 +op_put_resource_permission_statement = []
 +op_revoke_o_auth2_token_with_iam = []
-+
-+[lib]
-+name = "aws_sdk_signin"
 ```
 
 ### `src/client.rs`
@@ -1726,7 +1723,7 @@ diff --git a/Cargo.toml b/Cargo.toml
  features = ["test-util"]
  version = "1.3.0"
 
-@@ -103,3 +91,17 @@
+@@ -103,3 +91,14 @@
  test-util = ["aws-credential-types/test-util", "aws-smithy-runtime/legacy-test-util", "aws-smithy-runtime/test-util"]
  gated-tests = []
  default = ["rustls", "default-https-client", "rt-tokio"]
@@ -1741,9 +1738,6 @@ diff --git a/Cargo.toml b/Cargo.toml
 +op_put_console_authorization_configuration = []
 +op_put_resource_permission_statement = []
 +op_revoke_o_auth2_token_with_iam = []
-+
-+[lib]
-+name = "aws_sdk_signin"
 diff --git a/src/client.rs b/src/client.rs
 --- a/src/client.rs
 +++ b/src/client.rs
@@ -3238,7 +3232,7 @@ diff --git a/src/types/error/builders.rs b/src/types/error/builders.rs
 ## Customizations
 
 - Add one non-default Cargo feature and matching cfg gates for each model operation.
-- Rename the Cargo package/library from manifest data.
+- Derive the Cargo package/library names from the service key.
 - Remove upstream `tests/` from generated output.
 
 ## Reproduction

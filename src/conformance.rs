@@ -169,7 +169,9 @@ fn stage_service(
     }
     let stage = workspace.join("staged").join(&service.key);
     copy_without_tests(&source, &stage)?;
-    transform::transform_tree(&stage, &service.package_name, &service.library_name, operations)?;
+    let package_name = service.package_name();
+    let library_name = service.library_name();
+    transform::transform_tree(&stage, &package_name, &library_name, operations)?;
     format_crate(&stage)?;
     Ok(stage)
 }
@@ -430,7 +432,11 @@ fn verify_service(service: &ServiceManifest, stage: &Path, operations: &[Operati
         .and_then(toml_edit::Item::as_table)
         .and_then(|table| table.get("name"))
         .and_then(toml_edit::Item::as_str);
-    if package != Some(service.package_name.as_str()) || library != Some(service.library_name.as_str()) {
+    let package_name = service.package_name();
+    let library_name = service.library_name();
+    let library_matches =
+        library == Some(library_name.as_str()) || (library.is_none() && package_name.replace('-', "_") == library_name);
+    if package != Some(package_name.as_str()) || !library_matches {
         return Err(ConformanceError::Message(format!(
             "{} manifest names do not match manifest",
             service.key
@@ -535,7 +541,9 @@ fn write_diff_artifacts(
 ) -> Result<(), ConformanceError> {
     let mut report = String::new();
     report.push_str("# AWS SDK modularizer diff\n\n");
-    report.push_str(&format!("- repository: `{}`\n- revision: `{}`\n- service: `{}`\n- model: `{}`\n- package: `{}`\n- library: `{}`\n- tests exclusion: `tests/**` is excluded from the comparison.\n\n", manifest.repository, manifest.revision, service.upstream_path, service.model_path, service.package_name, service.library_name));
+    let package_name = service.package_name();
+    let library_name = service.library_name();
+    report.push_str(&format!("- repository: `{}`\n- revision: `{}`\n- service: `{}`\n- model: `{}`\n- package: `{}`\n- library: `{}`\n- tests exclusion: `tests/**` is excluded from the comparison.\n\n", manifest.repository, manifest.revision, service.upstream_path, service.model_path, package_name, library_name));
     report.push_str("## Operations\n\n");
     for operation in operations {
         report.push_str(&format!("- `{}`: `{}`\n", operation.feature, operation.name));
@@ -562,7 +570,7 @@ fn write_diff_artifacts(
         report.push('\n');
     }
     report.push_str("```\n\n");
-    report.push_str("\n## Customizations\n\n- Add one non-default Cargo feature and matching cfg gates for each model operation.\n- Rename the Cargo package/library from manifest data.\n- Remove upstream `tests/` from generated output.\n\n## Reproduction\n\n```text\ncargo run -p aws-sdk-modularizer -- --manifest services-manifest.json\n```\n");
+    report.push_str("\n## Customizations\n\n- Add one non-default Cargo feature and matching cfg gates for each model operation.\n- Derive the Cargo package/library names from the service key.\n- Remove upstream `tests/` from generated output.\n\n## Reproduction\n\n```text\ncargo run -p aws-sdk-modularizer -- --manifest services-manifest.json\n```\n");
     fs::write(stage.join("DIFF.MD"), report).map_err(|source| ConformanceError::Io {
         path: stage.join("DIFF.MD"),
         source,
@@ -732,7 +740,7 @@ where
     package["edition"] = toml_edit::value("2021");
 
     let mut dependency = Table::new();
-    dependency["package"] = toml_edit::value(service.package_name.clone());
+    dependency["package"] = toml_edit::value(service.package_name());
     dependency["path"] = toml_edit::value(stage.to_string_lossy().into_owned());
     let mut feature_array = Array::new();
     for feature in features {

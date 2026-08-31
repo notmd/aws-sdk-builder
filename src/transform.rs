@@ -2532,15 +2532,24 @@ pub fn rewrite_cargo_named(
             message: "manifest has no [package] table".to_owned(),
         })?;
     package["name"] = toml_edit::value(package_name);
-    let lib = document
-        .entry("lib")
-        .or_insert(TomlItem::Table(Table::new()))
-        .as_table_mut()
-        .ok_or_else(|| TransformError::Cargo {
-            path: path.to_owned(),
-            message: "[lib] is not a table".to_owned(),
-        })?;
-    lib["name"] = toml_edit::value(library_name);
+    let needs_explicit_library_name = library_name != package_name.replace('-', "_")
+        || document
+            .get("lib")
+            .and_then(TomlItem::as_table)
+            .and_then(|table| table.get("name"))
+            .and_then(TomlItem::as_str)
+            .is_some_and(|name| name != library_name);
+    if needs_explicit_library_name {
+        let lib = document
+            .entry("lib")
+            .or_insert(TomlItem::Table(Table::new()))
+            .as_table_mut()
+            .ok_or_else(|| TransformError::Cargo {
+                path: path.to_owned(),
+                message: "[lib] is not a table".to_owned(),
+            })?;
+        lib["name"] = toml_edit::value(library_name);
+    }
     {
         let features = document
             .entry("features")
@@ -2636,6 +2645,8 @@ mod tests {
         )
         .unwrap();
         transform_tree(directory.path(), "new", "new", &operations()).unwrap();
+        let cargo = fs::read_to_string(directory.path().join("Cargo.toml")).unwrap();
+        assert!(!cargo.contains("[lib]"));
         let operation_source = fs::read_to_string(directory.path().join("src/operation.rs")).unwrap();
         assert!(operation_source.contains("#[cfg(feature = \"op_get_thing\")]\npub mod get_thing;"));
         let client_source = fs::read_to_string(directory.path().join("src/client.rs")).unwrap();

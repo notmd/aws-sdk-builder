@@ -159,6 +159,3 @@ op_invoke_model = []
 op_invoke_model_with_bidirectional_stream = []
 op_invoke_model_with_response_stream = []
 op_count_tokens = []
-
-[lib]
-name = "aws_sdk_bedrockruntime"

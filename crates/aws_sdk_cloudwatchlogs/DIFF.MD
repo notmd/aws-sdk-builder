@@ -260,7 +260,7 @@ diff --git a/Cargo.toml b/Cargo.toml
  features = ["http-body-1-x", "test-util"]
  version = "1.6.2"
 
-@@ -164,3 +142,124 @@
+@@ -164,3 +142,121 @@
  test-util = ["aws-credential-types/test-util", "aws-smithy-runtime/legacy-test-util", "aws-smithy-runtime/test-util"]
  gated-tests = []
  default = ["rustls", "default-https-client", "rt-tokio"]
@@ -382,9 +382,6 @@ diff --git a/Cargo.toml b/Cargo.toml
 +op_update_log_anomaly_detector = []
 +op_update_lookup_table = []
 +op_update_scheduled_query = []
-+
-+[lib]
-+name = "aws_sdk_cloudwatchlogs"
 ```
 
 ### `src/client.rs`
@@ -13237,7 +13234,7 @@ diff --git a/Cargo.toml b/Cargo.toml
  features = ["http-body-1-x", "test-util"]
  version = "1.6.2"
 
-@@ -164,3 +142,124 @@
+@@ -164,3 +142,121 @@
  test-util = ["aws-credential-types/test-util", "aws-smithy-runtime/legacy-test-util", "aws-smithy-runtime/test-util"]
  gated-tests = []
  default = ["rustls", "default-https-client", "rt-tokio"]
@@ -13359,9 +13356,6 @@ diff --git a/Cargo.toml b/Cargo.toml
 +op_update_log_anomaly_detector = []
 +op_update_lookup_table = []
 +op_update_scheduled_query = []
-+
-+[lib]
-+name = "aws_sdk_cloudwatchlogs"
 diff --git a/src/client.rs b/src/client.rs
 --- a/src/client.rs
 +++ b/src/client.rs
@@ -26049,7 +26043,7 @@ diff --git a/src/types/error/builders.rs b/src/types/error/builders.rs
 ## Customizations
 
 - Add one non-default Cargo feature and matching cfg gates for each model operation.
-- Rename the Cargo package/library from manifest data.
+- Derive the Cargo package/library names from the service key.
 - Remove upstream `tests/` from generated output.
 
 ## Reproduction

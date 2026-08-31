@@ -69,7 +69,7 @@ Do not hardcode service or operation names unless the model lacks the required
 information and the matching Smithy-RS special handling is documented and
 tested.
 
-For each service, preserve the manifest-defined package/library/output names,
+For each service, derive the Cargo package/library names from the service key and preserve the manifest-defined output path,
 add one non-default op_<snake_case_operation> feature per model operation, and
 gate the complete public operation surface. Strip the generated service crate's
 tests/ directory and exclude tests/** from DIFF.MD and DIFF.diff.

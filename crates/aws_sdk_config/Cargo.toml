@@ -196,6 +196,3 @@ op_start_resource_evaluation = []
 op_stop_configuration_recorder = []
 op_tag_resource = []
 op_untag_resource = []
-
-[lib]
-name = "aws_sdk_config"

@@ -207,6 +207,3 @@ op_update_email_identity_policy = []
 op_update_email_template = []
 op_update_reputation_entity_customer_managed_status = []
 op_update_reputation_entity_policy = []
-
-[lib]
-name = "aws_sdk_sesv2"

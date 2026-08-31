@@ -23,8 +23,16 @@ pub struct ServiceManifest {
     pub upstream_path: String,
     pub model_path: String,
     pub output_dir: String,
-    pub package_name: String,
-    pub library_name: String,
+}
+
+impl ServiceManifest {
+    pub fn package_name(&self) -> String {
+        format!("aws-sdk-{}", self.key)
+    }
+
+    pub fn library_name(&self) -> String {
+        format!("aws_sdk_{}", self.key.replace('-', "_"))
+    }
 }
 
 #[derive(Debug, Error)]
@@ -77,12 +85,6 @@ impl Manifest {
                 ("output_dir", &service.output_dir),
             ] {
                 validate_relative_path(&format!("{} {label}", service.key), value)?;
-            }
-            if service.package_name.is_empty() || service.library_name.is_empty() {
-                return Err(ManifestError::Invalid(format!(
-                    "{} package_name and library_name must not be empty",
-                    service.key
-                )));
             }
             if !outputs.insert(&service.output_dir) {
                 return Err(ManifestError::Invalid(format!(
@@ -147,8 +149,6 @@ mod tests {
             upstream_path: format!("sdk/{key}"),
             model_path: format!("aws-models/{key}.json"),
             output_dir: format!("crates/{key}"),
-            package_name: format!("aws-sdk-{key}"),
-            library_name: format!("aws_sdk_{key}"),
         }
     }
 
@@ -165,5 +165,12 @@ mod tests {
         manifest.revision = "0123456789abcdef0123456789abcdef01234567".to_owned();
         manifest.services[0].output_dir = "../outside".to_owned();
         assert!(manifest.validate().is_err());
+    }
+
+    #[test]
+    fn derives_cargo_names_from_service_key() {
+        let service = service("example-service");
+        assert_eq!(service.package_name(), "aws-sdk-example-service");
+        assert_eq!(service.library_name(), "aws_sdk_example_service");
     }
 }

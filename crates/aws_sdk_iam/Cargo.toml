@@ -316,6 +316,3 @@ op_update_user = []
 op_upload_server_certificate = []
 op_upload_signing_certificate = []
 op_upload_ssh_public_key = []
-
-[lib]
-name = "aws_sdk_iam"

@@ -142,6 +142,3 @@ op_update_package_group = []
 op_update_package_group_origin_configuration = []
 op_update_package_versions_status = []
 op_update_repository = []
-
-[lib]
-name = "aws_sdk_codeartifact"

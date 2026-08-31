@@ -223,6 +223,3 @@ op_update_user_pool_domain = []
 op_update_user_pool_replica = []
 op_verify_software_token = []
 op_verify_user_attribute = []
-
-[lib]
-name = "aws_sdk_cognitoidentityprovider"

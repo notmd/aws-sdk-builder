@@ -207,6 +207,3 @@ op_update_time_to_live = []
 
 [hints]
 mostly-unused = true
-
-[lib]
-name = "aws_sdk_dynamodb"

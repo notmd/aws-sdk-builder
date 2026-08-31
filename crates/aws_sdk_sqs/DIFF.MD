@@ -153,7 +153,7 @@ diff --git a/Cargo.toml b/Cargo.toml
  features = ["http-body-1-x", "test-util"]
  version = "1.6.2"
 
-@@ -153,6 +133,32 @@
+@@ -153,6 +133,29 @@
  test-util = ["aws-credential-types/test-util", "aws-smithy-runtime/legacy-test-util", "aws-smithy-runtime/test-util"]
  gated-tests = []
  default = ["rustls", "default-https-client", "rt-tokio"]
@@ -183,9 +183,6 @@ diff --git a/Cargo.toml b/Cargo.toml
 
  [hints]
  mostly-unused = true
-+
-+[lib]
-+name = "aws_sdk_sqs"
 ```
 
 ### `src/client.rs`
@@ -3726,7 +3723,7 @@ diff --git a/Cargo.toml b/Cargo.toml
  features = ["http-body-1-x", "test-util"]
  version = "1.6.2"
 
-@@ -153,6 +133,32 @@
+@@ -153,6 +133,29 @@
  test-util = ["aws-credential-types/test-util", "aws-smithy-runtime/legacy-test-util", "aws-smithy-runtime/test-util"]
  gated-tests = []
  default = ["rustls", "default-https-client", "rt-tokio"]
@@ -3756,9 +3753,6 @@ diff --git a/Cargo.toml b/Cargo.toml
 
  [hints]
  mostly-unused = true
-+
-+[lib]
-+name = "aws_sdk_sqs"
 diff --git a/src/client.rs b/src/client.rs
 --- a/src/client.rs
 +++ b/src/client.rs
@@ -7150,7 +7144,7 @@ diff --git a/src/types/error/builders.rs b/src/types/error/builders.rs
 ## Customizations
 
 - Add one non-default Cargo feature and matching cfg gates for each model operation.
-- Rename the Cargo package/library from manifest data.
+- Derive the Cargo package/library names from the service key.
 - Remove upstream `tests/` from generated output.
 
 ## Reproduction

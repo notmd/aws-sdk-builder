@@ -102,6 +102,3 @@ op_list_resource_permission_statements = []
 op_put_console_authorization_configuration = []
 op_put_resource_permission_statement = []
 op_revoke_o_auth2_token_with_iam = []
-
-[lib]
-name = "aws_sdk_signin"

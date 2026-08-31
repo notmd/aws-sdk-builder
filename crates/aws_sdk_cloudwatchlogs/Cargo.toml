@@ -260,6 +260,3 @@ op_update_delivery_configuration = []
 op_update_log_anomaly_detector = []
 op_update_lookup_table = []
 op_update_scheduled_query = []
-
-[lib]
-name = "aws_sdk_cloudwatchlogs"

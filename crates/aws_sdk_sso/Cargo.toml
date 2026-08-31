@@ -95,6 +95,3 @@ op_get_role_credentials = []
 op_list_account_roles = []
 op_list_accounts = []
 op_logout = []
-
-[lib]
-name = "aws_sdk_sso"

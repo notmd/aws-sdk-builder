@@ -325,6 +325,3 @@ op_write_get_object_response = []
 
 [hints]
 mostly-unused = true
-
-[lib]
-name = "aws_sdk_s3"
