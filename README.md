@@ -10,7 +10,7 @@ uses `syn` to modify the Rust module graph, updates `Cargo.toml`, and writes
 outputs such as:
 
 ```text
-crates/aws_sdk_s3_modular/
+crates/aws_sdk_s3/
 ├── Cargo.toml
 ├── src/
 ├── DIFF.MD

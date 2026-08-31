@@ -7,9 +7,9 @@
       "revision": "3c6d526c9d4775f41a8ef1ed2ef574d1b14481db",
       "upstream_path": "sdk/batch",
       "model_path": "models/batch.json",
-      "output_dir": "crates/aws_sdk_batch_modular",
-      "package_name": "aws-sdk-batch-modular",
-      "library_name": "aws_sdk_batch_modular"
+      "output_dir": "crates/aws_sdk_batch",
+      "package_name": "aws-sdk-batch",
+      "library_name": "aws_sdk_batch"
     },
     {
       "key": "bedrockruntime",
@@ -17,9 +17,9 @@
       "revision": "3c6d526c9d4775f41a8ef1ed2ef574d1b14481db",
       "upstream_path": "sdk/bedrockruntime",
       "model_path": "models/bedrockruntime.json",
-      "output_dir": "crates/aws_sdk_bedrockruntime_modular",
-      "package_name": "aws-sdk-bedrockruntime-modular",
-      "library_name": "aws_sdk_bedrockruntime_modular"
+      "output_dir": "crates/aws_sdk_bedrockruntime",
+      "package_name": "aws-sdk-bedrockruntime",
+      "library_name": "aws_sdk_bedrockruntime"
     },
     {
       "key": "cloudwatchlogs",
@@ -27,9 +27,9 @@
       "revision": "3c6d526c9d4775f41a8ef1ed2ef574d1b14481db",
       "upstream_path": "sdk/cloudwatchlogs",
       "model_path": "models/cloudwatchlogs.json",
-      "output_dir": "crates/aws_sdk_cloudwatchlogs_modular",
-      "package_name": "aws-sdk-cloudwatchlogs-modular",
-      "library_name": "aws_sdk_cloudwatchlogs_modular"
+      "output_dir": "crates/aws_sdk_cloudwatchlogs",
+      "package_name": "aws-sdk-cloudwatchlogs",
+      "library_name": "aws_sdk_cloudwatchlogs"
     },
     {
       "key": "codeartifact",
@@ -37,9 +37,9 @@
       "revision": "3c6d526c9d4775f41a8ef1ed2ef574d1b14481db",
       "upstream_path": "sdk/codeartifact",
       "model_path": "models/codeartifact.json",
-      "output_dir": "crates/aws_sdk_codeartifact_modular",
-      "package_name": "aws-sdk-codeartifact-modular",
-      "library_name": "aws_sdk_codeartifact_modular"
+      "output_dir": "crates/aws_sdk_codeartifact",
+      "package_name": "aws-sdk-codeartifact",
+      "library_name": "aws_sdk_codeartifact"
     },
     {
       "key": "cognitoidentityprovider",
@@ -47,9 +47,9 @@
       "revision": "3c6d526c9d4775f41a8ef1ed2ef574d1b14481db",
       "upstream_path": "sdk/cognitoidentityprovider",
       "model_path": "models/cognitoidentityprovider.json",
-      "output_dir": "crates/aws_sdk_cognitoidentityprovider_modular",
-      "package_name": "aws-sdk-cognitoidentityprovider-modular",
-      "library_name": "aws_sdk_cognitoidentityprovider_modular"
+      "output_dir": "crates/aws_sdk_cognitoidentityprovider",
+      "package_name": "aws-sdk-cognitoidentityprovider",
+      "library_name": "aws_sdk_cognitoidentityprovider"
     },
     {
       "key": "config",
@@ -57,9 +57,9 @@
       "revision": "3c6d526c9d4775f41a8ef1ed2ef574d1b14481db",
       "upstream_path": "sdk/config",
       "model_path": "models/config.json",
-      "output_dir": "crates/aws_sdk_config_modular",
-      "package_name": "aws-sdk-config-modular",
-      "library_name": "aws_sdk_config_modular"
+      "output_dir": "crates/aws_sdk_config",
+      "package_name": "aws-sdk-config",
+      "library_name": "aws_sdk_config"
     },
     {
       "key": "dynamodb",
@@ -67,9 +67,9 @@
       "revision": "3c6d526c9d4775f41a8ef1ed2ef574d1b14481db",
       "upstream_path": "sdk/dynamodb",
       "model_path": "models/dynamodb.json",
-      "output_dir": "crates/aws_sdk_dynamodb_modular",
-      "package_name": "aws-sdk-dynamodb-modular",
-      "library_name": "aws_sdk_dynamodb_modular"
+      "output_dir": "crates/aws_sdk_dynamodb",
+      "package_name": "aws-sdk-dynamodb",
+      "library_name": "aws_sdk_dynamodb"
     },
     {
       "key": "iam",
@@ -77,9 +77,9 @@
       "revision": "3c6d526c9d4775f41a8ef1ed2ef574d1b14481db",
       "upstream_path": "sdk/iam",
       "model_path": "models/iam.json",
-      "output_dir": "crates/aws_sdk_iam_modular",
-      "package_name": "aws-sdk-iam-modular",
-      "library_name": "aws_sdk_iam_modular"
+      "output_dir": "crates/aws_sdk_iam",
+      "package_name": "aws-sdk-iam",
+      "library_name": "aws_sdk_iam"
     },
     {
       "key": "kms",
@@ -87,9 +87,9 @@
       "revision": "3c6d526c9d4775f41a8ef1ed2ef574d1b14481db",
       "upstream_path": "sdk/kms",
       "model_path": "models/kms.json",
-      "output_dir": "crates/aws_sdk_kms_modular",
-      "package_name": "aws-sdk-kms-modular",
-      "library_name": "aws_sdk_kms_modular"
+      "output_dir": "crates/aws_sdk_kms",
+      "package_name": "aws-sdk-kms",
+      "library_name": "aws_sdk_kms"
     },
     {
       "key": "lambda",
@@ -97,9 +97,9 @@
       "revision": "3c6d526c9d4775f41a8ef1ed2ef574d1b14481db",
       "upstream_path": "sdk/lambda",
       "model_path": "models/lambda.json",
-      "output_dir": "crates/aws_sdk_lambda_modular",
-      "package_name": "aws-sdk-lambda-modular",
-      "library_name": "aws_sdk_lambda_modular"
+      "output_dir": "crates/aws_sdk_lambda",
+      "package_name": "aws-sdk-lambda",
+      "library_name": "aws_sdk_lambda"
     },
     {
       "key": "s3",
@@ -107,9 +107,9 @@
       "revision": "3c6d526c9d4775f41a8ef1ed2ef574d1b14481db",
       "upstream_path": "sdk/s3",
       "model_path": "models/s3.json",
-      "output_dir": "crates/aws_sdk_s3_modular",
-      "package_name": "aws-sdk-s3-modular",
-      "library_name": "aws_sdk_s3_modular"
+      "output_dir": "crates/aws_sdk_s3",
+      "package_name": "aws-sdk-s3",
+      "library_name": "aws_sdk_s3"
     },
     {
       "key": "sesv2",
@@ -117,9 +117,9 @@
       "revision": "3c6d526c9d4775f41a8ef1ed2ef574d1b14481db",
       "upstream_path": "sdk/sesv2",
       "model_path": "models/sesv2.json",
-      "output_dir": "crates/aws_sdk_sesv2_modular",
-      "package_name": "aws-sdk-sesv2-modular",
-      "library_name": "aws_sdk_sesv2_modular"
+      "output_dir": "crates/aws_sdk_sesv2",
+      "package_name": "aws-sdk-sesv2",
+      "library_name": "aws_sdk_sesv2"
     },
     {
       "key": "signin",
@@ -127,9 +127,9 @@
       "revision": "3c6d526c9d4775f41a8ef1ed2ef574d1b14481db",
       "upstream_path": "sdk/signin",
       "model_path": "models/signin.json",
-      "output_dir": "crates/aws_sdk_signin_modular",
-      "package_name": "aws-sdk-signin-modular",
-      "library_name": "aws_sdk_signin_modular"
+      "output_dir": "crates/aws_sdk_signin",
+      "package_name": "aws-sdk-signin",
+      "library_name": "aws_sdk_signin"
     },
     {
       "key": "sns",
@@ -137,9 +137,9 @@
       "revision": "3c6d526c9d4775f41a8ef1ed2ef574d1b14481db",
       "upstream_path": "sdk/sns",
       "model_path": "models/sns.json",
-      "output_dir": "crates/aws_sdk_sns_modular",
-      "package_name": "aws-sdk-sns-modular",
-      "library_name": "aws_sdk_sns_modular"
+      "output_dir": "crates/aws_sdk_sns",
+      "package_name": "aws-sdk-sns",
+      "library_name": "aws_sdk_sns"
     },
     {
       "key": "sqs",
@@ -147,9 +147,9 @@
       "revision": "3c6d526c9d4775f41a8ef1ed2ef574d1b14481db",
       "upstream_path": "sdk/sqs",
       "model_path": "models/sqs.json",
-      "output_dir": "crates/aws_sdk_sqs_modular",
-      "package_name": "aws-sdk-sqs-modular",
-      "library_name": "aws_sdk_sqs_modular"
+      "output_dir": "crates/aws_sdk_sqs",
+      "package_name": "aws-sdk-sqs",
+      "library_name": "aws_sdk_sqs"
     },
     {
       "key": "sso",
@@ -157,9 +157,9 @@
       "revision": "3c6d526c9d4775f41a8ef1ed2ef574d1b14481db",
       "upstream_path": "sdk/sso",
       "model_path": "models/sso.json",
-      "output_dir": "crates/aws_sdk_sso_modular",
-      "package_name": "aws-sdk-sso-modular",
-      "library_name": "aws_sdk_sso_modular"
+      "output_dir": "crates/aws_sdk_sso",
+      "package_name": "aws-sdk-sso",
+      "library_name": "aws_sdk_sso"
     },
     {
       "key": "ssooidc",
@@ -167,9 +167,9 @@
       "revision": "3c6d526c9d4775f41a8ef1ed2ef574d1b14481db",
       "upstream_path": "sdk/ssooidc",
       "model_path": "models/ssooidc.json",
-      "output_dir": "crates/aws_sdk_ssooidc_modular",
-      "package_name": "aws-sdk-ssooidc-modular",
-      "library_name": "aws_sdk_ssooidc_modular"
+      "output_dir": "crates/aws_sdk_ssooidc",
+      "package_name": "aws-sdk-ssooidc",
+      "library_name": "aws_sdk_ssooidc"
     },
     {
       "key": "sts",
@@ -177,9 +177,9 @@
       "revision": "3c6d526c9d4775f41a8ef1ed2ef574d1b14481db",
       "upstream_path": "sdk/sts",
       "model_path": "models/sts.json",
-      "output_dir": "crates/aws_sdk_sts_modular",
-      "package_name": "aws-sdk-sts-modular",
-      "library_name": "aws_sdk_sts_modular"
+      "output_dir": "crates/aws_sdk_sts",
+      "package_name": "aws-sdk-sts",
+      "library_name": "aws_sdk_sts"
     }
   ]
 }

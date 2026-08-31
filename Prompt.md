@@ -140,7 +140,7 @@ For every service, copy the official service crate into the manifest-defined
 output directory, then apply the AST and manifest transforms. For example:
 
 ```text
-crates/aws_sdk_s3_modular/
+crates/aws_sdk_s3/
 ├── Cargo.toml
 ├── src/
 ├── DIFF.MD

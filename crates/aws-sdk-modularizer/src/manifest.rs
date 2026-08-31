@@ -175,8 +175,8 @@ mod tests {
             upstream_path: format!("sdk/{key}"),
             model_path: format!("models/{key}.json"),
             output_dir: format!("crates/{key}"),
-            package_name: format!("aws-sdk-{key}-modular"),
-            library_name: format!("aws_sdk_{key}_modular"),
+            package_name: format!("aws-sdk-{key}"),
+            library_name: format!("aws_sdk_{key}"),
         }
     }
 
